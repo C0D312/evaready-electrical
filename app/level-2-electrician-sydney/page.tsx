@@ -15,6 +15,7 @@ import {
   ShieldCheck,
   Zap,
 } from "lucide-react";
+import { MobilePrimaryNav } from "@/components/mobile-primary-nav";
 import { assetPath } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -120,15 +121,17 @@ export default function Level2ElectricianSydneyPage() {
 
       {/* Top bar */}
       <div className="bg-[#020617] text-white">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 text-sm sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 font-semibold text-slate-200">
-            <Bolt className="h-4 w-4 text-blue-400" />
-            Level 2 Electrician Sydney - Licensed Electrical Contractor
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-3 py-2 text-xs sm:px-6 sm:py-3 sm:text-sm lg:px-8">
+          <div className="flex min-w-0 items-center gap-2 font-semibold text-slate-200">
+            <Bolt className="h-4 w-4 shrink-0 text-blue-400" />
+            <span className="truncate">
+              Level 2 Electrician Sydney - Licensed Electrical Contractor
+            </span>
           </div>
 
           <a
             href={business.phoneHref}
-            className="hidden items-center gap-2 rounded-full bg-red-600 px-4 py-2 font-bold text-white transition hover:bg-red-500 sm:flex"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-red-600 px-3 py-2 text-xs font-bold text-white transition hover:bg-red-500 sm:px-4 sm:text-sm"
           >
             <Phone className="h-4 w-4" />
             {business.phoneDisplay}
@@ -138,7 +141,7 @@ export default function Level2ElectricianSydneyPage() {
 
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-3 py-3 sm:px-6 sm:py-4 lg:px-8">
           <Link href="/" className="flex items-center">
             <Image
               src={assetPath("/evaready-logo.png")}
@@ -146,7 +149,7 @@ export default function Level2ElectricianSydneyPage() {
               width={260}
               height={110}
               priority
-              className="h-12 w-auto object-contain sm:h-14"
+              className="h-11 w-auto object-contain sm:h-14"
             />
           </Link>
 
@@ -164,11 +167,13 @@ export default function Level2ElectricianSydneyPage() {
             href={business.bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-xl bg-red-600 px-5 py-3 text-sm font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500"
+            className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-xl bg-red-600 px-4 py-3 text-sm font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 sm:px-5"
           >
-            Request Quote
+            <span className="sm:hidden">Quote</span>
+            <span className="hidden sm:inline">Request Quote</span>
           </a>
         </div>
+        <MobilePrimaryNav />
       </header>
 
       {/* Hero */}

@@ -15,6 +15,7 @@ import {
   Star,
   Wrench,
 } from "lucide-react";
+import { MobilePrimaryNav } from "@/components/mobile-primary-nav";
 import { assetPath, business, prioritySuburbs, services } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -249,16 +250,16 @@ export default function HomePage() {
       />
 
       <div className="bg-slate-950 text-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 text-sm font-semibold sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2">
-            <Flame className="h-4 w-4 text-red-500" />
-            <span>
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-3 py-2 text-xs font-semibold sm:px-6 sm:py-3 sm:text-sm lg:px-8">
+          <div className="flex min-w-0 items-center gap-2">
+            <Flame className="h-4 w-4 shrink-0 text-red-500" />
+            <span className="truncate">
               Emergency Electrician Sydney - Licensed Electrical Contractor
             </span>
           </div>
           <a
             href={business.phoneHref}
-            className="inline-flex w-fit items-center gap-2 rounded-full bg-red-600 px-4 py-2 font-black text-white transition hover:bg-red-500"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-red-600 px-3 py-2 text-xs font-black text-white transition hover:bg-red-500 sm:px-4 sm:text-sm"
           >
             <Phone className="h-4 w-4" />
             {business.phoneDisplay}
@@ -267,7 +268,7 @@ export default function HomePage() {
       </div>
 
       <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-3 py-3 sm:px-6 sm:py-4 lg:px-8">
           <Link href="/" className="flex items-center">
             <Image
               src={assetPath("/evaready-logo.png")}
@@ -275,7 +276,7 @@ export default function HomePage() {
               width={240}
               height={135}
               priority
-              className="h-12 w-44 object-cover sm:h-14 sm:w-52"
+              className="h-11 w-40 object-cover sm:h-14 sm:w-52"
             />
           </Link>
 
@@ -295,12 +296,14 @@ export default function HomePage() {
             href={business.bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-3 text-sm font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 sm:px-5"
+            className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-3 text-sm font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 sm:px-5"
           >
-            Request Quote
+            <span className="sm:hidden">Quote</span>
+            <span className="hidden sm:inline">Request Quote</span>
             <ArrowRight className="hidden h-4 w-4 sm:block" />
           </a>
         </div>
+        <MobilePrimaryNav />
       </header>
 
       <section className="relative overflow-hidden bg-white">
