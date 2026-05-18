@@ -170,7 +170,15 @@ const services = [
 
 
 const servicePageLinks: Record<string, string> = {
+  "Residential Electrician": "/services/residential-electrician-sydney",
+  "Commercial Electrician": "/services/commercial-electrician-sydney",
+  "Emergency Electrician": "/emergency-electrician-sydney",
+  "Level 2 Electrician": "/level-2-electrician-sydney",
   "Switchboard Upgrades": "/services/switchboard-upgrades-sydney",
+  "Electrical Fault Finding": "/services/electrical-fault-finding-sydney",
+  "Lighting Electrician": "/services/lighting-electrician-sydney",
+  "Power Points": "/services/power-point-installation-sydney",
+  "Smoke Alarms": "/services/smoke-alarm-electrician-sydney",
 };
 
 function getServiceHref(title: string) {
@@ -265,8 +273,8 @@ export default function ServicesPage() {
       <section className="border-b border-slate-200 bg-white">
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           {[
-            "Licensed & insured",
             "NSW Licence 398937C",
+            "ABN 44 650 697 797",
             "Residential and commercial",
             "Emergency and Level 2",
           ].map((item) => (

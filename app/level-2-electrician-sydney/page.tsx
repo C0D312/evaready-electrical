@@ -234,7 +234,7 @@ export default function Level2ElectricianSydneyPage() {
       <section className="border-b border-slate-200 bg-white">
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           {[
-            "Licensed & insured",
+            `NSW Licence ${business.licence}`,
             "Consumer mains",
             "Defect rectification",
             "Sydney-wide service",

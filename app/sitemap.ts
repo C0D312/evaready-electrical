@@ -3,6 +3,7 @@ import {
   coverageRegions,
   coverageSearchItems,
 } from "@/data/service-area-coverage";
+import { serviceLandingPages } from "@/data/service-pages";
 import { business } from "@/data/site";
 
 export const dynamic = "force-static";
@@ -32,8 +33,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     path: item.href,
     priority: 0.72,
   }));
+  const serviceRoutes = serviceLandingPages.map((service) => ({
+    path: `/services/${service.slug}`,
+    priority: ["consumer-mains-sydney", "defect-notice-repairs-sydney", "private-power-pole-sydney"].includes(
+      service.slug,
+    )
+      ? 0.86
+      : 0.88,
+  }));
 
-  return [...routes, ...regionRoutes, ...areaRoutes, ...suburbRoutes].map((route) => ({
+  return [...routes, ...serviceRoutes, ...regionRoutes, ...areaRoutes, ...suburbRoutes].map((route) => ({
     url: `${business.siteUrl}${route.path}`,
     lastModified,
     changeFrequency: "weekly",

@@ -66,10 +66,16 @@ const moneyServices = [
     text: "Replace ceramic fuses, add safety switches, improve RCBO protection and prepare for modern electrical loads.",
     icon: ShieldCheck,
   },
+  {
+    title: "Electrical fault finding",
+    href: "/services/electrical-fault-finding-sydney",
+    text: "Test and trace tripping circuits, power loss, water-damaged fittings, buzzing outlets and unsafe electrical faults.",
+    icon: Wrench,
+  },
 ];
 
 const proof = [
-  "Licensed and insured electrical contractor",
+  "Licensed electrical contractor - 398937C",
   "Residential, commercial, emergency and Level 2 work",
   "Online quote requests",
   "Sydney-wide service area coverage",
@@ -124,16 +130,26 @@ const quickJobs = [
   {
     label: "Lighting or power points",
     detail: "Home and business installs",
-    href: business.bookingUrl,
-    external: true,
+    href: "/services/power-point-installation-sydney",
   },
   {
     label: "Commercial maintenance",
     detail: "Shops, strata, offices and builders",
-    href: business.bookingUrl,
-    external: true,
+    href: "/services/commercial-electrician-sydney",
   },
 ];
+
+const serviceGridLinks: Record<string, string> = {
+  "Residential Electrician": "/services/residential-electrician-sydney",
+  "Emergency Electrician": "/emergency-electrician-sydney",
+  "Level 2 Electrician": "/level-2-electrician-sydney",
+  "Switchboard Upgrades": "/services/switchboard-upgrades-sydney",
+  "Power Points & Lighting": "/services/power-point-installation-sydney",
+  "Fault Finding": "/services/electrical-fault-finding-sydney",
+  "Smoke Alarms": "/services/smoke-alarm-electrician-sydney",
+  "Commercial Electrician": "/services/commercial-electrician-sydney",
+  "EV Chargers": "/services/ev-charger-installation-sydney",
+};
 
 const process = [
   {
@@ -474,7 +490,7 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {moneyServices.map((service) => {
               const Icon = service.icon;
 
@@ -503,10 +519,12 @@ export default function HomePage() {
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {services.slice(0, 6).map((service) => {
               const Icon = service.icon;
+              const href = serviceGridLinks[service.title] ?? "/services";
 
               return (
-                <div
+                <Link
                   key={service.title}
+                  href={href}
                   className="flex gap-4 rounded-lg border border-slate-200 bg-white p-5"
                 >
                   <Icon className="h-6 w-6 shrink-0 text-blue-700" />
@@ -516,7 +534,7 @@ export default function HomePage() {
                       {service.description}
                     </p>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>
