@@ -17,8 +17,6 @@ export function QuoteRequestPanel({
   eyebrow = "Need an electrician?",
   title,
 }: QuoteRequestPanelProps) {
-  const urgentCallText = `Unsafe fault, burning smell, sparking, power loss or tripping safety switch? Call now - ${business.phoneDisplay}`;
-
   return (
     <section id="quote" className="scroll-mt-32 bg-white py-12 sm:py-16 lg:py-20">
       <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:gap-8 sm:px-6 lg:grid-cols-[0.74fr_1.26fr] lg:gap-10 lg:px-8">
@@ -51,7 +49,8 @@ export function QuoteRequestPanel({
               className="mt-4 inline-flex w-full flex-col items-start justify-center gap-2 rounded-lg bg-red-600 px-4 py-4 text-left text-sm font-black leading-6 text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 sm:flex-row sm:items-center sm:gap-3 sm:px-5 sm:text-center sm:text-base"
             >
               <Phone className="h-5 w-5 shrink-0" />
-              <span>{urgentCallText}</span>
+              <span>Emergency? Call now</span>
+              <span className="whitespace-nowrap">{business.phoneDisplay}</span>
             </a>
           </div>
         </div>
@@ -59,15 +58,14 @@ export function QuoteRequestPanel({
         <div className="rounded-lg border border-slate-200 bg-slate-950 p-4 text-white shadow-xl shadow-slate-950/15 sm:p-5">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan-200 sm:text-sm sm:tracking-[0.2em]">
-              ServiceM8 quote form
+              Job enquiry
             </p>
             <h3 className="mt-2 text-xl font-black sm:text-2xl">
-              Send the details securely.
+              Send through the details.
             </h3>
             <p className="mt-3 max-w-2xl text-sm font-semibold leading-6 text-slate-300">
-              Add your contact details, address, photos and a short description.
-              Evaready Electrical will review it and guide you through the next
-              step.
+              Add your contact details, job address and any helpful photos.
+              Evaready Electrical will review it and follow up promptly.
             </p>
           </div>
 

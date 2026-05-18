@@ -277,14 +277,14 @@ export default function HomePage() {
 
       <section className="relative overflow-hidden bg-white">
         <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-blue-700 via-cyan-400 to-red-600" />
-        <div className="mx-auto grid max-w-7xl items-start gap-12 px-4 py-12 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-14">
-          <div>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-black text-blue-800">
+        <div className="mx-auto grid max-w-7xl items-start gap-6 px-4 py-8 sm:gap-10 sm:px-6 sm:py-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:px-8 lg:py-14">
+          <div className="order-2 lg:order-1">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-2 text-xs font-black text-blue-800 sm:mb-6 sm:px-4 sm:text-sm">
               <Clock3 className="h-4 w-4" />
               24/7 licensed electrical support across key NSW service regions
             </div>
 
-            <h1 className="max-w-5xl text-5xl font-black leading-[0.98] text-slate-950 sm:text-6xl">
+            <h1 className="max-w-5xl text-4xl font-black leading-[0.98] text-slate-950 sm:text-6xl">
               Emergency & Level 2 Electrician Sydney
             </h1>
 
@@ -314,7 +314,7 @@ export default function HomePage() {
               </a>
             </div>
 
-            <div className="mt-10 grid gap-3 sm:grid-cols-3">
+            <div className="mt-8 hidden gap-3 sm:grid sm:grid-cols-3 lg:mt-10">
               {heroStats.map((stat) => (
                 <div
                   key={stat.label}
@@ -333,7 +333,7 @@ export default function HomePage() {
 
           <div
             id="quote"
-            className="scroll-mt-32 rounded-lg border border-slate-200 bg-slate-950 p-4 text-white shadow-2xl shadow-slate-950/20 sm:p-5"
+            className="order-1 scroll-mt-32 rounded-lg border border-slate-200 bg-slate-950 p-4 text-white shadow-2xl shadow-slate-950/20 sm:p-5 lg:order-2"
           >
             <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan-200 sm:text-sm sm:tracking-[0.2em]">
               Need an electrician?
@@ -358,12 +358,13 @@ export default function HomePage() {
 
             <a
               href={business.phoneHref}
-              className="mt-4 inline-flex w-full items-center justify-center gap-3 rounded-lg bg-red-600 px-4 py-3 text-center text-sm font-black leading-6 text-white shadow-xl shadow-red-950/20 transition hover:bg-red-500 sm:text-base"
+              className="mt-4 inline-flex w-full flex-col items-center justify-center gap-1 rounded-lg bg-red-600 px-4 py-3 text-center text-sm font-black leading-6 text-white shadow-xl shadow-red-950/20 transition hover:bg-red-500 min-[390px]:flex-row min-[390px]:gap-3 sm:text-base"
               aria-label={`Call Evaready Electrical on ${business.phoneDisplay}`}
             >
               <Phone className="h-5 w-5 shrink-0" />
+              <span>Emergency? Call now</span>
               <span className="whitespace-nowrap">
-                Emergency? Call now - {business.phoneDisplay}
+                {business.phoneDisplay}
               </span>
             </a>
 
