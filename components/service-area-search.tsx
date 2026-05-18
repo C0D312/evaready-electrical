@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Search } from "lucide-react";
 import type { CoverageSearchItem } from "@/data/service-area-coverage";
+import { business } from "@/data/site";
 
 type ServiceAreaSearchProps = {
   items: CoverageSearchItem[];
@@ -73,8 +74,14 @@ export function ServiceAreaSearch({ items }: ServiceAreaSearchProps) {
             ))
           ) : (
             <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-800">
-              No matching suburb found. Call 0461 247 247 and we can confirm
-              availability.
+              No matching suburb found. Call{" "}
+              <a
+                href={business.phoneHref}
+                className="font-black underline underline-offset-2"
+              >
+                {business.phoneDisplay}
+              </a>{" "}
+              and we can confirm availability.
             </div>
           )}
         </div>

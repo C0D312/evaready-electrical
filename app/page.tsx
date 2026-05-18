@@ -12,7 +12,7 @@ import {
   ShieldCheck,
   Wrench,
 } from "lucide-react";
-import { QuoteRequestPanel } from "@/components/quote-request-panel";
+import { ServiceM8Frame } from "@/components/service-m8-frame";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { business, priorityRegions, services } from "@/data/site";
 
@@ -39,10 +39,12 @@ const heroStats = [
 ];
 
 const urgentFaults = [
-  "Power outage or partial power loss",
+  "Power outage or power loss",
   "Safety switch keeps tripping",
-  "Burning smell, sparking or buzzing",
+  "Burning smell or smoke",
+  "Sparking, buzzing or hot fittings",
   "Switchboard fault or damaged wiring",
+  "Urgent electrical hazard",
 ];
 
 const moneyServices = [
@@ -176,6 +178,32 @@ const faqs = [
   },
 ];
 
+function PhoneLinkedText({ text }: { text: string }) {
+  const parts = text.split(business.phoneDisplay);
+
+  if (parts.length === 1) {
+    return <>{text}</>;
+  }
+
+  return (
+    <>
+      {parts.map((part, index) => (
+        <span key={`${part}-${index}`}>
+          {part}
+          {index < parts.length - 1 ? (
+            <a
+              href={business.phoneHref}
+              className="font-black text-blue-700 underline underline-offset-2 hover:text-blue-900"
+            >
+              {business.phoneDisplay}
+            </a>
+          ) : null}
+        </span>
+      ))}
+    </>
+  );
+}
+
 export default function HomePage() {
   const localBusinessSchema = {
     "@context": "https://schema.org",
@@ -271,19 +299,17 @@ export default function HomePage() {
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a
                 href={business.phoneHref}
-                className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
+                className="inline-flex w-full items-center justify-center gap-3 rounded-lg bg-red-600 px-5 py-4 text-center text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500 sm:w-auto sm:px-7"
               >
                 <Phone className="h-5 w-5" />
                 Call {business.phoneDisplay}
               </a>
 
               <a
-                href={business.bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 rounded-lg bg-slate-950 px-7 py-4 text-base font-black text-white shadow-xl shadow-slate-950/15 transition hover:bg-slate-800"
+                href="#quote"
+                className="inline-flex w-full items-center justify-center gap-3 rounded-lg bg-slate-950 px-5 py-4 text-center text-base font-black text-white shadow-xl shadow-slate-950/15 transition hover:bg-slate-800 sm:w-auto sm:px-7"
               >
-                Request Quote
+                Use Online Form
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -305,38 +331,65 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="rounded-lg border border-slate-200 bg-slate-950 p-6 text-white shadow-2xl shadow-slate-950/20">
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-cyan-200">
+          <div
+            id="quote"
+            className="scroll-mt-32 rounded-lg border border-slate-200 bg-slate-950 p-4 text-white shadow-2xl shadow-slate-950/20 sm:p-5"
+          >
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan-200 sm:text-sm sm:tracking-[0.2em]">
               Need an electrician?
             </p>
-            <h2 className="mt-3 text-3xl font-black">
+            <h2 className="mt-2 text-2xl font-black sm:text-3xl">
               We&rsquo;re Evaready to assist.
             </h2>
-            <p className="mt-3 leading-7 text-slate-300">
-              If there is a burning smell, power loss, sparking or a safety
-              switch that keeps tripping, call Evaready Electrical before the
-              fault becomes more serious.
-            </p>
 
-            <div className="mt-6 grid gap-3">
+            <div className="mt-4 grid gap-2 sm:grid-cols-2">
               {urgentFaults.map((fault) => (
                 <div
                   key={fault}
-                  className="flex items-start gap-3 rounded-lg bg-white/10 p-4"
+                  className="flex min-h-10 items-center gap-2 rounded-lg bg-white/10 px-3 py-2"
                 >
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-cyan-300" />
-                  <span className="font-semibold text-slate-100">{fault}</span>
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-cyan-300" />
+                  <span className="text-xs font-black leading-5 text-slate-100">
+                    {fault}
+                  </span>
                 </div>
               ))}
             </div>
 
-            <div className="mt-6 rounded-lg border border-red-400/40 bg-red-500/15 p-5">
-              <p className="text-sm font-black text-red-200">
-                Electrical hazard?
+            <a
+              href={business.phoneHref}
+              className="mt-4 inline-flex w-full items-center justify-center gap-3 rounded-lg bg-red-600 px-4 py-3 text-center text-sm font-black leading-6 text-white shadow-xl shadow-red-950/20 transition hover:bg-red-500 sm:text-base"
+              aria-label={`Call Evaready Electrical on ${business.phoneDisplay}`}
+            >
+              <Phone className="h-5 w-5 shrink-0" />
+              <span className="whitespace-nowrap">
+                Emergency? Call now - {business.phoneDisplay}
+              </span>
+            </a>
+
+            <div className="mt-4 rounded-lg border border-white/10 bg-white/10 p-3">
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan-200">
+                    Job enquiry
+                  </p>
+                  <h3 className="mt-1 text-lg font-black">
+                    Send through the details.
+                  </h3>
+                </div>
+              </div>
+              <p className="mt-2 text-xs font-semibold leading-5 text-slate-300">
+                Add your contact details, job address and any helpful photos.
+                Evaready Electrical will review it and follow up promptly.
               </p>
-              <p className="mt-2 text-2xl font-black">
-                Call now for urgent support.
-              </p>
+
+              <div className="mt-3 overflow-hidden rounded-lg border border-white/10 bg-white">
+                <ServiceM8Frame
+                  src={business.bookingUrl}
+                  title="Evaready Electrical quote form"
+                  className="h-[520px] w-full bg-white sm:h-[540px] lg:h-[390px]"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -353,114 +406,104 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section id="services" className="bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+          <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
             <div>
               <p className="text-sm font-black uppercase text-red-600">
-                Emergency electrical help
+                We&rsquo;re open 24/7
               </p>
               <h2 className="mt-3 text-4xl font-black leading-tight sm:text-5xl">
-                Call now for unsafe electrical faults.
-              </h2>
-              <p className="mt-5 text-lg leading-8 text-slate-700">
-                If you smell burning, lose power, see sparking, feel heat around
-                a power point or have a safety switch that keeps tripping, call
-                first. For planned work, choose the closest service and request a
-                quote.
-              </p>
-            </div>
-
-            <div className="grid gap-3 sm:grid-cols-2">
-              {quickJobs.map((job) =>
-                job.external ? (
-                  <a
-                    key={job.label}
-                    href={job.href}
-                    target={job.href.startsWith("http") ? "_blank" : undefined}
-                    rel={job.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="group rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-600 hover:bg-blue-50"
-                  >
-                    <div className="flex items-center justify-between gap-4">
-                      <h3 className="font-black text-slate-950">{job.label}</h3>
-                      <ArrowRight className="h-4 w-4 text-red-600 transition group-hover:translate-x-1" />
-                    </div>
-                    <p className="mt-2 text-sm font-semibold text-slate-600">
-                      {job.detail}
-                    </p>
-                  </a>
-                ) : (
-                  <Link
-                    key={job.label}
-                    href={job.href}
-                    className="group rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-600 hover:bg-blue-50"
-                  >
-                    <div className="flex items-center justify-between gap-4">
-                      <h3 className="font-black text-slate-950">{job.label}</h3>
-                      <ArrowRight className="h-4 w-4 text-red-600 transition group-hover:translate-x-1" />
-                    </div>
-                    <p className="mt-2 text-sm font-semibold text-slate-600">
-                      {job.detail}
-                    </p>
-                  </Link>
-                ),
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <QuoteRequestPanel
-        eyebrow="Need a quote?"
-        title="Tell us what is happening."
-        description="Send your suburb or postcode, the electrical issue, how urgent it is, and any photos of the switchboard, damaged fitting, defect notice or work area. Evaready Electrical will guide you through the next step."
-        quoteLabel="Request Quote"
-      />
-
-      <section id="services" className="bg-white py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-            <div>
-              <p className="text-sm font-black uppercase text-blue-700">
-                Electrical services
-              </p>
-              <h2 className="mt-3 max-w-3xl text-4xl font-black leading-tight sm:text-5xl">
                 Need an electrician? We&rsquo;re Evaready to assist.
               </h2>
-              <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-700">
-                Licensed electrical support for fault finding, switchboard
-                upgrades, hot water systems, CCTV, data cabling, lighting,
-                power points, smoke alarms, EV chargers and commercial
-                maintenance for homes, businesses, strata managers and builders.
+              <p className="mt-5 text-lg leading-8 text-slate-700">
+                Call any time for power loss, sparking, burning smells, hot
+                fittings or a safety switch that keeps tripping. For planned
+                electrical work, choose the closest service and send the job
+                details through.
               </p>
+              <div className="mt-7 flex flex-col gap-3 md:flex-row lg:flex-col 2xl:flex-row">
+                <a
+                  href={business.phoneHref}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-4 text-center text-sm font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 sm:px-5 sm:text-base md:w-auto lg:w-full 2xl:w-auto"
+                >
+                  <Phone className="h-5 w-5 shrink-0" />
+                  <span className="whitespace-nowrap">
+                    Call now - {business.phoneDisplay}
+                  </span>
+                </a>
+                <Link
+                  href="/services"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-slate-300 px-5 py-4 font-black text-slate-900 transition hover:border-blue-700 hover:text-blue-700 md:w-auto lg:w-full 2xl:w-auto"
+                >
+                  View all services
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
-            <Link
-              href="/services"
-              className="inline-flex w-fit items-center gap-2 rounded-lg border border-slate-300 px-5 py-3 font-black text-slate-900 transition hover:border-blue-700 hover:text-blue-700"
-            >
-              View all services
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+
+            <div>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {quickJobs.map((job) =>
+                  job.external ? (
+                    <a
+                      key={job.label}
+                      href={job.href}
+                      target={job.href.startsWith("http") ? "_blank" : undefined}
+                      rel={
+                        job.href.startsWith("http")
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
+                      className="group rounded-lg border border-slate-200 bg-slate-50 p-4 transition hover:border-blue-600 hover:bg-blue-50"
+                    >
+                      <div className="flex items-center justify-between gap-4">
+                        <h3 className="font-black text-slate-950">
+                          {job.label}
+                        </h3>
+                        <ArrowRight className="h-4 w-4 text-red-600 transition group-hover:translate-x-1" />
+                      </div>
+                      <p className="mt-1 text-sm font-semibold text-slate-600">
+                        {job.detail}
+                      </p>
+                    </a>
+                  ) : (
+                    <Link
+                      key={job.label}
+                      href={job.href}
+                      className="group rounded-lg border border-slate-200 bg-slate-50 p-4 transition hover:border-blue-600 hover:bg-blue-50"
+                    >
+                      <div className="flex items-center justify-between gap-4">
+                        <h3 className="font-black text-slate-950">
+                          {job.label}
+                        </h3>
+                        <ArrowRight className="h-4 w-4 text-red-600 transition group-hover:translate-x-1" />
+                      </div>
+                      <p className="mt-1 text-sm font-semibold text-slate-600">
+                        {job.detail}
+                      </p>
+                    </Link>
+                  ),
+                )}
+              </div>
+            </div>
           </div>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {moneyServices.map((service) => {
               const Icon = service.icon;
 
               return (
                 <article
                   key={service.title}
-                  className="rounded-lg border border-slate-200 bg-slate-50 p-7"
+                  className="rounded-lg border border-slate-200 bg-slate-50 p-5"
                 >
-                  <Icon className="h-9 w-9 text-blue-700" />
-                  <h3 className="mt-5 text-2xl font-black">{service.title}</h3>
-                  <p className="mt-3 leading-7 text-slate-600">
+                  <Icon className="h-8 w-8 text-blue-700" />
+                  <h3 className="mt-4 text-xl font-black">{service.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
                     {service.text}
                   </p>
-                  <Link
-                    href={service.href}
-                    className="mt-6 inline-flex items-center gap-2 font-black text-red-600"
-                  >
+                  <Link href={service.href} className="mt-4 inline-flex items-center gap-2 font-black text-red-600">
                     Learn more
                     <ArrowRight className="h-4 w-4" />
                   </Link>
@@ -469,7 +512,7 @@ export default function HomePage() {
             })}
           </div>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {homepageServices.map((service) => {
               const Icon = service.icon;
               const href = `/services/${service.slug}`;
@@ -478,7 +521,7 @@ export default function HomePage() {
                 <Link
                   key={service.title}
                   href={href}
-                  className="flex gap-4 rounded-lg border border-slate-200 bg-white p-5"
+                  className="flex gap-3 rounded-lg border border-slate-200 bg-white p-4 transition hover:border-blue-600 hover:bg-blue-50"
                 >
                   <Icon className="h-6 w-6 shrink-0 text-blue-700" />
                   <div>
@@ -611,7 +654,9 @@ export default function HomePage() {
                   className="rounded-lg border border-slate-200 bg-slate-50 p-6"
                 >
                   <h3 className="text-xl font-black">{faq.question}</h3>
-                  <p className="mt-3 leading-7 text-slate-600">{faq.answer}</p>
+                  <p className="mt-3 leading-7 text-slate-600">
+                    <PhoneLinkedText text={faq.answer} />
+                  </p>
                 </article>
               ))}
             </div>

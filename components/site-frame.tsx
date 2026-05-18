@@ -106,7 +106,15 @@ export function SiteFooter() {
             <p>Electrical Licence: {business.licence}</p>
             <p>ABN: {business.abn}</p>
             <p>Email: {business.email}</p>
-            <p>Phone: {business.phoneDisplay}</p>
+            <p>
+              Phone:{" "}
+              <a
+                href={business.phoneHref}
+                className="font-bold text-white underline-offset-4 hover:underline"
+              >
+                {business.phoneDisplay}
+              </a>
+            </p>
           </div>
         </div>
 
