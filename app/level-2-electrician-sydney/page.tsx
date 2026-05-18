@@ -63,8 +63,8 @@ const whenYouNeedLevel2 = [
 
 const process = [
   {
-    title: "Book the job",
-    text: "Call Evaready Electrical or send the details through the ServiceM8 booking form.",
+    title: "Request the job",
+    text: "Call Evaready Electrical or send the details through the online quote form.",
   },
   {
     title: "Assess the service",
@@ -221,9 +221,9 @@ export default function Level2ElectricianSydneyPage() {
             <div className="mt-10 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
               <div className="rounded-2xl border border-white/10 bg-white/10 p-4">
                 <Clock3 className="h-6 w-6 text-blue-300" />
-                <p className="mt-3 text-xl font-black">Fast Booking</p>
+                <p className="mt-3 text-xl font-black">Fast Quote</p>
                 <p className="mt-1 text-sm text-slate-300">
-                  Book online through ServiceM8.
+                  Request a quote online.
                 </p>
               </div>
 
@@ -245,7 +245,7 @@ export default function Level2ElectricianSydneyPage() {
             </div>
           </div>
 
-          {/* Booking card */}
+          {/* Quote card */}
           <div className="rounded-[2rem] border border-white/15 bg-white/10 p-6 shadow-2xl backdrop-blur-xl">
             <p className="text-sm font-black uppercase tracking-[0.2em] text-red-300">
               Level 2 quote request
@@ -256,8 +256,7 @@ export default function Level2ElectricianSydneyPage() {
             </h2>
 
             <p className="mt-3 text-slate-300">
-              Send your job through ServiceM8 or call directly to discuss the
-              work.
+              Send your job details online or call directly to discuss the work.
             </p>
 
             <div className="mt-6 grid gap-4">
@@ -267,7 +266,7 @@ export default function Level2ElectricianSydneyPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-xl bg-red-600 px-6 py-4 font-black text-white transition hover:bg-red-500"
               >
-                Open ServiceM8 Booking
+                Request Quote Online
                 <ArrowRight className="h-5 w-5" />
               </a>
 
@@ -413,7 +412,7 @@ export default function Level2ElectricianSydneyPage() {
           </p>
 
           <h2 className="mt-3 max-w-4xl text-4xl font-black tracking-tight sm:text-5xl">
-            Clear process from booking to completion.
+            Clear process from request to completion.
           </h2>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -443,7 +442,8 @@ export default function Level2ElectricianSydneyPage() {
             </p>
 
             <h2 className="mt-3 max-w-3xl text-4xl font-black tracking-tight sm:text-5xl">
-              Book a Level 2 electrician for service work, defects and upgrades.
+              Request a Level 2 electrician for service work, defects and
+              upgrades.
             </h2>
           </div>
 
@@ -514,7 +514,7 @@ export default function Level2ElectricianSydneyPage() {
                 rel="noopener noreferrer"
                 className="inline-flex w-fit items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-black text-white hover:bg-blue-500"
               >
-                Book Online
+                Request Quote
               </a>
             </div>
           </div>
@@ -537,7 +537,7 @@ export default function Level2ElectricianSydneyPage() {
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-4 font-black text-white"
         >
-          Book
+          Quote
         </a>
       </div>
     </main>

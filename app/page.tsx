@@ -79,7 +79,7 @@ const moneyServices = [
 const proof = [
   "Licensed and insured electrical contractor",
   "Residential, commercial, emergency and Level 2 work",
-  "ServiceM8 booking for fast job intake",
+  "Online quote requests",
   "Sydney-wide service area coverage",
 ];
 
@@ -91,7 +91,7 @@ const decisionDrivers = [
   },
   {
     title: "Clear quote requests",
-    text: "Send the job details, suburb and urgency through ServiceM8 so the work can be scoped properly.",
+    text: "Send your job details, suburb and urgency online so the work can be scoped properly.",
     icon: BadgeCheck,
   },
   {
@@ -181,7 +181,7 @@ const faqs = [
   {
     question: "How do I request a quote?",
     answer:
-      "Call 0461 247 247 or use the online ServiceM8 booking link to send through your job details.",
+      "Call 0461 247 247 or use the online quote form to send through your job details.",
   },
 ];
 
@@ -467,12 +467,12 @@ export default function HomePage() {
                 Choose the job
               </p>
               <h2 className="mt-3 text-4xl font-black leading-tight sm:text-5xl">
-                Get visitors to the right action fast.
+                Find the right electrical help fast.
               </h2>
               <p className="mt-5 text-lg leading-8 text-slate-700">
-                People searching for electricians are usually in one of two
-                modes: urgent safety problem or planned quote. These shortcuts
-                remove hesitation and route them to the right call or booking.
+                Whether it is an urgent safety issue or planned electrical
+                work, choose the closest match and take the next step without
+                having to search around the site.
               </p>
             </div>
 
@@ -520,11 +520,11 @@ export default function HomePage() {
           <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div>
               <p className="text-sm font-black uppercase text-blue-700">
-                High-intent electrical services
+                Electrical services
               </p>
               <h2 className="mt-3 max-w-3xl text-4xl font-black leading-tight sm:text-5xl">
-                The services Sydney customers search for when they are ready to
-                book.
+                Services Sydney customers need when the job has to be done
+                properly.
               </h2>
             </div>
             <Link
@@ -589,15 +589,16 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase text-red-600">
-              Booking flow
+              How it works
             </p>
             <h2 className="mt-3 text-4xl font-black leading-tight sm:text-5xl">
-              Built to turn urgent searches into calls and quote requests.
+              From first call to final testing, the process stays clear.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
-              The page keeps the highest-value actions visible: call now for
-              emergencies, request a quote for planned work, and route visitors
-              into the right service page for SEO.
+              Electrical work can feel stressful when you do not know what is
+              wrong. Evaready keeps the next step simple: call for urgent help,
+              request a quote for planned work, then get clear advice before
+              the job starts.
             </p>
           </div>
 
@@ -622,7 +623,7 @@ export default function HomePage() {
               Service areas
             </p>
             <h2 className="mt-3 text-4xl font-black leading-tight sm:text-5xl">
-              Local electrician pages for suburb search demand.
+              Find electrical help by suburb.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
               Evaready Electrical services Sydney-wide, with priority coverage
@@ -700,7 +701,7 @@ export default function HomePage() {
                   <Star key={item} className="h-5 w-5 fill-current" />
                 ))}
                 <span className="ml-2 font-black text-slate-800">
-                  Built for trust and fast action
+                  Clear advice, safe work and fast action
                 </span>
               </div>
             </div>
@@ -793,7 +794,7 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="inline-flex w-fit items-center gap-2 rounded-lg bg-blue-700 px-5 py-3 font-black text-white hover:bg-blue-600"
               >
-                Book Online
+                Request Quote
               </a>
             </div>
           </div>

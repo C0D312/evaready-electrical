@@ -78,7 +78,7 @@ export const coverageRegions = [
   region(
     "Canterbury-Bankstown",
     "Core local coverage around Panania, Revesby, Padstow, Bankstown and surrounding suburbs.",
-    "Priority local response area from Panania 2213.",
+    "Priority local response area for urgent faults and everyday electrical work.",
     [
       area("Panania & East Hills", "Local electrical help for homes, townhouses, schools, strata and small businesses around the Panania corridor.", [
         suburb("Panania", "2213"),
@@ -134,7 +134,7 @@ export const coverageRegions = [
   region(
     "Georges River & St George",
     "Electrical service coverage across Hurstville, Kogarah, Rockdale, Bexley and the St George corridor.",
-    "Generally within a practical short-to-medium callout range from Panania.",
+    "Regular service area for residential, commercial and urgent electrical work.",
     [
       area("Hurstville & Oatley", "Electrical repairs, installations and switchboard support around Hurstville and Oatley.", [
         suburb("Hurstville", "2220"),
@@ -170,7 +170,7 @@ export const coverageRegions = [
   region(
     "Sutherland Shire",
     "Service coverage for Sutherland, Miranda, Cronulla, Menai, Engadine and nearby suburbs.",
-    "Most Shire jobs are inside the 90km service target from Panania.",
+    "Electrical help for Shire homes, units, shops, strata and commercial sites.",
     [
       area("Sutherland & Miranda", "Residential, commercial, emergency and Level 2 electrical support around Sutherland and Miranda.", [
         suburb("Sutherland", "2232"),
@@ -182,7 +182,7 @@ export const coverageRegions = [
         suburb("Caringbah", "2229"),
         suburb("Taren Point", "2229"),
       ]),
-      area("Cronulla & Kurnell", "Electrical services for coastal homes, apartments, shops and booked works around Cronulla.", [
+      area("Cronulla & Kurnell", "Electrical services for coastal homes, apartments, shops and scheduled works around Cronulla.", [
         suburb("Cronulla", "2230"),
         suburb("Woolooware", "2230"),
         suburb("Burraneer", "2230"),
@@ -206,7 +206,7 @@ export const coverageRegions = [
   region(
     "Liverpool & Fairfield",
     "South west coverage for Liverpool, Moorebank, Fairfield, Cabramatta, Wetherill Park and nearby suburbs.",
-    "Strong coverage for urgent and booked jobs west of Panania.",
+    "Strong coverage for urgent faults, switchboard upgrades and planned electrical work.",
     [
       area("Liverpool & Moorebank", "Electrical services for homes, businesses, strata and industrial sites around Liverpool and Moorebank.", [
         suburb("Liverpool", "2170"),
@@ -252,8 +252,8 @@ export const coverageRegions = [
   ),
   region(
     "Macarthur & Wollondilly",
-    "Booked electrical coverage for Campbelltown, Camden, Oran Park and selected Wollondilly suburbs.",
-    "Outer south west jobs are best booked in advance, with emergency availability depending on traffic and workload.",
+    "Electrical coverage for Campbelltown, Camden, Oran Park and selected Wollondilly suburbs.",
+    "Electrical service availability depends on urgency, access, job type and scheduling.",
     [
       area("Campbelltown", "Electrical fault finding, switchboards, safety switches and general electrical services across Campbelltown.", [
         suburb("Campbelltown", "2560"),
@@ -285,7 +285,7 @@ export const coverageRegions = [
         suburb("Gregory Hills", "2557"),
         suburb("Gledswood Hills", "2557"),
       ]),
-      area("Wollondilly Edge", "Selected booked electrical work for outer south west properties and larger jobs.", [
+      area("Wollondilly Edge", "Selected scheduled electrical work for outer south west properties and larger jobs.", [
         suburb("Picton", "2571"),
         suburb("Tahmoor", "2573"),
         suburb("Bargo", "2574"),
@@ -300,7 +300,7 @@ export const coverageRegions = [
   region(
     "Inner West & Bayside",
     "Electrical services for Inner West terraces, apartments, shops, commercial spaces and Bayside properties.",
-    "Usually within a practical service range for booked and urgent jobs.",
+    "Electrical help for older homes, apartments, shops, strata and commercial properties.",
     [
       area("Inner West", "Electrical support for older homes, renovations, strata, shops and urgent faults in the Inner West.", [
         suburb("Newtown", "2042"),
@@ -322,7 +322,7 @@ export const coverageRegions = [
         suburb("Five Dock", "2046"),
         suburb("Drummoyne", "2047"),
       ]),
-      area("Bayside & Airport", "Electrical maintenance, fault finding and booked service work around Bayside and the airport corridor.", [
+      area("Bayside & Airport", "Electrical maintenance, fault finding and scheduled service work around Bayside and the airport corridor.", [
         suburb("Mascot", "2020"),
         suburb("Botany", "2019"),
         suburb("Banksmeadow", "2019"),
@@ -339,7 +339,7 @@ export const coverageRegions = [
     "City, apartment, commercial, strata and coastal electrical service coverage.",
     "City and eastern suburbs jobs are accepted based on urgency, parking access and scheduling.",
     [
-      area("Sydney City", "Commercial, apartment, strata and booked electrical services around the Sydney CBD.", [
+      area("Sydney City", "Commercial, apartment, strata and scheduled electrical services around the Sydney CBD.", [
         suburb("Sydney CBD", "2000"),
         suburb("Haymarket", "2000"),
         suburb("The Rocks", "2000"),
@@ -361,7 +361,7 @@ export const coverageRegions = [
         suburb("Alexandria", "2015"),
         suburb("Zetland", "2017"),
       ]),
-      area("Eastern Beaches", "Booked electrical services, smoke alarms, lighting and fault work around the eastern beaches.", [
+      area("Eastern Beaches", "Electrical services, smoke alarms, lighting and fault work around the eastern beaches.", [
         suburb("Randwick", "2031"),
         suburb("Coogee", "2034"),
         suburb("Clovelly", "2031"),
@@ -387,7 +387,7 @@ export const coverageRegions = [
   region(
     "Parramatta & Cumberland",
     "Coverage for Parramatta, Cumberland, Auburn, Lidcombe and nearby western Sydney suburbs.",
-    "Good coverage for booked jobs and selected emergency work depending on traffic.",
+    "Electrical support for homes, businesses, strata, switchboards and urgent faults.",
     [
       area("Parramatta", "Electrical repairs, commercial maintenance, switchboards and general service calls around Parramatta.", [
         suburb("Parramatta", "2150"),
@@ -424,7 +424,7 @@ export const coverageRegions = [
   region(
     "Western Sydney & Nepean",
     "Selected electrical coverage for Blacktown, Mount Druitt, Penrith, St Marys and the south Hawkesbury edge.",
-    "Outer western suburbs may be booked by availability and job type.",
+    "Service availability depends on job type, access and current schedule.",
     [
       area("Blacktown", "Electrical service calls, switchboard upgrades and maintenance around Blacktown and Seven Hills.", [
         suburb("Blacktown", "2148"),
@@ -436,7 +436,7 @@ export const coverageRegions = [
         suburb("Doonside", "2767"),
         suburb("Woodcroft", "2767"),
       ]),
-      area("Mount Druitt & Rooty Hill", "Booked electrical work, urgent faults and general service coverage around Mount Druitt.", [
+      area("Mount Druitt & Rooty Hill", "Electrical work, urgent faults and general service coverage around Mount Druitt.", [
         suburb("Mount Druitt", "2770"),
         suburb("Rooty Hill", "2766"),
         suburb("Minchinbury", "2770"),
@@ -446,7 +446,7 @@ export const coverageRegions = [
         suburb("Glendenning", "2761"),
         suburb("Hassall Grove", "2761"),
       ]),
-      area("Penrith & St Marys", "Selected booked electrical jobs, switchboard work and fault finding around Penrith and St Marys.", [
+      area("Penrith & St Marys", "Selected scheduled electrical jobs, switchboard work and fault finding around Penrith and St Marys.", [
         suburb("Penrith", "2750"),
         suburb("Kingswood", "2747"),
         suburb("Jamisontown", "2750"),
@@ -456,7 +456,7 @@ export const coverageRegions = [
         suburb("St Marys", "2760"),
         suburb("Colyton", "2760"),
       ]),
-      area("Hawkesbury South", "Outer-edge coverage for booked jobs and larger electrical work around Richmond and Windsor.", [
+      area("Hawkesbury South", "Outer-edge coverage for scheduled jobs and larger electrical work around Richmond and Windsor.", [
         suburb("Richmond", "2753"),
         suburb("Windsor", "2756"),
         suburb("South Windsor", "2756"),
@@ -470,7 +470,7 @@ export const coverageRegions = [
   region(
     "Hills District & North West",
     "Coverage for Castle Hill, Baulkham Hills, Kellyville, Rouse Hill, Dural and nearby suburbs.",
-    "North west jobs are typically booked jobs, with urgent work handled by availability.",
+    "Electrical service availability depends on job type, urgency and scheduling.",
     [
       area("Castle Hill & Baulkham Hills", "Electrical services for homes, strata, renovations and businesses around Castle Hill.", [
         suburb("Castle Hill", "2154"),
@@ -482,7 +482,7 @@ export const coverageRegions = [
         suburb("West Pennant Hills", "2125"),
         suburb("Cherrybrook", "2126"),
       ]),
-      area("Kellyville & Rouse Hill", "Booked electrical work, switchboard upgrades and service calls around Kellyville and Rouse Hill.", [
+      area("Kellyville & Rouse Hill", "Electrical work, switchboard upgrades and service calls around Kellyville and Rouse Hill.", [
         suburb("Kellyville", "2155"),
         suburb("Kellyville Ridge", "2155"),
         suburb("Beaumont Hills", "2155"),
@@ -492,7 +492,7 @@ export const coverageRegions = [
         suburb("Glenwood", "2768"),
         suburb("Parklea", "2768"),
       ]),
-      area("Dural & Galston", "Selected booked electrical services for acreage properties, homes and businesses around Dural and Galston.", [
+      area("Dural & Galston", "Selected scheduled electrical services for acreage properties, homes and businesses around Dural and Galston.", [
         suburb("Dural", "2158"),
         suburb("Glenhaven", "2156"),
         suburb("Kenthurst", "2156"),
@@ -507,7 +507,7 @@ export const coverageRegions = [
   region(
     "Northern Sydney & Ryde",
     "Electrical coverage for Ryde, Epping, Macquarie Park, the Lower North Shore and Upper North Shore.",
-    "Northern Sydney is generally best for booked service work and larger jobs.",
+    "Electrical help for homes, apartments, strata, commercial sites and larger works.",
     [
       area("Ryde & Hunters Hill", "Electrical services for homes, units, commercial properties and strata around Ryde.", [
         suburb("Ryde", "2112"),
@@ -529,7 +529,7 @@ export const coverageRegions = [
         suburb("Denistone", "2114"),
         suburb("Cheltenham", "2119"),
       ]),
-      area("Lower North Shore", "Booked electrical service work for apartments, businesses, homes and strata on the Lower North Shore.", [
+      area("Lower North Shore", "Scheduled electrical service work for apartments, businesses, homes and strata on the Lower North Shore.", [
         suburb("North Sydney", "2060"),
         suburb("Crows Nest", "2065"),
         suburb("St Leonards", "2065"),
@@ -542,7 +542,7 @@ export const coverageRegions = [
         suburb("Neutral Bay", "2089"),
         suburb("Cremorne", "2090"),
       ]),
-      area("Upper North Shore", "Selected booked electrical work and larger jobs across the Upper North Shore.", [
+      area("Upper North Shore", "Selected scheduled electrical work and larger jobs across the Upper North Shore.", [
         suburb("Chatswood", "2067"),
         suburb("Roseville", "2069"),
         suburb("Lindfield", "2070"),
@@ -558,9 +558,9 @@ export const coverageRegions = [
   region(
     "Northern Beaches",
     "Selected service coverage for Manly, Warringah and Pittwater suburbs.",
-    "Northern Beaches jobs are generally booked by availability due to travel time from Panania.",
+    "Service availability depends on job type, urgency, access and scheduling.",
     [
-      area("Manly", "Booked electrical services for homes, apartments, shops and coastal properties around Manly.", [
+      area("Manly", "Scheduled electrical services for homes, apartments, shops and coastal properties around Manly.", [
         suburb("Manly", "2095"),
         suburb("Fairlight", "2094"),
         suburb("Balgowlah", "2093"),
@@ -580,7 +580,7 @@ export const coverageRegions = [
         suburb("Beacon Hill", "2100"),
         suburb("Allambie Heights", "2100"),
       ]),
-      area("Pittwater", "Selected booked electrical jobs and larger works around Pittwater.", [
+      area("Pittwater", "Selected scheduled electrical jobs and larger works around Pittwater.", [
         suburb("Narrabeen", "2101"),
         suburb("Warriewood", "2102"),
         suburb("Mona Vale", "2103"),
@@ -594,10 +594,10 @@ export const coverageRegions = [
   ),
   region(
     "Blue Mountains",
-    "Selected booked electrical coverage for Lower and Mid Blue Mountains suburbs.",
-    "Blue Mountains jobs are outer-range bookings and may suit larger works or scheduled service days.",
+    "Selected scheduled electrical coverage for Lower and Mid Blue Mountains suburbs.",
+    "Blue Mountains work may suit larger jobs or scheduled service days.",
     [
-      area("Lower Blue Mountains", "Booked electrical services, fault finding and upgrade work for Lower Blue Mountains suburbs.", [
+      area("Lower Blue Mountains", "Scheduled electrical services, fault finding and upgrade work for Lower Blue Mountains suburbs.", [
         suburb("Glenbrook", "2773"),
         suburb("Blaxland", "2774"),
         suburb("Warrimoo", "2774"),
@@ -606,7 +606,7 @@ export const coverageRegions = [
         suburb("Winmalee", "2777"),
         suburb("Faulconbridge", "2776"),
       ]),
-      area("Mid Blue Mountains", "Selected electrical bookings and larger jobs around the Mid Mountains.", [
+      area("Mid Blue Mountains", "Selected scheduled electrical work and larger jobs around the Mid Mountains.", [
         suburb("Hazelbrook", "2779"),
         suburb("Woodford", "2778"),
         suburb("Lawson", "2783"),
@@ -620,9 +620,9 @@ export const coverageRegions = [
   region(
     "Illawarra",
     "Selected electrical coverage for Helensburgh, Wollongong, Dapto and Shellharbour corridor suburbs.",
-    "Illawarra coverage is usually for booked work and larger jobs within the practical 90km service target.",
+    "Service availability depends on job type, urgency, access and scheduling.",
     [
-      area("Northern Illawarra", "Booked electrical services for northern Illawarra homes and businesses.", [
+      area("Northern Illawarra", "Scheduled electrical services for northern Illawarra homes and businesses.", [
         suburb("Helensburgh", "2508"),
         suburb("Stanwell Park", "2508"),
         suburb("Coalcliff", "2508"),
@@ -654,10 +654,10 @@ export const coverageRegions = [
   ),
   region(
     "Central Coast South",
-    "Selected booked electrical coverage for southern Central Coast suburbs inside the practical travel window.",
-    "Central Coast jobs are generally scheduled bookings or larger works due to travel time from Panania.",
+    "Selected electrical coverage for southern Central Coast suburbs.",
+    "Service availability depends on job type, urgency, access and scheduling.",
     [
-      area("Hawkesbury River & Gosford", "Booked electrical work for southern Central Coast and Hawkesbury River suburbs.", [
+      area("Hawkesbury River & Gosford", "Scheduled electrical work for southern Central Coast and Hawkesbury River suburbs.", [
         suburb("Brooklyn", "2083"),
         suburb("Mooney Mooney", "2083"),
         suburb("Woy Woy", "2256"),
@@ -668,7 +668,7 @@ export const coverageRegions = [
         suburb("Point Clare", "2250"),
         suburb("West Gosford", "2250"),
       ]),
-      area("Erina & Terrigal", "Selected booked electrical service for southern and central coast suburbs around Erina and Terrigal.", [
+      area("Erina & Terrigal", "Selected scheduled electrical service for southern and central coast suburbs around Erina and Terrigal.", [
         suburb("Erina", "2250"),
         suburb("Terrigal", "2260"),
         suburb("Wamberal", "2260"),

@@ -93,9 +93,9 @@ export default async function RegionPage({ params }: RegionPageProps) {
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           {[
             `Licensed electrician ${business.licence}`,
-            "Emergency and booked work",
+            "Emergency and planned work",
             "Residential and commercial",
-            "ServiceM8 quote requests",
+            "Online quote requests",
           ].map((item) => (
             <div key={item} className="flex items-center gap-3">
               <CheckCircle2 className="h-6 w-6 shrink-0 text-blue-600" />

@@ -65,7 +65,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
           {area.description} Evaready Electrical helps customers in this area
           with emergency faults, safety switch problems, switchboard upgrades,
-          smoke alarms, lighting, power points and booked electrical work.
+          smoke alarms, lighting, power points and planned electrical work.
         </p>
         <p className="mt-4 max-w-3xl text-base font-semibold leading-7 text-blue-100">
           Region: {region.name}. {region.travelNote}
@@ -77,7 +77,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
           {[
             `Licensed electrician ${business.licence}`,
             "Emergency call path",
-            "ServiceM8 job requests",
+            "Online quote requests",
             `${area.suburbs.length} suburb pages`,
           ].map((item) => (
             <div key={item} className="flex items-center gap-3">
@@ -139,7 +139,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
             {[
               "Confirm the job type, suburb, access and urgency.",
               "Prioritise urgent electrical hazards and power faults.",
-              "Use ServiceM8 for quote requests, photos and job details.",
+              "Collect photos and job details through the online quote form.",
               "Complete the electrical work safely and explain next steps.",
             ].map((item) => (
               <div

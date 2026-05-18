@@ -125,7 +125,7 @@ export function SiteFooter() {
               rel="noopener noreferrer"
               className="inline-flex w-fit items-center gap-2 rounded-lg bg-blue-700 px-5 py-3 font-black text-white hover:bg-blue-600"
             >
-              Book Online
+              Request Quote
             </a>
           </div>
         </div>

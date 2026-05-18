@@ -345,8 +345,8 @@ export default function ServicesPage() {
           </h2>
 
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-            Choose the service you need, request a quote online through
-            ServiceM8, or call directly for urgent electrical help.
+            Choose the service you need, request a quote online, or call
+            directly for urgent electrical help.
           </p>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -412,8 +412,8 @@ export default function ServicesPage() {
             </p>
 
             <h2 className="mt-3 max-w-3xl text-4xl font-black tracking-tight sm:text-5xl">
-              Call or book online for professional electrical service across
-              Sydney.
+              Call or request a quote online for professional electrical
+              service across Sydney.
             </h2>
           </div>
 
@@ -484,7 +484,7 @@ export default function ServicesPage() {
                 rel="noopener noreferrer"
                 className="inline-flex w-fit items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-black text-white hover:bg-blue-500"
               >
-                Book Online
+                Request Quote
               </a>
             </div>
           </div>
@@ -507,7 +507,7 @@ export default function ServicesPage() {
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-4 font-black text-white"
         >
-          Book
+          Quote
         </a>
       </div>
     </main>

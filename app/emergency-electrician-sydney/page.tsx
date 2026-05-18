@@ -60,8 +60,8 @@ const warningSigns = [
 
 const process = [
   {
-    title: "Call or book online",
-    text: "Call directly for urgent faults or send the job through the ServiceM8 booking form.",
+    title: "Call or request help online",
+    text: "Call directly for urgent faults or send the job details through the online quote form.",
   },
   {
     title: "Fault diagnosis",
@@ -209,7 +209,7 @@ export default function EmergencyElectricianSydneyPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
               >
-                Request Emergency Booking
+                Request Emergency Quote
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -241,7 +241,7 @@ export default function EmergencyElectricianSydneyPage() {
             </div>
           </div>
 
-          {/* Booking card */}
+          {/* Quote card */}
           <div className="rounded-[2rem] border border-white/15 bg-white/10 p-6 shadow-2xl backdrop-blur-xl">
             <p className="text-sm font-black uppercase tracking-[0.2em] text-red-300">
               Emergency quote request
@@ -252,8 +252,8 @@ export default function EmergencyElectricianSydneyPage() {
             </h2>
 
             <p className="mt-3 text-slate-300">
-              For urgent electrical hazards, call now. For bookings and job
-              details, use the ServiceM8 form.
+              For urgent electrical hazards, call now. For quotes and job
+              details, use the online form.
             </p>
 
             <div className="mt-6 grid gap-4">
@@ -271,7 +271,7 @@ export default function EmergencyElectricianSydneyPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-xl bg-blue-600 px-6 py-4 font-black text-white transition hover:bg-blue-500"
               >
-                Open ServiceM8 Booking
+                Request Quote Online
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -422,7 +422,7 @@ export default function EmergencyElectricianSydneyPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-7 py-4 font-black text-[#020617] transition hover:bg-slate-100"
             >
-              Request Booking
+              Request Quote
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>
@@ -474,7 +474,7 @@ export default function EmergencyElectricianSydneyPage() {
                 rel="noopener noreferrer"
                 className="inline-flex w-fit items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-black text-white hover:bg-blue-500"
               >
-                Book Online
+                Request Quote
               </a>
             </div>
           </div>
@@ -497,7 +497,7 @@ export default function EmergencyElectricianSydneyPage() {
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-4 font-black text-white"
         >
-          Book
+          Quote
         </a>
       </div>
     </main>

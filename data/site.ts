@@ -135,7 +135,7 @@ export const trustPoints = [
   "ABN 44 650 697 797",
   "Residential, commercial, emergency and Level 2 electrical work",
   "24/7 emergency response available",
-  "Fast quote requests",
+  "Clear quote requests",
   "Sydney-wide service coverage",
 ];
 
@@ -151,13 +151,13 @@ export const offers = [
       "Clear urgent call path for power loss, burning smells, switchboard faults and electrical hazards.",
   },
   {
-    title: "Level 2 capable",
+    title: "Level 2 electrical support",
     description:
-      "Positioned for higher-value consumer mains, metering, service and defect work.",
+      "Consumer mains, metering, service upgrades and defect work handled properly.",
   },
   {
-    title: "Suburb SEO structure",
+    title: "Easy service area search",
     description:
-      "Dedicated suburb and service pages targeting high-intent searches across Sydney.",
+      "Clear suburb and postcode pages so customers can quickly check local coverage.",
   },
 ];

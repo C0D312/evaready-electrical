@@ -140,7 +140,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-700/25 transition hover:bg-blue-600"
           >
-            Request Booking
+            Request Quote
             <ArrowRight className="h-5 w-5" />
           </a>
         </div>
@@ -151,7 +151,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
           {[
             `NSW Licence ${business.licence}`,
             "Call first for emergencies",
-            "Book quotes through ServiceM8",
+            "Online quote requests",
             `${area.name} local page`,
           ].map((item) => (
             <div key={item} className="flex items-center gap-3">
@@ -169,12 +169,12 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
               How we work in {suburb.name}
             </p>
             <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
-              Simple booking, proper testing and safe electrical work.
+              Simple quote request, proper testing and safe electrical work.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
               For urgent faults in {suburb.name}, call directly so the issue
               can be triaged quickly. For planned work, send the job details,
-              photos and address through the online ServiceM8 booking form.
+              photos and address through the online quote form.
             </p>
           </div>
 
@@ -294,7 +294,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
               Electrician {suburb.name}
             </p>
             <h2 className="mt-3 max-w-3xl text-4xl font-black tracking-tight sm:text-5xl">
-              Need electrical help in {suburb.name}? Call or request a booking.
+              Need electrical help in {suburb.name}? Call or request a quote.
             </h2>
           </div>
 

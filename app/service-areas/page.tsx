@@ -27,7 +27,7 @@ import { business } from "@/data/site";
 export const metadata: Metadata = {
   title: "Service Areas",
   description:
-    "Evaready Electrical services suburbs within the practical 90km service range from Panania 2213, including Sydney, Greater Sydney, the Shire, Macarthur, Blue Mountains, Illawarra and selected Central Coast areas.",
+    "Evaready Electrical services homes and businesses across Sydney, Greater Sydney, the Shire, Macarthur, Blue Mountains, Illawarra and selected Central Coast areas.",
   alternates: {
     canonical: "/service-areas",
   },
@@ -64,16 +64,16 @@ export default function AreasPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      <SiteHeader topLine="Service areas within 90km of Panania 2213" />
+      <SiteHeader topLine="Sydney electrical service areas" />
 
       <ServiceAreaHero
         eyebrow="Electrical service areas"
         title="Electricians Across Sydney & Surrounding Regions"
       >
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
-          Evaready Electrical services homes and businesses across the practical
-          90km travel range from Panania 2213. Search your suburb or postcode,
-          browse the major regions, then request a quote through ServiceM8.
+          Evaready Electrical services homes and businesses across Sydney and
+          surrounding regions. Search your suburb or postcode, browse the major
+          regions, then call or request a quote online.
         </p>
 
         <div className="mt-8 grid max-w-3xl gap-3 sm:grid-cols-3">
@@ -123,8 +123,8 @@ export default function AreasPage() {
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
               Type a suburb, postcode, area or region. The result links directly
-              to the suburb page so customers can quickly see that Evaready
-              services their location.
+              to the suburb page so you can quickly check local electrical
+              service information.
             </p>
           </div>
 
@@ -229,7 +229,7 @@ export default function AreasPage() {
               Need an electrician?
             </p>
             <h2 className="mt-3 max-w-3xl text-4xl font-black tracking-tight sm:text-5xl">
-              Call or send job details online through ServiceM8.
+              Call now or send your job details online.
             </h2>
           </div>
 

@@ -268,8 +268,7 @@ export default function SwitchboardUpgradesSydneyPage() {
             </h2>
 
             <p className="mt-3 text-slate-300">
-              Book online through ServiceM8 or call direct to discuss your
-              switchboard.
+              Request a quote online or call direct to discuss your switchboard.
             </p>
 
             <div className="mt-6 grid gap-4">
@@ -279,7 +278,7 @@ export default function SwitchboardUpgradesSydneyPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-xl bg-red-600 px-6 py-4 font-black text-white transition hover:bg-red-500"
               >
-                Open ServiceM8 Booking
+                Request Quote Online
                 <ArrowRight className="h-5 w-5" />
               </a>
 
@@ -418,7 +417,7 @@ export default function SwitchboardUpgradesSydneyPage() {
             </p>
 
             <h2 className="mt-3 max-w-3xl text-4xl font-black tracking-tight sm:text-5xl">
-              Book online or call Evaready Electrical for a professional
+              Request a quote online or call Evaready Electrical for a professional
               switchboard inspection.
             </h2>
           </div>
@@ -490,7 +489,7 @@ export default function SwitchboardUpgradesSydneyPage() {
                 rel="noopener noreferrer"
                 className="inline-flex w-fit items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-black text-white hover:bg-blue-500"
               >
-                Book Online
+                Request Quote
               </a>
             </div>
           </div>
@@ -513,7 +512,7 @@ export default function SwitchboardUpgradesSydneyPage() {
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-4 font-black text-white"
         >
-          Book
+          Quote
         </a>
       </div>
     </main>
