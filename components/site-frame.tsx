@@ -17,54 +17,62 @@ export function SiteHeader() {
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 py-2 sm:px-6 sm:py-3 lg:px-8">
-          <Link href="/" className="flex min-w-0 flex-1 items-center lg:flex-none">
-            <Image
-              src={assetPath("/evaready-logo.png")}
-              alt="Evaready Electrical 24/7"
-              width={320}
-              height={135}
-              priority
-              sizes="(max-width: 640px) calc(100vw - 170px), (max-width: 1024px) 18rem, 13rem"
-              className="h-14 w-full max-w-64 object-cover object-center sm:h-16 sm:max-w-72 lg:h-14 lg:w-56 lg:max-w-56"
-            />
-          </Link>
+        <div className="mx-auto max-w-7xl px-3 py-2 sm:px-6 sm:py-3 lg:px-8">
+          <div className="flex items-center justify-between gap-3">
+            <Link
+              href="/"
+              className="flex min-w-0 flex-1 items-center lg:flex-none"
+            >
+              <Image
+                src={assetPath("/evaready-logo.png")}
+                alt="Evaready Electrical 24/7"
+                width={320}
+                height={135}
+                priority
+                sizes="(max-width: 640px) calc(100vw - 180px), (max-width: 1024px) 18rem, 13rem"
+                className="h-14 w-full max-w-64 object-cover object-center sm:h-16 sm:max-w-72 lg:h-14 lg:w-56 lg:max-w-56"
+              />
+            </Link>
 
-          <nav className="hidden items-center gap-7 text-sm font-bold text-slate-700 lg:flex">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="hover:text-blue-700"
+            <nav className="hidden items-center gap-7 text-sm font-bold text-slate-700 lg:flex">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="hover:text-blue-700"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+
+            <div className="flex shrink-0 items-center gap-2">
+              <a
+                href={business.phoneHref}
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-red-600 px-3 py-2 text-xs font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 sm:px-4 sm:text-sm"
               >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+                <Phone className="h-4 w-4 shrink-0" />
+                <span>{business.phoneDisplay}</span>
+              </a>
 
-          <div className="flex shrink-0 items-center gap-2">
-            <a
-              href={business.phoneHref}
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-red-600 px-3 py-2 text-xs font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 sm:px-4 sm:text-sm"
-            >
-              <Phone className="h-4 w-4 shrink-0" />
-              <span>{business.phoneDisplay}</span>
-            </a>
+              <a
+                href={business.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden min-h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 md:inline-flex lg:bg-red-600 lg:hover:bg-red-500"
+              >
+                Request Quote
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
 
-            <a
-              href={business.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden min-h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 sm:inline-flex lg:bg-red-600 lg:hover:bg-red-500"
-            >
-              Request Quote
-              <ArrowRight className="h-4 w-4" />
-            </a>
+          <div className="mt-2 lg:hidden">
+            <MobilePrimaryNav />
           </div>
         </div>
       </header>
-      <div aria-hidden="true" className="h-[73px] sm:h-[89px] lg:h-[81px]" />
-      <MobilePrimaryNav />
+      <div aria-hidden="true" className="h-[128px] sm:h-[144px] lg:h-[81px]" />
     </>
   );
 }
