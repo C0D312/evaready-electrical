@@ -16,7 +16,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { SiteHeader } from "@/components/site-frame";
-import { assetPath, business, prioritySuburbs, services } from "@/data/site";
+import { assetPath, business, priorityRegions, services } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Emergency Electrician Sydney",
@@ -579,12 +579,12 @@ export default function HomePage() {
               Service areas
             </p>
             <h2 className="mt-3 text-4xl font-black leading-tight sm:text-5xl">
-              Find electrical help by suburb.
+              Focused coverage for higher-value electrical jobs.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
-              Evaready Electrical services Sydney-wide, with priority coverage
-              around Canterbury-Bankstown, South West Sydney, St George,
-              Sutherland Shire, Western Sydney, the Inner West and the CBD.
+              Evaready Electrical services Sydney-wide, with stronger focus on
+              regions where emergency, commercial, Level 2, switchboard and
+              upgrade work is most valuable.
             </p>
             <Link
               href="/service-areas"
@@ -596,14 +596,24 @@ export default function HomePage() {
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2">
-            {prioritySuburbs.map((suburb) => (
-              <div
-                key={suburb}
-                className="flex items-center gap-3 rounded-lg border border-slate-200 bg-slate-50 px-4 py-3"
+            {priorityRegions.map((region) => (
+              <Link
+                key={region.name}
+                href={region.href}
+                className="group rounded-lg border border-slate-200 bg-slate-50 p-4 transition hover:border-blue-600 hover:bg-blue-50"
               >
-                <MapPin className="h-4 w-4 shrink-0 text-red-600" />
-                <span className="font-bold text-slate-800">{suburb}</span>
-              </div>
+                <div className="flex items-start gap-3">
+                  <MapPin className="mt-1 h-5 w-5 shrink-0 text-red-600" />
+                  <div>
+                    <h3 className="font-black text-slate-950">
+                      {region.name}
+                    </h3>
+                    <p className="mt-1 text-sm font-semibold leading-6 text-slate-600">
+                      {region.focus}
+                    </p>
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

@@ -101,33 +101,47 @@ export const services = [
   },
 ];
 
-export const prioritySuburbs = [
-  "Panania",
-  "Revesby",
-  "Padstow",
-  "Bankstown",
-  "Milperra",
-  "Picnic Point",
-  "East Hills",
-  "Chester Hill",
-  "Georges Hall",
-  "Greenacre",
-  "Bass Hill",
-  "Yagoona",
-  "Liverpool",
-  "Moorebank",
-  "Chipping Norton",
-  "Menai",
-  "Holsworthy",
-  "Sutherland",
-  "Cronulla",
-  "Parramatta",
-  "Auburn",
-  "Strathfield",
-  "Burwood",
-  "Inner West",
-  "Sydney CBD",
-  "North Sydney",
+export const priorityRegions = [
+  {
+    name: "Sydney City & Eastern Suburbs",
+    href: "/service-areas/sydney-city-and-eastern-suburbs",
+    focus: "Commercial, strata, apartments and premium residential work",
+  },
+  {
+    name: "Northern Sydney & Ryde",
+    href: "/service-areas/northern-sydney-and-ryde",
+    focus: "Level 2, larger homes, strata and business electrical work",
+  },
+  {
+    name: "Hills District & North West",
+    href: "/service-areas/hills-district-and-north-west",
+    focus: "Switchboards, EV chargers, upgrades and larger residential jobs",
+  },
+  {
+    name: "Northern Beaches",
+    href: "/service-areas/northern-beaches",
+    focus: "Coastal homes, renovations, safety upgrades and fault finding",
+  },
+  {
+    name: "Inner West & Bayside",
+    href: "/service-areas/inner-west-and-bayside",
+    focus: "Terraces, apartments, shops, strata and commercial maintenance",
+  },
+  {
+    name: "Parramatta & Cumberland",
+    href: "/service-areas/parramatta-and-cumberland",
+    focus: "Commercial centres, units, Level 2 work and urgent repairs",
+  },
+  {
+    name: "Sutherland Shire",
+    href: "/service-areas/sutherland-shire",
+    focus: "Homes, renovations, switchboards and emergency electrical faults",
+  },
+  {
+    name: "Georges River & St George",
+    href: "/service-areas/georges-river-and-st-george",
+    focus: "Residential, strata, shopfronts and electrical maintenance",
+  },
 ];
 
 export const trustPoints = [
