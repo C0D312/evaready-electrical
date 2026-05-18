@@ -18,6 +18,7 @@ import {
 import {
   getAreaBySlug,
   getRegionBySlug,
+  getSuburbPageCopy,
   getSuburbBySlug,
   getSuburbPaths,
 } from "@/data/service-area-coverage";
@@ -49,9 +50,11 @@ export async function generateMetadata({
     return {};
   }
 
+  const copy = getSuburbPageCopy(region, area, suburb);
+
   return {
     title: `Electrician ${suburb.name} ${suburb.postcode}`,
-    description: `Need an electrician in ${suburb.name} ${suburb.postcode}? Evaready Electrical provides emergency electrical, switchboard, Level 2, lighting, power point and fault finding services.`,
+    description: copy.metaDescription,
     alternates: {
       canonical: `/service-areas/${region.slug}/${area.slug}/${suburb.slug}`,
     },
@@ -75,11 +78,13 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
   const nearbySuburbs = area.suburbs
     .filter((nearbySuburb) => nearbySuburb.slug !== suburb.slug)
     .slice(0, 8);
+  const copy = getSuburbPageCopy(region, area, suburb);
 
   const schema = {
     "@context": "https://schema.org",
     "@type": "Electrician",
     name: `${business.name} - Electrician ${suburb.name}`,
+    description: copy.metaDescription,
     telephone: business.phoneDisplay,
     email: business.email,
     url: `${business.siteUrl}/service-areas/${region.slug}/${area.slug}/${suburb.slug}`,
@@ -98,50 +103,24 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
       },
     ],
   };
-  const serviceLinks = [
-    {
-      title: `Emergency electrician ${suburb.name}`,
-      href: "/emergency-electrician-sydney",
-      text: "Power loss, burning smells, tripping circuits and unsafe electrical faults.",
-    },
-    {
-      title: `Level 2 electrician ${suburb.name}`,
-      href: "/level-2-electrician-sydney",
-      text: "Consumer mains, service equipment, defect notices and supply-side enquiries.",
-    },
-    {
-      title: `Switchboard upgrades ${suburb.name}`,
-      href: "/services/switchboard-upgrades-sydney",
-      text: "Safety switches, RCBOs, ceramic fuse replacement and board faults.",
-    },
-    {
-      title: `Electrical fault finding ${suburb.name}`,
-      href: "/services/electrical-fault-finding-sydney",
-      text: "Testing for nuisance tripping, damaged wiring, water ingress and power faults.",
-    },
-    {
-      title: `Power points and lighting ${suburb.name}`,
-      href: "/services/power-point-installation-sydney",
-      text: "New outlets, lighting upgrades, repairs and useful electrical improvements.",
-    },
-    {
-      title: `Commercial electrician ${suburb.name}`,
-      href: "/services/commercial-electrician-sydney",
-      text: "Electrical support for shops, offices, strata, builders and property managers.",
-    },
-  ];
+  const serviceIconByIntent = {
+    emergency: Flame,
+    general: Wrench,
+    level2: Bolt,
+    switchboard: ShieldCheck,
+  };
   const suburbFaqs = [
     {
       question: `Do you provide emergency electrical help in ${suburb.name}?`,
-      answer: `Yes. Call Evaready Electrical for urgent electrical faults in ${suburb.name}, including power loss, burning smells, tripping safety switches, sparking, hot outlets and unsafe wiring.`,
+      answer: copy.faqAnswers.emergency,
     },
     {
       question: `Can you help with Level 2 electrical work in ${suburb.name}?`,
-      answer: `Yes. Evaready Electrical can assist with Level 2 enquiries in ${suburb.name}, including consumer mains, defect notices, service equipment and switchboard supply work.`,
+      answer: copy.faqAnswers.level2,
     },
     {
       question: `What should I include in a quote request for ${suburb.name}?`,
-      answer: `Send your suburb, postcode, best contact number, photos of the issue and a short description of the job. For urgent hazards, call directly instead of waiting.`,
+      answer: copy.faqAnswers.quote,
     },
   ];
   const faqSchema = {
@@ -175,13 +154,10 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         title={`Electrician ${suburb.name} ${suburb.postcode}`}
       >
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
-          Evaready Electrical services {suburb.name} and nearby suburbs with
-          emergency electrical help, switchboard upgrades, fault finding,
-          lighting, power points, smoke alarms, commercial work and Level 2
-          electrical enquiries.
+          {copy.heroDescription}
         </p>
         <p className="mt-4 max-w-3xl text-base font-semibold leading-7 text-blue-100">
-          {region.travelNote}
+          {copy.heroNote}
         </p>
 
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -209,9 +185,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           {[
             `NSW Licence ${business.licence}`,
-            "Call first for emergencies",
-            "Online quote requests",
-            `${area.name} local page`,
+            ...copy.trustItems,
           ].map((item) => (
             <div key={item} className="flex items-center gap-3">
               <CheckCircle2 className="h-6 w-6 shrink-0 text-blue-600" />
@@ -225,37 +199,18 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
-              How we work in {suburb.name}
+              {copy.processLabel}
             </p>
             <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
-              Simple quote request, proper testing and safe electrical work.
+              {copy.processHeading}
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              For urgent faults in {suburb.name}, call directly so the issue
-              can be triaged quickly. For planned work, send the job details,
-              photos and address through the online quote form.
+              {copy.processDescription}
             </p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              {
-                title: "Confirm the job",
-                text: `We confirm the suburb, access, job type and urgency before attending ${suburb.name}.`,
-              },
-              {
-                title: "Diagnose safely",
-                text: "Faults are tested properly before repairs or upgrade recommendations are made.",
-              },
-              {
-                title: "Complete neatly",
-                text: "Work is completed with safe workmanship, clear communication and tidy finishes.",
-              },
-              {
-                title: "Leave next steps",
-                text: "Where needed, you get notes on defects, upgrades, photos or follow-up work.",
-              },
-            ].map((item) => (
+            {copy.processSteps.map((item) => (
               <article
                 key={item.title}
                 className="rounded-lg border border-slate-200 bg-white p-6"
@@ -275,33 +230,15 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
             Electrical services
           </p>
           <h2 className="mt-3 max-w-4xl text-4xl font-black tracking-tight sm:text-5xl">
-            Common electrical jobs in {suburb.name}.
+            {copy.servicesHeading}
           </h2>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
+            {copy.serviceIntro}
+          </p>
 
           <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {[
-              {
-                title: "Emergency faults",
-                text: "Power loss, burning smells, hot points, sparking and tripping circuits.",
-                icon: Flame,
-              },
-              {
-                title: "Switchboards",
-                text: "Safety switches, RCBOs, ceramic fuse replacement and switchboard faults.",
-                icon: ShieldCheck,
-              },
-              {
-                title: "Level 2 enquiries",
-                text: "Consumer mains, metering, service upgrades and defect notice discussions.",
-                icon: Bolt,
-              },
-              {
-                title: "General electrical",
-                text: "Lighting, power points, smoke alarms, fans, EV chargers and commercial work.",
-                icon: Wrench,
-              },
-            ].map((item) => {
-              const Icon = item.icon;
+            {copy.serviceSummaries.map((item) => {
+              const Icon = serviceIconByIntent[item.intent];
 
               return (
                 <article
@@ -328,7 +265,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
           </h2>
 
           <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {serviceLinks.map((item) => (
+            {copy.serviceLinks.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -355,8 +292,11 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
               Local FAQ
             </p>
             <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
-              Questions about electrical work in {suburb.name}.
+              {copy.faqHeading}
             </h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">
+              {copy.faqIntro}
+            </p>
           </div>
 
           <div className="grid gap-4">
@@ -408,7 +348,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
               Electrician {suburb.name}
             </p>
             <h2 className="mt-3 max-w-3xl text-4xl font-black tracking-tight sm:text-5xl">
-              Need electrical help in {suburb.name}? Call or request a quote.
+              {copy.ctaHeading}
             </h2>
           </div>
 
