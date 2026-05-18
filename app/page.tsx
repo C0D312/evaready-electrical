@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import {
@@ -14,8 +13,8 @@ import {
   Wrench,
 } from "lucide-react";
 import { QuoteRequestPanel } from "@/components/quote-request-panel";
-import { SiteHeader } from "@/components/site-frame";
-import { assetPath, business, priorityRegions, services } from "@/data/site";
+import { SiteFooter, SiteHeader } from "@/components/site-frame";
+import { business, priorityRegions, services } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Emergency & Level 2 Electrician Sydney",
@@ -615,55 +614,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className="bg-slate-950 py-12 text-white">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 text-sm text-slate-400 sm:px-6 lg:grid-cols-4 lg:px-8">
-          <div className="lg:col-span-2">
-            <Image
-              src={assetPath("/evaready-logo.png")}
-              alt="Evaready Electrical"
-              width={240}
-              height={135}
-              className="h-14 w-52 rounded bg-white object-cover p-1"
-            />
-            <p className="mt-5 max-w-md leading-7">
-              Emergency, residential, commercial and Level 2 electrical services
-              across Greater Sydney, Illawarra, Blue Mountains, Northern
-              Beaches and Central Coast South.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-black text-white">Business Details</h3>
-            <div className="mt-4 space-y-2">
-              <p>Electrical Licence: {business.licence}</p>
-              <p>ABN: {business.abn}</p>
-              <p>Email: {business.email}</p>
-              <p>Phone: {business.phoneDisplay}</p>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="font-black text-white">Contact</h3>
-            <div className="mt-4 grid gap-3">
-              <a
-                href={business.phoneHref}
-                className="inline-flex w-fit items-center gap-2 rounded-lg bg-red-600 px-5 py-3 font-black text-white hover:bg-red-500"
-              >
-                <Phone className="h-4 w-4" />
-                Call Now
-              </a>
-              <a
-                href={business.bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex w-fit items-center gap-2 rounded-lg bg-blue-700 px-5 py-3 font-black text-white hover:bg-blue-600"
-              >
-                Request Quote
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
 
     </main>
   );

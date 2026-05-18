@@ -26,7 +26,7 @@ export function SiteHeader() {
               height={135}
               priority
               sizes="(max-width: 640px) calc(100vw - 170px), (max-width: 1024px) 18rem, 13rem"
-              className="h-14 w-full max-w-64 object-cover object-left sm:h-16 sm:max-w-72 lg:h-14 lg:w-52 lg:max-w-52"
+              className="h-14 w-full max-w-64 object-cover object-center sm:h-16 sm:max-w-72 lg:h-14 lg:w-56 lg:max-w-56"
             />
           </Link>
 
@@ -71,16 +71,19 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer className="bg-slate-950 py-12 text-white">
+    <footer className="bg-[#020617] py-12 text-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 text-sm text-slate-400 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div className="lg:col-span-2">
-          <Image
-            src={assetPath("/evaready-logo.png")}
-            alt="Evaready Electrical"
-            width={240}
-            height={100}
-            className="h-14 w-52 rounded bg-white object-cover p-1"
-          />
+          <div className="w-fit overflow-hidden rounded-lg border border-white/10 bg-white shadow-xl shadow-blue-500/10">
+            <Image
+              src={assetPath("/evaready-logo.png")}
+              alt="Evaready Electrical 24/7"
+              width={360}
+              height={140}
+              sizes="(max-width: 640px) 18rem, 20rem"
+              className="h-24 w-72 object-cover object-center sm:h-28 sm:w-80"
+            />
+          </div>
           <p className="mt-5 max-w-md leading-7">
             Emergency, residential, commercial and Level 2 electrical services
             across Greater Sydney, Illawarra, Blue Mountains, Northern Beaches
@@ -103,7 +106,7 @@ export function SiteFooter() {
           <div className="mt-4 grid gap-3">
             <a
               href={business.phoneHref}
-              className="inline-flex w-fit items-center gap-2 rounded-lg bg-red-600 px-5 py-3 font-black text-white hover:bg-red-500"
+              className="inline-flex w-fit items-center gap-2 rounded-xl bg-red-600 px-5 py-3 font-black text-white hover:bg-red-500"
             >
               <Phone className="h-4 w-4" />
               Call Now
@@ -113,7 +116,7 @@ export function SiteFooter() {
               href={business.bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-fit items-center gap-2 rounded-lg bg-blue-700 px-5 py-3 font-black text-white hover:bg-blue-600"
+              className="inline-flex w-fit items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-black text-white hover:bg-blue-500"
             >
               Request Quote
             </a>
