@@ -73,6 +73,7 @@ export function SiteHeader() {
         </div>
       </header>
       <div aria-hidden="true" className="h-[128px] sm:h-[144px] lg:h-[81px]" />
+      <MobileStickyCta />
     </>
   );
 }
@@ -136,7 +137,17 @@ export function SiteFooter() {
 }
 
 export function MobileStickyCta() {
-  return null;
+  return (
+    <a
+      href={business.phoneHref}
+      aria-label={`Call now ${business.phoneDisplay}`}
+      title={`Call now ${business.phoneDisplay}`}
+      className="floating-call-button"
+    >
+      <Phone />
+      <span>Call</span>
+    </a>
+  );
 }
 
 export function ServiceAreaHero({
