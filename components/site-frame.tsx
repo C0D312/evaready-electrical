@@ -16,7 +16,7 @@ const navItems = [
 export function SiteHeader() {
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur-xl">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 py-2 sm:px-6 sm:py-3 lg:px-8">
           <Link href="/" className="flex items-center">
             <Image
@@ -62,6 +62,7 @@ export function SiteHeader() {
           </div>
         </div>
       </header>
+      <div aria-hidden="true" className="h-[73px] sm:h-[89px] lg:h-[81px]" />
       <MobilePrimaryNav />
     </>
   );
