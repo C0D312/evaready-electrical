@@ -94,7 +94,7 @@ export function MobilePrimaryNav() {
       </button>
 
       {open ? (
-        <div className="fixed inset-x-0 bottom-0 top-[128px] z-[60] sm:top-[144px]">
+        <div className="fixed inset-x-0 bottom-0 top-[calc(120px_+_env(safe-area-inset-top))] z-[60] min-[380px]:top-[calc(128px_+_env(safe-area-inset-top))] sm:top-[calc(144px_+_env(safe-area-inset-top))]">
           <button
             type="button"
             aria-label="Close navigation menu"
@@ -105,7 +105,7 @@ export function MobilePrimaryNav() {
           <nav
             id="mobile-site-menu"
             aria-label="Mobile navigation"
-            className="absolute inset-x-3 top-3 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl"
+            className="absolute inset-x-3 top-3 max-h-[calc(100dvh_-_140px_-_env(safe-area-inset-top))] overflow-y-auto rounded-2xl border border-slate-200 bg-white pb-[env(safe-area-inset-bottom)] shadow-2xl min-[380px]:max-h-[calc(100dvh_-_148px_-_env(safe-area-inset-top))] sm:max-h-[calc(100dvh_-_164px_-_env(safe-area-inset-top))]"
           >
             <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3">
               <div>
@@ -160,7 +160,9 @@ export function MobilePrimaryNav() {
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-3 text-sm font-black text-white shadow-lg shadow-red-600/20"
               >
                 <Phone className="h-4 w-4" />
-                Call {business.phoneDisplay}
+                <span className="whitespace-nowrap">
+                  Call {business.phoneDisplay}
+                </span>
               </a>
               <a
                 href={business.bookingUrl}

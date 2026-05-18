@@ -166,7 +166,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
             className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
           >
             <Phone className="h-5 w-5" />
-            Call {business.phoneDisplay}
+            <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
           </a>
 
           <a
@@ -201,7 +201,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
               {copy.processLabel}
             </p>
-            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               {copy.processHeading}
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
@@ -229,7 +229,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
           <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
             Electrical services
           </p>
-          <h2 className="mt-3 max-w-4xl text-4xl font-black tracking-tight sm:text-5xl">
+          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
             {copy.servicesHeading}
           </h2>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
@@ -260,7 +260,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
           <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
             Related electrical services
           </p>
-          <h2 className="mt-3 max-w-4xl text-4xl font-black tracking-tight sm:text-5xl">
+          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
             Electrical services for {suburb.name} {suburb.postcode}.
           </h2>
 
@@ -291,7 +291,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
             <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
               Local FAQ
             </p>
-            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               {copy.faqHeading}
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
@@ -319,7 +319,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
               Nearby suburbs
             </p>
-            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Also servicing suburbs near {suburb.name}.
             </h2>
           </div>
@@ -347,7 +347,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-300">
               Electrician {suburb.name}
             </p>
-            <h2 className="mt-3 max-w-3xl text-4xl font-black tracking-tight sm:text-5xl">
+            <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               {copy.ctaHeading}
             </h2>
           </div>
@@ -358,7 +358,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
             >
               <Phone className="h-5 w-5" />
-              Call {business.phoneDisplay}
+              <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
             </a>
 
             <a

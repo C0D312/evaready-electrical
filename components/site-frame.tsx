@@ -16,7 +16,7 @@ const navItems = [
 export function SiteHeader() {
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur-xl">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-200 bg-white/95 pt-[env(safe-area-inset-top)] shadow-sm backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-3 py-2 sm:px-6 sm:py-3 lg:px-8">
           <div className="flex items-center justify-between gap-3">
             <Link
@@ -29,8 +29,8 @@ export function SiteHeader() {
                 width={320}
                 height={135}
                 priority
-                sizes="(max-width: 640px) calc(100vw - 180px), (max-width: 1024px) 18rem, 13rem"
-                className="h-14 w-full max-w-64 object-cover object-center sm:h-16 sm:max-w-72 lg:h-14 lg:w-56 lg:max-w-56"
+                sizes="(max-width: 379px) calc(100vw - 150px), (max-width: 640px) calc(100vw - 170px), (max-width: 1024px) 18rem, 13rem"
+                className="h-12 w-full max-w-[9.5rem] object-cover object-center min-[380px]:h-14 min-[380px]:max-w-56 sm:h-16 sm:max-w-72 lg:h-14 lg:w-56 lg:max-w-56"
               />
             </Link>
 
@@ -49,10 +49,10 @@ export function SiteHeader() {
             <div className="flex shrink-0 items-center gap-2">
               <a
                 href={business.phoneHref}
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-red-600 px-3 py-2 text-xs font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 sm:px-4 sm:text-sm"
+                className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full bg-red-600 px-2.5 py-2 text-xs font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 min-[380px]:gap-2 min-[380px]:px-3 sm:px-4 sm:text-sm"
               >
                 <Phone className="h-4 w-4 shrink-0" />
-                <span>{business.phoneDisplay}</span>
+                <span className="whitespace-nowrap">{business.phoneDisplay}</span>
               </a>
 
               <a
@@ -72,7 +72,10 @@ export function SiteHeader() {
           </div>
         </div>
       </header>
-      <div aria-hidden="true" className="h-[128px] sm:h-[144px] lg:h-[81px]" />
+      <div
+        aria-hidden="true"
+        className="h-[calc(120px_+_env(safe-area-inset-top))] min-[380px]:h-[calc(128px_+_env(safe-area-inset-top))] sm:h-[calc(144px_+_env(safe-area-inset-top))] lg:h-[calc(81px_+_env(safe-area-inset-top))]"
+      />
       <MobileStickyCta />
     </>
   );

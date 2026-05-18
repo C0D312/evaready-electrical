@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import {
   AlertTriangle,
   ArrowRight,
@@ -187,7 +187,7 @@ export default function Level2ElectricianSydneyPage() {
               Level 2 Electrical Services
             </div>
 
-            <h1 className="max-w-5xl text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">
+            <h1 className="max-w-5xl text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
               Level 2 Electrician Sydney
             </h1>
 
@@ -203,7 +203,7 @@ export default function Level2ElectricianSydneyPage() {
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
-                Call {business.phoneDisplay}
+                <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
               </a>
 
               <a
@@ -310,7 +310,7 @@ export default function Level2ElectricianSydneyPage() {
               Level 2 Electrical Services
             </p>
 
-            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Service work, supply upgrades and defect repairs.
             </h2>
 
@@ -350,7 +350,7 @@ export default function Level2ElectricianSydneyPage() {
               When To Call
             </p>
 
-            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               When do you need a Level 2 electrician?
             </h2>
 
@@ -379,7 +379,7 @@ export default function Level2ElectricianSydneyPage() {
           <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
             Level 2 authority
           </p>
-          <h2 className="mt-3 max-w-4xl text-4xl font-black tracking-tight sm:text-5xl">
+          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
             Supply-side work needs more than general electrical knowledge.
           </h2>
 
@@ -440,7 +440,7 @@ export default function Level2ElectricianSydneyPage() {
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
               Level 2 FAQ
             </p>
-            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Common Level 2 questions.
             </h2>
           </div>
@@ -466,7 +466,7 @@ export default function Level2ElectricianSydneyPage() {
             How It Works
           </p>
 
-          <h2 className="mt-3 max-w-4xl text-4xl font-black tracking-tight sm:text-5xl">
+          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
             Clear process from request to completion.
           </h2>
 
@@ -496,7 +496,7 @@ export default function Level2ElectricianSydneyPage() {
               Need Level 2 electrical work?
             </p>
 
-            <h2 className="mt-3 max-w-3xl text-4xl font-black tracking-tight sm:text-5xl">
+            <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Request a Level 2 electrician for service work, defects and
               upgrades.
             </h2>
@@ -508,7 +508,7 @@ export default function Level2ElectricianSydneyPage() {
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
             >
               <Phone className="h-5 w-5" />
-              Call {business.phoneDisplay}
+              <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
             </a>
 
             <a

@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import type { Metadata } from "next";
 import {
   ArrowRight,
@@ -489,7 +489,7 @@ export default function ServicesPage() {
               Electrical Services
             </div>
 
-            <h1 className="text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">
+            <h1 className="text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
               Professional Electrical Services Across Greater Sydney & Surrounding Regions
             </h1>
 
@@ -509,7 +509,7 @@ export default function ServicesPage() {
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
-                Call {business.phoneDisplay}
+                <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
               </a>
 
               <a
@@ -550,7 +550,7 @@ export default function ServicesPage() {
             Electrical services
           </p>
 
-          <h2 className="mt-3 max-w-4xl text-4xl font-black tracking-tight sm:text-5xl">
+          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
             Need an electrician? We&rsquo;re Evaready to assist.
           </h2>
 
@@ -621,7 +621,7 @@ export default function ServicesPage() {
               Need an electrician?
             </p>
 
-            <h2 className="mt-3 max-w-3xl text-4xl font-black tracking-tight sm:text-5xl">
+            <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Fast electrical help when something goes wrong, and clear support
               for planned upgrades.
             </h2>
@@ -633,7 +633,7 @@ export default function ServicesPage() {
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
             >
               <Phone className="h-5 w-5" />
-              Call {business.phoneDisplay}
+              <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
             </a>
 
             <a

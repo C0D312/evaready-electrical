@@ -119,7 +119,7 @@ export default function AreasPage() {
             <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
               Fast search
             </p>
-            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Find your suburb or postcode.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
@@ -138,7 +138,7 @@ export default function AreasPage() {
           <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
             Major regions
           </p>
-          <h2 className="mt-3 max-w-4xl text-4xl font-black tracking-tight sm:text-5xl">
+          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
             Browse the regions and suburbs we service.
           </h2>
 
@@ -229,7 +229,7 @@ export default function AreasPage() {
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-300">
               Need an electrician?
             </p>
-            <h2 className="mt-3 max-w-3xl text-4xl font-black tracking-tight sm:text-5xl">
+            <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Call now or send your job details online.
             </h2>
           </div>
@@ -240,7 +240,7 @@ export default function AreasPage() {
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
             >
               <Phone className="h-5 w-5" />
-              Call {business.phoneDisplay}
+              <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
             </a>
 
             <a

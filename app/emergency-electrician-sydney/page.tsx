@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import {
   AlertTriangle,
   ArrowRight,
@@ -169,7 +169,7 @@ export default function EmergencyElectricianSydneyPage() {
               24/7 Emergency Electrical Response
             </div>
 
-            <h1 className="max-w-5xl text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">
+            <h1 className="max-w-5xl text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
               Emergency Electrician Sydney
             </h1>
 
@@ -247,7 +247,7 @@ export default function EmergencyElectricianSydneyPage() {
                 className="inline-flex items-center justify-center gap-3 rounded-xl bg-red-600 px-6 py-4 font-black text-white transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
-                Call {business.phoneDisplay}
+                <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
               </a>
 
               <a
@@ -293,7 +293,7 @@ export default function EmergencyElectricianSydneyPage() {
               Emergency Electrical Services
             </p>
 
-            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Urgent electrical faults we can help with.
             </h2>
 
@@ -333,7 +333,7 @@ export default function EmergencyElectricianSydneyPage() {
               Warning Signs
             </p>
 
-            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               When should you call an emergency electrician?
             </h2>
 
@@ -363,7 +363,7 @@ export default function EmergencyElectricianSydneyPage() {
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
               Safety first
             </p>
-            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               What to do before an electrician arrives.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
@@ -394,7 +394,7 @@ export default function EmergencyElectricianSydneyPage() {
             How It Works
           </p>
 
-          <h2 className="mt-3 max-w-4xl text-4xl font-black tracking-tight sm:text-5xl">
+          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
             Fast response, proper testing and safe repairs.
           </h2>
 
@@ -422,7 +422,7 @@ export default function EmergencyElectricianSydneyPage() {
             <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
               Emergency FAQ
             </p>
-            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Common urgent fault questions.
             </h2>
           </div>
@@ -449,7 +449,7 @@ export default function EmergencyElectricianSydneyPage() {
               Emergency electrical fault?
             </p>
 
-            <h2 className="mt-3 max-w-3xl text-4xl font-black tracking-tight sm:text-5xl">
+            <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Call Evaready Electrical before the problem gets worse.
             </h2>
           </div>
@@ -460,7 +460,7 @@ export default function EmergencyElectricianSydneyPage() {
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
             >
               <Phone className="h-5 w-5" />
-              Call {business.phoneDisplay}
+              <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
             </a>
 
             <a

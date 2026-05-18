@@ -302,7 +302,7 @@ export default function HomePage() {
                 className="inline-flex w-full items-center justify-center gap-3 rounded-lg bg-red-600 px-5 py-4 text-center text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500 sm:w-auto sm:px-7"
               >
                 <Phone className="h-5 w-5" />
-                Call {business.phoneDisplay}
+                <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
               </a>
 
               <a
@@ -414,7 +414,7 @@ export default function HomePage() {
               <p className="text-sm font-black uppercase text-red-600">
                 We&rsquo;re open 24/7
               </p>
-              <h2 className="mt-3 text-4xl font-black leading-tight sm:text-5xl">
+              <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl">
                 Need an electrician? We&rsquo;re Evaready to assist.
               </h2>
               <p className="mt-5 text-lg leading-8 text-slate-700">
@@ -544,7 +544,7 @@ export default function HomePage() {
             <p className="text-sm font-black uppercase text-red-600">
               Why choose Evaready
             </p>
-            <h2 className="mt-3 text-4xl font-black leading-tight sm:text-5xl">
+            <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl">
               Licensed electrical help you can verify.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
@@ -594,7 +594,7 @@ export default function HomePage() {
             <p className="text-sm font-black uppercase text-blue-700">
               Service areas
             </p>
-            <h2 className="mt-3 text-4xl font-black leading-tight sm:text-5xl">
+            <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl">
               Electrical service areas by region, area and suburb.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
@@ -640,7 +640,7 @@ export default function HomePage() {
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
               <p className="text-sm font-black uppercase text-red-600">FAQ</p>
-              <h2 className="mt-3 text-4xl font-black leading-tight sm:text-5xl">
+              <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl">
                 Common electrical questions.
               </h2>
               <p className="mt-5 text-lg leading-8 text-slate-700">

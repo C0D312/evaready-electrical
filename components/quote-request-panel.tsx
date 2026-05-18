@@ -92,7 +92,7 @@ export function QuoteRequestPanel({
               className="mt-4 inline-flex w-full items-center justify-center gap-3 rounded-lg bg-red-600 px-4 py-4 text-center text-sm font-black text-white transition hover:bg-red-500 sm:px-5 sm:text-base"
             >
               <Phone className="h-5 w-5" />
-              Call {business.phoneDisplay}
+              <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
             </a>
           </div>
         </div>

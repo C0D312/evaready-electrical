@@ -169,7 +169,7 @@ export default function SwitchboardUpgradesSydneyPage() {
               Safety Switches - RCBOs - Modern Protection
             </div>
 
-            <h1 className="max-w-5xl text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">
+            <h1 className="max-w-5xl text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
               Switchboard Upgrades Sydney
             </h1>
 
@@ -186,7 +186,7 @@ export default function SwitchboardUpgradesSydneyPage() {
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
-                Call {business.phoneDisplay}
+                <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
               </a>
 
               <a
@@ -293,7 +293,7 @@ export default function SwitchboardUpgradesSydneyPage() {
               Switchboard Upgrade Services
             </p>
 
-            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Modern switchboard protection for homes and businesses.
             </h2>
 
@@ -333,7 +333,7 @@ export default function SwitchboardUpgradesSydneyPage() {
               Warning Signs
             </p>
 
-            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               When should you upgrade your switchboard?
             </h2>
 
@@ -362,7 +362,7 @@ export default function SwitchboardUpgradesSydneyPage() {
             <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
               Upgrade outcomes
             </p>
-            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               What a proper switchboard upgrade should improve.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
@@ -392,7 +392,7 @@ export default function SwitchboardUpgradesSydneyPage() {
             How It Works
           </p>
 
-          <h2 className="mt-3 max-w-4xl text-4xl font-black tracking-tight sm:text-5xl">
+          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
             Clear inspection, clean installation and proper testing.
           </h2>
 
@@ -420,7 +420,7 @@ export default function SwitchboardUpgradesSydneyPage() {
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
               Switchboard FAQ
             </p>
-            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Common switchboard questions.
             </h2>
           </div>
@@ -447,7 +447,7 @@ export default function SwitchboardUpgradesSydneyPage() {
               Need a switchboard upgrade?
             </p>
 
-            <h2 className="mt-3 max-w-3xl text-4xl font-black tracking-tight sm:text-5xl">
+            <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Request a quote online or call Evaready Electrical for a professional
               switchboard inspection.
             </h2>
@@ -459,7 +459,7 @@ export default function SwitchboardUpgradesSydneyPage() {
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
             >
               <Phone className="h-5 w-5" />
-              Call {business.phoneDisplay}
+              <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
             </a>
 
             <a
