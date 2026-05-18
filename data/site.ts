@@ -22,6 +22,10 @@ export const business = {
     "https://book.servicem8.com/request_booking?uuid=78c2a862-45cf-413b-8ca5-1bf6d8f8944b",
 };
 
+export function assetPath(path: string) {
+  return `${process.env.NEXT_PUBLIC_BASE_PATH || ""}${path}`;
+}
+
 export const services = [
   {
     title: "Residential Electrician",

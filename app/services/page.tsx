@@ -15,6 +15,7 @@ import {
   Wrench,
   Zap,
 } from "lucide-react";
+import { assetPath } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Electrical Services Sydney",
@@ -234,7 +235,7 @@ export default function ServicesPage() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center">
             <Image
-              src="/evaready-logo.png"
+              src={assetPath("/evaready-logo.png")}
               alt="Evaready Electrical"
               width={260}
               height={110}
@@ -438,7 +439,7 @@ export default function ServicesPage() {
         <div className="mx-auto grid max-w-7xl gap-10 px-4 text-sm text-slate-400 sm:px-6 lg:grid-cols-4 lg:px-8">
           <div className="lg:col-span-2">
             <Image
-              src="/evaready-logo.png"
+              src={assetPath("/evaready-logo.png")}
               alt="Evaready Electrical"
               width={240}
               height={100}

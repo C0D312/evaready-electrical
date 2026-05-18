@@ -15,7 +15,7 @@ import {
   Star,
   Wrench,
 } from "lucide-react";
-import { business, prioritySuburbs, services } from "@/data/site";
+import { assetPath, business, prioritySuburbs, services } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Emergency Electrician Sydney",
@@ -270,7 +270,7 @@ export default function HomePage() {
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center">
             <Image
-              src="/evaready-logo.png"
+              src={assetPath("/evaready-logo.png")}
               alt="Evaready Electrical 24/7"
               width={240}
               height={135}
@@ -362,7 +362,7 @@ export default function HomePage() {
           <div className="rounded-lg border border-slate-200 bg-slate-950 p-6 text-white shadow-2xl shadow-slate-950/20">
             <div className="rounded-lg bg-white p-5">
               <Image
-                src="/evaready-logo.png"
+                src={assetPath("/evaready-logo.png")}
                 alt="Evaready Electrical logo"
                 width={640}
                 height={360}
@@ -752,7 +752,7 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl gap-10 px-4 text-sm text-slate-400 sm:px-6 lg:grid-cols-4 lg:px-8">
           <div className="lg:col-span-2">
             <Image
-              src="/evaready-logo.png"
+              src={assetPath("/evaready-logo.png")}
               alt="Evaready Electrical"
               width={240}
               height={135}
