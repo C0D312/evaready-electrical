@@ -179,7 +179,7 @@ export default function SwitchboardUpgradesSydneyPage() {
               Upgrade old ceramic fuses, improve circuit protection and bring
               your switchboard up to a safer modern standard. Evaready
               Electrical provides clean, professional switchboard upgrades for
-              homes and businesses across Sydney.
+              homes and businesses across the service area.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -277,7 +277,7 @@ export default function SwitchboardUpgradesSydneyPage() {
             `NSW Licence ${business.licence}`,
             "Safety switch upgrades",
             "RCBO protection",
-            "Sydney-wide service",
+            "Multi-region coverage",
           ].map((item) => (
             <div key={item} className="flex items-center gap-3">
               <CheckCircle2 className="h-6 w-6 shrink-0 text-blue-600" />
@@ -491,7 +491,7 @@ export default function SwitchboardUpgradesSydneyPage() {
 
             <p className="mt-5 max-w-md leading-7">
               Residential, commercial, emergency and Level 2 electrical services
-              across Sydney.
+              across Greater Sydney and nearby regions.
             </p>
           </div>
 

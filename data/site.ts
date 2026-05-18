@@ -16,7 +16,7 @@ export const business = {
   email: "info@evareadyelectrical.com.au",
   licence: "398937C",
   abn: "44 650 697 797",
-  serviceArea: "Sydney Metro",
+  serviceArea: "Greater Sydney and nearby regions",
   siteUrl: "https://evareadyelectrical.com.au",
   bookingUrl:
     "https://book.servicem8.com/request_booking?uuid=78c2a862-45cf-413b-8ca5-1bf6d8f8944b",
@@ -39,7 +39,7 @@ export const services = [
     title: "Emergency Electrician",
     slug: "emergency-electrician-sydney",
     description:
-      "24/7 emergency electrician for power faults, outages, burning smells, tripping circuits and urgent electrical hazards across Sydney.",
+      "24/7 emergency electrician for power faults, outages, burning smells, tripping circuits and urgent electrical hazards across the service area.",
     icon: Zap,
     intent: "Emergency",
   },
@@ -114,7 +114,7 @@ export const priorityRegions = [
   },
   {
     name: "Hills District & North West",
-    href: "/service-areas/hills-district-and-north-west",
+    href: "/service-areas/hills-hawkesbury-and-hornsby",
     focus: "Switchboards, EV chargers, upgrades and larger residential jobs",
   },
   {
@@ -124,7 +124,7 @@ export const priorityRegions = [
   },
   {
     name: "Inner West & Bayside",
-    href: "/service-areas/inner-west-and-bayside",
+    href: "/service-areas/inner-west-burwood-and-canada-bay",
     focus: "Terraces, apartments, shops, strata and commercial maintenance",
   },
   {
@@ -138,8 +138,13 @@ export const priorityRegions = [
     focus: "Homes, renovations, switchboards and emergency electrical faults",
   },
   {
-    name: "Georges River & St George",
-    href: "/service-areas/georges-river-and-st-george",
+    name: "Wollongong & Illawarra",
+    href: "/service-areas/wollongong-and-illawarra",
+    focus: "Wollongong homes, businesses, switchboards and urgent faults",
+  },
+  {
+    name: "St George & Bayside",
+    href: "/service-areas/st-george-and-bayside",
     focus: "Residential, strata, shopfronts and electrical maintenance",
   },
 ];
@@ -150,7 +155,7 @@ export const trustPoints = [
   "Residential, commercial, emergency and Level 2 electrical work",
   "24/7 emergency response available",
   "Clear quote requests",
-  "Sydney-wide service coverage",
+  "Multi-region service coverage",
 ];
 
 export const offers = [

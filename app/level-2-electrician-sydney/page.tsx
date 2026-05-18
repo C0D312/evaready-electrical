@@ -196,7 +196,7 @@ export default function Level2ElectricianSydneyPage() {
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">
               Licensed electrical support for consumer mains, defect notices,
               service equipment, metering, overhead and underground electrical
-              work across Sydney.
+              work across Greater Sydney and nearby regions.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -294,7 +294,7 @@ export default function Level2ElectricianSydneyPage() {
             `NSW Licence ${business.licence}`,
             "Consumer mains",
             "Defect rectification",
-            "Sydney-wide service",
+            "Multi-region coverage",
           ].map((item) => (
             <div key={item} className="flex items-center gap-3">
               <CheckCircle2 className="h-6 w-6 shrink-0 text-blue-600" />
@@ -540,7 +540,7 @@ export default function Level2ElectricianSydneyPage() {
 
             <p className="mt-5 max-w-md leading-7">
               Residential, commercial, emergency and Level 2 electrical services
-              across Sydney.
+              across Greater Sydney and nearby regions.
             </p>
           </div>
 

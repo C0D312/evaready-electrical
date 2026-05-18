@@ -178,7 +178,7 @@ export default function EmergencyElectricianSydneyPage() {
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">
               Fast-response licensed electricians for urgent electrical faults,
               power outages, burning smells, switchboard issues, tripping
-              circuits and electrical hazards across Sydney.
+              circuits and electrical hazards across the service area.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -277,7 +277,7 @@ export default function EmergencyElectricianSydneyPage() {
             `NSW Licence ${business.licence}`,
             "24/7 emergency response",
             "Fault finding and repairs",
-            "Sydney-wide service",
+            "Multi-region coverage",
           ].map((item) => (
             <div key={item} className="flex items-center gap-3">
               <CheckCircle2 className="h-6 w-6 shrink-0 text-blue-600" />
@@ -492,7 +492,7 @@ export default function EmergencyElectricianSydneyPage() {
 
             <p className="mt-5 max-w-md leading-7">
               Emergency, residential, commercial and Level 2 electrical services
-              across Sydney.
+              across Greater Sydney and nearby regions.
             </p>
           </div>
 

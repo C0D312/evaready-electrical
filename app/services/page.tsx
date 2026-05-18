@@ -21,7 +21,7 @@ import { assetPath } from "@/data/site";
 export const metadata: Metadata = {
   title: "Electrical Services Sydney",
   description:
-    "Evaready Electrical provides residential, commercial, emergency and Level 2 electrical services across Sydney including switchboard upgrades, fault finding, lighting, power points and smoke alarms.",
+    "Evaready Electrical provides residential, commercial, emergency and Level 2 electrical services across Greater Sydney and nearby regions including switchboard upgrades, fault finding, lighting, power points and smoke alarms.",
   alternates: {
     canonical: "/services",
   },
@@ -236,14 +236,15 @@ export default function ServicesPage() {
             </div>
 
             <h1 className="text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">
-              Complete Electrical Services Across Sydney
+              Complete Electrical Services Across Greater Sydney & Nearby Regions
             </h1>
 
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
               Evaready Electrical provides professional residential, commercial,
-              emergency and Level 2 electrical services across Sydney. From
-              small repairs to major upgrades, we deliver clean workmanship,
-              clear communication and safe electrical solutions.
+              emergency and Level 2 electrical services across Greater Sydney,
+              Illawarra, Blue Mountains, Northern Beaches and Central Coast
+              South. From small repairs to major upgrades, we deliver clean
+              workmanship, clear communication and safe electrical solutions.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -366,7 +367,7 @@ export default function ServicesPage() {
 
             <h2 className="mt-3 max-w-3xl text-4xl font-black tracking-tight sm:text-5xl">
               Call or request a quote online for professional electrical
-              service across Sydney.
+              service across the service area.
             </h2>
           </div>
 
@@ -406,7 +407,7 @@ export default function ServicesPage() {
 
             <p className="mt-5 max-w-md leading-7">
               Residential, commercial, emergency and Level 2 electrical services
-              across Sydney.
+              across Greater Sydney and nearby regions.
             </p>
           </div>
 

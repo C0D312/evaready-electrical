@@ -31,7 +31,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Residential electrician in Sydney for power points, lighting, smoke alarms, switchboards, fault finding, renovations and home electrical repairs.",
     title: "Residential Electrician Sydney",
     description:
-      "Safe, tidy electrical work for homes, units, townhouses, granny flats and renovations across Sydney.",
+      "Safe, tidy electrical work for homes, units, townhouses, granny flats and renovations across the service area.",
     intro:
       "Evaready Electrical helps Sydney homeowners with everyday electrical repairs, safety upgrades and planned installations. From a faulty power point to a full renovation rough-in, the work is tested properly and explained clearly before it is completed.",
     heroBullets: [
@@ -105,7 +105,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Electrical maintenance and installation support for Sydney businesses, builders, strata and real estate clients.",
     intro:
-      "Commercial electrical work needs clear communication, reliable attendance and neat documentation. Evaready Electrical supports shops, offices, strata sites, warehouses, builders and property managers with practical electrical service across Sydney.",
+      "Commercial electrical work needs clear communication, reliable attendance and neat documentation. Evaready Electrical supports shops, offices, strata sites, warehouses, builders and property managers with practical electrical service across Greater Sydney and nearby regions.",
     heroBullets: [
       "Office, retail and strata electrical support",
       "Lighting, power and fault finding",
@@ -247,7 +247,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Lighting electrician in Sydney for LED downlights, outdoor lighting, security lighting, bathroom lighting, feature lights and lighting repairs.",
     title: "Lighting Electrician Sydney",
     description:
-      "LED, indoor, outdoor, security and commercial lighting installed safely across Sydney.",
+      "LED, indoor, outdoor, security and commercial lighting installed safely across the service area.",
     intro:
       "Good lighting changes how a home or business feels and functions. Evaready Electrical installs and repairs lighting with careful placement, safe wiring and tidy finishes.",
     heroBullets: [
@@ -749,4 +749,3 @@ export const serviceLandingPages: ServiceLandingPage[] = [
 export function getServiceLandingPage(slug: string) {
   return serviceLandingPages.find((service) => service.slug === slug);
 }
-

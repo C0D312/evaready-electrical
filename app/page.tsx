@@ -22,14 +22,14 @@ import { assetPath, business, priorityRegions, services } from "@/data/site";
 export const metadata: Metadata = {
   title: "Emergency Electrician Sydney",
   description:
-    "Call Evaready Electrical for 24/7 emergency electricians, Level 2 electrical work, switchboard upgrades, fault finding and residential or commercial electrical services across Sydney.",
+    "Call Evaready Electrical for 24/7 emergency electricians, Level 2 electrical work, switchboard upgrades, fault finding and residential or commercial electrical services across Greater Sydney and nearby regions.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Emergency Electrician Sydney | Evaready Electrical",
     description:
-      "Licensed Sydney electricians for emergencies, switchboards, Level 2 work, fault finding, lighting, power and commercial electrical services.",
+      "Licensed electricians for emergencies, switchboards, Level 2 work, fault finding, lighting, power and commercial electrical services across Greater Sydney and nearby regions.",
     url: "/",
     images: ["/evaready-logo.png"],
   },
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 const heroStats = [
   { label: "Emergency response", value: "24/7" },
   { label: "NSW licence", value: business.licence },
-  { label: "Sydney coverage", value: "Metro" },
+  { label: "Service coverage", value: "Multi-region" },
 ];
 
 const urgentFaults = [
@@ -79,7 +79,7 @@ const proof = [
   "Licensed electrical contractor - 398937C",
   "Residential, commercial, emergency and Level 2 work",
   "Online quote requests",
-  "Sydney-wide service area coverage",
+  "Greater Sydney and nearby-region coverage",
 ];
 
 const decisionDrivers = [
@@ -99,7 +99,7 @@ const decisionDrivers = [
     icon: Bolt,
   },
   {
-    title: "Sydney-wide local coverage",
+    title: "Multi-region local coverage",
     text: "Region and suburb pages make it simple to check whether Evaready services your area.",
     icon: MapPin,
   },
@@ -194,7 +194,7 @@ const faqs = [
   {
     question: "Do you offer 24/7 emergency electrician call-outs?",
     answer:
-      "Yes. Call Evaready Electrical for urgent electrical faults, power outages, tripping circuits, burning smells, sparking or unsafe electrical issues across Sydney.",
+      "Yes. Call Evaready Electrical for urgent electrical faults, power outages, tripping circuits, burning smells, sparking or unsafe electrical issues across the service area.",
   },
   {
     question: "Can you help with Level 2 electrical work?",
@@ -285,7 +285,7 @@ export default function HomePage() {
           <div>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-black text-blue-800">
               <Clock3 className="h-4 w-4" />
-              24/7 electrical help across Sydney
+              24/7 electrical help across Greater Sydney & nearby regions
             </div>
 
             <h1 className="max-w-5xl text-5xl font-black leading-[0.98] text-slate-950 sm:text-6xl">
@@ -295,7 +295,9 @@ export default function HomePage() {
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-700 sm:text-xl">
               Call Evaready Electrical for urgent faults, Level 2 electrical
               work, switchboard upgrades, fault finding, lighting, power points,
-              smoke alarms, EV chargers and commercial electrical services.
+              smoke alarms, EV chargers and commercial electrical services
+              across Greater Sydney, the Shire, Illawarra, Blue Mountains,
+              Northern Beaches and Central Coast South.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -642,9 +644,9 @@ export default function HomePage() {
               Focused coverage for higher-value electrical jobs.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
-              Evaready Electrical services Sydney-wide, with stronger focus on
-              regions where emergency, commercial, Level 2, switchboard and
-              upgrade work is most valuable.
+              Evaready Electrical services multiple high-value regions, with
+              stronger focus on areas where emergency, commercial, Level 2,
+              switchboard and upgrade work is most valuable.
             </p>
             <Link
               href="/service-areas"
@@ -790,7 +792,8 @@ export default function HomePage() {
             />
             <p className="mt-5 max-w-md leading-7">
               Emergency, residential, commercial and Level 2 electrical services
-              across Sydney.
+              across Greater Sydney, Illawarra, Blue Mountains, Northern
+              Beaches and Central Coast South.
             </p>
           </div>
 

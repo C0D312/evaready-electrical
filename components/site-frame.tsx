@@ -83,7 +83,8 @@ export function SiteFooter() {
           />
           <p className="mt-5 max-w-md leading-7">
             Emergency, residential, commercial and Level 2 electrical services
-            across Sydney and surrounding regions.
+            across Greater Sydney, Illawarra, Blue Mountains, Northern Beaches
+            and Central Coast South.
           </p>
         </div>
 
