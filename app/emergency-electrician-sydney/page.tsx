@@ -10,6 +10,7 @@ import {
   ShieldCheck,
   Zap,
 } from "lucide-react";
+import { QuoteRequestPanel } from "@/components/quote-request-panel";
 import { SiteHeader } from "@/components/site-frame";
 import { assetPath } from "@/data/site";
 
@@ -54,6 +55,33 @@ const warningSigns = [
   "Sparking, buzzing or crackling sounds",
   "Power point, switch or cable feels hot",
   "Lights flickering or dimming unexpectedly",
+  "Storm damage has affected overhead lines, outdoor lights or fittings",
+  "Water has reached switches, outlets, lights or electrical equipment",
+];
+
+const safetySteps = [
+  "Do not touch exposed wires, damaged fittings or wet electrical equipment.",
+  "If it is safe, turn off the affected circuit or main switch and keep people away.",
+  "Call immediately if you smell burning, see smoke, hear buzzing or notice sparking.",
+  "For fallen powerlines or life-threatening danger, keep clear and call emergency services first.",
+];
+
+const emergencyFaqs = [
+  {
+    question: "What counts as an electrical emergency?",
+    answer:
+      "Burning smells, sparking, exposed wiring, electric shock risk, hot power points, buzzing switchboards, repeated safety switch tripping and power loss should all be treated as urgent.",
+  },
+  {
+    question: "Should I keep resetting a tripping safety switch?",
+    answer:
+      "No. If the safety switch keeps tripping, stop resetting it and call a licensed electrician. It may be reacting to a fault that needs proper testing.",
+  },
+  {
+    question: "Can water-damaged electrical fittings be used again?",
+    answer:
+      "Do not use water-damaged outlets, switches or lights until they have been checked. Water around electrical equipment can create a serious safety risk.",
+  },
 ];
 
 const process = [
@@ -105,12 +133,28 @@ export default function EmergencyElectricianSydneyPage() {
       },
     ],
   };
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: emergencyFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
 
   return (
     <main className="min-h-screen bg-white text-slate-950">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <SiteHeader />
@@ -276,6 +320,13 @@ export default function EmergencyElectricianSydneyPage() {
         </div>
       </section>
 
+      <QuoteRequestPanel
+        eyebrow="Emergency quote details"
+        title="Send the details that help diagnose the fault faster."
+        description="For unsafe faults, call first. For quote requests, include the suburb, what has lost power, whether anything is hot, buzzing, wet, sparking or tripping, and photos of the switchboard or damaged fitting if available."
+        quoteLabel="Request Emergency Quote"
+      />
+
       {/* Warning signs */}
       <section className="bg-white py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
@@ -308,6 +359,36 @@ export default function EmergencyElectricianSydneyPage() {
         </div>
       </section>
 
+      <section className="bg-slate-50 py-20">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
+              Safety first
+            </p>
+            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+              What to do before an electrician arrives.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">
+              Emergency electrical faults need a calm, safety-first response.
+              Keep people away from the affected area and avoid touching
+              anything that may be live.
+            </p>
+          </div>
+
+          <div className="grid gap-4">
+            {safetySteps.map((item) => (
+              <div
+                key={item}
+                className="flex gap-3 rounded-lg border border-red-100 bg-white p-5"
+              >
+                <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" />
+                <p className="font-semibold leading-7 text-slate-800">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Process */}
       <section className="bg-[#020617] py-24 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -332,6 +413,31 @@ export default function EmergencyElectricianSydneyPage() {
                 <h3 className="mt-6 text-xl font-black">{step.title}</h3>
                 <p className="mt-3 leading-7 text-slate-300">{step.text}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+              Emergency FAQ
+            </p>
+            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+              Common urgent fault questions.
+            </h2>
+          </div>
+
+          <div className="grid gap-4">
+            {emergencyFaqs.map((faq) => (
+              <article
+                key={faq.question}
+                className="rounded-lg border border-slate-200 bg-slate-50 p-6"
+              >
+                <h3 className="text-xl font-black">{faq.question}</h3>
+                <p className="mt-3 leading-7 text-slate-600">{faq.answer}</p>
+              </article>
             ))}
           </div>
         </div>

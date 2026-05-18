@@ -98,12 +98,74 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
       },
     ],
   };
+  const serviceLinks = [
+    {
+      title: `Emergency electrician ${suburb.name}`,
+      href: "/emergency-electrician-sydney",
+      text: "Power loss, burning smells, tripping circuits and unsafe electrical faults.",
+    },
+    {
+      title: `Level 2 electrician ${suburb.name}`,
+      href: "/level-2-electrician-sydney",
+      text: "Consumer mains, service equipment, defect notices and supply-side enquiries.",
+    },
+    {
+      title: `Switchboard upgrades ${suburb.name}`,
+      href: "/services/switchboard-upgrades-sydney",
+      text: "Safety switches, RCBOs, ceramic fuse replacement and board faults.",
+    },
+    {
+      title: `Electrical fault finding ${suburb.name}`,
+      href: "/services/electrical-fault-finding-sydney",
+      text: "Testing for nuisance tripping, damaged wiring, water ingress and power faults.",
+    },
+    {
+      title: `Power points and lighting ${suburb.name}`,
+      href: "/services/power-point-installation-sydney",
+      text: "New outlets, lighting upgrades, repairs and useful electrical improvements.",
+    },
+    {
+      title: `Commercial electrician ${suburb.name}`,
+      href: "/services/commercial-electrician-sydney",
+      text: "Electrical support for shops, offices, strata, builders and property managers.",
+    },
+  ];
+  const suburbFaqs = [
+    {
+      question: `Do you provide emergency electrical help in ${suburb.name}?`,
+      answer: `Yes. Call Evaready Electrical for urgent electrical faults in ${suburb.name}, including power loss, burning smells, tripping safety switches, sparking, hot outlets and unsafe wiring.`,
+    },
+    {
+      question: `Can you help with Level 2 electrical work in ${suburb.name}?`,
+      answer: `Yes. Evaready Electrical can assist with Level 2 enquiries in ${suburb.name}, including consumer mains, defect notices, service equipment and switchboard supply work.`,
+    },
+    {
+      question: `What should I include in a quote request for ${suburb.name}?`,
+      answer: `Send your suburb, postcode, best contact number, photos of the issue and a short description of the job. For urgent hazards, call directly instead of waiting.`,
+    },
+  ];
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: suburbFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
 
   return (
     <main className="min-h-screen bg-white text-slate-950">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <SiteHeader />
@@ -257,6 +319,61 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
       </section>
 
       <section className="bg-slate-50 py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
+            Service links
+          </p>
+          <h2 className="mt-3 max-w-4xl text-4xl font-black tracking-tight sm:text-5xl">
+            Electrical services for {suburb.name} {suburb.postcode}.
+          </h2>
+
+          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {serviceLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="group rounded-lg border border-slate-200 bg-white p-6 transition hover:border-blue-600 hover:bg-blue-50"
+              >
+                <h3 className="text-xl font-black text-slate-950">
+                  {item.title}
+                </h3>
+                <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
+                <span className="mt-5 inline-flex items-center gap-2 font-black text-red-600">
+                  Learn more
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-50 py-20">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+              Local FAQ
+            </p>
+            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+              Questions about electrical work in {suburb.name}.
+            </h2>
+          </div>
+
+          <div className="grid gap-4">
+            {suburbFaqs.map((faq) => (
+              <article
+                key={faq.question}
+                className="rounded-lg border border-slate-200 bg-white p-6"
+              >
+                <h3 className="text-xl font-black">{faq.question}</h3>
+                <p className="mt-3 leading-7 text-slate-600">{faq.answer}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">

@@ -15,6 +15,7 @@ import {
   Star,
   Wrench,
 } from "lucide-react";
+import { QuoteRequestPanel } from "@/components/quote-request-panel";
 import { SiteHeader } from "@/components/site-frame";
 import { assetPath, business, priorityRegions, services } from "@/data/site";
 
@@ -99,8 +100,27 @@ const decisionDrivers = [
   },
   {
     title: "Sydney-wide local coverage",
-    text: "Priority suburbs are easy to find, making it simple to check whether Evaready services your area.",
+    text: "Region and suburb pages make it simple to check whether Evaready services your area.",
     icon: MapPin,
+  },
+];
+
+const trustSignals = [
+  {
+    title: "Licence details visible",
+    text: `NSW electrical licence ${business.licence} and ABN ${business.abn} are easy for customers to verify.`,
+  },
+  {
+    title: "Emergency path is obvious",
+    text: "Urgent faults push customers to call first instead of getting stuck in a slow quote flow.",
+  },
+  {
+    title: "Photos help quote requests",
+    text: "Customers are prompted to send the switchboard, defect notice or damaged fitting when helpful.",
+  },
+  {
+    title: "Service pages match search intent",
+    text: "Emergency, Level 2, switchboard, fault finding, power, lighting and suburb pages are linked clearly.",
   },
 ];
 
@@ -363,6 +383,13 @@ export default function HomePage() {
         </div>
       </section>
 
+      <QuoteRequestPanel
+        eyebrow="Conversion ready"
+        title="Quote requests that give enough detail to act fast."
+        description="The strongest competitors make the next step feel simple. Evaready customers can call immediately for unsafe faults or send a structured quote request with suburb, urgency, service type and photos."
+        quoteLabel="Send Quote Details"
+      />
+
       <section className="bg-slate-100 py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
           <div>
@@ -409,6 +436,39 @@ export default function HomePage() {
                 </article>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+            <div>
+              <p className="text-sm font-black uppercase text-blue-700">
+                Trust signals
+              </p>
+              <h2 className="mt-3 text-4xl font-black leading-tight sm:text-5xl">
+                Proof customers can verify before they call.
+              </h2>
+              <p className="mt-5 text-lg leading-8 text-slate-700">
+                Customers need practical proof before they call. Evaready puts
+                verifiable business details, clear emergency actions and
+                specific electrical expertise in the path before the quote
+                request.
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {trustSignals.map((item) => (
+                <article
+                  key={item.title}
+                  className="rounded-lg border border-slate-200 bg-slate-50 p-6"
+                >
+                  <BadgeCheck className="h-7 w-7 text-blue-700" />
+                  <h3 className="mt-5 text-xl font-black">{item.title}</h3>
+                  <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>

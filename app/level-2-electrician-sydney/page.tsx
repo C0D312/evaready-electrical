@@ -14,6 +14,7 @@ import {
   ShieldCheck,
   Zap,
 } from "lucide-react";
+import { QuoteRequestPanel } from "@/components/quote-request-panel";
 import { SiteHeader } from "@/components/site-frame";
 import { assetPath } from "@/data/site";
 
@@ -49,6 +50,9 @@ const level2Services = [
   "Main switch and service protection upgrades",
   "Private pole related electrical work",
   "Urgent supply fault investigation",
+  "Disconnect and reconnect planning",
+  "Three-phase upgrade discussions",
+  "EV charger load upgrade checks",
 ];
 
 const whenYouNeedLevel2 = [
@@ -58,6 +62,43 @@ const whenYouNeedLevel2 = [
   "You are renovating, rebuilding or upgrading your property",
   "Your overhead or underground supply needs work",
   "You need metering or service-related electrical work",
+];
+
+const authorityTopics = [
+  {
+    title: "Network requirements",
+    text: "If a job involves Ausgrid or Endeavour Energy supply requirements, it should be scoped through the correct Level 2 process for that network area.",
+  },
+  {
+    title: "Defect notices",
+    text: "A defect notice may involve consumer mains, point of attachment, private poles, service fuses, metering or switchboard issues that need prompt attention.",
+  },
+  {
+    title: "Supply upgrades",
+    text: "Renovations, EV chargers, larger appliances and three-phase enquiries can all trigger a need to review the property supply and switchboard capacity.",
+  },
+  {
+    title: "Overhead and underground services",
+    text: "Service lines, point of attachment issues and underground supply problems need careful inspection, planning and safe isolation where required.",
+  },
+];
+
+const level2Faqs = [
+  {
+    question: "What is Level 2 electrical work?",
+    answer:
+      "Level 2 electrical work generally involves service equipment, consumer mains, metering, overhead or underground supply work, defect notices and connection-related electrical tasks.",
+  },
+  {
+    question: "What should I send with a defect notice enquiry?",
+    answer:
+      "Send a clear photo of the defect notice, the switchboard, any point of attachment or private pole, your suburb and the deadline listed on the notice.",
+  },
+  {
+    question: "Can Level 2 work be needed for EV chargers?",
+    answer:
+      "Sometimes. EV chargers can require switchboard, load or supply upgrades, so the existing service and consumer mains may need to be assessed.",
+  },
 ];
 
 const process = [
@@ -110,12 +151,28 @@ export default function Level2ElectricianSydneyPage() {
       },
     ],
   };
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: level2Faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
 
   return (
     <main className="min-h-screen bg-white text-slate-950">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <SiteHeader />
@@ -280,6 +337,13 @@ export default function Level2ElectricianSydneyPage() {
         </div>
       </section>
 
+      <QuoteRequestPanel
+        eyebrow="Level 2 quote details"
+        title="Send the documents and photos that make Level 2 work easier to scope."
+        description="For defect notices, consumer mains, private poles, point of attachment issues or service upgrades, include photos, the suburb, deadline, switchboard details and any notice from the supply authority."
+        quoteLabel="Request Level 2 Quote"
+      />
+
       {/* When you need Level 2 */}
       <section className="bg-white py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
@@ -308,6 +372,30 @@ export default function Level2ElectricianSydneyPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-50 py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+            Level 2 authority
+          </p>
+          <h2 className="mt-3 max-w-4xl text-4xl font-black tracking-tight sm:text-5xl">
+            Supply-side work needs more than general electrical knowledge.
+          </h2>
+
+          <div className="mt-10 grid gap-5 md:grid-cols-2">
+            {authorityTopics.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-lg border border-slate-200 bg-white p-6"
+              >
+                <Bolt className="h-7 w-7 text-blue-700" />
+                <h3 className="mt-5 text-2xl font-black">{item.title}</h3>
+                <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -345,6 +433,31 @@ export default function Level2ElectricianSydneyPage() {
               </div>
             );
           })}
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
+              Level 2 FAQ
+            </p>
+            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+              Common Level 2 questions.
+            </h2>
+          </div>
+
+          <div className="grid gap-4">
+            {level2Faqs.map((faq) => (
+              <article
+                key={faq.question}
+                className="rounded-lg border border-slate-200 bg-slate-50 p-6"
+              >
+                <h3 className="text-xl font-black">{faq.question}</h3>
+                <p className="mt-3 leading-7 text-slate-600">{faq.answer}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

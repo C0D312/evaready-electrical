@@ -10,6 +10,7 @@ import {
   Phone,
   ShieldCheck,
 } from "lucide-react";
+import { QuoteRequestPanel } from "@/components/quote-request-panel";
 import { SiteHeader } from "@/components/site-frame";
 import { assetPath } from "@/data/site";
 
@@ -77,6 +78,31 @@ const process = [
   },
 ];
 
+const upgradeOutcomes = [
+  "Modern safety switch and RCBO protection where suitable",
+  "Clearer circuit labelling for easier fault finding",
+  "Reduced risk from old ceramic fuses and damaged fittings",
+  "Better preparation for renovations, EV chargers and added circuits",
+];
+
+const switchboardFaqs = [
+  {
+    question: "Do ceramic fuses need to be replaced?",
+    answer:
+      "Older ceramic fuse boards should be inspected because they may not provide the same level of modern circuit protection expected in upgraded switchboards.",
+  },
+  {
+    question: "Why does my switchboard keep tripping?",
+    answer:
+      "Repeated tripping can come from a circuit fault, appliance issue, water ingress, overloaded circuit or damaged wiring. The cause should be tested before parts are replaced.",
+  },
+  {
+    question: "Can a switchboard upgrade help with EV chargers or renovations?",
+    answer:
+      "Often yes. New loads may require circuit, protection or supply capacity checks before the property is ready for the extra demand.",
+  },
+];
+
 export default function SwitchboardUpgradesSydneyPage() {
   const schema = {
     "@context": "https://schema.org",
@@ -107,12 +133,28 @@ export default function SwitchboardUpgradesSydneyPage() {
       },
     ],
   };
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: switchboardFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
 
   return (
     <main className="min-h-screen bg-white text-slate-950">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <SiteHeader />
@@ -278,6 +320,13 @@ export default function SwitchboardUpgradesSydneyPage() {
         </div>
       </section>
 
+      <QuoteRequestPanel
+        eyebrow="Switchboard quote details"
+        title="A better switchboard quote starts with the right photos."
+        description="Send the switchboard photo, any tripping issue, defect notice, renovation plan or new load such as an EV charger so the upgrade can be scoped properly."
+        quoteLabel="Request Switchboard Quote"
+      />
+
       {/* Warning signs */}
       <section className="bg-white py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
@@ -309,6 +358,35 @@ export default function SwitchboardUpgradesSydneyPage() {
         </div>
       </section>
 
+      <section className="bg-slate-50 py-20">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+              Upgrade outcomes
+            </p>
+            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+              What a proper switchboard upgrade should improve.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">
+              A switchboard upgrade should make the electrical system safer,
+              easier to understand and better prepared for modern loads.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {upgradeOutcomes.map((item) => (
+              <div
+                key={item}
+                className="flex gap-3 rounded-lg border border-slate-200 bg-white p-5"
+              >
+                <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-blue-700" />
+                <p className="font-semibold leading-7 text-slate-800">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Process */}
       <section className="bg-[#020617] py-24 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -333,6 +411,31 @@ export default function SwitchboardUpgradesSydneyPage() {
                 <h3 className="mt-6 text-xl font-black">{step.title}</h3>
                 <p className="mt-3 leading-7 text-slate-300">{step.text}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
+              Switchboard FAQ
+            </p>
+            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+              Common switchboard questions.
+            </h2>
+          </div>
+
+          <div className="grid gap-4">
+            {switchboardFaqs.map((faq) => (
+              <article
+                key={faq.question}
+                className="rounded-lg border border-slate-200 bg-slate-50 p-6"
+              >
+                <h3 className="text-xl font-black">{faq.question}</h3>
+                <p className="mt-3 leading-7 text-slate-600">{faq.answer}</p>
+              </article>
             ))}
           </div>
         </div>
