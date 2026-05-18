@@ -1,4 +1,8 @@
 import type { MetadataRoute } from "next";
+import {
+  coverageRegions,
+  coverageSearchItems,
+} from "@/data/service-area-coverage";
 import { business } from "@/data/site";
 
 export const dynamic = "force-static";
@@ -14,8 +18,22 @@ const routes = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
+  const regionRoutes = coverageRegions.map((region) => ({
+    path: `/service-areas/${region.slug}`,
+    priority: 0.82,
+  }));
+  const areaRoutes = coverageRegions.flatMap((region) =>
+    region.areas.map((area) => ({
+      path: `/service-areas/${region.slug}/${area.slug}`,
+      priority: 0.78,
+    })),
+  );
+  const suburbRoutes = coverageSearchItems.map((item) => ({
+    path: item.href,
+    priority: 0.72,
+  }));
 
-  return routes.map((route) => ({
+  return [...routes, ...regionRoutes, ...areaRoutes, ...suburbRoutes].map((route) => ({
     url: `${business.siteUrl}${route.path}`,
     lastModified,
     changeFrequency: "weekly",
