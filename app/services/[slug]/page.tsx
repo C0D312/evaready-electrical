@@ -20,14 +20,25 @@ import { business } from "@/data/site";
 
 export const dynamicParams = false;
 
-const staticRelatedServices: Record<string, string> = {
-  "switchboard-upgrades-sydney": "Switchboard Upgrades Sydney",
+const staticRelatedServices: Record<string, { href: string; label: string }> = {
+  "emergency-electrician-sydney": {
+    href: "/emergency-electrician-sydney",
+    label: "Emergency Electrician Sydney",
+  },
+  "level-2-electrician-sydney": {
+    href: "/level-2-electrician-sydney",
+    label: "Level 2 Electrician Sydney",
+  },
+  "switchboard-upgrades-sydney": {
+    href: "/services/switchboard-upgrades-sydney",
+    label: "Switchboard Upgrades Sydney",
+  },
 };
 
 function serviceLabel(slug: string) {
   return (
     getServiceLandingPage(slug)?.title ??
-    staticRelatedServices[slug] ??
+    staticRelatedServices[slug]?.label ??
     slug
       .split("-")
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -36,7 +47,7 @@ function serviceLabel(slug: string) {
 }
 
 function serviceHref(slug: string) {
-  return `/services/${slug}`;
+  return staticRelatedServices[slug]?.href ?? `/services/${slug}`;
 }
 
 export function generateStaticParams() {
@@ -55,7 +66,7 @@ export async function generateMetadata({
 
   if (!service) {
     return {
-      title: "Electrical Services Sydney",
+      title: "Electrical Services Greater Sydney",
     };
   }
 
@@ -92,7 +103,7 @@ export default async function ServiceLandingPage({
     name: service.title,
     description: service.metaDescription,
     serviceType: service.title,
-    areaServed: "Sydney, NSW",
+    areaServed: business.serviceArea,
     url: `${business.siteUrl}/services/${service.slug}`,
     provider: {
       "@type": "Electrician",
@@ -150,7 +161,7 @@ export default async function ServiceLandingPage({
           <div>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-blue-200">
               <ShieldCheck className="h-4 w-4" />
-              Sydney Electrical Service
+              Electrical service
             </div>
 
             <h1 className="max-w-5xl text-4xl font-black tracking-tight sm:text-6xl lg:text-7xl">
@@ -214,7 +225,7 @@ export default async function ServiceLandingPage({
             `NSW Licence ${business.licence}`,
             "24/7 urgent help",
             "Residential and commercial",
-            "Clear quote requests",
+            "Clear job details",
           ].map((item) => (
             <div key={item} className="flex items-center gap-3">
               <BadgeCheck className="h-5 w-5 shrink-0 text-blue-600" />
@@ -265,7 +276,7 @@ export default async function ServiceLandingPage({
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
               Electrical issues can look minor before they become expensive or
-              unsafe. These are signs worth checking properly.
+                unsafe. These are signs worth checking carefully.
             </p>
           </div>
 
@@ -424,7 +435,7 @@ export default async function ServiceLandingPage({
               Need {service.title.toLowerCase()}?
             </p>
             <h2 className="mt-3 max-w-3xl text-4xl font-black leading-tight sm:text-5xl">
-              Call Evaready Electrical or send a clear quote request.
+              Call Evaready Electrical or send your job details online.
             </h2>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">

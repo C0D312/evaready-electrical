@@ -230,7 +230,7 @@ export default function SwitchboardUpgradesSydneyPage() {
           {/* Quote card */}
           <div className="rounded-[2rem] border border-white/15 bg-white/10 p-6 shadow-2xl backdrop-blur-xl">
             <p className="text-sm font-black uppercase tracking-[0.2em] text-red-300">
-              Switchboard quote request
+              Switchboard electrical help
             </p>
 
             <h2 className="mt-3 text-3xl font-black">
@@ -275,7 +275,7 @@ export default function SwitchboardUpgradesSydneyPage() {
             `NSW Licence ${business.licence}`,
             "Safety switch upgrades",
             "RCBO protection",
-            "Multi-region coverage",
+            "Service across key regions",
           ].map((item) => (
             <div key={item} className="flex items-center gap-3">
               <CheckCircle2 className="h-6 w-6 shrink-0 text-blue-600" />
@@ -321,7 +321,7 @@ export default function SwitchboardUpgradesSydneyPage() {
       <QuoteRequestPanel
         eyebrow="Switchboard quote details"
         title="A better switchboard quote starts with the right photos."
-        description="Send the switchboard photo, any tripping issue, defect notice, renovation plan or new load such as an EV charger so the upgrade can be scoped properly."
+        description="Send the switchboard photo, any tripping issue, defect notice, renovation plan or new load such as an EV charger so the upgrade can be assessed clearly."
         quoteLabel="Request Switchboard Quote"
       />
 

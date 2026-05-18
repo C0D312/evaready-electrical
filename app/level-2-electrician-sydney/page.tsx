@@ -194,7 +194,7 @@ export default function Level2ElectricianSydneyPage() {
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">
               Licensed electrical support for consumer mains, defect notices,
               service equipment, metering, overhead and underground electrical
-              work across Greater Sydney and nearby regions.
+              work across Greater Sydney and surrounding regions.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -220,7 +220,7 @@ export default function Level2ElectricianSydneyPage() {
             <div className="mt-10 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
               <div className="rounded-2xl border border-white/10 bg-white/10 p-4">
                 <Clock3 className="h-6 w-6 text-blue-300" />
-                <p className="mt-3 text-xl font-black">Fast Quote</p>
+                <p className="mt-3 text-xl font-black">Clear details</p>
                 <p className="mt-1 text-sm text-slate-300">
                   Request a quote online.
                 </p>
@@ -247,7 +247,7 @@ export default function Level2ElectricianSydneyPage() {
           {/* Quote card */}
           <div className="rounded-[2rem] border border-white/15 bg-white/10 p-6 shadow-2xl backdrop-blur-xl">
             <p className="text-sm font-black uppercase tracking-[0.2em] text-red-300">
-              Level 2 quote request
+              Level 2 electrical help
             </p>
 
             <h2 className="mt-3 text-3xl font-black">
@@ -292,7 +292,7 @@ export default function Level2ElectricianSydneyPage() {
             `NSW Licence ${business.licence}`,
             "Consumer mains",
             "Defect rectification",
-            "Multi-region coverage",
+            "Service across key regions",
           ].map((item) => (
             <div key={item} className="flex items-center gap-3">
               <CheckCircle2 className="h-6 w-6 shrink-0 text-blue-600" />

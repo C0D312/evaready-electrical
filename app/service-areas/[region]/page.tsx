@@ -64,8 +64,8 @@ export default async function RegionPage({ params }: RegionPageProps) {
         title={`${region.name} Electrician Service Areas`}
       >
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
-          {region.description} Browse the areas below to find suburb-specific
-          information for emergency call-outs, quote requests, switchboard work,
+          {region.description} Browse the areas below to find local electrical
+          information for emergency call-outs, planned work, switchboard work,
           lighting, power points and Level 2 electrical enquiries.
         </p>
         <p className="mt-4 max-w-3xl text-base font-semibold leading-7 text-blue-100">
@@ -82,7 +82,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
           <div className="rounded-lg border border-white/15 bg-white/10 p-4">
             <p className="text-3xl font-black">{suburbCount}</p>
             <p className="mt-1 text-sm font-semibold text-slate-300">
-              Suburb pages
+              Suburbs covered
             </p>
           </div>
         </div>
@@ -94,7 +94,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
             `Licensed electrician ${business.licence}`,
             "Emergency and planned work",
             "Residential and commercial",
-            "Online quote requests",
+            "Online job details",
           ].map((item) => (
             <div key={item} className="flex items-center gap-3">
               <CheckCircle2 className="h-6 w-6 shrink-0 text-blue-600" />

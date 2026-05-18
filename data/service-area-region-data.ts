@@ -4,13 +4,13 @@ export const generatedCoverageRegions = [
   {
     "name": "Canterbury-Bankstown & Inner South West",
     "slug": "canterbury-bankstown-and-inner-south-west",
-    "description": "Core local coverage around Panania, Revesby, Padstow, Bankstown and the Inner South West corridor.",
+    "description": "Local electrical service around Panania, Revesby, Padstow, Bankstown and the Inner South West corridor.",
     "travelNote": "Priority local response area for urgent faults and everyday electrical work.",
     "areas": [
       {
         "name": "Canterbury-Bankstown",
         "slug": "canterbury-bankstown",
-        "description": "Electrical service coverage for Canterbury-Bankstown, including Bankstown, Bass Hill, Belfield, Belmore and nearby suburbs in Canterbury-Bankstown & Inner South West.",
+        "description": "Electrical service for Canterbury-Bankstown, including Bankstown, Bass Hill, Belfield, Belmore and nearby suburbs in Canterbury-Bankstown & Inner South West.",
         "suburbs": [
           {
             "name": "Bankstown",
@@ -194,13 +194,13 @@ export const generatedCoverageRegions = [
   {
     "name": "St George & Bayside",
     "slug": "st-george-and-bayside",
-    "description": "Electrical service coverage across St George, Bayside, Hurstville, Kogarah, Rockdale, Bexley and the airport corridor.",
+    "description": "Electrical service across St George, Bayside, Hurstville, Kogarah, Rockdale, Bexley and the airport corridor.",
     "travelNote": "Regular service area for residential, commercial, strata and urgent electrical work.",
     "areas": [
       {
         "name": "Bayside & Airport",
         "slug": "bayside-and-airport",
-        "description": "Electrical service coverage for Bayside & Airport, including Banksmeadow, Botany, Daceyville, Eastgardens and nearby suburbs in St George & Bayside.",
+        "description": "Electrical service for Bayside & Airport, including Banksmeadow, Botany, Daceyville, Eastgardens and nearby suburbs in St George & Bayside.",
         "suburbs": [
           {
             "name": "Banksmeadow",
@@ -252,7 +252,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Georges River",
         "slug": "georges-river",
-        "description": "Electrical service coverage for Georges River, including Allawah, Beverley Park, Blakehurst, Carlton and nearby suburbs in St George & Bayside.",
+        "description": "Electrical service for Georges River, including Allawah, Beverley Park, Blakehurst, Carlton and nearby suburbs in St George & Bayside.",
         "suburbs": [
           {
             "name": "Allawah",
@@ -359,7 +359,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Rockdale & Bexley",
         "slug": "rockdale-and-bexley",
-        "description": "Electrical service coverage for Rockdale & Bexley, including Arncliffe, Banksia, Bardwell Park, Bardwell Valley and nearby suburbs in St George & Bayside.",
+        "description": "Electrical service for Rockdale & Bexley, including Arncliffe, Banksia, Bardwell Park, Bardwell Valley and nearby suburbs in St George & Bayside.",
         "suburbs": [
           {
             "name": "Arncliffe",
@@ -443,13 +443,13 @@ export const generatedCoverageRegions = [
   {
     "name": "Sutherland Shire",
     "slug": "sutherland-shire",
-    "description": "Service coverage for Sutherland, Miranda, Cronulla, Menai, Engadine and surrounding Shire suburbs.",
+    "description": "Electrical service for Sutherland, Miranda, Cronulla, Menai, Engadine and surrounding Shire suburbs.",
     "travelNote": "Electrical help for Shire homes, units, shops, strata and commercial sites.",
     "areas": [
       {
         "name": "Sutherland Shire",
         "slug": "sutherland-shire",
-        "description": "Electrical service coverage for Sutherland Shire, including Alfords Point, Bangor, Barden Ridge, Bonnet Bay and nearby suburbs in Sutherland Shire.",
+        "description": "Electrical service for Sutherland Shire, including Alfords Point, Bangor, Barden Ridge, Bonnet Bay and nearby suburbs in Sutherland Shire.",
         "suburbs": [
           {
             "name": "Alfords Point",
@@ -668,13 +668,13 @@ export const generatedCoverageRegions = [
   {
     "name": "Liverpool & Fairfield",
     "slug": "liverpool-and-fairfield",
-    "description": "South west coverage for Liverpool, Moorebank, Fairfield, Cabramatta, Wetherill Park and nearby suburbs.",
-    "travelNote": "Strong coverage for urgent faults, switchboard upgrades and planned electrical work.",
+    "description": "South west electrical service for Liverpool, Moorebank, Fairfield, Cabramatta, Wetherill Park and nearby suburbs.",
+    "travelNote": "Strong local support for urgent faults, switchboard upgrades and planned electrical work.",
     "areas": [
       {
         "name": "Fairfield",
         "slug": "fairfield",
-        "description": "Electrical service coverage for Fairfield, including Abbotsbury, Bonnyrigg, Bonnyrigg Heights, Bossley Park and nearby suburbs in Liverpool & Fairfield.",
+        "description": "Electrical service for Fairfield, including Abbotsbury, Bonnyrigg, Bonnyrigg Heights, Bossley Park and nearby suburbs in Liverpool & Fairfield.",
         "suburbs": [
           {
             "name": "Abbotsbury",
@@ -811,7 +811,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Liverpool",
         "slug": "liverpool",
-        "description": "Electrical service coverage for Liverpool, including Ashcroft, Austral, Badgerys Creek, Busby and nearby suburbs in Liverpool & Fairfield.",
+        "description": "Electrical service for Liverpool, including Ashcroft, Austral, Badgerys Creek, Busby and nearby suburbs in Liverpool & Fairfield.",
         "suburbs": [
           {
             "name": "Ashcroft",
@@ -985,13 +985,13 @@ export const generatedCoverageRegions = [
   {
     "name": "Macarthur, Camden & Wollondilly",
     "slug": "macarthur-camden-and-wollondilly",
-    "description": "Electrical coverage for Campbelltown, Camden, Oran Park, Wollondilly and the growing south west corridor.",
+    "description": "Electrical service for Campbelltown, Camden, Oran Park, Wollondilly and the growing south west corridor.",
     "travelNote": "Electrical service availability depends on urgency, access, job type and scheduling.",
     "areas": [
       {
         "name": "Camden",
         "slug": "camden",
-        "description": "Electrical service coverage for Camden, including Bringelly, Camden, Camden South, Catherine Field and nearby suburbs in Macarthur, Camden & Wollondilly.",
+        "description": "Electrical service for Camden, including Bringelly, Camden, Camden South, Catherine Field and nearby suburbs in Macarthur, Camden & Wollondilly.",
         "suburbs": [
           {
             "name": "Bringelly",
@@ -1108,7 +1108,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Campbelltown",
         "slug": "campbelltown",
-        "description": "Electrical service coverage for Campbelltown, including Airds, Ambarvale, Bardia, Blair Athol and nearby suburbs in Macarthur, Camden & Wollondilly.",
+        "description": "Electrical service for Campbelltown, including Airds, Ambarvale, Bardia, Blair Athol and nearby suburbs in Macarthur, Camden & Wollondilly.",
         "suburbs": [
           {
             "name": "Airds",
@@ -1295,7 +1295,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Wollondilly",
         "slug": "wollondilly",
-        "description": "Electrical service coverage for Wollondilly, including Appin, Belimbla Park, Brownlow Hill, Camden Park and nearby suburbs in Macarthur, Camden & Wollondilly.",
+        "description": "Electrical service for Wollondilly, including Appin, Belimbla Park, Brownlow Hill, Camden Park and nearby suburbs in Macarthur, Camden & Wollondilly.",
         "suburbs": [
           {
             "name": "Appin",
@@ -1450,7 +1450,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Burwood",
         "slug": "burwood",
-        "description": "Electrical service coverage for Burwood, including Burwood, Burwood Heights, Enfield, Strathfield and nearby suburbs in Inner West, Burwood & Canada Bay.",
+        "description": "Electrical service for Burwood, including Burwood, Burwood Heights, Enfield, Strathfield and nearby suburbs in Inner West, Burwood & Canada Bay.",
         "suburbs": [
           {
             "name": "Burwood",
@@ -1477,7 +1477,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Canada Bay",
         "slug": "canada-bay",
-        "description": "Electrical service coverage for Canada Bay, including Abbotsford, Breakfast Point, Cabarita, Canada Bay and nearby suburbs in Inner West, Burwood & Canada Bay.",
+        "description": "Electrical service for Canada Bay, including Abbotsford, Breakfast Point, Cabarita, Canada Bay and nearby suburbs in Inner West, Burwood & Canada Bay.",
         "suburbs": [
           {
             "name": "Abbotsford",
@@ -1564,7 +1564,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Inner West",
         "slug": "inner-west",
-        "description": "Electrical service coverage for Inner West, including Annandale, Ashbury, Ashfield, Balmain and nearby suburbs in Inner West, Burwood & Canada Bay.",
+        "description": "Electrical service for Inner West, including Annandale, Ashbury, Ashfield, Balmain and nearby suburbs in Inner West, Burwood & Canada Bay.",
         "suburbs": [
           {
             "name": "Annandale",
@@ -1696,7 +1696,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Strathfield",
         "slug": "strathfield",
-        "description": "Electrical service coverage for Strathfield, including Homebush, Homebush West, Strathfield South and nearby suburbs in Inner West, Burwood & Canada Bay.",
+        "description": "Electrical service for Strathfield, including Homebush, Homebush West, Strathfield South and nearby suburbs in Inner West, Burwood & Canada Bay.",
         "suburbs": [
           {
             "name": "Homebush",
@@ -1720,13 +1720,13 @@ export const generatedCoverageRegions = [
   {
     "name": "Sydney City & Eastern Suburbs",
     "slug": "sydney-city-and-eastern-suburbs",
-    "description": "City, apartment, commercial, strata and eastern suburbs electrical service coverage.",
+    "description": "City, apartment, commercial, strata and eastern suburbs electrical service.",
     "travelNote": "City and eastern suburbs jobs are accepted based on urgency, parking access and scheduling.",
     "areas": [
       {
         "name": "Randwick",
         "slug": "randwick",
-        "description": "Electrical service coverage for Randwick, including Centennial Park, Chifley, Clovelly, Coogee and nearby suburbs in Sydney City & Eastern Suburbs.",
+        "description": "Electrical service for Randwick, including Centennial Park, Chifley, Clovelly, Coogee and nearby suburbs in Sydney City & Eastern Suburbs.",
         "suburbs": [
           {
             "name": "Centennial Park",
@@ -1803,7 +1803,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Sydney",
         "slug": "sydney",
-        "description": "Electrical service coverage for Sydney, including Alexandria, Barangaroo, Beaconsfield, Chippendale and nearby suburbs in Sydney City & Eastern Suburbs.",
+        "description": "Electrical service for Sydney, including Alexandria, Barangaroo, Beaconsfield, Chippendale and nearby suburbs in Sydney City & Eastern Suburbs.",
         "suburbs": [
           {
             "name": "Alexandria",
@@ -1945,7 +1945,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Waverley",
         "slug": "waverley",
-        "description": "Electrical service coverage for Waverley, including Bondi, Bondi Beach, Bondi Junction, Bronte and nearby suburbs in Sydney City & Eastern Suburbs.",
+        "description": "Electrical service for Waverley, including Bondi, Bondi Beach, Bondi Junction, Bronte and nearby suburbs in Sydney City & Eastern Suburbs.",
         "suburbs": [
           {
             "name": "Bondi",
@@ -2007,7 +2007,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Woollahra",
         "slug": "woollahra",
-        "description": "Electrical service coverage for Woollahra, including Bellevue Hill, Darling Point, Double Bay, Edgecliff and nearby suburbs in Sydney City & Eastern Suburbs.",
+        "description": "Electrical service for Woollahra, including Bellevue Hill, Darling Point, Double Bay, Edgecliff and nearby suburbs in Sydney City & Eastern Suburbs.",
         "suburbs": [
           {
             "name": "Bellevue Hill",
@@ -2051,13 +2051,13 @@ export const generatedCoverageRegions = [
   {
     "name": "Parramatta & Cumberland",
     "slug": "parramatta-and-cumberland",
-    "description": "Coverage for Parramatta, Cumberland, Auburn, Lidcombe, Merrylands, Granville and nearby western Sydney suburbs.",
+    "description": "Electrical service for Parramatta, Cumberland, Auburn, Lidcombe, Merrylands, Granville and nearby western Sydney suburbs.",
     "travelNote": "Electrical support for homes, businesses, strata, switchboards and urgent faults.",
     "areas": [
       {
         "name": "Cumberland",
         "slug": "cumberland",
-        "description": "Electrical service coverage for Cumberland, including Auburn, Berala, Girraween, Greystanes and nearby suburbs in Parramatta & Cumberland.",
+        "description": "Electrical service for Cumberland, including Auburn, Berala, Girraween, Greystanes and nearby suburbs in Parramatta & Cumberland.",
         "suburbs": [
           {
             "name": "Auburn",
@@ -2159,7 +2159,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Parramatta",
         "slug": "parramatta",
-        "description": "Electrical service coverage for Parramatta, including Carlingford, Clyde, Constitution Hill, Dundas and nearby suburbs in Parramatta & Cumberland.",
+        "description": "Electrical service for Parramatta, including Carlingford, Clyde, Constitution Hill, Dundas and nearby suburbs in Parramatta & Cumberland.",
         "suburbs": [
           {
             "name": "Carlingford",
@@ -2293,13 +2293,13 @@ export const generatedCoverageRegions = [
   {
     "name": "Western Sydney & Nepean",
     "slug": "western-sydney-and-nepean",
-    "description": "Electrical coverage for Blacktown, Mount Druitt, Rooty Hill, Penrith, St Marys and the Nepean corridor.",
+    "description": "Electrical service for Blacktown, Mount Druitt, Rooty Hill, Penrith, St Marys and the Nepean corridor.",
     "travelNote": "Service availability depends on job type, access and current schedule.",
     "areas": [
       {
         "name": "Blacktown",
         "slug": "blacktown",
-        "description": "Electrical service coverage for Blacktown, including Acacia Gardens, Arndell Park, Bidwill, Blackett and nearby suburbs in Western Sydney & Nepean.",
+        "description": "Electrical service for Blacktown, including Acacia Gardens, Arndell Park, Bidwill, Blackett and nearby suburbs in Western Sydney & Nepean.",
         "suburbs": [
           {
             "name": "Acacia Gardens",
@@ -2526,7 +2526,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Penrith",
         "slug": "penrith",
-        "description": "Electrical service coverage for Penrith, including Berkshire Park, Caddens, Cambridge Gardens, Cambridge Park and nearby suburbs in Western Sydney & Nepean.",
+        "description": "Electrical service for Penrith, including Berkshire Park, Caddens, Cambridge Gardens, Cambridge Park and nearby suburbs in Western Sydney & Nepean.",
         "suburbs": [
           {
             "name": "Berkshire Park",
@@ -2690,13 +2690,13 @@ export const generatedCoverageRegions = [
   {
     "name": "Hills, Hawkesbury & Hornsby",
     "slug": "hills-hawkesbury-and-hornsby",
-    "description": "Coverage for the Hills District, Hornsby, Dural, Galston, Windsor, Richmond and Hawkesbury-side suburbs.",
+    "description": "Electrical service for the Hills District, Hornsby, Dural, Galston, Windsor, Richmond and Hawkesbury-side suburbs.",
     "travelNote": "Electrical service availability depends on job type, urgency, access and scheduling.",
     "areas": [
       {
         "name": "Hawkesbury",
         "slug": "hawkesbury",
-        "description": "Electrical service coverage for Hawkesbury, including Agnes Banks, Blaxlands Ridge, Bligh Park, Bowen Mountain and nearby suburbs in Hills, Hawkesbury & Hornsby.",
+        "description": "Electrical service for Hawkesbury, including Agnes Banks, Blaxlands Ridge, Bligh Park, Bowen Mountain and nearby suburbs in Hills, Hawkesbury & Hornsby.",
         "suburbs": [
           {
             "name": "Agnes Banks",
@@ -2888,7 +2888,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Hills District",
         "slug": "hills-district",
-        "description": "Electrical service coverage for Hills District, including Annangrove, Baulkham Hills, Beaumont Hills, Bella Vista and nearby suburbs in Hills, Hawkesbury & Hornsby.",
+        "description": "Electrical service for Hills District, including Annangrove, Baulkham Hills, Beaumont Hills, Bella Vista and nearby suburbs in Hills, Hawkesbury & Hornsby.",
         "suburbs": [
           {
             "name": "Annangrove",
@@ -3010,7 +3010,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Hornsby",
         "slug": "hornsby",
-        "description": "Electrical service coverage for Hornsby, including Arcadia, Asquith, Beecroft, Berowra and nearby suburbs in Hills, Hawkesbury & Hornsby.",
+        "description": "Electrical service for Hornsby, including Arcadia, Asquith, Beecroft, Berowra and nearby suburbs in Hills, Hawkesbury & Hornsby.",
         "suburbs": [
           {
             "name": "Arcadia",
@@ -3164,13 +3164,13 @@ export const generatedCoverageRegions = [
   {
     "name": "Northern Sydney & Ryde",
     "slug": "northern-sydney-and-ryde",
-    "description": "Electrical coverage for Ryde, North Sydney, Lane Cove, Hunters Hill, Chatswood, Ku-ring-gai and the Lower North Shore.",
+    "description": "Electrical service for Ryde, North Sydney, Lane Cove, Hunters Hill, Chatswood, Ku-ring-gai and the Lower North Shore.",
     "travelNote": "Electrical help for homes, apartments, strata, commercial sites and larger works.",
     "areas": [
       {
         "name": "Hunters Hill",
         "slug": "hunters-hill",
-        "description": "Electrical service coverage for Hunters Hill, including Gladesville, Henley, Hunters Hill, Huntleys Cove and nearby suburbs in Northern Sydney & Ryde.",
+        "description": "Electrical service for Hunters Hill, including Gladesville, Henley, Hunters Hill, Huntleys Cove and nearby suburbs in Northern Sydney & Ryde.",
         "suburbs": [
           {
             "name": "Gladesville",
@@ -3207,7 +3207,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Ku-ring-gai",
         "slug": "ku-ring-gai",
-        "description": "Electrical service coverage for Ku-ring-gai, including East Killara, East Lindfield, Gordon, Killara and nearby suburbs in Northern Sydney & Ryde.",
+        "description": "Electrical service for Ku-ring-gai, including East Killara, East Lindfield, Gordon, Killara and nearby suburbs in Northern Sydney & Ryde.",
         "suburbs": [
           {
             "name": "East Killara",
@@ -3294,7 +3294,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Lane Cove",
         "slug": "lane-cove",
-        "description": "Electrical service coverage for Lane Cove, including Greenwich, Lane Cove, Lane Cove North, Lane Cove West and nearby suburbs in Northern Sydney & Ryde.",
+        "description": "Electrical service for Lane Cove, including Greenwich, Lane Cove, Lane Cove North, Lane Cove West and nearby suburbs in Northern Sydney & Ryde.",
         "suburbs": [
           {
             "name": "Greenwich",
@@ -3346,7 +3346,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Mosman",
         "slug": "mosman",
-        "description": "Electrical service coverage for Mosman, including Mosman and nearby suburbs in Northern Sydney & Ryde.",
+        "description": "Electrical service for Mosman, including Mosman and nearby suburbs in Northern Sydney & Ryde.",
         "suburbs": [
           {
             "name": "Mosman",
@@ -3358,7 +3358,7 @@ export const generatedCoverageRegions = [
       {
         "name": "North Sydney",
         "slug": "north-sydney",
-        "description": "Electrical service coverage for North Sydney, including Cammeray, Cremorne, Cremorne Point, Crows Nest and nearby suburbs in Northern Sydney & Ryde.",
+        "description": "Electrical service for North Sydney, including Cammeray, Cremorne, Cremorne Point, Crows Nest and nearby suburbs in Northern Sydney & Ryde.",
         "suburbs": [
           {
             "name": "Cammeray",
@@ -3430,7 +3430,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Ryde",
         "slug": "ryde",
-        "description": "Electrical service coverage for Ryde, including Chatswood West, Denistone, Denistone East, Denistone West and nearby suburbs in Northern Sydney & Ryde.",
+        "description": "Electrical service for Ryde, including Chatswood West, Denistone, Denistone East, Denistone West and nearby suburbs in Northern Sydney & Ryde.",
         "suburbs": [
           {
             "name": "Chatswood West",
@@ -3502,7 +3502,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Willoughby",
         "slug": "willoughby",
-        "description": "Electrical service coverage for Willoughby, including Artarmon, Castle Cove, Castlecrag, Chatswood and nearby suburbs in Northern Sydney & Ryde.",
+        "description": "Electrical service for Willoughby, including Artarmon, Castle Cove, Castlecrag, Chatswood and nearby suburbs in Northern Sydney & Ryde.",
         "suburbs": [
           {
             "name": "Artarmon",
@@ -3561,13 +3561,13 @@ export const generatedCoverageRegions = [
   {
     "name": "Northern Beaches",
     "slug": "northern-beaches",
-    "description": "Electrical coverage for Manly, Balgowlah, Dee Why, Brookvale, Narrabeen and Northern Beaches suburbs within the service area.",
+    "description": "Electrical service for Manly, Balgowlah, Dee Why, Brookvale, Narrabeen and Northern Beaches suburbs within the service area.",
     "travelNote": "Service availability depends on job type, urgency, access and scheduling.",
     "areas": [
       {
         "name": "Northern Beaches",
         "slug": "northern-beaches",
-        "description": "Electrical service coverage for Northern Beaches, including Allambie Heights, Avalon Beach, Balgowlah, Balgowlah Heights and nearby suburbs in Northern Beaches.",
+        "description": "Electrical service for Northern Beaches, including Allambie Heights, Avalon Beach, Balgowlah, Balgowlah Heights and nearby suburbs in Northern Beaches.",
         "suburbs": [
           {
             "name": "Allambie Heights",
@@ -3841,13 +3841,13 @@ export const generatedCoverageRegions = [
   {
     "name": "Blue Mountains",
     "slug": "blue-mountains",
-    "description": "Selected electrical coverage for Lower and Mid Blue Mountains suburbs including Lapstone, Glenbrook, Blaxland and Springwood.",
+    "description": "Selected electrical service for Lower and Mid Blue Mountains suburbs including Lapstone, Glenbrook, Blaxland and Springwood.",
     "travelNote": "Blue Mountains work may suit larger jobs, urgent faults or scheduled service days.",
     "areas": [
       {
         "name": "Blue Mountains",
         "slug": "blue-mountains",
-        "description": "Electrical service coverage for Blue Mountains, including Berambing, Blaxland, Bullaburra, Faulconbridge and nearby suburbs in Blue Mountains.",
+        "description": "Electrical service for Blue Mountains, including Berambing, Blaxland, Bullaburra, Faulconbridge and nearby suburbs in Blue Mountains.",
         "suburbs": [
           {
             "name": "Berambing",
@@ -3956,13 +3956,13 @@ export const generatedCoverageRegions = [
   {
     "name": "Wollongong & Illawarra",
     "slug": "wollongong-and-illawarra",
-    "description": "Electrical coverage for Wollongong, northern Illawarra, Port Kembla, Dapto, Shellharbour and selected Kiama-side suburbs.",
+    "description": "Electrical service for Wollongong, northern Illawarra, Port Kembla, Dapto, Shellharbour and selected Kiama-side suburbs.",
     "travelNote": "Illawarra jobs are best assessed with suburb, access details, photos and the type of electrical work required.",
     "areas": [
       {
         "name": "Minnamurra & Kiama Downs",
         "slug": "minnamurra-and-kiama-downs",
-        "description": "Electrical service coverage for Bombo, Croom, Kiama Downs, Minnamurra and nearby northern Kiama-side suburbs in Wollongong & Illawarra.",
+        "description": "Electrical service for Bombo, Croom, Kiama Downs, Minnamurra and nearby northern Kiama-side suburbs in Wollongong & Illawarra.",
         "suburbs": [
           {
             "name": "Bombo",
@@ -3989,7 +3989,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Shellharbour",
         "slug": "shellharbour",
-        "description": "Electrical service coverage for Shellharbour, including Albion Park, Albion Park Rail, Barrack Heights, Barrack Point and nearby suburbs in Wollongong & Illawarra.",
+        "description": "Electrical service for Shellharbour, including Albion Park, Albion Park Rail, Barrack Heights, Barrack Point and nearby suburbs in Wollongong & Illawarra.",
         "suburbs": [
           {
             "name": "Albion Park",
@@ -4081,7 +4081,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Wollongong",
         "slug": "wollongong",
-        "description": "Electrical service coverage for Wollongong, including Austinmer, Avondale, Balgownie, Bellambi and nearby suburbs in Wollongong & Illawarra.",
+        "description": "Electrical service for Wollongong, including Austinmer, Avondale, Balgownie, Bellambi and nearby suburbs in Wollongong & Illawarra.",
         "suburbs": [
           {
             "name": "Austinmer",
@@ -4405,13 +4405,13 @@ export const generatedCoverageRegions = [
   {
     "name": "Southern Highlands",
     "slug": "southern-highlands",
-    "description": "Selected electrical coverage for Mittagong, Bowral, Moss Vale and Southern Highlands suburbs inside the service area.",
+    "description": "Selected electrical service for Mittagong, Bowral, Moss Vale and Southern Highlands suburbs inside the service area.",
     "travelNote": "Southern Highlands jobs are accepted based on urgency, access, job type and scheduling.",
     "areas": [
       {
         "name": "Wingecarribee",
         "slug": "wingecarribee",
-        "description": "Electrical service coverage for Wingecarribee, including Alpine, Avoca, Aylmerton, Balaclava and nearby suburbs in Southern Highlands.",
+        "description": "Electrical service for Wingecarribee, including Alpine, Avoca, Aylmerton, Balaclava and nearby suburbs in Southern Highlands.",
         "suburbs": [
           {
             "name": "Alpine",
@@ -4560,13 +4560,13 @@ export const generatedCoverageRegions = [
   {
     "name": "Central Coast South",
     "slug": "central-coast-south",
-    "description": "Selected electrical coverage for southern Central Coast suburbs, Hawkesbury River communities, Gosford, Woy Woy and nearby areas.",
+    "description": "Selected electrical service for southern Central Coast suburbs, Hawkesbury River communities, Gosford, Woy Woy and nearby areas.",
     "travelNote": "Central Coast South jobs are assessed by suburb, access, urgency and the electrical work required.",
     "areas": [
       {
         "name": "Central Coast",
         "slug": "central-coast",
-        "description": "Electrical service coverage for Central Coast, including Alison, Bar Point, Calga, Central Mangrove and nearby suburbs in Central Coast South.",
+        "description": "Electrical service for Central Coast, including Alison, Bar Point, Calga, Central Mangrove and nearby suburbs in Central Coast South.",
         "suburbs": [
           {
             "name": "Alison",

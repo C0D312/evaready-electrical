@@ -3,7 +3,7 @@ import {
   FileText,
   Phone,
 } from "lucide-react";
-import { business } from "@/data/site";
+import { business, quoteServiceOptions } from "@/data/site";
 
 type QuoteRequestPanelProps = {
   description: string;
@@ -14,7 +14,7 @@ type QuoteRequestPanelProps = {
 
 export function QuoteRequestPanel({
   description,
-  eyebrow = "Fast quote request",
+  eyebrow = "Request electrical help",
   quoteLabel = "Request Quote",
   title,
 }: QuoteRequestPanelProps) {
@@ -55,23 +55,48 @@ export function QuoteRequestPanel({
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.2em] text-cyan-200">
-                Quote request
+                Need a quote?
               </p>
               <h3 className="mt-2 text-2xl font-black">
-                Tell us what needs doing.
+                We&rsquo;re Evaready to assist.
               </h3>
               <p className="mt-3 max-w-2xl text-sm font-semibold leading-6 text-slate-300">
-                Add your contact details, job address, description and photos so
-                the work can be assessed faster.
+                Tell us what is happening, where you are and how urgent it is.
+                We will guide you through the next step.
               </p>
             </div>
             <FileText className="h-8 w-8 shrink-0 text-red-400" />
           </div>
 
+          <details className="group relative mt-6 text-white">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-lg border border-cyan-300/25 bg-white/10 px-4 py-4 font-black transition hover:bg-white/15">
+              <span>Open full service list</span>
+              <span className="rounded-full bg-cyan-300 px-3 py-1 text-xs font-black text-slate-950">
+                {quoteServiceOptions.length} services
+              </span>
+            </summary>
+            <div className="absolute left-0 right-0 z-20 mt-2 max-h-80 overflow-y-auto rounded-lg border border-cyan-300/25 bg-slate-950 p-4 shadow-2xl shadow-slate-950/45">
+              <p className="mb-3 text-sm font-semibold leading-6 text-slate-300">
+                Select the closest service in the form, or choose Other and add
+                a short description if your job is not listed.
+              </p>
+              <div className="grid gap-2 sm:grid-cols-2">
+                {quoteServiceOptions.map((service) => (
+                  <div
+                    key={service}
+                    className="rounded-lg border border-white/10 bg-slate-900/80 px-3 py-2 text-sm font-semibold text-slate-100"
+                  >
+                    {service}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </details>
+
           <div className="mt-6 overflow-hidden rounded-lg border border-white/10 bg-white">
             <iframe
               src={business.bookingUrl}
-              title="Evaready Electrical quote request form"
+              title="Evaready Electrical quote form"
               className="h-[820px] w-full bg-white sm:h-[880px]"
               loading="lazy"
             />

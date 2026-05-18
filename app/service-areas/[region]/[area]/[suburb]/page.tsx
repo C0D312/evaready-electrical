@@ -119,7 +119,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
       answer: copy.faqAnswers.level2,
     },
     {
-      question: `What should I include in a quote request for ${suburb.name}?`,
+      question: `What details should I send for electrical work in ${suburb.name}?`,
       answer: copy.faqAnswers.quote,
     },
   ];
@@ -258,7 +258,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
       <section className="bg-slate-50 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
-            Service links
+            Related electrical services
           </p>
           <h2 className="mt-3 max-w-4xl text-4xl font-black tracking-tight sm:text-5xl">
             Electrical services for {suburb.name} {suburb.postcode}.

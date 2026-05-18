@@ -37,7 +37,7 @@ export async function generateMetadata({
 
   return {
     title: `${area.name} Electrician Service Areas`,
-    description: `Evaready Electrical services ${area.name} in ${region.name}. View covered suburbs for emergency electrical, switchboard, Level 2 and general electrical work.`,
+    description: `Evaready Electrical services ${area.name} in ${region.name}. View covered suburbs for emergency faults, switchboards, Level 2 work and planned electrical services.`,
     alternates: {
       canonical: `/service-areas/${region.slug}/${area.slug}`,
     },
@@ -58,7 +58,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
       <SiteHeader />
 
       <ServiceAreaHero
-        eyebrow="Area service coverage"
+        eyebrow="Area service"
         title={`${area.name} Electrician Service Area`}
       >
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
@@ -75,9 +75,9 @@ export default async function AreaPage({ params }: AreaPageProps) {
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           {[
             `Licensed electrician ${business.licence}`,
-            "Emergency call path",
-            "Online quote requests",
-            `${area.suburbs.length} suburb pages`,
+            "Urgent fault support",
+            "Online job details",
+            `${area.suburbs.length} suburbs covered`,
           ].map((item) => (
             <div key={item} className="flex items-center gap-3">
               <CheckCircle2 className="h-6 w-6 shrink-0 text-blue-600" />
@@ -114,7 +114,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
                 </div>
 
                 <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-blue-700">
-                  View suburb page
+                  View suburb
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 </span>
               </Link>
@@ -130,7 +130,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
               How we work locally
             </p>
             <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
-              Clear call path, clean workmanship and proper testing.
+              Clear communication, careful testing and clean workmanship.
             </h2>
           </div>
 
@@ -138,8 +138,8 @@ export default async function AreaPage({ params }: AreaPageProps) {
             {[
               "Confirm the job type, suburb, access and urgency.",
               "Prioritise urgent electrical hazards and power faults.",
-              "Collect photos and job details through the online quote form.",
-              "Complete the electrical work safely and explain next steps.",
+              "Use photos and clear job details to plan the work.",
+              "Complete the electrical work safely and explain the next steps.",
             ].map((item) => (
               <div
                 key={item}

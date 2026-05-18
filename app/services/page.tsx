@@ -17,9 +17,9 @@ import {
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 
 export const metadata: Metadata = {
-  title: "Electrical Services Sydney",
+  title: "Electrical Services Greater Sydney",
   description:
-    "Evaready Electrical provides residential, commercial, emergency and Level 2 electrical services across Greater Sydney and nearby regions including switchboard upgrades, fault finding, lighting, power points and smoke alarms.",
+    "Need an electrician? Evaready Electrical provides residential, commercial, emergency and Level 2 electrical services including switchboards, fault finding, hot water electrical, CCTV, data cabling, lighting, power points and smoke alarms.",
   alternates: {
     canonical: "/services",
   },
@@ -164,6 +164,244 @@ const services = [
       "Battery and hardwired alarms",
     ],
   },
+  {
+    title: "Hot Water System Electrical",
+    description:
+      "Electrical fault checks, repairs, replacements and circuit support for electric hot water systems.",
+    icon: Flame,
+    includes: [
+      "No hot water faults",
+      "Electric hot water circuits",
+      "Thermostat and element checks",
+      "Isolators and safety switches",
+      "Replacement wiring support",
+      "Emergency hot water faults",
+    ],
+  },
+  {
+    title: "CCTV & Security Cameras",
+    description:
+      "CCTV and security camera cabling, camera installation and neat setup support for homes and businesses.",
+    icon: ShieldCheck,
+    includes: [
+      "CCTV camera wiring",
+      "Security camera installation",
+      "Recorder location planning",
+      "Camera power supplies",
+      "Home and business systems",
+      "Future camera provisions",
+    ],
+  },
+  {
+    title: "Data Cabling & Internet Points",
+    description:
+      "Network cabling, data points, internet outlets and communication cabling for homes, offices and renovations.",
+    icon: Bolt,
+    includes: [
+      "Data points",
+      "Network cabling",
+      "Internet outlets",
+      "NBN internal cabling",
+      "Office data runs",
+      "Phone line repairs",
+    ],
+  },
+  {
+    title: "Ceiling & Exhaust Fans",
+    description:
+      "Ceiling fan, exhaust fan and bathroom fan installation, replacement and fault checks.",
+    icon: Zap,
+    includes: [
+      "Ceiling fans",
+      "Exhaust fans",
+      "Bathroom fans",
+      "Fan controllers",
+      "Outdoor fans",
+      "Replacement wiring",
+    ],
+  },
+  {
+    title: "Safety Switches & RCDs",
+    description:
+      "Safety switch installation, RCD fault checks, circuit protection upgrades and nuisance tripping support.",
+    icon: ShieldCheck,
+    includes: [
+      "RCD installation",
+      "Safety switch repairs",
+      "Tripping fault checks",
+      "RCBO upgrades",
+      "Circuit protection",
+      "Switchboard testing",
+    ],
+  },
+  {
+    title: "3 Phase Power",
+    description:
+      "3 phase power support for larger homes, workshops, commercial equipment, EV charging and higher electrical demand.",
+    icon: Bolt,
+    includes: [
+      "3 phase upgrades",
+      "Equipment circuits",
+      "Load checks",
+      "Workshop power",
+      "Commercial power",
+      "Switchboard support",
+    ],
+  },
+  {
+    title: "Surge Protection",
+    description:
+      "Switchboard surge protection to help protect appliances, electronics and sensitive equipment from voltage spikes.",
+    icon: BadgeCheck,
+    includes: [
+      "Surge protection devices",
+      "Switchboard protection",
+      "Appliance protection",
+      "Storm risk support",
+      "Sensitive equipment",
+      "Safety checks",
+    ],
+  },
+  {
+    title: "Appliance, Cooktop & Rangehood",
+    description:
+      "Electrical connections and circuits for cooktops, ovens, rangehoods, dishwashers and dedicated appliances.",
+    icon: Home,
+    includes: [
+      "Cooktop circuits",
+      "Oven connections",
+      "Rangehood wiring",
+      "Dishwasher electrical",
+      "Appliance isolators",
+      "Dedicated circuits",
+    ],
+  },
+  {
+    title: "Electrical Rewiring",
+    description:
+      "Rewiring support for older homes, renovations, unsafe cabling, damaged wiring and major electrical upgrades.",
+    icon: Wrench,
+    includes: [
+      "Home rewiring",
+      "Renovation wiring",
+      "Old cable replacement",
+      "Damaged wiring",
+      "New circuits",
+      "Safety upgrades",
+    ],
+  },
+  {
+    title: "Meters & Service Equipment",
+    description:
+      "Metering support, service equipment checks and Level 2 electrical coordination for supply-side issues.",
+    icon: BadgeCheck,
+    includes: [
+      "Metering support",
+      "Service equipment",
+      "Supply checks",
+      "Defect support",
+      "Level 2 coordination",
+      "Switchboard supply work",
+    ],
+  },
+  {
+    title: "New Builds & Renovations",
+    description:
+      "Electrical planning, rough-ins, fit-offs and upgrade work for new builds, extensions and renovation projects.",
+    icon: Home,
+    includes: [
+      "New build wiring",
+      "Renovation rough-ins",
+      "Kitchen and bathroom upgrades",
+      "Lighting layouts",
+      "Power planning",
+      "Final fit-offs",
+    ],
+  },
+  {
+    title: "Testing, Tagging & Reports",
+    description:
+      "Electrical testing, safety checks and property report support for homes, businesses, rentals and managed sites.",
+    icon: BadgeCheck,
+    includes: [
+      "Testing and tagging",
+      "Electrical safety checks",
+      "Property reports",
+      "Rental checks",
+      "Commercial safety support",
+      "Fault documentation",
+    ],
+  },
+  {
+    title: "Home Automation & Smart Wiring",
+    description:
+      "Smart switching, automation wiring, lighting control and future-ready cabling for homes and businesses.",
+    icon: Bolt,
+    includes: [
+      "Smart switches",
+      "Lighting control",
+      "Automation wiring",
+      "Smart home upgrades",
+      "Low-voltage provisions",
+      "Future cabling",
+    ],
+  },
+  {
+    title: "TV, Antenna & Wall Cabling",
+    description:
+      "TV points, antenna points, wall-mount power, hidden cabling and tidy media wiring.",
+    icon: Zap,
+    includes: [
+      "TV points",
+      "Antenna points",
+      "Wall-mount power",
+      "Hidden cabling",
+      "Media outlets",
+      "Data and TV combinations",
+    ],
+  },
+  {
+    title: "Intercoms & Access Control",
+    description:
+      "Intercom, entry, access control and security wiring support for homes, strata and commercial sites.",
+    icon: ShieldCheck,
+    includes: [
+      "Intercom wiring",
+      "Access control",
+      "Entry systems",
+      "Gate provisions",
+      "Strata support",
+      "Security integration",
+    ],
+  },
+  {
+    title: "Storm Damage & Appliance Disconnects",
+    description:
+      "Urgent electrical help for storm damage, unsafe wiring, damaged equipment and emergency appliance disconnections.",
+    icon: Flame,
+    includes: [
+      "Storm damage checks",
+      "Emergency disconnections",
+      "Damaged fittings",
+      "Unsafe circuits",
+      "Water-affected wiring",
+      "Temporary make-safe support",
+    ],
+  },
+  {
+    title: "Load Balancing & Capacity Checks",
+    description:
+      "Electrical capacity checks for upgrades, 3 phase enquiries, EV charging, workshops and commercial equipment.",
+    icon: Wrench,
+    includes: [
+      "Load checks",
+      "Capacity assessments",
+      "EV charger planning",
+      "Workshop equipment",
+      "Commercial loads",
+      "Upgrade advice",
+    ],
+  },
 ];
 
 
@@ -177,6 +415,23 @@ const servicePageLinks: Record<string, string> = {
   "Lighting Electrician": "/services/lighting-electrician-sydney",
   "Power Points": "/services/power-point-installation-sydney",
   "Smoke Alarms": "/services/smoke-alarm-electrician-sydney",
+  "Hot Water System Electrical": "/services/hot-water-system-electrician-sydney",
+  "CCTV & Security Cameras": "/services/cctv-security-camera-installation-sydney",
+  "Data Cabling & Internet Points": "/services/data-cabling-electrician-sydney",
+  "Ceiling & Exhaust Fans": "/services/ceiling-fan-installation-sydney",
+  "Safety Switches & RCDs": "/services/safety-switch-rcd-installation-sydney",
+  "3 Phase Power": "/services/three-phase-power-sydney",
+  "Surge Protection": "/services/surge-protection-electrician-sydney",
+  "Appliance, Cooktop & Rangehood": "/services/appliance-installation-electrician-sydney",
+  "Electrical Rewiring": "/services/rewiring-electrician-sydney",
+  "Meters & Service Equipment": "/services/metering-services-sydney",
+  "New Builds & Renovations": "/services/new-build-renovation-electrician-sydney",
+  "Testing, Tagging & Reports": "/services/electrical-testing-tagging-reports-sydney",
+  "Home Automation & Smart Wiring": "/services/smart-home-electrician-sydney",
+  "TV, Antenna & Wall Cabling": "/services/tv-antenna-wall-cabling-sydney",
+  "Intercoms & Access Control": "/services/intercom-access-control-electrician-sydney",
+  "Storm Damage & Appliance Disconnects": "/services/storm-damage-electrician-sydney",
+  "Load Balancing & Capacity Checks": "/services/electrical-load-capacity-checks-sydney",
 };
 
 function getServiceHref(title: string) {
@@ -191,10 +446,11 @@ export default function ServicesPage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Electrician",
-    name: "Evaready Electrical - Electrical Services Sydney",
+    name: "Evaready Electrical - Electrical Services Greater Sydney",
     telephone: business.phoneDisplay,
     email: business.email,
-    areaServed: "Sydney, NSW",
+    areaServed:
+      "Greater Sydney, Illawarra, Blue Mountains, Northern Beaches and Central Coast South",
     url: "https://evareadyelectrical.com.au/services",
     priceRange: "$$",
     serviceType: services.map((service) => service.title),
@@ -230,19 +486,21 @@ export default function ServicesPage() {
           <div className="max-w-4xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-blue-200">
               <CheckCircle2 className="h-4 w-4" />
-              Electrical Services Sydney
+              Electrical Services
             </div>
 
             <h1 className="text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">
-              Complete Electrical Services Across Greater Sydney & Nearby Regions
+              Professional Electrical Services Across Greater Sydney & Surrounding Regions
             </h1>
 
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
               Evaready Electrical provides professional residential, commercial,
               emergency and Level 2 electrical services across Greater Sydney,
               Illawarra, Blue Mountains, Northern Beaches and Central Coast
-              South. From small repairs to major upgrades, we deliver clean
-              workmanship, clear communication and safe electrical solutions.
+              South. From hot water electrical faults, CCTV and data cabling to
+              switchboards, testing, lighting, fans, smart wiring and major
+              upgrades, we deliver clean workmanship, clear communication and
+              safe electrical solutions.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -289,16 +547,16 @@ export default function ServicesPage() {
       <section className="bg-slate-50 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
-            What We Do
+            Electrical services
           </p>
 
           <h2 className="mt-3 max-w-4xl text-4xl font-black tracking-tight sm:text-5xl">
-            Electrical work done properly from start to finish.
+            Need an electrician? We&rsquo;re Evaready to assist.
           </h2>
 
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
             Choose the service you need, request a quote online, or call
-            directly for urgent electrical help.
+            directly if the fault is urgent.
           </p>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -360,12 +618,12 @@ export default function ServicesPage() {
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-300">
-              Need electrical work done?
+              Need an electrician?
             </p>
 
             <h2 className="mt-3 max-w-3xl text-4xl font-black tracking-tight sm:text-5xl">
-              Call or request a quote online for professional electrical
-              service across the service area.
+              Fast electrical help when something goes wrong, and clear support
+              for planned upgrades.
             </h2>
           </div>
 

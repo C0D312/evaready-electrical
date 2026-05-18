@@ -67,7 +67,7 @@ export default function AreasPage() {
 
       <ServiceAreaHero
         eyebrow="Electrical service areas"
-        title="Electricians Across Greater Sydney & Nearby Regions"
+        title="Electricians Across Greater Sydney & Surrounding Regions"
       >
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
           Evaready Electrical services homes and businesses across Greater
@@ -123,9 +123,9 @@ export default function AreasPage() {
               Find your suburb or postcode.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              Type a suburb, postcode, area or region. The result links directly
-              to the suburb page so you can quickly check local electrical
-              service information.
+              Type a suburb, postcode, area or region to find local electrical
+              service information and the best way to contact Evaready
+              Electrical.
             </p>
           </div>
 
@@ -139,7 +139,7 @@ export default function AreasPage() {
             Major regions
           </p>
           <h2 className="mt-3 max-w-4xl text-4xl font-black tracking-tight sm:text-5xl">
-            Browse regions, areas and suburb pages.
+            Browse the regions and suburbs we service.
           </h2>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -188,7 +188,7 @@ export default function AreasPage() {
           {[
             {
               title: "Residential",
-              text: "Homes, units, townhouses, renovations and general electrical work.",
+              text: "Electrical repairs, upgrades and installations for homes, units, townhouses and renovations.",
               icon: Home,
             },
             {

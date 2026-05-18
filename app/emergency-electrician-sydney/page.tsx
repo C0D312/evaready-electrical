@@ -89,7 +89,7 @@ const process = [
   },
   {
     title: "Fault diagnosis",
-    text: "We inspect, test and identify the cause of the electrical issue properly.",
+    text: "We inspect, test and identify the cause of the electrical issue carefully.",
   },
   {
     title: "Safe repair",
@@ -229,7 +229,7 @@ export default function EmergencyElectricianSydneyPage() {
           {/* Quote card */}
           <div className="rounded-[2rem] border border-white/15 bg-white/10 p-6 shadow-2xl backdrop-blur-xl">
             <p className="text-sm font-black uppercase tracking-[0.2em] text-red-300">
-              Emergency quote request
+              Emergency electrical help
             </p>
 
             <h2 className="mt-3 text-3xl font-black">
@@ -275,7 +275,7 @@ export default function EmergencyElectricianSydneyPage() {
             `NSW Licence ${business.licence}`,
             "24/7 emergency response",
             "Fault finding and repairs",
-            "Multi-region coverage",
+            "Service across key regions",
           ].map((item) => (
             <div key={item} className="flex items-center gap-3">
               <CheckCircle2 className="h-6 w-6 shrink-0 text-blue-600" />
@@ -321,7 +321,7 @@ export default function EmergencyElectricianSydneyPage() {
       <QuoteRequestPanel
         eyebrow="Emergency quote details"
         title="Send the details that help diagnose the fault faster."
-        description="For unsafe faults, call first. For quote requests, include the suburb, what has lost power, whether anything is hot, buzzing, wet, sparking or tripping, and photos of the switchboard or damaged fitting if available."
+        description="For unsafe faults, call first. For planned help, include the suburb, what has lost power, whether anything is hot, buzzing, wet, sparking or tripping, and photos of the switchboard or damaged fitting if available."
         quoteLabel="Request Emergency Quote"
       />
 

@@ -325,6 +325,627 @@ function getLocalPageContext(
   };
 }
 
+type SuburbCopyOverride = Partial<
+  Pick<
+    SuburbPageCopy,
+    | "heroDescription"
+    | "heroNote"
+    | "metaDescription"
+    | "processDescription"
+    | "serviceIntro"
+  >
+> & {
+  faqAnswers?: Partial<SuburbPageCopy["faqAnswers"]>;
+  serviceSummaryText?: Partial<Record<SuburbServiceIntent, string>>;
+  trustItems?: string[];
+};
+
+const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
+  bankstown: {
+    heroDescription:
+      "Evaready Electrical helps Bankstown homes, apartments, shopfronts and commercial properties with urgent electrical faults, switchboard upgrades, lighting, power, data cabling and Level 2 enquiries. Common work around Bankstown includes older switchboard checks, strata access, shop maintenance and renovation wiring where the site needs clear testing before repair.",
+    heroNote:
+      "Bankstown jobs are often mixed between family homes, busy retail strips, apartments and light-commercial sites, so good quote details include parking notes, switchboard photos, tenancy access and the exact electrical symptom.",
+    processDescription:
+      "Bankstown electrical work is triaged by urgency first. Unsafe faults, smoke, heat or sparking are call-first jobs; planned work is assessed from photos, address details, access notes and the type of property involved.",
+    serviceIntro:
+      "Bankstown requests often involve switchboards in older homes, commercial maintenance for local shops, strata electrical repairs, smoke alarms, power points, lighting and Level 2 questions around supply upgrades or defect notices.",
+    serviceSummaryText: {
+      emergency:
+        "Bankstown emergency calls commonly involve partial power loss, hot outlets, tripping safety switches, buzzing fittings and business faults that cannot wait until the next day.",
+      switchboard:
+        "Switchboard work in Bankstown often means checking older boards, crowded circuits, ceramic fuses, labelling, safety switches and capacity for extra loads.",
+      level2:
+        "Level 2 enquiries around Bankstown can include consumer mains, metering, service equipment, defect notice responses and switchboard supply upgrades.",
+      general:
+        "Planned electrical jobs in Bankstown often cover lighting changes, power points, shop maintenance, data cabling, smoke alarms and renovation wiring.",
+    },
+  },
+  panania: {
+    heroDescription:
+      "Evaready Electrical supports Panania homes, villas, duplexes, units, strata buildings and local businesses with emergency faults, switchboard upgrades, smoke alarms, lighting, power points, hot water circuits and Level 2 electrical enquiries.",
+    heroNote:
+      "Panania jobs often involve older brick homes, duplex upgrades, villa switchboards, small shopfront maintenance and renovation power upgrades around local residential streets and shopping strips.",
+    processDescription:
+      "For Panania, the best first step depends on the job. Burning smells, sparking, heat or power loss should be phoned through, while planned upgrades are easier to assess with photos of the switchboard, work area and access.",
+    serviceIntro:
+      "Panania electrical work commonly includes safety switch faults, old fuse upgrades, kitchen and laundry power, hot water electrical faults, lighting changes, smoke alarms and Level 2 discussions where a service upgrade or defect notice is involved.",
+    serviceSummaryText: {
+      emergency:
+        "Panania emergency work often starts with tripping safety switches, partial power loss, hot power points, failed hot water circuits or storm-related faults.",
+      switchboard:
+        "Panania switchboard enquiries often involve older fuses, crowded villa boards, duplex upgrades, RCBO protection and clearer circuit labelling.",
+      level2:
+        "Panania Level 2 enquiries can include consumer mains, service equipment checks, metering support and defect notice paperwork.",
+      general:
+        "Planned Panania jobs often include extra power points, lighting upgrades, ceiling fans, smoke alarms, data points and renovation wiring.",
+    },
+  },
+  revesby: {
+    heroDescription:
+      "Evaready Electrical works across Revesby for family homes, duplexes, villas, warehouses and local businesses needing fault finding, switchboards, lighting, power, data, CCTV, hot water electrical and Level 2 support.",
+    heroNote:
+      "Revesby has a practical mix of homes, small industrial units and busy local streets, so access notes, photos and operating hours help separate urgent repairs from scheduled work.",
+    processDescription:
+      "Revesby jobs are scoped around the property type first: homes and villas need clean residential repairs, while workshops and commercial units often need load checks, three-phase questions or after-hours planning.",
+    serviceIntro:
+      "Common Revesby requests include switchboard upgrades, tripping circuits, warehouse lighting, power for equipment, smoke alarms, CCTV cabling, data points and Level 2 enquiries for service or defect issues.",
+  },
+  padstow: {
+    heroDescription:
+      "Evaready Electrical helps Padstow homes, units, duplexes, shopfronts and small commercial sites with electrical faults, safety switches, lighting, power points, hot water circuits, switchboards and Level 2 enquiries.",
+    heroNote:
+      "Padstow electrical jobs often include access through narrow streets, older switchboards, renovation work and small-business maintenance near local shopping strips.",
+    processDescription:
+      "For Padstow, urgent faults are treated differently from quote work. Power loss, sparking and burning smells need a call, while planned jobs are clearer with photos and a short description.",
+    serviceIntro:
+      "Padstow customers often ask for safety switch testing, old board upgrades, lighting repairs, extra power, smoke alarms, appliance circuits, shop maintenance and Level 2 guidance.",
+  },
+  liverpool: {
+    heroDescription:
+      "Evaready Electrical services Liverpool homes, apartments, medical suites, retail spaces, warehouses and growing residential areas with urgent faults, switchboards, lighting, commercial maintenance and Level 2 electrical enquiries.",
+    heroNote:
+      "Liverpool work often mixes apartment access, busy commercial buildings, new estates and older homes, so quotes are stronger with parking notes, tenancy details, photos and the job urgency.",
+    processDescription:
+      "Liverpool electrical work is handled by separating high-risk faults from planned maintenance. Business outages, hot fittings and tripping circuits need fast attention; upgrades and fit-outs need clear scope and access details.",
+    serviceIntro:
+      "Common Liverpool work includes commercial maintenance, apartment electrical repairs, switchboard upgrades, emergency fault finding, data cabling, CCTV, smoke alarms and supply-side Level 2 questions.",
+  },
+  parramatta: {
+    heroDescription:
+      "Evaready Electrical supports Parramatta apartments, offices, shops, strata buildings and homes with emergency fault finding, commercial electrical maintenance, switchboards, lighting, power, data, CCTV and Level 2 enquiries.",
+    heroNote:
+      "Parramatta jobs often involve loading docks, apartment access, strata rules, business operating hours and busy parking, so clear access notes help the work move faster.",
+    processDescription:
+      "Parramatta work is scoped around access and urgency. Office and strata jobs usually need entry details and site contacts, while unsafe electrical faults should be phoned through immediately.",
+    serviceIntro:
+      "Parramatta electrical requests often include tenancy changes, office power, lighting repairs, strata faults, data cabling, switchboard work, smoke alarms and Level 2 support for supply-side issues.",
+    serviceSummaryText: {
+      emergency:
+        "Parramatta urgent calls often involve apartment outages, commercial faults, tripping circuits, hot outlets and after-hours business interruptions.",
+      switchboard:
+        "Parramatta switchboard work can involve strata boards, tenancy loads, safety switch upgrades, labelling and planning for future circuits.",
+      level2:
+        "Level 2 enquiries around Parramatta can include metering, consumer mains, service equipment, defect notices and supply changes for larger sites.",
+      general:
+        "Planned Parramatta work often covers office fit-outs, lighting, power points, data cabling, CCTV and programmed maintenance.",
+    },
+  },
+  burwood: {
+    heroDescription:
+      "Evaready Electrical works across Burwood homes, apartments, shops, restaurants and strata properties with urgent electrical faults, lighting, power, switchboards, smoke alarms, data and Level 2 enquiries.",
+    heroNote:
+      "Burwood jobs often include apartment access, shopfront timing, strata communication, older wiring and limited parking near busy roads.",
+    processDescription:
+      "Burwood work is planned around access and site type. Retail and strata jobs need contact details and timing; unsafe faults need a direct call before the issue spreads.",
+    serviceIntro:
+      "Common Burwood enquiries include shop maintenance, apartment faults, lighting repairs, power point upgrades, smoke alarms, data cabling and switchboard safety work.",
+  },
+  strathfield: {
+    heroDescription:
+      "Evaready Electrical helps Strathfield homes, larger residences, apartments, strata blocks, schools, shops and businesses with electrical faults, switchboard upgrades, lighting, power, data, CCTV and Level 2 support.",
+    heroNote:
+      "Strathfield electrical work often involves larger homes, older boards, strata access, commercial properties and clear planning around parking or entry instructions.",
+    processDescription:
+      "Strathfield jobs are scoped with the building type in mind. Larger homes may need capacity checks and extra circuits, while apartments and commercial sites need access details and safe fault testing.",
+    serviceIntro:
+      "Typical Strathfield requests include switchboard upgrades, renovation wiring, data cabling, lighting, smoke alarms, hot water circuits, emergency faults and Level 2 supply enquiries.",
+  },
+  leichhardt: {
+    heroDescription:
+      "Evaready Electrical services Leichhardt terraces, renovated homes, apartments, cafes, shops and strata properties with lighting, power, fault finding, switchboards, smoke alarms, data cabling and Level 2 enquiries.",
+    heroNote:
+      "Leichhardt work often means older wiring, tight access, terrace renovations, cafe maintenance and switchboards that need careful testing before upgrades.",
+    processDescription:
+      "Leichhardt electrical jobs are best scoped with access details and photos. Older homes and renovated terraces can hide wiring issues, so testing comes before repair advice.",
+    serviceIntro:
+      "Common Leichhardt jobs include renovation wiring, kitchen power, pendant and downlight upgrades, safety switch faults, shop maintenance, data points and switchboard upgrades.",
+  },
+  marrickville: {
+    heroDescription:
+      "Evaready Electrical helps Marrickville homes, warehouses, creative spaces, cafes, apartments and shopfronts with emergency faults, commercial maintenance, switchboards, lighting, power, data and CCTV.",
+    heroNote:
+      "Marrickville jobs often combine older homes, converted industrial spaces, busy cafes and warehouse access, so photos and site timing help with a cleaner quote.",
+    processDescription:
+      "Marrickville work is assessed around property use. A warehouse circuit fault, cafe outage or terrace renovation all need different testing and access planning.",
+    serviceIntro:
+      "Marrickville requests commonly include commercial lighting, three-phase questions, data cabling, switchboard upgrades, power points, smoke alarms, emergency faults and renovation wiring.",
+  },
+  newtown: {
+    heroDescription:
+      "Evaready Electrical works across Newtown terraces, apartments, shops, cafes, bars and strata buildings with urgent electrical faults, switchboards, lighting, power, data cabling, smoke alarms and maintenance.",
+    heroNote:
+      "Newtown electrical jobs often involve older terrace wiring, tight parking, shop trading hours, apartment access and fast fault testing when a circuit keeps tripping.",
+    processDescription:
+      "Newtown jobs need clear access and timing. Unsafe faults should be phoned through, while planned cafe, shop or terrace work is easier to quote with photos and scope.",
+    serviceIntro:
+      "Common Newtown enquiries include lighting changes, power point upgrades, shop maintenance, safety switch trips, smoke alarms, data cabling and switchboard upgrades in older properties.",
+  },
+  coogee: {
+    heroDescription:
+      "Evaready Electrical supports Coogee homes, apartments, strata buildings, terraces and local businesses with coastal electrical faults, outdoor lighting, switchboard upgrades, smoke alarms, power, data, CCTV and Level 2 enquiries.",
+    heroNote:
+      "Coogee electrical work often involves coastal corrosion, outdoor fittings, apartment access, strata communication, weather-rated lighting and older switchboards in renovated units and terraces.",
+    processDescription:
+      "For Coogee, weather exposure matters. Outdoor fittings, tripping circuits, switchboards and coastal corrosion concerns are tested carefully before repair or upgrade options are recommended.",
+    serviceIntro:
+      "Coogee customers often ask for outdoor lighting, safety switch fault finding, apartment electrical repairs, smoke alarms, switchboard upgrades, CCTV cabling and weather-rated power.",
+    serviceSummaryText: {
+      emergency:
+        "Coogee urgent calls often involve water-affected fittings, storm faults, tripping safety switches, hot outlets and unsafe outdoor power.",
+      switchboard:
+        "Switchboard work in Coogee can involve older apartment boards, corrosion concerns, safety switch upgrades and clearer circuit protection.",
+      level2:
+        "Level 2 enquiries in Coogee may include consumer mains, point of attachment issues, service equipment and defect notice questions.",
+      general:
+        "Planned Coogee work often covers outdoor lighting, apartment power points, smoke alarms, CCTV cabling and weather-rated fittings.",
+    },
+  },
+  bondi: {
+    heroDescription:
+      "Evaready Electrical helps Bondi apartments, coastal homes, strata properties, cafes, shops and renovated terraces with electrical faults, switchboards, outdoor lighting, smoke alarms, power, data and CCTV.",
+    heroNote:
+      "Bondi jobs often involve coastal weather exposure, apartment access, strata approvals, older boards and limited parking near busy streets.",
+    processDescription:
+      "Bondi electrical work is assessed with corrosion, access and urgency in mind. Outdoor electrical issues, tripping circuits and hot fittings need proper testing before repairs.",
+    serviceIntro:
+      "Common Bondi requests include weather-rated lighting, safety switch faults, apartment repairs, smoke alarms, switchboard upgrades, data cabling, CCTV and shop maintenance.",
+  },
+  cronulla: {
+    heroDescription:
+      "Evaready Electrical services Cronulla homes, apartments, coastal townhouses, shops and strata sites with emergency electrical faults, outdoor lighting, switchboards, smoke alarms, power, CCTV, data and Level 2 support.",
+    heroNote:
+      "Cronulla jobs often involve salt air exposure, outdoor power, renovated apartments, strata access and switchboards that need weather-aware checks.",
+    processDescription:
+      "Cronulla work is scoped around safety and exposure. Outdoor faults, storm damage, tripping circuits and coastal corrosion concerns need careful isolation and testing.",
+    serviceIntro:
+      "Typical Cronulla requests include outdoor lighting, pool-area power enquiries, apartment electrical repairs, switchboard upgrades, safety switch faults, smoke alarms and CCTV cabling.",
+  },
+  "north-sydney": {
+    heroDescription:
+      "Evaready Electrical supports North Sydney offices, apartments, strata buildings, shops and homes with commercial maintenance, urgent faults, lighting, data, switchboards, metering and Level 2 enquiries.",
+    heroNote:
+      "North Sydney work often needs loading-zone planning, building management details, lift access, after-hours timing and clear tenant communication.",
+    processDescription:
+      "North Sydney jobs are scoped around access and downtime. Business faults, office power issues and strata electrical work need clear site contacts, timing and safe testing.",
+    serviceIntro:
+      "Common North Sydney work includes office lighting, tenancy power, strata faults, data cabling, switchboard checks, emergency call-outs and supply-side Level 2 enquiries.",
+  },
+  chatswood: {
+    heroDescription:
+      "Evaready Electrical works across Chatswood apartments, houses, retail spaces, offices and strata buildings with urgent faults, switchboards, lighting, power, data, CCTV, commercial maintenance and Level 2 support.",
+    heroNote:
+      "Chatswood jobs often involve apartment access, retail trading hours, office fit-out details, parking constraints and high-use switchboards.",
+    processDescription:
+      "Chatswood electrical work is planned around building access and business impact. Urgent hazards need a call, while planned upgrades benefit from photos and site contacts.",
+    serviceIntro:
+      "Chatswood enquiries often include office power, shop lighting, apartment faults, data cabling, CCTV, smoke alarms, switchboards and metering questions.",
+  },
+  "castle-hill": {
+    heroDescription:
+      "Evaready Electrical helps Castle Hill homes, larger properties, businesses and renovations with switchboard upgrades, EV-ready circuits, lighting, fault finding, data cabling, CCTV and Level 2 enquiries.",
+    heroNote:
+      "Castle Hill jobs often include larger homes, extra circuits, home offices, outdoor areas, garages, pool equipment, EV charger planning and upgrade-ready switchboards.",
+    processDescription:
+      "Castle Hill electrical work is assessed around load, access and future use. Larger homes and upgrades can need capacity checks before circuits or switchboards are changed.",
+    serviceIntro:
+      "Common Castle Hill requests include switchboard capacity checks, lighting upgrades, EV charger planning, outdoor power, CCTV, data points, smoke alarms and renovation wiring.",
+  },
+  manly: {
+    heroDescription:
+      "Evaready Electrical services Manly apartments, coastal homes, strata buildings, hospitality venues and shops with urgent faults, outdoor lighting, switchboards, power, smoke alarms, data and CCTV.",
+    heroNote:
+      "Manly jobs often include coastal exposure, apartment access, busy streets, shop trading hours and outdoor fittings that need weather-rated solutions.",
+    processDescription:
+      "Manly electrical work is scoped with access and coastal conditions in mind. Outdoor faults, tripping circuits, strata jobs and urgent business issues need clear details fast.",
+    serviceIntro:
+      "Common Manly enquiries include outdoor lighting, apartment repairs, switchboard upgrades, safety switch faults, smoke alarms, CCTV cabling and shop maintenance.",
+  },
+  springwood: {
+    heroDescription:
+      "Evaready Electrical supports Springwood homes, larger blocks, shops, outbuildings and Blue Mountains properties with storm-related faults, outdoor circuits, switchboards, shed power, smoke alarms and Level 2 enquiries.",
+    heroNote:
+      "Springwood jobs often include larger blocks, long driveways, detached sheds, outdoor circuits, storm-related faults, private pole enquiries and upgrade planning for renovations or extra circuits.",
+    processDescription:
+      "Springwood electrical work is scoped around access, distance on the property and weather exposure. Photos of the switchboard, driveway, outbuilding and affected circuit help plan the safest next step.",
+    serviceIntro:
+      "Common Springwood requests include storm fault checks, shed and outbuilding power, switchboard upgrades, safety switch tripping, outdoor lighting, smoke alarms and Level 2 supply enquiries.",
+    serviceSummaryText: {
+      emergency:
+        "Springwood emergency calls often involve storm damage, power loss, tripping safety switches, unsafe outdoor circuits and faults affecting sheds or detached areas.",
+      switchboard:
+        "Switchboard work in Springwood often means checking older boards, extra circuit capacity, shed loads, safety switches and outdoor circuit protection.",
+      level2:
+        "Level 2 enquiries around Springwood can involve point of attachment, private pole, consumer mains, service equipment and defect notice concerns.",
+      general:
+        "Planned Springwood work often covers shed power, outdoor lighting, extra circuits, renovation wiring, smoke alarms and switchboard upgrade planning.",
+    },
+  },
+  wollongong: {
+    heroDescription:
+      "Evaready Electrical supports Wollongong homes, apartments, shops, warehouses, strata properties and coastal sites with emergency faults, switchboards, lighting, power, hot water electrical, data, CCTV and Level 2 enquiries.",
+    heroNote:
+      "Wollongong work can involve coastal exposure, apartment access, commercial strips, industrial sites and storm-affected outdoor circuits.",
+    processDescription:
+      "Wollongong electrical jobs are assessed by risk and site type. A warehouse fault, apartment outage, coastal outdoor issue or hot water circuit problem all need different testing before repair.",
+    serviceIntro:
+      "Common Wollongong requests include hot water electrical faults, outdoor lighting, switchboard upgrades, data cabling, commercial maintenance, safety switch trips and smoke alarms.",
+  },
+  hurstville: {
+    heroDescription:
+      "Evaready Electrical helps Hurstville apartments, houses, shopfronts, medical suites and strata properties with urgent electrical faults, switchboards, lighting, power, CCTV, data cabling and Level 2 enquiries.",
+    heroNote:
+      "Hurstville jobs often involve unit access, busy commercial streets, older switchboards, strata approvals and clear timing around shop or clinic opening hours.",
+    processDescription:
+      "Hurstville electrical work is scoped around access and downtime. Apartment, medical and retail jobs need site contacts and parking notes, while unsafe faults should be phoned through first.",
+    serviceIntro:
+      "Common Hurstville requests include apartment fault finding, shop lighting, data cabling, switchboard upgrades, safety switch trips, smoke alarms and commercial maintenance.",
+  },
+  kogarah: {
+    heroDescription:
+      "Evaready Electrical supports Kogarah homes, apartments, health-related businesses, strata blocks and shopfronts with fault finding, switchboards, lighting, power, smoke alarms, data and Level 2 support.",
+    heroNote:
+      "Kogarah jobs can involve apartment access, medical tenancy work, older unit boards, shopfront maintenance and parking or loading-zone planning.",
+    processDescription:
+      "Kogarah work is planned around the building type first. Strata and commercial jobs need access notes, while power loss, heat, sparking or burning smells need a direct call.",
+    serviceIntro:
+      "Typical Kogarah enquiries include lighting repairs, tenancy power, switchboard checks, apartment faults, smoke alarms, data points and defect or service equipment questions.",
+  },
+  miranda: {
+    heroDescription:
+      "Evaready Electrical services Miranda houses, apartments, retail spaces, offices and commercial properties with emergency faults, switchboards, lighting, power, CCTV, data, hot water electrical and Level 2 enquiries.",
+    heroNote:
+      "Miranda work often mixes family homes, busy retail buildings, offices and strata sites, so photos, access notes and business hours help separate urgent repairs from scheduled work.",
+    processDescription:
+      "Miranda electrical jobs are scoped by risk and site type. Shopping-area faults and business outages need fast attention, while planned upgrades need photos and clear site access.",
+    serviceIntro:
+      "Common Miranda requests include shop lighting, office power, apartment repairs, switchboard upgrades, CCTV, data cabling, safety switch faults and hot water circuits.",
+  },
+  sutherland: {
+    heroDescription:
+      "Evaready Electrical works across Sutherland homes, units, strata properties, offices and local businesses with fault finding, switchboards, lighting, power, smoke alarms, data and Level 2 enquiries.",
+    heroNote:
+      "Sutherland jobs often include older homes, units near transport, shop maintenance, renovation wiring and switchboard upgrades for extra circuits.",
+    processDescription:
+      "Sutherland work is assessed around urgency, access and the age of the installation. Unsafe faults are call-first jobs, while planned work is clearer with photos and scope.",
+    serviceIntro:
+      "Common Sutherland enquiries include switchboard upgrades, safety switch trips, renovation wiring, lighting, power points, data cabling, smoke alarms and Level 2 service questions.",
+  },
+  randwick: {
+    heroDescription:
+      "Evaready Electrical helps Randwick apartments, terraces, homes, schools, medical suites and strata buildings with urgent faults, lighting, power, switchboards, smoke alarms, data and CCTV.",
+    heroNote:
+      "Randwick electrical jobs often involve apartment access, older terraces, school or medical site timing, limited parking and clear communication with strata or building managers.",
+    processDescription:
+      "Randwick jobs are scoped around access and risk. Hot fittings, power loss and tripping circuits need direct phone support, while planned work benefits from photos and entry notes.",
+    serviceIntro:
+      "Typical Randwick requests include apartment fault finding, safety switch issues, smoke alarms, shop or clinic lighting, data points, CCTV cabling and switchboard upgrades.",
+  },
+  alexandria: {
+    heroDescription:
+      "Evaready Electrical services Alexandria apartments, warehouses, offices, studios, showrooms and hospitality spaces with commercial maintenance, fault finding, lighting, power, data, CCTV and three-phase enquiries.",
+    heroNote:
+      "Alexandria jobs often involve converted industrial spaces, loading docks, warehouse circuits, office fit-outs, cafe equipment and after-hours access planning.",
+    processDescription:
+      "Alexandria electrical work is planned around business impact. Equipment circuits, lighting faults and warehouse outages need careful testing, site contacts and timing.",
+    serviceIntro:
+      "Common Alexandria enquiries include commercial lighting, data cabling, CCTV, three-phase circuits, switchboard checks, emergency faults, fit-out wiring and appliance circuits.",
+  },
+  "surry-hills": {
+    heroDescription:
+      "Evaready Electrical supports Surry Hills terraces, apartments, cafes, restaurants, offices and retail spaces with urgent faults, lighting, power, data, switchboards, CCTV and maintenance work.",
+    heroNote:
+      "Surry Hills work often means tight access, older terrace wiring, hospitality trading hours, tenancy fit-outs and after-hours planning to reduce disruption.",
+    processDescription:
+      "Surry Hills jobs are scoped around access and operating hours. Hospitality faults, hot fittings and tripping circuits are call-first issues, while fit-outs need clear plans and photos.",
+    serviceIntro:
+      "Common Surry Hills requests include cafe and restaurant power, pendant lighting, data points, tenancy wiring, switchboard upgrades, smoke alarms and emergency fault finding.",
+  },
+  zetland: {
+    heroDescription:
+      "Evaready Electrical helps Zetland apartments, strata buildings, townhouses, offices and new developments with fault finding, lighting, power, EV-ready circuits, smoke alarms, data and CCTV.",
+    heroNote:
+      "Zetland jobs often involve modern apartment access, building management, basement parking, strata rules, EV charger planning and neat data or lighting additions.",
+    processDescription:
+      "Zetland work is scoped around building access and approvals. Apartment faults, EV circuits and strata work need clear entry notes, switchboard photos and site contacts.",
+    serviceIntro:
+      "Typical Zetland enquiries include apartment power issues, downlights, data points, EV charger planning, smoke alarms, CCTV, switchboard checks and appliance circuits.",
+  },
+  mascot: {
+    heroDescription:
+      "Evaready Electrical works across Mascot apartments, airport-area businesses, offices, warehouses and homes with urgent electrical faults, commercial maintenance, lighting, power, data, CCTV and switchboards.",
+    heroNote:
+      "Mascot jobs often involve high-density apartments, commercial sites, parking rules, warehouse access, shift timing and business-critical electrical faults.",
+    processDescription:
+      "Mascot work is planned around access and downtime. Commercial outages and apartment faults need fast details, while scheduled jobs need photos and building contact information.",
+    serviceIntro:
+      "Common Mascot requests include office lighting, warehouse power, data cabling, apartment repairs, switchboard checks, CCTV, safety switch trips and hot water electrical faults.",
+  },
+  auburn: {
+    heroDescription:
+      "Evaready Electrical helps Auburn homes, units, warehouses, retail spaces and light-industrial sites with emergency faults, switchboards, lighting, power, data, CCTV, three-phase and Level 2 enquiries.",
+    heroNote:
+      "Auburn electrical jobs often mix older homes, busy shops, warehouses, machinery loads, commercial tenancies and access that needs clear site contact details.",
+    processDescription:
+      "Auburn work is scoped around load, safety and business impact. Warehouse and shop faults need fast testing, while planned upgrades need photos of the board and equipment.",
+    serviceIntro:
+      "Common Auburn requests include switchboard upgrades, three-phase circuits, commercial lighting, data cabling, CCTV, safety switch trips, smoke alarms and service equipment questions.",
+  },
+  granville: {
+    heroDescription:
+      "Evaready Electrical services Granville houses, apartments, workshops, warehouses and shops with fault finding, switchboards, lighting, power, data cabling, CCTV, hot water electrical and Level 2 enquiries.",
+    heroNote:
+      "Granville jobs often include older switchboards, industrial access, shopfront maintenance, units, machinery circuits and renovation wiring.",
+    processDescription:
+      "Granville electrical work is scoped by urgency and property type. Industrial or commercial outages need fast phone details, while home upgrades are clearer with photos and access notes.",
+    serviceIntro:
+      "Typical Granville enquiries include power faults, switchboard upgrades, workshop circuits, CCTV, data points, smoke alarms, lighting, hot water circuits and Level 2 service questions.",
+  },
+  fairfield: {
+    heroDescription:
+      "Evaready Electrical supports Fairfield homes, apartments, retail shops, community facilities and commercial sites with urgent faults, switchboards, lighting, power, CCTV, data and Level 2 support.",
+    heroNote:
+      "Fairfield electrical work often involves busy shopping strips, older homes, strata access, commercial tenancy maintenance and clear planning around business hours.",
+    processDescription:
+      "Fairfield jobs are triaged by risk first. Burning smells, sparking and power loss should be called through, while planned lighting, CCTV or switchboard work can be quoted from photos.",
+    serviceIntro:
+      "Common Fairfield requests include shop lighting, home fault finding, switchboard upgrades, smoke alarms, CCTV, data cabling, safety switches and Level 2 enquiries.",
+  },
+  cabramatta: {
+    heroDescription:
+      "Evaready Electrical helps Cabramatta homes, units, restaurants, shops and commercial properties with urgent electrical faults, lighting, power, switchboards, data, CCTV and maintenance work.",
+    heroNote:
+      "Cabramatta jobs often involve hospitality equipment, shop trading hours, older wiring, busy parking, strata access and electrical faults that affect business operation.",
+    processDescription:
+      "Cabramatta electrical work is planned around safety and timing. Restaurant or shop faults need fast details, while planned upgrades need photos, access notes and clear scope.",
+    serviceIntro:
+      "Typical Cabramatta requests include restaurant power, shop lighting, data cabling, CCTV, switchboard upgrades, safety switch faults, smoke alarms and appliance circuits.",
+  },
+  moorebank: {
+    heroDescription:
+      "Evaready Electrical services Moorebank homes, duplexes, warehouses, logistics sites, workshops and commercial units with faults, switchboards, lighting, power, data, CCTV and three-phase enquiries.",
+    heroNote:
+      "Moorebank jobs often include warehouse lighting, loading areas, machinery circuits, larger homes, outdoor power and access through industrial estates.",
+    processDescription:
+      "Moorebank work is scoped around site use and load. Commercial faults, warehouse outages and three-phase questions need good equipment details and switchboard photos.",
+    serviceIntro:
+      "Common Moorebank enquiries include warehouse lighting, three-phase circuits, data cabling, CCTV, switchboard checks, emergency faults, outdoor power and renovation wiring.",
+  },
+  prestons: {
+    heroDescription:
+      "Evaready Electrical works across Prestons homes, new estates, warehouses, showrooms and commercial sites with fault finding, switchboards, lighting, power, data, CCTV and Level 2 enquiries.",
+    heroNote:
+      "Prestons jobs often include new-build additions, warehouse fit-outs, business power faults, home offices, garage circuits and load checks for extra equipment.",
+    processDescription:
+      "Prestons electrical work is planned around property age and demand. Newer homes may need extra circuits, while warehouses and showrooms need clear access and equipment information.",
+    serviceIntro:
+      "Typical Prestons requests include commercial lighting, extra circuits, switchboard capacity checks, CCTV, data cabling, smoke alarms, EV-ready work and fault finding.",
+  },
+  campbelltown: {
+    heroDescription:
+      "Evaready Electrical supports Campbelltown homes, units, shops, workshops, builders and commercial properties with emergency faults, switchboards, lighting, power, hot water electrical, data and CCTV.",
+    heroNote:
+      "Campbelltown jobs often include older homes, growing estates, shop maintenance, builder work, hot water circuits and upgrade planning for extra loads.",
+    processDescription:
+      "Campbelltown work is scoped around urgency, access and property type. Unsafe faults need a call, while planned switchboard, lighting or renovation work needs photos and scope.",
+    serviceIntro:
+      "Common Campbelltown enquiries include switchboard upgrades, hot water electrical faults, smoke alarms, safety switch trips, lighting, power points, CCTV and renovation wiring.",
+  },
+  narellan: {
+    heroDescription:
+      "Evaready Electrical helps Narellan homes, larger properties, new builds, shops and commercial sites with lighting, power, switchboards, EV-ready circuits, data, CCTV and Level 2 enquiries.",
+    heroNote:
+      "Narellan jobs often include newer homes, renovations, outdoor areas, garage circuits, larger blocks, shopfronts and switchboards being prepared for extra loads.",
+    processDescription:
+      "Narellan work is assessed around future use and capacity. Extra circuits, EV planning, outdoor power and renovation wiring need switchboard photos and clear job details.",
+    serviceIntro:
+      "Typical Narellan requests include EV-ready circuits, outdoor lighting, switchboard capacity checks, smoke alarms, power points, CCTV, data cabling and builder wiring.",
+  },
+  concord: {
+    heroDescription:
+      "Evaready Electrical supports Concord homes, renovated properties, apartments, shops and strata sites with faults, switchboards, lighting, power, smoke alarms, data, CCTV and Level 2 enquiries.",
+    heroNote:
+      "Concord electrical jobs often involve larger homes, renovations, older wiring, strata access, outdoor areas and neat lighting or power upgrades.",
+    processDescription:
+      "Concord work is scoped around the age and layout of the property. Renovations, extra circuits and outdoor lighting need photos, while hazards should be phoned through first.",
+    serviceIntro:
+      "Common Concord requests include renovation wiring, switchboard upgrades, outdoor power, lighting, smoke alarms, data points, CCTV and safety switch faults.",
+  },
+  "five-dock": {
+    heroDescription:
+      "Evaready Electrical helps Five Dock houses, apartments, cafes, shops and strata buildings with urgent faults, switchboards, lighting, power, smoke alarms, data cabling and maintenance.",
+    heroNote:
+      "Five Dock jobs often include older homes, renovated units, cafe maintenance, shop lighting, strata access and tight parking near commercial streets.",
+    processDescription:
+      "Five Dock work is planned around access and the property type. Hospitality and retail faults need fast phone details, while planned upgrades need photos and timing notes.",
+    serviceIntro:
+      "Typical Five Dock enquiries include cafe power, shop lighting, apartment repairs, switchboard upgrades, smoke alarms, safety switch trips and data cabling.",
+  },
+  homebush: {
+    heroDescription:
+      "Evaready Electrical works across Homebush homes, apartments, strata buildings, offices and commercial properties with fault finding, switchboards, lighting, power, data, CCTV and Level 2 support.",
+    heroNote:
+      "Homebush jobs often involve apartment access, strata processes, office timing, older homes, parking rules and switchboards that need clear labelling or added protection.",
+    processDescription:
+      "Homebush electrical work is scoped around building access and urgency. Apartment faults and business outages need clear site contacts, while planned work needs photos and scope.",
+    serviceIntro:
+      "Common Homebush requests include apartment power faults, office lighting, data cabling, CCTV, switchboard checks, smoke alarms, EV planning and Level 2 service questions.",
+  },
+  blacktown: {
+    heroDescription:
+      "Evaready Electrical services Blacktown homes, townhouses, units, workshops, shops and commercial properties with emergency faults, switchboards, lighting, power, data, CCTV and Level 2 enquiries.",
+    heroNote:
+      "Blacktown jobs often include family homes, older boards, new circuits, shop maintenance, strata access, workshops and power faults that need clear testing.",
+    processDescription:
+      "Blacktown work is triaged by hazard and property type. Power loss, burning smells and sparking are call-first issues; upgrades are clearer with switchboard photos and job details.",
+    serviceIntro:
+      "Typical Blacktown requests include switchboard upgrades, extra power points, lighting, smoke alarms, CCTV, data cabling, safety switch trips and hot water electrical faults.",
+  },
+  penrith: {
+    heroDescription:
+      "Evaready Electrical supports Penrith homes, larger blocks, shops, workshops, warehouses and commercial properties with faults, switchboards, lighting, power, data, CCTV and Level 2 enquiries.",
+    heroNote:
+      "Penrith jobs often include larger properties, outdoor circuits, sheds, workshops, new estates, commercial sites and upgrade planning for extra electrical demand.",
+    processDescription:
+      "Penrith work is scoped around access, load and distance on the property. Photos of sheds, boards, outdoor areas and equipment help quote planned work clearly.",
+    serviceIntro:
+      "Common Penrith requests include shed power, outdoor lighting, switchboard upgrades, three-phase questions, CCTV, data points, smoke alarms and fault finding.",
+  },
+  "baulkham-hills": {
+    heroDescription:
+      "Evaready Electrical helps Baulkham Hills homes, larger properties, townhouses, offices and shops with switchboards, EV-ready circuits, lighting, power, CCTV, data and Level 2 enquiries.",
+    heroNote:
+      "Baulkham Hills jobs often involve larger homes, home offices, outdoor entertaining areas, garages, pools, EV planning and switchboard capacity checks.",
+    processDescription:
+      "Baulkham Hills electrical work is assessed around load and future use. Extra circuits, EV planning, outdoor power and renovations need clear photos and switchboard details.",
+    serviceIntro:
+      "Typical Baulkham Hills requests include switchboard upgrades, EV-ready circuits, outdoor lighting, data cabling, CCTV, smoke alarms, safety switches and renovation wiring.",
+  },
+  kellyville: {
+    heroDescription:
+      "Evaready Electrical works across Kellyville homes, new estates, larger properties, townhouses and local businesses with lighting, power, switchboards, EV-ready circuits, data, CCTV and faults.",
+    heroNote:
+      "Kellyville jobs often include newer homes, home offices, garage circuits, EV charger planning, outdoor lighting, security cameras and switchboards being prepared for extra load.",
+    processDescription:
+      "Kellyville work is scoped around capacity and finish. Extra circuits, EV-ready work and outdoor electrical additions need photos, access details and clear switchboard information.",
+    serviceIntro:
+      "Common Kellyville requests include EV planning, CCTV, data points, outdoor lighting, switchboard capacity checks, smoke alarms, power points and renovation wiring.",
+  },
+  "rouse-hill": {
+    heroDescription:
+      "Evaready Electrical supports Rouse Hill homes, townhouses, new builds, apartments and businesses with lighting, power, switchboards, EV-ready circuits, data, CCTV and electrical fault finding.",
+    heroNote:
+      "Rouse Hill jobs often involve newer homes, garage circuits, apartment access, security cameras, outdoor areas and planned upgrades for modern electrical loads.",
+    processDescription:
+      "Rouse Hill electrical work is planned around building type and future demand. EV-ready circuits, CCTV and extra power need board photos and clear access notes.",
+    serviceIntro:
+      "Typical Rouse Hill enquiries include extra circuits, EV planning, CCTV, data cabling, lighting, smoke alarms, safety switch faults and switchboard capacity checks.",
+  },
+  ryde: {
+    heroDescription:
+      "Evaready Electrical services Ryde homes, units, apartments, offices, shops and strata buildings with fault finding, switchboards, lighting, power, smoke alarms, data, CCTV and Level 2 support.",
+    heroNote:
+      "Ryde jobs often include apartment access, older homes, office maintenance, strata coordination, parking details and switchboards needing extra protection.",
+    processDescription:
+      "Ryde work is scoped around access and urgency. Apartment or business faults need site contacts and fast details, while planned work is clearer with photos and scope.",
+    serviceIntro:
+      "Common Ryde requests include apartment repairs, office lighting, power points, switchboard upgrades, smoke alarms, data cabling, CCTV and Level 2 enquiries.",
+  },
+  "macquarie-park": {
+    heroDescription:
+      "Evaready Electrical helps Macquarie Park offices, apartments, commercial tenancies, retail spaces and strata buildings with power, lighting, data, CCTV, switchboards and urgent fault finding.",
+    heroNote:
+      "Macquarie Park work often involves office buildings, apartment towers, loading docks, access cards, business hours and data or power changes for tenancies.",
+    processDescription:
+      "Macquarie Park electrical jobs are scoped around building access and downtime. Office and tenancy work needs site contacts, timing and clear details of affected circuits.",
+    serviceIntro:
+      "Typical Macquarie Park requests include office lighting, data cabling, tenancy power, apartment faults, switchboard checks, CCTV and after-hours commercial maintenance.",
+  },
+  brookvale: {
+    heroDescription:
+      "Evaready Electrical works across Brookvale homes, units, warehouses, workshops, showrooms and commercial sites with faults, lighting, power, data, CCTV, switchboards and three-phase enquiries.",
+    heroNote:
+      "Brookvale jobs often involve industrial units, warehouse lighting, machinery circuits, showrooms, shopfronts and access through busy commercial estates.",
+    processDescription:
+      "Brookvale work is scoped around commercial impact and load. Warehouse faults, equipment circuits and three-phase questions need switchboard photos and equipment details.",
+    serviceIntro:
+      "Common Brookvale requests include warehouse lighting, three-phase circuits, CCTV, data cabling, shop maintenance, switchboard checks and emergency fault finding.",
+  },
+  "dee-why": {
+    heroDescription:
+      "Evaready Electrical supports Dee Why apartments, coastal homes, shops, strata buildings and hospitality venues with urgent faults, lighting, power, switchboards, smoke alarms, data and CCTV.",
+    heroNote:
+      "Dee Why electrical work often involves coastal exposure, apartment access, shop trading hours, strata coordination, outdoor fittings and parking constraints.",
+    processDescription:
+      "Dee Why jobs are scoped around access and exposure. Outdoor faults, tripping circuits and apartment issues need careful testing, while planned work needs photos and entry notes.",
+    serviceIntro:
+      "Typical Dee Why requests include apartment repairs, outdoor lighting, safety switch trips, smoke alarms, switchboard upgrades, CCTV, data cabling and shop maintenance.",
+  },
+};
+
+function clampMetaDescription(description: string) {
+  if (description.length <= 155) {
+    return description;
+  }
+
+  const trimmed = description.slice(0, 152).trimEnd();
+  const lastSpace = trimmed.lastIndexOf(" ");
+  const shortened = trimmed
+    .slice(0, lastSpace > 120 ? lastSpace : trimmed.length)
+    .replace(/[,\s;:]+$/, "")
+    .replace(/\b(?:and|or)$/i, "")
+    .trimEnd()
+    .replace(/[,\s;:]+$/, "")
+    .replace(/\.+$/, "");
+
+  return `${shortened}.`;
+}
+
+function buildOverrideMetaDescription(
+  copy: SuburbPageCopy,
+  override: SuburbCopyOverride,
+) {
+  const prefix = `${copy.metaDescription.split("?")[0]}? `;
+  const detail = (override.heroDescription ?? override.serviceIntro ?? copy.heroDescription)
+    .replace(
+      /^Evaready Electrical (?:helps|supports|services|works across|works) .+? with /,
+      "Evaready Electrical helps with ",
+    )
+    .replace(
+      /^(?:Common|Typical) .+? requests include /,
+      "Evaready Electrical helps with ",
+    );
+
+  return clampMetaDescription(`${prefix}${detail}`);
+}
+
+function applySuburbCopyOverride(
+  copy: SuburbPageCopy,
+  suburbSlug: string,
+): SuburbPageCopy {
+  const override = topSuburbCopyOverrides[suburbSlug];
+
+  if (!override) {
+    return copy;
+  }
+
+  return {
+    ...copy,
+    ...override,
+    metaDescription:
+      override.metaDescription ?? buildOverrideMetaDescription(copy, override),
+    faqAnswers: {
+      ...copy.faqAnswers,
+      ...override.faqAnswers,
+    },
+    serviceSummaries: copy.serviceSummaries.map((summary) => ({
+      ...summary,
+      text: override.serviceSummaryText?.[summary.intent] ?? summary.text,
+    })),
+    trustItems: override.trustItems ?? copy.trustItems,
+  };
+}
+
 export function getSuburbPageCopy(
   coverageRegion: CoverageRegion,
   coverageArea: CoverageArea,
@@ -350,10 +971,10 @@ export function getSuburbPageCopy(
 
   const heroDescription = pick(
     [
-      `Evaready Electrical helps ${suburbLabel} customers with ${context.commonJobs}. The work is suited to ${context.propertyMix}, with clear quote requests for planned jobs and direct phone support for urgent electrical hazards.`,
+      `Evaready Electrical helps ${suburbLabel} homes and businesses with ${context.commonJobs}. Planned work is easier to assess with clear job details, while urgent electrical hazards should be phoned through directly.`,
       `For ${suburbLabel}, Evaready Electrical focuses on practical electrical service for ${context.propertyMix}. Common requests include ${context.commonJobs}, plus Level 2 electrical enquiries where the supply side of the installation needs attention.`,
       `Electrical work in ${suburbLabel} can range from urgent faults to planned upgrades. Evaready Electrical supports local ${context.propertyMix} with ${context.commonJobs}, and keeps the next step simple: call for hazards or request a quote for scheduled work.`,
-      `Evaready Electrical services ${suburbLabel} with electrical fault support, repairs and upgrade work shaped around ${context.propertyMix}. The page covers ${context.commonJobs}, along with switchboard and Level 2 enquiries across ${areaLabel}.`,
+      `Evaready Electrical services ${suburbLabel} with electrical fault support, repairs and upgrade work shaped around ${context.propertyMix}. Services include ${context.commonJobs}, along with switchboard and Level 2 enquiries across ${areaLabel}.`,
     ],
     seed,
     suburbPosition + 5,
@@ -362,7 +983,7 @@ export function getSuburbPageCopy(
   const heroNote = pick(
     [
       `${coverageArea.description} This ${context.setting} often needs clear job details, photos and safe fault testing before work begins.`,
-      `${coverageSuburb.name} sits within the ${areaLabel} service page for ${regionLabel}. Quote requests are easier to assess when they include ${context.accessDetail}.`,
+      `${coverageSuburb.name} is part of the ${areaLabel} area in ${regionLabel}. Planned enquiries are easier to assess when they include ${context.accessDetail}.`,
       `${coverageRegion.travelNote} For ${coverageSuburb.name}, the best first step depends on the issue: call for unsafe faults, or send photos and details for planned work.`,
       `${coverageArea.description} Typical enquiries in this pocket include ${context.plannedWork}, along with urgent fault checks when something feels unsafe.`,
     ],
@@ -383,7 +1004,7 @@ export function getSuburbPageCopy(
         },
         {
           title: "Test before repair",
-          text: "Electrical faults are tested properly before parts, upgrades or repair options are recommended.",
+          text: "Electrical faults are tested carefully before parts, upgrades or repair options are recommended.",
         },
         {
           title: "Leave clear notes",
@@ -411,11 +1032,11 @@ export function getSuburbPageCopy(
       [
         {
           title: "Start with details",
-          text: `For ${coverageSuburb.name}, a strong quote request includes the postcode, photos and a short description of the electrical issue.`,
+          text: `For ${coverageSuburb.name}, clear job details include the postcode, photos and a short description of the electrical issue.`,
         },
         {
-          title: "Match the service",
-          text: `The enquiry is matched to emergency, general electrical, switchboard or Level 2 style work.`,
+          title: "Confirm the right service",
+          text: `Your details help confirm whether the job is emergency, residential, commercial, switchboard or Level 2 electrical work.`,
         },
         {
           title: "Work safely",
@@ -445,7 +1066,7 @@ export function getSuburbPageCopy(
       ),
       text: pick(
         [
-          `For ${coverageSuburb.name}, call first if you notice ${context.emergencySignals}. Unsafe electrical symptoms should not wait behind a quote form.`,
+          `For ${coverageSuburb.name}, call first if you notice ${context.emergencySignals}. Unsafe electrical symptoms should not wait for an online response.`,
           `Emergency enquiries in ${suburbLabel} often involve ${context.emergencySignals}. The safest move is to stop using the affected circuit and call directly.`,
           `When ${coverageSuburb.name} homes or businesses have ${context.emergencySignals}, the priority is to make the situation safe before planning repairs.`,
         ],
@@ -508,9 +1129,9 @@ export function getSuburbPageCopy(
       ),
       text: pick(
         [
-          `Planned jobs in ${coverageSuburb.name} can cover ${context.plannedWork}. Send photos and a clear description so the quote request is easy to assess.`,
+          `Planned jobs in ${coverageSuburb.name} can cover ${context.plannedWork}. Send photos and a clear description so the work is easier to assess.`,
           `For everyday electrical work in ${suburbLabel}, common requests include ${context.plannedWork} and small repairs around ${context.propertyMix}.`,
-          `${coverageSuburb.name} quote requests are well suited to ${context.plannedWork}, especially when photos and access details are included upfront.`,
+          `Planned electrical enquiries in ${coverageSuburb.name} are well suited to ${context.plannedWork}, especially when photos and access details are included upfront.`,
         ],
         seed,
         37,
@@ -518,10 +1139,10 @@ export function getSuburbPageCopy(
     },
   ];
 
-  return {
+  const generatedCopy: SuburbPageCopy = {
     ctaHeading: pick(
       [
-        `Need electrical help in ${coverageSuburb.name}? Call or request a quote.`,
+        `Need an electrician in ${coverageSuburb.name}? We're Evaready to assist.`,
         `Planning electrical work in ${coverageSuburb.name}? Send the details through.`,
         `For ${suburbLabel} electrical faults or upgrades, start here.`,
       ],
@@ -531,18 +1152,18 @@ export function getSuburbPageCopy(
     faqAnswers: {
       emergency: `Yes. For ${coverageSuburb.name} emergency electrical faults such as ${context.emergencySignals}, call Evaready Electrical directly so the issue can be treated as urgent.`,
       level2: `Yes. Level 2 enquiries in ${coverageSuburb.name} can include ${context.level2Detail}. Include photos of the switchboard, meter area, point of attachment or any defect paperwork if you have it.`,
-      quote: `For ${suburbLabel}, include your contact details, job address, photos, a short description and ${context.accessDetail}. For unsafe faults, call instead of waiting for a quote response.`,
+      quote: `For ${suburbLabel}, include your contact details, job address, photos, a short description and ${context.accessDetail}. For unsafe faults, call first so the issue can be treated as urgent.`,
     },
     faqHeading: pick(
       [
         `Questions about electrical work in ${coverageSuburb.name}.`,
         `Common ${coverageSuburb.name} electrical questions.`,
-        `What ${coverageSuburb.name} customers usually ask.`,
+        `Helpful electrical questions for ${coverageSuburb.name}.`,
       ],
       seed,
       43,
     ),
-    faqIntro: `Use these quick answers to decide whether to call for an urgent hazard or send a quote request for planned work in ${coverageSuburb.name}.`,
+    faqIntro: `Use these quick answers to decide whether to call for an urgent hazard or send details for planned work in ${coverageSuburb.name}.`,
     heroDescription,
     heroNote,
     metaDescription: `Need an electrician in ${suburbLabel}? Evaready Electrical helps with ${context.commonJobs}, switchboards, emergencies and Level 2 enquiries around ${areaLabel}.`,
@@ -574,7 +1195,7 @@ export function getSuburbPageCopy(
       59,
     ),
     processSteps,
-    serviceIntro: `This page focuses on electrical work people in ${coverageSuburb.name} usually ask for across ${areaLabel}, with examples matched to ${context.propertyMix}.`,
+    serviceIntro: `For ${coverageSuburb.name}, common electrical enquiries across ${areaLabel} include work matched to ${context.propertyMix}.`,
     serviceLinks: [
       {
         title: `Emergency electrician ${coverageSuburb.name}`,
@@ -611,7 +1232,7 @@ export function getSuburbPageCopy(
     servicesHeading: pick(
       [
         `Electrical work commonly requested in ${coverageSuburb.name}.`,
-        `${coverageSuburb.name} electrical services people search for.`,
+        `Electrical services available around ${coverageSuburb.name}.`,
         `Common electrical jobs around ${suburbLabel}.`,
       ],
       seed,
@@ -619,11 +1240,11 @@ export function getSuburbPageCopy(
     ),
     trustItems: [
       `Electrical help for ${coverageSuburb.postcode}`,
-      `${areaLabel} service page`,
+      `Local support around ${areaLabel}`,
       pick(
         [
           "Call first for unsafe faults",
-          "Photos help planned quotes",
+          "Photos help planned work",
           "Clear details before attendance",
         ],
         seed,
@@ -631,6 +1252,8 @@ export function getSuburbPageCopy(
       ),
     ],
   };
+
+  return applySuburbCopyOverride(generatedCopy, coverageSuburb.slug);
 }
 
 export function getRegionBySlug(regionSlug: string) {

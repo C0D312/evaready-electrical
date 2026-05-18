@@ -36,7 +36,7 @@ export function ServiceAreaSearch({ items }: ServiceAreaSearchProps) {
         htmlFor="service-area-search"
         className="text-sm font-black uppercase tracking-[0.18em] text-blue-700"
       >
-        Suburb or postcode search
+        Suburb / Postcode
       </label>
 
       <div className="mt-3 flex min-h-12 items-center gap-3 rounded-lg border border-slate-300 bg-slate-50 px-4 focus-within:border-blue-600 focus-within:bg-white">
@@ -46,7 +46,7 @@ export function ServiceAreaSearch({ items }: ServiceAreaSearchProps) {
           type="search"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="Suburb or postcode, for example 2213"
+          placeholder="Enter suburb or postcode"
           className="h-12 w-full bg-transparent text-base font-semibold text-slate-950 outline-none placeholder:text-slate-500"
         />
       </div>

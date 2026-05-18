@@ -5,6 +5,7 @@ import {
   Flame,
   Home,
   ShieldCheck,
+  Wrench,
   Zap,
 } from "lucide-react";
 
@@ -16,7 +17,7 @@ export const business = {
   email: "info@evareadyelectrical.com.au",
   licence: "398937C",
   abn: "44 650 697 797",
-  serviceArea: "Greater Sydney and nearby regions",
+  serviceArea: "Greater Sydney and surrounding regions",
   siteUrl: "https://evareadyelectrical.com.au",
   bookingUrl:
     "https://book.servicem8.com/request_booking?uuid=78c2a862-45cf-413b-8ca5-1bf6d8f8944b",
@@ -57,13 +58,13 @@ export const services = [
     description:
       "Switchboard upgrades, ceramic fuse replacement, safety switches, RCBO protection, fault finding and compliance checks.",
     icon: ShieldCheck,
-    intent: "High Value",
+    intent: "Major Work",
   },
   {
     title: "Power Points & Lighting",
     slug: "power-points-lighting-sydney",
     description:
-      "New power points, LED lighting, downlights, outdoor lighting, security lighting, bathroom lights and general electrical installs.",
+      "New power points, LED lighting, downlights, outdoor lighting, security lighting, bathroom lights and general electrical installation work.",
     icon: Zap,
     intent: "Residential",
   },
@@ -97,8 +98,159 @@ export const services = [
     description:
       "Home and business EV charger installations, load checks, circuit upgrades, switchboard upgrades and future-ready setup.",
     icon: BadgeCheck,
-    intent: "High Value",
+    intent: "Major Work",
   },
+  {
+    title: "Hot Water System Electrical",
+    slug: "hot-water-system-electrician-sydney",
+    description:
+      "Electrical repairs, replacements, circuits, isolators and fault checks for electric hot water systems.",
+    icon: Flame,
+    intent: "Major Work",
+  },
+  {
+    title: "CCTV & Security Cameras",
+    slug: "cctv-security-camera-installation-sydney",
+    description:
+      "CCTV camera installation, security camera wiring, recorder setup support and neat cabling for homes and businesses.",
+    icon: ShieldCheck,
+    intent: "Security",
+  },
+  {
+    title: "Data Cabling & Internet Points",
+    slug: "data-cabling-electrician-sydney",
+    description:
+      "Network data cabling, internet points, NBN-related internal cabling and communication outlets.",
+    icon: Bolt,
+    intent: "Communications",
+  },
+  {
+    title: "Ceiling & Exhaust Fans",
+    slug: "ceiling-fan-installation-sydney",
+    description:
+      "Ceiling fan, exhaust fan, bathroom fan and ventilation wiring, installation and replacement.",
+    icon: Zap,
+    intent: "Residential",
+  },
+  {
+    title: "Safety Switches & RCDs",
+    slug: "safety-switch-rcd-installation-sydney",
+    description:
+      "Safety switch installation, RCD repairs, circuit protection upgrades and nuisance tripping checks.",
+    icon: ShieldCheck,
+    intent: "Compliance",
+  },
+  {
+    title: "3 Phase Power",
+    slug: "three-phase-power-sydney",
+    description:
+      "3 phase power upgrades, equipment circuits, load checks and switchboard support for higher electrical demand.",
+    icon: Bolt,
+    intent: "Major Work",
+  },
+  {
+    title: "Surge Protection",
+    slug: "surge-protection-electrician-sydney",
+    description:
+      "Surge protection devices for switchboards to help protect appliances, electronics and sensitive equipment.",
+    icon: ShieldCheck,
+    intent: "Protection",
+  },
+  {
+    title: "Appliance, Cooktop & Rangehood",
+    slug: "appliance-installation-electrician-sydney",
+    description:
+      "Electrical connections for cooktops, ovens, rangehoods, dishwashers, dedicated appliance circuits and isolators.",
+    icon: Home,
+    intent: "Residential",
+  },
+  {
+    title: "Electrical Rewiring",
+    slug: "rewiring-electrician-sydney",
+    description:
+      "Rewiring for older homes, renovations, damaged cabling, VIR cable concerns and unsafe wiring upgrades.",
+    icon: Wrench,
+    intent: "Major Work",
+  },
+  {
+    title: "Meters & Service Equipment",
+    slug: "metering-services-sydney",
+    description:
+      "Metering support, service equipment checks, supply-side enquiries and Level 2 electrical coordination where required.",
+    icon: BadgeCheck,
+    intent: "Level 2",
+  },
+];
+
+export const quoteServiceOptions = [
+  "Emergency Electrical Services",
+  "Power Outage or Partial Power Loss",
+  "Electrical Fault Finding",
+  "Switchboard Repairs and Replacement",
+  "Switchboard Upgrades",
+  "Safety Switch Repairs and Installation",
+  "Level 2 Electrician",
+  "Consumer Mains",
+  "Defect Notice Repairs",
+  "Private Power Pole",
+  "Overhead Service Work",
+  "Underground Service Work",
+  "Metering Services",
+  "3 Phase Power",
+  "Hot Water System Electrical",
+  "CCTV Electrician",
+  "Security Cameras",
+  "Network Data Cabling",
+  "Internet and Data Points",
+  "Phone Line Installation and Repairs",
+  "Power Points Installation and Replacement",
+  "LED Lighting",
+  "Downlights",
+  "Indoor Lighting",
+  "Outdoor Security Lighting",
+  "Sensor Lights",
+  "Garden Lighting",
+  "Floodlights",
+  "Pendant Lighting",
+  "LED Strip Lighting",
+  "Ceiling Fan Installation",
+  "Exhaust Fan Installation",
+  "Bathroom Heater Lights",
+  "Bathroom Heat Lamp Installation",
+  "Smoke Alarm Repairs and Installation",
+  "Surge Protection",
+  "Residential Electrical Services",
+  "Commercial Electrical Services",
+  "Strata Electrical Maintenance",
+  "Real Estate Electrical Maintenance",
+  "EV Charger Installation",
+  "Appliance Installation",
+  "Cooktop Installation",
+  "Oven Installation",
+  "Rangehood Installation",
+  "Dishwasher Electrical Connection",
+  "Air Conditioning Electrical Circuits",
+  "Pool and Spa Electrical",
+  "Rewiring Homes",
+  "Renovation Wiring",
+  "New Build Electrical",
+  "Electrical Safety Inspections",
+  "Testing and Tagging",
+  "Electrical Property Reports",
+  "Home Automation",
+  "Intercom Installation",
+  "Access Control",
+  "Electric Gate Power",
+  "Load Balancing and Capacity Checks",
+  "Exit and Emergency Lighting",
+  "Storm Damage Electrical Repairs",
+  "Emergency Appliance Disconnection",
+  "USB Power Point Installation",
+  "Antenna Installation",
+  "TV Points",
+  "TV Wall Mount Power and Cabling",
+  "Smart Home Electrical",
+  "Other Electrical Work",
 ];
 
 export const priorityRegions = [
@@ -154,8 +306,8 @@ export const trustPoints = [
   "ABN 44 650 697 797",
   "Residential, commercial, emergency and Level 2 electrical work",
   "24/7 emergency response available",
-  "Clear quote requests",
-  "Multi-region service coverage",
+  "Clear communication before work starts",
+  "Service across priority NSW regions",
 ];
 
 export const offers = [
@@ -172,11 +324,11 @@ export const offers = [
   {
     title: "Level 2 electrical support",
     description:
-      "Consumer mains, metering, service upgrades and defect work handled properly.",
+      "Consumer mains, metering, service upgrades and defect work handled with clear communication.",
   },
   {
     title: "Easy service area search",
     description:
-      "Clear suburb and postcode pages so customers can quickly check local coverage.",
+      "Suburb and postcode search so customers can quickly check local service information.",
   },
 ];

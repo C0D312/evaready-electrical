@@ -19,14 +19,14 @@ import { business, priorityRegions, services } from "@/data/site";
 export const metadata: Metadata = {
   title: "Emergency & Level 2 Electrician Sydney",
   description:
-    "Call Evaready Electrical for 24/7 emergency electricians, Level 2 electrical work, switchboard upgrades, fault finding and residential or commercial electrical services across Greater Sydney and nearby regions.",
+    "Need an electrician? Evaready Electrical provides emergency, Level 2, switchboard, fault finding, residential and commercial electrical services across Greater Sydney and surrounding regions.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Emergency & Level 2 Electrician Sydney | Evaready Electrical",
     description:
-      "Licensed electricians for emergencies, switchboards, Level 2 work, fault finding, lighting, power and commercial electrical services across Greater Sydney and nearby regions.",
+      "Licensed electricians for emergencies, switchboards, Level 2 work, fault finding, lighting, power and commercial electrical services across Greater Sydney and surrounding regions.",
     url: "/",
     images: ["/evaready-logo.png"],
   },
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 const heroStats = [
   { label: "Emergency response", value: "24/7" },
   { label: "NSW licence", value: business.licence },
-  { label: "Coverage", value: "Greater Sydney +" },
+  { label: "Service area", value: "Greater Sydney +" },
 ];
 
 const urgentFaults = [
@@ -75,19 +75,19 @@ const moneyServices = [
 const proof = [
   `NSW electrical licence ${business.licence}`,
   `ABN ${business.abn}`,
-  "24/7 emergency electrical help",
+  "24/7 urgent electrical support",
   "Residential and commercial electrical work",
 ];
 
 const decisionDrivers = [
   {
     title: "Clear pricing before work starts",
-    text: "For quoted and planned work, the scope and price are discussed before the job begins.",
+    text: "For planned and quoted work, the scope and price are discussed before the job begins.",
     icon: BadgeCheck,
   },
   {
     title: "Safety-first testing",
-    text: "Faults, switchboards, safety switches and repaired circuits are checked with care before the job is wrapped up.",
+    text: "Faults, switchboards, safety switches and repaired circuits are tested carefully before the job is completed.",
     icon: ShieldCheck,
   },
   {
@@ -137,17 +137,21 @@ const quickJobs = [
   },
 ];
 
-const serviceGridLinks: Record<string, string> = {
-  "Residential Electrician": "/services/residential-electrician-sydney",
-  "Emergency Electrician": "/emergency-electrician-sydney",
-  "Level 2 Electrician": "/level-2-electrician-sydney",
-  "Switchboard Upgrades": "/services/switchboard-upgrades-sydney",
-  "Power Points & Lighting": "/services/power-point-installation-sydney",
-  "Fault Finding": "/services/electrical-fault-finding-sydney",
-  "Smoke Alarms": "/services/smoke-alarm-electrician-sydney",
-  "Commercial Electrician": "/services/commercial-electrician-sydney",
-  "EV Chargers": "/services/ev-charger-installation-sydney",
-};
+const homepageServiceTitles = [
+  "Residential Electrician",
+  "Commercial Electrician",
+  "Hot Water System Electrical",
+  "CCTV & Security Cameras",
+  "Data Cabling & Internet Points",
+  "Safety Switches & RCDs",
+  "EV Chargers",
+  "3 Phase Power",
+  "Smoke Alarms",
+];
+
+const homepageServices = homepageServiceTitles
+  .map((title) => services.find((service) => service.title === title))
+  .filter((service): service is (typeof services)[number] => Boolean(service));
 
 const faqs = [
   {
@@ -168,7 +172,7 @@ const faqs = [
   {
     question: "How do I request a quote?",
     answer:
-      "Call 0461 247 247 or use the online quote form to send through your job details.",
+      "Call 0461 247 247 or use the online quote form to send your job address, contact details, photos and a short description of the work.",
   },
 ];
 
@@ -249,7 +253,7 @@ export default function HomePage() {
           <div>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-black text-blue-800">
               <Clock3 className="h-4 w-4" />
-              24/7 electrical help across Greater Sydney & nearby regions
+              24/7 licensed electrical support across key NSW service regions
             </div>
 
             <h1 className="max-w-5xl text-5xl font-black leading-[0.98] text-slate-950 sm:text-6xl">
@@ -303,15 +307,15 @@ export default function HomePage() {
 
           <div className="rounded-lg border border-slate-200 bg-slate-950 p-6 text-white shadow-2xl shadow-slate-950/20">
             <p className="text-sm font-black uppercase tracking-[0.2em] text-cyan-200">
-              Need electrical help?
+              Need an electrician?
             </p>
             <h2 className="mt-3 text-3xl font-black">
-              Call first for urgent faults.
+              We&rsquo;re Evaready to assist.
             </h2>
             <p className="mt-3 leading-7 text-slate-300">
-              If there is a burning smell, power loss, sparking or a tripping
-              safety switch, call Evaready Electrical before the issue gets
-              worse.
+              If there is a burning smell, power loss, sparking or a safety
+              switch that keeps tripping, call Evaready Electrical before the
+              fault becomes more serious.
             </p>
 
             <div className="mt-6 grid gap-3">
@@ -331,7 +335,7 @@ export default function HomePage() {
                 Electrical hazard?
               </p>
               <p className="mt-2 text-2xl font-black">
-                Call before it gets worse.
+                Call now for urgent support.
               </p>
             </div>
           </div>
@@ -407,9 +411,9 @@ export default function HomePage() {
       </section>
 
       <QuoteRequestPanel
-        eyebrow="Fast quote request"
-        title="Request a faster quote."
-        description="Send your suburb or postcode, what electrical problem you have, whether it is urgent or planned, and photos of the switchboard, damaged fitting, defect notice or work area. This helps Evaready Electrical understand the job faster and respond with clearer next steps."
+        eyebrow="Need a quote?"
+        title="Tell us what is happening."
+        description="Send your suburb or postcode, the electrical issue, how urgent it is, and any photos of the switchboard, damaged fitting, defect notice or work area. Evaready Electrical will guide you through the next step."
         quoteLabel="Request Quote"
       />
 
@@ -418,15 +422,16 @@ export default function HomePage() {
           <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div>
               <p className="text-sm font-black uppercase text-blue-700">
-                Sydney electrical services
+                Electrical services
               </p>
               <h2 className="mt-3 max-w-3xl text-4xl font-black leading-tight sm:text-5xl">
-                Emergency, Level 2 and general electrical work done properly.
+                Need an electrician? We&rsquo;re Evaready to assist.
               </h2>
               <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-700">
-                Fault finding, switchboard upgrades, lighting, power points,
-                smoke alarms, EV chargers and commercial electrical maintenance
-                for homes, businesses, strata managers and builders.
+                Licensed electrical support for fault finding, switchboard
+                upgrades, hot water systems, CCTV, data cabling, lighting,
+                power points, smoke alarms, EV chargers and commercial
+                maintenance for homes, businesses, strata managers and builders.
               </p>
             </div>
             <Link
@@ -465,9 +470,9 @@ export default function HomePage() {
           </div>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {services.slice(0, 6).map((service) => {
+            {homepageServices.map((service) => {
               const Icon = service.icon;
-              const href = serviceGridLinks[service.title] ?? "/services";
+              const href = `/services/${service.slug}`;
 
               return (
                 <Link
@@ -499,9 +504,9 @@ export default function HomePage() {
               Licensed electrical help you can verify.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
-              Evaready Electrical displays licence details clearly, explains the
-              next step, and makes it easy to call or request a quote for urgent
-              and planned electrical work.
+              Evaready Electrical keeps licence details visible, explains the
+              next step clearly, and makes it simple to call for urgent faults
+              or send details for planned electrical work.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a
@@ -550,8 +555,8 @@ export default function HomePage() {
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
               Search your suburb or postcode, browse the major regions, and find
-              the local page for emergency faults, Level 2 electrical work,
-              switchboard upgrades and general electrical service.
+              local information for emergency faults, Level 2 electrical work,
+              switchboard upgrades and everyday electrical service.
             </p>
             <Link
               href="/service-areas"
