@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
 import {
   AlertTriangle,
@@ -11,7 +10,7 @@ import {
   Phone,
   ShieldCheck,
 } from "lucide-react";
-import { MobilePrimaryNav } from "@/components/mobile-primary-nav";
+import { SiteHeader } from "@/components/site-frame";
 import { assetPath } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -116,76 +115,7 @@ export default function SwitchboardUpgradesSydneyPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      {/* Top bar */}
-      <div className="bg-[#020617] text-white">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-3 py-2 text-xs sm:px-6 sm:py-3 sm:text-sm lg:px-8">
-          <div className="flex min-w-0 items-center gap-2 font-semibold text-slate-200">
-            <ShieldCheck className="h-4 w-4 shrink-0 text-blue-400" />
-            <span className="truncate">
-              Switchboard Upgrades Sydney - Licensed Electrical Contractor
-            </span>
-          </div>
-
-          <a
-            href={business.phoneHref}
-            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-red-600 px-3 py-2 text-xs font-bold text-white transition hover:bg-red-500 sm:px-4 sm:text-sm"
-          >
-            <Phone className="h-4 w-4" />
-            {business.phoneDisplay}
-          </a>
-        </div>
-      </div>
-
-      {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-3 py-3 sm:px-6 sm:py-4 lg:px-8">
-          <Link href="/" className="flex items-center">
-            <Image
-              src={assetPath("/evaready-logo.png")}
-              alt="Evaready Electrical"
-              width={260}
-              height={110}
-              priority
-              className="h-11 w-auto object-contain sm:h-14"
-            />
-          </Link>
-
-          <nav className="hidden items-center gap-8 text-sm font-bold text-slate-700 lg:flex">
-            <Link href="/" className="hover:text-blue-700">
-              Home
-            </Link>
-            <Link href="/services" className="hover:text-blue-700">
-              Electrical Services
-            </Link>
-            <Link
-              href="/emergency-electrician-sydney"
-              className="hover:text-blue-700"
-            >
-              Emergency Electrician
-            </Link>
-            <Link
-              href="/level-2-electrician-sydney"
-              className="hover:text-blue-700"
-            >
-              Level 2 Electrician
-            </Link>
-            <Link href="/service-areas" className="hover:text-blue-700">
-              Service Areas
-            </Link>
-          </nav>
-
-          <a
-            href={business.bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-xl bg-red-600 px-4 py-3 text-sm font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 sm:px-5"
-          >
-            <span className="sm:hidden">Quote</span>
-            <span className="hidden sm:inline">Request Quote</span>
-          </a>
-        </div>
-        <MobilePrimaryNav />
-      </header>
+      <SiteHeader />
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-[#020617] text-white">
@@ -445,7 +375,7 @@ export default function SwitchboardUpgradesSydneyPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#020617] py-12 pb-28 text-white md:pb-12">
+      <footer className="bg-[#020617] py-12 text-white">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 text-sm text-slate-400 sm:px-6 lg:grid-cols-4 lg:px-8">
           <div className="lg:col-span-2">
             <Image
@@ -496,25 +426,6 @@ export default function SwitchboardUpgradesSydneyPage() {
         </div>
       </footer>
 
-      {/* Mobile sticky CTA */}
-      <div className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 gap-3 border-t border-white/10 bg-[#020617]/95 p-3 backdrop-blur-xl md:hidden">
-        <a
-          href={business.phoneHref}
-          className="flex items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-4 font-black text-white"
-        >
-          <Phone className="h-5 w-5" />
-          Call
-        </a>
-
-        <a
-          href={business.bookingUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-4 font-black text-white"
-        >
-          Quote
-        </a>
-      </div>
     </main>
   );
 }

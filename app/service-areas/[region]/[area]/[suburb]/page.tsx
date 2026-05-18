@@ -11,7 +11,6 @@ import {
 } from "lucide-react";
 import { notFound } from "next/navigation";
 import {
-  MobileStickyCta,
   ServiceAreaHero,
   SiteFooter,
   SiteHeader,
@@ -107,9 +106,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      <SiteHeader
-        topLine={`Electrician ${suburb.name} ${suburb.postcode} - Licensed Electrical Contractor`}
-      />
+      <SiteHeader />
 
       <ServiceAreaHero
         eyebrow={`${area.name} - ${region.name}`}
@@ -321,7 +318,6 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
       </section>
 
       <SiteFooter />
-      <MobileStickyCta />
     </main>
   );
 }

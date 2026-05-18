@@ -15,7 +15,7 @@ import {
   Star,
   Wrench,
 } from "lucide-react";
-import { MobilePrimaryNav } from "@/components/mobile-primary-nav";
+import { SiteHeader } from "@/components/site-frame";
 import { assetPath, business, prioritySuburbs, services } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -33,14 +33,6 @@ export const metadata: Metadata = {
     images: ["/evaready-logo.png"],
   },
 };
-
-const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Electrical Services" },
-  { href: "/emergency-electrician-sydney", label: "Emergency Electrician" },
-  { href: "/level-2-electrician-sydney", label: "Level 2 Electrician" },
-  { href: "/service-areas", label: "Service Areas" },
-];
 
 const heroStats = [
   { label: "Emergency response", value: "24/7" },
@@ -249,62 +241,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <div className="bg-slate-950 text-white">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-3 py-2 text-xs font-semibold sm:px-6 sm:py-3 sm:text-sm lg:px-8">
-          <div className="flex min-w-0 items-center gap-2">
-            <Flame className="h-4 w-4 shrink-0 text-red-500" />
-            <span className="truncate">
-              Emergency Electrician Sydney - Licensed Electrical Contractor
-            </span>
-          </div>
-          <a
-            href={business.phoneHref}
-            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-red-600 px-3 py-2 text-xs font-black text-white transition hover:bg-red-500 sm:px-4 sm:text-sm"
-          >
-            <Phone className="h-4 w-4" />
-            {business.phoneDisplay}
-          </a>
-        </div>
-      </div>
-
-      <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-3 py-3 sm:px-6 sm:py-4 lg:px-8">
-          <Link href="/" className="flex items-center">
-            <Image
-              src={assetPath("/evaready-logo.png")}
-              alt="Evaready Electrical 24/7"
-              width={240}
-              height={135}
-              priority
-              className="h-11 w-40 object-cover sm:h-14 sm:w-52"
-            />
-          </Link>
-
-          <nav className="hidden items-center gap-7 text-sm font-bold text-slate-700 lg:flex">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="hover:text-blue-700"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          <a
-            href={business.bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-3 text-sm font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 sm:px-5"
-          >
-            <span className="sm:hidden">Quote</span>
-            <span className="hidden sm:inline">Request Quote</span>
-            <ArrowRight className="hidden h-4 w-4 sm:block" />
-          </a>
-        </div>
-        <MobilePrimaryNav />
-      </header>
+      <SiteHeader />
 
       <section className="relative overflow-hidden bg-white">
         <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-blue-700 via-cyan-400 to-red-600" />
@@ -363,16 +300,17 @@ export default function HomePage() {
           </div>
 
           <div className="rounded-lg border border-slate-200 bg-slate-950 p-6 text-white shadow-2xl shadow-slate-950/20">
-            <div className="rounded-lg bg-white p-5">
-              <Image
-                src={assetPath("/evaready-logo.png")}
-                alt="Evaready Electrical logo"
-                width={640}
-                height={360}
-                priority
-                className="h-auto w-full rounded-md object-contain"
-              />
-            </div>
+            <p className="text-sm font-black uppercase tracking-[0.2em] text-cyan-200">
+              Need electrical help?
+            </p>
+            <h2 className="mt-3 text-3xl font-black">
+              Call first for urgent faults.
+            </h2>
+            <p className="mt-3 leading-7 text-slate-300">
+              If there is a burning smell, power loss, sparking or a tripping
+              safety switch, call Evaready Electrical before the issue gets
+              worse.
+            </p>
 
             <div className="mt-6 grid gap-3">
               {urgentFaults.map((fault) => (
@@ -752,7 +690,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className="bg-slate-950 py-12 pb-28 text-white md:pb-12">
+      <footer className="bg-slate-950 py-12 text-white">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 text-sm text-slate-400 sm:px-6 lg:grid-cols-4 lg:px-8">
           <div className="lg:col-span-2">
             <Image
@@ -801,24 +739,6 @@ export default function HomePage() {
         </div>
       </footer>
 
-      <div className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 gap-3 border-t border-white/10 bg-slate-950/95 p-3 backdrop-blur-xl md:hidden">
-        <a
-          href={business.phoneHref}
-          className="flex items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-4 font-black text-white"
-        >
-          <Phone className="h-5 w-5" />
-          Call
-        </a>
-
-        <a
-          href={business.bookingUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-4 font-black text-white"
-        >
-          Quote
-        </a>
-      </div>
     </main>
   );
 }

@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 import { ServiceAreaSearch } from "@/components/service-area-search";
 import {
-  MobileStickyCta,
   ServiceAreaHero,
   SiteFooter,
   SiteHeader,
@@ -64,7 +63,7 @@ export default function AreasPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      <SiteHeader topLine="Sydney electrical service areas" />
+      <SiteHeader />
 
       <ServiceAreaHero
         eyebrow="Electrical service areas"
@@ -256,7 +255,6 @@ export default function AreasPage() {
       </section>
 
       <SiteFooter />
-      <MobileStickyCta />
     </main>
   );
 }

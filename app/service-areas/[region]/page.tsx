@@ -2,7 +2,6 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowRight, CheckCircle2, MapPin, Phone } from "lucide-react";
 import {
-  MobileStickyCta,
   ServiceAreaHero,
   SiteFooter,
   SiteHeader,
@@ -58,7 +57,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
 
   return (
     <main className="min-h-screen bg-white text-slate-950">
-      <SiteHeader topLine={`${region.name} electrical service area`} />
+      <SiteHeader />
 
       <ServiceAreaHero
         eyebrow="Region service area"
@@ -179,7 +178,6 @@ export default async function RegionPage({ params }: RegionPageProps) {
       </section>
 
       <SiteFooter />
-      <MobileStickyCta />
     </main>
   );
 }
