@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://evareadyelectrical.com.au"),
   title: {
-    default: "Emergency Electrician Sydney | Evaready Electrical 24/7",
+    default: "Emergency & Level 2 Electrician Sydney | Evaready Electrical 24/7",
     template: "%s | Evaready Electrical",
   },
   description:
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "Evaready Electrical",
   ],
   openGraph: {
-    title: "Emergency Electrician Sydney | Evaready Electrical 24/7",
+    title: "Emergency & Level 2 Electrician Sydney | Evaready Electrical 24/7",
     description:
       "Fast-response licensed electricians for urgent faults, Level 2 electrical work, switchboards, outages and commercial electrical services.",
     url: "https://evareadyelectrical.com.au",
