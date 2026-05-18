@@ -82,24 +82,24 @@ const proof = [
 
 const decisionDrivers = [
   {
-    title: "Urgent faults handled first",
-    text: "Power loss, burning smells, sparking, hot outlets and tripping circuits are treated as safety issues.",
-    icon: Phone,
-  },
-  {
-    title: "Clear quote requests",
-    text: "Send the suburb, job type, urgency and photos so the work can be assessed faster.",
+    title: "Clear pricing before work starts",
+    text: "For quoted and planned work, the scope and price are discussed before the job begins.",
     icon: BadgeCheck,
   },
   {
+    title: "Safety-first testing",
+    text: "Faults, switchboards, safety switches and repaired circuits are checked with care before the job is wrapped up.",
+    icon: ShieldCheck,
+  },
+  {
     title: "Level 2 electrical support",
-    text: "Consumer mains, defect notices, service equipment and switchboard work are explained clearly before work starts.",
+    text: "Consumer mains, defect notices, service equipment and switchboard work are explained clearly.",
     icon: Bolt,
   },
   {
-    title: "Homes, businesses and strata",
-    text: "Residential, commercial, strata, builder and maintenance jobs are handled with tidy workmanship.",
-    icon: MapPin,
+    title: "Clean workmanship",
+    text: "Residential, commercial, strata, builder and maintenance jobs are handled neatly.",
+    icon: Wrench,
   },
 ];
 
