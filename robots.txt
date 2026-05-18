@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://evareadyelectrical.com.au
+Sitemap: https://evareadyelectrical.com.au/sitemap.xml
