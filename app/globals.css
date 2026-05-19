@@ -812,20 +812,16 @@ section.border-y.bg-slate-950 span {
   }
 
   .site-header-actions {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
+    position: static;
+    justify-self: end;
     max-width: 100%;
     gap: 0.25rem;
-    padding-right: 2.75rem;
+    padding-right: 0;
   }
 
   .site-header-actions .mobile-nav-trigger {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
+    position: static;
+    transform: none;
   }
 
   header a[data-header-logo="true"] {
