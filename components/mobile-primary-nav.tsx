@@ -166,8 +166,8 @@ export function MobilePrimaryNav() {
               </a>
               <a
                 href={business.bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                data-quote-trigger="true"
+                aria-haspopup="dialog"
                 onClick={() => setOpen(false)}
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20"
               >

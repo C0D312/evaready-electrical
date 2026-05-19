@@ -221,8 +221,6 @@ export default function Level2ElectricianSydneyPage() {
 
               <a
                 href={business.bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
               >
                 Get a Quote
@@ -275,8 +273,6 @@ export default function Level2ElectricianSydneyPage() {
             <div className="mt-6 grid gap-4">
               <a
                 href={business.bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-xl bg-red-600 px-6 py-4 font-black text-white transition hover:bg-red-500"
               >
                 Get a Quote
@@ -527,8 +523,6 @@ export default function Level2ElectricianSydneyPage() {
 
             <a
               href={business.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-7 py-4 font-black text-[#020617] transition hover:bg-slate-100"
             >
               Get a Quote

@@ -108,16 +108,16 @@ export function QuoteRequestPanel({
               Prefer to send photos and job notes?
             </p>
             <p className="mt-1 text-sm font-semibold leading-6 text-slate-300">
-              Open the quote form in a clean mobile view and add the details
-              there.
+              The booking form opens here on the page so you can add the
+              address, photos and job notes.
             </p>
             <a
               href={business.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              data-quote-trigger="true"
+              aria-haspopup="dialog"
               className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white transition hover:bg-blue-600"
             >
-              Open Quote Form
+              Get a Quote
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
@@ -128,25 +128,6 @@ export function QuoteRequestPanel({
               title="Evaready Electrical quote form"
               className="h-[760px] w-full bg-white sm:h-[880px]"
             />
-          </div>
-
-          <div className="mt-5 rounded-lg border border-cyan-300/20 bg-white/10 p-4">
-            <div>
-              <p className="text-sm font-black text-white">
-                For emergencies, call instead of submitting a form.
-              </p>
-              <p className="mt-1 text-sm font-semibold leading-6 text-slate-300">
-                Power loss, smoke, heat, sparking and repeated tripping should
-                be talked through by phone.
-              </p>
-            </div>
-            <a
-              href={business.phoneHref}
-              className="mt-4 inline-flex w-full items-center justify-center gap-3 rounded-lg bg-red-600 px-4 py-4 text-center text-sm font-black text-white transition hover:bg-red-500 sm:px-5 sm:text-base"
-            >
-              <Phone className="h-5 w-5" />
-              <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
-            </a>
           </div>
         </div>
       </div>

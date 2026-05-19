@@ -219,8 +219,6 @@ export default async function ServiceLandingPage({
 
               <a
                 href={business.bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
               >
                 Get a Quote
@@ -377,8 +375,6 @@ export default async function ServiceLandingPage({
               </a>
               <a
                 href={business.bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white transition hover:bg-blue-600"
               >
                 Get a Quote
@@ -485,8 +481,6 @@ export default async function ServiceLandingPage({
             </a>
             <a
               href={business.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-white px-7 py-4 font-black text-slate-950 transition hover:bg-slate-100"
             >
               Get a Quote

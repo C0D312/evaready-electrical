@@ -512,8 +512,6 @@ export default function ServicesPage() {
 
               <a
                 href={business.bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
               >
                 Get a Quote
@@ -590,8 +588,6 @@ export default function ServicesPage() {
                   {isExternalServiceLink(service.title) ? (
                     <a
                       href={getServiceHref(service.title)}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="mt-7 inline-flex items-center gap-2 font-black text-red-600"
                     >
                       Send details <ArrowRight className="h-4 w-4" />
@@ -636,8 +632,6 @@ export default function ServicesPage() {
 
             <a
               href={business.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-7 py-4 font-black text-[#020617] transition hover:bg-slate-100"
             >
               Get a Quote

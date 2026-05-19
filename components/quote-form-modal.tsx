@@ -34,7 +34,12 @@ export function QuoteFormModal() {
         return;
       }
 
-      if (link.href !== business.bookingUrl) {
+      const opensBookingForm =
+        link.dataset.quoteTrigger === "true" ||
+        link.href === business.bookingUrl ||
+        link.href.startsWith(`${business.bookingUrl}&`);
+
+      if (!opensBookingForm) {
         return;
       }
 

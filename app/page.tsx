@@ -70,7 +70,7 @@ const moneyServices = [
   {
     title: "Switchboard upgrades",
     href: "/services/switchboard-upgrades-sydney",
-    text: "Replace ceramic fuses, add modern protection, improve circuit labelling and prepare the board for today’s loads.",
+    text: "Replace ceramic fuses, add modern protection, improve circuit labelling and prepare the board for today's loads.",
     icon: ShieldCheck,
   },
   {
@@ -444,11 +444,11 @@ export default function HomePage() {
                 </p>
                 <a
                   href={business.bookingUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  data-quote-trigger="true"
+                  aria-haspopup="dialog"
                   className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white transition hover:bg-blue-600"
                 >
-                  Open Quote Form
+                  Get a Quote
                   <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
@@ -631,8 +631,6 @@ export default function HomePage() {
               </a>
               <a
                 href={business.bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
               >
                 Get a Quote

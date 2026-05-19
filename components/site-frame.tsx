@@ -98,8 +98,8 @@ export function SiteHeader() {
 
               <a
                 href={business.bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                data-quote-trigger="true"
+                aria-haspopup="dialog"
                 className="hidden min-h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 md:inline-flex lg:bg-red-600 lg:hover:bg-red-500"
               >
                 Get a Quote
@@ -170,14 +170,14 @@ export function SiteFooter() {
             >
               <Phone className="h-4 w-4" />
               <span className="whitespace-nowrap">
-                Emergency? Call Now {business.phoneDisplay}
+                Emergency? Call now {business.phoneDisplay}
               </span>
             </a>
 
             <a
               href={business.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              data-quote-trigger="true"
+              aria-haspopup="dialog"
               className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-black text-white hover:bg-blue-500 sm:w-fit"
             >
               Get a Quote
