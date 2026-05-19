@@ -64,12 +64,12 @@ export function ServiceM8Frame({ className, src, title }: ServiceM8FrameProps) {
   useEffect(() => clearTimers, [clearTimers]);
 
   return (
-    <div>
+    <div className="h-full min-h-0 w-full">
       <iframe
         key={frameKey}
         src={src}
         title={title}
-        className={className}
+        className={`${className} block border-0`}
         loading="lazy"
         referrerPolicy="origin"
         onLoad={handleLoad}

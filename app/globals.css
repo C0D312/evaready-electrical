@@ -170,6 +170,36 @@ body {
   text-transform: uppercase;
 }
 
+.quote-modal-panel {
+  height: 100vh;
+  max-height: 100vh;
+  min-height: 0;
+  overscroll-behavior: contain;
+}
+
+@supports (height: 100dvh) {
+  .quote-modal-panel {
+    height: 100dvh;
+    max-height: 100dvh;
+  }
+}
+
+@media (min-width: 640px) {
+  .quote-modal-panel {
+    height: min(920px, calc(100vh - 2rem));
+    max-height: calc(100vh - 2rem);
+  }
+}
+
+@supports (height: 100dvh) {
+  @media (min-width: 640px) {
+    .quote-modal-panel {
+      height: min(920px, calc(100dvh - 2rem));
+      max-height: calc(100dvh - 2rem);
+    }
+  }
+}
+
 @media (min-width: 768px) {
   .floating-call-button {
     right: max(1.5rem, env(safe-area-inset-right));
