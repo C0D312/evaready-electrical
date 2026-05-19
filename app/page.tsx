@@ -319,14 +319,6 @@ export default function HomePage() {
                 <Phone className="h-5 w-5" />
                 <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
               </a>
-
-              <a
-                href="#quote"
-                className="inline-flex w-full items-center justify-center gap-3 rounded-lg bg-slate-950 px-5 py-4 text-center text-base font-black text-white shadow-xl shadow-slate-950/15 transition hover:bg-slate-800 sm:w-auto sm:px-7"
-              >
-                Send Job Details
-                <ArrowRight className="h-5 w-5" />
-              </a>
             </div>
 
             <div className="mt-8 hidden gap-3 sm:grid sm:grid-cols-3 lg:mt-10">
