@@ -151,7 +151,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
               Electrical help in {region.name}.
             </p>
             <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Call for urgent faults or send job details for review.
+              Call for urgent faults or open the quote form for planned work.
             </h2>
           </div>
 

@@ -148,8 +148,7 @@ export function SiteFooter() {
           </div>
           <p className="mt-5 max-w-md leading-7">
             Electrical support for urgent faults, homes, businesses and Level 2
-            work across Greater Sydney, Illawarra, Blue Mountains, Northern
-            Beaches and Central Coast South.
+            work across Sydney and surrounding regions.
           </p>
           <div className="mt-5 space-y-2">
             <p>Electrical Licence: {business.licence}</p>

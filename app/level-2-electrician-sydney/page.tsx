@@ -207,7 +207,7 @@ export default function Level2ElectricianSydneyPage() {
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">
               Support for consumer mains, defect notices, service equipment,
               metering, overhead supplies and underground electrical work across
-              Greater Sydney and surrounding regions.
+              Sydney and surrounding regions.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">

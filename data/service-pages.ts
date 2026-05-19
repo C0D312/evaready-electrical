@@ -105,7 +105,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Electrical maintenance and installation support for Sydney businesses, builders, strata and real estate clients.",
     intro:
-      "Commercial electrical work needs clear communication, reliable attendance and neat documentation. Evaready Electrical supports shops, offices, strata sites, warehouses, builders and property managers with practical electrical service across Greater Sydney and surrounding regions.",
+      "Commercial electrical work needs clear communication, reliable attendance and neat documentation. Evaready Electrical supports shops, offices, strata sites, warehouses, builders and property managers across Sydney and surrounding regions.",
     heroBullets: [
       "Office, retail and strata electrical support",
       "Lighting, power and fault finding",

@@ -18,7 +18,7 @@ export const business = {
   emailHref: "mailto:info@evareadyelectrical.com.au",
   licence: "398937C",
   abn: "44 650 697 797",
-  serviceArea: "Greater Sydney and surrounding regions",
+  serviceArea: "Sydney & Surrounding Regions",
   siteUrl: "https://evareadyelectrical.com.au",
   bookingUrl:
     "https://book.servicem8.com/request_booking?uuid=78c2a862-45cf-413b-8ca5-1bf6d8f8944b",

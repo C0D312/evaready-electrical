@@ -53,11 +53,8 @@ export function QuoteRequestPanel({
               className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-3 py-4 text-center text-[clamp(0.9rem,4vw,1.05rem)] font-black leading-6 text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 sm:gap-3 sm:px-5"
             >
               <Phone className="h-5 w-5 shrink-0" />
-              <span className="whitespace-nowrap sm:hidden">
-                Call {business.phoneDisplay}
-              </span>
-              <span className="hidden whitespace-nowrap sm:inline">
-                Emergency? Call now - {business.phoneDisplay}
+              <span className="whitespace-nowrap">
+                Emergency? Call now {business.phoneDisplay}
               </span>
             </a>
           </div>
@@ -108,8 +105,8 @@ export function QuoteRequestPanel({
               Prefer to send photos and job notes?
             </p>
             <p className="mt-1 text-sm font-semibold leading-6 text-slate-300">
-              The booking form opens here on the page so you can add the
-              address, photos and job notes.
+              Open the secure booking form to send your address, photos and job
+              notes.
             </p>
             <a
               href={business.bookingUrl}

@@ -973,7 +973,7 @@ export function getSuburbPageCopy(
     [
       `Evaready Electrical helps ${suburbLabel} homes and businesses with ${context.commonJobs}. Planned work is easier to assess with clear job details, while urgent electrical hazards should be phoned through directly.`,
       `For ${suburbLabel}, Evaready Electrical focuses on practical electrical service for ${context.propertyMix}. Common requests include ${context.commonJobs}, plus Level 2 electrical enquiries where the supply side of the installation needs attention.`,
-      `Electrical work in ${suburbLabel} can range from urgent faults to planned upgrades. Evaready Electrical supports local ${context.propertyMix} with ${context.commonJobs}, and keeps the next step simple: call for hazards or send job details for scheduled work.`,
+      `Electrical work in ${suburbLabel} can range from urgent faults to planned upgrades. Evaready Electrical supports local ${context.propertyMix} with ${context.commonJobs}. Call first for hazards, or open the secure booking form for scheduled work.`,
       `Evaready Electrical services ${suburbLabel} with electrical fault support, repairs and upgrade work shaped around ${context.propertyMix}. Services include ${context.commonJobs}, along with switchboard and Level 2 enquiries across ${areaLabel}.`,
     ],
     seed,
@@ -1163,7 +1163,7 @@ export function getSuburbPageCopy(
       seed,
       43,
     ),
-    faqIntro: `Use these quick answers to decide whether to call for an urgent hazard or send details for planned work in ${coverageSuburb.name}.`,
+    faqIntro: `Use these quick answers to decide whether to call for an urgent hazard or open the quote form for planned work in ${coverageSuburb.name}.`,
     heroDescription,
     heroNote,
     metaDescription: `Evaready Electrical helps ${suburbLabel} properties with ${context.commonJobs}, switchboards, urgent faults and Level 2 enquiries around ${areaLabel}.`,
@@ -1229,15 +1229,7 @@ export function getSuburbPageCopy(
       },
     ],
     serviceSummaries,
-    servicesHeading: pick(
-      [
-        `Electrical work commonly requested in ${coverageSuburb.name}.`,
-        `Electrical services available around ${coverageSuburb.name}.`,
-        `Common electrical jobs around ${suburbLabel}.`,
-      ],
-      seed,
-      61,
-    ),
+    servicesHeading: `Electrical services available in ${coverageSuburb.name}.`,
     trustItems: [
       `Electrical help for ${coverageSuburb.postcode}`,
       `Local support around ${areaLabel}`,

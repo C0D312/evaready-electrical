@@ -17,7 +17,7 @@ import {
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 
 export const metadata: Metadata = {
-  title: "Electrical Services Greater Sydney",
+  title: "Electrical Services Sydney & Surrounding Regions",
   description:
     "Evaready Electrical handles residential, commercial, emergency and Level 2 electrical work including switchboards, fault finding, hot water electrical, CCTV, data cabling, lighting, power points and smoke alarms.",
   alternates: {
@@ -446,11 +446,11 @@ export default function ServicesPage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Electrician",
-    name: "Evaready Electrical - Electrical Services Greater Sydney",
+    name: "Evaready Electrical - Electrical Services Sydney & Surrounding Regions",
     telephone: business.phoneDisplay,
     email: business.email,
     areaServed:
-      "Greater Sydney, Illawarra, Blue Mountains, Northern Beaches and Central Coast South",
+      "Sydney & Surrounding Regions",
     url: "https://evareadyelectrical.com.au/services",
     priceRange: "$$",
     serviceType: services.map((service) => service.title),
@@ -490,7 +490,7 @@ export default function ServicesPage() {
             </div>
 
             <h1 className="text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
-              Electrical Services Across Greater Sydney & Surrounding Regions
+              Electrical Services Across Sydney & Surrounding Regions
             </h1>
 
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
@@ -590,7 +590,7 @@ export default function ServicesPage() {
                       href={getServiceHref(service.title)}
                       className="mt-7 inline-flex items-center gap-2 font-black text-red-600"
                     >
-                      Send details <ArrowRight className="h-4 w-4" />
+                      Get a Quote <ArrowRight className="h-4 w-4" />
                     </a>
                   ) : (
                     <Link

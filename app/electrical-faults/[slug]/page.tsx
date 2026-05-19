@@ -266,9 +266,9 @@ export default async function ElectricalFaultDetailPage({
               A few photos can make the quote faster.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-300">
-              For non-urgent work, send the details through the booking form so
-              Evaready Electrical can review the job and reply with the next
-              step.
+              For non-urgent work, open the secure booking form to send your
+              address, photos and job notes. Evaready Electrical can then
+              review the job and reply with the next step.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a

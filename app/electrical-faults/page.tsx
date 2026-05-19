@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `Electrical Faults Sydney | ${business.name}`,
     description:
-      "Fast electrical fault guidance for urgent hazards and planned fault finding across Greater Sydney and surrounding regions.",
+      "Sydney-wide emergency electrical help for urgent hazards and planned fault finding across Sydney and surrounding regions.",
     url: "/electrical-faults",
     images: ["/evaready-logo.png"],
   },
@@ -50,7 +50,7 @@ const trustItems = [
 
 const fastPath = [
   "Burning smell, smoke, sparking or heat needs a phone call first.",
-  "For planned faults, send photos, suburb and job notes through the booking form.",
+  "For planned faults, open the secure booking form to send your address, photos and job notes.",
   "Switchboard photos help identify safety switches, breakers, fuses and affected circuits.",
   "Do not keep resetting a breaker or RCD if it trips again.",
 ];
@@ -229,8 +229,8 @@ export default function ElectricalFaultsPage() {
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
               For hazards, phone first. For planned fault finding, photos and
-              notes through the booking form help Evaready Electrical review
-              the work before the next step.
+              job notes help Evaready Electrical review the work before the
+              next step.
             </p>
           </div>
 

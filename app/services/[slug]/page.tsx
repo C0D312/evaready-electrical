@@ -102,7 +102,7 @@ export async function generateMetadata({
 
   if (!service) {
     return {
-      title: "Electrical Services Greater Sydney",
+      title: "Electrical Services Sydney & Surrounding Regions",
     };
   }
 

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     template: "%s | Evaready Electrical",
   },
   description:
-    "Evaready Electrical handles urgent faults, Level 2 work, switchboards, fault finding, EV chargers and commercial electrical jobs across Greater Sydney and surrounding regions.",
+    "Evaready Electrical handles urgent faults, Level 2 work, switchboards, fault finding, EV chargers and commercial electrical jobs across Sydney and surrounding regions.",
   keywords: [
     "emergency electrician Sydney",
     "24/7 electrician Sydney",

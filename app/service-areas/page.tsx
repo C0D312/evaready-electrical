@@ -26,7 +26,7 @@ import { business } from "@/data/site";
 export const metadata: Metadata = {
   title: "Service Areas",
   description:
-    "Evaready Electrical services homes and businesses across Greater Sydney, the Shire, Macarthur, Blue Mountains, Northern Beaches, Illawarra, Wollongong and Central Coast South.",
+    "Evaready Electrical services homes and businesses across Sydney, nearby suburbs and surrounding regions.",
   alternates: {
     canonical: "/service-areas",
   },
@@ -67,13 +67,14 @@ export default function AreasPage() {
 
       <ServiceAreaHero
         eyebrow="Electrical service areas"
-        title="Electricians Across Greater Sydney & Surrounding Regions"
+        title="Electricians Across Sydney & Surrounding Regions"
       >
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
-          Evaready Electrical helps homes and businesses across Greater Sydney,
-          the Shire, Macarthur, Blue Mountains, Northern Beaches, Wollongong,
-          Illawarra and Central Coast South. Search your suburb or postcode,
-          browse the major regions, then call or send the job details.
+          Evaready Electrical helps homes and businesses across Sydney and
+          surrounding regions, including the Shire, Macarthur, Blue Mountains,
+          Northern Beaches, Wollongong, Illawarra and Central Coast South.
+          Search your suburb or postcode, browse the major regions, then call
+          or open the quote form.
         </p>
 
         <div className="mt-8 grid max-w-3xl gap-3 sm:grid-cols-3">

@@ -19,14 +19,14 @@ import { business, priorityRegions, services } from "@/data/site";
 export const metadata: Metadata = {
   title: "Emergency & Level 2 Electrician Sydney",
   description:
-    "Evaready Electrical helps with urgent faults, Level 2 work, switchboards, fault finding, residential and commercial electrical jobs across Greater Sydney and surrounding regions.",
+    "Evaready Electrical helps with urgent faults, Level 2 work, switchboards, fault finding, residential and commercial electrical jobs across Sydney and surrounding regions.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Emergency & Level 2 Electrician Sydney | Evaready Electrical",
     description:
-      "Electrical support for unsafe faults, switchboards, Level 2 work, fault finding, lighting, power and commercial jobs across Greater Sydney and surrounding regions.",
+      "Emergency, Level 2 and general electrical work across Sydney and surrounding regions.",
     url: "/",
     images: ["/evaready-logo.png"],
   },
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 const heroStats = [
   { label: "Emergency response", value: "24/7" },
   { label: "NSW licence", value: business.licence },
-  { label: "Service area", value: "Greater Sydney +" },
+  { label: "Service area", value: "Sydney & Surrounding Regions" },
 ];
 
 const heroTrustMarks = [
@@ -194,9 +194,9 @@ const faqs = [
       "Yes. We upgrade old switchboards, replace ceramic fuses, install safety switches and improve circuit protection for homes and businesses.",
   },
   {
-    question: "How do I send job details?",
+    question: "How do I request a quote?",
     answer:
-      "Call 0461 247 247 or send the address, contact details, photos and a short note about what needs attention.",
+      "Call 0461 247 247 or open the secure booking form to send your address, contact details, photos and a short note about what needs attention.",
   },
 ];
 
@@ -390,7 +390,7 @@ export default function HomePage() {
               >
                 <Phone className="h-5 w-5 shrink-0" />
                 <span className="whitespace-nowrap">
-                  Emergency? Call now - {business.phoneDisplay}
+                  Emergency? Call now {business.phoneDisplay}
                 </span>
               </a>
             </div>
@@ -436,11 +436,10 @@ export default function HomePage() {
 
               <div className="mt-3 rounded-lg border border-white/10 bg-white/10 p-4 sm:hidden">
                 <p className="text-sm font-black text-white">
-                  Send photos and job notes in the booking form.
+                  Open the secure booking form.
                 </p>
                 <p className="mt-1 text-sm font-semibold leading-6 text-slate-300">
-                  It opens cleanly on your phone so you can add the address,
-                  photos and details.
+                  Send your address, photos and job notes for review.
                 </p>
                 <a
                   href={business.bookingUrl}
@@ -497,10 +496,10 @@ export default function HomePage() {
                   href={business.phoneHref}
                   className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-4 text-center text-sm font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 sm:px-5 sm:text-base md:w-auto lg:w-full 2xl:w-auto"
                 >
-                  <Phone className="h-5 w-5 shrink-0" />
-                  <span className="whitespace-nowrap">
-                    Call now - {business.phoneDisplay}
-                  </span>
+                <Phone className="h-5 w-5 shrink-0" />
+                <span className="whitespace-nowrap">
+                    Emergency? Call now {business.phoneDisplay}
+                </span>
                 </a>
                 <Link
                   href="/services"
@@ -618,8 +617,8 @@ export default function HomePage() {
             </h2>
               <p className="mt-5 text-lg leading-8 text-slate-700">
               Evaready Electrical keeps licence details visible, explains what
-              needs attention, and makes it simple to call for urgent faults or
-              send details for planned electrical work.
+              needs attention, and keeps the next step clear for urgent faults
+              or planned electrical work.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a
@@ -659,15 +658,15 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase text-blue-700">
-              Before you send details
+              Before you request a quote
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl">
               A clearer job starts with the right first step.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
               Urgent faults and planned work need different handling. These
-              simple checks help Evaready Electrical respond with the right
-              next move.
+              details help Evaready Electrical respond with the right next
+              move.
             </p>
           </div>
 
@@ -756,12 +755,12 @@ export default function HomePage() {
                   <p className="mt-3 leading-7 text-slate-600">
                     <PhoneLinkedText text={faq.answer} />
                   </p>
-                  {faq.question === "How do I send job details?" ? (
+                  {faq.question === "How do I request a quote?" ? (
                     <Link
                       href="#quote"
                       className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-blue-200 bg-white px-4 py-3 text-sm font-black text-blue-700 shadow-sm transition hover:border-blue-700 hover:bg-blue-50 sm:w-auto"
                     >
-                      Send job details
+                      Get a Quote
                       <ArrowRight className="h-4 w-4" />
                     </Link>
                   ) : null}
