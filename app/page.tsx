@@ -292,8 +292,8 @@ export default function HomePage() {
 
       <section className="relative overflow-hidden bg-white">
         <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-blue-700 via-cyan-400 to-red-600" />
-        <div className="mx-auto grid max-w-7xl items-start gap-5 px-4 pb-8 pt-4 sm:gap-10 sm:px-6 sm:py-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:px-8 lg:py-14">
-          <div className="order-2 min-w-0 lg:order-1">
+        <div className="mx-auto grid max-w-7xl items-start gap-6 px-4 pb-10 pt-4 sm:gap-10 sm:px-6 sm:py-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:px-8 lg:py-14">
+          <div className="order-1 min-w-0 lg:order-1">
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-2 text-xs font-black text-blue-800 sm:mb-6 sm:px-4 sm:text-sm">
               <Clock3 className="h-4 w-4" />
               Open 24/7 for urgent electrical faults
@@ -303,7 +303,7 @@ export default function HomePage() {
               Emergency & Level 2 Electrical Help in Sydney
             </h1>
 
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-700 sm:text-xl">
+            <p className="mt-5 max-w-3xl text-base leading-7 text-slate-700 sm:mt-6 sm:text-xl sm:leading-8">
               Call Evaready Electrical when power drops out, a switchboard needs
               attention or a job needs a licensed electrician who explains the
               next step clearly. We help with urgent faults, Level 2 work,
@@ -311,7 +311,7 @@ export default function HomePage() {
               service across the wider Sydney service area.
             </p>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4">
               <a
                 href={business.phoneHref}
                 className="inline-flex w-full items-center justify-center gap-3 rounded-lg bg-red-600 px-5 py-4 text-center text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500 sm:w-auto sm:px-7"
@@ -348,55 +348,54 @@ export default function HomePage() {
 
           <div
             id="quote"
-            className="order-1 min-w-0 scroll-mt-24 overflow-hidden rounded-lg border border-slate-200 bg-slate-950 p-3 text-white shadow-2xl shadow-slate-950/20 sm:p-5 lg:order-2 lg:scroll-mt-32"
+            className="order-2 min-w-0 scroll-mt-32 overflow-hidden rounded-lg border border-slate-200 bg-slate-950 p-3 text-white shadow-2xl shadow-slate-950/20 sm:p-5 lg:order-2"
           >
-            <p className="text-xs font-black uppercase tracking-[0.16em] text-cyan-200 sm:text-sm sm:tracking-[0.2em]">
-              Electrical help starts here
-            </p>
-            <h2 className="mt-2 text-2xl font-black leading-tight sm:text-3xl">
-              Tell us what&rsquo;s happening.
-            </h2>
+            <div className="hidden sm:block">
+              <p className="text-sm font-black uppercase tracking-[0.2em] text-cyan-200">
+                Electrical help starts here
+              </p>
+              <h2 className="mt-2 text-3xl font-black leading-tight">
+                Tell us what&rsquo;s happening.
+              </h2>
 
-            <div className="mt-4 grid min-w-0 gap-2 min-[480px]:grid-cols-2">
-              {urgentFaults.map((fault) => (
-                <div
-                  key={fault}
-                  className="flex min-h-10 min-w-0 items-center gap-2 rounded-lg bg-white/10 px-3 py-2"
-                >
-                  <CheckCircle2 className="h-4 w-4 shrink-0 text-cyan-300" />
-                  <span className="min-w-0 text-[11px] font-black leading-5 text-slate-100 sm:text-xs">
-                    {fault}
-                  </span>
-                </div>
-              ))}
+              <div className="mt-4 grid min-w-0 gap-2 min-[480px]:grid-cols-2">
+                {urgentFaults.map((fault) => (
+                  <div
+                    key={fault}
+                    className="flex min-h-10 min-w-0 items-center gap-2 rounded-lg bg-white/10 px-3 py-2"
+                  >
+                    <CheckCircle2 className="h-4 w-4 shrink-0 text-cyan-300" />
+                    <span className="min-w-0 text-xs font-black leading-5 text-slate-100">
+                      {fault}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <a
+                href={business.phoneHref}
+                className="mt-4 inline-flex w-full items-center justify-center gap-3 rounded-lg bg-red-600 px-4 py-3 text-center text-[clamp(0.95rem,2vw,1.05rem)] font-black leading-6 text-white shadow-xl shadow-red-950/20 transition hover:bg-red-500"
+                aria-label={`Call Evaready Electrical on ${business.phoneDisplay}`}
+              >
+                <Phone className="h-5 w-5 shrink-0" />
+                <span className="whitespace-nowrap">
+                  Emergency? Call now - {business.phoneDisplay}
+                </span>
+              </a>
             </div>
 
-            <a
-              href={business.phoneHref}
-              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-3 py-3 text-center text-[clamp(0.9rem,4vw,1.05rem)] font-black leading-6 text-white shadow-xl shadow-red-950/20 transition hover:bg-red-500 sm:gap-3 sm:px-4"
-              aria-label={`Call Evaready Electrical on ${business.phoneDisplay}`}
-            >
-              <Phone className="h-5 w-5 shrink-0" />
-              <span className="whitespace-nowrap sm:hidden">
-                Call {business.phoneDisplay}
-              </span>
-              <span className="hidden whitespace-nowrap sm:inline">
-                Emergency? Call now - {business.phoneDisplay}
-              </span>
-            </a>
-
-            <div className="mt-4 rounded-lg border border-white/10 bg-white/10 p-3">
+            <div className="rounded-lg border border-white/10 bg-white/10 p-3 sm:mt-4">
               <div className="flex items-center justify-between gap-3">
                 <div>
-                  <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan-200">
+                  <p className="text-xs font-black uppercase tracking-[0.16em] text-cyan-200 sm:tracking-[0.18em]">
                     Job details
                   </p>
-                  <h3 className="mt-1 text-lg font-black">
+                  <h3 className="mt-1 text-xl font-black leading-tight sm:text-lg">
                     Send the details for review.
                   </h3>
                 </div>
               </div>
-              <p className="mt-2 text-xs font-semibold leading-5 text-slate-300">
+              <p className="mt-2 text-sm font-semibold leading-6 text-slate-300 sm:text-xs sm:leading-5">
                 Add the address, contact details and useful photos. We&rsquo;ll
                 review the job notes and come back with the next step.
               </p>
@@ -405,7 +404,7 @@ export default function HomePage() {
                 <ServiceM8Frame
                   src={business.bookingUrl}
                   title="Evaready Electrical quote form"
-                  className="h-[520px] w-full bg-white sm:h-[540px] lg:h-[390px]"
+                  className="h-[560px] w-full bg-white sm:h-[540px] lg:h-[390px]"
                 />
               </div>
             </div>
