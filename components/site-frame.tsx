@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowRight, Home, Mail, MapPin, Phone } from "lucide-react";
 import { MobilePrimaryNav } from "@/components/mobile-primary-nav";
 import { QuoteFormModal } from "@/components/quote-form-modal";
 import { assetPath, business } from "@/data/site";
@@ -57,11 +57,12 @@ const footerColumns = [
 export function SiteHeader() {
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-200 bg-white/95 pt-[env(safe-area-inset-top)] shadow-sm backdrop-blur-xl">
+      <header className="site-header fixed inset-x-0 top-0 z-50 border-b border-slate-200 bg-white/95 pt-[env(safe-area-inset-top)] shadow-sm backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-3 py-2 sm:px-6 sm:py-3 lg:px-8">
-          <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center justify-between gap-2 sm:gap-3">
             <Link
               href="/"
+              data-header-logo="true"
               className="flex min-w-0 shrink-0 items-center"
             >
               <Image
@@ -70,8 +71,8 @@ export function SiteHeader() {
                 width={320}
                 height={135}
                 priority
-                sizes="(max-width: 379px) 8.5rem, (max-width: 640px) 10rem, (max-width: 1024px) 18rem, 13rem"
-                className="h-11 w-full max-w-[8.5rem] object-cover object-center min-[380px]:h-12 min-[380px]:max-w-40 sm:h-16 sm:max-w-72 lg:h-14 lg:w-56 lg:max-w-56"
+                sizes="(max-width: 379px) 7.25rem, (max-width: 640px) 8.25rem, (max-width: 1024px) 18rem, 13rem"
+                className="h-12 w-[7.25rem] object-cover object-center min-[380px]:w-[8.25rem] sm:h-16 sm:w-72 sm:max-w-72 lg:h-14 lg:w-56 lg:max-w-56"
               />
             </Link>
 
@@ -87,7 +88,17 @@ export function SiteHeader() {
               ))}
             </nav>
 
-            <div className="flex shrink-0 items-center gap-2">
+            <div className="flex min-w-0 shrink-0 items-center gap-1.5 sm:gap-2">
+              <a
+                href={business.bookingUrl}
+                data-quote-trigger="true"
+                aria-haspopup="dialog"
+                className="inline-flex min-h-11 shrink-0 items-center justify-center gap-1 rounded-full bg-blue-700 px-2.5 py-2 text-[0.72rem] font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 min-[380px]:gap-1.5 min-[380px]:px-3 min-[380px]:text-xs sm:rounded-lg sm:px-4 sm:py-3 sm:text-sm lg:bg-red-600 lg:hover:bg-red-500"
+              >
+                <span className="whitespace-nowrap">Get Quote</span>
+                <ArrowRight className="hidden h-4 w-4 shrink-0 sm:block" />
+              </a>
+
               <a
                 href={business.phoneHref}
                 className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full bg-red-600 px-2.5 py-2 text-xs font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 min-[380px]:gap-2 min-[380px]:px-3 sm:px-4 sm:text-sm"
@@ -95,27 +106,24 @@ export function SiteHeader() {
                 <Phone className="h-4 w-4 shrink-0" />
                 <span className="whitespace-nowrap">{business.phoneDisplay}</span>
               </a>
-
-              <a
-                href={business.bookingUrl}
-                data-quote-trigger="true"
-                aria-haspopup="dialog"
-                className="hidden min-h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 md:inline-flex lg:bg-red-600 lg:hover:bg-red-500"
-              >
-                Get a Quote
-                <ArrowRight className="h-4 w-4" />
-              </a>
             </div>
           </div>
 
-          <div className="mt-2 lg:hidden">
+          <div className="mt-2 flex items-center gap-2 lg:hidden">
+            <Link
+              href="/"
+              className="inline-flex min-h-11 w-[34%] shrink-0 items-center justify-center gap-2 rounded-xl border-2 border-blue-700 bg-white px-3 py-2 text-sm font-black uppercase text-blue-800 shadow-lg shadow-blue-700/10"
+            >
+              <Home className="h-4 w-4 shrink-0" />
+              Home
+            </Link>
             <MobilePrimaryNav />
           </div>
         </div>
       </header>
       <div
         aria-hidden="true"
-        className="h-[calc(120px_+_env(safe-area-inset-top))] min-[380px]:h-[calc(128px_+_env(safe-area-inset-top))] sm:h-[calc(144px_+_env(safe-area-inset-top))] lg:h-[calc(81px_+_env(safe-area-inset-top))]"
+        className="h-[calc(114px_+_env(safe-area-inset-top))] min-[380px]:h-[calc(116px_+_env(safe-area-inset-top))] sm:h-[calc(144px_+_env(safe-area-inset-top))] lg:h-[calc(81px_+_env(safe-area-inset-top))]"
       />
       <QuoteFormModal />
       <MobileStickyCta />

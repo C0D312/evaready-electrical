@@ -266,11 +266,15 @@ main.bg-white {
 }
 
 header {
-  position: relative;
+  position: fixed;
   border-color: rgba(7, 94, 234, 0.16) !important;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(246, 250, 255, 0.9)) !important;
   box-shadow: 0 14px 40px rgba(2, 6, 23, 0.08);
+}
+
+header.site-header {
+  position: fixed !important;
 }
 
 header::after {
@@ -678,15 +682,15 @@ section.border-y.bg-slate-950 span {
     gap: 0.5rem;
   }
 
-  header a[href="/"] {
-    max-width: 6.9rem;
+  header a[data-header-logo="true"] {
+    max-width: 7.25rem;
   }
 
   header a[href^="tel:"] {
-    max-width: 9.25rem;
-    padding-right: 0.65rem !important;
-    padding-left: 0.65rem !important;
-    font-size: clamp(0.72rem, 3vw, 0.82rem) !important;
+    max-width: 8.9rem;
+    padding-right: 0.55rem !important;
+    padding-left: 0.55rem !important;
+    font-size: clamp(0.7rem, 2.9vw, 0.82rem) !important;
   }
 
   header a[href^="tel:"] span {
@@ -742,13 +746,19 @@ section.border-y.bg-slate-950 span {
   }
 }
 
+@media (min-width: 380px) and (max-width: 767px) {
+  header a[data-header-logo="true"] {
+    max-width: 8.25rem;
+  }
+}
+
 @media (max-width: 360px) {
-  header a[href="/"] {
-    max-width: 6.4rem;
+  header a[data-header-logo="true"] {
+    max-width: 6.95rem;
   }
 
   header a[href^="tel:"] {
-    max-width: 8.8rem;
-    font-size: 0.68rem !important;
+    max-width: 8.2rem;
+    font-size: 0.66rem !important;
   }
 }

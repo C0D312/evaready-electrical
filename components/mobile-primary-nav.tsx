@@ -80,7 +80,7 @@ export function MobilePrimaryNav() {
   }, [open]);
 
   return (
-    <div className="lg:hidden">
+    <div className="min-w-0 flex-1 lg:hidden">
       <button
         type="button"
         aria-controls="mobile-site-menu"
@@ -94,7 +94,7 @@ export function MobilePrimaryNav() {
       </button>
 
       {open ? (
-        <div className="fixed inset-x-0 bottom-0 top-[calc(120px_+_env(safe-area-inset-top))] z-[60] min-[380px]:top-[calc(128px_+_env(safe-area-inset-top))] sm:top-[calc(144px_+_env(safe-area-inset-top))]">
+        <div className="fixed inset-x-0 bottom-0 top-[calc(114px_+_env(safe-area-inset-top))] z-[60] min-[380px]:top-[calc(116px_+_env(safe-area-inset-top))] sm:top-[calc(144px_+_env(safe-area-inset-top))]">
           <button
             type="button"
             aria-label="Close navigation menu"
@@ -105,7 +105,7 @@ export function MobilePrimaryNav() {
           <nav
             id="mobile-site-menu"
             aria-label="Mobile navigation"
-            className="absolute inset-x-3 top-3 max-h-[calc(100dvh_-_140px_-_env(safe-area-inset-top))] overflow-y-auto rounded-2xl border border-slate-200 bg-white pb-[env(safe-area-inset-bottom)] shadow-2xl min-[380px]:max-h-[calc(100dvh_-_148px_-_env(safe-area-inset-top))] sm:max-h-[calc(100dvh_-_164px_-_env(safe-area-inset-top))]"
+            className="absolute inset-x-3 top-3 max-h-[calc(100dvh_-_134px_-_env(safe-area-inset-top))] overflow-y-auto rounded-2xl border border-slate-200 bg-white pb-[env(safe-area-inset-bottom)] shadow-2xl min-[380px]:max-h-[calc(100dvh_-_136px_-_env(safe-area-inset-top))] sm:max-h-[calc(100dvh_-_164px_-_env(safe-area-inset-top))]"
           >
             <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3">
               <div>
