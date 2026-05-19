@@ -15,6 +15,7 @@ import {
   Zap,
 } from "lucide-react";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
+import { TrustSymbolBand } from "@/components/trust-symbol-band";
 
 export const metadata: Metadata = {
   title: "Electrical Services Sydney & Surrounding Regions",
@@ -522,22 +523,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Trust */}
-      <section className="border-b border-slate-200 bg-white">
-        <div className="mx-auto grid max-w-7xl gap-5 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
-          {[
-            "NSW Licence 398937C",
-            "ABN 44 650 697 797",
-            "Residential and commercial",
-            "Emergency and Level 2",
-          ].map((item) => (
-            <div key={item} className="flex items-center gap-3">
-              <CheckCircle2 className="h-6 w-6 shrink-0 text-blue-600" />
-              <span className="font-bold text-slate-800">{item}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+      <TrustSymbolBand className="border-b border-slate-200" />
 
       {/* Service cards */}
       <section className="bg-slate-50 py-24">

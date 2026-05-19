@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { ArrowRight, Home, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { MobilePrimaryNav } from "@/components/mobile-primary-nav";
 import { QuoteFormModal } from "@/components/quote-form-modal";
 import { assetPath, business } from "@/data/site";
@@ -59,7 +59,7 @@ export function SiteHeader() {
     <>
       <header className="site-header fixed inset-x-0 top-0 z-50 border-b border-slate-200 bg-white/95 pt-[env(safe-area-inset-top)] shadow-sm backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-3 py-2 sm:px-6 sm:py-3 lg:px-8">
-          <div className="flex items-center justify-between gap-2 sm:gap-3">
+          <div className="site-header-top flex items-center justify-between gap-2 sm:gap-3">
             <Link
               href="/"
               data-header-logo="true"
@@ -71,8 +71,8 @@ export function SiteHeader() {
                 width={320}
                 height={135}
                 priority
-                sizes="(max-width: 379px) 7.25rem, (max-width: 640px) 8.25rem, (max-width: 1024px) 18rem, 13rem"
-                className="h-12 w-[7.25rem] object-cover object-center min-[380px]:w-[8.25rem] sm:h-16 sm:w-72 sm:max-w-72 lg:h-14 lg:w-56 lg:max-w-56"
+                sizes="(max-width: 379px) 5.25rem, (max-width: 640px) 5.75rem, (max-width: 1024px) 18rem, 13rem"
+                className="h-10 w-[5.25rem] object-cover object-center min-[380px]:w-[5.75rem] sm:h-16 sm:w-72 sm:max-w-72 lg:h-14 lg:w-56 lg:max-w-56"
               />
             </Link>
 
@@ -88,42 +88,42 @@ export function SiteHeader() {
               ))}
             </nav>
 
-            <div className="flex min-w-0 shrink-0 items-center gap-1.5 sm:gap-2">
+            <div className="site-header-actions flex min-w-0 shrink-0 items-center gap-1 sm:gap-2">
               <a
                 href={business.bookingUrl}
                 data-quote-trigger="true"
                 aria-haspopup="dialog"
-                className="inline-flex min-h-11 shrink-0 items-center justify-center gap-1 rounded-full bg-blue-700 px-2.5 py-2 text-[0.72rem] font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 min-[380px]:gap-1.5 min-[380px]:px-3 min-[380px]:text-xs sm:rounded-lg sm:px-4 sm:py-3 sm:text-sm lg:bg-red-600 lg:hover:bg-red-500"
+                className="inline-flex min-h-10 shrink-0 items-center justify-center rounded-full bg-blue-700 px-2.5 py-2 text-[0.68rem] font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 min-[380px]:px-3 sm:min-h-11 sm:px-4 sm:text-sm lg:hidden"
               >
-                <span className="whitespace-nowrap">Get Quote</span>
-                <ArrowRight className="hidden h-4 w-4 shrink-0 sm:block" />
+                Quote
+              </a>
+
+              <a
+                href={business.bookingUrl}
+                data-quote-trigger="true"
+                aria-haspopup="dialog"
+                className="hidden min-h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 lg:inline-flex"
+              >
+                <span className="whitespace-nowrap">Get a Quote</span>
+                <ArrowRight className="h-4 w-4 shrink-0" />
               </a>
 
               <a
                 href={business.phoneHref}
-                className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full bg-red-600 px-2.5 py-2 text-xs font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 min-[380px]:gap-2 min-[380px]:px-3 sm:px-4 sm:text-sm"
+                className="inline-flex min-h-10 shrink-0 items-center justify-center gap-1 rounded-full bg-red-600 px-1.5 py-2 text-[0.62rem] font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 min-[380px]:px-2 min-[380px]:text-[0.66rem] sm:min-h-11 sm:gap-2 sm:px-4 sm:text-sm"
               >
-                <Phone className="h-4 w-4 shrink-0" />
+                <Phone className="hidden h-4 w-4 shrink-0 min-[430px]:block sm:block" />
                 <span className="whitespace-nowrap">{business.phoneDisplay}</span>
               </a>
-            </div>
-          </div>
 
-          <div className="mt-2 flex items-center gap-2 lg:hidden">
-            <Link
-              href="/"
-              className="inline-flex min-h-11 w-[34%] shrink-0 items-center justify-center gap-2 rounded-xl border-2 border-blue-700 bg-white px-3 py-2 text-sm font-black uppercase text-blue-800 shadow-lg shadow-blue-700/10"
-            >
-              <Home className="h-4 w-4 shrink-0" />
-              Home
-            </Link>
-            <MobilePrimaryNav />
+              <MobilePrimaryNav />
+            </div>
           </div>
         </div>
       </header>
       <div
         aria-hidden="true"
-        className="h-[calc(114px_+_env(safe-area-inset-top))] min-[380px]:h-[calc(116px_+_env(safe-area-inset-top))] sm:h-[calc(144px_+_env(safe-area-inset-top))] lg:h-[calc(81px_+_env(safe-area-inset-top))]"
+        className="h-[calc(64px_+_env(safe-area-inset-top))] sm:h-[calc(88px_+_env(safe-area-inset-top))] lg:h-[calc(81px_+_env(safe-area-inset-top))]"
       />
       <QuoteFormModal />
       <MobileStickyCta />
@@ -148,7 +148,8 @@ export function SiteFooter() {
           </div>
           <p className="mt-5 max-w-md leading-7">
             Electrical support for urgent faults, homes, businesses and Level 2
-            work across Sydney and surrounding regions.
+            work across Sydney and surrounding regions, including Illawarra,
+            the Blue Mountains, Northern Beaches and Central Coast South.
           </p>
           <div className="mt-5 space-y-2">
             <p>Electrical Licence: {business.licence}</p>
@@ -177,7 +178,7 @@ export function SiteFooter() {
             >
               <Phone className="h-4 w-4" />
               <span className="whitespace-nowrap">
-                Emergency? Call now {business.phoneDisplay}
+                Call {business.phoneDisplay}
               </span>
             </a>
 
@@ -230,7 +231,6 @@ export function MobileStickyCta() {
       className="floating-call-button"
     >
       <Phone />
-      <span>Call</span>
     </a>
   );
 }

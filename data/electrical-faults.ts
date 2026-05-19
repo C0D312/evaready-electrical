@@ -456,6 +456,120 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
       },
     ],
   },
+  {
+    slug: "electric-shock-from-outlet",
+    title: "Electric Shock From Outlet",
+    metaTitle: "Electric Shock From Outlet Sydney",
+    metaDescription:
+      "Electric shock from an outlet in Sydney? Stop using the power point and call Evaready Electrical for urgent electrical fault support.",
+    intro:
+      "A shock or tingle from a power point, switch, appliance or metal fitting should be treated as urgent. It may point to damaged wiring, poor earthing, moisture, a faulty appliance or a switchboard protection issue.",
+    primaryAdvice:
+      "Do not keep using the outlet or appliance. Keep people away from the area and call before touching the affected fitting again.",
+    riskNotes: [
+      "A shock can indicate a live fault or earthing problem.",
+      "Moisture around outlets, bathrooms, kitchens or outdoor fittings can increase risk.",
+      "A faulty appliance may energise exposed metal parts.",
+      "Older switchboards may not provide suitable modern protection.",
+    ],
+    checks: [
+      "Stop using the outlet, switch or appliance immediately.",
+      "Keep children, pets and other people away from the area.",
+      "Do not remove covers or try to inspect wiring yourself.",
+      "Call emergency services first if someone is injured or there is immediate danger.",
+    ],
+    whatToSend: [
+      "Which outlet, switch, appliance or fitting caused the shock.",
+      "Whether the area is wet, outdoors or near plumbing.",
+      "A photo of the affected area from a safe distance.",
+      "A switchboard photo if a safety switch or breaker tripped.",
+    ],
+    relatedServices: [
+      ...commonRelatedServices,
+      {
+        href: "/services/power-point-installation-sydney",
+        label: "Power point repairs",
+      },
+      {
+        href: "/services/electrical-testing-tagging-reports-sydney",
+        label: "Electrical testing and reports",
+      },
+    ],
+    faqs: [
+      {
+        question: "Is a small electric shock from an outlet urgent?",
+        answer:
+          "Yes. Even a small shock can point to a dangerous fault. Stop using the outlet and call before anyone touches it again.",
+      },
+      {
+        question: "Could the appliance be the problem?",
+        answer:
+          "Yes. The appliance, outlet, circuit or switchboard protection may be involved, so the fault should be tested properly.",
+      },
+      {
+        question: "Should I turn the circuit off?",
+        answer:
+          "If it is safe and you know which switch controls the circuit, isolating it can reduce risk. Do not touch a wet or damaged switchboard.",
+      },
+    ],
+  },
+  {
+    slug: "smoke-from-electrical-panel",
+    title: "Smoke From Electrical Panel",
+    metaTitle: "Smoke From Electrical Panel Sydney",
+    metaDescription:
+      "Smoke from an electrical panel or switchboard in Sydney? Keep clear and call Evaready Electrical for urgent electrical support.",
+    intro:
+      "Smoke from an electrical panel, meter area or switchboard is a serious warning sign. It can come from overheating, arcing, loose connections, burnt wiring, overloaded circuits or damaged protection devices.",
+    primaryAdvice:
+      "Keep clear of the panel and call immediately. If there is active fire, heavy smoke or danger to people, call emergency services first.",
+    riskNotes: [
+      "Smoke can mean wiring or equipment is overheating behind the cover.",
+      "Loose terminals can arc and damage nearby components.",
+      "Old ceramic fuse boards and overloaded circuits can hide heat damage.",
+      "Supply-side issues may need Level 2 electrical attention.",
+    ],
+    checks: [
+      "Do not open the electrical panel or switchboard cover.",
+      "Do not spray water near electrical equipment.",
+      "Keep people away from the area until it is checked.",
+      "Call first if the smell, smoke, buzzing or heat continues.",
+    ],
+    whatToSend: [
+      "A photo of the panel from a safe distance.",
+      "Whether smoke is active, stopped or linked to a specific appliance.",
+      "Which circuits lost power or tripped.",
+      "Any recent storm, renovation, new appliance or switchboard work details.",
+    ],
+    relatedServices: [
+      ...commonRelatedServices,
+      {
+        href: "/level-2-electrician-sydney",
+        label: "Level 2 electrician",
+      },
+      {
+        href: "/services/consumer-mains-sydney",
+        label: "Consumer mains support",
+      },
+    ],
+    faqs: [
+      {
+        question: "What should I do if smoke is coming from the switchboard?",
+        answer:
+          "Keep clear, avoid touching the board and call immediately. If there is fire or danger to people, call emergency services first.",
+      },
+      {
+        question: "Can the panel be used again after smoke stops?",
+        answer:
+          "No. Smoke can leave damage behind the cover. The board should be inspected and tested before normal use resumes.",
+      },
+      {
+        question: "Could this require Level 2 electrical work?",
+        answer:
+          "Sometimes. If the issue involves service equipment, consumer mains, metering or supply-side parts, Level 2 support may be needed.",
+      },
+    ],
+  },
 ];
 
 export function getElectricalFaultPage(slug: string) {

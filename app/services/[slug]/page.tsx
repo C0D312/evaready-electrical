@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import {
   AlertTriangle,
   ArrowRight,
-  BadgeCheck,
   CheckCircle2,
   ClipboardList,
   Phone,
@@ -12,6 +11,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
+import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import {
   getServiceLandingPage,
   serviceLandingPages,
@@ -175,6 +175,26 @@ export default async function ServiceLandingPage({
       },
     })),
   };
+  const coreRelatedLinks: { href: string; label: string; quote?: boolean }[] = [
+    { href: "/emergency-electrician-sydney", label: "Emergency Electrician" },
+    { href: "/level-2-electrician-sydney", label: "Level 2 Electrician" },
+    {
+      href: "/services/switchboard-upgrades-sydney",
+      label: "Switchboard Upgrades",
+    },
+    { href: "/service-areas", label: "Service Areas" },
+    { href: business.bookingUrl, label: "Get a Quote", quote: true },
+  ];
+  const relatedLinks: { href: string; label: string; quote?: boolean }[] = [
+    ...coreRelatedLinks,
+    ...service.relatedServices.map((relatedSlug) => ({
+      href: serviceHref(relatedSlug),
+      label: serviceLabel(relatedSlug),
+    })),
+  ].filter(
+    (link, index, links) =>
+      links.findIndex((candidate) => candidate.href === link.href) === index,
+  );
 
   return (
     <main className="min-h-screen bg-white text-slate-950">
@@ -253,21 +273,7 @@ export default async function ServiceLandingPage({
         </div>
       </section>
 
-      <section className="border-b border-slate-200 bg-white">
-        <div className="mx-auto grid max-w-7xl gap-5 px-4 py-7 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
-          {[
-            `NSW Licence ${business.licence}`,
-            "Open 24/7 for urgent calls",
-            "Residential and commercial",
-            "Clear job details",
-          ].map((item) => (
-            <div key={item} className="flex items-center gap-3">
-              <BadgeCheck className="h-5 w-5 shrink-0 text-blue-600" />
-              <span className="font-bold text-slate-800">{item}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+      <TrustSymbolBand className="border-b border-slate-200" />
 
       <section className="bg-slate-50 py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
@@ -442,21 +448,35 @@ export default async function ServiceLandingPage({
           </div>
 
           <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {service.relatedServices.map((relatedSlug) => (
-              <Link
-                key={relatedSlug}
-                href={serviceHref(relatedSlug)}
-                className="group rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-600 hover:bg-blue-50"
-              >
-                <h3 className="font-black text-slate-950">
-                  {serviceLabel(relatedSlug)}
-                </h3>
-                <span className="mt-4 inline-flex items-center gap-2 font-black text-red-600">
-                  Learn more
-                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                </span>
-              </Link>
-            ))}
+            {relatedLinks.map((link) =>
+              link.quote ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  data-quote-trigger="true"
+                  aria-haspopup="dialog"
+                  className="group rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-600 hover:bg-blue-50"
+                >
+                  <h3 className="font-black text-slate-950">{link.label}</h3>
+                  <span className="mt-4 inline-flex items-center gap-2 font-black text-red-600">
+                    Open form
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                  </span>
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="group rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-600 hover:bg-blue-50"
+                >
+                  <h3 className="font-black text-slate-950">{link.label}</h3>
+                  <span className="mt-4 inline-flex items-center gap-2 font-black text-red-600">
+                    Learn more
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              ),
+            )}
           </div>
         </div>
       </section>

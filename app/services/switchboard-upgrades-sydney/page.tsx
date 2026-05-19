@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { QuoteRequestPanel } from "@/components/quote-request-panel";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
+import { TrustSymbolBand } from "@/components/trust-symbol-band";
 
 export const metadata: Metadata = {
   title: "Switchboard Upgrades Sydney",
@@ -292,22 +293,7 @@ export default function SwitchboardUpgradesSydneyPage() {
         </div>
       </section>
 
-      {/* Trust strip */}
-      <section className="border-b border-slate-200 bg-white">
-        <div className="mx-auto grid max-w-7xl gap-5 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
-          {[
-            `NSW Licence ${business.licence}`,
-            "Safety switch upgrades",
-            "RCBO protection",
-            "Service across key regions",
-          ].map((item) => (
-            <div key={item} className="flex items-center gap-3">
-              <CheckCircle2 className="h-6 w-6 shrink-0 text-blue-600" />
-              <span className="font-bold text-slate-800">{item}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+      <TrustSymbolBand className="border-b border-slate-200" />
 
       {/* Services */}
       <section className="bg-slate-50 py-24">

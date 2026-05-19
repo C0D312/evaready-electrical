@@ -15,6 +15,7 @@ import {
   SiteFooter,
   SiteHeader,
 } from "@/components/site-frame";
+import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import {
   getAreaBySlug,
   getRegionBySlug,
@@ -179,6 +180,8 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         </div>
       </ServiceAreaHero>
 
+      <TrustSymbolBand className="border-b border-slate-200" />
+
       <section className="border-b border-slate-200 bg-white">
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           {[
@@ -279,6 +282,77 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                 </span>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+            Quick links
+          </p>
+          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+            Fast electrical help for {suburb.name}.
+          </h2>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {[
+              {
+                href: "/emergency-electrician-sydney",
+                label: "Emergency Electrician",
+                text: "Call first for power loss, heat, smoke, sparking or repeated tripping.",
+              },
+              {
+                href: "/level-2-electrician-sydney",
+                label: "Level 2 Electrician",
+                text: "Consumer mains, defect notices, metering and supply-side electrical work.",
+              },
+              {
+                href: "/services/switchboard-upgrades-sydney",
+                label: "Switchboard Upgrades",
+                text: "Safety switches, RCBOs, ceramic fuses and switchboard faults.",
+              },
+              {
+                href: business.bookingUrl,
+                label: "Get a Quote",
+                text: "Open the secure booking form to send photos, notes and the job address.",
+                quote: true,
+              },
+            ].map((item) =>
+              item.quote ? (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  data-quote-trigger="true"
+                  aria-haspopup="dialog"
+                  className="group rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-600 hover:bg-blue-50"
+                >
+                  <h3 className="text-xl font-black text-slate-950">
+                    {item.label}
+                  </h3>
+                  <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
+                  <span className="mt-5 inline-flex items-center gap-2 font-black text-red-600">
+                    Open form
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                  </span>
+                </a>
+              ) : (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="group rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-600 hover:bg-blue-50"
+                >
+                  <h3 className="text-xl font-black text-slate-950">
+                    {item.label}
+                  </h3>
+                  <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
+                  <span className="mt-5 inline-flex items-center gap-2 font-black text-red-600">
+                    Learn more
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              ),
+            )}
           </div>
         </div>
       </section>

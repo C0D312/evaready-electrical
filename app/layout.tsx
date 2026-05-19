@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Emergency & Level 2 Electrician Sydney | Evaready Electrical 24/7",
-    description:
-      "Electrical support for urgent faults, Level 2 work, switchboards, outages and commercial jobs across the wider Sydney service area.",
+  description:
+    "Electrical support for urgent faults, Level 2 work, switchboards, outages and commercial jobs across Sydney and surrounding regions.",
     url: "https://evareadyelectrical.com.au",
     siteName: "Evaready Electrical",
     type: "website",

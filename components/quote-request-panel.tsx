@@ -54,7 +54,7 @@ export function QuoteRequestPanel({
             >
               <Phone className="h-5 w-5 shrink-0" />
               <span className="whitespace-nowrap">
-                Emergency? Call now {business.phoneDisplay}
+                Call {business.phoneDisplay}
               </span>
             </a>
           </div>

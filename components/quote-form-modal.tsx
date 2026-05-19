@@ -5,6 +5,13 @@ import { ClipboardList, Phone, X } from "lucide-react";
 import { ServiceM8Frame } from "@/components/service-m8-frame";
 import { business } from "@/data/site";
 
+const bookingSteps = [
+  "Tell us your suburb",
+  "Choose the service",
+  "Add photos or notes",
+  "Review and next step",
+];
+
 type ScrollLockSnapshot = {
   scrollX: number;
   scrollY: number;
@@ -98,6 +105,7 @@ export function QuoteFormModal() {
     };
 
     scrollLockRef.current = snapshot;
+    body.classList.add("quote-modal-open");
     html.style.scrollBehavior = "auto";
     html.style.overflow = "hidden";
     body.style.overflow = "hidden";
@@ -131,6 +139,7 @@ export function QuoteFormModal() {
 
       html.style.overflow = locked.htmlOverflow;
       html.style.scrollBehavior = "auto";
+      body.classList.remove("quote-modal-open");
       body.style.overflow = locked.bodyOverflow;
       body.style.paddingRight = locked.bodyPaddingRight;
       body.style.position = locked.bodyPosition;
@@ -157,7 +166,7 @@ export function QuoteFormModal() {
 
   return (
     <div
-      className="quote-modal-backdrop fixed inset-0 z-[100] grid place-items-center bg-slate-950/85 p-2 backdrop-blur-sm sm:p-4"
+      className="quote-modal-backdrop fixed inset-0 z-[100] grid place-items-center bg-slate-950/88 p-0 backdrop-blur-sm sm:p-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="quote-form-modal-title"
@@ -169,8 +178,8 @@ export function QuoteFormModal() {
         onClick={close}
       />
 
-      <div className="quote-modal-panel relative mx-auto flex w-full flex-col overflow-hidden rounded-[1.35rem] border border-white/12 bg-slate-950 text-white shadow-2xl shadow-slate-950/45">
-        <div className="quote-modal-heading shrink-0 border-b border-white/10 px-4 py-2.5 sm:px-5 sm:py-4">
+      <div className="quote-modal-panel relative mx-auto flex w-full flex-col overflow-hidden border border-white/12 bg-slate-950 text-white shadow-2xl shadow-slate-950/45 sm:rounded-[1.35rem]">
+        <div className="quote-modal-heading shrink-0 border-b border-white/10 px-4 py-3 pr-16 sm:px-5 sm:py-4 sm:pr-16">
           <div className="flex items-start justify-between gap-3">
             <div className="flex min-w-0 gap-3">
               <span className="mt-0.5 hidden h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-cyan-300/35 bg-cyan-300/10 text-cyan-100 sm:inline-flex">
@@ -197,16 +206,32 @@ export function QuoteFormModal() {
               type="button"
               aria-label="Close quote form"
               ref={closeButtonRef}
-              className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-slate-950 shadow-lg transition hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-cyan-200/60"
+              className="quote-modal-close absolute right-3 top-3 z-10 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-slate-950 shadow-lg transition hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-cyan-200/60 sm:right-4 sm:top-4"
               onClick={close}
             >
               <X className="h-5 w-5" />
             </button>
           </div>
 
+          <div className="quote-modal-steps mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
+            {bookingSteps.map((step, index) => (
+              <div
+                key={step}
+                className="rounded-lg border border-white/10 bg-white/10 px-2.5 py-2"
+              >
+                <span className="text-[0.62rem] font-black uppercase tracking-[0.12em] text-cyan-200">
+                  {index + 1}
+                </span>
+                <p className="mt-0.5 text-[0.72rem] font-black leading-4 text-white sm:text-xs">
+                  {step}
+                </p>
+              </div>
+            ))}
+          </div>
+
           <a
             href={business.phoneHref}
-            className="mt-2 flex items-center justify-center gap-2 rounded-xl border border-red-300/25 bg-red-500/12 px-3 py-2 text-center text-[0.72rem] font-black leading-tight text-white transition hover:bg-red-500/20 min-[390px]:justify-start sm:mt-3 sm:text-sm"
+            className="mt-3 flex items-center justify-center gap-2 rounded-xl border border-red-300/25 bg-red-500/12 px-3 py-2 text-center text-[0.72rem] font-black leading-tight text-white transition hover:bg-red-500/20 min-[390px]:justify-start sm:text-sm"
           >
             <Phone className="h-4 w-4 shrink-0 text-red-200" />
             <span>Urgent fault? Call {business.phoneDisplay} first.</span>

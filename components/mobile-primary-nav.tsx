@@ -19,37 +19,27 @@ const mobileNavItems = [
   {
     href: "/",
     label: "Home",
-    description: "Main page",
     icon: Home,
-    className: "border-slate-200 bg-slate-950 text-white",
   },
   {
     href: "/emergency-electrician-sydney",
     label: "Emergency Electrician",
-    description: "Urgent faults and power issues",
     icon: Flame,
-    className: "border-red-200 bg-red-50 text-red-700",
   },
   {
     href: "/level-2-electrician-sydney",
     label: "Level 2 Electrician",
-    description: "Consumer mains, metering and defect work",
     icon: Bolt,
-    className: "border-blue-200 bg-blue-50 text-blue-800",
   },
   {
     href: "/services",
     label: "Electrical Services",
-    description: "Lighting, power, smoke alarms and more",
     icon: Wrench,
-    className: "border-slate-200 bg-slate-50 text-slate-800",
   },
   {
     href: "/service-areas",
     label: "Service Areas",
-    description: "Regions, suburbs and postcode search",
     icon: MapPin,
-    className: "border-slate-200 bg-slate-50 text-slate-800",
   },
 ];
 
@@ -80,21 +70,20 @@ export function MobilePrimaryNav() {
   }, [open]);
 
   return (
-    <div className="min-w-0 flex-1 lg:hidden">
+    <div className="mobile-nav-trigger shrink-0 lg:hidden">
       <button
         type="button"
         aria-controls="mobile-site-menu"
         aria-expanded={open}
         aria-label={open ? "Close navigation menu" : "Open navigation menu"}
         onClick={() => setOpen((current) => !current)}
-        className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border-2 border-blue-700 bg-blue-50 px-4 py-2 text-sm font-black uppercase text-blue-800 shadow-lg shadow-blue-700/10 transition hover:bg-blue-100"
+        className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-blue-200 bg-white text-blue-800 shadow-lg shadow-blue-700/10 transition hover:bg-blue-50 sm:h-11 sm:w-11"
       >
         {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        <span>{open ? "Close" : "Menu"}</span>
       </button>
 
       {open ? (
-        <div className="fixed inset-x-0 bottom-0 top-[calc(114px_+_env(safe-area-inset-top))] z-[60] min-[380px]:top-[calc(116px_+_env(safe-area-inset-top))] sm:top-[calc(144px_+_env(safe-area-inset-top))]">
+        <div className="fixed inset-x-0 bottom-0 top-[calc(64px_+_env(safe-area-inset-top))] z-[60] sm:top-[calc(88px_+_env(safe-area-inset-top))]">
           <button
             type="button"
             aria-label="Close navigation menu"
@@ -105,15 +94,12 @@ export function MobilePrimaryNav() {
           <nav
             id="mobile-site-menu"
             aria-label="Mobile navigation"
-            className="absolute inset-x-3 top-3 max-h-[calc(100dvh_-_134px_-_env(safe-area-inset-top))] overflow-y-auto rounded-2xl border border-slate-200 bg-white pb-[env(safe-area-inset-bottom)] shadow-2xl min-[380px]:max-h-[calc(100dvh_-_136px_-_env(safe-area-inset-top))] sm:max-h-[calc(100dvh_-_164px_-_env(safe-area-inset-top))]"
+            className="absolute inset-x-3 top-3 max-h-[calc(100dvh_-_84px_-_env(safe-area-inset-top))] overflow-y-auto rounded-2xl border border-slate-200 bg-white pb-[env(safe-area-inset-bottom)] shadow-2xl sm:max-h-[calc(100dvh_-_108px_-_env(safe-area-inset-top))]"
           >
             <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3">
               <div>
                 <p className="text-xs font-black uppercase tracking-[0.2em] text-blue-700">
-                  Site Menu
-                </p>
-                <p className="mt-1 text-sm font-bold text-slate-600">
-                  Tap a page to navigate
+                  Menu
                 </p>
               </div>
               <button
@@ -135,19 +121,12 @@ export function MobilePrimaryNav() {
                     key={item.href}
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className={`flex min-h-16 items-center gap-3 rounded-xl border px-4 py-3 text-left shadow-sm ${item.className}`}
+                    className="flex min-h-12 items-center gap-3 rounded-lg border border-slate-200 bg-white px-4 py-3 text-left font-black text-slate-900 shadow-sm transition hover:border-blue-500 hover:bg-blue-50"
                   >
-                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/80 text-current">
+                    <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-700">
                       <Icon className="h-5 w-5" />
                     </span>
-                    <span>
-                      <span className="block text-base font-black leading-tight">
-                        {item.label}
-                      </span>
-                      <span className="mt-1 block text-xs font-bold leading-snug opacity-75">
-                        {item.description}
-                      </span>
-                    </span>
+                    <span className="text-base leading-tight">{item.label}</span>
                   </Link>
                 );
               })}
