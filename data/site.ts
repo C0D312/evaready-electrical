@@ -40,7 +40,7 @@ export const services = [
     title: "Emergency Electrician",
     slug: "emergency-electrician-sydney",
     description:
-      "24/7 emergency electrician for power faults, outages, burning smells, tripping circuits and urgent electrical hazards across the service area.",
+      "Open 24/7 for power faults, outages, burning smells, tripping circuits and electrical hazards that need a phone call first.",
     icon: Zap,
     intent: "Emergency",
   },
@@ -56,7 +56,7 @@ export const services = [
     title: "Switchboard Upgrades",
     slug: "switchboard-upgrades-sydney",
     description:
-      "Switchboard upgrades, ceramic fuse replacement, safety switches, RCBO protection, fault finding and compliance checks.",
+      "Switchboard upgrades, ceramic fuse replacement, modern circuit protection, fault checks and clearer labelling.",
     icon: ShieldCheck,
     intent: "Major Work",
   },
@@ -64,7 +64,7 @@ export const services = [
     title: "Power Points & Lighting",
     slug: "power-points-lighting-sydney",
     description:
-      "New power points, LED lighting, downlights, outdoor lighting, security lighting, bathroom lights and general electrical installation work.",
+      "Power points, LED lighting, downlights, outdoor lights, sensor lights, bathroom lights and everyday installation work.",
     icon: Zap,
     intent: "Residential",
   },
@@ -72,7 +72,7 @@ export const services = [
     title: "Fault Finding",
     slug: "electrical-fault-finding-sydney",
     description:
-      "Find and repair tripping safety switches, nuisance faults, damaged wiring, overloaded circuits, water damage and power issues.",
+      "Trace tripping safety switches, intermittent faults, damaged wiring, overloaded circuits, water damage and power issues.",
     icon: Flame,
     intent: "Emergency",
   },
@@ -305,7 +305,7 @@ export const trustPoints = [
   "Licensed electrician - 398937C",
   "ABN 44 650 697 797",
   "Residential, commercial, emergency and Level 2 electrical work",
-  "24/7 emergency response available",
+  "Open 24/7 for urgent calls",
   "Clear communication before work starts",
   "Service across priority NSW regions",
 ];
@@ -317,9 +317,9 @@ export const offers = [
       "Power points, lighting, switchboards, smoke alarms, renovations and general home electrical work.",
   },
   {
-    title: "Emergency response available 24/7",
+    title: "Urgent calls open 24/7",
     description:
-      "Clear urgent call path for power loss, burning smells, switchboard faults and electrical hazards.",
+      "A direct phone path for power loss, burning smells, switchboard faults and electrical hazards.",
   },
   {
     title: "Level 2 electrical support",

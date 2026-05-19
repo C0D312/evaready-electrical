@@ -14,7 +14,7 @@ type QuoteRequestPanelProps = {
 
 export function QuoteRequestPanel({
   description,
-  eyebrow = "Need an electrician?",
+  eyebrow = "Job details",
   title,
 }: QuoteRequestPanelProps) {
   return (
@@ -36,21 +36,25 @@ export function QuoteRequestPanel({
               <ShieldAlert className="mt-1 h-6 w-6 shrink-0 text-red-600" />
               <div>
                 <p className="font-black text-slate-950">
-                  Electrical hazard or urgent fault?
+                  Electrical issue feels unsafe?
                 </p>
                 <p className="mt-1 text-sm font-semibold leading-6 text-slate-600">
-                  If the issue feels unsafe, call first so the job can be
-                  treated as urgent.
+                  Call first for smoke, heat, sparking, exposed wiring or
+                  repeated tripping.
                 </p>
               </div>
             </div>
             <a
               href={business.phoneHref}
-              className="mt-4 inline-flex w-full flex-col items-start justify-center gap-2 rounded-lg bg-red-600 px-4 py-4 text-left text-sm font-black leading-6 text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 sm:flex-row sm:items-center sm:gap-3 sm:px-5 sm:text-center sm:text-base"
+              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-3 py-4 text-center text-[clamp(0.9rem,4vw,1.05rem)] font-black leading-6 text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 sm:gap-3 sm:px-5"
             >
               <Phone className="h-5 w-5 shrink-0" />
-              <span>Emergency? Call now</span>
-              <span className="whitespace-nowrap">{business.phoneDisplay}</span>
+              <span className="whitespace-nowrap sm:hidden">
+                Call {business.phoneDisplay}
+              </span>
+              <span className="hidden whitespace-nowrap sm:inline">
+                Emergency? Call now - {business.phoneDisplay}
+              </span>
             </a>
           </div>
         </div>
@@ -58,14 +62,14 @@ export function QuoteRequestPanel({
         <div className="rounded-lg border border-slate-200 bg-slate-950 p-4 text-white shadow-xl shadow-slate-950/15 sm:p-5">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan-200 sm:text-sm sm:tracking-[0.2em]">
-              Job enquiry
+              Job details
             </p>
             <h3 className="mt-2 text-xl font-black sm:text-2xl">
-              Send through the details.
+              Send the details for review.
             </h3>
             <p className="mt-3 max-w-2xl text-sm font-semibold leading-6 text-slate-300">
-              Add your contact details, job address and any helpful photos.
-              Evaready Electrical will review it and follow up promptly.
+              Add the address, contact details and any useful photos. We&rsquo;ll
+              review the job notes and come back with the next step.
             </p>
           </div>
 
@@ -83,8 +87,8 @@ export function QuoteRequestPanel({
                 For emergencies, call instead of submitting a form.
               </p>
               <p className="mt-1 text-sm font-semibold leading-6 text-slate-300">
-                Unsafe faults, burning smells, sparking, power loss and
-                repeatedly tripping safety switches need direct phone triage.
+                Power loss, smoke, heat, sparking and repeated tripping should
+                be talked through by phone.
               </p>
             </div>
             <a

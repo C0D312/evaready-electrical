@@ -102,7 +102,7 @@ const level2Faqs = [
 const process = [
   {
     title: "Request the job",
-    text: "Call Evaready Electrical or send the details through the online quote form.",
+    text: "Call Evaready Electrical or send the site details, photos and paperwork for review.",
   },
   {
     title: "Assess the service",
@@ -192,9 +192,9 @@ export default function Level2ElectricianSydneyPage() {
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">
-              Licensed electrical support for consumer mains, defect notices,
-              service equipment, metering, overhead and underground electrical
-              work across Greater Sydney and surrounding regions.
+              Support for consumer mains, defect notices, service equipment,
+              metering, overhead supplies and underground electrical work across
+              Greater Sydney and surrounding regions.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -212,7 +212,7 @@ export default function Level2ElectricianSydneyPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
               >
-                Request Level 2 Quote
+                Send Level 2 Details
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -222,7 +222,7 @@ export default function Level2ElectricianSydneyPage() {
                 <Clock3 className="h-6 w-6 text-blue-300" />
                 <p className="mt-3 text-xl font-black">Clear details</p>
                 <p className="mt-1 text-sm text-slate-300">
-                  Request a quote online.
+                  Send photos and documents.
                 </p>
               </div>
 
@@ -251,11 +251,12 @@ export default function Level2ElectricianSydneyPage() {
             </p>
 
             <h2 className="mt-3 text-3xl font-black">
-              Need Level 2 Electrical Work?
+              Need supply-side electrical work?
             </h2>
 
             <p className="mt-3 text-slate-300">
-              Send your job details online or call directly to discuss the work.
+              Send documents, photos and site details, or call directly if the
+              issue is urgent.
             </p>
 
             <div className="mt-6 grid gap-4">
@@ -265,7 +266,7 @@ export default function Level2ElectricianSydneyPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-xl bg-red-600 px-6 py-4 font-black text-white transition hover:bg-red-500"
               >
-                Request Quote Online
+                Send Job Details
                 <ArrowRight className="h-5 w-5" />
               </a>
 
@@ -274,7 +275,7 @@ export default function Level2ElectricianSydneyPage() {
                 className="inline-flex items-center justify-center gap-3 rounded-xl bg-white px-6 py-4 font-black text-[#020617] transition hover:bg-slate-100"
               >
                 <Phone className="h-5 w-5" />
-                Call Now
+                <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
               </a>
             </div>
 
@@ -336,7 +337,7 @@ export default function Level2ElectricianSydneyPage() {
       </section>
 
       <QuoteRequestPanel
-        eyebrow="Level 2 quote details"
+        eyebrow="Level 2 job notes"
         title="Send the documents and photos that make Level 2 work easier to scope."
         description="For defect notices, consumer mains, private poles, point of attachment issues or service upgrades, include photos, the suburb, deadline, switchboard details and any notice from the supply authority."
         quoteLabel="Request Level 2 Quote"
@@ -517,7 +518,7 @@ export default function Level2ElectricianSydneyPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-7 py-4 font-black text-[#020617] transition hover:bg-slate-100"
             >
-              Request Quote
+              Send Job Details
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>

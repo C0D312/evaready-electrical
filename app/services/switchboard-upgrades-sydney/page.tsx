@@ -174,10 +174,10 @@ export default function SwitchboardUpgradesSydneyPage() {
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">
-              Upgrade old ceramic fuses, improve circuit protection and bring
-              your switchboard up to a safer modern standard. Evaready
-              Electrical provides clean, professional switchboard upgrades for
-              homes and businesses across the service area.
+              Replace old ceramic fuses, improve circuit protection and make
+              the switchboard easier to understand. Evaready Electrical handles
+              tidy switchboard upgrades for homes and businesses across the
+              service area.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -195,7 +195,7 @@ export default function SwitchboardUpgradesSydneyPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
               >
-                Request Switchboard Quote
+                Send Switchboard Details
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -234,11 +234,12 @@ export default function SwitchboardUpgradesSydneyPage() {
             </p>
 
             <h2 className="mt-3 text-3xl font-black">
-              Need Your Switchboard Upgraded?
+              Is the switchboard ready for modern loads?
             </h2>
 
             <p className="mt-3 text-slate-300">
-              Request a quote online or call direct to discuss your switchboard.
+              Send switchboard photos and job notes, or call if there is heat,
+              buzzing, smoke or repeated tripping.
             </p>
 
             <div className="mt-6 grid gap-4">
@@ -248,7 +249,7 @@ export default function SwitchboardUpgradesSydneyPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-xl bg-red-600 px-6 py-4 font-black text-white transition hover:bg-red-500"
               >
-                Request Quote Online
+                Send Job Details
                 <ArrowRight className="h-5 w-5" />
               </a>
 
@@ -257,7 +258,7 @@ export default function SwitchboardUpgradesSydneyPage() {
                 className="inline-flex items-center justify-center gap-3 rounded-xl bg-white px-6 py-4 font-black text-[#020617] transition hover:bg-slate-100"
               >
                 <Phone className="h-5 w-5" />
-                Call Now
+                <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
               </a>
             </div>
 
@@ -319,8 +320,8 @@ export default function SwitchboardUpgradesSydneyPage() {
       </section>
 
       <QuoteRequestPanel
-        eyebrow="Switchboard quote details"
-        title="A better switchboard quote starts with the right photos."
+        eyebrow="Switchboard job notes"
+        title="Send the details that show what the switchboard needs."
         description="Send the switchboard photo, any tripping issue, defect notice, renovation plan or new load such as an EV charger so the upgrade can be assessed clearly."
         quoteLabel="Request Switchboard Quote"
       />
@@ -339,7 +340,7 @@ export default function SwitchboardUpgradesSydneyPage() {
 
             <p className="mt-5 text-lg leading-8 text-slate-600">
               If your switchboard is old, damaged, overheating or missing modern
-              protection, it should be inspected by a licensed electrician.
+              protection, it should be inspected before more load is added.
             </p>
           </div>
 
@@ -444,12 +445,12 @@ export default function SwitchboardUpgradesSydneyPage() {
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-300">
-              Need a switchboard upgrade?
+              Ready to plan a switchboard upgrade?
             </p>
 
             <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Request a quote online or call Evaready Electrical for a professional
-              switchboard inspection.
+              Send the switchboard photos and job notes, or call Evaready
+              Electrical if the board feels unsafe.
             </h2>
           </div>
 
@@ -468,7 +469,7 @@ export default function SwitchboardUpgradesSydneyPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-7 py-4 font-black text-[#020617] transition hover:bg-slate-100"
             >
-              Request Quote
+              Send Job Details
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>

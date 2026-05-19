@@ -70,11 +70,10 @@ export default function AreasPage() {
         title="Electricians Across Greater Sydney & Surrounding Regions"
       >
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
-          Evaready Electrical services homes and businesses across Greater
-          Sydney, the Shire, Macarthur, Blue Mountains, Northern Beaches,
-          Wollongong, Illawarra and Central Coast South. Search your suburb or
-          postcode, browse the major regions, then call or request a quote
-          online.
+          Evaready Electrical helps homes and businesses across Greater Sydney,
+          the Shire, Macarthur, Blue Mountains, Northern Beaches, Wollongong,
+          Illawarra and Central Coast South. Search your suburb or postcode,
+          browse the major regions, then call or send the job details.
         </p>
 
         <div className="mt-8 grid max-w-3xl gap-3 sm:grid-cols-3">
@@ -198,7 +197,7 @@ export default function AreasPage() {
             },
             {
               title: "Emergency",
-              text: "Urgent faults, outages, tripping circuits and unsafe electrical issues.",
+              text: "Power loss, tripping circuits and electrical issues that should be checked quickly.",
               icon: Zap,
             },
             {
@@ -227,10 +226,10 @@ export default function AreasPage() {
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-300">
-              Need an electrician?
+              Electrical help in your area.
             </p>
             <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Call now or send your job details online.
+              Call for urgent faults or send the job details for review.
             </h2>
           </div>
 
@@ -249,7 +248,7 @@ export default function AreasPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-white px-7 py-4 font-black text-[#020617] transition hover:bg-slate-100"
             >
-              Request Quote
+              Send Job Details
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>

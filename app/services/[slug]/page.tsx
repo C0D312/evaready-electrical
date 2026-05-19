@@ -187,7 +187,7 @@ export default async function ServiceLandingPage({
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
               >
-                Request Quote
+                Send Job Details
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -210,9 +210,9 @@ export default async function ServiceLandingPage({
                 Urgent electrical issue?
               </p>
               <p className="mt-2 leading-7 text-slate-100">
-                If there is heat, smoke, sparking, burning smell, electric shock
-                risk or loss of power, call directly before touching the
-                affected area.
+                If there is heat, smoke, sparking, a burning smell, electric
+                shock risk or loss of power, call before touching the affected
+                area.
               </p>
             </div>
           </aside>
@@ -223,7 +223,7 @@ export default async function ServiceLandingPage({
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-7 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           {[
             `NSW Licence ${business.licence}`,
-            "24/7 urgent help",
+            "Open 24/7 for urgent calls",
             "Residential and commercial",
             "Clear job details",
           ].map((item) => (
@@ -272,11 +272,12 @@ export default async function ServiceLandingPage({
               Warning signs
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              When to call a licensed electrician.
+              Signs the job should be checked.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
               Electrical issues can look minor before they become expensive or
-                unsafe. These are signs worth checking carefully.
+              unsafe. These are the details worth checking before the problem
+              grows.
             </p>
           </div>
 
@@ -336,7 +337,7 @@ export default async function ServiceLandingPage({
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-6 py-4 font-black text-white transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
-                Call now
+                <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
               </a>
               <a
                 href={business.bookingUrl}
@@ -344,7 +345,7 @@ export default async function ServiceLandingPage({
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white transition hover:bg-blue-600"
               >
-                Request Quote
+                Send Job Details
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -432,10 +433,10 @@ export default async function ServiceLandingPage({
         <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.24em] text-cyan-200">
-              Need {service.title.toLowerCase()}?
+              Ready to organise {service.title.toLowerCase()}?
             </p>
             <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight sm:text-5xl">
-              Call Evaready Electrical or send your job details online.
+              Call Evaready Electrical or send the job details for review.
             </h2>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
@@ -452,7 +453,7 @@ export default async function ServiceLandingPage({
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-white px-7 py-4 font-black text-slate-950 transition hover:bg-slate-100"
             >
-              Request Quote
+              Send Job Details
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>

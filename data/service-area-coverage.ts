@@ -973,7 +973,7 @@ export function getSuburbPageCopy(
     [
       `Evaready Electrical helps ${suburbLabel} homes and businesses with ${context.commonJobs}. Planned work is easier to assess with clear job details, while urgent electrical hazards should be phoned through directly.`,
       `For ${suburbLabel}, Evaready Electrical focuses on practical electrical service for ${context.propertyMix}. Common requests include ${context.commonJobs}, plus Level 2 electrical enquiries where the supply side of the installation needs attention.`,
-      `Electrical work in ${suburbLabel} can range from urgent faults to planned upgrades. Evaready Electrical supports local ${context.propertyMix} with ${context.commonJobs}, and keeps the next step simple: call for hazards or request a quote for scheduled work.`,
+      `Electrical work in ${suburbLabel} can range from urgent faults to planned upgrades. Evaready Electrical supports local ${context.propertyMix} with ${context.commonJobs}, and keeps the next step simple: call for hazards or send job details for scheduled work.`,
       `Evaready Electrical services ${suburbLabel} with electrical fault support, repairs and upgrade work shaped around ${context.propertyMix}. Services include ${context.commonJobs}, along with switchboard and Level 2 enquiries across ${areaLabel}.`,
     ],
     seed,
@@ -1131,7 +1131,7 @@ export function getSuburbPageCopy(
         [
           `Planned jobs in ${coverageSuburb.name} can cover ${context.plannedWork}. Send photos and a clear description so the work is easier to assess.`,
           `For everyday electrical work in ${suburbLabel}, common requests include ${context.plannedWork} and small repairs around ${context.propertyMix}.`,
-          `Planned electrical enquiries in ${coverageSuburb.name} are well suited to ${context.plannedWork}, especially when photos and access details are included upfront.`,
+          `Planned electrical enquiries in ${coverageSuburb.name} are well suited to ${context.plannedWork}, especially when photos and access details are provided early.`,
         ],
         seed,
         37,
@@ -1142,7 +1142,7 @@ export function getSuburbPageCopy(
   const generatedCopy: SuburbPageCopy = {
     ctaHeading: pick(
       [
-        `Need an electrician in ${coverageSuburb.name}? We're Evaready to assist.`,
+        `Electrical help in ${coverageSuburb.name}, with a clear next step.`,
         `Planning electrical work in ${coverageSuburb.name}? Send the details through.`,
         `For ${suburbLabel} electrical faults or upgrades, start here.`,
       ],
@@ -1152,7 +1152,7 @@ export function getSuburbPageCopy(
     faqAnswers: {
       emergency: `Yes. For ${coverageSuburb.name} emergency electrical faults such as ${context.emergencySignals}, call Evaready Electrical directly so the issue can be treated as urgent.`,
       level2: `Yes. Level 2 enquiries in ${coverageSuburb.name} can include ${context.level2Detail}. Include photos of the switchboard, meter area, point of attachment or any defect paperwork if you have it.`,
-      quote: `For ${suburbLabel}, include your contact details, job address, photos, a short description and ${context.accessDetail}. For unsafe faults, call first so the issue can be treated as urgent.`,
+      quote: `For ${suburbLabel}, include your contact details, job address, photos, a short description and ${context.accessDetail}. If there is heat, smoke, sparking or power loss, call first.`,
     },
     faqHeading: pick(
       [
@@ -1166,7 +1166,7 @@ export function getSuburbPageCopy(
     faqIntro: `Use these quick answers to decide whether to call for an urgent hazard or send details for planned work in ${coverageSuburb.name}.`,
     heroDescription,
     heroNote,
-    metaDescription: `Need an electrician in ${suburbLabel}? Evaready Electrical helps with ${context.commonJobs}, switchboards, emergencies and Level 2 enquiries around ${areaLabel}.`,
+    metaDescription: `Evaready Electrical helps ${suburbLabel} properties with ${context.commonJobs}, switchboards, urgent faults and Level 2 enquiries around ${areaLabel}.`,
     processDescription: pick(
       [
         `For ${coverageSuburb.name}, the process starts by understanding the fault, the property type and the level of urgency. Planned jobs are easier to price when the request includes photos, while unsafe faults should be phoned through directly.`,

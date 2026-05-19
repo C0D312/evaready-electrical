@@ -21,7 +21,7 @@ export function SiteHeader() {
           <div className="flex items-center justify-between gap-3">
             <Link
               href="/"
-              className="flex min-w-0 flex-1 items-center lg:flex-none"
+              className="flex min-w-0 shrink-0 items-center"
             >
               <Image
                 src={assetPath("/evaready-logo.png")}
@@ -29,8 +29,8 @@ export function SiteHeader() {
                 width={320}
                 height={135}
                 priority
-                sizes="(max-width: 379px) calc(100vw - 150px), (max-width: 640px) calc(100vw - 170px), (max-width: 1024px) 18rem, 13rem"
-                className="h-12 w-full max-w-[9.5rem] object-cover object-center min-[380px]:h-14 min-[380px]:max-w-56 sm:h-16 sm:max-w-72 lg:h-14 lg:w-56 lg:max-w-56"
+                sizes="(max-width: 379px) 8.5rem, (max-width: 640px) 10rem, (max-width: 1024px) 18rem, 13rem"
+                className="h-11 w-full max-w-[8.5rem] object-cover object-center min-[380px]:h-12 min-[380px]:max-w-40 sm:h-16 sm:max-w-72 lg:h-14 lg:w-56 lg:max-w-56"
               />
             </Link>
 
@@ -61,7 +61,7 @@ export function SiteHeader() {
                 rel="noopener noreferrer"
                 className="hidden min-h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 md:inline-flex lg:bg-red-600 lg:hover:bg-red-500"
               >
-                Request Quote
+                Send Details
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>
@@ -97,9 +97,9 @@ export function SiteFooter() {
             />
           </div>
           <p className="mt-5 max-w-md leading-7">
-            Emergency, residential, commercial and Level 2 electrical services
-            across Greater Sydney, Illawarra, Blue Mountains, Northern Beaches
-            and Central Coast South.
+            Electrical support for urgent faults, homes, businesses and Level 2
+            work across Greater Sydney, Illawarra, Blue Mountains, Northern
+            Beaches and Central Coast South.
           </p>
         </div>
 
@@ -138,7 +138,7 @@ export function SiteFooter() {
               rel="noopener noreferrer"
               className="inline-flex w-fit items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-black text-white hover:bg-blue-500"
             >
-              Request Quote
+              Send Details
             </a>
           </div>
         </div>

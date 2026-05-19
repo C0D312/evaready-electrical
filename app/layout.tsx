@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     template: "%s | Evaready Electrical",
   },
   description:
-    "Need an electrician? Evaready Electrical provides 24/7 emergency, Level 2, switchboard, fault finding, EV charger and commercial electrical services across Greater Sydney and surrounding regions.",
+    "Evaready Electrical handles urgent faults, Level 2 work, switchboards, fault finding, EV chargers and commercial electrical jobs across Greater Sydney and surrounding regions.",
   keywords: [
     "emergency electrician Sydney",
     "24/7 electrician Sydney",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Emergency & Level 2 Electrician Sydney | Evaready Electrical 24/7",
     description:
-      "Licensed electricians for urgent faults, Level 2 electrical work, switchboards, outages and commercial electrical services.",
+      "Electrical support for urgent faults, Level 2 work, switchboards, outages and commercial jobs across the wider Sydney service area.",
     url: "https://evareadyelectrical.com.au",
     siteName: "Evaready Electrical",
     type: "website",

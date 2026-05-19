@@ -19,7 +19,7 @@ import { SiteFooter, SiteHeader } from "@/components/site-frame";
 export const metadata: Metadata = {
   title: "Electrical Services Greater Sydney",
   description:
-    "Need an electrician? Evaready Electrical provides residential, commercial, emergency and Level 2 electrical services including switchboards, fault finding, hot water electrical, CCTV, data cabling, lighting, power points and smoke alarms.",
+    "Evaready Electrical handles residential, commercial, emergency and Level 2 electrical work including switchboards, fault finding, hot water electrical, CCTV, data cabling, lighting, power points and smoke alarms.",
   alternates: {
     canonical: "/services",
   },
@@ -69,7 +69,7 @@ const services = [
   {
     title: "Emergency Electrician",
     description:
-      "Fast help for urgent electrical faults, outages, burning smells, tripping circuits and unsafe electrical issues.",
+      "Urgent fault support for outages, burning smells, tripping circuits and electrical issues that need a direct call.",
     icon: Flame,
     includes: [
       "Power outages",
@@ -490,17 +490,15 @@ export default function ServicesPage() {
             </div>
 
             <h1 className="text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
-              Professional Electrical Services Across Greater Sydney & Surrounding Regions
+              Electrical Services Across Greater Sydney & Surrounding Regions
             </h1>
 
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
-              Evaready Electrical provides professional residential, commercial,
-              emergency and Level 2 electrical services across Greater Sydney,
-              Illawarra, Blue Mountains, Northern Beaches and Central Coast
-              South. From hot water electrical faults, CCTV and data cabling to
-              switchboards, testing, lighting, fans, smart wiring and major
-              upgrades, we deliver clean workmanship, clear communication and
-              safe electrical solutions.
+              Evaready Electrical helps homes, strata, shops, builders and
+              businesses with electrical work that needs a licensed hand and a
+              clear next step. That includes urgent faults, Level 2 work,
+              switchboards, testing, lighting, hot water electrical faults,
+              data, CCTV, fans, smart wiring and larger upgrades.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -518,7 +516,7 @@ export default function ServicesPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
               >
-                Request Quote
+                Send Job Details
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -551,12 +549,12 @@ export default function ServicesPage() {
           </p>
 
           <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-            Need an electrician? We&rsquo;re Evaready to assist.
+            Choose the electrical service that best matches the job.
           </h2>
 
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-            Choose the service you need, request a quote online, or call
-            directly if the fault is urgent.
+            Call directly if the issue feels unsafe. For planned work, choose
+            the closest service and send the details so it can be reviewed.
           </p>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -596,7 +594,7 @@ export default function ServicesPage() {
                       rel="noopener noreferrer"
                       className="mt-7 inline-flex items-center gap-2 font-black text-red-600"
                     >
-                      Request quote <ArrowRight className="h-4 w-4" />
+                      Send details <ArrowRight className="h-4 w-4" />
                     </a>
                   ) : (
                     <Link
@@ -618,12 +616,12 @@ export default function ServicesPage() {
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-300">
-              Need an electrician?
+              Electrical help without the guesswork.
             </p>
 
             <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Fast electrical help when something goes wrong, and clear support
-              for planned upgrades.
+              Call for urgent faults, or send the job notes for planned
+              upgrades, repairs and installations.
             </h2>
           </div>
 
@@ -642,7 +640,7 @@ export default function ServicesPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-7 py-4 font-black text-[#020617] transition hover:bg-slate-100"
             >
-              Request Quote
+              Send Job Details
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>

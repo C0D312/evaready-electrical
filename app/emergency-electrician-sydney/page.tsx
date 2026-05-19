@@ -15,7 +15,7 @@ import { SiteFooter, SiteHeader } from "@/components/site-frame";
 export const metadata: Metadata = {
   title: "Emergency Electrician Sydney",
   description:
-    "24/7 emergency electrician in Sydney for power outages, burning smells, tripping safety switches, switchboard faults and unsafe electrical hazards.",
+    "Call Evaready Electrical for urgent Sydney electrical faults including power loss, burning smells, tripping safety switches, switchboard faults and unsafe hazards.",
   alternates: {
     canonical: "/emergency-electrician-sydney",
   },
@@ -85,7 +85,7 @@ const emergencyFaqs = [
 const process = [
   {
     title: "Call or request help online",
-    text: "Call directly for urgent faults or send the job details through the online quote form.",
+    text: "Call directly for urgent faults or send clear job notes when the work can be planned.",
   },
   {
     title: "Fault diagnosis",
@@ -166,7 +166,7 @@ export default function EmergencyElectricianSydneyPage() {
           <div>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-red-400/30 bg-red-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-red-200">
               <AlertTriangle className="h-4 w-4" />
-              24/7 Emergency Electrical Response
+              Open 24/7 for urgent electrical faults
             </div>
 
             <h1 className="max-w-5xl text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
@@ -174,9 +174,9 @@ export default function EmergencyElectricianSydneyPage() {
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">
-              Fast-response licensed electricians for urgent electrical faults,
-              power outages, burning smells, switchboard issues, tripping
-              circuits and electrical hazards across the service area.
+              Call when an electrical fault needs attention now: power loss,
+              burning smells, switchboard issues, tripping circuits, sparking or
+              anything that feels unsafe across the service area.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -185,7 +185,7 @@ export default function EmergencyElectricianSydneyPage() {
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
-                Emergency Call Now
+                <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
               </a>
 
               <a
@@ -194,7 +194,7 @@ export default function EmergencyElectricianSydneyPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
               >
-                Request Emergency Quote
+                Send Job Details
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -204,7 +204,7 @@ export default function EmergencyElectricianSydneyPage() {
                 <Clock3 className="h-6 w-6 text-blue-300" />
                 <p className="mt-3 text-xl font-black">24/7</p>
                 <p className="mt-1 text-sm text-slate-300">
-                  Emergency help available.
+                  Calls answered day and night.
                 </p>
               </div>
 
@@ -218,9 +218,9 @@ export default function EmergencyElectricianSydneyPage() {
 
               <div className="rounded-2xl border border-white/10 bg-white/10 p-4">
                 <Bolt className="h-6 w-6 text-blue-300" />
-                <p className="mt-3 text-xl font-black">Fast</p>
+                <p className="mt-3 text-xl font-black">Clear</p>
                 <p className="mt-1 text-sm text-slate-300">
-                  Fault finding and repairs.
+                  Fault checks and next steps.
                 </p>
               </div>
             </div>
@@ -229,16 +229,16 @@ export default function EmergencyElectricianSydneyPage() {
           {/* Quote card */}
           <div className="rounded-[2rem] border border-white/15 bg-white/10 p-6 shadow-2xl backdrop-blur-xl">
             <p className="text-sm font-black uppercase tracking-[0.2em] text-red-300">
-              Emergency electrical help
+              Urgent fault support
             </p>
 
             <h2 className="mt-3 text-3xl font-black">
-              Need Help Right Now?
+              Something electrical feels unsafe?
             </h2>
 
             <p className="mt-3 text-slate-300">
-              For urgent electrical hazards, call now. For quotes and job
-              details, use the online form.
+              Call for hazards, smoke, sparking, heat or repeated tripping. If
+              it can wait, send the details and photos for review.
             </p>
 
             <div className="mt-6 grid gap-4">
@@ -256,7 +256,7 @@ export default function EmergencyElectricianSydneyPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-xl bg-blue-600 px-6 py-4 font-black text-white transition hover:bg-blue-500"
               >
-                Request Quote Online
+                Send Job Details
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -273,7 +273,7 @@ export default function EmergencyElectricianSydneyPage() {
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           {[
             `NSW Licence ${business.licence}`,
-            "24/7 emergency response",
+            "Open 24/7 for urgent calls",
             "Fault finding and repairs",
             "Service across key regions",
           ].map((item) => (
@@ -299,8 +299,8 @@ export default function EmergencyElectricianSydneyPage() {
 
             <p className="mt-5 text-lg leading-8 text-slate-600">
               Electrical faults can become dangerous quickly. If something is
-              sparking, burning, tripping or unsafe, call a licensed electrician
-              before the problem gets worse.
+              sparking, heating, smoking, tripping or unsafe, call before using
+              the affected area again.
             </p>
           </div>
 
@@ -319,8 +319,8 @@ export default function EmergencyElectricianSydneyPage() {
       </section>
 
       <QuoteRequestPanel
-        eyebrow="Emergency quote details"
-        title="Send the details that help diagnose the fault faster."
+        eyebrow="Emergency job notes"
+        title="Send the fault details that matter."
         description="For unsafe faults, call first. For planned help, include the suburb, what has lost power, whether anything is hot, buzzing, wet, sparking or tripping, and photos of the switchboard or damaged fitting if available."
         quoteLabel="Request Emergency Quote"
       />
@@ -469,7 +469,7 @@ export default function EmergencyElectricianSydneyPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-7 py-4 font-black text-[#020617] transition hover:bg-slate-100"
             >
-              Request Quote
+              Send Job Details
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>

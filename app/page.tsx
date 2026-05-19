@@ -19,14 +19,14 @@ import { business, priorityRegions, services } from "@/data/site";
 export const metadata: Metadata = {
   title: "Emergency & Level 2 Electrician Sydney",
   description:
-    "Need an electrician? Evaready Electrical provides emergency, Level 2, switchboard, fault finding, residential and commercial electrical services across Greater Sydney and surrounding regions.",
+    "Evaready Electrical helps with urgent faults, Level 2 work, switchboards, fault finding, residential and commercial electrical jobs across Greater Sydney and surrounding regions.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Emergency & Level 2 Electrician Sydney | Evaready Electrical",
     description:
-      "Licensed electricians for emergencies, switchboards, Level 2 work, fault finding, lighting, power and commercial electrical services across Greater Sydney and surrounding regions.",
+      "Electrical support for unsafe faults, switchboards, Level 2 work, fault finding, lighting, power and commercial jobs across Greater Sydney and surrounding regions.",
     url: "/",
     images: ["/evaready-logo.png"],
   },
@@ -39,37 +39,37 @@ const heroStats = [
 ];
 
 const urgentFaults = [
-  "Power outage or power loss",
-  "Safety switch keeps tripping",
-  "Burning smell or smoke",
-  "Sparking, buzzing or hot fittings",
-  "Switchboard fault or damaged wiring",
-  "Urgent electrical hazard",
+  "No power or partial outage",
+  "Safety switch tripping",
+  "Burning smell or heat",
+  "Sparking or buzzing fittings",
+  "Damaged switchboard or wiring",
+  "Electrical hazard",
 ];
 
 const moneyServices = [
   {
     title: "Emergency electrician",
     href: "/emergency-electrician-sydney",
-    text: "Fast help for outages, burning smells, hot points, tripping safety switches and unsafe electrical faults.",
+    text: "Call for outages, burning smells, hot fittings, tripping safety switches and faults that should be checked immediately.",
     icon: Flame,
   },
   {
     title: "Level 2 electrician",
     href: "/level-2-electrician-sydney",
-    text: "Consumer mains, service equipment, overheads, undergrounds, metering support and defect notice work.",
+    text: "Consumer mains, service equipment, overheads, underground supplies, metering support and defect notice work.",
     icon: Bolt,
   },
   {
     title: "Switchboard upgrades",
     href: "/services/switchboard-upgrades-sydney",
-    text: "Replace ceramic fuses, add safety switches, improve RCBO protection and prepare for modern electrical loads.",
+    text: "Replace ceramic fuses, add modern protection, improve circuit labelling and prepare the board for today’s loads.",
     icon: ShieldCheck,
   },
   {
     title: "Electrical fault finding",
     href: "/services/electrical-fault-finding-sydney",
-    text: "Test and trace tripping circuits, power loss, water-damaged fittings, buzzing outlets and unsafe electrical faults.",
+    text: "Trace tripping circuits, lost power, water-damaged fittings, buzzing outlets and unsafe electrical behaviour.",
     icon: Wrench,
   },
 ];
@@ -77,64 +77,79 @@ const moneyServices = [
 const proof = [
   `NSW electrical licence ${business.licence}`,
   `ABN ${business.abn}`,
-  "24/7 urgent electrical support",
+  "Open 24/7 for urgent calls",
   "Residential and commercial electrical work",
 ];
 
 const decisionDrivers = [
   {
     title: "Clear pricing before work starts",
-    text: "For planned and quoted work, the scope and price are discussed before the job begins.",
+    text: "For planned jobs, the likely scope and price are talked through before the work begins.",
     icon: BadgeCheck,
   },
   {
     title: "Safety-first testing",
-    text: "Faults, switchboards, safety switches and repaired circuits are tested carefully before the job is completed.",
+    text: "Faults, switchboards, safety switches and repaired circuits are checked with care before the job is closed out.",
     icon: ShieldCheck,
   },
   {
     title: "Level 2 electrical support",
-    text: "Consumer mains, defect notices, service equipment and switchboard work are explained clearly.",
+    text: "Consumer mains, defect notices, service equipment and supply-side work are explained in plain language.",
     icon: Bolt,
   },
   {
     title: "Clean workmanship",
-    text: "Residential, commercial, strata, builder and maintenance jobs are handled neatly.",
+    text: "Residential, commercial, strata, builder and maintenance jobs are finished neatly and kept organised.",
     icon: Wrench,
+  },
+];
+
+const detailGuides = [
+  {
+    title: "Call first for anything unsafe",
+    text: "Smoke, heat, sparking, exposed wiring, electric shock risk and repeated tripping should be talked through by phone before anyone touches the area.",
+  },
+  {
+    title: "Send useful job notes",
+    text: "For planned work, include the suburb, address, access notes and a short description of what needs attention.",
+  },
+  {
+    title: "Add photos when they help",
+    text: "Switchboards, damaged fittings, defect notices and new installation locations are easier to assess when the details are clear.",
   },
 ];
 
 const quickJobs = [
   {
     label: "Power is out",
-    detail: "Call now for urgent fault finding",
+    detail: "Call so the fault can be triaged",
     href: business.phoneHref,
     external: true,
   },
   {
     label: "Burning smell or sparking",
-    detail: "Treat it as urgent",
+    detail: "Stop using the area and call",
     href: business.phoneHref,
     external: true,
   },
   {
     label: "Switchboard upgrade",
-    detail: "Safety switches and RCBOs",
+    detail: "Modern protection and labelling",
     href: "/services/switchboard-upgrades-sydney",
   },
   {
     label: "Level 2 or defect notice",
-    detail: "Consumer mains and service work",
+    detail: "Supply-side electrical support",
     href: "/level-2-electrician-sydney",
   },
   {
     label: "Lighting or power points",
-    detail: "Home and business installs",
+    detail: "Neat installs and repairs",
     href: "/services/power-point-installation-sydney",
   },
   {
     label: "Commercial maintenance",
-    detail: "Shops, strata, offices and builders",
+    detail: "Shops, strata and offices",
     href: "/services/commercial-electrician-sydney",
   },
 ];
@@ -159,7 +174,7 @@ const faqs = [
   {
     question: "Do you offer 24/7 emergency electrician call-outs?",
     answer:
-      "Yes. Call Evaready Electrical for urgent electrical faults, power outages, tripping circuits, burning smells, sparking or unsafe electrical issues across the service area.",
+      "Yes. Call Evaready Electrical any time for power outages, tripping circuits, burning smells, sparking or electrical issues that feel unsafe.",
   },
   {
     question: "Can you help with Level 2 electrical work?",
@@ -172,9 +187,9 @@ const faqs = [
       "Yes. We upgrade old switchboards, replace ceramic fuses, install safety switches and improve circuit protection for homes and businesses.",
   },
   {
-    question: "How do I request a quote?",
+    question: "How do I send job details?",
     answer:
-      "Call 0461 247 247 or use the online quote form to send your job address, contact details, photos and a short description of the work.",
+      "Call 0461 247 247 or send the address, contact details, photos and a short note about what needs attention.",
   },
 ];
 
@@ -277,23 +292,23 @@ export default function HomePage() {
 
       <section className="relative overflow-hidden bg-white">
         <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-blue-700 via-cyan-400 to-red-600" />
-        <div className="mx-auto grid max-w-7xl items-start gap-6 px-4 py-8 sm:gap-10 sm:px-6 sm:py-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:px-8 lg:py-14">
-          <div className="order-2 lg:order-1">
+        <div className="mx-auto grid max-w-7xl items-start gap-5 px-4 pb-8 pt-4 sm:gap-10 sm:px-6 sm:py-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:px-8 lg:py-14">
+          <div className="order-2 min-w-0 lg:order-1">
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-2 text-xs font-black text-blue-800 sm:mb-6 sm:px-4 sm:text-sm">
               <Clock3 className="h-4 w-4" />
-              24/7 licensed electrical support across key NSW service regions
+              Open 24/7 for urgent electrical faults
             </div>
 
             <h1 className="max-w-5xl text-4xl font-black leading-[0.98] text-slate-950 sm:text-6xl">
-              Emergency & Level 2 Electrician Sydney
+              Emergency & Level 2 Electrical Help in Sydney
             </h1>
 
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-700 sm:text-xl">
-              Call Evaready Electrical for urgent faults, Level 2 electrical work,
-              switchboard upgrades, fault finding, lighting, power points, smoke
-              alarms, EV chargers and commercial electrical services across
-              Greater Sydney, the Shire, Illawarra, Blue Mountains, Northern
-              Beaches and Central Coast South.
+              Call Evaready Electrical when power drops out, a switchboard needs
+              attention or a job needs a licensed electrician who explains the
+              next step clearly. We help with urgent faults, Level 2 work,
+              upgrades, lighting, power, EV chargers and commercial electrical
+              service across the wider Sydney service area.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -309,7 +324,7 @@ export default function HomePage() {
                 href="#quote"
                 className="inline-flex w-full items-center justify-center gap-3 rounded-lg bg-slate-950 px-5 py-4 text-center text-base font-black text-white shadow-xl shadow-slate-950/15 transition hover:bg-slate-800 sm:w-auto sm:px-7"
               >
-                Use Online Form
+                Send Job Details
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -333,23 +348,23 @@ export default function HomePage() {
 
           <div
             id="quote"
-            className="order-1 scroll-mt-32 rounded-lg border border-slate-200 bg-slate-950 p-4 text-white shadow-2xl shadow-slate-950/20 sm:p-5 lg:order-2"
+            className="order-1 min-w-0 scroll-mt-24 overflow-hidden rounded-lg border border-slate-200 bg-slate-950 p-3 text-white shadow-2xl shadow-slate-950/20 sm:p-5 lg:order-2 lg:scroll-mt-32"
           >
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan-200 sm:text-sm sm:tracking-[0.2em]">
-              Need an electrician?
+            <p className="text-xs font-black uppercase tracking-[0.16em] text-cyan-200 sm:text-sm sm:tracking-[0.2em]">
+              Electrical help starts here
             </p>
-            <h2 className="mt-2 text-2xl font-black sm:text-3xl">
-              We&rsquo;re Evaready to assist.
+            <h2 className="mt-2 text-2xl font-black leading-tight sm:text-3xl">
+              Tell us what&rsquo;s happening.
             </h2>
 
-            <div className="mt-4 grid gap-2 sm:grid-cols-2">
+            <div className="mt-4 grid min-w-0 gap-2 min-[480px]:grid-cols-2">
               {urgentFaults.map((fault) => (
                 <div
                   key={fault}
-                  className="flex min-h-10 items-center gap-2 rounded-lg bg-white/10 px-3 py-2"
+                  className="flex min-h-10 min-w-0 items-center gap-2 rounded-lg bg-white/10 px-3 py-2"
                 >
                   <CheckCircle2 className="h-4 w-4 shrink-0 text-cyan-300" />
-                  <span className="text-xs font-black leading-5 text-slate-100">
+                  <span className="min-w-0 text-[11px] font-black leading-5 text-slate-100 sm:text-xs">
                     {fault}
                   </span>
                 </div>
@@ -358,13 +373,15 @@ export default function HomePage() {
 
             <a
               href={business.phoneHref}
-              className="mt-4 inline-flex w-full flex-col items-center justify-center gap-1 rounded-lg bg-red-600 px-4 py-3 text-center text-sm font-black leading-6 text-white shadow-xl shadow-red-950/20 transition hover:bg-red-500 min-[390px]:flex-row min-[390px]:gap-3 sm:text-base"
+              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-3 py-3 text-center text-[clamp(0.9rem,4vw,1.05rem)] font-black leading-6 text-white shadow-xl shadow-red-950/20 transition hover:bg-red-500 sm:gap-3 sm:px-4"
               aria-label={`Call Evaready Electrical on ${business.phoneDisplay}`}
             >
               <Phone className="h-5 w-5 shrink-0" />
-              <span>Emergency? Call now</span>
-              <span className="whitespace-nowrap">
-                {business.phoneDisplay}
+              <span className="whitespace-nowrap sm:hidden">
+                Call {business.phoneDisplay}
+              </span>
+              <span className="hidden whitespace-nowrap sm:inline">
+                Emergency? Call now - {business.phoneDisplay}
               </span>
             </a>
 
@@ -372,19 +389,19 @@ export default function HomePage() {
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan-200">
-                    Job enquiry
+                    Job details
                   </p>
                   <h3 className="mt-1 text-lg font-black">
-                    Send through the details.
+                    Send the details for review.
                   </h3>
                 </div>
               </div>
               <p className="mt-2 text-xs font-semibold leading-5 text-slate-300">
-                Add your contact details, job address and any helpful photos.
-                Evaready Electrical will review it and follow up promptly.
+                Add the address, contact details and useful photos. We&rsquo;ll
+                review the job notes and come back with the next step.
               </p>
 
-              <div className="mt-3 overflow-hidden rounded-lg border border-white/10 bg-white">
+              <div className="mt-3 min-w-0 overflow-hidden rounded-lg border border-white/10 bg-white">
                 <ServiceM8Frame
                   src={business.bookingUrl}
                   title="Evaready Electrical quote form"
@@ -412,16 +429,16 @@ export default function HomePage() {
           <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
             <div>
               <p className="text-sm font-black uppercase text-red-600">
-                We&rsquo;re open 24/7
+                Open 24/7
               </p>
               <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl">
-                Need an electrician? We&rsquo;re Evaready to assist.
+                Electrical work handled with a clear next step.
               </h2>
               <p className="mt-5 text-lg leading-8 text-slate-700">
-                Call any time for power loss, sparking, burning smells, hot
-                fittings or a safety switch that keeps tripping. For planned
-                electrical work, choose the closest service and send the job
-                details through.
+                Call any time for lost power, sparking, burning smells, hot
+                fittings or a safety switch that will not stay on. For planned
+                work, choose the closest service and send the details so the job
+                can be reviewed properly.
               </p>
               <div className="mt-7 flex flex-col gap-3 md:flex-row lg:flex-col 2xl:flex-row">
                 <a
@@ -547,10 +564,10 @@ export default function HomePage() {
             <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl">
               Licensed electrical help you can verify.
             </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-700">
-              Evaready Electrical keeps licence details visible, explains the
-              next step clearly, and makes it simple to call for urgent faults
-              or send details for planned electrical work.
+              <p className="mt-5 text-lg leading-8 text-slate-700">
+              Evaready Electrical keeps licence details visible, explains what
+              needs attention, and makes it simple to call for urgent faults or
+              send details for planned electrical work.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a
@@ -566,7 +583,7 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
               >
-                Request Quote
+                Send Job Details
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -584,6 +601,37 @@ export default function HomePage() {
                 </article>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-16 sm:py-20">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
+          <div>
+            <p className="text-sm font-black uppercase text-blue-700">
+              Before you send details
+            </p>
+            <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl">
+              A clearer job starts with the right first step.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-slate-700">
+              Urgent faults and planned work need different handling. These
+              simple checks help Evaready Electrical respond with the right
+              next move.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {detailGuides.map((guide) => (
+              <article
+                key={guide.title}
+                className="rounded-lg border border-slate-200 bg-slate-50 p-5"
+              >
+                <CheckCircle2 className="h-7 w-7 text-blue-700" />
+                <h3 className="mt-5 text-xl font-black">{guide.title}</h3>
+                <p className="mt-3 leading-7 text-slate-600">{guide.text}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -644,7 +692,7 @@ export default function HomePage() {
                 Common electrical questions.
               </h2>
               <p className="mt-5 text-lg leading-8 text-slate-700">
-                Quick answers before you call or request a quote.
+                Quick answers before you call or send the job details.
               </p>
             </div>
 

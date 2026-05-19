@@ -64,9 +64,9 @@ export default async function RegionPage({ params }: RegionPageProps) {
         title={`${region.name} Electrician Service Areas`}
       >
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
-          {region.description} Browse the areas below to find local electrical
-          information for emergency call-outs, planned work, switchboard work,
-          lighting, power points and Level 2 electrical enquiries.
+          {region.description} Browse the areas below for local electrical
+          information covering urgent faults, planned work, switchboards,
+          lighting, power points and Level 2 enquiries.
         </p>
         <p className="mt-4 max-w-3xl text-base font-semibold leading-7 text-blue-100">
           {region.travelNote}
@@ -94,7 +94,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
             `Licensed electrician ${business.licence}`,
             "Emergency and planned work",
             "Residential and commercial",
-            "Online job details",
+            "Photo-friendly job details",
           ].map((item) => (
             <div key={item} className="flex items-center gap-3">
               <CheckCircle2 className="h-6 w-6 shrink-0 text-blue-600" />
@@ -148,10 +148,10 @@ export default async function RegionPage({ params }: RegionPageProps) {
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-300">
-              Need help in {region.name}?
+              Electrical help in {region.name}.
             </p>
             <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Call now for urgent faults or send job details online.
+              Call for urgent faults or send job details for review.
             </h2>
           </div>
 
@@ -170,7 +170,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-white px-7 py-4 font-black text-[#020617] transition hover:bg-slate-100"
             >
-              Request Quote
+              Send Job Details
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>

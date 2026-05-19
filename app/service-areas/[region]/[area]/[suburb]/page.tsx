@@ -175,7 +175,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-700/25 transition hover:bg-blue-600"
           >
-            Request Quote
+            Send Job Details
             <ArrowRight className="h-5 w-5" />
           </a>
         </div>
@@ -367,7 +367,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-white px-7 py-4 font-black text-[#020617] transition hover:bg-slate-100"
             >
-              Request Quote
+              Send Job Details
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>
