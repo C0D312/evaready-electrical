@@ -171,7 +171,7 @@ export function MobilePrimaryNav() {
                 onClick={() => setOpen(false)}
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20"
               >
-                Send Details
+                Get a Quote
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>

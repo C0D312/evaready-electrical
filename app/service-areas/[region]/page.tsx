@@ -170,7 +170,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-white px-7 py-4 font-black text-[#020617] transition hover:bg-slate-100"
             >
-              Send Job Details
+              Get a Quote
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>

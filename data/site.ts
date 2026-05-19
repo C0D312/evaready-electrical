@@ -15,6 +15,7 @@ export const business = {
   phoneHref: "tel:+61461247247",
   smsHref: "sms:+61461247247",
   email: "info@evareadyelectrical.com.au",
+  emailHref: "mailto:info@evareadyelectrical.com.au",
   licence: "398937C",
   abn: "44 650 697 797",
   serviceArea: "Greater Sydney and surrounding regions",

@@ -50,6 +50,42 @@ function serviceHref(slug: string) {
   return staticRelatedServices[slug]?.href ?? `/services/${slug}`;
 }
 
+const finalCtaEyebrows: Record<string, string> = {
+  "residential-electrician-sydney": "Need residential electrical work sorted?",
+  "commercial-electrician-sydney": "Need commercial electrical support?",
+  "electrical-fault-finding-sydney": "Need an electrical fault checked?",
+  "power-points-lighting-sydney": "Need power points or lighting installed?",
+  "smoke-alarm-electrician-sydney": "Need smoke alarm electrical work?",
+  "ev-charger-installation-sydney": "Planning an EV charger installation?",
+  "consumer-mains-sydney": "Need consumer mains work reviewed?",
+  "defect-notice-repairs-sydney": "Need help with a defect notice?",
+  "private-power-pole-sydney": "Need private pole electrical support?",
+  "hot-water-system-electrician-sydney": "Need help with an electric hot water fault?",
+  "cctv-security-camera-installation-sydney": "Need CCTV or security camera wiring?",
+  "data-cabling-electrician-sydney": "Need data cabling or internet points?",
+  "ceiling-fan-installation-sydney": "Need ceiling fan installation?",
+  "safety-switch-rcd-installation-sydney": "Need safety switch or RCD help?",
+  "three-phase-power-sydney": "Need 3 phase power checked?",
+  "surge-protection-electrician-sydney": "Need surge protection at the switchboard?",
+  "appliance-installation-electrician-sydney": "Need an appliance circuit or connection?",
+  "rewiring-electrician-sydney": "Need rewiring checked or planned?",
+  "metering-services-sydney": "Need metering or service equipment support?",
+  "new-build-renovation-electrician-sydney": "Planning electrical work for a build or renovation?",
+  "electrical-testing-tagging-reports-sydney": "Need electrical testing or a report?",
+  "smart-home-electrician-sydney": "Need smart home wiring set up properly?",
+  "tv-antenna-wall-cabling-sydney": "Need TV, antenna or wall cabling?",
+  "intercom-access-control-electrician-sydney": "Need intercom or access control wiring?",
+  "storm-damage-electrician-sydney": "Need storm-damaged electrical work checked?",
+  "electrical-load-capacity-checks-sydney": "Need load or capacity checked?",
+};
+
+function finalCtaEyebrow(service: { slug: string; title: string }) {
+  return (
+    finalCtaEyebrows[service.slug] ??
+    `Need help with ${service.title.replace(/\s+Sydney$/, "")}?`
+  );
+}
+
 export function generateStaticParams() {
   return serviceLandingPages.map((service) => ({
     slug: service.slug,
@@ -187,7 +223,7 @@ export default async function ServiceLandingPage({
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
               >
-                Send Job Details
+                Get a Quote
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -245,9 +281,9 @@ export default async function ServiceLandingPage({
               {service.description}
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
-              The goal is simple: make the electrical problem clear, complete
-              the work safely, and leave you with practical next steps if
-              anything else needs attention.
+              Evaready Electrical checks the right part of the installation,
+              explains the next step clearly, and keeps the work neat from
+              first inspection through to final testing.
             </p>
           </div>
 
@@ -324,7 +360,7 @@ export default async function ServiceLandingPage({
               Quote details
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              What helps us understand the job faster.
+              Details that make the job easier to scope.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
               For planned work, send the suburb, photos, access notes and a
@@ -345,7 +381,7 @@ export default async function ServiceLandingPage({
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white transition hover:bg-blue-600"
               >
-                Send Job Details
+                Get a Quote
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -433,7 +469,7 @@ export default async function ServiceLandingPage({
         <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.24em] text-cyan-200">
-              Ready to organise {service.title.toLowerCase()}?
+              {finalCtaEyebrow(service)}
             </p>
             <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight sm:text-5xl">
               Call Evaready Electrical or send the job details for review.
@@ -453,7 +489,7 @@ export default async function ServiceLandingPage({
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-white px-7 py-4 font-black text-slate-950 transition hover:bg-slate-100"
             >
-              Send Job Details
+              Get a Quote
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>

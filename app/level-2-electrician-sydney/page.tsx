@@ -38,15 +38,20 @@ const business = {
 };
 
 const level2Services = [
+  "ASP Level 2 electrical work",
   "Consumer mains repairs and upgrades",
   "Overhead service work",
   "Underground service work",
   "Metering and service equipment support",
   "Defect notice rectification",
+  "CCEW and compliance paperwork where required",
   "Switchboard upgrades for supply work",
   "Point of attachment issues",
+  "Service fuse and protection enquiries",
   "Main switch and service protection upgrades",
   "Private pole related electrical work",
+  "Temporary builders supply planning",
+  "Tiger tail coordination guidance",
   "Urgent supply fault investigation",
   "Disconnect and reconnect planning",
   "Three-phase upgrade discussions",
@@ -78,6 +83,14 @@ const authorityTopics = [
   {
     title: "Overhead and underground services",
     text: "Service lines, point of attachment issues and underground supply problems need careful inspection, planning and safe isolation where required.",
+  },
+  {
+    title: "Paperwork and compliance",
+    text: "Some supply-side work may require CCEW documentation, defect evidence, photos, testing details and a clear record of what was rectified.",
+  },
+  {
+    title: "Temporary supply and protection",
+    text: "Builders supply, tiger tail coordination, service fuse enquiries and private pole issues should be planned early so the site can be kept moving safely.",
   },
 ];
 
@@ -212,7 +225,7 @@ export default function Level2ElectricianSydneyPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
               >
-                Send Level 2 Details
+                Get a Quote
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -266,7 +279,7 @@ export default function Level2ElectricianSydneyPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-xl bg-red-600 px-6 py-4 font-black text-white transition hover:bg-red-500"
               >
-                Send Job Details
+                Get a Quote
                 <ArrowRight className="h-5 w-5" />
               </a>
 
@@ -518,7 +531,7 @@ export default function Level2ElectricianSydneyPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-7 py-4 font-black text-[#020617] transition hover:bg-slate-100"
             >
-              Send Job Details
+              Get a Quote
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>

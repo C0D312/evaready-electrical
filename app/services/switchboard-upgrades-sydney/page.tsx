@@ -42,7 +42,11 @@ const upgradeServices = [
   "Circuit labelling",
   "Loose connection repairs",
   "Burnt wiring investigation",
+  "Overloaded circuit investigation",
   "Underrated circuit checks",
+  "Defect notice switchboard repairs",
+  "Three-phase upgrade discussions",
+  "EV charger load readiness checks",
   "Switchboard testing and inspection",
 ];
 
@@ -53,6 +57,7 @@ const warningSigns = [
   "Burning smell near the switchboard",
   "Buzzing, crackling or heat at the board",
   "Lights flicker when appliances turn on",
+  "Breakers trip when ovens, hot water, EV chargers or air conditioning start",
   "Switchboard looks overcrowded or damaged",
   "You are renovating or adding new circuits",
 ];
@@ -81,6 +86,25 @@ const upgradeOutcomes = [
   "Clearer circuit labelling for easier fault finding",
   "Reduced risk from old ceramic fuses and damaged fittings",
   "Better preparation for renovations, EV chargers and added circuits",
+];
+
+const switchboardAuthority = [
+  {
+    title: "Old fuses and missing protection",
+    text: "Ceramic fuse boards can be harder to isolate and may not provide the modern safety switch or RCBO protection expected on upgraded circuits.",
+  },
+  {
+    title: "Burnt wiring and heat damage",
+    text: "Heat marks, buzzing, melted insulation or a burning smell need proper inspection before the affected circuit is placed back into normal use.",
+  },
+  {
+    title: "Overloaded circuits",
+    text: "Repeated tripping can come from heavy appliances, added circuits, poor load balance, old wiring or equipment that needs a dedicated supply.",
+  },
+  {
+    title: "EV, three-phase and new loads",
+    text: "EV chargers, workshops, renovations and larger appliances should be checked against the existing switchboard, protection and supply capacity.",
+  },
 ];
 
 const switchboardFaqs = [
@@ -117,6 +141,9 @@ export default function SwitchboardUpgradesSydneyPage() {
       "RCBO Upgrades",
       "Ceramic Fuse Replacement",
       "Switchboard Fault Finding",
+      "Overloaded Circuit Investigation",
+      "Burnt Wiring Repairs",
+      "EV Charger Load Checks",
     ],
     identifier: [
       {
@@ -195,7 +222,7 @@ export default function SwitchboardUpgradesSydneyPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
               >
-                Send Switchboard Details
+                Get a Quote
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -249,7 +276,7 @@ export default function SwitchboardUpgradesSydneyPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-xl bg-red-600 px-6 py-4 font-black text-white transition hover:bg-red-500"
               >
-                Send Job Details
+                Get a Quote
                 <ArrowRight className="h-5 w-5" />
               </a>
 
@@ -386,6 +413,35 @@ export default function SwitchboardUpgradesSydneyPage() {
         </div>
       </section>
 
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
+            Switchboard authority
+          </p>
+          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+            The board should be ready for the way the property is used now.
+          </h2>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
+            A good upgrade is not just a tidy row of breakers. It should
+            consider old protection, heat damage, overloaded circuits, future
+            loads and whether the supply needs a deeper Level 2 review.
+          </p>
+
+          <div className="mt-10 grid gap-5 md:grid-cols-2">
+            {switchboardAuthority.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-lg border border-slate-200 bg-slate-50 p-6"
+              >
+                <CheckCircle2 className="h-7 w-7 text-blue-700" />
+                <h3 className="mt-5 text-2xl font-black">{item.title}</h3>
+                <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Process */}
       <section className="bg-[#020617] py-24 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -469,7 +525,7 @@ export default function SwitchboardUpgradesSydneyPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-7 py-4 font-black text-[#020617] transition hover:bg-slate-100"
             >
-              Send Job Details
+              Get a Quote
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>

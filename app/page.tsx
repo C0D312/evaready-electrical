@@ -38,6 +38,13 @@ const heroStats = [
   { label: "Service area", value: "Greater Sydney +" },
 ];
 
+const heroTrustMarks = [
+  { label: "NSW licensed", icon: ShieldCheck },
+  { label: "ABN registered", icon: BadgeCheck },
+  { label: "Open 24/7", icon: Clock3 },
+  { label: "Clear next step", icon: CheckCircle2 },
+];
+
 const urgentFaults = [
   "No power or partial outage",
   "Safety switch tripping",
@@ -321,6 +328,18 @@ export default function HomePage() {
               </a>
             </div>
 
+            <div className="mt-5 flex flex-wrap gap-2 text-xs font-black text-slate-700 sm:max-w-2xl">
+              {heroTrustMarks.map((mark, index) => (
+                <div
+                  key={mark.label}
+                  className={`${index > 1 ? "hidden sm:inline-flex" : "inline-flex"} min-h-10 min-w-0 items-center gap-2 rounded-lg border border-blue-200 bg-white/85 px-3 py-2 shadow-sm`}
+                >
+                  <mark.icon className="h-4 w-4 shrink-0 text-blue-700" />
+                  <span>{mark.label}</span>
+                </div>
+              ))}
+            </div>
+
             <div className="mt-8 hidden gap-3 sm:grid sm:grid-cols-3 lg:mt-10">
               {heroStats.map((stat) => (
                 <div
@@ -387,23 +406,54 @@ export default function HomePage() {
                   </h3>
                 </div>
               </div>
+
+              <div className="mt-3 grid grid-cols-2 gap-2 text-[0.68rem] font-black uppercase tracking-[0.08em] text-slate-100">
+                <div className="inline-flex items-center gap-2 rounded-md bg-white/10 px-2.5 py-2">
+                  <ShieldCheck className="h-3.5 w-3.5 shrink-0 text-cyan-300" />
+                  Licensed
+                </div>
+                <div className="inline-flex items-center gap-2 rounded-md bg-white/10 px-2.5 py-2">
+                  <Clock3 className="h-3.5 w-3.5 shrink-0 text-cyan-300" />
+                  Open 24/7
+                </div>
+              </div>
+
               <p className="mt-2 text-sm font-semibold leading-6 text-slate-300 sm:text-xs sm:leading-5">
                 Add your contact details, address and photos so we can review
                 the job and get back to you with the next step.
               </p>
 
-              <a
-                href={business.phoneHref}
-                className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-3 text-center text-sm font-black text-white shadow-lg shadow-red-950/20 transition hover:bg-red-500 sm:hidden"
-                aria-label={`Call Evaready Electrical on ${business.phoneDisplay}`}
-              >
-                <Phone className="h-5 w-5 shrink-0" />
-                <span className="whitespace-nowrap">
-                  Call Now {business.phoneDisplay}
-                </span>
-              </a>
+              <p className="mt-3 rounded-md border border-red-400/25 bg-red-500/10 px-3 py-2 text-xs font-bold leading-5 text-slate-100">
+                For urgent electrical faults,{" "}
+                <a
+                  href={business.phoneHref}
+                  className="font-black text-white underline underline-offset-2"
+                >
+                  call {business.phoneDisplay}
+                </a>{" "}
+                first.
+              </p>
 
-              <div className="mt-3 min-w-0 overflow-hidden rounded-lg border border-white/10 bg-white">
+              <div className="mt-3 rounded-lg border border-white/10 bg-white/10 p-4 sm:hidden">
+                <p className="text-sm font-black text-white">
+                  Send photos and job notes in the booking form.
+                </p>
+                <p className="mt-1 text-sm font-semibold leading-6 text-slate-300">
+                  It opens cleanly on your phone so you can add the address,
+                  photos and details.
+                </p>
+                <a
+                  href={business.bookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white transition hover:bg-blue-600"
+                >
+                  Open Quote Form
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
+
+              <div className="mt-3 hidden min-w-0 overflow-hidden rounded-lg border border-white/10 bg-white sm:block">
                 <ServiceM8Frame
                   src={business.bookingUrl}
                   title="Evaready Electrical quote form"
@@ -585,7 +635,7 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
               >
-                Send Job Details
+                Get a Quote
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -708,6 +758,15 @@ export default function HomePage() {
                   <p className="mt-3 leading-7 text-slate-600">
                     <PhoneLinkedText text={faq.answer} />
                   </p>
+                  {faq.question === "How do I send job details?" ? (
+                    <Link
+                      href="#quote"
+                      className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-blue-200 bg-white px-4 py-3 text-sm font-black text-blue-700 shadow-sm transition hover:border-blue-700 hover:bg-blue-50 sm:w-auto"
+                    >
+                      Send job details
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  ) : null}
                 </article>
               ))}
             </div>

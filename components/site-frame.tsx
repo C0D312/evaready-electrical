@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { ArrowRight, MapPin, Phone } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { MobilePrimaryNav } from "@/components/mobile-primary-nav";
+import { QuoteFormModal } from "@/components/quote-form-modal";
 import { assetPath, business } from "@/data/site";
 
 const navItems = [
@@ -11,6 +12,46 @@ const navItems = [
   { href: "/emergency-electrician-sydney", label: "Emergency Electrician" },
   { href: "/level-2-electrician-sydney", label: "Level 2 Electrician" },
   { href: "/service-areas", label: "Service Areas" },
+];
+
+const footerColumns = [
+  {
+    title: "Emergency Services",
+    links: [
+      { href: "/emergency-electrician-sydney", label: "Emergency electrician" },
+      { href: "/electrical-faults", label: "Electrical fault guides" },
+      { href: "/services/electrical-fault-finding-sydney", label: "Fault finding" },
+      { href: "/services/safety-switch-rcd-installation-sydney", label: "Safety switches" },
+      { href: "/services/storm-damage-electrician-sydney", label: "Storm damage" },
+    ],
+  },
+  {
+    title: "Level 2 Services",
+    links: [
+      { href: "/level-2-electrician-sydney", label: "Level 2 electrician" },
+      { href: "/services/consumer-mains-sydney", label: "Consumer mains" },
+      { href: "/services/defect-notice-repairs-sydney", label: "Defect notices" },
+      { href: "/services/metering-services-sydney", label: "Metering services" },
+    ],
+  },
+  {
+    title: "Popular Services",
+    links: [
+      { href: "/services/switchboard-upgrades-sydney", label: "Switchboard upgrades" },
+      { href: "/services/commercial-electrician-sydney", label: "Commercial electrician" },
+      { href: "/services/hot-water-system-electrician-sydney", label: "Hot water electrical" },
+      { href: "/services/cctv-security-camera-installation-sydney", label: "CCTV and security" },
+    ],
+  },
+  {
+    title: "Service Areas",
+    links: [
+      { href: "/service-areas", label: "All service areas" },
+      { href: "/service-areas/sutherland-shire", label: "Sutherland Shire" },
+      { href: "/service-areas/st-george-and-bayside", label: "St George and Bayside" },
+      { href: "/service-areas/wollongong-and-illawarra", label: "Wollongong and Illawarra" },
+    ],
+  },
 ];
 
 export function SiteHeader() {
@@ -61,7 +102,7 @@ export function SiteHeader() {
                 rel="noopener noreferrer"
                 className="hidden min-h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 md:inline-flex lg:bg-red-600 lg:hover:bg-red-500"
               >
-                Send Details
+                Get a Quote
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>
@@ -76,6 +117,7 @@ export function SiteHeader() {
         aria-hidden="true"
         className="h-[calc(120px_+_env(safe-area-inset-top))] min-[380px]:h-[calc(128px_+_env(safe-area-inset-top))] sm:h-[calc(144px_+_env(safe-area-inset-top))] lg:h-[calc(81px_+_env(safe-area-inset-top))]"
       />
+      <QuoteFormModal />
       <MobileStickyCta />
     </>
   );
@@ -84,8 +126,8 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="bg-[#020617] py-12 text-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 text-sm text-slate-400 sm:px-6 lg:grid-cols-4 lg:px-8">
-        <div className="lg:col-span-2">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 text-sm text-slate-400 sm:px-6 lg:grid-cols-[1.35fr_repeat(4,1fr)] lg:px-8">
+        <div>
           <div className="w-fit overflow-hidden rounded-lg border border-white/10 bg-white shadow-xl shadow-blue-500/10">
             <Image
               src={assetPath("/evaready-logo.png")}
@@ -101,16 +143,10 @@ export function SiteFooter() {
             work across Greater Sydney, Illawarra, Blue Mountains, Northern
             Beaches and Central Coast South.
           </p>
-        </div>
-
-        <div>
-          <h3 className="font-black text-white">Business Details</h3>
-          <div className="mt-4 space-y-2">
+          <div className="mt-5 space-y-2">
             <p>Electrical Licence: {business.licence}</p>
             <p>ABN: {business.abn}</p>
-            <p>Email: {business.email}</p>
             <p>
-              Phone:{" "}
               <a
                 href={business.phoneHref}
                 className="font-bold text-white underline-offset-4 hover:underline"
@@ -118,30 +154,61 @@ export function SiteFooter() {
                 {business.phoneDisplay}
               </a>
             </p>
+            <p>
+              <a
+                href={business.emailHref}
+                className="break-all font-bold text-white underline-offset-4 hover:underline"
+              >
+                {business.email}
+              </a>
+            </p>
           </div>
-        </div>
-
-        <div>
-          <h3 className="font-black text-white">Contact</h3>
-          <div className="mt-4 grid gap-3">
+          <div className="mt-5 grid gap-3">
             <a
               href={business.phoneHref}
-              className="inline-flex w-fit items-center gap-2 rounded-xl bg-red-600 px-5 py-3 font-black text-white hover:bg-red-500"
+              className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-3 text-center text-[clamp(0.72rem,3.2vw,0.95rem)] font-black text-white hover:bg-red-500 sm:w-fit sm:px-5 sm:text-sm"
             >
               <Phone className="h-4 w-4" />
-              Call Now
+              <span className="whitespace-nowrap">
+                Emergency? Call Now {business.phoneDisplay}
+              </span>
             </a>
 
             <a
               href={business.bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-fit items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-black text-white hover:bg-blue-500"
+              className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-black text-white hover:bg-blue-500 sm:w-fit"
             >
-              Send Details
+              Get a Quote
+            </a>
+
+            <a
+              href={business.emailHref}
+              className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-xl border border-white/15 px-5 py-3 font-black text-white hover:border-white/30 hover:bg-white/10 sm:w-fit"
+            >
+              <Mail className="h-4 w-4" />
+              Email
             </a>
           </div>
         </div>
+
+        {footerColumns.map((column) => (
+          <div key={column.title}>
+            <h3 className="font-black text-white">{column.title}</h3>
+            <div className="mt-4 grid gap-3">
+              {column.links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="font-semibold leading-5 text-slate-300 underline-offset-4 hover:text-white hover:underline"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </footer>
   );

@@ -194,7 +194,7 @@ export default function EmergencyElectricianSydneyPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
               >
-                Send Job Details
+                Get a Quote
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -256,7 +256,7 @@ export default function EmergencyElectricianSydneyPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-xl bg-blue-600 px-6 py-4 font-black text-white transition hover:bg-blue-500"
               >
-                Send Job Details
+                Get a Quote
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -469,7 +469,7 @@ export default function EmergencyElectricianSydneyPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-7 py-4 font-black text-[#020617] transition hover:bg-slate-100"
             >
-              Send Job Details
+              Get a Quote
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>

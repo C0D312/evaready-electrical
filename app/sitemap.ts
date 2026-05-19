@@ -3,6 +3,7 @@ import {
   coverageRegions,
   coverageSearchItems,
 } from "@/data/service-area-coverage";
+import { electricalFaultPages } from "@/data/electrical-faults";
 import { serviceLandingPages } from "@/data/service-pages";
 import { business } from "@/data/site";
 
@@ -12,6 +13,7 @@ const routes = [
   { path: "", priority: 1 },
   { path: "/services", priority: 0.9 },
   { path: "/emergency-electrician-sydney", priority: 0.95 },
+  { path: "/electrical-faults", priority: 0.88 },
   { path: "/level-2-electrician-sydney", priority: 0.9 },
   { path: "/services/switchboard-upgrades-sydney", priority: 0.9 },
   { path: "/service-areas", priority: 0.85 },
@@ -41,8 +43,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ? 0.86
       : 0.88,
   }));
+  const faultRoutes = electricalFaultPages.map((fault) => ({
+    path: `/electrical-faults/${fault.slug}`,
+    priority: 0.84,
+  }));
 
-  return [...routes, ...serviceRoutes, ...regionRoutes, ...areaRoutes, ...suburbRoutes].map((route) => ({
+  return [...routes, ...serviceRoutes, ...faultRoutes, ...regionRoutes, ...areaRoutes, ...suburbRoutes].map((route) => ({
     url: `${business.siteUrl}${route.path}`,
     lastModified,
     changeFrequency: "weekly",
