@@ -65,13 +65,24 @@ export function QuoteRequestPanel({
               Job details
             </p>
             <h3 className="mt-2 text-xl font-black sm:text-2xl">
-              Send the details for review.
+              Request a Booking or Quote
             </h3>
             <p className="mt-3 max-w-2xl text-sm font-semibold leading-6 text-slate-300">
-              Add the address, contact details and any useful photos. We&rsquo;ll
-              review the job notes and come back with the next step.
+              Add your contact details, address and photos so we can review the
+              job and get back to you with the next step.
             </p>
           </div>
+
+          <a
+            href={business.phoneHref}
+            className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-3 text-center text-sm font-black text-white shadow-lg shadow-red-950/20 transition hover:bg-red-500 sm:hidden"
+            aria-label={`Call Evaready Electrical on ${business.phoneDisplay}`}
+          >
+            <Phone className="h-5 w-5 shrink-0" />
+            <span className="whitespace-nowrap">
+              Call Now {business.phoneDisplay}
+            </span>
+          </a>
 
           <div className="mt-5 overflow-hidden rounded-lg border border-white/10 bg-white sm:mt-6">
             <ServiceM8Frame

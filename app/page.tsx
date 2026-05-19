@@ -391,14 +391,25 @@ export default function HomePage() {
                     Job details
                   </p>
                   <h3 className="mt-1 text-xl font-black leading-tight sm:text-lg">
-                    Send the details for review.
+                    Request a Booking or Quote
                   </h3>
                 </div>
               </div>
               <p className="mt-2 text-sm font-semibold leading-6 text-slate-300 sm:text-xs sm:leading-5">
-                Add the address, contact details and useful photos. We&rsquo;ll
-                review the job notes and come back with the next step.
+                Add your contact details, address and photos so we can review
+                the job and get back to you with the next step.
               </p>
+
+              <a
+                href={business.phoneHref}
+                className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-3 text-center text-sm font-black text-white shadow-lg shadow-red-950/20 transition hover:bg-red-500 sm:hidden"
+                aria-label={`Call Evaready Electrical on ${business.phoneDisplay}`}
+              >
+                <Phone className="h-5 w-5 shrink-0" />
+                <span className="whitespace-nowrap">
+                  Call Now {business.phoneDisplay}
+                </span>
+              </a>
 
               <div className="mt-3 min-w-0 overflow-hidden rounded-lg border border-white/10 bg-white">
                 <ServiceM8Frame
