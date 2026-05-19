@@ -125,6 +125,72 @@ body {
   animation: pulseSoft 1.7s infinite;
 }
 
+.emergency-issue-marquee {
+  position: relative;
+  z-index: 20;
+  overflow: hidden;
+  border-top: 1px solid rgba(53, 217, 255, 0.24);
+  border-bottom: 1px solid rgba(230, 0, 20, 0.22);
+  background:
+    linear-gradient(90deg, rgba(2, 6, 23, 0.98) 0%, rgba(5, 24, 53, 0.98) 50%, rgba(30, 3, 12, 0.98) 100%);
+  color: #ffffff;
+}
+
+.emergency-issue-marquee::before,
+.emergency-issue-marquee::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 3rem;
+  content: "";
+  pointer-events: none;
+}
+
+.emergency-issue-marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(2, 6, 23, 1), transparent);
+}
+
+.emergency-issue-marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(30, 3, 12, 1), transparent);
+}
+
+.emergency-issue-marquee__track {
+  display: flex;
+  width: max-content;
+  animation: emergencyMarquee 26s linear infinite;
+}
+
+.emergency-issue-marquee__group {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.75rem;
+  padding: 0.7rem 0.75rem;
+}
+
+.emergency-issue-chip {
+  display: inline-flex;
+  min-height: 2.35rem;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(53, 217, 255, 0.22);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.55rem 1rem;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 950;
+  white-space: nowrap;
+  box-shadow: 0 10px 26px rgba(7, 94, 234, 0.12);
+}
+
+.emergency-issue-chip svg {
+  color: var(--ee-cyan);
+}
+
 .floating-call-button {
   position: fixed;
   right: max(1rem, env(safe-area-inset-right));
@@ -249,6 +315,26 @@ body.quote-modal-open .floating-call-button {
   50% {
     transform: scale(1.035);
     box-shadow: 0 0 45px rgba(255, 0, 51, 0.65);
+  }
+}
+
+@keyframes emergencyMarquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .emergency-issue-marquee {
+    overflow-x: auto;
+  }
+
+  .emergency-issue-marquee__track {
+    animation: none;
   }
 }
 
@@ -641,6 +727,15 @@ main > section:first-of-type.bg-white .border-l-4 {
   transform: translateZ(0);
 }
 
+#quote .quote-home-card {
+  border-color: rgba(53, 217, 255, 0.35) !important;
+  background:
+    linear-gradient(145deg, #020617 0%, #071936 56%, #19030a 100%) !important;
+  box-shadow:
+    0 26px 70px rgba(2, 6, 23, 0.28),
+    0 0 0 1px rgba(53, 217, 255, 0.1) inset;
+}
+
 #quote::before {
   position: absolute;
   inset: 0;
@@ -737,7 +832,7 @@ section.border-y.bg-slate-950 span {
     max-width: 4.9rem;
   }
 
-  header a[href^="tel:"] {
+  .site-header-actions > a[href^="tel:"] {
     width: 6.25rem;
     max-width: 6.25rem;
     padding-right: 0.45rem !important;
@@ -745,7 +840,7 @@ section.border-y.bg-slate-950 span {
     font-size: clamp(0.64rem, 2.55vw, 0.72rem) !important;
   }
 
-  header a[href^="tel:"] span {
+  .site-header-actions > a[href^="tel:"] span {
     min-width: 0;
   }
 
@@ -807,7 +902,7 @@ section.border-y.bg-slate-950 span {
     grid-template-columns: minmax(0, 5.25rem) minmax(0, 1fr);
   }
 
-  header a[href^="tel:"] {
+  .site-header-actions > a[href^="tel:"] {
     width: 6.55rem;
     max-width: 6.55rem;
   }
@@ -822,7 +917,7 @@ section.border-y.bg-slate-950 span {
     grid-template-columns: minmax(0, 4.75rem) minmax(0, 1fr);
   }
 
-  header a[href^="tel:"] {
+  .site-header-actions > a[href^="tel:"] {
     width: 5.9rem;
     max-width: 5.9rem;
     font-size: 0.62rem !important;

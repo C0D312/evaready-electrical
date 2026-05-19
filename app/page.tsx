@@ -170,6 +170,32 @@ function PhoneLinkedText({ text }: { text: string }) {
   );
 }
 
+function EmergencyIssueMarquee() {
+  return (
+    <section
+      className="emergency-issue-marquee"
+      aria-label="Common urgent electrical issues"
+    >
+      <div className="emergency-issue-marquee__track">
+        {[0, 1].map((group) => (
+          <div
+            key={group}
+            className="emergency-issue-marquee__group"
+            aria-hidden={group === 1}
+          >
+            {emergencyIssues.map((issue) => (
+              <span key={`${group}-${issue}`} className="emergency-issue-chip">
+                <Zap className="h-4 w-4 shrink-0" />
+                {issue}
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export default function HomePage() {
   const localBusinessSchema = {
     "@context": "https://schema.org",
@@ -240,6 +266,7 @@ export default function HomePage() {
       />
 
       <SiteHeader />
+      <EmergencyIssueMarquee />
 
       <section className="relative overflow-hidden bg-white">
         <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-blue-700 via-cyan-400 to-blue-700" />
@@ -309,44 +336,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-slate-950 py-6 text-white">
-        <div className="mx-auto grid max-w-7xl gap-4 px-4 sm:px-6 lg:grid-cols-[auto_1fr_auto] lg:items-center lg:px-8">
-          <div>
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan-200">
-              Electrical issue?
-            </p>
-            <h2 className="mt-1 text-xl font-black">
-              Call first if it feels unsafe.
-            </h2>
-          </div>
-
-          <div className="flex gap-2 overflow-x-auto pb-1 lg:flex-wrap lg:overflow-visible lg:pb-0">
-            {emergencyIssues.map((issue) => (
-              <span
-                key={issue}
-                className="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/10 bg-white/10 px-3 py-2 text-xs font-black text-slate-100"
-              >
-                <Zap className="h-3.5 w-3.5 text-cyan-200" />
-                {issue}
-              </span>
-            ))}
-          </div>
-
-          <a
-            href={business.phoneHref}
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-red-600 px-5 py-3 font-black text-white shadow-lg shadow-red-600/25 transition hover:bg-red-500"
-          >
-            <Phone className="h-4 w-4" />
-            <span className="whitespace-nowrap">
-              Call {business.phoneDisplay}
-            </span>
-          </a>
-        </div>
-      </section>
-
       <section id="quote" className="bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="overflow-hidden rounded-lg border border-slate-200 bg-slate-950 text-white shadow-2xl shadow-slate-950/15">
+          <div className="quote-home-card overflow-hidden rounded-lg border border-cyan-300/35 bg-slate-950 text-white shadow-2xl shadow-slate-950/15">
             <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
               <div className="p-6 sm:p-8 lg:p-10">
                 <p className="text-sm font-black uppercase tracking-[0.2em] text-cyan-200">
