@@ -1,1 +1,0 @@
-self.__SSG_MANIFEST=new Set(["\u002Felectrical-faults\u002F[slug]","\u002Fservice-areas\u002F[region]","\u002Fservice-areas\u002F[region]\u002F[area]","\u002Fservice-areas\u002F[region]\u002F[area]\u002F[suburb]","\u002Fservices\u002F[slug]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()

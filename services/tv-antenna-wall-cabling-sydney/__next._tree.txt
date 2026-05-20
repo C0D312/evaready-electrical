@@ -1,2 +1,2 @@
-:HL["/evaready-electrical/_next/static/chunks/00m3wbiu9n21o.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"services","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"tv-antenna-wall-cabling-sydney","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"UfwJkf8xK2fCZ_s36g3QV"}
+:HL["/evaready-electrical/_next/static/chunks/0dpjlr8nk8rh..css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"services","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"tv-antenna-wall-cabling-sydney","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"qbHrstMSUWCNtUG8rpfs9"}
