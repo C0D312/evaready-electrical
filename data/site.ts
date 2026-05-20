@@ -11,6 +11,8 @@ import {
 
 export const business = {
   name: "Evaready Electrical",
+  brandImage: "/images/evaready-electrical-sydney-service-van.png",
+  brandImageAlt: "Evaready Electrical 24/7 service van in Sydney",
   phoneDisplay: "0461 247 247",
   phoneHref: "tel:+61461247247",
   smsHref: "sms:+61461247247",

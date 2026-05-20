@@ -54,7 +54,7 @@ export function TrustSymbolBand({
 
   return (
     <section
-      className={`${isDark ? "bg-slate-950 text-white" : "bg-white text-slate-950"} ${className}`}
+      className={`trust-symbol-band ${isDark ? "bg-slate-950 text-white" : "bg-white text-slate-950"} ${className}`}
     >
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

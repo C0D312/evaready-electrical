@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import {
   ArrowRight,
@@ -12,7 +13,7 @@ import {
 } from "lucide-react";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
-import { business, priorityRegions, services } from "@/data/site";
+import { assetPath, business, priorityRegions, services } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Emergency & Level 2 Electrician Sydney",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     description:
       "Emergency, Level 2 and general electrical work across Sydney and surrounding regions.",
     url: "/",
-    images: ["/evaready-logo.png"],
+    images: [business.brandImage],
   },
 };
 
@@ -46,11 +47,6 @@ const heroTrustMarks = [
     text: "Call first or request a quote",
     icon: BadgeCheck,
   },
-];
-
-const quoteSteps = [
-  "Add address and photos",
-  "We review the next step",
 ];
 
 const coreServiceTitles = [
@@ -165,7 +161,7 @@ export default function HomePage() {
     "@context": "https://schema.org",
     "@type": "Electrician",
     name: business.name,
-    image: `${business.siteUrl}/evaready-logo.png`,
+    image: `${business.siteUrl}${business.brandImage}`,
     url: business.siteUrl,
     telephone: business.phoneDisplay,
     email: business.email,
@@ -231,20 +227,31 @@ export default function HomePage() {
 
       <SiteHeader />
 
-      <section className="relative overflow-hidden bg-white">
-        <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-blue-700 via-cyan-400 to-blue-700" />
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:py-24">
-          <div>
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-2 text-xs font-black uppercase tracking-[0.16em] text-blue-800 sm:px-4">
+      <section className="home-brand-hero relative isolate overflow-hidden bg-[#020814] text-white">
+        <Image
+          src={assetPath(business.brandImage)}
+          alt={business.brandImageAlt}
+          fill
+          priority
+          sizes="100vw"
+          className="brand-hero-image object-cover object-[67%_center] sm:object-[66%_center] lg:object-center"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,8,20,0.96)_0%,rgba(2,8,20,0.84)_34%,rgba(2,8,20,0.42)_62%,rgba(2,8,20,0.18)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(0,200,255,0.22),transparent_36%),radial-gradient(circle_at_78%_72%,rgba(255,0,30,0.18),transparent_34%)]" />
+        <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#005BFF] via-[#00C8FF] to-[#FF001E]" />
+
+        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
+          <div className="max-w-3xl">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-300/35 bg-[#061A3A]/70 px-3 py-2 text-xs font-black uppercase tracking-[0.16em] text-cyan-100 shadow-lg shadow-cyan-500/10 backdrop-blur sm:px-4">
               <Clock3 className="h-4 w-4" />
               Open 24/7 for urgent electrical faults
             </div>
 
-            <h1 className="max-w-5xl text-4xl font-black leading-[0.98] tracking-tight text-slate-950 sm:text-6xl lg:text-7xl">
+            <h1 className="max-w-5xl text-4xl font-black leading-[0.98] tracking-tight text-white sm:text-6xl lg:text-7xl">
               Emergency & Level 2 Electrical Help in Sydney
             </h1>
 
-            <p className="mt-5 max-w-3xl text-base leading-7 text-slate-700 sm:mt-6 sm:text-xl sm:leading-8">
+            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-100 sm:mt-6 sm:text-xl sm:leading-8">
               Call Evaready Electrical for urgent faults, Level 2 work,
               switchboards, fault finding and general electrical service across
               Sydney and surrounding regions.
@@ -270,31 +277,31 @@ export default function HomePage() {
                 <ArrowRight className="h-5 w-5 shrink-0" />
               </a>
             </div>
-          </div>
 
-          <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
-            {heroTrustMarks.map((mark) => {
-              const Icon = mark.icon;
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+              {heroTrustMarks.map((mark) => {
+                const Icon = mark.icon;
 
-              return (
-                <div
-                  key={mark.title}
-                  className="flex items-center gap-4 rounded-lg border border-slate-200 bg-slate-50 p-4 shadow-sm"
-                >
-                  <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-700">
-                    <Icon className="h-6 w-6" />
-                  </span>
-                  <span>
-                    <span className="block text-lg font-black text-slate-950">
-                      {mark.title}
+                return (
+                  <div
+                    key={mark.title}
+                    className="flex items-center gap-3 rounded-lg border border-cyan-300/20 bg-[#15171C]/70 p-3 shadow-xl shadow-cyan-500/10 backdrop-blur"
+                  >
+                    <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#005BFF]/20 text-[#00C8FF]">
+                      <Icon className="h-5 w-5" />
                     </span>
-                    <span className="mt-1 block text-sm font-semibold leading-5 text-slate-600">
-                      {mark.text}
+                    <span>
+                      <span className="block text-sm font-black text-white">
+                        {mark.title}
+                      </span>
+                      <span className="mt-1 block text-xs font-semibold leading-5 text-slate-300">
+                        {mark.text}
+                      </span>
                     </span>
-                  </span>
-                </div>
-              );
-            })}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -302,8 +309,8 @@ export default function HomePage() {
       <section id="quote" className="bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="quote-home-card overflow-hidden rounded-lg border border-cyan-300/35 bg-slate-950 text-white shadow-2xl shadow-slate-950/15">
-            <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
-              <div className="p-6 sm:p-8 lg:p-10">
+            <div className="grid gap-0 lg:grid-cols-[1fr_auto] lg:items-center">
+              <div className="p-5 sm:p-8 lg:p-10">
                 <p className="text-sm font-black uppercase tracking-[0.2em] text-cyan-200">
                   Job details
                 </p>
@@ -312,26 +319,12 @@ export default function HomePage() {
                 </h2>
                 <p className="mt-5 text-base font-semibold leading-7 text-slate-200 sm:text-lg">
                   Add your contact details, address and photos so we can review
-                  the job and get back to you with the next step.
+                  the job.
                 </p>
               </div>
 
-              <div className="border-t border-white/10 bg-white/10 p-6 sm:p-8 lg:border-l lg:border-t-0 lg:p-10">
-                <div className="grid gap-3">
-                  {quoteSteps.map((step, index) => (
-                    <div
-                      key={step}
-                      className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/10 p-3"
-                    >
-                      <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-600 text-sm font-black text-white">
-                        {index + 1}
-                      </span>
-                      <span className="font-black text-white">{step}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              <div className="border-t border-white/10 bg-white/10 p-5 sm:p-8 lg:min-w-[24rem] lg:border-l lg:border-t-0 lg:p-10">
+                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
                   <a
                     href={business.phoneHref}
                     className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-red-600 px-5 py-3 font-black text-white shadow-lg shadow-red-600/25 transition hover:bg-red-500"

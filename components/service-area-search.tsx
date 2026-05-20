@@ -32,7 +32,7 @@ export function ServiceAreaSearch({ items }: ServiceAreaSearchProps) {
     : [];
 
   return (
-    <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-xl shadow-slate-950/5 sm:p-5">
+    <div className="service-area-search rounded-lg border border-slate-200 bg-white p-4 shadow-xl shadow-slate-950/5 sm:p-5">
       <label
         htmlFor="service-area-search"
         className="text-sm font-black uppercase tracking-[0.18em] text-blue-700"

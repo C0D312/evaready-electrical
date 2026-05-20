@@ -1,4 +1,6 @@
 ﻿import type { Metadata } from "next";
+import type { CSSProperties } from "react";
+import { assetPath, business } from "@/data/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -25,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "Evaready Electrical",
     type: "website",
     locale: "en_AU",
-    images: ["/evaready-logo.png"],
+    images: [business.brandImage],
   },
   alternates: {
     canonical: "/",
@@ -41,9 +43,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const brandStyle = {
+    "--ee-van-image": `url("${assetPath(business.brandImage)}")`,
+  } as CSSProperties;
+
   return (
     <html lang="en-AU">
-      <body>{children}</body>
+      <body style={brandStyle}>{children}</body>
     </html>
   );
 }

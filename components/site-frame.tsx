@@ -64,16 +64,16 @@ export function SiteHeader() {
             <Link
               href="/"
               data-header-logo="true"
-              className="site-logo-link flex min-w-0 shrink-0 items-center overflow-hidden rounded-lg"
+              className="site-logo-link flex min-w-0 shrink-0 items-center justify-center overflow-visible"
             >
               <Image
-                src={assetPath("/evaready-logo.png")}
+                src={assetPath("/images/evareadyelectrical-logo.png")}
                 alt="Evaready Electrical 24/7"
-                width={320}
-                height={135}
+                width={1536}
+                height={1024}
                 priority
-                sizes="(max-width: 359px) 6.55rem, (max-width: 379px) 6.85rem, (max-width: 640px) 7.35rem, (max-width: 1024px) 18rem, 13rem"
-                className="site-logo-image h-12 w-[6.55rem] object-cover object-center min-[360px]:w-[6.85rem] min-[390px]:w-[7.35rem] sm:h-16 sm:w-72 sm:max-w-72 lg:h-14 lg:w-56 lg:max-w-56"
+                sizes="(max-width: 379px) 9.1rem, (max-width: 767px) 10.7rem, (max-width: 1024px) 15rem, 17rem"
+                className="site-logo-image w-[9.1rem] object-contain object-center min-[380px]:w-[10rem] min-[430px]:w-[10.7rem] sm:w-[15rem] lg:w-[17rem]"
               />
             </Link>
 
@@ -140,14 +140,14 @@ export function SiteFooter() {
     <footer className="bg-[#020617] py-12 text-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 text-sm text-slate-400 sm:px-6 lg:grid-cols-[1.35fr_repeat(4,1fr)] lg:px-8">
         <div>
-          <div className="w-fit overflow-hidden rounded-lg border border-white/10 bg-white shadow-xl shadow-blue-500/10">
+          <div className="footer-logo-shell w-fit overflow-visible">
             <Image
-              src={assetPath("/evaready-logo.png")}
+              src={assetPath("/images/evareadyelectrical-logo.png")}
               alt="Evaready Electrical 24/7"
-              width={360}
-              height={140}
-              sizes="(max-width: 640px) 18rem, 20rem"
-              className="h-24 w-72 object-cover object-center sm:h-28 sm:w-80"
+              width={1536}
+              height={1024}
+              sizes="(max-width: 640px) 13rem, 13.125rem"
+              className="footer-logo-img w-[13rem] object-contain object-center sm:w-[13.125rem]"
             />
           </div>
           <p className="mt-5 max-w-md leading-7">
@@ -249,11 +249,18 @@ export function ServiceAreaHero({
   title: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-slate-950 text-white">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(37,99,235,0.35),transparent_30%),radial-gradient(circle_at_85%_30%,rgba(239,68,68,0.22),transparent_32%)]" />
-      <div className="absolute inset-0 bg-gradient-to-br from-[#031640] via-slate-950 to-[#23020a]" />
+    <section className="brand-internal-hero relative overflow-hidden bg-slate-950 text-white">
+      <Image
+        src={assetPath(business.brandImage)}
+        alt={business.brandImageAlt}
+        fill
+        sizes="100vw"
+        className="brand-internal-hero-image object-cover object-[67%_center]"
+      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(0,200,255,0.22),transparent_30%),radial-gradient(circle_at_85%_30%,rgba(255,0,30,0.2),transparent_32%)]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#020814]/94 via-[#061A3A]/88 to-[#020814]/76" />
 
-      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="max-w-4xl">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-blue-200">
             <MapPin className="h-4 w-4" />

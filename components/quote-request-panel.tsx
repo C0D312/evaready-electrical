@@ -1,11 +1,4 @@
-import {
-  ArrowRight,
-  BadgeCheck,
-  Clock3,
-  Phone,
-  ShieldAlert,
-  ShieldCheck,
-} from "lucide-react";
+import { ArrowRight, BadgeCheck, Clock3, Phone, ShieldAlert, ShieldCheck } from "lucide-react";
 import { ServiceM8Frame } from "@/components/service-m8-frame";
 import { business } from "@/data/site";
 
@@ -27,7 +20,7 @@ export function QuoteRequestPanel({
       className="quote-request-panel scroll-mt-32 bg-white py-12 sm:py-16 lg:py-20"
     >
       <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:gap-8 sm:px-6 lg:grid-cols-[0.74fr_1.26fr] lg:gap-10 lg:px-8">
-        <div className="quote-request-summary rounded-lg border border-slate-200 bg-slate-50 p-4 sm:p-6 lg:p-7">
+        <div className="quote-request-summary hidden rounded-lg border border-slate-200 bg-slate-50 p-4 sm:block sm:p-6 lg:p-7">
           <p className="text-xs font-black uppercase tracking-[0.22em] text-blue-700 sm:text-sm sm:tracking-[0.28em]">
             {eyebrow}
           </p>
@@ -65,18 +58,18 @@ export function QuoteRequestPanel({
 
         <div className="quote-request-card rounded-lg border border-white/10 bg-slate-950 p-4 text-white shadow-xl shadow-slate-950/15 sm:p-5">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan-200 sm:text-sm sm:tracking-[0.2em]">
+            <p className="hidden text-xs font-black uppercase tracking-[0.18em] text-cyan-200 sm:block sm:text-sm sm:tracking-[0.2em]">
               Job details
             </p>
-            <h3 className="mt-2 text-xl font-black sm:text-2xl">
+            <h3 className="text-2xl font-black sm:mt-2 sm:text-2xl">
               Request a Booking or Quote
             </h3>
-            <p className="mt-3 max-w-2xl text-sm font-semibold leading-6 text-slate-300">
-              Add your contact details, address and photos so we can review the
-              job and get back to you with the next step.
+            <p className="mt-3 max-w-2xl text-sm font-semibold leading-6 text-slate-300 sm:text-sm">
+              Add your contact details, address and photos so we can review the job.
+              <span className="hidden sm:inline"> We&apos;ll get back to you with the next step.</span>
             </p>
 
-            <div className="mt-4 grid grid-cols-2 gap-2 text-[0.68rem] font-black uppercase tracking-[0.08em] text-slate-100 sm:grid-cols-3">
+            <div className="mt-4 hidden grid-cols-2 gap-2 text-[0.68rem] font-black uppercase tracking-[0.08em] text-slate-100 sm:grid sm:grid-cols-3">
               <div className="inline-flex items-center gap-2 rounded-md bg-white/10 px-2.5 py-2">
                 <ShieldCheck className="h-3.5 w-3.5 shrink-0 text-cyan-300" />
                 Licensed
@@ -92,7 +85,7 @@ export function QuoteRequestPanel({
             </div>
           </div>
 
-          <p className="mt-4 rounded-md border border-red-400/25 bg-red-500/10 px-3 py-2 text-xs font-bold leading-5 text-slate-100">
+          <p className="mt-4 hidden rounded-md border border-red-400/25 bg-red-500/10 px-3 py-2 text-xs font-bold leading-5 text-slate-100 sm:block">
             For urgent electrical faults,{" "}
             <a
               href={business.phoneHref}
@@ -103,21 +96,23 @@ export function QuoteRequestPanel({
             first.
           </p>
 
-          <div className="mt-5 rounded-lg border border-white/10 bg-white/10 p-4 sm:hidden">
-            <p className="text-sm font-black text-white">
-              Prefer to send photos and job notes?
-            </p>
-            <p className="mt-1 text-sm font-semibold leading-6 text-slate-300">
-              Open the secure booking form to send your address, photos and job
-              notes.
-            </p>
+          <div className="mt-5 grid gap-3 sm:hidden">
+            <a
+              href={business.phoneHref}
+              className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-3 text-sm font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500"
+            >
+              <Phone className="h-4 w-4 shrink-0" />
+              <span className="whitespace-nowrap">
+                Call Now {business.phoneDisplay}
+              </span>
+            </a>
             <a
               href={business.bookingUrl}
               data-quote-trigger="true"
               aria-haspopup="dialog"
-              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white transition hover:bg-blue-600"
+              className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
             >
-              Get a Quote
+              Open Booking Form
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>

@@ -159,10 +159,10 @@ export function QuoteFormModal() {
 
   return (
     <div
-      className="quote-modal-backdrop fixed inset-0 z-[100] grid place-items-center bg-slate-950/88 p-0 backdrop-blur-sm sm:p-4"
+      className="quote-modal-backdrop fixed inset-0 z-[100] grid h-[100dvh] w-[100vw] place-items-center overflow-hidden bg-slate-950/88 p-0 backdrop-blur-sm sm:w-auto sm:p-4"
       role="dialog"
       aria-modal="true"
-      aria-labelledby="quote-form-modal-title"
+      aria-label="Request a booking or quote"
     >
       <button
         type="button"
@@ -171,41 +171,26 @@ export function QuoteFormModal() {
         onClick={close}
       />
 
-      <div className="quote-modal-panel relative mx-auto flex w-full flex-col overflow-hidden border border-white/12 bg-slate-950 text-white shadow-2xl shadow-slate-950/45 sm:rounded-[1.35rem]">
-        <div className="quote-modal-heading shrink-0 border-b border-white/10 px-3 py-2.5 pr-14 sm:px-5 sm:py-3 sm:pr-16">
-          <div className="flex items-center justify-between gap-3">
-            <div className="min-w-0">
-              <h2
-                id="quote-form-modal-title"
-                className="text-[1.05rem] font-black leading-tight text-white min-[380px]:text-[1.18rem] sm:text-2xl"
-              >
-                Request a Booking or Quote
-              </h2>
-              <p className="mt-0.5 text-[0.66rem] font-black uppercase tracking-[0.16em] text-cyan-200 sm:text-xs">
-                Add details below
-              </p>
-            </div>
-
-            <button
-              type="button"
-              aria-label="Close quote form"
-              ref={closeButtonRef}
-              className="quote-modal-close absolute right-3 top-3 z-10 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-slate-950 shadow-lg transition hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-cyan-200/60 sm:right-4 sm:top-4"
-              onClick={close}
-            >
-              <X className="h-5 w-5" />
-            </button>
+      <div className="quote-modal-panel fixed inset-0 mx-0 flex h-[100dvh] max-h-[100dvh] min-h-0 w-[100vw] max-w-[100vw] flex-col overflow-hidden overflow-x-hidden rounded-none border-0 border-white/12 bg-slate-950 text-white shadow-2xl shadow-slate-950/45 sm:relative sm:inset-auto sm:mx-auto sm:h-[85dvh] sm:max-h-[85dvh] sm:w-full sm:max-w-[760px] sm:rounded-[1.35rem] sm:border">
+        <div className="quote-modal-heading shrink-0 border-b border-white/10">
+          <div className="quote-modal-heading-inner">
+            <a href={business.phoneHref} className="quote-modal-emergency">
+              <Phone className="h-4 w-4 shrink-0" />
+              <span className="truncate">
+                Emergency? Call {business.phoneDisplay}
+              </span>
+            </a>
           </div>
 
-          <a
-            href={business.phoneHref}
-            className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-red-600 px-3 py-2 text-center text-[0.76rem] font-black leading-tight text-white transition hover:bg-red-500 sm:inline-flex sm:px-4 sm:text-sm"
+          <button
+            type="button"
+            aria-label="Close quote form"
+            ref={closeButtonRef}
+            className="quote-modal-close fixed z-10 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-slate-950 shadow-lg transition hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-cyan-200/60 sm:absolute"
+            onClick={close}
           >
-            <Phone className="h-4 w-4 shrink-0" />
-            <span className="whitespace-nowrap">
-              Emergency? Call Now {business.phoneDisplay}
-            </span>
-          </a>
+            <X className="h-5 w-5" />
+          </button>
         </div>
 
         <div className="quote-modal-frame-shell min-h-0 flex-1 overflow-hidden bg-white">

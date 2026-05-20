@@ -49,7 +49,7 @@ export async function generateMetadata({
       title: `${fault.metaTitle} | ${business.name}`,
       description: fault.metaDescription,
       url: `/electrical-faults/${fault.slug}`,
-      images: ["/evaready-logo.png"],
+      images: [business.brandImage],
     },
   };
 }
@@ -122,7 +122,7 @@ export default async function ElectricalFaultDetailPage({
 
       <SiteHeader />
 
-      <section className="relative overflow-hidden bg-slate-950 text-white">
+      <section className="brand-internal-hero relative overflow-hidden bg-slate-950 text-white">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.08)_1px,transparent_1px)] bg-[size:44px_44px]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(37,99,235,0.28),transparent_32%),radial-gradient(circle_at_84%_18%,rgba(239,68,68,0.24),transparent_34%)]" />
         <div className="absolute inset-0 bg-gradient-to-br from-[#031640]/95 via-slate-950/96 to-[#28020a]/95" />

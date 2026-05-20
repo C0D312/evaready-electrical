@@ -116,7 +116,7 @@ export async function generateMetadata({
       title: `${service.metaTitle} | ${business.name}`,
       description: service.metaDescription,
       url: `/services/${service.slug}`,
-      images: ["/evaready-logo.png"],
+      images: [business.brandImage],
     },
   };
 }
@@ -209,7 +209,7 @@ export default async function ServiceLandingPage({
 
       <SiteHeader />
 
-      <section className="relative overflow-hidden bg-slate-950 text-white">
+      <section className="brand-internal-hero relative overflow-hidden bg-slate-950 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(37,99,235,0.28),transparent_32%),radial-gradient(circle_at_86%_20%,rgba(239,68,68,0.22),transparent_30%)]" />
         <div className="absolute inset-0 bg-gradient-to-br from-[#031640] via-slate-950 to-[#25020a]" />
 
