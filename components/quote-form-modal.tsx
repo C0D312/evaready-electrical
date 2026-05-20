@@ -1,16 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ClipboardList, Phone, X } from "lucide-react";
+import { Phone, X } from "lucide-react";
 import { ServiceM8Frame } from "@/components/service-m8-frame";
 import { business } from "@/data/site";
-
-const bookingSteps = [
-  "Tell us your suburb",
-  "Choose the service",
-  "Add photos or notes",
-  "Review and next step",
-];
 
 type ScrollLockSnapshot = {
   scrollX: number;
@@ -179,27 +172,18 @@ export function QuoteFormModal() {
       />
 
       <div className="quote-modal-panel relative mx-auto flex w-full flex-col overflow-hidden border border-white/12 bg-slate-950 text-white shadow-2xl shadow-slate-950/45 sm:rounded-[1.35rem]">
-        <div className="quote-modal-heading shrink-0 border-b border-white/10 px-4 py-3 pr-16 sm:px-5 sm:py-4 sm:pr-16">
-          <div className="flex items-start justify-between gap-3">
-            <div className="flex min-w-0 gap-3">
-              <span className="mt-0.5 hidden h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-cyan-300/35 bg-cyan-300/10 text-cyan-100 sm:inline-flex">
-                <ClipboardList className="h-5 w-5" />
-              </span>
-              <div className="min-w-0">
-                <p className="text-[0.6rem] font-black uppercase tracking-[0.18em] text-cyan-200 sm:text-[0.68rem] sm:tracking-[0.24em]">
-                  Job details
-                </p>
-                <h2
-                  id="quote-form-modal-title"
-                  className="mt-1 text-[1.08rem] font-black leading-tight min-[380px]:text-[1.16rem] sm:text-2xl"
-                >
-                  Request a Booking or Quote
-                </h2>
-                <p className="mt-1 max-w-2xl text-[0.72rem] font-semibold leading-4 text-slate-200 min-[380px]:text-[0.76rem] sm:text-sm sm:leading-5">
-                  Add contact details, address and photos. We&apos;ll review the
-                  job and get back to you with the next step.
-                </p>
-              </div>
+        <div className="quote-modal-heading shrink-0 border-b border-white/10 px-3 py-2.5 pr-14 sm:px-5 sm:py-3 sm:pr-16">
+          <div className="flex items-center justify-between gap-3">
+            <div className="min-w-0">
+              <h2
+                id="quote-form-modal-title"
+                className="text-[1.05rem] font-black leading-tight text-white min-[380px]:text-[1.18rem] sm:text-2xl"
+              >
+                Request a Booking or Quote
+              </h2>
+              <p className="mt-0.5 text-[0.66rem] font-black uppercase tracking-[0.16em] text-cyan-200 sm:text-xs">
+                Add details below
+              </p>
             </div>
 
             <button
@@ -213,28 +197,14 @@ export function QuoteFormModal() {
             </button>
           </div>
 
-          <div className="quote-modal-steps mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
-            {bookingSteps.map((step, index) => (
-              <div
-                key={step}
-                className="rounded-lg border border-white/10 bg-white/10 px-2.5 py-2"
-              >
-                <span className="text-[0.62rem] font-black uppercase tracking-[0.12em] text-cyan-200">
-                  {index + 1}
-                </span>
-                <p className="mt-0.5 text-[0.72rem] font-black leading-4 text-white sm:text-xs">
-                  {step}
-                </p>
-              </div>
-            ))}
-          </div>
-
           <a
             href={business.phoneHref}
-            className="mt-3 flex items-center justify-center gap-2 rounded-xl border border-red-300/25 bg-red-500/12 px-3 py-2 text-center text-[0.72rem] font-black leading-tight text-white transition hover:bg-red-500/20 min-[390px]:justify-start sm:text-sm"
+            className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-red-600 px-3 py-2 text-center text-[0.76rem] font-black leading-tight text-white transition hover:bg-red-500 sm:inline-flex sm:px-4 sm:text-sm"
           >
-            <Phone className="h-4 w-4 shrink-0 text-red-200" />
-            <span>Urgent fault? Call {business.phoneDisplay} first.</span>
+            <Phone className="h-4 w-4 shrink-0" />
+            <span className="whitespace-nowrap">
+              Emergency? Call Now {business.phoneDisplay}
+            </span>
           </a>
         </div>
 

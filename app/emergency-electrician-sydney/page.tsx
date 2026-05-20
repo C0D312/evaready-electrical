@@ -185,7 +185,7 @@ export default function EmergencyElectricianSydneyPage() {
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
-                <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
+                <span className="whitespace-nowrap">Call Now {business.phoneDisplay}</span>
               </a>
 
               <a
@@ -245,7 +245,7 @@ export default function EmergencyElectricianSydneyPage() {
                 className="inline-flex items-center justify-center gap-3 rounded-xl bg-red-600 px-6 py-4 font-black text-white transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
-                <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
+                <span className="whitespace-nowrap">Call Now {business.phoneDisplay}</span>
               </a>
 
               <a
@@ -441,7 +441,7 @@ export default function EmergencyElectricianSydneyPage() {
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
             >
               <Phone className="h-5 w-5" />
-              <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
+              <span className="whitespace-nowrap">Call Now {business.phoneDisplay}</span>
             </a>
 
             <a

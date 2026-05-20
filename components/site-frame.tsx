@@ -59,12 +59,12 @@ export function SiteHeader() {
   return (
     <>
       <header className="site-header fixed inset-x-0 top-0 z-50 border-b border-slate-200 bg-white/95 pt-[env(safe-area-inset-top)] shadow-sm backdrop-blur-xl">
-        <div className="mx-auto max-w-7xl px-3 py-2 sm:px-6 sm:py-3 lg:px-8">
+        <div className="mx-auto max-w-7xl px-2 py-2 sm:px-6 sm:py-3 lg:px-8">
           <div className="site-header-top flex items-center justify-between gap-2 sm:gap-3">
             <Link
               href="/"
               data-header-logo="true"
-              className="flex min-w-0 shrink-0 items-center"
+              className="site-logo-link flex min-w-0 shrink-0 items-center overflow-hidden rounded-lg"
             >
               <Image
                 src={assetPath("/evaready-logo.png")}
@@ -72,8 +72,8 @@ export function SiteHeader() {
                 width={320}
                 height={135}
                 priority
-                sizes="(max-width: 359px) 5.8rem, (max-width: 379px) 6.1rem, (max-width: 640px) 6.6rem, (max-width: 1024px) 18rem, 13rem"
-                className="h-11 w-[5.8rem] object-cover object-center min-[360px]:w-[6.1rem] min-[390px]:w-[6.6rem] sm:h-16 sm:w-72 sm:max-w-72 lg:h-14 lg:w-56 lg:max-w-56"
+                sizes="(max-width: 359px) 6.55rem, (max-width: 379px) 6.85rem, (max-width: 640px) 7.35rem, (max-width: 1024px) 18rem, 13rem"
+                className="site-logo-image h-12 w-[6.55rem] object-cover object-center min-[360px]:w-[6.85rem] min-[390px]:w-[7.35rem] sm:h-16 sm:w-72 sm:max-w-72 lg:h-14 lg:w-56 lg:max-w-56"
               />
             </Link>
 
@@ -111,10 +111,12 @@ export function SiteHeader() {
 
               <a
                 href={business.phoneHref}
-                className="inline-flex min-h-10 shrink-0 items-center justify-center gap-1 rounded-full bg-red-600 px-1.5 py-2 text-[0.62rem] font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 min-[380px]:px-2 min-[380px]:text-[0.66rem] sm:min-h-11 sm:gap-2 sm:px-4 sm:text-sm"
+                className="inline-flex min-h-10 w-[7.15rem] shrink-0 items-center justify-center gap-1 rounded-full bg-red-600 px-1 py-2 text-[0.52rem] font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 min-[380px]:w-[7.75rem] min-[380px]:text-[0.58rem] sm:min-h-11 sm:w-auto sm:gap-2 sm:px-4 sm:text-sm"
               >
                 <Phone className="hidden h-4 w-4 shrink-0 min-[430px]:block sm:block" />
-                <span className="whitespace-nowrap">{business.phoneDisplay}</span>
+                <span className="whitespace-nowrap">
+                  Call Now {business.phoneDisplay}
+                </span>
               </a>
 
               <MobilePrimaryNav />
@@ -180,7 +182,7 @@ export function SiteFooter() {
             >
               <Phone className="h-4 w-4" />
               <span className="whitespace-nowrap">
-                Call {business.phoneDisplay}
+                Call Now {business.phoneDisplay}
               </span>
             </a>
 

@@ -22,9 +22,12 @@ export function QuoteRequestPanel({
   title,
 }: QuoteRequestPanelProps) {
   return (
-    <section id="quote" className="scroll-mt-32 bg-white py-12 sm:py-16 lg:py-20">
+    <section
+      id="quote"
+      className="quote-request-panel scroll-mt-32 bg-white py-12 sm:py-16 lg:py-20"
+    >
       <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:gap-8 sm:px-6 lg:grid-cols-[0.74fr_1.26fr] lg:gap-10 lg:px-8">
-        <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 sm:p-6 lg:p-7">
+        <div className="quote-request-summary rounded-lg border border-slate-200 bg-slate-50 p-4 sm:p-6 lg:p-7">
           <p className="text-xs font-black uppercase tracking-[0.22em] text-blue-700 sm:text-sm sm:tracking-[0.28em]">
             {eyebrow}
           </p>
@@ -54,13 +57,13 @@ export function QuoteRequestPanel({
             >
               <Phone className="h-5 w-5 shrink-0" />
               <span className="whitespace-nowrap">
-                Call {business.phoneDisplay}
+                Call Now {business.phoneDisplay}
               </span>
             </a>
           </div>
         </div>
 
-        <div className="rounded-lg border border-slate-200 bg-slate-950 p-4 text-white shadow-xl shadow-slate-950/15 sm:p-5">
+        <div className="quote-request-card rounded-lg border border-white/10 bg-slate-950 p-4 text-white shadow-xl shadow-slate-950/15 sm:p-5">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan-200 sm:text-sm sm:tracking-[0.2em]">
               Job details
@@ -95,7 +98,7 @@ export function QuoteRequestPanel({
               href={business.phoneHref}
               className="font-black text-white underline underline-offset-2"
             >
-              call {business.phoneDisplay}
+              Call Now {business.phoneDisplay}
             </a>{" "}
             first.
           </p>

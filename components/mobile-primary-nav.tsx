@@ -128,7 +128,7 @@ export function MobilePrimaryNav() {
           >
             <Phone className="h-4 w-4" />
             <span className="whitespace-nowrap">
-              Call {business.phoneDisplay}
+              Call Now {business.phoneDisplay}
             </span>
           </a>
           <a

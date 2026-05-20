@@ -257,7 +257,7 @@ export default function HomePage() {
               >
                 <Phone className="h-5 w-5 shrink-0" />
                 <span className="whitespace-nowrap">
-                  Call {business.phoneDisplay}
+                  Call Now {business.phoneDisplay}
                 </span>
               </a>
               <a
@@ -338,7 +338,7 @@ export default function HomePage() {
                   >
                     <Phone className="h-4 w-4" />
                     <span className="whitespace-nowrap">
-                      Call {business.phoneDisplay}
+                      Call Now {business.phoneDisplay}
                     </span>
                   </a>
                   <a
@@ -434,7 +434,7 @@ export default function HomePage() {
               >
                 <Phone className="h-5 w-5" />
                 <span className="whitespace-nowrap">
-                  Call {business.phoneDisplay}
+                  Call Now {business.phoneDisplay}
                 </span>
               </a>
               <a
