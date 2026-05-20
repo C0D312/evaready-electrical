@@ -16,7 +16,7 @@
 
 * {
   box-sizing: border-box;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 html,
@@ -760,14 +760,38 @@ main > section:first-of-type.bg-white .border-l-4 {
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-#quote h2,
-#quote h3,
-#quote p {
+#quote .quote-home-card h2,
+#quote .quote-home-card h3,
+#quote .quote-home-card p,
+#quote .bg-slate-950 h2,
+#quote .bg-slate-950 h3,
+#quote .bg-slate-950 p {
   color: #ffffff;
 }
 
 #quote p.text-slate-300 {
   color: rgba(237, 245, 255, 0.88);
+}
+
+#quote .bg-slate-50 h2,
+#quote .bg-slate-50 h3,
+#quote .bg-white h2,
+#quote .bg-white h3 {
+  color: #020617;
+}
+
+#quote .bg-slate-50 p,
+#quote .bg-white p {
+  color: #334155;
+}
+
+#quote .bg-slate-50 .text-blue-700 {
+  color: #1d4ed8;
+}
+
+#quote .bg-slate-50 .text-red-600,
+#quote .bg-white .text-red-600 {
+  color: #dc2626;
 }
 
 section.border-y.bg-slate-950 {
@@ -805,7 +829,7 @@ section.border-y.bg-slate-950 span {
     position: relative;
     width: 100%;
     min-height: 3rem;
-    grid-template-columns: minmax(0, 4.9rem) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 6.1rem) minmax(0, 1fr);
     align-items: center;
     gap: 0.3rem;
     justify-content: stretch !important;
@@ -825,7 +849,7 @@ section.border-y.bg-slate-950 span {
   }
 
   header a[data-header-logo="true"] {
-    max-width: 4.9rem;
+    max-width: 6.1rem;
   }
 
   .site-header-actions > a[href^="tel:"] {
@@ -891,11 +915,11 @@ section.border-y.bg-slate-950 span {
 
 @media (min-width: 380px) and (max-width: 767px) {
   header a[data-header-logo="true"] {
-    max-width: 5.25rem;
+    max-width: 6.6rem;
   }
 
   .site-header-top {
-    grid-template-columns: minmax(0, 5.25rem) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 6.6rem) minmax(0, 1fr);
   }
 
   .site-header-actions > a[href^="tel:"] {
@@ -906,11 +930,11 @@ section.border-y.bg-slate-950 span {
 
 @media (max-width: 360px) {
   header a[data-header-logo="true"] {
-    max-width: 4.75rem;
+    max-width: 5.45rem;
   }
 
   .site-header-top {
-    grid-template-columns: minmax(0, 4.75rem) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 5.45rem) minmax(0, 1fr);
   }
 
   .site-header-actions > a[href^="tel:"] {

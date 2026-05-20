@@ -71,8 +71,8 @@ export function SiteHeader() {
                 width={320}
                 height={135}
                 priority
-                sizes="(max-width: 379px) 5.25rem, (max-width: 640px) 5.75rem, (max-width: 1024px) 18rem, 13rem"
-                className="h-10 w-[5.25rem] object-cover object-center min-[380px]:w-[5.75rem] sm:h-16 sm:w-72 sm:max-w-72 lg:h-14 lg:w-56 lg:max-w-56"
+                sizes="(max-width: 359px) 5.8rem, (max-width: 379px) 6.1rem, (max-width: 640px) 6.6rem, (max-width: 1024px) 18rem, 13rem"
+                className="h-11 w-[5.8rem] object-cover object-center min-[360px]:w-[6.1rem] min-[390px]:w-[6.6rem] sm:h-16 sm:w-72 sm:max-w-72 lg:h-14 lg:w-56 lg:max-w-56"
               />
             </Link>
 
