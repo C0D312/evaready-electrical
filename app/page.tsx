@@ -9,7 +9,6 @@ import {
   Phone,
   ShieldCheck,
   Wrench,
-  Zap,
 } from "lucide-react";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
@@ -47,15 +46,6 @@ const heroTrustMarks = [
     text: "Call first or request a quote",
     icon: BadgeCheck,
   },
-];
-
-const emergencyIssues = [
-  "Power is out",
-  "Safety switch keeps tripping",
-  "Burning smell or heat",
-  "Sparking or buzzing fittings",
-  "Damaged switchboard or wiring",
-  "Storm or water damage",
 ];
 
 const quoteSteps = [
@@ -170,32 +160,6 @@ function PhoneLinkedText({ text }: { text: string }) {
   );
 }
 
-function EmergencyIssueMarquee() {
-  return (
-    <section
-      className="emergency-issue-marquee"
-      aria-label="Common urgent electrical issues"
-    >
-      <div className="emergency-issue-marquee__track">
-        {[0, 1].map((group) => (
-          <div
-            key={group}
-            className="emergency-issue-marquee__group"
-            aria-hidden={group === 1}
-          >
-            {emergencyIssues.map((issue) => (
-              <span key={`${group}-${issue}`} className="emergency-issue-chip">
-                <Zap className="h-4 w-4 shrink-0" />
-                {issue}
-              </span>
-            ))}
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 export default function HomePage() {
   const localBusinessSchema = {
     "@context": "https://schema.org",
@@ -266,7 +230,6 @@ export default function HomePage() {
       />
 
       <SiteHeader />
-      <EmergencyIssueMarquee />
 
       <section className="relative overflow-hidden bg-white">
         <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-blue-700 via-cyan-400 to-blue-700" />

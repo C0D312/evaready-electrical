@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { MobilePrimaryNav } from "@/components/mobile-primary-nav";
 import { QuoteFormModal } from "@/components/quote-form-modal";
+import { RouteMarqueeStrip } from "@/components/route-marquee-strip";
 import { assetPath, business } from "@/data/site";
 
 const navItems = [
@@ -125,6 +126,7 @@ export function SiteHeader() {
         aria-hidden="true"
         className="h-[calc(64px_+_env(safe-area-inset-top))] sm:h-[calc(88px_+_env(safe-area-inset-top))] lg:h-[calc(81px_+_env(safe-area-inset-top))]"
       />
+      <RouteMarqueeStrip />
       <QuoteFormModal />
       <MobileStickyCta />
     </>
