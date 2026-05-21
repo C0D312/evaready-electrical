@@ -167,7 +167,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
             className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
           >
             <Phone className="h-5 w-5" />
-            <span className="whitespace-nowrap">Call Now {business.phoneDisplay}</span>
+            <span className="whitespace-nowrap">{business.callCta}</span>
           </a>
 
           <a
@@ -331,7 +331,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                     {item.label}
                   </h3>
                   <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
-                  <span className="mt-5 inline-flex items-center gap-2 font-black text-red-600">
+                  <span className="mt-5 inline-flex items-center gap-2 font-black text-blue-600">
                     Open form
                     <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                   </span>
@@ -430,12 +430,12 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
             >
               <Phone className="h-5 w-5" />
-              <span className="whitespace-nowrap">Call Now {business.phoneDisplay}</span>
+              <span className="whitespace-nowrap">{business.callCta}</span>
             </a>
 
             <a
               href={business.bookingUrl}
-              className="inline-flex items-center justify-center gap-3 rounded-lg bg-white px-7 py-4 font-black text-[#020617] transition hover:bg-slate-100"
+              className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
             >
               Get a Quote
               <ArrowRight className="h-5 w-5" />

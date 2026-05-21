@@ -15,6 +15,8 @@ export const business = {
   brandImageAlt: "Evaready Electrical 24/7 service van in Sydney",
   phoneDisplay: "0461 247 247",
   phoneHref: "tel:+61461247247",
+  callCta: "Call Now 0461 247 247",
+  quoteCta: "Get a Quote",
   smsHref: "sms:+61461247247",
   email: "info@evareadyelectrical.com.au",
   emailHref: "mailto:info@evareadyelectrical.com.au",

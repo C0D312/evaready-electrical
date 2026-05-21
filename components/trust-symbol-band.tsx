@@ -16,8 +16,8 @@ const trustSymbols = [
   },
   {
     icon: BadgeCheck,
-    title: `NSW Electrical Licence ${business.licence}`,
-    text: "Licence details are visible before you book electrical work.",
+    title: `NSW Licence ${business.licence}`,
+    text: `ABN ${business.abn} and licence details are kept visible before you book.`,
   },
   {
     icon: Zap,
@@ -27,17 +27,17 @@ const trustSymbols = [
   {
     icon: ShieldCheck,
     title: "Safety-First Testing",
-    text: "Faults, repairs and switchboard work are checked with safety in mind.",
+    text: "Faults, repairs and switchboard work are checked before the next step is recommended.",
   },
   {
     icon: ClipboardList,
-    title: "Job Details & Photos",
-    text: "Send the address, notes and photos so the next step is clearer.",
+    title: "ServiceM8 Job Details & Photos",
+    text: "Send the address, notes and photos through the booking form for planned work.",
   },
   {
     icon: CheckCircle2,
-    title: "Clear Next Steps",
-    text: "Urgent faults go to phone first; planned work can be reviewed from the form.",
+    title: "Clear Scope Before Work Starts",
+    text: "Urgent faults go to phone first; planned work is reviewed before the next step.",
   },
 ];
 

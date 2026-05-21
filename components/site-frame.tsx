@@ -105,7 +105,7 @@ export function SiteHeader() {
                 aria-haspopup="dialog"
                 className="hidden min-h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 lg:inline-flex"
               >
-                <span className="whitespace-nowrap">Get a Quote</span>
+                <span className="whitespace-nowrap">{business.quoteCta}</span>
                 <ArrowRight className="h-4 w-4 shrink-0" />
               </a>
 
@@ -115,7 +115,7 @@ export function SiteHeader() {
               >
                 <Phone className="hidden h-4 w-4 shrink-0 min-[430px]:block sm:block" />
                 <span className="whitespace-nowrap">
-                  Call Now {business.phoneDisplay}
+                  {business.callCta}
                 </span>
               </a>
 
@@ -175,14 +175,14 @@ export function SiteFooter() {
               </a>
             </p>
           </div>
-          <div className="mt-5 grid gap-3">
+          <div className="mt-5 flex flex-wrap gap-3">
             <a
               href={business.phoneHref}
               className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-3 text-center text-[clamp(0.72rem,3.2vw,0.95rem)] font-black text-white hover:bg-red-500 sm:w-fit sm:px-5 sm:text-sm"
             >
               <Phone className="h-4 w-4" />
               <span className="whitespace-nowrap">
-                Call Now {business.phoneDisplay}
+                {business.callCta}
               </span>
             </a>
 
@@ -192,7 +192,7 @@ export function SiteFooter() {
               aria-haspopup="dialog"
               className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-black text-white hover:bg-blue-500 sm:w-fit"
             >
-              Get a Quote
+              {business.quoteCta}
             </a>
 
             <a
@@ -235,6 +235,7 @@ export function MobileStickyCta() {
       className="floating-call-button"
     >
       <Phone />
+      <span className="sr-only">{business.callCta}</span>
     </a>
   );
 }

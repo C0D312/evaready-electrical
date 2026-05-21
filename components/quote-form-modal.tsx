@@ -177,7 +177,7 @@ export function QuoteFormModal() {
             <a href={business.phoneHref} className="quote-modal-emergency">
               <Phone className="h-4 w-4 shrink-0" />
               <span className="truncate">
-                Emergency? Call {business.phoneDisplay}
+                Emergency? {business.callCta}
               </span>
             </a>
           </div>

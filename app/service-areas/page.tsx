@@ -240,12 +240,12 @@ export default function AreasPage() {
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
             >
               <Phone className="h-5 w-5" />
-              <span className="whitespace-nowrap">Call Now {business.phoneDisplay}</span>
+              <span className="whitespace-nowrap">{business.callCta}</span>
             </a>
 
             <a
               href={business.bookingUrl}
-              className="inline-flex items-center justify-center gap-3 rounded-lg bg-white px-7 py-4 font-black text-[#020617] transition hover:bg-slate-100"
+              className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
             >
               Get a Quote
               <ArrowRight className="h-5 w-5" />

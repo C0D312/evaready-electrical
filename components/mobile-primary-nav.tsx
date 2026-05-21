@@ -128,7 +128,7 @@ export function MobilePrimaryNav() {
           >
             <Phone className="h-4 w-4" />
             <span className="whitespace-nowrap">
-              Call Now {business.phoneDisplay}
+              {business.callCta}
             </span>
           </a>
           <a
@@ -138,7 +138,7 @@ export function MobilePrimaryNav() {
             onClick={() => setOpen(false)}
             className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20"
           >
-            Get a Quote
+            {business.quoteCta}
             <ArrowRight className="h-4 w-4" />
           </a>
         </div>

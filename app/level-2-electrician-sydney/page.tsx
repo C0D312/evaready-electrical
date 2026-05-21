@@ -30,6 +30,8 @@ const business = {
   phoneDisplay: "0461 247 247",
   phoneHref: "tel:+61461247247",
   smsHref: "sms:+61461247247",
+  callCta: "Call Now 0461 247 247",
+  quoteCta: "Get a Quote",
   email: "info@evareadyelectrical.com.au",
   licence: "398937C",
   abn: "44 650 697 797",
@@ -216,7 +218,7 @@ export default function Level2ElectricianSydneyPage() {
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
-                <span className="whitespace-nowrap">Call Now {business.phoneDisplay}</span>
+                <span className="whitespace-nowrap">{business.callCta}</span>
               </a>
 
               <a
@@ -286,7 +288,7 @@ export default function Level2ElectricianSydneyPage() {
                 className="inline-flex items-center justify-center gap-3 rounded-xl bg-red-600 px-6 py-4 font-black text-white transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
-                <span className="whitespace-nowrap">Call Now {business.phoneDisplay}</span>
+                <span className="whitespace-nowrap">{business.callCta}</span>
               </a>
             </div>
 
@@ -505,12 +507,12 @@ export default function Level2ElectricianSydneyPage() {
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
             >
               <Phone className="h-5 w-5" />
-              <span className="whitespace-nowrap">Call Now {business.phoneDisplay}</span>
+              <span className="whitespace-nowrap">{business.callCta}</span>
             </a>
 
             <a
               href={business.bookingUrl}
-              className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-7 py-4 font-black text-[#020617] transition hover:bg-slate-100"
+              className="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
             >
               Get a Quote
               <ArrowRight className="h-5 w-5" />

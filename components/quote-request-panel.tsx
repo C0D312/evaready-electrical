@@ -50,7 +50,7 @@ export function QuoteRequestPanel({
             >
               <Phone className="h-5 w-5 shrink-0" />
               <span className="whitespace-nowrap">
-                Call Now {business.phoneDisplay}
+                {business.callCta}
               </span>
             </a>
           </div>
@@ -91,7 +91,7 @@ export function QuoteRequestPanel({
               href={business.phoneHref}
               className="font-black text-white underline underline-offset-2"
             >
-              Call Now {business.phoneDisplay}
+              {business.callCta}
             </a>{" "}
             first.
           </p>
@@ -103,7 +103,7 @@ export function QuoteRequestPanel({
             >
               <Phone className="h-4 w-4 shrink-0" />
               <span className="whitespace-nowrap">
-                Call Now {business.phoneDisplay}
+                {business.callCta}
               </span>
             </a>
             <a

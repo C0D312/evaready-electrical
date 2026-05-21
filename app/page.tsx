@@ -264,7 +264,7 @@ export default function HomePage() {
               >
                 <Phone className="h-5 w-5 shrink-0" />
                 <span className="whitespace-nowrap">
-                  Call Now {business.phoneDisplay}
+                  {business.callCta}
                 </span>
               </a>
               <a
@@ -273,7 +273,7 @@ export default function HomePage() {
                 aria-haspopup="dialog"
                 className="inline-flex min-h-14 items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 text-center text-base font-black text-white shadow-xl shadow-blue-700/20 transition hover:bg-blue-600 sm:px-7"
               >
-                Request Quote
+                {business.quoteCta}
                 <ArrowRight className="h-5 w-5 shrink-0" />
               </a>
             </div>
@@ -331,7 +331,7 @@ export default function HomePage() {
                   >
                     <Phone className="h-4 w-4" />
                     <span className="whitespace-nowrap">
-                      Call Now {business.phoneDisplay}
+                      {business.callCta}
                     </span>
                   </a>
                   <a
@@ -427,7 +427,7 @@ export default function HomePage() {
               >
                 <Phone className="h-5 w-5" />
                 <span className="whitespace-nowrap">
-                  Call Now {business.phoneDisplay}
+                  {business.callCta}
                 </span>
               </a>
               <a
@@ -436,7 +436,7 @@ export default function HomePage() {
                 aria-haspopup="dialog"
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
               >
-                Request Quote
+                {business.quoteCta}
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -541,7 +541,7 @@ export default function HomePage() {
                       aria-haspopup="dialog"
                       className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-sm transition hover:bg-blue-600 sm:w-auto"
                     >
-                      Request Quote
+                      {business.quoteCta}
                       <ArrowRight className="h-4 w-4" />
                     </a>
                   ) : null}

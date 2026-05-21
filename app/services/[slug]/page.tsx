@@ -234,7 +234,7 @@ export default async function ServiceLandingPage({
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
-                <span className="whitespace-nowrap">Call Now {business.phoneDisplay}</span>
+                <span className="whitespace-nowrap">{business.callCta}</span>
               </a>
 
               <a
@@ -377,7 +377,7 @@ export default async function ServiceLandingPage({
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-6 py-4 font-black text-white transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
-                <span className="whitespace-nowrap">Call Now {business.phoneDisplay}</span>
+                <span className="whitespace-nowrap">{business.callCta}</span>
               </a>
               <a
                 href={business.bookingUrl}
@@ -458,7 +458,7 @@ export default async function ServiceLandingPage({
                   className="group rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-600 hover:bg-blue-50"
                 >
                   <h3 className="font-black text-slate-950">{link.label}</h3>
-                  <span className="mt-4 inline-flex items-center gap-2 font-black text-red-600">
+                  <span className="mt-4 inline-flex items-center gap-2 font-black text-blue-600">
                     Open form
                     <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                   </span>
@@ -497,11 +497,11 @@ export default async function ServiceLandingPage({
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
             >
               <Phone className="h-5 w-5" />
-              <span className="whitespace-nowrap">Call Now {business.phoneDisplay}</span>
+              <span className="whitespace-nowrap">{business.callCta}</span>
             </a>
             <a
               href={business.bookingUrl}
-              className="inline-flex items-center justify-center gap-3 rounded-lg bg-white px-7 py-4 font-black text-slate-950 transition hover:bg-slate-100"
+              className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
             >
               Get a Quote
               <ArrowRight className="h-5 w-5" />

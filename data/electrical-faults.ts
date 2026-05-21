@@ -241,6 +241,222 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
     ],
   },
   {
+    slug: "burning-smell-from-outlet",
+    title: "Burning Smell From Outlet",
+    metaTitle: "Burning Smell From Outlet Sydney",
+    metaDescription:
+      "Burning smell from an outlet in Sydney? Stop using the power point and call Evaready Electrical for urgent testing and repair.",
+    intro:
+      "A burning smell from a power point, switch or nearby wall can point to heat behind the fitting, loose terminals, damaged contacts, overloaded wiring or a failing appliance.",
+    primaryAdvice:
+      "Stop using the outlet, unplug the appliance if it is safe, and call before turning the circuit back on or trying another appliance in the same point.",
+    riskNotes: [
+      "Heat can build behind an outlet before visible burn marks appear.",
+      "Loose terminals can arc when a load is connected.",
+      "High-load appliances can expose weak outlets or overloaded circuits.",
+      "A damaged plug, socket or cable can continue to smell after the appliance is removed.",
+    ],
+    checks: [
+      "Do not keep using the outlet to see if the smell returns.",
+      "Keep clear if there is smoke, heat, sparking or wall discolouration.",
+      "Avoid touching the fitting if it feels hot or is near water.",
+      "Call first if the smell is strong, repeated or connected to power loss.",
+    ],
+    whatToSend: [
+      "A photo of the outlet and the appliance that was plugged in.",
+      "Whether the outlet feels hot, loose, discoloured or noisy.",
+      "Whether a safety switch or breaker tripped at the same time.",
+      "A switchboard photo and your suburb if it is safe to take one.",
+    ],
+    relatedServices: [
+      ...commonRelatedServices,
+      {
+        href: "/services/power-point-installation-sydney",
+        label: "Power point repairs",
+      },
+    ],
+    faqs: [
+      {
+        question: "Is a burning smell from an outlet urgent?",
+        answer:
+          "Yes. Stop using the outlet and call before it is used again. Heat or arcing behind a fitting can become dangerous quickly.",
+      },
+      {
+        question: "Could the appliance be causing the smell?",
+        answer:
+          "Yes. The appliance, plug top, outlet, wiring or circuit can all be involved, so proper testing is needed before reuse.",
+      },
+      {
+        question: "Can the outlet just be replaced?",
+        answer:
+          "Sometimes, but the wiring and load should be checked first so the cause is fixed, not just the visible fitting.",
+      },
+    ],
+  },
+  {
+    slug: "safety-switch-trips-at-night",
+    title: "Safety Switch Trips At Night",
+    metaTitle: "Safety Switch Trips At Night Sydney",
+    metaDescription:
+      "Safety switch trips at night in Sydney? Evaready Electrical can trace appliance, hot water, outdoor and circuit faults that trip after hours.",
+    intro:
+      "A safety switch that trips at night can be frustrating because the cause may be intermittent. Common triggers include hot water circuits, fridges, outdoor lighting, pumps, moisture and appliances that run on timers.",
+    primaryAdvice:
+      "Do not keep resetting it through the night. If the same safety switch keeps tripping, call for fault finding before the issue damages equipment or creates a safety risk.",
+    riskNotes: [
+      "Hot water systems and timed loads can trip while people are asleep.",
+      "Outdoor circuits may trip overnight when moisture builds up.",
+      "Fridges, pumps and appliances can fail intermittently under load.",
+      "Repeated resets can make the real cause harder to identify.",
+    ],
+    checks: [
+      "Note the time it trips and which rooms or appliances lose power.",
+      "Do not unplug appliances in wet or unsafe areas.",
+      "Avoid repeated resets if the switch trips again straight away.",
+      "Call first if there is burning smell, heat, buzzing or sparking.",
+    ],
+    whatToSend: [
+      "A photo of the switchboard and the safety switch that trips.",
+      "The time it usually trips and what appliances run overnight.",
+      "Whether outdoor lights, pumps or hot water are connected to the circuit.",
+      "Any rain, storm or moisture details.",
+    ],
+    relatedServices: [
+      ...commonRelatedServices,
+      {
+        href: "/services/hot-water-system-electrician-sydney",
+        label: "Hot water electrical faults",
+      },
+    ],
+    faqs: [
+      {
+        question: "Why would a safety switch trip only at night?",
+        answer:
+          "Timed appliances, hot water circuits, moisture, outdoor lights or intermittent appliance faults can trip after hours.",
+      },
+      {
+        question: "Should I switch appliances off overnight?",
+        answer:
+          "Only where it is safe and practical. Do not touch wet fittings or damaged equipment. A recurring night trip should be tested.",
+      },
+      {
+        question: "Can an electrician find an intermittent fault?",
+        answer:
+          "Yes. Photos, timing, circuit information and proper testing help narrow down intermittent tripping faults.",
+      },
+    ],
+  },
+  {
+    slug: "circuit-breaker-keeps-tripping",
+    title: "Circuit Breaker Keeps Tripping",
+    metaTitle: "Circuit Breaker Keeps Tripping Sydney",
+    metaDescription:
+      "Circuit breaker keeps tripping in Sydney? Evaready Electrical can check overloaded circuits, faulty appliances, wiring damage and switchboard issues.",
+    intro:
+      "A circuit breaker that keeps tripping is telling you the circuit is overloaded, faulty or being affected by a connected appliance or wiring issue.",
+    primaryAdvice:
+      "If a breaker trips repeatedly, do not force it back on. Call for testing so the circuit, load and connected equipment can be checked safely.",
+    riskNotes: [
+      "Overloaded circuits can trip when multiple appliances run together.",
+      "A faulty appliance can trip the breaker as soon as it starts.",
+      "Damaged wiring can cause repeat faults even after the breaker resets.",
+      "Old switchboards may need modern circuit protection or better labelling.",
+    ],
+    checks: [
+      "Note which room, appliance or circuit loses power.",
+      "Unplug recent appliances only if it is safe and dry.",
+      "Do not keep holding or forcing the breaker on.",
+      "Call directly if tripping comes with heat, buzzing, smoke or burning smell.",
+    ],
+    whatToSend: [
+      "A switchboard photo showing the breaker that trips.",
+      "Which appliances were running when it happened.",
+      "Whether the tripping is instant or after a few minutes.",
+      "Any visible damage, smell, heat or recent electrical changes.",
+    ],
+    relatedServices: [
+      ...commonRelatedServices,
+      {
+        href: "/services/electrical-load-capacity-checks-sydney",
+        label: "Load and capacity checks",
+      },
+    ],
+    faqs: [
+      {
+        question: "Is a tripping circuit breaker dangerous?",
+        answer:
+          "It can be. A breaker protects the circuit, so repeated tripping should be tested rather than ignored.",
+      },
+      {
+        question: "Can too many appliances trip a breaker?",
+        answer:
+          "Yes. Overload is common, but damaged wiring or faulty equipment can also cause tripping.",
+      },
+      {
+        question: "Will a new breaker fix it?",
+        answer:
+          "Not always. The circuit and connected load should be checked before parts are replaced.",
+      },
+    ],
+  },
+  {
+    slug: "power-surge-damage",
+    title: "Power Surge Damage",
+    metaTitle: "Power Surge Damage Sydney",
+    metaDescription:
+      "Power surge damage in Sydney? Evaready Electrical can inspect affected circuits, switchboards and surge protection options after storms or supply events.",
+    intro:
+      "A power surge can affect appliances, lighting, electronics, switchboards and sensitive equipment. The damage is not always obvious straight away.",
+    primaryAdvice:
+      "If equipment failed after a storm, outage or supply event, stop resetting circuits and have the affected areas checked before reconnecting expensive appliances.",
+    riskNotes: [
+      "Storms and supply interruptions can damage electronics and protection devices.",
+      "A surge can reveal weak switchboard protection.",
+      "Burning smells or tripping after a surge should be treated as urgent.",
+      "Some equipment may work briefly before failing again.",
+    ],
+    checks: [
+      "Unplug damaged or burnt-smelling equipment if it is safe.",
+      "Do not use outlets that are hot, buzzing or discoloured.",
+      "Record which appliances or rooms were affected.",
+      "Call first if the switchboard trips repeatedly after the surge.",
+    ],
+    whatToSend: [
+      "Photos of damaged equipment, outlets and the switchboard.",
+      "Whether the surge followed a storm, outage or network issue.",
+      "Which rooms or circuits were affected.",
+      "Whether any protection device, safety switch or breaker tripped.",
+    ],
+    relatedServices: [
+      ...commonRelatedServices,
+      {
+        href: "/services/surge-protection-electrician-sydney",
+        label: "Surge protection electrician",
+      },
+      {
+        href: "/services/storm-damage-electrician-sydney",
+        label: "Storm damage electrical checks",
+      },
+    ],
+    faqs: [
+      {
+        question: "Can a power surge damage wiring?",
+        answer:
+          "A surge can damage appliances, electronics, protection devices and sometimes wiring or fittings connected to the affected circuit.",
+      },
+      {
+        question: "Should I turn everything back on after a surge?",
+        answer:
+          "Not if equipment smells burnt, outlets are hot, or circuits trip. Have the affected area checked first.",
+      },
+      {
+        question: "Can surge protection be added later?",
+        answer:
+          "Yes. Surge protection can often be added at the switchboard after the existing setup is checked.",
+      },
+    ],
+  },
+  {
     slug: "hot-power-point",
     title: "Hot Power Point",
     metaTitle: "Hot Power Point Sydney",
