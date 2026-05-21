@@ -56,25 +56,36 @@ export function TrustSymbolBand({
     <section
       className={`trust-symbol-band ${isDark ? "bg-slate-950 text-white" : "bg-white text-slate-950"} ${className}`}
     >
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div className="mb-8 max-w-3xl">
+          <p className={`${isDark ? "text-cyan-200" : "text-blue-700"} text-sm font-black uppercase tracking-[0.2em]`}>
+            Why customers can act quickly
+          </p>
+          <h2
+            className={`${isDark ? "text-white" : "text-slate-950"} mt-3 text-3xl font-black leading-tight sm:text-5xl`}
+          >
+            Clear trust signals before you call or book.
+          </h2>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {trustSymbols.map((item) => {
             const Icon = item.icon;
 
             return (
               <div
                 key={item.title}
-                className={`${isDark ? "border-white/10 bg-white/10" : "border-slate-200 bg-slate-50"} rounded-lg border p-4 shadow-sm sm:p-5`}
+                className={`${isDark ? "border-white/10 bg-white/10" : "border-slate-200 bg-slate-50"} rounded-lg border p-5 shadow-sm sm:p-6`}
               >
                 <div className="flex items-start gap-3">
                   <span
-                    className={`${isDark ? "bg-cyan-300/10 text-cyan-200" : "bg-blue-50 text-blue-700"} flex h-11 w-11 shrink-0 items-center justify-center rounded-lg`}
+                    className={`${isDark ? "bg-cyan-300/10 text-cyan-200" : "bg-blue-50 text-blue-700"} flex h-14 w-14 shrink-0 items-center justify-center rounded-lg`}
                   >
-                    <Icon className="h-5 w-5" />
+                    <Icon className="h-7 w-7" />
                   </span>
                   <div className="min-w-0">
                     <h3
-                      className={`${isDark ? "text-white" : "text-slate-950"} text-base font-black leading-6`}
+                      className={`${isDark ? "text-white" : "text-slate-950"} text-lg font-black leading-6`}
                     >
                       {item.title}
                     </h3>

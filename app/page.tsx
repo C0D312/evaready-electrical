@@ -3,9 +3,11 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import {
   ArrowRight,
+  AlertTriangle,
   BadgeCheck,
   Bolt,
   Clock3,
+  Flame,
   MapPin,
   Phone,
   ShieldCheck,
@@ -102,6 +104,51 @@ const whyChoose = [
     title: "Residential and commercial",
     text: "Support for homes, strata, shops, builders, offices and maintenance work.",
     icon: Bolt,
+  },
+];
+
+const issuePaths = [
+  {
+    title: "Power is out",
+    text: "Call first for full or partial power loss.",
+    href: "/electrical-faults/no-power-in-one-room",
+    icon: Bolt,
+  },
+  {
+    title: "Safety switch keeps tripping",
+    text: "Stop repeated resets and isolate the fault.",
+    href: "/electrical-faults/safety-switch-keeps-tripping",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Burning smell or heat",
+    text: "Treat smoke, heat or burning smells as urgent.",
+    href: "/electrical-faults/burning-smell-from-switchboard",
+    icon: Flame,
+  },
+  {
+    title: "Sparking or buzzing fittings",
+    text: "Keep clear of noisy, hot or sparking fittings.",
+    href: "/electrical-faults/power-point-sparking",
+    icon: AlertTriangle,
+  },
+  {
+    title: "Damaged switchboard or wiring",
+    text: "Send photos for planned work or call if unsafe.",
+    href: "/services/switchboard-upgrades-sydney",
+    icon: Wrench,
+  },
+  {
+    title: "Storm or water damage",
+    text: "Wet electrical equipment needs a safe check.",
+    href: "/electrical-faults/power-outage-after-storm",
+    icon: Bolt,
+  },
+  {
+    title: "Need Level 2 electrician",
+    text: "Defect notices, consumer mains and service work.",
+    href: "/level-2-electrician-sydney",
+    icon: BadgeCheck,
   },
 ];
 
@@ -306,6 +353,75 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="issue-selector-section border-y border-cyan-300/15 bg-slate-950 py-12 text-white sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-[0.76fr_1.24fr] lg:items-end">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.2em] text-cyan-200">
+                Choose your electrical issue
+              </p>
+              <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl">
+                Fastest to call. Fastest to quote.
+              </h2>
+              <p className="mt-4 text-base font-semibold leading-7 text-slate-300 sm:text-lg sm:leading-8">
+                If it feels unsafe, call now. If it can wait, open the booking
+                form and send photos, address and job notes.
+              </p>
+              <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
+                <a
+                  href={business.phoneHref}
+                  className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-red-600 px-5 py-3 font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
+                >
+                  <Phone className="h-5 w-5 shrink-0" />
+                  <span className="whitespace-nowrap">{business.callCta}</span>
+                </a>
+                <a
+                  href={business.bookingUrl}
+                  data-quote-trigger="true"
+                  aria-haspopup="dialog"
+                  className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-blue-700 px-5 py-3 font-black text-white shadow-xl shadow-blue-700/20 transition hover:bg-blue-600"
+                >
+                  {business.quoteCta}
+                  <ArrowRight className="h-5 w-5 shrink-0" />
+                </a>
+              </div>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+              {issuePaths.map((issue) => {
+                const Icon = issue.icon;
+
+                return (
+                  <Link
+                    key={issue.title}
+                    href={issue.href}
+                    className="group rounded-lg border border-cyan-300/18 bg-white/[0.06] p-4 shadow-xl shadow-slate-950/20 transition hover:-translate-y-1 hover:border-cyan-300/45 hover:bg-white/[0.09]"
+                  >
+                    <div className="flex items-start gap-3">
+                      <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue-500/16 text-cyan-200">
+                        <Icon className="h-5 w-5" />
+                      </span>
+                      <span>
+                        <span className="block font-black leading-6 text-white">
+                          {issue.title}
+                        </span>
+                        <span className="mt-1 block text-sm font-semibold leading-6 text-slate-300">
+                          {issue.text}
+                        </span>
+                      </span>
+                    </div>
+                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-cyan-200">
+                      Next step
+                      <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="quote" className="bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="quote-home-card overflow-hidden rounded-lg border border-cyan-300/35 bg-slate-950 text-white shadow-2xl shadow-slate-950/15">
@@ -318,8 +434,18 @@ export default function HomePage() {
                   Request a Booking or Quote
                 </h2>
                 <p className="mt-5 text-base font-semibold leading-7 text-slate-200 sm:text-lg">
-                  Add your contact details, address and photos so we can review
-                  the job.
+                  Add your contact details, address and photos so Evaready can
+                  review the job and reply with the clearest next step.
+                </p>
+                <p className="mt-4 rounded-lg border border-red-400/25 bg-red-500/10 px-4 py-3 text-sm font-black leading-6 text-white">
+                  Urgent electrical fault?{" "}
+                  <a
+                    href={business.phoneHref}
+                    className="underline underline-offset-2"
+                  >
+                    {business.callCta}
+                  </a>{" "}
+                  first.
                 </p>
               </div>
 

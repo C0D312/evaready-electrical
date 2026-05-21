@@ -175,34 +175,40 @@ export function SiteFooter() {
               </a>
             </p>
           </div>
-          <div className="mt-5 flex flex-wrap gap-3">
-            <a
-              href={business.phoneHref}
-              className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-3 text-center text-[clamp(0.72rem,3.2vw,0.95rem)] font-black text-white hover:bg-red-500 sm:w-fit sm:px-5 sm:text-sm"
-            >
-              <Phone className="h-4 w-4" />
-              <span className="whitespace-nowrap">
-                {business.callCta}
-              </span>
-            </a>
-
-            <a
-              href={business.bookingUrl}
-              data-quote-trigger="true"
-              aria-haspopup="dialog"
-              className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-black text-white hover:bg-blue-500 sm:w-fit"
-            >
-              {business.quoteCta}
-            </a>
-
-            <a
-              href={business.emailHref}
-              className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-xl border border-white/15 px-5 py-3 font-black text-white hover:border-white/30 hover:bg-white/10 sm:w-fit"
-            >
-              <Mail className="h-4 w-4" />
-              Email
-            </a>
-          </div>
+          <nav className="mt-5" aria-label="Evaready contact actions">
+            <ul className="grid gap-3 sm:flex sm:flex-wrap">
+              <li>
+                <a
+                  href={business.phoneHref}
+                  className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-3 text-center text-[clamp(0.72rem,3.2vw,0.95rem)] font-black text-white hover:bg-red-500 sm:w-fit sm:px-5 sm:text-sm"
+                >
+                  <Phone className="h-4 w-4" />
+                  <span className="whitespace-nowrap">
+                    {business.callCta}
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={business.bookingUrl}
+                  data-quote-trigger="true"
+                  aria-haspopup="dialog"
+                  className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-black text-white hover:bg-blue-500 sm:w-fit"
+                >
+                  {business.quoteCta}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={business.emailHref}
+                  className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-xl border border-white/15 px-5 py-3 font-black text-white hover:border-white/30 hover:bg-white/10 sm:w-fit"
+                >
+                  <Mail className="h-4 w-4" />
+                  Email
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
 
         {footerColumns.map((column) => (
