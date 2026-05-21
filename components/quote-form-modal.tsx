@@ -24,9 +24,42 @@ export function QuoteFormModal() {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const openerRef = useRef<HTMLElement | null>(null);
   const scrollLockRef = useRef<ScrollLockSnapshot | null>(null);
+  const openRef = useRef(false);
+  const modalHistoryPushedRef = useRef(false);
+  const resolvingHistoryCloseRef = useRef(false);
 
-  const close = useCallback(() => {
+  const close = useCallback((syncHistory = true) => {
+    if (!openRef.current) {
+      return;
+    }
+
+    const shouldStepBack =
+      syncHistory &&
+      modalHistoryPushedRef.current &&
+      typeof window !== "undefined" &&
+      window.history.state?.quoteModal === true;
+
+    openRef.current = false;
+    modalHistoryPushedRef.current = false;
     setOpen(false);
+
+    if (shouldStepBack) {
+      resolvingHistoryCloseRef.current = true;
+      window.history.back();
+      window.setTimeout(() => {
+        resolvingHistoryCloseRef.current = false;
+      }, 500);
+    }
+  }, []);
+
+  const openModal = useCallback((opener: HTMLElement) => {
+    if (openRef.current) {
+      return;
+    }
+
+    openerRef.current = opener;
+    openRef.current = true;
+    setOpen(true);
   }, []);
 
   useEffect(() => {
@@ -64,8 +97,7 @@ export function QuoteFormModal() {
       }
 
       event.preventDefault();
-      openerRef.current = link;
-      setOpen(true);
+      openModal(link);
     }
 
     document.addEventListener("click", handleClick, true);
@@ -73,7 +105,50 @@ export function QuoteFormModal() {
     return () => {
       document.removeEventListener("click", handleClick, true);
     };
-  }, []);
+  }, [openModal]);
+
+  useEffect(() => {
+    if (!open) {
+      return;
+    }
+
+    openRef.current = true;
+
+    if (window.history.state?.quoteModal !== true) {
+      const currentState =
+        window.history.state && typeof window.history.state === "object"
+          ? window.history.state
+          : {};
+
+      window.history.pushState(
+        { ...currentState, quoteModal: true },
+        "",
+        window.location.href,
+      );
+      modalHistoryPushedRef.current = true;
+    }
+
+    function closeOnPopState() {
+      if (resolvingHistoryCloseRef.current) {
+        resolvingHistoryCloseRef.current = false;
+        return;
+      }
+
+      if (!openRef.current) {
+        return;
+      }
+
+      modalHistoryPushedRef.current = false;
+      openRef.current = false;
+      setOpen(false);
+    }
+
+    window.addEventListener("popstate", closeOnPopState);
+
+    return () => {
+      window.removeEventListener("popstate", closeOnPopState);
+    };
+  }, [open]);
 
   useEffect(() => {
     if (!open) {
@@ -83,6 +158,12 @@ export function QuoteFormModal() {
     const html = document.documentElement;
     const body = document.body;
     const scrollbarWidth = window.innerWidth - html.clientWidth;
+
+    function syncViewportHeight() {
+      const viewportHeight = window.visualViewport?.height ?? window.innerHeight;
+      html.style.setProperty("--quote-modal-vh", `${viewportHeight}px`);
+    }
+
     const snapshot: ScrollLockSnapshot = {
       scrollX: window.scrollX,
       scrollY: window.scrollY,
@@ -98,6 +179,7 @@ export function QuoteFormModal() {
     };
 
     scrollLockRef.current = snapshot;
+    syncViewportHeight();
     body.classList.add("quote-modal-open");
     html.style.scrollBehavior = "auto";
     html.style.overflow = "hidden";
@@ -120,9 +202,15 @@ export function QuoteFormModal() {
     }
 
     window.addEventListener("keydown", closeOnEscape);
+    window.addEventListener("resize", syncViewportHeight);
+    window.visualViewport?.addEventListener("resize", syncViewportHeight);
+    window.visualViewport?.addEventListener("scroll", syncViewportHeight);
 
     return () => {
       window.removeEventListener("keydown", closeOnEscape);
+      window.removeEventListener("resize", syncViewportHeight);
+      window.visualViewport?.removeEventListener("resize", syncViewportHeight);
+      window.visualViewport?.removeEventListener("scroll", syncViewportHeight);
       const locked = scrollLockRef.current;
       scrollLockRef.current = null;
 
@@ -132,6 +220,7 @@ export function QuoteFormModal() {
 
       html.style.overflow = locked.htmlOverflow;
       html.style.scrollBehavior = "auto";
+      html.style.removeProperty("--quote-modal-vh");
       body.classList.remove("quote-modal-open");
       body.style.overflow = locked.bodyOverflow;
       body.style.paddingRight = locked.bodyPaddingRight;
@@ -168,16 +257,19 @@ export function QuoteFormModal() {
         type="button"
         aria-label="Close quote form"
         className="absolute inset-0 hidden sm:block"
-        onClick={close}
+        onClick={() => close()}
       />
 
       <div className="quote-modal-panel fixed inset-0 mx-0 flex h-[100dvh] max-h-[100dvh] min-h-0 w-[100vw] max-w-[100vw] flex-col overflow-hidden overflow-x-hidden rounded-none border-0 border-white/12 bg-slate-950 text-white shadow-2xl shadow-slate-950/45 sm:relative sm:inset-auto sm:mx-auto sm:h-[85dvh] sm:max-h-[85dvh] sm:w-full sm:max-w-[760px] sm:rounded-[1.35rem] sm:border">
         <div className="quote-modal-heading shrink-0 border-b border-white/10">
           <div className="quote-modal-heading-inner">
+            <p className="quote-modal-title">
+              Add details below to request a booking or quote
+            </p>
             <a href={business.phoneHref} className="quote-modal-emergency">
               <Phone className="h-4 w-4 shrink-0" />
               <span className="truncate">
-                Emergency? {business.callCta}
+                Emergency? Call {business.phoneDisplay}
               </span>
             </a>
           </div>
@@ -187,7 +279,7 @@ export function QuoteFormModal() {
             aria-label="Close quote form"
             ref={closeButtonRef}
             className="quote-modal-close fixed z-10 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-slate-950 shadow-lg transition hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-cyan-200/60 sm:absolute"
-            onClick={close}
+            onClick={() => close()}
           >
             <X className="h-5 w-5" />
           </button>

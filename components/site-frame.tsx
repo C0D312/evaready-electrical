@@ -94,7 +94,7 @@ export function SiteHeader() {
                 href={business.bookingUrl}
                 data-quote-trigger="true"
                 aria-haspopup="dialog"
-                className="inline-flex min-h-10 shrink-0 items-center justify-center rounded-full bg-blue-700 px-2.5 py-2 text-[0.68rem] font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 min-[380px]:px-3 sm:min-h-11 sm:px-4 sm:text-sm lg:hidden"
+                className="mobile-header-quote inline-flex min-h-10 shrink-0 items-center justify-center rounded-full bg-blue-700 px-2.5 py-2 text-[0.68rem] font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 min-[380px]:px-3 sm:min-h-11 sm:px-4 sm:text-sm lg:hidden"
               >
                 Quote
               </a>
@@ -184,7 +184,7 @@ export function SiteFooter() {
                 >
                   <Phone className="h-4 w-4" />
                   <span className="whitespace-nowrap">
-                    {business.callCta}
+                    Call {business.phoneDisplay}
                   </span>
                 </a>
               </li>

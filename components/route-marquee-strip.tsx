@@ -509,20 +509,14 @@ export function RouteMarqueeStrip() {
   return (
     <section className="emergency-issue-marquee" aria-label={config.ariaLabel}>
       <div className="emergency-issue-marquee__track">
-        {[0, 1].map((group) => (
-          <div
-            key={group}
-            className="emergency-issue-marquee__group"
-            aria-hidden={group === 1}
-          >
-            {config.items.map((item) => (
-              <span key={`${group}-${item}`} className="emergency-issue-chip">
-                <Zap className="h-4 w-4 shrink-0" />
-                {item}
-              </span>
-            ))}
-          </div>
-        ))}
+        <div className="emergency-issue-marquee__group">
+          {config.items.map((item) => (
+            <span key={item} className="emergency-issue-chip">
+              <Zap className="h-4 w-4 shrink-0" />
+              {item}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );

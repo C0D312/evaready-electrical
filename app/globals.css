@@ -1701,3 +1701,228 @@ section.brand-internal-hero.bg-\[\#020617\] {
     transform: none !important;
   }
 }
+
+/* Final mobile/conversion hardening: keep the modal, header and marquee stable on narrow Android/iOS viewports. */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body.quote-modal-open {
+  overscroll-behavior: none;
+}
+
+body.quote-modal-open .quote-modal-panel,
+body.quote-modal-open .quote-modal-frame-shell,
+body.quote-modal-open .quote-modal-iframe {
+  touch-action: auto;
+}
+
+.quote-modal-backdrop {
+  height: var(--quote-modal-vh, 100vh) !important;
+  max-height: var(--quote-modal-vh, 100vh) !important;
+  overflow: hidden !important;
+}
+
+.quote-modal-panel {
+  --quote-modal-header-height: 82px;
+  --quote-modal-safe-top: env(safe-area-inset-top, 0px);
+  height: var(--quote-modal-vh, 100vh) !important;
+  max-height: var(--quote-modal-vh, 100vh) !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  overflow: hidden !important;
+}
+
+.quote-modal-heading {
+  height: calc(var(--quote-modal-header-height) + var(--quote-modal-safe-top)) !important;
+  min-height: calc(var(--quote-modal-header-height) + var(--quote-modal-safe-top)) !important;
+  max-height: calc(var(--quote-modal-header-height) + var(--quote-modal-safe-top)) !important;
+  align-items: center !important;
+  padding: calc(var(--quote-modal-safe-top) + 6px) 64px 6px 12px !important;
+}
+
+.quote-modal-heading-inner {
+  align-content: center;
+  gap: 4px;
+}
+
+.quote-modal-title {
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  color: #ffffff;
+  font-size: clamp(0.66rem, 2.65vw, 0.84rem);
+  font-weight: 950;
+  line-height: 1.08;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.quote-modal-emergency {
+  min-height: 38px !important;
+  max-height: 40px;
+  border-radius: 0.7rem !important;
+  font-size: clamp(0.72rem, 3.1vw, 0.92rem) !important;
+  letter-spacing: 0;
+}
+
+.quote-modal-frame-shell {
+  height: calc(var(--quote-modal-vh, 100vh) - var(--quote-modal-header-height) - var(--quote-modal-safe-top)) !important;
+  max-height: calc(var(--quote-modal-vh, 100vh) - var(--quote-modal-header-height) - var(--quote-modal-safe-top)) !important;
+  flex: 0 0 auto !important;
+}
+
+.quote-modal-iframe {
+  min-height: 100%;
+}
+
+.quote-modal-close {
+  top: calc(var(--quote-modal-safe-top) + 7px) !important;
+  right: 10px !important;
+}
+
+.emergency-issue-marquee {
+  min-height: 2.25rem !important;
+}
+
+.emergency-issue-marquee__track {
+  animation: emergencyMarquee 21s linear infinite !important;
+  will-change: transform;
+}
+
+.emergency-issue-marquee__group {
+  gap: 0.45rem !important;
+  padding: 0.34rem 0.6rem !important;
+}
+
+.emergency-issue-chip {
+  min-height: 1.7rem !important;
+  padding: 0.26rem 0.7rem !important;
+  font-size: clamp(0.66rem, 2.7vw, 0.78rem) !important;
+}
+
+@keyframes emergencyMarquee {
+  from {
+    transform: translateX(100vw);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 360px) {
+  .site-header-actions .mobile-header-quote {
+    display: none !important;
+  }
+
+  .quote-modal-panel {
+    --quote-modal-header-height: 84px;
+  }
+
+  .quote-modal-heading {
+    padding-right: 58px !important;
+    padding-left: 10px !important;
+  }
+
+  .quote-modal-title {
+    font-size: 0.66rem;
+  }
+
+  .quote-modal-emergency {
+    min-height: 38px !important;
+    font-size: 0.74rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .site-header-top {
+    grid-template-columns: minmax(0, clamp(9.1rem, 40vw, 10.9rem)) minmax(0, auto) !important;
+  }
+
+  .site-header-actions {
+    min-width: 0;
+  }
+
+  .site-logo-link {
+    overflow: visible !important;
+  }
+
+  .site-logo-image {
+    width: clamp(9.1rem, 40vw, 10.9rem) !important;
+    max-height: 48px !important;
+    object-fit: contain !important;
+    opacity: 1 !important;
+  }
+
+  main,
+  main > section {
+    max-width: 100vw;
+    overflow-x: clip;
+  }
+}
+
+@media (min-width: 640px) {
+  .quote-modal-panel {
+    --quote-modal-header-height: 88px;
+    --quote-modal-safe-top: 0px;
+    height: 85vh !important;
+    max-height: 85vh !important;
+    width: min(100%, 760px) !important;
+    max-width: 760px !important;
+  }
+
+  .quote-modal-heading {
+    height: var(--quote-modal-header-height) !important;
+    min-height: var(--quote-modal-header-height) !important;
+    max-height: var(--quote-modal-header-height) !important;
+    padding: 10px 78px 10px 20px !important;
+  }
+
+  .quote-modal-title {
+    font-size: 0.92rem;
+  }
+
+  .quote-modal-emergency {
+    min-height: 42px !important;
+    font-size: 0.98rem !important;
+  }
+
+  .quote-modal-frame-shell {
+    height: calc(85vh - var(--quote-modal-header-height)) !important;
+    max-height: calc(85vh - var(--quote-modal-header-height)) !important;
+    flex: 0 0 auto !important;
+  }
+
+  .quote-modal-close {
+    top: 12px !important;
+    right: 16px !important;
+  }
+}
+
+@supports (height: 100dvh) {
+  .quote-modal-backdrop,
+  .quote-modal-panel {
+    height: var(--quote-modal-vh, 100dvh) !important;
+    max-height: var(--quote-modal-vh, 100dvh) !important;
+  }
+
+  .quote-modal-frame-shell {
+    height: calc(var(--quote-modal-vh, 100dvh) - var(--quote-modal-header-height) - var(--quote-modal-safe-top)) !important;
+    max-height: calc(var(--quote-modal-vh, 100dvh) - var(--quote-modal-header-height) - var(--quote-modal-safe-top)) !important;
+  }
+
+  @media (min-width: 640px) {
+    .quote-modal-panel {
+      height: 85dvh !important;
+      max-height: 85dvh !important;
+    }
+
+    .quote-modal-frame-shell {
+      height: calc(85dvh - var(--quote-modal-header-height)) !important;
+      max-height: calc(85dvh - var(--quote-modal-header-height)) !important;
+    }
+  }
+}
