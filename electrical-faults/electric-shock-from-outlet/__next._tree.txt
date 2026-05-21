@@ -1,2 +1,2 @@
-:HL["/evaready-electrical/_next/static/chunks/05_xd8qr~oi.4.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"electrical-faults","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"electric-shock-from-outlet","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"pa-CEkrlhrCl-Jr0450DK"}
+:HL["/evaready-electrical/_next/static/chunks/0i4f_dz8a4fe5.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"electrical-faults","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"electric-shock-from-outlet","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"5eKYpMGDjXWpPAKFboewe"}
