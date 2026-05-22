@@ -15,6 +15,7 @@ import {
 import { QuoteRequestPanel } from "@/components/quote-request-panel";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
+import { business } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Level 2 Electrician Sydney",
@@ -23,20 +24,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/level-2-electrician-sydney",
   },
-};
-
-const business = {
-  name: "Evaready Electrical",
-  phoneDisplay: "0461 247 247",
-  phoneHref: "tel:+61461247247",
-  smsHref: "sms:+61461247247",
-  callCta: "Call Now 0461 247 247",
-  quoteCta: "Get a Quote",
-  email: "info@evareadyelectrical.com.au",
-  licence: "398937C",
-  abn: "44 650 697 797",
-  bookingUrl:
-    "https://book.servicem8.com/request_booking?uuid=78c2a862-45cf-413b-8ca5-1bf6d8f8944b",
 };
 
 const level2Services = [
@@ -338,7 +325,6 @@ export default function Level2ElectricianSydneyPage() {
         eyebrow="Level 2 job notes"
         title="Send the documents and photos that make Level 2 work easier to scope."
         description="For defect notices, consumer mains, private poles, point of attachment issues or service upgrades, include photos, the suburb, deadline, switchboard details and any notice from the supply authority."
-        quoteLabel="Request Level 2 Quote"
       />
 
       {/* When you need Level 2 */}

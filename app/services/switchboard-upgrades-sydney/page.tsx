@@ -12,6 +12,7 @@ import {
 import { QuoteRequestPanel } from "@/components/quote-request-panel";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
+import { business } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Switchboard Upgrades Sydney",
@@ -20,20 +21,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/services/switchboard-upgrades-sydney",
   },
-};
-
-const business = {
-  name: "Evaready Electrical",
-  phoneDisplay: "0461 247 247",
-  phoneHref: "tel:+61461247247",
-  smsHref: "sms:+61461247247",
-  callCta: "Call Now 0461 247 247",
-  quoteCta: "Get a Quote",
-  email: "info@evareadyelectrical.com.au",
-  licence: "398937C",
-  abn: "44 650 697 797",
-  bookingUrl:
-    "https://book.servicem8.com/request_booking?uuid=78c2a862-45cf-413b-8ca5-1bf6d8f8944b",
 };
 
 const upgradeServices = [
@@ -336,7 +323,6 @@ export default function SwitchboardUpgradesSydneyPage() {
         eyebrow="Switchboard job notes"
         title="Send the details that show what the switchboard needs."
         description="Send the switchboard photo, any tripping issue, defect notice, renovation plan or new load such as an EV charger so the upgrade can be assessed clearly."
-        quoteLabel="Request Switchboard Quote"
       />
 
       {/* Warning signs */}

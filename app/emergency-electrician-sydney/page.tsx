@@ -11,6 +11,7 @@ import {
 import { QuoteRequestPanel } from "@/components/quote-request-panel";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
+import { business } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Emergency Electrician Sydney",
@@ -19,20 +20,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/emergency-electrician-sydney",
   },
-};
-
-const business = {
-  name: "Evaready Electrical",
-  phoneDisplay: "0461 247 247",
-  phoneHref: "tel:+61461247247",
-  smsHref: "sms:+61461247247",
-  callCta: "Call Now 0461 247 247",
-  quoteCta: "Get a Quote",
-  email: "info@evareadyelectrical.com.au",
-  licence: "398937C",
-  abn: "44 650 697 797",
-  bookingUrl:
-    "https://book.servicem8.com/request_booking?uuid=78c2a862-45cf-413b-8ca5-1bf6d8f8944b",
 };
 
 const emergencyServices = [
@@ -305,7 +292,6 @@ export default function EmergencyElectricianSydneyPage() {
         eyebrow="Emergency job notes"
         title="Send the fault details that matter."
         description="For unsafe faults, call first. For planned help, include the suburb, what has lost power, whether anything is hot, buzzing, wet, sparking or tripping, and photos of the switchboard or damaged fitting if available."
-        quoteLabel="Request Emergency Quote"
       />
 
       {/* Warning signs */}

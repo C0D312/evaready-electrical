@@ -5,7 +5,6 @@ import { business } from "@/data/site";
 type QuoteRequestPanelProps = {
   description: string;
   eyebrow?: string;
-  quoteLabel?: string;
   title: string;
 };
 

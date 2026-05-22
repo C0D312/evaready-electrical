@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
+import { business } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Electrical Services Sydney & Surrounding Regions",
@@ -24,20 +25,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/services",
   },
-};
-
-const business = {
-  name: "Evaready Electrical",
-  phoneDisplay: "0461 247 247",
-  phoneHref: "tel:+61461247247",
-  smsHref: "sms:+61461247247",
-  callCta: "Call Now 0461 247 247",
-  quoteCta: "Get a Quote",
-  email: "info@evareadyelectrical.com.au",
-  licence: "398937C",
-  abn: "44 650 697 797",
-  bookingUrl:
-    "https://book.servicem8.com/request_booking?uuid=78c2a862-45cf-413b-8ca5-1bf6d8f8944b",
 };
 
 const services = [

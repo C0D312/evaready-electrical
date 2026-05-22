@@ -57,6 +57,20 @@ export function QuoteFormModal() {
       return;
     }
 
+    if (window.history.state?.quoteModal !== true) {
+      const currentState =
+        window.history.state && typeof window.history.state === "object"
+          ? window.history.state
+          : {};
+
+      window.history.pushState(
+        { ...currentState, quoteModal: true },
+        "",
+        window.location.href,
+      );
+      modalHistoryPushedRef.current = true;
+    }
+
     openerRef.current = opener;
     openRef.current = true;
     setOpen(true);
@@ -113,20 +127,6 @@ export function QuoteFormModal() {
     }
 
     openRef.current = true;
-
-    if (window.history.state?.quoteModal !== true) {
-      const currentState =
-        window.history.state && typeof window.history.state === "object"
-          ? window.history.state
-          : {};
-
-      window.history.pushState(
-        { ...currentState, quoteModal: true },
-        "",
-        window.location.href,
-      );
-      modalHistoryPushedRef.current = true;
-    }
 
     function closeOnPopState() {
       if (resolvingHistoryCloseRef.current) {

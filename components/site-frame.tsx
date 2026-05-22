@@ -184,9 +184,12 @@ export function SiteFooter() {
                 >
                   <Phone className="h-4 w-4" />
                   <span className="whitespace-nowrap">
-                    Call {business.phoneDisplay}
+                    {`Call ${business.phoneDisplay} `}
                   </span>
                 </a>
+                <span aria-hidden="true" className="sr-only">
+                  {" | "}
+                </span>
               </li>
               <li>
                 <a
@@ -195,8 +198,11 @@ export function SiteFooter() {
                   aria-haspopup="dialog"
                   className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-black text-white hover:bg-blue-500 sm:w-fit"
                 >
-                  {business.quoteCta}
+                  {`${business.quoteCta} `}
                 </a>
+                <span aria-hidden="true" className="sr-only">
+                  {" | "}
+                </span>
               </li>
               <li>
                 <a

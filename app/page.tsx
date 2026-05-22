@@ -70,7 +70,7 @@ const coreServiceTitles = [
   },
   {
     title: "Power Points & Lighting",
-    href: "/services/power-points-lighting-sydney",
+    href: "/services/power-point-installation-sydney",
   },
   {
     title: "Commercial Electrician",

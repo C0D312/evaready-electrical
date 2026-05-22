@@ -1813,11 +1813,13 @@ body.quote-modal-open .quote-modal-iframe {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 420px) {
   .site-header-actions .mobile-header-quote {
     display: none !important;
   }
+}
 
+@media (max-width: 360px) {
   .quote-modal-panel {
     --quote-modal-header-height: 84px;
   }
@@ -1847,11 +1849,12 @@ body.quote-modal-open .quote-modal-iframe {
   }
 
   .site-logo-link {
+    max-width: clamp(9.1rem, 35vw, 10.1rem) !important;
     overflow: visible !important;
   }
 
   .site-logo-image {
-    width: clamp(9.1rem, 40vw, 10.9rem) !important;
+    width: clamp(9.1rem, 35vw, 10.1rem) !important;
     max-height: 48px !important;
     object-fit: contain !important;
     opacity: 1 !important;
