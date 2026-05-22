@@ -1813,12 +1813,6 @@ body.quote-modal-open .quote-modal-iframe {
   }
 }
 
-@media (max-width: 420px) {
-  .site-header-actions .mobile-header-quote {
-    display: none !important;
-  }
-}
-
 @media (max-width: 360px) {
   .quote-modal-panel {
     --quote-modal-header-height: 84px;
@@ -2003,6 +1997,14 @@ body.quote-modal-open .quote-modal-iframe {
     gap: 0.35rem !important;
   }
 
+  .site-header-quote {
+    width: clamp(4.45rem, 17vw, 5.65rem) !important;
+    max-width: clamp(4.45rem, 17vw, 5.65rem) !important;
+    padding-right: 0.45rem !important;
+    padding-left: 0.45rem !important;
+    font-size: clamp(0.54rem, 2.2vw, 0.68rem) !important;
+  }
+
   .site-logo-link {
     width: clamp(8rem, 40vw, 10.7rem) !important;
     min-width: 0 !important;
@@ -2020,10 +2022,6 @@ body.quote-modal-open .quote-modal-iframe {
     width: clamp(8rem, 40vw, 10.7rem) !important;
     max-height: none !important;
     margin-block: -2.35rem !important;
-  }
-
-  .site-header-actions .mobile-header-quote {
-    display: none !important;
   }
 
   .site-header-actions > a[href^="tel:"] {
@@ -2078,6 +2076,12 @@ body.quote-modal-open .quote-modal-iframe {
     margin-block: -2rem !important;
   }
 
+  .site-header-quote {
+    width: 4.35rem !important;
+    max-width: 4.35rem !important;
+    font-size: 0.52rem !important;
+  }
+
   .site-header-actions > a[href^="tel:"] {
     width: clamp(6.95rem, 34vw, 7.35rem) !important;
     max-width: clamp(6.95rem, 34vw, 7.35rem) !important;
@@ -2092,14 +2096,6 @@ body.quote-modal-open .quote-modal-iframe {
 
   .site-header .mobile-nav-trigger {
     display: block !important;
-  }
-
-  .site-header-actions .mobile-header-quote {
-    display: none !important;
-  }
-
-  .site-header-actions > a.hidden[href*="book.servicem8.com"] {
-    display: none !important;
   }
 
   .site-logo-link {

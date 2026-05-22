@@ -22,6 +22,7 @@ export const business = {
   emailHref: "mailto:info@evareadyelectrical.com.au",
   licence: "398937C",
   abn: "44 650 697 797",
+  openCablerRegistration: "46691",
   serviceArea: "Sydney & Surrounding Regions",
   siteUrl: "https://evareadyelectrical.com.au",
   bookingUrl:

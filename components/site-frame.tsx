@@ -53,6 +53,15 @@ const footerColumns = [
       { href: "/service-areas/wollongong-and-illawarra", label: "Wollongong and Illawarra" },
     ],
   },
+  {
+    title: "Electrical Fault Guides",
+    links: [
+      { href: "/electrical-faults", label: "Fault help centre" },
+      { href: "/electrical-faults/safety-switch-keeps-tripping", label: "Safety switch tripping" },
+      { href: "/electrical-faults/burning-smell-from-switchboard", label: "Burning smell from switchboard" },
+      { href: "/electrical-faults/no-power-to-house", label: "No power to house" },
+    ],
+  },
 ];
 
 export function SiteHeader() {
@@ -94,19 +103,13 @@ export function SiteHeader() {
                 href={business.bookingUrl}
                 data-quote-trigger="true"
                 aria-haspopup="dialog"
-                className="mobile-header-quote inline-flex min-h-10 shrink-0 items-center justify-center rounded-full bg-blue-700 px-2.5 py-2 text-[0.68rem] font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 min-[380px]:px-3 sm:min-h-11 sm:px-4 sm:text-sm lg:hidden"
+                className="site-header-quote inline-flex min-h-10 shrink-0 items-center justify-center gap-1 rounded-full bg-blue-700 px-2.5 py-2 text-[0.68rem] font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 min-[380px]:px-3 sm:min-h-11 sm:gap-2 sm:px-4 sm:text-sm lg:rounded-lg lg:px-4 lg:py-3"
               >
-                Quote
-              </a>
-
-              <a
-                href={business.bookingUrl}
-                data-quote-trigger="true"
-                aria-haspopup="dialog"
-                className="hidden min-h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 lg:inline-flex"
-              >
-                <span className="whitespace-nowrap">{business.quoteCta}</span>
-                <ArrowRight className="h-4 w-4 shrink-0" />
+                <span className="whitespace-nowrap">
+                  <span className="hidden min-[480px]:inline lg:inline">Get a </span>
+                  Quote
+                </span>
+                <ArrowRight className="hidden h-4 w-4 shrink-0 min-[480px]:block lg:block" />
               </a>
 
               <a
@@ -138,7 +141,7 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="bg-[#020617] py-12 text-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 text-sm text-slate-400 sm:px-6 lg:grid-cols-[1.35fr_repeat(4,1fr)] lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 text-sm text-slate-400 sm:px-6 lg:grid-cols-3 lg:px-8 xl:grid-cols-[1.2fr_repeat(5,1fr)_1.05fr]">
         <div>
           <div className="footer-logo-shell w-fit overflow-visible">
             <Image
@@ -175,46 +178,6 @@ export function SiteFooter() {
               </a>
             </p>
           </div>
-          <nav className="mt-5" aria-label="Evaready contact actions">
-            <ul className="grid gap-3 sm:flex sm:flex-wrap">
-              <li>
-                <a
-                  href={business.phoneHref}
-                  className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-3 text-center text-[clamp(0.72rem,3.2vw,0.95rem)] font-black text-white hover:bg-red-500 sm:w-fit sm:px-5 sm:text-sm"
-                >
-                  <Phone className="h-4 w-4" />
-                  <span className="whitespace-nowrap">
-                    {`Call ${business.phoneDisplay} `}
-                  </span>
-                </a>
-                <span aria-hidden="true" className="sr-only">
-                  {" | "}
-                </span>
-              </li>
-              <li>
-                <a
-                  href={business.bookingUrl}
-                  data-quote-trigger="true"
-                  aria-haspopup="dialog"
-                  className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-black text-white hover:bg-blue-500 sm:w-fit"
-                >
-                  {`${business.quoteCta} `}
-                </a>
-                <span aria-hidden="true" className="sr-only">
-                  {" | "}
-                </span>
-              </li>
-              <li>
-                <a
-                  href={business.emailHref}
-                  className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-xl border border-white/15 px-5 py-3 font-black text-white hover:border-white/30 hover:bg-white/10 sm:w-fit"
-                >
-                  <Mail className="h-4 w-4" />
-                  Email
-                </a>
-              </li>
-            </ul>
-          </nav>
         </div>
 
         {footerColumns.map((column) => (
@@ -233,6 +196,35 @@ export function SiteFooter() {
             </div>
           </div>
         ))}
+
+        <div>
+          <h3 className="font-black text-white">Contact</h3>
+          <div className="mt-4 grid gap-3">
+            <a
+              href={business.phoneHref}
+              className="inline-flex items-center gap-2 font-semibold leading-5 text-slate-300 underline-offset-4 hover:text-white hover:underline"
+            >
+              <Phone className="h-4 w-4 shrink-0 text-red-300" />
+              Call {business.phoneDisplay}
+            </a>
+            <a
+              href={business.bookingUrl}
+              data-quote-trigger="true"
+              aria-haspopup="dialog"
+              className="inline-flex items-center gap-2 font-semibold leading-5 text-slate-300 underline-offset-4 hover:text-white hover:underline"
+            >
+              <ArrowRight className="h-4 w-4 shrink-0 text-cyan-300" />
+              {business.quoteCta}
+            </a>
+            <a
+              href={business.emailHref}
+              className="inline-flex items-center gap-2 break-all font-semibold leading-5 text-slate-300 underline-offset-4 hover:text-white hover:underline"
+            >
+              <Mail className="h-4 w-4 shrink-0 text-cyan-300" />
+              Email
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   );

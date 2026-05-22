@@ -111,7 +111,7 @@ const issuePaths = [
   {
     title: "Power is out",
     text: "Call first for full or partial power loss.",
-    href: "/electrical-faults/no-power-in-one-room",
+    href: "/electrical-faults/no-power-to-house",
     icon: Bolt,
   },
   {
@@ -327,7 +327,7 @@ export default function HomePage() {
 
             <div className="mobile-hero-van-card mt-5 overflow-hidden rounded-2xl border border-cyan-300/25 bg-[#061A3A]/55 shadow-2xl shadow-cyan-500/20 lg:hidden">
               <Image
-                src={business.brandImage}
+                src={assetPath(business.brandImage)}
                 alt="Evaready Electrical 24/7 service van in Sydney"
                 width={1536}
                 height={1024}

@@ -188,6 +188,67 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
     ],
   },
   {
+    slug: "no-power-to-house",
+    title: "No Power To House",
+    metaTitle: "No Power To House Sydney",
+    metaDescription:
+      "No power to the house in Sydney? Evaready Electrical can help check switchboards, tripped safety devices, storm faults and supply-side concerns.",
+    intro:
+      "No power to the whole house can come from a network outage, a tripped main switch or safety device, storm damage, damaged consumer mains, metering issues or a switchboard fault.",
+    primaryAdvice:
+      "If your neighbours still have power, or only your property is affected, call Evaready Electrical before repeatedly resetting the switchboard.",
+    riskNotes: [
+      "A full property outage can involve the switchboard, consumer mains or service equipment.",
+      "Storms, water, heat or burnt smells around the board should be treated as urgent.",
+      "A partial supply problem can affect appliances and sensitive equipment.",
+      "Supply-side concerns may need Level 2 electrical support.",
+    ],
+    checks: [
+      "Check from a safe place whether nearby properties also have no power.",
+      "Look for tripped safety switches or breakers without forcing repeated resets.",
+      "Keep clear of wet switchboards, fallen lines, damaged service equipment or burnt smells.",
+      "Call first if the outage is only at your property or the board will not reset safely.",
+    ],
+    whatToSend: [
+      "A photo of the switchboard from a safe distance.",
+      "Whether the whole property or only some circuits are affected.",
+      "Whether neighbours or nearby shops still have power.",
+      "Any storm, water, burning smell, buzzing, heat or defect notice details.",
+    ],
+    relatedServices: [
+      ...commonRelatedServices,
+      {
+        href: "/level-2-electrician-sydney",
+        label: "Level 2 electrician",
+      },
+      {
+        href: "/services/consumer-mains-sydney",
+        label: "Consumer mains support",
+      },
+      {
+        href: "/services/storm-damage-electrician-sydney",
+        label: "Storm damage electrical checks",
+      },
+    ],
+    faqs: [
+      {
+        question: "Who do I call if my whole house has no power?",
+        answer:
+          "If the street is out, the electricity network may be involved. If only your property is affected, call Evaready Electrical for switchboard, circuit and supply-side checks.",
+      },
+      {
+        question: "Should I keep resetting the main switch?",
+        answer:
+          "No. One careful reset may be reasonable if the board is dry and safe, but repeated tripping should be checked before power is forced back on.",
+      },
+      {
+        question: "Can no power to the house require Level 2 work?",
+        answer:
+          "Sometimes. If the issue involves consumer mains, metering, overhead service lines or service equipment, Level 2 electrical support may be needed.",
+      },
+    ],
+  },
+  {
     slug: "power-point-sparking",
     title: "Power Point Sparking",
     metaTitle: "Power Point Sparking Sydney",

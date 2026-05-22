@@ -10,12 +10,12 @@ type MarqueeConfig = {
 };
 
 const homeItems = [
-  "Power is out",
-  "Safety switch keeps tripping",
-  "Burning smell or heat",
-  "Sparking or buzzing fittings",
-  "Damaged switchboard or wiring",
-  "Storm or water damage",
+  "Open 24/7 for urgent faults",
+  "NSW licensed electrician",
+  "Emergency and Level 2 help",
+  "Sydney & surrounding regions",
+  "Call first if unsafe",
+  "Quote planned work",
 ];
 
 const serviceItemsBySlug: Record<string, string[]> = {
@@ -253,6 +253,14 @@ const faultItemsBySlug: Record<string, string[]> = {
     "Lighting fault",
     "Circuit tracing",
     "Fault finding",
+  ],
+  "no-power-to-house": [
+    "No power to house",
+    "Check neighbours first",
+    "Switchboard fault checks",
+    "Supply-side concern",
+    "Call if only your property is out",
+    "Storm and outage support",
   ],
   "power-point-sparking": [
     "Sparking power point",
@@ -507,7 +515,7 @@ export function RouteMarqueeStrip() {
   const config = useMemo(() => configForPath(pathname), [pathname]);
 
   return (
-    <section className="emergency-issue-marquee" aria-label={config.ariaLabel}>
+    <section className="emergency-issue-marquee" aria-label={config.ariaLabel} data-nosnippet>
       <div className="emergency-issue-marquee__track">
         <div className="emergency-issue-marquee__group">
           {config.items.map((item) => (

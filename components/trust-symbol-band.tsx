@@ -16,8 +16,18 @@ const trustSymbols = [
   },
   {
     icon: BadgeCheck,
-    title: `NSW Licence ${business.licence}`,
-    text: `ABN ${business.abn} and licence details are kept visible before you book.`,
+    title: `NSW Electrical Licence ${business.licence}`,
+    text: "Licence details are kept visible before customers call or book.",
+  },
+  {
+    icon: ShieldCheck,
+    title: `ABN ${business.abn}`,
+    text: "Business details are displayed clearly across the website.",
+  },
+  {
+    icon: BadgeCheck,
+    title: `Open Cabler Registration ${business.openCablerRegistration}`,
+    text: "A useful trust signal for data, CCTV and communications cabling enquiries.",
   },
   {
     icon: Zap,
@@ -38,6 +48,11 @@ const trustSymbols = [
     icon: CheckCircle2,
     title: "Clear Scope Before Work Starts",
     text: "Urgent faults go to phone first; planned work is reviewed before the next step.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Residential, Commercial & Strata",
+    text: "Electrical help for homes, shops, offices, builders and property managers.",
   },
 ];
 
