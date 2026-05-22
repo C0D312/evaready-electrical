@@ -283,8 +283,8 @@ export default function HomePage() {
           sizes="100vw"
           className="brand-hero-image object-cover object-[67%_center] sm:object-[66%_center] lg:object-center"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,8,20,0.96)_0%,rgba(2,8,20,0.84)_34%,rgba(2,8,20,0.42)_62%,rgba(2,8,20,0.18)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(0,200,255,0.22),transparent_36%),radial-gradient(circle_at_78%_72%,rgba(255,0,30,0.18),transparent_34%)]" />
+        <div className="home-hero-readability-overlay absolute inset-0 bg-[linear-gradient(90deg,rgba(2,8,20,0.96)_0%,rgba(2,8,20,0.84)_34%,rgba(2,8,20,0.42)_62%,rgba(2,8,20,0.18)_100%)]" />
+        <div className="home-hero-glow-overlay absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(0,200,255,0.22),transparent_36%),radial-gradient(circle_at_78%_72%,rgba(255,0,30,0.18),transparent_34%)]" />
         <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#005BFF] via-[#00C8FF] to-[#FF001E]" />
 
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
@@ -323,6 +323,17 @@ export default function HomePage() {
                 {business.quoteCta}
                 <ArrowRight className="h-5 w-5 shrink-0" />
               </a>
+            </div>
+
+            <div className="mobile-hero-van-card mt-5 overflow-hidden rounded-2xl border border-cyan-300/25 bg-[#061A3A]/55 shadow-2xl shadow-cyan-500/20 lg:hidden">
+              <Image
+                src={business.brandImage}
+                alt="Evaready Electrical 24/7 service van in Sydney"
+                width={1536}
+                height={1024}
+                sizes="(max-width: 767px) 100vw, 0px"
+                className="aspect-[16/9] w-full object-cover object-[78%_center]"
+              />
             </div>
 
             <div className="mt-8 grid gap-3 sm:grid-cols-3">

@@ -126,7 +126,7 @@ export function SiteHeader() {
       </header>
       <div
         aria-hidden="true"
-        className="h-[calc(64px_+_env(safe-area-inset-top))] sm:h-[calc(88px_+_env(safe-area-inset-top))] lg:h-[calc(81px_+_env(safe-area-inset-top))]"
+        className="h-[calc(88px_+_env(safe-area-inset-top))] sm:h-[calc(104px_+_env(safe-area-inset-top))] lg:h-[calc(104px_+_env(safe-area-inset-top))]"
       />
       <RouteMarqueeStrip />
       <QuoteFormModal />
