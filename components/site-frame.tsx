@@ -78,11 +78,11 @@ export function SiteHeader() {
               <Image
                 src={assetPath("/images/evareadyelectrical-logo.png")}
                 alt="Evaready Electrical 24/7"
-                width={1536}
-                height={1024}
+                width={1426}
+                height={503}
                 priority
-                sizes="(max-width: 379px) 9.1rem, (max-width: 767px) 10.7rem, (max-width: 1024px) 15rem, 17rem"
-                className="site-logo-image w-[9.1rem] object-contain object-center min-[380px]:w-[10rem] min-[430px]:w-[10.7rem] sm:w-[15rem] lg:w-[17rem]"
+                sizes="(max-width: 767px) 180px, (max-width: 1180px) 264px, 300px"
+                className="logo-img site-logo-image"
               />
             </Link>
 
@@ -147,10 +147,10 @@ export function SiteFooter() {
             <Image
               src={assetPath("/images/evareadyelectrical-logo.png")}
               alt="Evaready Electrical 24/7"
-              width={1536}
-              height={1024}
-              sizes="(max-width: 640px) 13rem, 13.125rem"
-              className="footer-logo-img w-[13rem] object-contain object-center sm:w-[13.125rem]"
+              width={1426}
+              height={503}
+              sizes="(max-width: 640px) 210px, 240px"
+              className="logo-img footer-logo-img"
             />
           </div>
           <p className="mt-5 max-w-md leading-7">

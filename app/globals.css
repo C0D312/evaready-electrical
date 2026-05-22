@@ -1994,15 +1994,15 @@ body.quote-modal-open .quote-modal-iframe {
   }
 
   .site-header-actions {
-    gap: 0.35rem !important;
+    gap: 0.28rem !important;
   }
 
   .site-header-quote {
-    width: clamp(4.45rem, 17vw, 5.65rem) !important;
-    max-width: clamp(4.45rem, 17vw, 5.65rem) !important;
-    padding-right: 0.45rem !important;
-    padding-left: 0.45rem !important;
-    font-size: clamp(0.54rem, 2.2vw, 0.68rem) !important;
+    width: clamp(3.95rem, 16vw, 4.75rem) !important;
+    max-width: clamp(3.95rem, 16vw, 4.75rem) !important;
+    padding-right: 0.35rem !important;
+    padding-left: 0.35rem !important;
+    font-size: clamp(0.5rem, 2.05vw, 0.64rem) !important;
   }
 
   .site-logo-link {
@@ -2025,10 +2025,10 @@ body.quote-modal-open .quote-modal-iframe {
   }
 
   .site-header-actions > a[href^="tel:"] {
-    width: clamp(7.35rem, 34vw, 8.65rem) !important;
-    max-width: clamp(7.35rem, 34vw, 8.65rem) !important;
-    padding-right: 0.45rem !important;
-    padding-left: 0.45rem !important;
+    width: clamp(6.9rem, 29vw, 7.35rem) !important;
+    max-width: clamp(6.9rem, 29vw, 7.35rem) !important;
+    padding-right: 0.35rem !important;
+    padding-left: 0.35rem !important;
     font-size: clamp(0.46rem, 2.05vw, 0.56rem) !important;
     letter-spacing: -0.02em !important;
   }
@@ -2077,14 +2077,14 @@ body.quote-modal-open .quote-modal-iframe {
   }
 
   .site-header-quote {
-    width: 4.35rem !important;
-    max-width: 4.35rem !important;
+    width: 3.85rem !important;
+    max-width: 3.85rem !important;
     font-size: 0.52rem !important;
   }
 
   .site-header-actions > a[href^="tel:"] {
-    width: clamp(6.95rem, 34vw, 7.35rem) !important;
-    max-width: clamp(6.95rem, 34vw, 7.35rem) !important;
+    width: clamp(6.45rem, 32vw, 6.95rem) !important;
+    max-width: clamp(6.45rem, 32vw, 6.95rem) !important;
     font-size: clamp(0.43rem, 1.95vw, 0.5rem) !important;
   }
 }
@@ -2105,5 +2105,191 @@ body.quote-modal-open .quote-modal-iframe {
 
   .site-logo-image {
     width: clamp(13.75rem, 20vw, 16.5rem) !important;
+  }
+}
+
+/* Official logo asset: transparent supplied logo, sized without a background box. */
+.logo-img {
+  display: block !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+  transform: none !important;
+  margin: 0 !important;
+  filter: drop-shadow(0 0 14px rgba(0, 200, 255, 0.35)) !important;
+}
+
+.site-logo-link,
+.footer-logo-shell {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  line-height: 0 !important;
+  overflow: visible !important;
+  padding: 0 !important;
+}
+
+.site-logo-link::before,
+.footer-logo-shell::before {
+  content: none !important;
+  display: none !important;
+}
+
+.site-logo-link {
+  width: clamp(15rem, 18vw, 18.75rem) !important;
+  min-width: clamp(15rem, 18vw, 18.75rem) !important;
+  height: 72px !important;
+  min-height: 72px !important;
+  max-height: 72px !important;
+  overflow: visible !important;
+}
+
+.site-logo-image.logo-img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 86px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  filter:
+    drop-shadow(0 0 12px rgba(0, 200, 255, 0.46))
+    drop-shadow(0 0 24px rgba(0, 91, 255, 0.26)) !important;
+}
+
+.footer-logo-img.logo-img {
+  width: clamp(13.125rem, 16vw, 15rem) !important;
+  min-width: clamp(13.125rem, 16vw, 15rem) !important;
+  max-width: clamp(13.125rem, 16vw, 15rem) !important;
+  height: auto !important;
+  max-height: none !important;
+}
+
+.footer-logo-shell {
+  width: clamp(13.125rem, 16vw, 15rem) !important;
+  min-width: clamp(13.125rem, 16vw, 15rem) !important;
+  max-width: clamp(13.125rem, 16vw, 15rem) !important;
+}
+
+@media (max-width: 767px) {
+  .site-logo-link {
+    width: clamp(8.25rem, 37vw, 11rem) !important;
+    min-width: 0 !important;
+    max-width: clamp(8.25rem, 37vw, 11rem) !important;
+    height: 52px !important;
+    min-height: 52px !important;
+    max-height: 52px !important;
+    overflow: visible !important;
+  }
+
+  .site-logo-image.logo-img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 62px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+
+  .footer-logo-img.logo-img {
+    width: 13.125rem !important;
+    min-width: 13.125rem !important;
+    max-width: 13.125rem !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  .footer-logo-shell {
+    width: 13.125rem !important;
+    min-width: 13.125rem !important;
+    max-width: 13.125rem !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1180px) {
+  .site-logo-link {
+    width: clamp(14.5rem, 22vw, 16.5rem) !important;
+    min-width: clamp(14.5rem, 22vw, 16.5rem) !important;
+    height: 72px !important;
+    max-height: 72px !important;
+    overflow: visible !important;
+  }
+
+  .site-logo-image.logo-img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 86px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-header nav {
+    display: flex !important;
+    gap: clamp(0.85rem, 1.45vw, 1.65rem) !important;
+    font-size: clamp(0.76rem, 0.88vw, 0.95rem) !important;
+    line-height: 1.25 !important;
+  }
+
+  .site-header .mobile-nav-trigger {
+    display: none !important;
+  }
+
+  .site-header-actions {
+    gap: clamp(0.5rem, 0.8vw, 0.85rem) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .site-header-top {
+    grid-template-columns: minmax(0, clamp(8.25rem, 37vw, 11rem)) auto !important;
+    gap: 0.35rem !important;
+  }
+
+  .site-header-actions {
+    gap: 0.28rem !important;
+    min-width: 0 !important;
+  }
+
+  .site-header-quote {
+    width: clamp(3.95rem, 16vw, 4.75rem) !important;
+    max-width: clamp(3.95rem, 16vw, 4.75rem) !important;
+    min-width: 0 !important;
+    padding-right: 0.35rem !important;
+    padding-left: 0.35rem !important;
+    font-size: clamp(0.5rem, 2.05vw, 0.64rem) !important;
+  }
+
+  .site-header-actions > a[href^="tel:"] {
+    width: clamp(6.65rem, 28vw, 7.15rem) !important;
+    max-width: clamp(6.65rem, 28vw, 7.15rem) !important;
+    min-width: 0 !important;
+    padding-right: 0.3rem !important;
+    padding-left: 0.3rem !important;
+    font-size: clamp(0.43rem, 1.95vw, 0.52rem) !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-header-top {
+    grid-template-columns: minmax(0, 7rem) auto !important;
+    gap: 0.25rem !important;
+  }
+
+  .site-logo-link {
+    width: 7rem !important;
+    max-width: 7rem !important;
+  }
+
+  .site-header-quote {
+    width: 3.3rem !important;
+    max-width: 3.3rem !important;
+    font-size: 0.45rem !important;
+  }
+
+  .site-header-actions > a[href^="tel:"] {
+    width: 5.75rem !important;
+    max-width: 5.75rem !important;
+    font-size: 0.39rem !important;
   }
 }
