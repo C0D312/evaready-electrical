@@ -155,6 +155,11 @@ export function MobilePrimaryNav() {
         aria-label={open ? "Close navigation menu" : "Open navigation menu"}
         onClick={() => setOpen((current) => !current)}
         className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-blue-200 bg-white text-blue-800 shadow-lg shadow-blue-700/10 transition hover:bg-blue-50 sm:h-11 sm:w-11"
+        style={{
+          display: "inline-flex",
+          width: 44,
+          height: 44,
+        }}
       >
         {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
       </button>
