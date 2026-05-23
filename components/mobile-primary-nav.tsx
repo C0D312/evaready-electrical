@@ -23,6 +23,11 @@ const mobileNavItems = [
     icon: Home,
   },
   {
+    href: "/services",
+    label: "Electrical Services",
+    icon: Wrench,
+  },
+  {
     href: "/emergency-electrician-sydney",
     label: "Emergency Electrician",
     icon: Flame,
@@ -31,11 +36,6 @@ const mobileNavItems = [
     href: "/level-2-electrician-sydney",
     label: "Level 2 Electrician",
     icon: Bolt,
-  },
-  {
-    href: "/services",
-    label: "Electrical Services",
-    icon: Wrench,
   },
   {
     href: "/service-areas",
@@ -122,16 +122,6 @@ export function MobilePrimaryNav() {
 
         <div className="grid gap-2 border-t border-slate-200 bg-slate-50 p-3">
           <a
-            href={business.phoneHref}
-            onClick={() => setOpen(false)}
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-3 text-sm font-black text-white shadow-lg shadow-red-600/20"
-          >
-            <Phone className="h-4 w-4" />
-            <span className="whitespace-nowrap">
-              {business.callCta}
-            </span>
-          </a>
-          <a
             href={business.bookingUrl}
             data-quote-trigger="true"
             aria-haspopup="dialog"
@@ -140,6 +130,16 @@ export function MobilePrimaryNav() {
           >
             {business.quoteCta}
             <ArrowRight className="h-4 w-4" />
+          </a>
+          <a
+            href={business.phoneHref}
+            onClick={() => setOpen(false)}
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-3 text-sm font-black text-white shadow-lg shadow-red-600/20"
+          >
+            <Phone className="h-4 w-4" />
+            <span className="whitespace-nowrap">
+              Call {business.phoneDisplay}
+            </span>
           </a>
         </div>
       </nav>

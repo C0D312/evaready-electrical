@@ -424,6 +424,21 @@ const servicePageLinks: Record<string, string> = {
   "Load Balancing & Capacity Checks": "/services/electrical-load-capacity-checks-sydney",
 };
 
+const featuredServiceTitles = [
+  "Emergency Electrician",
+  "Level 2 Electrician",
+  "Switchboard Upgrades",
+  "Electrical Fault Finding",
+  "Hot Water System Electrical",
+  "CCTV & Security Cameras",
+];
+
+const featuredServices = featuredServiceTitles.flatMap((title) => {
+  const service = services.find((entry) => entry.title === title);
+
+  return service ? [service] : [];
+});
+
 function getServiceHref(title: string) {
   return servicePageLinks[title] ?? business.bookingUrl;
 }
@@ -514,6 +529,56 @@ export default function ServicesPage() {
 
       <TrustSymbolBand className="border-b border-slate-200" />
 
+      <section className="bg-white py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-black uppercase tracking-[0.22em] text-blue-700">
+              Most requested
+            </p>
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+              Fast paths for the electrical jobs people call about first.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">
+              Start with one of the main service types below, or keep browsing
+              the full service list for more specific electrical work.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {featuredServices.map((service) => {
+              const Icon = service.icon;
+              const href = getServiceHref(service.title);
+
+              return (
+                <Link
+                  key={service.title}
+                  href={href}
+                  className="group overflow-hidden rounded-2xl border border-cyan-300/20 bg-slate-950 p-6 text-white shadow-xl shadow-slate-950/10 transition hover:-translate-y-1 hover:border-cyan-300/55 hover:shadow-cyan-500/15"
+                >
+                  <div className="flex items-start gap-4">
+                    <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-blue-500/20 text-cyan-200">
+                      <Icon className="h-7 w-7" />
+                    </span>
+                    <div>
+                      <h3 className="text-xl font-black leading-7">
+                        {service.title}
+                      </h3>
+                      <p className="mt-2 text-sm font-semibold leading-6 text-slate-300">
+                        {service.description}
+                      </p>
+                    </div>
+                  </div>
+                  <span className="mt-5 inline-flex items-center gap-2 font-black text-cyan-200">
+                    View service
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Service cards */}
       <section className="bg-slate-50 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -563,14 +628,14 @@ export default function ServicesPage() {
                   {isExternalServiceLink(service.title) ? (
                     <a
                       href={getServiceHref(service.title)}
-                      className="mt-7 inline-flex items-center gap-2 font-black text-red-600"
+                      className="mt-7 inline-flex items-center gap-2 font-black text-blue-700"
                     >
                       Get a Quote <ArrowRight className="h-4 w-4" />
                     </a>
                   ) : (
                     <Link
                       href={getServiceHref(service.title)}
-                      className="mt-7 inline-flex items-center gap-2 font-black text-red-600"
+                      className="mt-7 inline-flex items-center gap-2 font-black text-blue-700"
                     >
                       Learn more <ArrowRight className="h-4 w-4" />
                     </Link>

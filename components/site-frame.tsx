@@ -118,7 +118,8 @@ export function SiteHeader() {
               >
                 <Phone className="hidden h-4 w-4 shrink-0 min-[430px]:block sm:block" />
                 <span className="whitespace-nowrap">
-                  {business.callCta}
+                  <span className="hidden lg:inline">Call Now </span>
+                  {business.phoneDisplay}
                 </span>
               </a>
 

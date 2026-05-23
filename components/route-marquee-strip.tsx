@@ -515,7 +515,7 @@ export function RouteMarqueeStrip() {
   const config = useMemo(() => configForPath(pathname), [pathname]);
 
   return (
-    <section className="emergency-issue-marquee" aria-label={config.ariaLabel} data-nosnippet>
+    <section className="emergency-issue-marquee" aria-hidden="true" data-nosnippet>
       <div className="emergency-issue-marquee__track">
         <div className="emergency-issue-marquee__group">
           {config.items.map((item) => (
