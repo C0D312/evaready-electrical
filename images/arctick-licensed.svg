@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 118" role="img" aria-labelledby="title desc">
+  <title id="title">ARCtick Licensed</title>
+  <desc id="desc">ARCtick Refrigerant Handling Licence mark for Evaready Electrical.</desc>
+  <rect width="320" height="118" rx="18" fill="#ffffff"/>
+  <path d="M210 23h56v56h-56z" fill="#1fb6c9"/>
+  <path d="m221 51 14 15 37-42 11 10-48 55-25-27z" fill="#ffffff"/>
+  <text x="19" y="65" fill="#1d1d1f" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="400" letter-spacing="-2">
+    ARC<tspan fill="#1d1d1f">tick</tspan>
+  </text>
+  <text x="21" y="98" fill="#374151" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="8">
+    LICENSED
+  </text>
+</svg>

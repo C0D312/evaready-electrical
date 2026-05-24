@@ -1,2 +1,2 @@
-:HL["/evaready-electrical/_next/static/chunks/0yocm_fcqpm-~.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"electrical-faults","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"hot-power-point","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"KXTVgysjNVrykWAShHOGH"}
+:HL["/evaready-electrical/_next/static/chunks/01gzqwj8y0eba.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"electrical-faults","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"hot-power-point","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"_jMF-wIvMglb2H1o9BFIt"}
