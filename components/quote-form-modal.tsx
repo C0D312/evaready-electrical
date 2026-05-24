@@ -261,24 +261,17 @@ export function QuoteFormModal() {
       />
 
       <div className="quote-modal-panel fixed inset-0 mx-0 flex h-[100dvh] max-h-[100dvh] min-h-0 w-[100vw] max-w-[100vw] flex-col overflow-hidden overflow-x-hidden rounded-none border-0 border-white/12 bg-slate-950 text-white shadow-2xl shadow-slate-950/45 sm:relative sm:inset-auto sm:mx-auto sm:h-[85dvh] sm:max-h-[85dvh] sm:w-full sm:max-w-[760px] sm:rounded-[1.35rem] sm:border">
-        <div className="quote-modal-heading shrink-0 border-b border-white/10">
-          <div className="quote-modal-heading-inner">
-            <p className="quote-modal-title">
-              Add details below to request a booking or quote
-            </p>
-            <a href={business.phoneHref} className="quote-modal-emergency">
-              <Phone className="h-4 w-4 shrink-0" />
-              <span className="truncate">
-                Emergency? Call {business.phoneDisplay}
-              </span>
-            </a>
-          </div>
+        <div className="quote-modal-action-bar">
+          <a href={business.phoneHref} className="quote-modal-emergency">
+            <Phone className="h-5 w-5 shrink-0" />
+            <span>Emergency? Call Now {business.phoneDisplay}</span>
+          </a>
 
           <button
             type="button"
             aria-label="Close quote form"
             ref={closeButtonRef}
-            className="quote-modal-close fixed z-10 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-slate-950 shadow-lg transition hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-cyan-200/60 sm:absolute"
+            className="quote-modal-close"
             onClick={() => close()}
           >
             <X className="h-5 w-5" />
