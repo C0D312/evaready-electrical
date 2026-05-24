@@ -1,23 +1,44 @@
+import Image from "next/image";
 import {
   BadgeCheck,
   CheckCircle2,
   ClipboardList,
   Clock3,
   ShieldCheck,
+  type LucideIcon,
   Zap,
 } from "lucide-react";
-import { business } from "@/data/site";
+import { assetPath, business } from "@/data/site";
 
-const trustSymbols = [
+type TrustSymbol = {
+  icon?: LucideIcon;
+  image?: {
+    alt: string;
+    src: string;
+  };
+  text: string;
+  title: string;
+};
+
+const arctickTrustSymbol: TrustSymbol = {
+  image: {
+    alt: `ARCtick Refrigerant Handling Licence ${business.arctickLicence}`,
+    src: assetPath("/images/arctick-licensed.svg"),
+  },
+  title: "ARCtick Licensed",
+  text: `Refrigerant Handling Licence ${business.arctickLicence} — ${business.arctickScope}. For eligible split systems, hot water heat pumps and swimming pool heat pumps.`,
+};
+
+const trustSymbols: TrustSymbol[] = [
   {
     icon: Clock3,
     title: "24/7 Emergency Electrical Help",
-    text: "Call first when power, heat, smoke, sparking or repeated tripping feels unsafe.",
+    text: "Call first for power loss, burning smells, sparking or repeated tripping.",
   },
   {
     icon: BadgeCheck,
     title: `NSW Electrical Licence ${business.licence}`,
-    text: "Licence details are kept visible before customers call or book.",
+    text: "Licensed electrical work for homes, businesses and strata.",
   },
   {
     icon: ShieldCheck,
@@ -27,12 +48,12 @@ const trustSymbols = [
   {
     icon: BadgeCheck,
     title: `Open Cabler Registration ${business.openCablerRegistration}`,
-    text: "A useful trust signal for data, CCTV and communications cabling enquiries.",
+    text: "Registered cabler for eligible data, CCTV and communications cabling work.",
   },
   {
     icon: Zap,
     title: "Level 2 Electrical Work",
-    text: "Support for consumer mains, defect notices, metering and supply-side jobs.",
+    text: "Consumer mains, metering, defect notices and supply-side electrical work.",
   },
   {
     icon: ShieldCheck,
@@ -41,12 +62,12 @@ const trustSymbols = [
   },
   {
     icon: ClipboardList,
-    title: "ServiceM8 Job Details & Photos",
-    text: "Send the address, notes and photos through the booking form for planned work.",
+    title: "Booking Details & Photos",
+    text: "Send your address, job notes and photos through the secure booking form.",
   },
   {
     icon: CheckCircle2,
-    title: "Clear Scope Before Work Starts",
+    title: "Clear Next Steps Before Work Begins",
     text: "Urgent faults go to phone first; planned work is reviewed before the next step.",
   },
   {
@@ -58,14 +79,23 @@ const trustSymbols = [
 
 type TrustSymbolBandProps = {
   className?: string;
+  showArctick?: boolean;
   tone?: "dark" | "light";
 };
 
 export function TrustSymbolBand({
   className = "",
+  showArctick = false,
   tone = "light",
 }: TrustSymbolBandProps) {
   const isDark = tone === "dark";
+  const symbols = showArctick
+    ? [
+        ...trustSymbols.slice(0, 4),
+        arctickTrustSymbol,
+        ...trustSymbols.slice(4),
+      ]
+    : trustSymbols;
 
   return (
     <section
@@ -79,12 +109,18 @@ export function TrustSymbolBand({
           <h2
             className={`${isDark ? "text-white" : "text-slate-950"} mt-3 text-3xl font-black leading-tight sm:text-5xl`}
           >
-            Clear trust signals before you call or book.
+            Licensed electrical help you can verify before you call or book.
           </h2>
+          <p
+            className={`${isDark ? "text-slate-300" : "text-slate-600"} mt-4 text-base font-semibold leading-7 sm:text-lg`}
+          >
+            Evaready keeps licence details, booking steps and service
+            credentials clear so customers know who they are contacting.
+          </p>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {trustSymbols.map((item) => {
+          {symbols.map((item) => {
             const Icon = item.icon;
 
             return (
@@ -94,9 +130,19 @@ export function TrustSymbolBand({
               >
                 <div className="flex items-start gap-3">
                   <span
-                    className={`${isDark ? "bg-cyan-300/10 text-cyan-200" : "bg-blue-50 text-blue-700"} flex h-14 w-14 shrink-0 items-center justify-center rounded-lg`}
+                    className={`${isDark ? "bg-cyan-300/10 text-cyan-200" : "bg-blue-50 text-blue-700"} flex h-14 shrink-0 items-center justify-center rounded-lg ${item.image ? "w-28 px-2" : "w-14"}`}
                   >
-                    <Icon className="h-7 w-7" />
+                    {item.image ? (
+                      <Image
+                        src={item.image.src}
+                        alt={item.image.alt}
+                        width={104}
+                        height={44}
+                        className="h-auto w-24"
+                      />
+                    ) : Icon ? (
+                      <Icon className="h-7 w-7" />
+                    ) : null}
                   </span>
                   <div className="min-w-0">
                     <h3

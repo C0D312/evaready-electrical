@@ -1,5 +1,4 @@
 import { ArrowRight, BadgeCheck, Clock3, Phone, ShieldAlert, ShieldCheck } from "lucide-react";
-import { ServiceM8Frame } from "@/components/service-m8-frame";
 import { business } from "@/data/site";
 
 type QuoteRequestPanelProps = {
@@ -116,12 +115,34 @@ export function QuoteRequestPanel({
             </a>
           </div>
 
-          <div className="mt-5 hidden overflow-hidden rounded-lg border border-white/10 bg-white sm:mt-6 sm:block">
-            <ServiceM8Frame
-              src={business.bookingUrl}
-              title="Evaready Electrical quote form"
-              className="h-[760px] w-full bg-white sm:h-[880px]"
-            />
+          <div className="mt-5 hidden rounded-lg border border-cyan-300/20 bg-white/10 p-4 sm:mt-6 sm:block">
+            <p className="text-sm font-black text-white">
+              Secure booking form
+            </p>
+            <p className="mt-2 text-sm font-semibold leading-6 text-slate-300">
+              Open the booking form to send your address, photos and job notes.
+              For unsafe faults, call first.
+            </p>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              <a
+                href={business.bookingUrl}
+                data-quote-trigger="true"
+                aria-haspopup="dialog"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
+              >
+                Open Booking Form
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href={business.phoneHref}
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-3 text-sm font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500"
+              >
+                <Phone className="h-4 w-4 shrink-0" />
+                <span className="whitespace-nowrap">
+                  {business.callCta}
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

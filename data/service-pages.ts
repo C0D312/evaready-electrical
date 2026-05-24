@@ -748,17 +748,17 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     slug: "hot-water-system-electrician-sydney",
     metaTitle: "Hot Water System Electrician Sydney",
     metaDescription:
-      "Hot water system electrician in Sydney for electric hot water faults, no hot water, circuits, isolators, thermostat and element electrical checks.",
+      "Hot water system electrician in Sydney for electric hot water faults, circuits, isolators, thermostat checks and hot water heat pump electrical support.",
     title: "Hot Water System Electrician Sydney",
     description:
-      "Electrical support for electric hot water faults, hot water circuits, isolators and replacement wiring.",
+      "Electrical support for electric hot water faults, hot water circuits, isolators, replacement wiring and heat pump electrical support.",
     intro:
       "No hot water can turn into an urgent problem quickly. Evaready Electrical checks the electrical side of electric hot water systems, including supply, isolators, safety switches, thermostats, elements and wiring, so the fault can be understood clearly before repair or replacement work proceeds.",
     heroBullets: [
       "No hot water electrical faults",
       "Hot water circuit and isolator checks",
       "Thermostat and element electrical support",
-      "Emergency hot water power faults",
+      "Eligible hot water heat pump support",
     ],
     warningSigns: [
       "The hot water system has stopped heating",
@@ -772,7 +772,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Thermostat and element electrical testing",
       "Safety switch tripping investigations",
       "Wiring support for replacement systems",
-      "Emergency no-hot-water electrical checks",
+      "Hot water heat pump electrical support",
     ],
     process: [
       {
@@ -808,12 +808,89 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         answer:
           "Send photos of the hot water unit, isolator, switchboard, model label and any tripped switch or visible damage.",
       },
+      {
+        question: "Can you help with hot water heat pumps?",
+        answer:
+          "Yes, where the work fits the licence scope. Evaready Electrical can assist with the electrical side of hot water systems and, where the job involves an eligible hot water heat pump under the ARCtick Split Systems (1) licence scope, Refrigerant Handling Licence L157323 may apply.",
+      },
     ],
     relatedServices: [
       "electrical-fault-finding-sydney",
       "safety-switch-rcd-installation-sydney",
       "switchboard-upgrades-sydney",
+      "split-system-air-conditioning-sydney",
+    ],
+  },
+  {
+    slug: "split-system-air-conditioning-sydney",
+    metaTitle: "Split System Air Conditioning Electrician Sydney",
+    metaDescription:
+      "Split system air conditioning electrician in Sydney for electrical support, isolators, dedicated circuits, switchboard capacity checks and eligible ARCtick licence-scope work.",
+    title: "Split System Air Conditioning Electrician Sydney",
+    description:
+      "Electrical support for split system air conditioning, isolators, dedicated circuits and switchboard capacity checks.",
+    intro:
+      "Split system air-conditioning equipment needs the right electrical supply, isolation and switchboard capacity. Evaready Electrical helps with split system electrical support, isolators, dedicated circuits, safety switches, outdoor unit power and clear quote steps. ARCtick Refrigerant Handling Licence L157323 — Split Systems (1) applies to eligible refrigerant handling while installing and decommissioning split systems, hot water heat pumps and swimming pool heat pumps under licence scope.",
+    heroBullets: [
+      "Split system electrical circuits",
+      "AC isolators and switchboard checks",
+      "Hot water heat pump support",
+      "Swimming pool heat pump support",
+    ],
+    warningSigns: [
+      "A split system needs a dedicated electrical circuit",
+      "An isolator or outdoor unit supply needs attention",
+      "The switchboard may not support the new load",
+      "A heat pump installation needs electrical support",
+    ],
+    services: [
+      "Dedicated air conditioning circuits",
+      "Split system isolators",
+      "Switchboard capacity checks",
+      "Safety switch and circuit protection checks",
+      "Outdoor unit power",
+      "Eligible ARCtick licence-scope refrigerant handling",
+    ],
+    process: [
+      {
+        title: "Confirm the equipment",
+        text: "Share the model details, location, photos and whether the job involves a split system, hot water heat pump or swimming pool heat pump.",
+      },
+      {
+        title: "Check the electrical supply",
+        text: "The switchboard, circuit space, protection and isolator requirements are reviewed before work begins.",
+      },
+      {
+        title: "Plan the licensed work",
+        text: "Electrical work and any eligible refrigerant handling are matched to the confirmed licence scope.",
+      },
+      {
+        title: "Install, test and explain",
+        text: "Approved work is completed neatly, tested and explained before handover.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Do you hold an ARCtick licence?",
+        answer:
+          "Yes. Evaready holds ARCtick Refrigerant Handling Licence L157323 — Split Systems (1), covering refrigerant handling while installing and decommissioning eligible split systems, hot water heat pumps and swimming pool heat pumps.",
+      },
+      {
+        question: "Can you install air conditioning electrical circuits?",
+        answer:
+          "Yes. Evaready Electrical can help with dedicated circuits, isolators, switchboard checks and electrical support for split systems and eligible heat pumps.",
+      },
+      {
+        question: "Does this cover every type of air conditioning work?",
+        answer:
+          "No. This page covers electrical support and eligible split systems and heat pumps under the listed licence scope. Other refrigerant work may require a different licence scope.",
+      },
+    ],
+    relatedServices: [
       "residential-electrician-sydney",
+      "hot-water-system-electrician-sydney",
+      "switchboard-upgrades-sydney",
+      "electrical-load-capacity-checks-sydney",
     ],
   },
   {
@@ -825,7 +902,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Security camera and CCTV cabling installed neatly for homes, shops, offices and strata sites.",
     intro:
-      "A good CCTV setup depends on camera placement, clean cabling and reliable power. Evaready Electrical helps with CCTV and security camera installation for homes and businesses, including camera wiring, power supplies, recorder locations and future camera provisions.",
+      "A good CCTV setup depends on camera placement, clean cabling and reliable power. Evaready Electrical helps with CCTV and security camera installation for homes and businesses, including camera wiring, power supplies, recorder locations and future camera provisions. Open Cabler Registration 46691 applies to eligible data, CCTV and communications cabling work.",
     heroBullets: [
       "Home CCTV installation",
       "Business security cameras",
@@ -842,9 +919,9 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "CCTV camera installation",
       "Security camera cabling",
       "Camera power supplies",
+      "Eligible CCTV and data cabling work",
       "Recorder location planning",
       "Home and commercial CCTV support",
-      "Extra camera provisions",
     ],
     process: [
       {
@@ -868,7 +945,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Can you install CCTV at a home or business?",
         answer:
-          "Yes. Evaready Electrical can assist with CCTV camera wiring and installation for residential and commercial properties.",
+          "Yes. Evaready Electrical can assist with CCTV camera wiring and installation for residential and commercial properties, including eligible cabling work under Open Cabler Registration 46691.",
       },
       {
         question: "Where should CCTV cameras be installed?",
@@ -897,7 +974,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Network data cabling, internet points and communication outlets for homes, offices and renovations.",
     intro:
-      "Reliable internet and network points need tidy cabling and sensible placement. Evaready Electrical installs data cabling, internet points and communication outlets for homes, offices, renovations and commercial spaces.",
+      "Reliable internet and network points need tidy cabling and sensible placement. Evaready Electrical installs data cabling, internet points and communication outlets for homes, offices, renovations and commercial spaces. Open Cabler Registration 46691 applies to eligible data and communications cabling work.",
     heroBullets: [
       "Network data points",
       "Internet outlet installation",
@@ -915,8 +992,8 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Internet and data points",
       "Home office cabling",
       "Office data runs",
+      "Eligible communications cabling work",
       "Phone line installation and repairs",
-      "NBN-related internal cabling support",
     ],
     process: [
       {
@@ -945,7 +1022,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Can you help with office data cabling?",
         answer:
-          "Yes. Evaready Electrical can assist with office data runs, outlet placement and communication cabling.",
+          "Yes. Evaready Electrical can assist with office data runs, outlet placement and eligible communication cabling under Open Cabler Registration 46691.",
       },
       {
         question: "Do you repair phone lines?",

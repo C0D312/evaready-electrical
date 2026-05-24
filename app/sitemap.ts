@@ -17,6 +17,8 @@ const routes = [
   { path: "/level-2-electrician-sydney", priority: 0.9 },
   { path: "/services/switchboard-upgrades-sydney", priority: 0.9 },
   { path: "/service-areas", priority: 0.85 },
+  { path: "/privacy-policy", priority: 0.4 },
+  { path: "/terms", priority: 0.4 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

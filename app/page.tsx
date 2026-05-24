@@ -7,6 +7,7 @@ import {
   BadgeCheck,
   Bolt,
   Clock3,
+  Droplets,
   Flame,
   MapPin,
   Phone,
@@ -113,6 +114,12 @@ const issuePaths = [
     text: "Call first for full or partial power loss.",
     href: "/electrical-faults/no-power-to-house",
     icon: Bolt,
+  },
+  {
+    title: "No hot water?",
+    text: "Hot water circuits, isolators and tripping faults.",
+    href: "/services/hot-water-system-electrician-sydney",
+    icon: Droplets,
   },
   {
     title: "Safety switch keeps tripping",
@@ -237,6 +244,16 @@ export default function HomePage() {
         "@type": "PropertyValue",
         name: "ABN",
         value: business.abn,
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Open Cabler Registration",
+        value: business.openCablerRegistration,
+      },
+      {
+        "@type": "PropertyValue",
+        name: "ARCtick Refrigerant Handling Licence",
+        value: `${business.arctickLicence} — ${business.arctickScope}`,
       },
     ],
     makesOffer: coreServices.map((service) => ({
@@ -487,7 +504,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <TrustSymbolBand className="border-y border-slate-200" />
+      <TrustSymbolBand className="border-y border-slate-200" showArctick />
 
       <section id="services" className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -672,15 +689,26 @@ export default function HomePage() {
                     <PhoneLinkedText text={faq.answer} />
                   </p>
                   {faq.question === "How do I request a quote?" ? (
-                    <a
-                      href={business.bookingUrl}
-                      data-quote-trigger="true"
-                      aria-haspopup="dialog"
-                      className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-sm transition hover:bg-blue-600 sm:w-auto"
-                    >
-                      {business.quoteCta}
-                      <ArrowRight className="h-4 w-4" />
-                    </a>
+                    <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+                      <a
+                        href={business.phoneHref}
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-3 text-sm font-black text-white shadow-sm transition hover:bg-red-500 sm:w-auto"
+                      >
+                        <Phone className="h-4 w-4" />
+                        <span className="whitespace-nowrap">
+                          {business.callCta}
+                        </span>
+                      </a>
+                      <a
+                        href={business.bookingUrl}
+                        data-quote-trigger="true"
+                        aria-haspopup="dialog"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-sm transition hover:bg-blue-600 sm:w-auto"
+                      >
+                        {business.quoteCta}
+                        <ArrowRight className="h-4 w-4" />
+                      </a>
+                    </div>
                   ) : null}
                 </article>
               ))}

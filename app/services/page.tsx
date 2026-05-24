@@ -157,15 +157,29 @@ const services = [
   {
     title: "Hot Water System Electrical",
     description:
-      "Electrical fault checks, repairs, replacements and circuit support for electric hot water systems.",
+      "Electrical fault checks, repairs and circuit support for electric hot water systems and eligible heat pumps.",
     icon: Flame,
     includes: [
       "No hot water faults",
       "Electric hot water circuits",
       "Thermostat and element checks",
       "Isolators and safety switches",
-      "Replacement wiring support",
+      "Eligible heat pump support",
       "Emergency hot water faults",
+    ],
+  },
+  {
+    title: "Split System Air Conditioning",
+    description:
+      "Split system air-conditioning electrical support, isolators, dedicated circuits and eligible refrigerant handling under licence scope.",
+    icon: Bolt,
+    includes: [
+      "Split system circuits",
+      "AC isolators",
+      "Switchboard capacity checks",
+      "Hot water heat pumps",
+      "Pool heat pumps",
+      "ARCtick licence scope",
     ],
   },
   {
@@ -406,6 +420,7 @@ const servicePageLinks: Record<string, string> = {
   "Power Points": "/services/power-point-installation-sydney",
   "Smoke Alarms": "/services/smoke-alarm-electrician-sydney",
   "Hot Water System Electrical": "/services/hot-water-system-electrician-sydney",
+  "Split System Air Conditioning": "/services/split-system-air-conditioning-sydney",
   "CCTV & Security Cameras": "/services/cctv-security-camera-installation-sydney",
   "Data Cabling & Internet Points": "/services/data-cabling-electrician-sydney",
   "Ceiling & Exhaust Fans": "/services/ceiling-fan-installation-sydney",
@@ -430,6 +445,7 @@ const featuredServiceTitles = [
   "Switchboard Upgrades",
   "Electrical Fault Finding",
   "Hot Water System Electrical",
+  "Split System Air Conditioning",
   "CCTV & Security Cameras",
 ];
 
@@ -469,6 +485,16 @@ export default function ServicesPage() {
         "@type": "PropertyValue",
         name: "ABN",
         value: business.abn,
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Open Cabler Registration",
+        value: business.openCablerRegistration,
+      },
+      {
+        "@type": "PropertyValue",
+        name: "ARCtick Refrigerant Handling Licence",
+        value: `${business.arctickLicence} — ${business.arctickScope}`,
       },
     ],
   };
@@ -527,7 +553,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <TrustSymbolBand className="border-b border-slate-200" />
+      <TrustSymbolBand className="border-b border-slate-200" showArctick />
 
       <section className="bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

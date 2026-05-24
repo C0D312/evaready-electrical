@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
   AlertTriangle,
   ArrowRight,
@@ -23,34 +24,103 @@ export const metadata: Metadata = {
 };
 
 const emergencyServices = [
-  "Power outage fault finding",
-  "Safety switch tripping",
-  "Burning smell or hot joint investigation",
-  "Switchboard faults",
-  "Damaged power points or switches",
-  "Storm or water-related electrical faults",
-  "Urgent lighting faults",
-  "Electrical hazards and unsafe wiring",
-  "Commercial emergency faults",
-  "After-hours electrical call-outs",
+  {
+    title: "Power outage fault finding",
+    href: "/electrical-faults/no-power-to-house",
+  },
+  {
+    title: "Safety switch tripping",
+    href: "/electrical-faults/safety-switch-keeps-tripping",
+  },
+  {
+    title: "Burning smell or hot joint investigation",
+    href: "/electrical-faults/burning-smell-from-switchboard",
+  },
+  {
+    title: "Switchboard faults",
+    href: "/services/switchboard-upgrades-sydney",
+  },
+  {
+    title: "Damaged power points or switches",
+    href: "/electrical-faults/power-point-sparking",
+  },
+  {
+    title: "Storm or water-related electrical faults",
+    href: "/electrical-faults/power-outage-after-storm",
+  },
+  {
+    title: "Urgent lighting faults",
+    href: "/electrical-faults/lights-flickering",
+  },
+  {
+    title: "Electrical hazards and unsafe wiring",
+    href: "/services/rewiring-electrician-sydney",
+  },
+  {
+    title: "Commercial emergency faults",
+    href: "/services/commercial-electrician-sydney",
+  },
+  {
+    title: "After-hours electrical call-outs",
+    href: business.phoneHref,
+    external: true,
+  },
 ];
 
 const warningSigns = [
-  "Burning smell near a switchboard, power point or light fitting",
-  "Safety switch or circuit breaker keeps tripping",
-  "Partial power loss in the house or business",
-  "Sparking, buzzing or crackling sounds",
-  "Power point, switch or cable feels hot",
-  "Lights flickering or dimming unexpectedly",
-  "Storm damage has affected overhead lines, outdoor lights or fittings",
-  "Water has reached switches, outlets, lights or electrical equipment",
+  {
+    title: "Burning smell near a switchboard, power point or light fitting",
+    href: "/electrical-faults/burning-smell-from-switchboard",
+  },
+  {
+    title: "Safety switch or circuit breaker keeps tripping",
+    href: "/electrical-faults/safety-switch-keeps-tripping",
+  },
+  {
+    title: "Partial power loss in the house or business",
+    href: "/electrical-faults/no-power-in-one-room",
+  },
+  {
+    title: "Sparking, buzzing or crackling sounds",
+    href: "/electrical-faults/power-point-sparking",
+  },
+  {
+    title: "Power point, switch or cable feels hot",
+    href: "/electrical-faults/hot-power-point",
+  },
+  {
+    title: "Lights flickering or dimming unexpectedly",
+    href: "/electrical-faults/lights-flickering",
+  },
+  {
+    title: "Storm damage has affected overhead lines, outdoor lights or fittings",
+    href: "/electrical-faults/power-outage-after-storm",
+  },
+  {
+    title: "Water has reached switches, outlets, lights or electrical equipment",
+    href: "/electrical-faults/rcd-trips-when-raining",
+  },
 ];
 
 const safetySteps = [
-  "Do not touch exposed wires, damaged fittings or wet electrical equipment.",
-  "If it is safe, turn off the affected circuit or main switch and keep people away.",
-  "Call immediately if you smell burning, see smoke, hear buzzing or notice sparking.",
-  "For fallen powerlines or life-threatening danger, keep clear and call emergency services first.",
+  {
+    title: "Do not touch exposed wires, damaged fittings or wet electrical equipment.",
+    href: "/electrical-faults/electric-shock-from-outlet",
+  },
+  {
+    title: "If it is safe, turn off the affected circuit or main switch and keep people away.",
+    href: "/electrical-faults/circuit-breaker-keeps-tripping",
+  },
+  {
+    title: "Call immediately if you smell burning, see smoke, hear buzzing or notice sparking.",
+    href: business.phoneHref,
+    external: true,
+  },
+  {
+    title: "For fallen powerlines or life-threatening danger, keep clear and call emergency services first.",
+    href: "tel:000",
+    external: true,
+  },
 ];
 
 const emergencyFaqs = [
@@ -117,6 +187,11 @@ export default function EmergencyElectricianSydneyPage() {
         "@type": "PropertyValue",
         name: "ABN",
         value: business.abn,
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Open Cabler Registration",
+        value: business.openCablerRegistration,
       },
     ],
   };
@@ -224,8 +299,8 @@ export default function EmergencyElectricianSydneyPage() {
             </h2>
 
             <p className="mt-3 text-slate-300">
-              Call for hazards, smoke, sparking, heat or repeated tripping. If
-              it can wait, send the details and photos for review.
+              Call for no power, hazards, smoke, sparking, heat or repeated
+              tripping. If it can wait, send the details and photos for review.
             </p>
 
             <div className="mt-6 grid gap-4">
@@ -276,13 +351,27 @@ export default function EmergencyElectricianSydneyPage() {
 
           <div className="grid gap-4 sm:grid-cols-2">
             {emergencyServices.map((item) => (
-              <div
-                key={item}
-                className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
-              >
-                <Zap className="h-5 w-5 text-red-600" />
-                <span className="font-bold text-slate-800">{item}</span>
-              </div>
+              item.external ? (
+                <a
+                  key={item.title}
+                  href={item.href}
+                  className="group flex min-h-20 items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-red-300 hover:bg-red-50"
+                >
+                  <Zap className="h-5 w-5 shrink-0 text-red-600" />
+                  <span className="font-bold text-slate-800">{item.title}</span>
+                  <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-red-600" />
+                </a>
+              ) : (
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  className="group flex min-h-20 items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-red-300 hover:bg-red-50"
+                >
+                  <Zap className="h-5 w-5 shrink-0 text-red-600" />
+                  <span className="font-bold text-slate-800">{item.title}</span>
+                  <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-red-600" />
+                </Link>
+              )
             ))}
           </div>
         </div>
@@ -316,10 +405,15 @@ export default function EmergencyElectricianSydneyPage() {
           <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-7">
             <div className="grid gap-4">
               {warningSigns.map((item) => (
-                <div key={item} className="flex gap-3">
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  className="group flex gap-3 rounded-lg p-2 transition hover:bg-red-50"
+                >
                   <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" />
-                  <p className="font-semibold text-slate-800">{item}</p>
-                </div>
+                  <span className="font-semibold text-slate-800">{item.title}</span>
+                  <ArrowRight className="ml-auto mt-1 h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-red-600" />
+                </Link>
               ))}
             </div>
           </div>
@@ -344,13 +438,31 @@ export default function EmergencyElectricianSydneyPage() {
 
           <div className="grid gap-4">
             {safetySteps.map((item) => (
-              <div
-                key={item}
-                className="flex gap-3 rounded-lg border border-red-100 bg-white p-5"
-              >
-                <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" />
-                <p className="font-semibold leading-7 text-slate-800">{item}</p>
-              </div>
+              item.external ? (
+                <a
+                  key={item.title}
+                  href={item.href}
+                  className="group flex gap-3 rounded-lg border border-red-100 bg-white p-5 transition hover:border-red-300 hover:bg-red-50"
+                >
+                  <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" />
+                  <span className="font-semibold leading-7 text-slate-800">
+                    {item.title}
+                  </span>
+                  <ArrowRight className="ml-auto mt-1 h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-red-600" />
+                </a>
+              ) : (
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  className="group flex gap-3 rounded-lg border border-red-100 bg-white p-5 transition hover:border-red-300 hover:bg-red-50"
+                >
+                  <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" />
+                  <span className="font-semibold leading-7 text-slate-800">
+                    {item.title}
+                  </span>
+                  <ArrowRight className="ml-auto mt-1 h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-red-600" />
+                </Link>
+              )
             ))}
           </div>
         </div>

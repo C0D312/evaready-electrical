@@ -2899,7 +2899,309 @@ a[data-quote-trigger="true"].site-header-quote {
   }
 }
 
-/* Quote modal call bar: compact dark strip with the ServiceM8 form directly below. */
+/* Header logo visibility pass: use more of the top bar without crowding CTAs. */
+.site-header .mx-auto {
+  padding-top: 0.35rem !important;
+  padding-bottom: 0.35rem !important;
+}
+
+.site-header-top {
+  min-height: 98px !important;
+}
+
+.site-logo-link {
+  width: clamp(18rem, 22vw, 23rem) !important;
+  min-width: clamp(18rem, 22vw, 23rem) !important;
+  height: 96px !important;
+  min-height: 96px !important;
+  max-height: 96px !important;
+}
+
+.site-logo-image.logo-img {
+  max-width: 23rem !important;
+  max-height: 96px !important;
+}
+
+@media (min-width: 1024px) and (max-width: 1180px) {
+  .site-logo-link {
+    width: clamp(14.75rem, 20vw, 17.5rem) !important;
+    min-width: clamp(14.75rem, 20vw, 17.5rem) !important;
+    height: 84px !important;
+    min-height: 84px !important;
+    max-height: 84px !important;
+  }
+
+  .site-logo-image.logo-img {
+    max-width: 17.5rem !important;
+    max-height: 84px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .site-header .mx-auto {
+    padding-top: 0.4rem !important;
+    padding-bottom: 0.4rem !important;
+  }
+
+  .site-header-top {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 56px !important;
+    align-items: center !important;
+    position: relative !important;
+    min-height: 112px !important;
+    gap: 0.55rem !important;
+  }
+
+  .site-logo-link {
+    justify-self: stretch !important;
+    justify-content: flex-start !important;
+    width: min(100%, calc(100vw - 6.5rem)) !important;
+    min-width: 0 !important;
+    max-width: min(20rem, calc(100vw - 6.5rem)) !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+
+  .site-logo-image.logo-img {
+    width: 100% !important;
+    max-width: 20rem !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  .site-header .mobile-nav-trigger {
+    position: fixed !important;
+    top: calc(env(safe-area-inset-top) + 29px) !important;
+    right: 0.6rem !important;
+    z-index: 90 !important;
+    display: flex !important;
+    width: 56px !important;
+    height: 56px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .site-header .mobile-nav-trigger button {
+    display: inline-flex !important;
+    width: 54px !important;
+    height: 54px !important;
+    min-width: 54px !important;
+    min-height: 54px !important;
+    border-radius: 999px !important;
+    border: 2px solid rgba(125, 211, 252, 0.78) !important;
+    background: rgba(255, 255, 255, 0.97) !important;
+    color: #006dff !important;
+    box-shadow: 0 0 0 1px rgba(0, 200, 255, 0.16), 0 10px 24px rgba(0, 91, 255, 0.2) !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-header-top {
+    grid-template-columns: minmax(0, 1fr) 52px !important;
+    gap: 0.45rem !important;
+  }
+
+  .site-logo-link {
+    width: min(100%, calc(100vw - 6rem)) !important;
+    max-width: min(18rem, calc(100vw - 6rem)) !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+
+  .site-logo-image.logo-img {
+    max-width: 18rem !important;
+    max-height: none !important;
+  }
+
+  .site-header .mobile-nav-trigger {
+    top: calc(env(safe-area-inset-top) + 31px) !important;
+    right: 0.45rem !important;
+    width: 52px !important;
+    height: 52px !important;
+  }
+
+  .site-header .mobile-nav-trigger button {
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+  }
+}
+
+/* Footer polish pass: tighter desktop grid and compact mobile accordions. */
+.site-footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 8% 10%, rgba(0, 200, 255, 0.16), transparent 30%),
+    radial-gradient(circle at 92% 0%, rgba(255, 0, 30, 0.16), transparent 28%),
+    linear-gradient(135deg, #020814 0%, #061a3a 54%, #15171c 100%) !important;
+}
+
+.site-footer::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background-image:
+    linear-gradient(90deg, rgba(0, 200, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(0, 200, 255, 0.04) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.74), transparent 82%);
+}
+
+.footer-inner {
+  position: relative;
+}
+
+.footer-brand-block {
+  min-width: 0;
+}
+
+.footer-link {
+  display: inline-flex;
+  width: fit-content;
+  color: rgba(226, 239, 255, 0.78);
+  font-size: 0.84rem;
+  font-weight: 750;
+  line-height: 1.35;
+  text-decoration: none;
+  transition:
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.footer-link:hover,
+.footer-link:focus-visible {
+  color: #67e8f9;
+  transform: translateX(0.25rem);
+}
+
+.footer-link:focus-visible,
+.footer-action:focus-visible,
+.footer-mobile-accordion-button:focus-visible {
+  outline: 3px solid rgba(103, 232, 249, 0.48);
+  outline-offset: 3px;
+}
+
+.footer-action {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.42rem;
+  border-radius: 0.65rem;
+  padding: 0.72rem 0.75rem;
+  color: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 950;
+  line-height: 1.1;
+  text-align: center;
+  transition:
+    transform 0.18s ease,
+    filter 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.footer-action:hover {
+  transform: translateY(-1px);
+  filter: saturate(1.08) brightness(1.05);
+}
+
+.footer-action-call {
+  background: linear-gradient(135deg, var(--ee-red) 0%, var(--ee-red-bright) 100%);
+  box-shadow: 0 14px 28px rgba(255, 0, 30, 0.2);
+}
+
+.footer-action-quote {
+  background: linear-gradient(135deg, var(--ee-blue) 0%, var(--ee-blue-bright) 72%, var(--ee-cyan) 100%);
+  box-shadow: 0 14px 28px rgba(0, 91, 255, 0.2);
+}
+
+.footer-action-email {
+  border: 1px solid rgba(103, 232, 249, 0.32);
+  background: rgba(2, 8, 20, 0.54);
+}
+
+.footer-mobile-accordions {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.footer-mobile-accordion {
+  overflow: hidden;
+  border: 1px solid rgba(103, 232, 249, 0.14);
+  border-radius: 0.65rem;
+  background: rgba(2, 8, 20, 0.46);
+}
+
+.footer-mobile-accordion-button {
+  display: flex;
+  min-height: 44px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.72rem 0.85rem;
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  line-height: 1.1;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.footer-mobile-accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  padding-inline: 0.85rem;
+  transition: max-height 0.22s ease;
+}
+
+.footer-mobile-accordion-panel-open {
+  max-height: 18rem;
+}
+
+.footer-mobile-accordion-link {
+  min-height: 32px;
+  align-items: center;
+  font-size: 0.84rem;
+}
+
+.floating-call-button--footer-visible {
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(1rem) scale(0.94);
+}
+
+@media (max-width: 767px) {
+  .site-footer .footer-logo-img.logo-img {
+    width: 11.875rem !important;
+    min-width: 11.875rem !important;
+    max-width: 11.875rem !important;
+  }
+
+  .site-footer .footer-logo-shell {
+    width: 11.875rem !important;
+    min-width: 11.875rem !important;
+    max-width: 11.875rem !important;
+  }
+
+  .footer-action-grid {
+    margin-right: 0.25rem;
+  }
+
+  .footer-link {
+    font-size: 0.82rem;
+  }
+}
+
+/* Quote modal call bar: compact dark strip with the booking form directly below. */
 .quote-modal-backdrop {
   --quote-modal-header-height: 44px !important;
   --quote-modal-safe-top: 0px !important;
@@ -3153,4 +3455,311 @@ a[data-quote-trigger="true"].site-header-quote {
     height: calc(85dvh - var(--quote-modal-header-height)) !important;
     max-height: calc(85dvh - var(--quote-modal-header-height)) !important;
   }
+}
+
+/* Mobile header/service strip pass: keep the logo prominent without covering
+   the route service strip, and make the strip visibly scrollable on phones. */
+@media (max-width: 767px) {
+  header.site-header + div[aria-hidden="true"] {
+    height: calc(116px + env(safe-area-inset-top)) !important;
+  }
+
+  .site-header .mx-auto {
+    padding-left: 0.55rem !important;
+    padding-right: 0.55rem !important;
+  }
+
+  .site-header-top {
+    grid-template-columns: minmax(0, 1fr) 54px !important;
+    min-height: 104px !important;
+    gap: 0.45rem !important;
+  }
+
+  .site-logo-link {
+    width: min(100%, calc(100vw - 7.45rem)) !important;
+    max-width: min(18.75rem, calc(100vw - 7.45rem)) !important;
+  }
+
+  .site-logo-image.logo-img {
+    width: 100% !important;
+    max-width: 18.75rem !important;
+  }
+
+  .site-header .mobile-nav-trigger {
+    top: calc(env(safe-area-inset-top) + 25px) !important;
+    right: 0.65rem !important;
+    width: 54px !important;
+    height: 54px !important;
+  }
+
+  .site-header .mobile-nav-trigger button {
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    min-height: 52px !important;
+  }
+
+  .emergency-issue-marquee {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    overscroll-behavior-x: contain;
+    min-height: 2.75rem !important;
+    scrollbar-color: rgba(0, 200, 255, 0.95) rgba(255, 255, 255, 0.12);
+    scrollbar-width: thin;
+    box-shadow: inset 0 -3px 0 rgba(0, 200, 255, 0.9), inset 0 -6px 0 rgba(255, 0, 30, 0.7);
+  }
+
+  .emergency-issue-marquee::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .emergency-issue-marquee::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .emergency-issue-marquee::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--ee-cyan), var(--ee-blue));
+  }
+
+  .emergency-issue-marquee__track {
+    width: max-content !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 360px) {
+  header.site-header + div[aria-hidden="true"] {
+    height: calc(108px + env(safe-area-inset-top)) !important;
+  }
+
+  .site-header-top {
+    min-height: 98px !important;
+    grid-template-columns: minmax(0, 1fr) 50px !important;
+  }
+
+  .site-logo-link {
+    width: min(100%, calc(100vw - 7rem)) !important;
+    max-width: min(17.25rem, calc(100vw - 7rem)) !important;
+  }
+
+  .site-logo-image.logo-img {
+    max-width: 17.25rem !important;
+  }
+
+  .site-header .mobile-nav-trigger {
+    top: calc(env(safe-area-inset-top) + 24px) !important;
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .site-header .mobile-nav-trigger button {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+  }
+}
+
+/* Hero van visibility pass: use the real van photo as the hero image instead
+   of a separate mobile picture card, and keep the vehicle clear on every page. */
+.mobile-hero-van-card {
+  display: none !important;
+}
+
+.home-brand-hero .brand-hero-image,
+.brand-internal-hero .brand-internal-hero-image {
+  opacity: 1 !important;
+  filter: saturate(1.18) contrast(1.08) brightness(1.08) !important;
+}
+
+.home-brand-hero .brand-hero-image {
+  object-position: 72% center !important;
+}
+
+.brand-internal-hero .brand-internal-hero-image {
+  object-position: 74% center !important;
+}
+
+.home-hero-readability-overlay {
+  background:
+    linear-gradient(90deg, rgba(2, 8, 20, 0.96) 0%, rgba(2, 8, 20, 0.84) 34%, rgba(2, 8, 20, 0.34) 58%, rgba(2, 8, 20, 0.08) 100%) !important;
+}
+
+.home-hero-glow-overlay {
+  opacity: 0.58 !important;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(0, 200, 255, 0.18), transparent 34%),
+    radial-gradient(circle at 84% 78%, rgba(255, 0, 30, 0.12), transparent 32%) !important;
+}
+
+.brand-internal-hero > .absolute {
+  opacity: 0.5 !important;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(0, 200, 255, 0.18), transparent 32%),
+    radial-gradient(circle at 88% 78%, rgba(255, 0, 30, 0.12), transparent 34%) !important;
+}
+
+.brand-internal-hero > .absolute + .absolute {
+  background:
+    linear-gradient(90deg, rgba(2, 8, 20, 0.95) 0%, rgba(6, 26, 58, 0.82) 38%, rgba(2, 8, 20, 0.26) 66%, rgba(2, 8, 20, 0.04) 100%) !important;
+}
+
+@media (max-width: 767px) {
+  .home-brand-hero {
+    min-height: min(900px, calc(100svh - 44px)) !important;
+  }
+
+  .home-brand-hero > .relative.mx-auto,
+  .home-brand-hero .max-w-3xl {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .home-brand-hero .brand-hero-image {
+    object-position: 80% center !important;
+  }
+
+  .home-brand-hero > .relative.mx-auto {
+    padding-bottom: clamp(10rem, 42vw, 17rem) !important;
+  }
+
+  .home-brand-hero h1 {
+    max-width: 100% !important;
+    font-size: clamp(2.28rem, 10.8vw, 3.15rem) !important;
+    line-height: 1.02 !important;
+  }
+
+  .home-brand-hero p {
+    max-width: 100% !important;
+    font-size: clamp(0.98rem, 4.1vw, 1.08rem) !important;
+    line-height: 1.6 !important;
+  }
+
+  .home-brand-hero .mt-7.grid,
+  .home-brand-hero .mt-8.grid {
+    max-width: 100% !important;
+  }
+
+  .home-brand-hero .mt-7.grid a {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding-right: 1rem !important;
+    padding-left: 1rem !important;
+  }
+
+  .home-hero-readability-overlay {
+    background:
+      linear-gradient(180deg, rgba(2, 8, 20, 0.97) 0%, rgba(2, 8, 20, 0.9) 43%, rgba(2, 8, 20, 0.5) 60%, rgba(2, 8, 20, 0.14) 78%, rgba(2, 8, 20, 0.38) 100%) !important;
+  }
+
+  .home-hero-glow-overlay {
+    opacity: 0.42 !important;
+  }
+
+  .brand-internal-hero {
+    min-height: clamp(560px, 78svh, 780px) !important;
+  }
+
+  .brand-internal-hero .brand-internal-hero-image {
+    object-position: 80% center !important;
+  }
+
+  .brand-internal-hero > div.mx-auto {
+    padding-bottom: clamp(8.5rem, 38vw, 15rem) !important;
+  }
+
+  .brand-internal-hero h1 {
+    max-width: 100% !important;
+    font-size: clamp(2.2rem, 10.4vw, 3rem) !important;
+    line-height: 1.03 !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  .brand-internal-hero > .absolute {
+    opacity: 0.36 !important;
+  }
+
+  .brand-internal-hero > .absolute + .absolute {
+    background:
+      linear-gradient(180deg, rgba(2, 8, 20, 0.97) 0%, rgba(2, 8, 20, 0.88) 46%, rgba(2, 8, 20, 0.48) 62%, rgba(2, 8, 20, 0.14) 78%, rgba(2, 8, 20, 0.36) 100%) !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .brand-internal-hero {
+    min-height: clamp(460px, 52vh, 640px) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  main,
+  .home-brand-hero,
+  .brand-internal-hero {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  .home-brand-hero > .relative.mx-auto,
+  .brand-internal-hero > div.mx-auto {
+    width: 100% !important;
+    max-width: 100vw !important;
+    min-width: 0 !important;
+    padding-right: 1rem !important;
+    padding-left: 1rem !important;
+  }
+
+  .home-brand-hero .max-w-3xl,
+  .brand-internal-hero .max-w-4xl,
+  .brand-internal-hero .max-w-3xl {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .home-brand-hero h1 {
+    width: min(21rem, calc(100vw - 2rem)) !important;
+    max-width: min(21rem, calc(100vw - 2rem)) !important;
+    font-size: clamp(2.05rem, 9.2vw, 2.62rem) !important;
+    line-height: 1.03 !important;
+  }
+
+  .brand-internal-hero h1 {
+    width: min(22rem, calc(100vw - 2rem)) !important;
+    max-width: min(22rem, calc(100vw - 2rem)) !important;
+    font-size: clamp(2.18rem, 9.5vw, 2.78rem) !important;
+    line-height: 1.04 !important;
+  }
+
+  .home-brand-hero p,
+  .brand-internal-hero p {
+    width: min(19.5rem, calc(100vw - 2rem)) !important;
+    max-width: min(19.5rem, calc(100vw - 2rem)) !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  .brand-internal-hero .mt-8.grid,
+  .brand-internal-hero .mt-10.grid,
+  .home-brand-hero .mt-7.grid,
+  .home-brand-hero .mt-8.grid {
+    width: calc(100vw - 2rem) !important;
+    max-width: calc(100vw - 2rem) !important;
+  }
+
+  .home-brand-hero .mt-7.grid a {
+    width: calc(100vw - 2rem) !important;
+    max-width: calc(100vw - 2rem) !important;
+    font-size: clamp(0.92rem, 4vw, 1rem) !important;
+  }
+}
+
+.site-header nav a {
+  white-space: nowrap !important;
+  text-wrap: nowrap !important;
 }

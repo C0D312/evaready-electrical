@@ -146,6 +146,11 @@ export default function SwitchboardUpgradesSydneyPage() {
         name: "ABN",
         value: business.abn,
       },
+      {
+        "@type": "PropertyValue",
+        name: "Open Cabler Registration",
+        value: business.openCablerRegistration,
+      },
     ],
   };
   const faqSchema = {

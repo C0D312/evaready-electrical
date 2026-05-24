@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
+import { FooterMobileAccordions } from "@/components/footer-mobile-accordions";
+import { MobileStickyCta } from "@/components/mobile-sticky-cta";
 import { MobilePrimaryNav } from "@/components/mobile-primary-nav";
 import { QuoteFormModal } from "@/components/quote-form-modal";
 import { RouteMarqueeStrip } from "@/components/route-marquee-strip";
@@ -10,6 +12,8 @@ import { assetPath, business } from "@/data/site";
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Electrical Services" },
+  { href: "/services/hot-water-system-electrician-sydney", label: "Hot Water" },
+  { href: "/services/split-system-air-conditioning-sydney", label: "Aircon" },
   { href: "/emergency-electrician-sydney", label: "Emergency Electrician" },
   { href: "/level-2-electrician-sydney", label: "Level 2 Electrician" },
   { href: "/service-areas", label: "Service Areas" },
@@ -41,6 +45,7 @@ const footerColumns = [
       { href: "/services/switchboard-upgrades-sydney", label: "Switchboard upgrades" },
       { href: "/services/commercial-electrician-sydney", label: "Commercial electrician" },
       { href: "/services/hot-water-system-electrician-sydney", label: "Hot water electrical" },
+      { href: "/services/split-system-air-conditioning-sydney", label: "Split system air conditioning" },
       { href: "/services/cctv-security-camera-installation-sydney", label: "CCTV and security" },
     ],
   },
@@ -64,6 +69,20 @@ const footerColumns = [
   },
 ];
 
+const footerColumnsOrdered = [
+  footerColumns[0],
+  footerColumns[1],
+  footerColumns[2],
+  footerColumns[4],
+  footerColumns[3],
+];
+
+const legalLinks = [
+  { href: "/privacy-policy", label: "Privacy Policy" },
+  { href: "/terms", label: "Terms" },
+  { href: "/sitemap.xml", label: "Sitemap" },
+];
+
 export function SiteHeader() {
   return (
     <>
@@ -81,12 +100,12 @@ export function SiteHeader() {
                 width={1426}
                 height={503}
                 priority
-                sizes="(max-width: 767px) 180px, (max-width: 1180px) 264px, 300px"
+                sizes="(max-width: 767px) 320px, (max-width: 1180px) 280px, 368px"
                 className="logo-img site-logo-image"
               />
             </Link>
 
-            <nav className="hidden items-center gap-7 text-sm font-bold text-slate-700 lg:flex">
+            <nav className="hidden items-center gap-4 text-sm font-bold text-slate-700 xl:gap-5 lg:flex">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
@@ -143,107 +162,144 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer className="bg-[#020617] py-12 text-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 text-sm text-slate-400 sm:px-6 lg:grid-cols-3 lg:px-8 xl:grid-cols-[1.2fr_repeat(5,1fr)_1.05fr]">
-        <div>
-          <div className="footer-logo-shell w-fit overflow-visible">
-            <Image
-              src={assetPath("/images/evareadyelectrical-logo.png")}
-              alt="Evaready Electrical 24/7"
-              width={1426}
-              height={503}
-              sizes="(max-width: 640px) 210px, 240px"
-              className="logo-img footer-logo-img"
-            />
-          </div>
-          <p className="mt-5 max-w-md leading-7">
-            Electrical support for urgent faults, homes, businesses and Level 2
-            work across Sydney and surrounding regions, including Illawarra,
-            the Blue Mountains, Northern Beaches and Central Coast South.
-          </p>
-          <div className="mt-5 space-y-2">
-            <p>Electrical Licence: {business.licence}</p>
-            <p>ABN: {business.abn}</p>
-            <p>
+    <footer
+      id="site-footer"
+      data-site-footer
+      className="site-footer bg-[#020617] px-4 pb-[calc(6rem_+_env(safe-area-inset-bottom))] pt-8 text-white sm:px-6 md:pb-8 md:pt-10 lg:px-8"
+    >
+      <div className="footer-inner mx-auto max-w-7xl">
+        <div className="grid gap-7 md:grid-cols-[minmax(17rem,1.15fr)_minmax(0,2fr)] lg:grid-cols-[minmax(18rem,1.05fr)_minmax(0,2.55fr)] lg:gap-8">
+          <div className="footer-brand-block">
+            <div className="footer-logo-shell w-fit overflow-visible">
+              <Image
+                src={assetPath("/images/evareadyelectrical-logo.png")}
+                alt="Evaready Electrical 24/7"
+                width={1426}
+                height={503}
+                sizes="(max-width: 640px) 190px, 232px"
+                className="logo-img footer-logo-img"
+              />
+            </div>
+
+            <p className="mt-3 max-w-sm text-sm leading-6 text-slate-300 md:mt-4">
+              Electrical support across Sydney and surrounding regions for
+              urgent faults, homes, businesses, Level 2 work, CCTV and data.
+            </p>
+
+            <dl className="mt-4 grid gap-1.5 text-xs leading-5 text-slate-300 sm:grid-cols-2 md:grid-cols-1">
+              <div>
+                <dt className="font-black uppercase tracking-[0.12em] text-cyan-200">
+                  Electrical Licence
+                </dt>
+                <dd>{business.licence}</dd>
+              </div>
+              <div>
+                <dt className="font-black uppercase tracking-[0.12em] text-cyan-200">
+                  ABN
+                </dt>
+                <dd>{business.abn}</dd>
+              </div>
+              <div>
+                <dt className="font-black uppercase tracking-[0.12em] text-cyan-200">
+                  Open Cabler Registration
+                </dt>
+                <dd>{business.openCablerRegistration}</dd>
+              </div>
+              <div>
+                <dt className="font-black uppercase tracking-[0.12em] text-cyan-200">
+                  ARCtick Refrigerant Handling Licence
+                </dt>
+                <dd>
+                  {business.arctickLicence} — {business.arctickScope}
+                </dd>
+              </div>
+            </dl>
+
+            <div className="mt-4 grid gap-2 text-sm text-slate-200">
               <a
                 href={business.phoneHref}
-                className="font-bold text-white underline-offset-4 hover:underline"
+                className="footer-link inline-flex w-fit items-center gap-2 font-black text-white"
               >
-                {business.phoneDisplay}
+                <Phone className="h-4 w-4 shrink-0 text-red-300" />
+                Call {business.phoneDisplay}
               </a>
-            </p>
-            <p>
               <a
                 href={business.emailHref}
-                className="break-all font-bold text-white underline-offset-4 hover:underline"
+                className="footer-link inline-flex w-fit items-center gap-2 break-all font-bold text-white"
               >
+                <Mail className="h-4 w-4 shrink-0 text-cyan-300" />
                 {business.email}
               </a>
-            </p>
-          </div>
-        </div>
+              <a
+                href={business.bookingUrl}
+                data-quote-trigger="true"
+                aria-haspopup="dialog"
+                className="footer-link inline-flex w-fit items-center gap-2 font-black text-white"
+              >
+                <ArrowRight className="h-4 w-4 shrink-0 text-cyan-300" />
+                {business.quoteCta}
+              </a>
+            </div>
 
-        {footerColumns.map((column) => (
-          <div key={column.title}>
-            <h3 className="font-black text-white">{column.title}</h3>
-            <div className="mt-4 grid gap-3">
-              {column.links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="font-semibold leading-5 text-slate-300 underline-offset-4 hover:text-white hover:underline"
-                >
-                  {link.label}
-                </Link>
-              ))}
+            <div className="footer-action-grid mt-4 grid grid-cols-1 gap-2 min-[390px]:grid-cols-3 md:grid-cols-1 lg:grid-cols-3">
+              <a
+                href={business.phoneHref}
+                className="footer-action footer-action-call"
+              >
+                <Phone className="h-4 w-4 shrink-0" />
+                <span>Call {business.phoneDisplay}</span>
+              </a>
+              <a
+                href={business.bookingUrl}
+                data-quote-trigger="true"
+                aria-haspopup="dialog"
+                className="footer-action footer-action-quote"
+              >
+                <span>{business.quoteCta}</span>
+                <ArrowRight className="h-4 w-4 shrink-0" />
+              </a>
+              <a href={business.emailHref} className="footer-action footer-action-email">
+                <Mail className="h-4 w-4 shrink-0" />
+                <span>Email</span>
+              </a>
             </div>
           </div>
-        ))}
 
-        <div>
-          <h3 className="font-black text-white">Contact</h3>
-          <div className="mt-4 grid gap-3">
-            <a
-              href={business.phoneHref}
-              className="inline-flex items-center gap-2 font-semibold leading-5 text-slate-300 underline-offset-4 hover:text-white hover:underline"
-            >
-              <Phone className="h-4 w-4 shrink-0 text-red-300" />
-              Call {business.phoneDisplay}
-            </a>
-            <a
-              href={business.bookingUrl}
-              data-quote-trigger="true"
-              aria-haspopup="dialog"
-              className="inline-flex items-center gap-2 font-semibold leading-5 text-slate-300 underline-offset-4 hover:text-white hover:underline"
-            >
-              <ArrowRight className="h-4 w-4 shrink-0 text-cyan-300" />
-              {business.quoteCta}
-            </a>
-            <a
-              href={business.emailHref}
-              className="inline-flex items-center gap-2 break-all font-semibold leading-5 text-slate-300 underline-offset-4 hover:text-white hover:underline"
-            >
-              <Mail className="h-4 w-4 shrink-0 text-cyan-300" />
-              Email
-            </a>
+          <nav
+            aria-label="Footer navigation"
+            className="hidden gap-x-5 gap-y-7 md:grid md:grid-cols-2 lg:grid-cols-5"
+          >
+            {footerColumnsOrdered.map((column) => (
+              <div key={column.title}>
+                <h3 className="text-xs font-black uppercase tracking-[0.14em] text-white">
+                  {column.title}
+                </h3>
+                <div className="mt-3 grid gap-2.5">
+                  {column.links.map((link) => (
+                    <Link key={link.href} href={link.href} className="footer-link">
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </nav>
+
+          <FooterMobileAccordions columns={footerColumnsOrdered} />
+        </div>
+
+        <div className="mt-7 flex flex-col gap-3 border-t border-cyan-300/15 pt-4 text-xs text-slate-400 md:mt-8 md:flex-row md:items-center md:justify-between">
+          <p>&copy; 2026 Evaready Electrical. All rights reserved.</p>
+          <div className="flex flex-wrap gap-x-4 gap-y-2">
+            {legalLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="footer-link">
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
     </footer>
-  );
-}
-
-export function MobileStickyCta() {
-  return (
-    <a
-      href={business.phoneHref}
-      aria-label={`Call now ${business.phoneDisplay}`}
-      title={`Call now ${business.phoneDisplay}`}
-      className="floating-call-button"
-    >
-      <Phone />
-      <span className="sr-only">{business.callCta}</span>
-    </a>
   );
 }
 

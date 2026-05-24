@@ -6,11 +6,13 @@ import { createPortal } from "react-dom";
 import {
   ArrowRight,
   Bolt,
+  Droplets,
   Flame,
   Home,
   MapPin,
   Menu,
   Phone,
+  Snowflake,
   Wrench,
   X,
 } from "lucide-react";
@@ -26,6 +28,16 @@ const mobileNavItems = [
     href: "/services",
     label: "Electrical Services",
     icon: Wrench,
+  },
+  {
+    href: "/services/hot-water-system-electrician-sydney",
+    label: "Hot Water",
+    icon: Droplets,
+  },
+  {
+    href: "/services/split-system-air-conditioning-sydney",
+    label: "Air Conditioning",
+    icon: Snowflake,
   },
   {
     href: "/emergency-electrician-sydney",

@@ -99,6 +99,14 @@ const serviceItemsBySlug: Record<string, string[]> = {
     "Load checks",
     "Wiring faults",
   ],
+  "split-system-air-conditioning-sydney": [
+    "Split system circuits",
+    "AC isolators",
+    "Switchboard capacity",
+    "Safety switches",
+    "Outdoor unit power",
+    "ARCtick licence scope",
+  ],
   "cctv-security-camera-installation-sydney": [
     "CCTV wiring",
     "Security cameras",

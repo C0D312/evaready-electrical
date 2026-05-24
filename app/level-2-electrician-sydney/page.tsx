@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
   AlertTriangle,
   ArrowRight,
@@ -27,59 +28,137 @@ export const metadata: Metadata = {
 };
 
 const level2Services = [
-  "ASP Level 2 electrical work",
-  "Consumer mains repairs and upgrades",
-  "Overhead service work",
-  "Underground service work",
-  "Metering and service equipment support",
-  "Defect notice rectification",
-  "CCEW and compliance paperwork where required",
-  "Switchboard upgrades for supply work",
-  "Point of attachment issues",
-  "Service fuse and protection enquiries",
-  "Main switch and service protection upgrades",
-  "Private pole related electrical work",
-  "Temporary builders supply planning",
-  "Tiger tail coordination guidance",
-  "Urgent supply fault investigation",
-  "Disconnect and reconnect planning",
-  "Three-phase upgrade discussions",
-  "EV charger load upgrade checks",
+  {
+    title: "ASP Level 2 electrical work",
+    href: "#quote",
+  },
+  {
+    title: "Consumer mains repairs and upgrades",
+    href: "/services/consumer-mains-sydney",
+  },
+  {
+    title: "Overhead service work",
+    href: "/services/private-power-pole-sydney",
+  },
+  {
+    title: "Underground service work",
+    href: "/services/consumer-mains-sydney",
+  },
+  {
+    title: "Metering and service equipment support",
+    href: "/services/metering-services-sydney",
+  },
+  {
+    title: "Defect notice rectification",
+    href: "/services/defect-notice-repairs-sydney",
+  },
+  {
+    title: "CCEW and compliance paperwork where required",
+    href: "/services/defect-notice-repairs-sydney",
+  },
+  {
+    title: "Switchboard upgrades for supply work",
+    href: "/services/switchboard-upgrades-sydney",
+  },
+  {
+    title: "Point of attachment issues",
+    href: "/services/private-power-pole-sydney",
+  },
+  {
+    title: "Service fuse and protection enquiries",
+    href: "/services/metering-services-sydney",
+  },
+  {
+    title: "Main switch and service protection upgrades",
+    href: "/services/switchboard-upgrades-sydney",
+  },
+  {
+    title: "Private pole related electrical work",
+    href: "/services/private-power-pole-sydney",
+  },
+  {
+    title: "Temporary builders supply planning",
+    href: "/services/new-build-renovation-electrician-sydney",
+  },
+  {
+    title: "Tiger tail coordination guidance",
+    href: "/services/private-power-pole-sydney",
+  },
+  {
+    title: "Urgent supply fault investigation",
+    href: "/emergency-electrician-sydney",
+  },
+  {
+    title: "Disconnect and reconnect planning",
+    href: "#quote",
+  },
+  {
+    title: "Three-phase upgrade discussions",
+    href: "/services/three-phase-power-sydney",
+  },
+  {
+    title: "EV charger load upgrade checks",
+    href: "/services/ev-charger-installation-sydney",
+  },
 ];
 
 const whenYouNeedLevel2 = [
-  "You received an electrical defect notice",
-  "Your consumer mains are old, damaged or undersized",
-  "Your switchboard needs to be upgraded for extra load",
-  "You are renovating, rebuilding or upgrading your property",
-  "Your overhead or underground supply needs work",
-  "You need metering or service-related electrical work",
+  {
+    title: "You received an electrical defect notice",
+    href: "/services/defect-notice-repairs-sydney",
+  },
+  {
+    title: "Your consumer mains are old, damaged or undersized",
+    href: "/services/consumer-mains-sydney",
+  },
+  {
+    title: "Your switchboard needs to be upgraded for extra load",
+    href: "/services/switchboard-upgrades-sydney",
+  },
+  {
+    title: "You are renovating, rebuilding or upgrading your property",
+    href: "/services/new-build-renovation-electrician-sydney",
+  },
+  {
+    title: "Your overhead or underground supply needs work",
+    href: "/services/private-power-pole-sydney",
+  },
+  {
+    title: "You need metering or service-related electrical work",
+    href: "/services/metering-services-sydney",
+  },
 ];
 
 const authorityTopics = [
   {
     title: "Network requirements",
     text: "If a job involves Ausgrid or Endeavour Energy supply requirements, it should be scoped through the correct Level 2 process for that network area.",
+    href: "#quote",
   },
   {
     title: "Defect notices",
     text: "A defect notice may involve consumer mains, point of attachment, private poles, service fuses, metering or switchboard issues that need prompt attention.",
+    href: "/services/defect-notice-repairs-sydney",
   },
   {
     title: "Supply upgrades",
     text: "Renovations, EV chargers, larger appliances and three-phase enquiries can all trigger a need to review the property supply and switchboard capacity.",
+    href: "/services/electrical-load-capacity-checks-sydney",
   },
   {
     title: "Overhead and underground services",
     text: "Service lines, point of attachment issues and underground supply problems need careful inspection, planning and safe isolation where required.",
+    href: "/services/private-power-pole-sydney",
   },
   {
     title: "Paperwork and compliance",
     text: "Some supply-side work may require CCEW documentation, defect evidence, photos, testing details and a clear record of what was rectified.",
+    href: "/services/defect-notice-repairs-sydney",
   },
   {
     title: "Temporary supply and protection",
     text: "Builders supply, tiger tail coordination, service fuse enquiries and private pole issues should be planned early so the site can be kept moving safely.",
+    href: "/services/new-build-renovation-electrician-sydney",
   },
 ];
 
@@ -148,6 +227,11 @@ export default function Level2ElectricianSydneyPage() {
         "@type": "PropertyValue",
         name: "ABN",
         value: business.abn,
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Open Cabler Registration",
+        value: business.openCablerRegistration,
       },
     ],
   };
@@ -309,13 +393,15 @@ export default function Level2ElectricianSydneyPage() {
 
           <div className="grid gap-4 sm:grid-cols-2">
             {level2Services.map((item) => (
-              <div
-                key={item}
-                className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+              <Link
+                key={item.title}
+                href={item.href}
+                className="group flex min-h-20 items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-blue-300 hover:bg-blue-50"
               >
-                <Bolt className="h-5 w-5 text-blue-700" />
-                <span className="font-bold text-slate-800">{item}</span>
-              </div>
+                <Bolt className="h-5 w-5 shrink-0 text-blue-700" />
+                <span className="font-bold text-slate-800">{item.title}</span>
+                <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-blue-700" />
+              </Link>
             ))}
           </div>
         </div>
@@ -344,15 +430,38 @@ export default function Level2ElectricianSydneyPage() {
               mains, defect notices or supply-side equipment, you may need Level
               2 electrical support.
             </p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={business.phoneHref}
+                className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-6 py-4 font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500"
+              >
+                <Phone className="h-5 w-5" />
+                <span className="whitespace-nowrap">{business.callCta}</span>
+              </a>
+              <a
+                href={business.bookingUrl}
+                data-quote-trigger="true"
+                aria-haspopup="dialog"
+                className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
+              >
+                {business.quoteCta}
+                <ArrowRight className="h-5 w-5" />
+              </a>
+            </div>
           </div>
 
           <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-7">
             <div className="grid gap-4">
               {whenYouNeedLevel2.map((item) => (
-                <div key={item} className="flex gap-3">
-                  <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" />
-                  <p className="font-semibold text-slate-800">{item}</p>
-                </div>
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  className="group flex min-h-14 items-center gap-3 rounded-lg border border-slate-200 bg-white p-4 shadow-sm transition hover:border-blue-300 hover:bg-blue-50"
+                >
+                  <AlertTriangle className="h-5 w-5 shrink-0 text-red-600" />
+                  <span className="font-semibold text-slate-800">{item.title}</span>
+                  <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-blue-700" />
+                </Link>
               ))}
             </div>
           </div>
@@ -370,14 +479,18 @@ export default function Level2ElectricianSydneyPage() {
 
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             {authorityTopics.map((item) => (
-              <article
+              <Link
                 key={item.title}
-                className="rounded-lg border border-slate-200 bg-white p-6"
+                href={item.href}
+                className="group rounded-lg border border-slate-200 bg-white p-6 transition hover:border-blue-300 hover:bg-blue-50"
               >
                 <Bolt className="h-7 w-7 text-blue-700" />
-                <h3 className="mt-5 text-2xl font-black">{item.title}</h3>
+                <div className="mt-5 flex items-start gap-3">
+                  <h3 className="text-2xl font-black">{item.title}</h3>
+                  <ArrowRight className="ml-auto mt-2 h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-blue-700" />
+                </div>
                 <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
@@ -391,29 +504,36 @@ export default function Level2ElectricianSydneyPage() {
               title: "For homes",
               text: "Consumer mains, switchboard upgrades, service capacity upgrades and defect repairs for residential properties.",
               icon: Home,
+              href: "/services/residential-electrician-sydney",
             },
             {
               title: "For businesses",
               text: "Service-related electrical work for commercial buildings, shops, warehouses, strata and real estate clients.",
               icon: Building2,
+              href: "/services/commercial-electrician-sydney",
             },
             {
               title: "For defects",
               text: "Defect notice support, safety upgrades and supply-side electrical repairs handled clearly and professionally.",
               icon: FileWarning,
+              href: "/services/defect-notice-repairs-sydney",
             },
           ].map((item) => {
             const Icon = item.icon;
 
             return (
-              <div
+              <Link
                 key={item.title}
-                className="rounded-[2rem] border border-white/10 bg-white/5 p-7"
+                href={item.href}
+                className="group rounded-[2rem] border border-white/10 bg-white/5 p-7 transition hover:border-blue-300/60 hover:bg-white/10"
               >
                 <Icon className="h-8 w-8 text-blue-400" />
-                <h3 className="mt-6 text-2xl font-black">{item.title}</h3>
+                <div className="mt-6 flex items-start gap-3">
+                  <h3 className="text-2xl font-black">{item.title}</h3>
+                  <ArrowRight className="ml-auto mt-2 h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-blue-300" />
+                </div>
                 <p className="mt-3 leading-7 text-slate-300">{item.text}</p>
-              </div>
+              </Link>
             );
           })}
         </div>
@@ -428,6 +548,24 @@ export default function Level2ElectricianSydneyPage() {
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Common Level 2 questions.
             </h2>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+              <a
+                href={business.phoneHref}
+                className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-6 py-4 font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500"
+              >
+                <Phone className="h-5 w-5" />
+                <span className="whitespace-nowrap">{business.callCta}</span>
+              </a>
+              <a
+                href={business.bookingUrl}
+                data-quote-trigger="true"
+                aria-haspopup="dialog"
+                className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
+              >
+                {business.quoteCta}
+                <ArrowRight className="h-5 w-5" />
+              </a>
+            </div>
           </div>
 
           <div className="grid gap-4">

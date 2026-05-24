@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -16,7 +17,7 @@ import {
   getServiceLandingPage,
   serviceLandingPages,
 } from "@/data/service-pages";
-import { business } from "@/data/site";
+import { assetPath, business } from "@/data/site";
 
 export const dynamicParams = false;
 
@@ -61,6 +62,7 @@ const finalCtaEyebrows: Record<string, string> = {
   "defect-notice-repairs-sydney": "Need help with a defect notice?",
   "private-power-pole-sydney": "Need private pole electrical support?",
   "hot-water-system-electrician-sydney": "Need help with an electric hot water fault?",
+  "split-system-air-conditioning-sydney": "Need split system air conditioning support?",
   "cctv-security-camera-installation-sydney": "Need CCTV or security camera wiring?",
   "data-cabling-electrician-sydney": "Need data cabling or internet points?",
   "ceiling-fan-installation-sydney": "Need ceiling fan installation?",
@@ -77,6 +79,23 @@ const finalCtaEyebrows: Record<string, string> = {
   "intercom-access-control-electrician-sydney": "Need intercom or access control wiring?",
   "storm-damage-electrician-sydney": "Need storm-damaged electrical work checked?",
   "electrical-load-capacity-checks-sydney": "Need load or capacity checked?",
+};
+
+const arctickCredentialCopy: Record<
+  string,
+  {
+    heading: string;
+    text: string;
+  }
+> = {
+  "hot-water-system-electrician-sydney": {
+    heading: "Hot Water Heat Pump Electrical Support",
+    text: "Evaready Electrical can assist with the electrical side of hot water systems and, where the job involves an eligible hot water heat pump under the ARCtick Split Systems (1) licence scope, Refrigerant Handling Licence L157323 may apply.",
+  },
+  "split-system-air-conditioning-sydney": {
+    heading: "ARCtick Licensed",
+    text: "Refrigerant Handling Licence L157323 — Split Systems (1). For eligible split systems, hot water heat pumps and swimming pool heat pumps.",
+  },
 };
 
 function finalCtaEyebrow(service: { slug: string; title: string }) {
@@ -133,6 +152,34 @@ export default async function ServiceLandingPage({
     notFound();
   }
 
+  const arctickCredential = arctickCredentialCopy[service.slug];
+  const providerIdentifiers = [
+    {
+      "@type": "PropertyValue",
+      name: "NSW Electrical Licence",
+      value: business.licence,
+    },
+    {
+      "@type": "PropertyValue",
+      name: "ABN",
+      value: business.abn,
+    },
+    {
+      "@type": "PropertyValue",
+      name: "Open Cabler Registration",
+      value: business.openCablerRegistration,
+    },
+    ...(arctickCredential
+      ? [
+          {
+            "@type": "PropertyValue",
+            name: "ARCtick Refrigerant Handling Licence",
+            value: `${business.arctickLicence} — ${business.arctickScope}`,
+          },
+        ]
+      : []),
+  ];
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -148,18 +195,7 @@ export default async function ServiceLandingPage({
       email: business.email,
       url: business.siteUrl,
       priceRange: "$$",
-      identifier: [
-        {
-          "@type": "PropertyValue",
-          name: "NSW Electrical Licence",
-          value: business.licence,
-        },
-        {
-          "@type": "PropertyValue",
-          name: "ABN",
-          value: business.abn,
-        },
-      ],
+      identifier: providerIdentifiers,
     },
   };
 
@@ -195,6 +231,16 @@ export default async function ServiceLandingPage({
     (link, index, links) =>
       links.findIndex((candidate) => candidate.href === link.href) === index,
   );
+  const bookingTrustItems = [
+    `Electrical Licence ${business.licence}`,
+    `ABN ${business.abn}`,
+    "Booking Details & Photos",
+    ...(arctickCredential
+      ? [
+          `ARCtick Refrigerant Handling Licence ${business.arctickLicence} — ${business.arctickScope}`,
+        ]
+      : []),
+  ];
 
   return (
     <main className="min-h-screen bg-white text-slate-950">
@@ -274,6 +320,33 @@ export default async function ServiceLandingPage({
       </section>
 
       <TrustSymbolBand className="border-b border-slate-200" />
+
+      {arctickCredential ? (
+        <section className="border-b border-cyan-300/15 bg-slate-950 py-8 text-white">
+          <div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 sm:px-6 md:flex-row md:items-center lg:px-8">
+            <div className="flex w-fit shrink-0 items-center justify-center rounded-lg border border-cyan-300/25 bg-white p-3 shadow-xl shadow-cyan-500/10">
+              <Image
+                src={assetPath("/images/arctick-licensed.svg")}
+                alt={`ARCtick Refrigerant Handling Licence ${business.arctickLicence}`}
+                width={160}
+                height={59}
+                className="h-auto w-36"
+              />
+            </div>
+            <div className="max-w-4xl">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">
+                ARCtick Refrigerant Handling Licence
+              </p>
+              <h2 className="mt-2 text-2xl font-black leading-tight sm:text-3xl">
+                {arctickCredential.heading}
+              </h2>
+              <p className="mt-3 text-sm font-semibold leading-6 text-slate-300 sm:text-base sm:leading-7">
+                {arctickCredential.text}
+              </p>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="bg-slate-50 py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
@@ -371,6 +444,17 @@ export default async function ServiceLandingPage({
               clear description of what you need. For urgent hazards, call
               directly.
             </p>
+            <div className="mt-5 grid gap-2 text-xs font-black uppercase tracking-[0.08em] text-slate-700 sm:grid-cols-2">
+              {bookingTrustItems.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-3"
+                >
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-blue-700" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a
                 href={business.phoneHref}
