@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo, useRef } from "react";
+import { useMemo } from "react";
 import { usePathname } from "next/navigation";
-import { ChevronLeft, ChevronRight, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 
 type MarqueeConfig = {
   ariaLabel: string;
@@ -524,7 +524,6 @@ function configForPath(pathname: string): MarqueeConfig {
 export function RouteMarqueeStrip() {
   const pathname = usePathname();
   const config = useMemo(() => configForPath(pathname), [pathname]);
-  const stripRef = useRef<HTMLDivElement | null>(null);
   const repeatGroups = ["repeat-1", "repeat-2", "repeat-3", "repeat-4", "repeat-5", "repeat-6", "repeat-7"];
   const renderChips = (group: string) =>
     config.items.map((item) => (
@@ -534,30 +533,13 @@ export function RouteMarqueeStrip() {
       </span>
     ));
 
-  const scrollStrip = (direction: -1 | 1) => {
-    stripRef.current?.scrollBy({
-      left: direction * 180,
-      behavior: "smooth",
-    });
-  };
-
   return (
     <section
       className="emergency-issue-marquee"
       aria-label={config.ariaLabel}
       data-nosnippet
     >
-      <button
-        type="button"
-        className="emergency-issue-scroll-button emergency-issue-scroll-button--left"
-        aria-label="Scroll service highlights left"
-        aria-controls="route-service-highlights"
-        onClick={() => scrollStrip(-1)}
-      >
-        <ChevronLeft className="h-4 w-4" />
-      </button>
       <div
-        ref={stripRef}
         id="route-service-highlights"
         className="emergency-issue-marquee__viewport"
       >
@@ -572,15 +554,6 @@ export function RouteMarqueeStrip() {
           ))}
         </div>
       </div>
-      <button
-        type="button"
-        className="emergency-issue-scroll-button emergency-issue-scroll-button--right"
-        aria-label="Scroll service highlights right"
-        aria-controls="route-service-highlights"
-        onClick={() => scrollStrip(1)}
-      >
-        <ChevronRight className="h-4 w-4" />
-      </button>
     </section>
   );
 }

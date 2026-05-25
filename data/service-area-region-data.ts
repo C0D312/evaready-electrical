@@ -2696,12 +2696,17 @@ export const generatedCoverageRegions = [
       {
         "name": "Hawkesbury",
         "slug": "hawkesbury",
-        "description": "Electrical service for Hawkesbury, including Agnes Banks, Blaxlands Ridge, Bligh Park, Bowen Mountain and nearby suburbs in Hills, Hawkesbury & Hornsby.",
+        "description": "Electrical service for Hawkesbury, including Agnes Banks, Bilpin, Blaxlands Ridge, Bligh Park and nearby suburbs in Hills, Hawkesbury & Hornsby.",
         "suburbs": [
           {
             "name": "Agnes Banks",
             "postcode": "2753",
             "slug": "agnes-banks"
+          },
+          {
+            "name": "Bilpin",
+            "postcode": "2758",
+            "slug": "bilpin"
           },
           {
             "name": "Blaxlands Ridge",
@@ -3841,13 +3846,13 @@ export const generatedCoverageRegions = [
   {
     "name": "Blue Mountains",
     "slug": "blue-mountains",
-    "description": "Selected electrical service for Lower and Mid Blue Mountains suburbs including Lapstone, Glenbrook, Blaxland and Springwood.",
+    "description": "Selected electrical service for Lower and Mid Blue Mountains suburbs from Lapstone, Glenbrook and Blaxland through to Springwood, Wentworth Falls, Leura and Katoomba.",
     "travelNote": "Blue Mountains work may suit larger jobs, urgent faults or scheduled service days.",
     "areas": [
       {
         "name": "Blue Mountains",
         "slug": "blue-mountains",
-        "description": "Electrical service for Blue Mountains, including Berambing, Blaxland, Bullaburra, Faulconbridge and nearby suburbs in Blue Mountains.",
+        "description": "Electrical service for Blue Mountains, including Berambing, Blaxland, Bullaburra, Faulconbridge, Katoomba and nearby suburbs in Blue Mountains.",
         "suburbs": [
           {
             "name": "Berambing",
@@ -3883,6 +3888,11 @@ export const generatedCoverageRegions = [
             "name": "Hazelbrook",
             "postcode": "2779",
             "slug": "hazelbrook"
+          },
+          {
+            "name": "Katoomba",
+            "postcode": "2780",
+            "slug": "katoomba"
           },
           {
             "name": "Lapstone",
@@ -4566,7 +4576,7 @@ export const generatedCoverageRegions = [
       {
         "name": "Central Coast",
         "slug": "central-coast",
-        "description": "Electrical service for Central Coast, including Alison, Bar Point, Calga, Central Mangrove and nearby suburbs in Central Coast South.",
+        "description": "Electrical service for Central Coast, including Alison, Bar Point, Blackwall, Calga, Central Mangrove and nearby suburbs in Central Coast South.",
         "suburbs": [
           {
             "name": "Alison",
@@ -4577,6 +4587,11 @@ export const generatedCoverageRegions = [
             "name": "Bar Point",
             "postcode": "2083",
             "slug": "bar-point"
+          },
+          {
+            "name": "Blackwall",
+            "postcode": "2256",
+            "slug": "blackwall"
           },
           {
             "name": "Calga",

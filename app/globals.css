@@ -3525,25 +3525,21 @@ a[data-quote-trigger="true"].site-header-quote {
 
   .emergency-issue-marquee {
     --strip-rail-height: 2px;
-    display: grid !important;
-    grid-template-columns: 2.75rem minmax(0, 1fr) 2.75rem;
-    align-items: stretch;
+    display: block !important;
     overflow: hidden !important;
     isolation: isolate;
     min-height: calc(2.75rem + (var(--strip-rail-height) * 2)) !important;
   }
 
   .emergency-issue-marquee__viewport {
-    grid-column: 2;
+    width: 100%;
     min-width: 0;
-    overflow-x: auto !important;
+    overflow-x: hidden !important;
     overflow-y: hidden !important;
     overscroll-behavior-x: contain;
-    scroll-behavior: smooth;
-    touch-action: pan-x;
+    touch-action: auto;
     min-height: 2.75rem !important;
-    scrollbar-color: rgba(0, 200, 255, 0.95) rgba(255, 255, 255, 0.12);
-    scrollbar-width: thin;
+    scrollbar-width: none;
   }
 
   .emergency-issue-marquee::before,
@@ -3552,7 +3548,8 @@ a[data-quote-trigger="true"].site-header-quote {
   }
 
   .emergency-issue-marquee__viewport::-webkit-scrollbar {
-    height: 2px;
+    display: none;
+    height: 0;
   }
 
   .emergency-issue-marquee__viewport::-webkit-scrollbar-track {
@@ -3566,8 +3563,8 @@ a[data-quote-trigger="true"].site-header-quote {
 
   .emergency-issue-marquee__track {
     width: max-content !important;
-    animation: none !important;
-    transform: none !important;
+    animation: emergencyMarquee 22s linear infinite !important;
+    will-change: transform;
   }
 
   .emergency-issue-marquee__group {
@@ -3576,42 +3573,7 @@ a[data-quote-trigger="true"].site-header-quote {
   }
 
   .emergency-issue-scroll-button {
-    position: relative;
-    top: auto;
-    z-index: 20;
-    display: inline-flex !important;
-    width: 2.75rem;
-    height: 2.75rem;
-    align-items: center;
-    justify-content: center;
-    border: 0;
-    background:
-      radial-gradient(circle at 50% 50%, rgba(0, 200, 255, 0.2), transparent 62%),
-      linear-gradient(180deg, rgba(2, 8, 20, 0.98), rgba(6, 26, 58, 0.94));
-    color: #ffffff;
-    cursor: pointer;
-    box-shadow:
-      0 0 0 1px rgba(0, 200, 255, 0.24) inset,
-      0 0 18px rgba(0, 200, 255, 0.18);
-  }
-
-  .emergency-issue-scroll-button svg {
-    width: 1.15rem !important;
-    height: 1.15rem !important;
-    stroke-width: 3;
-  }
-
-  .emergency-issue-scroll-button--left {
-    border-right: 1px solid rgba(0, 200, 255, 0.2);
-  }
-
-  .emergency-issue-scroll-button--right {
-    border-left: 1px solid rgba(0, 200, 255, 0.2);
-  }
-
-  .emergency-issue-scroll-button:focus-visible {
-    outline: 2px solid rgba(0, 200, 255, 0.9);
-    outline-offset: -4px;
+    display: none !important;
   }
 }
 
@@ -3881,23 +3843,27 @@ main section:not(.quote-request-panel) :is(a, button).bg-blue-700 svg {
   }
 }
 
-/* Mobile hero van framing: lift the shared van artwork on tall phone heroes so
-   the vehicle is visible instead of sitting below the first screen. */
+/* Mobile hero van framing: keep the shared van artwork visible without
+   enlarging it so much that the vehicle fills the whole phone viewport. */
 @media (max-width: 767px) {
   .home-brand-hero .brand-hero-image,
   .brand-internal-hero .brand-internal-hero-image {
-    height: 132% !important;
-    top: -24% !important;
-    object-position: 78% center !important;
+    right: auto !important;
+    left: 7% !important;
+    width: 86% !important;
+    height: 100% !important;
+    top: 0 !important;
+    object-fit: contain !important;
+    object-position: center bottom !important;
   }
 
   .brand-internal-hero,
   main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) {
     background:
       linear-gradient(110deg, rgba(2, 8, 20, 0.92), rgba(6, 26, 58, 0.72) 46%, rgba(2, 8, 20, 0.34)),
-      var(--ee-van-image) 82% -18rem / auto clamp(860px, 132svh, 1040px) no-repeat !important;
-    background-position: 0 0, 82% -18rem !important;
-    background-size: auto, auto 1040px !important;
+      var(--ee-van-image) center bottom / 86% auto no-repeat !important;
+    background-position: 0 0, center bottom !important;
+    background-size: auto, 86% auto !important;
   }
 
   .brand-internal-hero::before {
@@ -3907,8 +3873,8 @@ main section:not(.quote-request-panel) :is(a, button).bg-blue-700 svg {
     right: 0;
     left: 0;
     z-index: 0;
-    height: min(980px, 100%);
-    background: var(--ee-van-image) 82% -18rem / auto 1040px no-repeat;
+    height: 100%;
+    background: var(--ee-van-image) center bottom / 86% auto no-repeat;
     pointer-events: none;
   }
 
