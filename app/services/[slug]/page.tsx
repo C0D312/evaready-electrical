@@ -291,8 +291,14 @@ export default async function ServiceLandingPage({
               </p>
               <p className="mt-2 leading-7 text-slate-100">
                 If there is heat, smoke, sparking, a burning smell, electric
-                shock risk or loss of power, call before touching the affected
-                area.
+                shock risk or loss of power,{" "}
+                <a
+                  href={business.phoneHref}
+                  className="font-black text-white underline decoration-cyan-300/70 underline-offset-4 transition hover:text-cyan-100"
+                >
+                  call {business.phoneDisplay}
+                </a>{" "}
+                before touching the affected area.
               </p>
             </div>
           </aside>

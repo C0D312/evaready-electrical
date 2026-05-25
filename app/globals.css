@@ -469,7 +469,7 @@ body.quote-modal-open .floating-call-button {
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translateX(-12.5%);
   }
 }
 
@@ -1853,7 +1853,7 @@ body.quote-modal-open .quote-modal-iframe {
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translateX(-12.5%);
   }
 }
 

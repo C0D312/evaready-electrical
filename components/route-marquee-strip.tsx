@@ -102,9 +102,12 @@ const serviceItemsBySlug: Record<string, string[]> = {
   "split-system-air-conditioning-sydney": [
     "Split system circuits",
     "AC isolators",
-    "Switchboard capacity",
-    "Safety switches",
+    "Dedicated aircon circuits",
+    "Switchboard load checks",
+    "Safety switch protection",
     "Outdoor unit power",
+    "Heat pump electrical support",
+    "Clear quote steps",
     "Electrical supply planning",
   ],
   "cctv-security-camera-installation-sydney": [
@@ -522,6 +525,7 @@ export function RouteMarqueeStrip() {
   const pathname = usePathname();
   const config = useMemo(() => configForPath(pathname), [pathname]);
   const stripRef = useRef<HTMLDivElement | null>(null);
+  const repeatGroups = ["repeat-1", "repeat-2", "repeat-3", "repeat-4", "repeat-5", "repeat-6", "repeat-7"];
   const renderChips = (group: string) =>
     config.items.map((item) => (
       <span key={`${group}-${item}`} className="emergency-issue-chip">
@@ -561,9 +565,11 @@ export function RouteMarqueeStrip() {
           <div className="emergency-issue-marquee__group">
             {renderChips("primary")}
           </div>
-          <div className="emergency-issue-marquee__group" aria-hidden="true">
-            {renderChips("repeat")}
-          </div>
+          {repeatGroups.map((group) => (
+            <div key={group} className="emergency-issue-marquee__group" aria-hidden="true">
+              {renderChips(group)}
+            </div>
+          ))}
         </div>
       </div>
       <button
