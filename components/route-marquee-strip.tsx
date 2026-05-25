@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { Zap } from "lucide-react";
+import { ChevronLeft, ChevronRight, Zap } from "lucide-react";
 
 type MarqueeConfig = {
   ariaLabel: string;
@@ -105,7 +105,7 @@ const serviceItemsBySlug: Record<string, string[]> = {
     "Switchboard capacity",
     "Safety switches",
     "Outdoor unit power",
-    "ARCtick licence scope",
+    "Electrical supply planning",
   ],
   "cctv-security-camera-installation-sydney": [
     "CCTV wiring",
@@ -521,19 +521,60 @@ function configForPath(pathname: string): MarqueeConfig {
 export function RouteMarqueeStrip() {
   const pathname = usePathname();
   const config = useMemo(() => configForPath(pathname), [pathname]);
+  const stripRef = useRef<HTMLDivElement | null>(null);
+  const renderChips = (group: string) =>
+    config.items.map((item) => (
+      <span key={`${group}-${item}`} className="emergency-issue-chip">
+        <Zap className="h-4 w-4 shrink-0" />
+        {item}
+      </span>
+    ));
+
+  const scrollStrip = (direction: -1 | 1) => {
+    stripRef.current?.scrollBy({
+      left: direction * 180,
+      behavior: "smooth",
+    });
+  };
 
   return (
-    <section className="emergency-issue-marquee" aria-hidden="true" data-nosnippet>
-      <div className="emergency-issue-marquee__track">
-        <div className="emergency-issue-marquee__group">
-          {config.items.map((item) => (
-            <span key={item} className="emergency-issue-chip">
-              <Zap className="h-4 w-4 shrink-0" />
-              {item}
-            </span>
-          ))}
+    <section
+      className="emergency-issue-marquee"
+      aria-label={config.ariaLabel}
+      data-nosnippet
+    >
+      <button
+        type="button"
+        className="emergency-issue-scroll-button emergency-issue-scroll-button--left"
+        aria-label="Scroll service highlights left"
+        aria-controls="route-service-highlights"
+        onClick={() => scrollStrip(-1)}
+      >
+        <ChevronLeft className="h-4 w-4" />
+      </button>
+      <div
+        ref={stripRef}
+        id="route-service-highlights"
+        className="emergency-issue-marquee__viewport"
+      >
+        <div className="emergency-issue-marquee__track">
+          <div className="emergency-issue-marquee__group">
+            {renderChips("primary")}
+          </div>
+          <div className="emergency-issue-marquee__group" aria-hidden="true">
+            {renderChips("repeat")}
+          </div>
         </div>
       </div>
+      <button
+        type="button"
+        className="emergency-issue-scroll-button emergency-issue-scroll-button--right"
+        aria-label="Scroll service highlights right"
+        aria-controls="route-service-highlights"
+        onClick={() => scrollStrip(1)}
+      >
+        <ChevronRight className="h-4 w-4" />
+      </button>
     </section>
   );
 }

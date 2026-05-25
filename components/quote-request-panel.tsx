@@ -115,7 +115,7 @@ export function QuoteRequestPanel({
             </a>
           </div>
 
-          <div className="mt-5 hidden rounded-lg border border-cyan-300/20 bg-white/10 p-4 sm:mt-6 sm:block">
+          <div className="quote-request-actions mt-5 hidden rounded-lg border border-cyan-300/20 bg-white/10 p-4 sm:mt-6 sm:block">
             <p className="text-sm font-black text-white">
               Secure booking form
             </p>

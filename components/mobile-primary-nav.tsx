@@ -25,6 +25,16 @@ const mobileNavItems = [
     icon: Home,
   },
   {
+    href: "/emergency-electrician-sydney",
+    label: "Emergency Electrician",
+    icon: Flame,
+  },
+  {
+    href: "/level-2-electrician-sydney",
+    label: "Level 2 Electrician",
+    icon: Bolt,
+  },
+  {
     href: "/services",
     label: "Electrical Services",
     icon: Wrench,
@@ -36,18 +46,8 @@ const mobileNavItems = [
   },
   {
     href: "/services/split-system-air-conditioning-sydney",
-    label: "Air Conditioning",
+    label: "Aircon",
     icon: Snowflake,
-  },
-  {
-    href: "/emergency-electrician-sydney",
-    label: "Emergency Electrician",
-    icon: Flame,
-  },
-  {
-    href: "/level-2-electrician-sydney",
-    label: "Level 2 Electrician",
-    icon: Bolt,
   },
   {
     href: "/service-areas",

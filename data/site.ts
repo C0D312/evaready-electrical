@@ -23,8 +23,6 @@ export const business = {
   licence: "398937C",
   abn: "44 650 697 797",
   openCablerRegistration: "46691",
-  arctickLicence: "L157323",
-  arctickScope: "Split Systems (1)",
   serviceArea: "Sydney & Surrounding Regions",
   siteUrl: "https://evareadyelectrical.com.au",
   bookingUrl:
@@ -112,7 +110,7 @@ export const services = [
     title: "Hot Water System Electrical",
     slug: "hot-water-system-electrician-sydney",
     description:
-      "Electrical repairs, circuits, isolators and fault checks for electric hot water systems and eligible heat pumps under licence scope.",
+      "Electrical repairs, circuits, isolators and fault checks for electric hot water systems and heat pump electrical supplies.",
     icon: Flame,
     intent: "Major Work",
   },
@@ -120,7 +118,7 @@ export const services = [
     title: "Split System Air Conditioning",
     slug: "split-system-air-conditioning-sydney",
     description:
-      "Split system air-conditioning electrical support, isolators, dedicated circuits and eligible refrigerant handling under licence scope.",
+      "Split system air-conditioning electrical support, isolators, dedicated circuits and switchboard capacity checks.",
     icon: Bolt,
     intent: "Climate",
   },
@@ -321,7 +319,6 @@ export const trustPoints = [
   "Licensed electrician - 398937C",
   "ABN 44 650 697 797",
   "Open Cabler Registration 46691",
-  "ARCtick Refrigerant Handling Licence L157323 — Split Systems (1)",
   "Residential, commercial, emergency and Level 2 electrical work",
   "Open 24/7 for urgent calls",
   "Clear communication before work starts",

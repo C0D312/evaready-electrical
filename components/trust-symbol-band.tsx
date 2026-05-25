@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
   BadgeCheck,
   CheckCircle2,
@@ -8,25 +7,12 @@ import {
   type LucideIcon,
   Zap,
 } from "lucide-react";
-import { assetPath, business } from "@/data/site";
+import { business } from "@/data/site";
 
 type TrustSymbol = {
   icon?: LucideIcon;
-  image?: {
-    alt: string;
-    src: string;
-  };
   text: string;
   title: string;
-};
-
-const arctickTrustSymbol: TrustSymbol = {
-  image: {
-    alt: `ARCtick Refrigerant Handling Licence ${business.arctickLicence}`,
-    src: assetPath("/images/arctick-licensed.svg"),
-  },
-  title: "ARCtick Licensed",
-  text: `Refrigerant Handling Licence ${business.arctickLicence} — ${business.arctickScope}. For eligible split systems, hot water heat pumps and swimming pool heat pumps.`,
 };
 
 const trustSymbols: TrustSymbol[] = [
@@ -79,23 +65,14 @@ const trustSymbols: TrustSymbol[] = [
 
 type TrustSymbolBandProps = {
   className?: string;
-  showArctick?: boolean;
   tone?: "dark" | "light";
 };
 
 export function TrustSymbolBand({
   className = "",
-  showArctick = false,
   tone = "light",
 }: TrustSymbolBandProps) {
   const isDark = tone === "dark";
-  const symbols = showArctick
-    ? [
-        ...trustSymbols.slice(0, 4),
-        arctickTrustSymbol,
-        ...trustSymbols.slice(4),
-      ]
-    : trustSymbols;
 
   return (
     <section
@@ -120,7 +97,7 @@ export function TrustSymbolBand({
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {symbols.map((item) => {
+          {trustSymbols.map((item) => {
             const Icon = item.icon;
 
             return (
@@ -130,17 +107,9 @@ export function TrustSymbolBand({
               >
                 <div className="flex items-start gap-3">
                   <span
-                    className={`${isDark ? "bg-cyan-300/10 text-cyan-200" : "bg-blue-50 text-blue-700"} flex h-14 shrink-0 items-center justify-center rounded-lg ${item.image ? "w-28 px-2" : "w-14"}`}
+                    className={`${isDark ? "bg-cyan-300/10 text-cyan-200" : "bg-blue-50 text-blue-700"} flex h-14 w-14 shrink-0 items-center justify-center rounded-lg`}
                   >
-                    {item.image ? (
-                      <Image
-                        src={item.image.src}
-                        alt={item.image.alt}
-                        width={104}
-                        height={44}
-                        className="h-auto w-24"
-                      />
-                    ) : Icon ? (
+                    {Icon ? (
                       <Icon className="h-7 w-7" />
                     ) : null}
                   </span>

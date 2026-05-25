@@ -157,29 +157,29 @@ const services = [
   {
     title: "Hot Water System Electrical",
     description:
-      "Electrical fault checks, repairs and circuit support for electric hot water systems and eligible heat pumps.",
+      "Electrical fault checks, repairs and circuit support for electric hot water systems and heat pump electrical supplies.",
     icon: Flame,
     includes: [
       "No hot water faults",
       "Electric hot water circuits",
       "Thermostat and element checks",
       "Isolators and safety switches",
-      "Eligible heat pump support",
+      "Heat pump electrical support",
       "Emergency hot water faults",
     ],
   },
   {
     title: "Split System Air Conditioning",
     description:
-      "Split system air-conditioning electrical support, isolators, dedicated circuits and eligible refrigerant handling under licence scope.",
+      "Split system air-conditioning electrical support, isolators, dedicated circuits and switchboard capacity checks.",
     icon: Bolt,
     includes: [
       "Split system circuits",
       "AC isolators",
       "Switchboard capacity checks",
-      "Hot water heat pumps",
-      "Pool heat pumps",
-      "ARCtick licence scope",
+      "Outdoor unit power",
+      "Safety switch checks",
+      "Electrical supply planning",
     ],
   },
   {
@@ -493,8 +493,8 @@ export default function ServicesPage() {
       },
       {
         "@type": "PropertyValue",
-        name: "ARCtick Refrigerant Handling Licence",
-        value: `${business.arctickLicence} — ${business.arctickScope}`,
+        name: "Booking Details",
+        value: "Secure booking form for planned electrical work",
       },
     ],
   };
@@ -553,7 +553,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <TrustSymbolBand className="border-b border-slate-200" showArctick />
+      <TrustSymbolBand className="border-b border-slate-200" />
 
       <section className="bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

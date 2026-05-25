@@ -811,7 +811,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Can you help with hot water heat pumps?",
         answer:
-          "Yes, where the work fits the licence scope. Evaready Electrical can assist with the electrical side of hot water systems and, where the job involves an eligible hot water heat pump under the ARCtick Split Systems (1) licence scope, Refrigerant Handling Licence L157323 may apply.",
+          "Yes. Evaready Electrical can assist with the electrical side of hot water heat pump installs, including supply, isolator, circuit and switchboard requirements.",
       },
     ],
     relatedServices: [
@@ -825,17 +825,17 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     slug: "split-system-air-conditioning-sydney",
     metaTitle: "Split System Air Conditioning Electrician Sydney",
     metaDescription:
-      "Split system air conditioning electrician in Sydney for electrical support, isolators, dedicated circuits, switchboard capacity checks and eligible ARCtick licence-scope work.",
+      "Split system air conditioning electrician in Sydney for electrical support, isolators, dedicated circuits and switchboard capacity checks.",
     title: "Split System Air Conditioning Electrician Sydney",
     description:
       "Electrical support for split system air conditioning, isolators, dedicated circuits and switchboard capacity checks.",
     intro:
-      "Split system air-conditioning equipment needs the right electrical supply, isolation and switchboard capacity. Evaready Electrical helps with split system electrical support, isolators, dedicated circuits, safety switches, outdoor unit power and clear quote steps. ARCtick Refrigerant Handling Licence L157323 — Split Systems (1) applies to eligible refrigerant handling while installing and decommissioning split systems, hot water heat pumps and swimming pool heat pumps under licence scope.",
+      "Split system air-conditioning equipment needs the right electrical supply, isolation and switchboard capacity. Evaready Electrical helps with split system electrical support, isolators, dedicated circuits, safety switches, outdoor unit power and clear quote steps.",
     heroBullets: [
       "Split system electrical circuits",
       "AC isolators and switchboard checks",
-      "Hot water heat pump support",
-      "Swimming pool heat pump support",
+      "Outdoor unit power support",
+      "Switchboard capacity checks",
     ],
     warningSigns: [
       "A split system needs a dedicated electrical circuit",
@@ -849,7 +849,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Switchboard capacity checks",
       "Safety switch and circuit protection checks",
       "Outdoor unit power",
-      "Eligible ARCtick licence-scope refrigerant handling",
+      "Air conditioning electrical supply checks",
     ],
     process: [
       {
@@ -862,7 +862,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Plan the licensed work",
-        text: "Electrical work and any eligible refrigerant handling are matched to the confirmed licence scope.",
+        text: "Electrical work is planned around circuit protection, switchboard capacity, isolator location and safe access.",
       },
       {
         title: "Install, test and explain",
@@ -871,19 +871,9 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     ],
     faqs: [
       {
-        question: "Do you hold an ARCtick licence?",
-        answer:
-          "Yes. Evaready holds ARCtick Refrigerant Handling Licence L157323 — Split Systems (1), covering refrigerant handling while installing and decommissioning eligible split systems, hot water heat pumps and swimming pool heat pumps.",
-      },
-      {
         question: "Can you install air conditioning electrical circuits?",
         answer:
-          "Yes. Evaready Electrical can help with dedicated circuits, isolators, switchboard checks and electrical support for split systems and eligible heat pumps.",
-      },
-      {
-        question: "Does this cover every type of air conditioning work?",
-        answer:
-          "No. This page covers electrical support and eligible split systems and heat pumps under the listed licence scope. Other refrigerant work may require a different licence scope.",
+          "Yes. Evaready Electrical can help with dedicated circuits, isolators, switchboard checks and electrical support for split systems.",
       },
     ],
     relatedServices: [

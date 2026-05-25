@@ -11,11 +11,11 @@ import { assetPath, business } from "@/data/site";
 
 const navItems = [
   { href: "/", label: "Home" },
+  { href: "/emergency-electrician-sydney", label: "Emergency Electrician" },
+  { href: "/level-2-electrician-sydney", label: "Level 2 Electrician" },
   { href: "/services", label: "Electrical Services" },
   { href: "/services/hot-water-system-electrician-sydney", label: "Hot Water" },
   { href: "/services/split-system-air-conditioning-sydney", label: "Aircon" },
-  { href: "/emergency-electrician-sydney", label: "Emergency Electrician" },
-  { href: "/level-2-electrician-sydney", label: "Level 2 Electrician" },
   { href: "/service-areas", label: "Service Areas" },
 ];
 
@@ -204,14 +204,6 @@ export function SiteFooter() {
                   Open Cabler Registration
                 </dt>
                 <dd>{business.openCablerRegistration}</dd>
-              </div>
-              <div>
-                <dt className="font-black uppercase tracking-[0.12em] text-cyan-200">
-                  ARCtick Refrigerant Handling Licence
-                </dt>
-                <dd>
-                  {business.arctickLicence} — {business.arctickScope}
-                </dd>
               </div>
             </dl>
 

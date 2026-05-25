@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -17,7 +16,7 @@ import {
   getServiceLandingPage,
   serviceLandingPages,
 } from "@/data/service-pages";
-import { assetPath, business } from "@/data/site";
+import { business } from "@/data/site";
 
 export const dynamicParams = false;
 
@@ -81,23 +80,6 @@ const finalCtaEyebrows: Record<string, string> = {
   "electrical-load-capacity-checks-sydney": "Need load or capacity checked?",
 };
 
-const arctickCredentialCopy: Record<
-  string,
-  {
-    heading: string;
-    text: string;
-  }
-> = {
-  "hot-water-system-electrician-sydney": {
-    heading: "Hot Water Heat Pump Electrical Support",
-    text: "Evaready Electrical can assist with the electrical side of hot water systems and, where the job involves an eligible hot water heat pump under the ARCtick Split Systems (1) licence scope, Refrigerant Handling Licence L157323 may apply.",
-  },
-  "split-system-air-conditioning-sydney": {
-    heading: "ARCtick Licensed",
-    text: "Refrigerant Handling Licence L157323 — Split Systems (1). For eligible split systems, hot water heat pumps and swimming pool heat pumps.",
-  },
-};
-
 function finalCtaEyebrow(service: { slug: string; title: string }) {
   return (
     finalCtaEyebrows[service.slug] ??
@@ -152,7 +134,6 @@ export default async function ServiceLandingPage({
     notFound();
   }
 
-  const arctickCredential = arctickCredentialCopy[service.slug];
   const providerIdentifiers = [
     {
       "@type": "PropertyValue",
@@ -169,15 +150,6 @@ export default async function ServiceLandingPage({
       name: "Open Cabler Registration",
       value: business.openCablerRegistration,
     },
-    ...(arctickCredential
-      ? [
-          {
-            "@type": "PropertyValue",
-            name: "ARCtick Refrigerant Handling Licence",
-            value: `${business.arctickLicence} — ${business.arctickScope}`,
-          },
-        ]
-      : []),
   ];
 
   const serviceSchema = {
@@ -235,11 +207,6 @@ export default async function ServiceLandingPage({
     `Electrical Licence ${business.licence}`,
     `ABN ${business.abn}`,
     "Booking Details & Photos",
-    ...(arctickCredential
-      ? [
-          `ARCtick Refrigerant Handling Licence ${business.arctickLicence} — ${business.arctickScope}`,
-        ]
-      : []),
   ];
 
   return (
@@ -299,10 +266,23 @@ export default async function ServiceLandingPage({
             </p>
             <div className="mt-5 grid gap-3">
               {service.heroBullets.map((item) => (
-                <div key={item} className="flex items-start gap-3 rounded-lg bg-white/10 p-4">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-cyan-300" />
-                  <span className="font-bold text-slate-100">{item}</span>
-                </div>
+                <a
+                  key={item}
+                  href={business.bookingUrl}
+                  data-quote-trigger="true"
+                  aria-haspopup="dialog"
+                  aria-label={`Request a quote for ${item}`}
+                  className="group rounded-lg bg-white/10 p-4 transition hover:bg-white/15"
+                >
+                  <span className="flex items-start gap-3">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-cyan-300" />
+                    <span className="font-bold text-slate-100">{item}</span>
+                  </span>
+                  <span className="mt-3 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.12em] text-cyan-200">
+                    Open booking form
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                  </span>
+                </a>
               ))}
             </div>
             <div className="mt-6 rounded-lg border border-red-300/30 bg-red-500/15 p-5">
@@ -320,33 +300,6 @@ export default async function ServiceLandingPage({
       </section>
 
       <TrustSymbolBand className="border-b border-slate-200" />
-
-      {arctickCredential ? (
-        <section className="border-b border-cyan-300/15 bg-slate-950 py-8 text-white">
-          <div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 sm:px-6 md:flex-row md:items-center lg:px-8">
-            <div className="flex w-fit shrink-0 items-center justify-center rounded-lg border border-cyan-300/25 bg-white p-3 shadow-xl shadow-cyan-500/10">
-              <Image
-                src={assetPath("/images/arctick-licensed.svg")}
-                alt={`ARCtick Refrigerant Handling Licence ${business.arctickLicence}`}
-                width={160}
-                height={59}
-                className="h-auto w-36"
-              />
-            </div>
-            <div className="max-w-4xl">
-              <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">
-                ARCtick Refrigerant Handling Licence
-              </p>
-              <h2 className="mt-2 text-2xl font-black leading-tight sm:text-3xl">
-                {arctickCredential.heading}
-              </h2>
-              <p className="mt-3 text-sm font-semibold leading-6 text-slate-300 sm:text-base sm:leading-7">
-                {arctickCredential.text}
-              </p>
-            </div>
-          </div>
-        </section>
-      ) : null}
 
       <section className="bg-slate-50 py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
@@ -366,13 +319,23 @@ export default async function ServiceLandingPage({
 
           <div className="grid gap-4 sm:grid-cols-2">
             {service.services.map((item) => (
-              <div
+              <a
                 key={item}
-                className="flex items-start gap-3 rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+                href={business.bookingUrl}
+                data-quote-trigger="true"
+                aria-haspopup="dialog"
+                aria-label={`Request a quote for ${item}`}
+                className="group rounded-lg border border-slate-200 bg-white p-4 shadow-sm transition hover:border-blue-500 hover:bg-blue-50"
               >
-                <Wrench className="mt-0.5 h-5 w-5 shrink-0 text-blue-700" />
-                <span className="font-bold text-slate-800">{item}</span>
-              </div>
+                <span className="flex items-start gap-3">
+                  <Wrench className="mt-0.5 h-5 w-5 shrink-0 text-blue-700" />
+                  <span className="font-bold text-slate-800">{item}</span>
+                </span>
+                <span className="mt-4 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.12em] text-blue-700">
+                  Open booking form
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                </span>
+              </a>
             ))}
           </div>
         </div>
@@ -397,10 +360,21 @@ export default async function ServiceLandingPage({
           <div className="rounded-lg border border-slate-200 bg-slate-50 p-6">
             <div className="grid gap-4">
               {service.warningSigns.map((item) => (
-                <div key={item} className="flex gap-3">
-                  <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" />
-                  <p className="font-semibold leading-7 text-slate-800">{item}</p>
-                </div>
+                <a
+                  key={item}
+                  href={business.phoneHref}
+                  aria-label={`Call Evaready Electrical about ${item}`}
+                  className="group rounded-lg p-2 transition hover:bg-red-50"
+                >
+                  <span className="flex gap-3">
+                    <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" />
+                    <span className="font-semibold leading-7 text-slate-800">{item}</span>
+                  </span>
+                  <span className="ml-8 mt-2 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.12em] text-red-600">
+                    Call now
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                  </span>
+                </a>
               ))}
             </div>
           </div>

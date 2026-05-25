@@ -250,11 +250,6 @@ export default function HomePage() {
         name: "Open Cabler Registration",
         value: business.openCablerRegistration,
       },
-      {
-        "@type": "PropertyValue",
-        name: "ARCtick Refrigerant Handling Licence",
-        value: `${business.arctickLicence} — ${business.arctickScope}`,
-      },
     ],
     makesOffer: coreServices.map((service) => ({
       "@type": "Offer",
@@ -302,7 +297,6 @@ export default function HomePage() {
         />
         <div className="home-hero-readability-overlay absolute inset-0 bg-[linear-gradient(90deg,rgba(2,8,20,0.96)_0%,rgba(2,8,20,0.84)_34%,rgba(2,8,20,0.42)_62%,rgba(2,8,20,0.18)_100%)]" />
         <div className="home-hero-glow-overlay absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(0,200,255,0.22),transparent_36%),radial-gradient(circle_at_78%_72%,rgba(255,0,30,0.18),transparent_34%)]" />
-        <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#005BFF] via-[#00C8FF] to-[#FF001E]" />
 
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
           <div className="max-w-3xl">
@@ -389,11 +383,10 @@ export default function HomePage() {
                 Choose your electrical issue
               </p>
               <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl">
-                Fastest to call. Fastest to quote.
+                Call now or request a quote.
               </h2>
               <p className="mt-4 text-base font-semibold leading-7 text-slate-300 sm:text-lg sm:leading-8">
-                If it feels unsafe, call now. If it can wait, open the booking
-                form and send photos, address and job notes.
+                We will guide you to the right next step.
               </p>
               <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
                 <a
@@ -401,7 +394,7 @@ export default function HomePage() {
                   className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-red-600 px-5 py-3 font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
                 >
                   <Phone className="h-5 w-5 shrink-0" />
-                  <span className="whitespace-nowrap">{business.callCta}</span>
+                  <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
                 </a>
                 <a
                   href={business.bookingUrl}
@@ -409,7 +402,7 @@ export default function HomePage() {
                   aria-haspopup="dialog"
                   className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-blue-700 px-5 py-3 font-black text-white shadow-xl shadow-blue-700/20 transition hover:bg-blue-600"
                 >
-                  {business.quoteCta}
+                  Request a Quote
                   <ArrowRight className="h-5 w-5 shrink-0" />
                 </a>
               </div>
@@ -504,7 +497,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <TrustSymbolBand className="border-y border-slate-200" showArctick />
+      <TrustSymbolBand className="border-y border-slate-200" />
 
       <section id="services" className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
