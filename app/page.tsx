@@ -336,17 +336,6 @@ export default function HomePage() {
               </a>
             </div>
 
-            <div className="mobile-hero-van-card mt-5 overflow-hidden rounded-2xl border border-cyan-300/25 bg-[#061A3A]/55 shadow-2xl shadow-cyan-500/20 lg:hidden">
-              <Image
-                src={assetPath(business.brandImage)}
-                alt="Evaready Electrical 24/7 service van in Sydney"
-                width={1536}
-                height={1024}
-                sizes="(max-width: 767px) 100vw, 0px"
-                className="aspect-[16/9] w-full object-cover object-[78%_center]"
-              />
-            </div>
-
             <div className="mt-8 grid gap-3 sm:grid-cols-3">
               {heroTrustMarks.map((mark) => {
                 const Icon = mark.icon;

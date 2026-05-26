@@ -2429,10 +2429,6 @@ a[data-quote-trigger="true"].site-header-quote {
   filter: saturate(1.12) contrast(1.08) brightness(1.02) !important;
 }
 
-.mobile-hero-van-card {
-  display: none;
-}
-
 .brand-internal-hero-image {
   object-position: 72% center !important;
 }
@@ -2611,14 +2607,6 @@ a[data-quote-trigger="true"].site-header-quote {
   .home-hero-readability-overlay {
     background:
       linear-gradient(180deg, rgba(2, 8, 20, 0.94) 0%, rgba(2, 8, 20, 0.82) 48%, rgba(2, 8, 20, 0.46) 70%, rgba(2, 8, 20, 0.78) 100%) !important;
-  }
-
-  .mobile-hero-van-card {
-    display: block !important;
-  }
-
-  .mobile-hero-van-card img {
-    object-position: 78% center !important;
   }
 
   .brand-internal-hero {
@@ -3612,10 +3600,6 @@ a[data-quote-trigger="true"].site-header-quote {
 
 /* Hero van visibility pass: use the real van photo as the hero image instead
    of a separate mobile picture card, and keep the vehicle clear on every page. */
-.mobile-hero-van-card {
-  display: none !important;
-}
-
 .home-brand-hero .brand-hero-image,
 .brand-internal-hero .brand-internal-hero-image {
   opacity: 1 !important;
@@ -3843,56 +3827,123 @@ main section:not(.quote-request-panel) :is(a, button).bg-blue-700 svg {
   }
 }
 
-/* Mobile hero van framing: keep the shared van artwork visible without
-   enlarging it so much that the vehicle fills the whole phone viewport. */
+/* Mobile hero van framing: keep the shared van artwork inside the hero
+   itself, fully visible, without adding a separate image card. */
 @media (max-width: 767px) {
+  .home-brand-hero,
+  .brand-internal-hero {
+    isolation: isolate;
+  }
+
+  .home-brand-hero {
+    min-height: auto !important;
+    background:
+      linear-gradient(180deg, #020814 0%, #061a3a 52%, #020814 100%) !important;
+  }
+
+  .brand-internal-hero:has(.brand-internal-hero-image) {
+    min-height: auto !important;
+    background:
+      linear-gradient(180deg, #020814 0%, #061a3a 52%, #020814 100%) !important;
+  }
+
+  .brand-internal-hero:not(:has(.brand-internal-hero-image)),
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) {
+    min-height: clamp(680px, 102svh, 840px) !important;
+    background:
+      linear-gradient(180deg, rgba(2, 8, 20, 0.97) 0%, rgba(6, 26, 58, 0.9) 46%, rgba(2, 8, 20, 0.5) 66%, rgba(2, 8, 20, 0.16) 100%),
+      var(--ee-van-image) center bottom / min(92vw, 430px) auto no-repeat !important;
+  }
+
   .home-brand-hero .brand-hero-image,
   .brand-internal-hero .brand-internal-hero-image {
+    position: absolute !important;
+    inset: auto auto 0 50% !important;
     right: auto !important;
-    left: 7% !important;
-    width: 86% !important;
-    height: 100% !important;
-    top: 0 !important;
+    left: 50% !important;
+    top: auto !important;
+    width: 100vw !important;
+    height: min(66.67vw, 320px) !important;
+    max-width: none !important;
+    transform: translateX(-50%) !important;
     object-fit: contain !important;
     object-position: center bottom !important;
-  }
-
-  .brand-internal-hero,
-  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) {
-    background:
-      linear-gradient(110deg, rgba(2, 8, 20, 0.92), rgba(6, 26, 58, 0.72) 46%, rgba(2, 8, 20, 0.34)),
-      var(--ee-van-image) center bottom / 86% auto no-repeat !important;
-    background-position: 0 0, center bottom !important;
-    background-size: auto, 86% auto !important;
-  }
-
-  .brand-internal-hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 0;
-    height: 100%;
-    background: var(--ee-van-image) center bottom / 86% auto no-repeat;
-    pointer-events: none;
-  }
-
-  .brand-internal-hero > .brand-internal-hero-image {
     z-index: 0 !important;
   }
 
-  .brand-internal-hero > .absolute {
-    z-index: 1 !important;
+  .home-brand-hero > .relative.mx-auto {
+    z-index: 2 !important;
+    padding-bottom: clamp(16.75rem, 68vw, 23rem) !important;
   }
 
   .brand-internal-hero > div.mx-auto {
     z-index: 2 !important;
+    padding-bottom: clamp(15.5rem, 62vw, 21rem) !important;
+  }
+
+  .brand-internal-hero:has(.brand-internal-hero-image)::before {
+    display: none !important;
+  }
+
+  .home-hero-readability-overlay,
+  .home-hero-glow-overlay,
+  .brand-internal-hero > .absolute {
+    z-index: 1 !important;
+  }
+
+  .brand-internal-hero > .absolute {
+    opacity: 0.32 !important;
   }
 
   .home-hero-readability-overlay,
   .brand-internal-hero > .absolute + .absolute {
     background:
-      linear-gradient(180deg, rgba(2, 8, 20, 0.94) 0%, rgba(2, 8, 20, 0.78) 34%, rgba(2, 8, 20, 0.38) 52%, rgba(2, 8, 20, 0.16) 68%, rgba(2, 8, 20, 0.28) 100%) !important;
+      linear-gradient(180deg, rgba(2, 8, 20, 0.98) 0%, rgba(2, 8, 20, 0.9) 44%, rgba(2, 8, 20, 0.56) 64%, rgba(2, 8, 20, 0.2) 82%, rgba(2, 8, 20, 0.1) 100%) !important;
+  }
+
+  .brand-internal-hero .mt-8.grid > div {
+    background: rgba(6, 26, 58, 0.95) !important;
+    backdrop-filter: none !important;
+  }
+
+  .brand-internal-hero .mt-7.grid {
+    width: calc(100vw - 2rem) !important;
+    max-width: calc(100vw - 2rem) !important;
+  }
+
+  .brand-internal-hero .mt-7.grid a {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .brand-internal-hero h1 {
+    width: min(18rem, calc(100vw - 2rem)) !important;
+    max-width: min(18rem, calc(100vw - 2rem)) !important;
+    font-size: clamp(1.92rem, 8.5vw, 2.22rem) !important;
+    line-height: 1.05 !important;
+  }
+
+  .brand-internal-hero .mt-7.grid a.bg-red-600,
+  .brand-internal-hero .mt-7.grid a.bg-blue-700 {
+    padding-right: 0.8rem !important;
+    padding-left: 0.8rem !important;
+    font-size: 0.84rem !important;
+  }
+
+  .home-brand-hero .brand-hero-image,
+  .brand-internal-hero .brand-internal-hero-image {
+    width: 100vw !important;
+    height: 66.67vw !important;
+  }
+
+  .home-brand-hero > .relative.mx-auto {
+    padding-bottom: clamp(15.25rem, 64vw, 20rem) !important;
+  }
+
+  .brand-internal-hero > div.mx-auto {
+    padding-bottom: clamp(14.75rem, 60vw, 19rem) !important;
   }
 }

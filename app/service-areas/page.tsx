@@ -77,25 +77,47 @@ export default function AreasPage() {
           or open the quote form.
         </p>
 
-        <div className="mt-8 grid max-w-3xl gap-3 sm:grid-cols-3">
-          <div className="rounded-lg border border-white/15 bg-white/10 p-4">
+        <div className="mt-7 grid max-w-xl gap-3 sm:flex sm:flex-wrap">
+          <a
+            href={business.phoneHref}
+            className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-red-600 px-5 py-3 text-center text-sm font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500 sm:text-base"
+          >
+            <Phone className="h-5 w-5 shrink-0" />
+            <span className="whitespace-nowrap">{business.callCta}</span>
+          </a>
+          <a
+            href={business.bookingUrl}
+            data-quote-trigger="true"
+            aria-haspopup="dialog"
+            className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-blue-700 px-5 py-3 text-center text-sm font-black text-white shadow-xl shadow-blue-700/20 transition hover:bg-blue-600 sm:text-base"
+          >
+            {business.quoteCta}
+            <ArrowRight className="h-5 w-5 shrink-0" />
+          </a>
+        </div>
+
+      </ServiceAreaHero>
+
+      <section className="border-y border-cyan-300/15 bg-[#020814] text-white">
+        <div className="mx-auto grid max-w-7xl gap-3 px-4 py-4 sm:grid-cols-3 sm:px-6 lg:px-8">
+          <div className="rounded-lg border border-cyan-300/25 bg-[#061A3A] p-4 shadow-lg shadow-slate-950/30">
             <p className="text-3xl font-black">{coverageStats.regionCount}</p>
             <p className="mt-1 text-sm font-semibold text-slate-300">
               Regions
             </p>
           </div>
-          <div className="rounded-lg border border-white/15 bg-white/10 p-4">
+          <div className="rounded-lg border border-cyan-300/25 bg-[#061A3A] p-4 shadow-lg shadow-slate-950/30">
             <p className="text-3xl font-black">{coverageStats.areaCount}</p>
             <p className="mt-1 text-sm font-semibold text-slate-300">Areas</p>
           </div>
-          <div className="rounded-lg border border-white/15 bg-white/10 p-4">
+          <div className="rounded-lg border border-cyan-300/25 bg-[#061A3A] p-4 shadow-lg shadow-slate-950/30">
             <p className="text-3xl font-black">{coverageStats.suburbCount}</p>
             <p className="mt-1 text-sm font-semibold text-slate-300">
               Suburbs
             </p>
           </div>
         </div>
-      </ServiceAreaHero>
+      </section>
 
       <section className="border-b border-slate-200 bg-white">
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
