@@ -377,6 +377,10 @@ function stripBasePath(pathname: string) {
   return pathname.replace(/^\/evaready-electrical(?=\/|$)/, "") || "/";
 }
 
+function cssContentValue(value: string) {
+  return JSON.stringify(value).replace(/<\/style/gi, "<\\/style");
+}
+
 function configForPath(pathname: string): MarqueeConfig {
   const path = stripBasePath(pathname);
   const segments = path.split("/").filter(Boolean);
@@ -443,7 +447,7 @@ function configForPath(pathname: string): MarqueeConfig {
           titleFromSlug(lastSegment),
           "Licensed electrical work",
           "Photos and job notes",
-          "Clear next step",
+          "Clear next steps before work begins",
           "Residential and commercial",
           "Sydney & surrounding regions",
         ],
@@ -526,8 +530,21 @@ function configForPath(pathname: string): MarqueeConfig {
 export function RouteMarqueeStrip() {
   const pathname = usePathname();
   const config = useMemo(() => configForPath(pathname), [pathname]);
-  const visualItems = useMemo(
-    () => [...config.items, ...config.items, ...config.items],
+  const visualItemIndexes = useMemo(
+    () => {
+      const indexes = config.items.map((_, index) => index);
+      return [...indexes, ...indexes, ...indexes];
+    },
+    [config.items],
+  );
+  const visualLabelStyles = useMemo(
+    () =>
+      config.items
+        .map(
+          (item, index) =>
+            `.emergency-issue-chip--label-${index}::after{content:${cssContentValue(item)}}`,
+        )
+        .join("\n"),
     [config.items],
   );
 
@@ -537,6 +554,7 @@ export function RouteMarqueeStrip() {
       aria-label={config.ariaLabel}
       data-nosnippet
     >
+      <style>{visualLabelStyles}</style>
       <ul className="sr-only" role="list">
         {config.items.map((item) => (
           <li key={`semantic-${item}`}>{item}</li>
@@ -549,21 +567,22 @@ export function RouteMarqueeStrip() {
       >
         <div className="emergency-issue-marquee__track">
           <ul className="emergency-issue-marquee__group">
-            {visualItems.map((item, index) => (
-              <li key={`${item}-${index}`} className="emergency-issue-chip">
+            {visualItemIndexes.map((itemIndex, index) => (
+              <li
+                key={`${itemIndex}-${index}`}
+                className={`emergency-issue-chip emergency-issue-chip--visual emergency-issue-chip--label-${itemIndex}`}
+              >
                 <Zap className="h-4 w-4 shrink-0" aria-hidden="true" />
-                {item}
               </li>
             ))}
           </ul>
           <ul className="emergency-issue-marquee__group">
-            {visualItems.map((item, index) => (
+            {visualItemIndexes.map((itemIndex, index) => (
               <li
-                key={`repeat-${item}-${index}`}
-                className="emergency-issue-chip"
+                key={`repeat-${itemIndex}-${index}`}
+                className={`emergency-issue-chip emergency-issue-chip--visual emergency-issue-chip--label-${itemIndex}`}
               >
                 <Zap className="h-4 w-4 shrink-0" aria-hidden="true" />
-                {item}
               </li>
             ))}
           </ul>

@@ -208,6 +208,11 @@ body {
   color: var(--ee-cyan);
 }
 
+.emergency-issue-chip--visual::after {
+  content: attr(data-label);
+  display: inline-block;
+}
+
 .emergency-issue-scroll-button {
   display: none;
 }

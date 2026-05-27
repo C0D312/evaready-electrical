@@ -54,7 +54,7 @@ const heroTrustMarks = [
     icon: Clock3,
   },
   {
-    title: "Clear next step",
+    title: "Clear next steps before work begins",
     text: "Call first or request a quote",
     icon: BadgeCheck,
   },

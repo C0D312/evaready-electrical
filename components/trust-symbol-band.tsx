@@ -81,7 +81,7 @@ export function TrustSymbolBand({
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <div className="mb-8 max-w-3xl">
           <p className={`${isDark ? "text-cyan-200" : "text-blue-700"} text-sm font-black uppercase tracking-[0.2em]`}>
-            Why customers can act quickly
+            Why customers choose Evaready
           </p>
           <h2
             className={`${isDark ? "text-white" : "text-slate-950"} mt-3 text-3xl font-black leading-tight sm:text-5xl`}
