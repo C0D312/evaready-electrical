@@ -1,12 +1,13 @@
 ﻿import type { Metadata } from "next";
 import type { CSSProperties } from "react";
-import { assetPath, business } from "@/data/site";
+import { absoluteUrl, assetPath, business, canonicalPath } from "@/data/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://evareadyelectrical.com.au"),
+  metadataBase: new URL(`${business.siteUrl}/`),
   title: {
-    default: "Emergency & Level 2 Electrician Sydney | Evaready Electrical 24/7",
+    default:
+      "Emergency & Level 2 Electrician Sydney & Greater Regions | Evaready Electrical 24/7",
     template: "%s | Evaready Electrical",
   },
   description:
@@ -20,17 +21,18 @@ export const metadata: Metadata = {
     "Evaready Electrical",
   ],
   openGraph: {
-    title: "Emergency & Level 2 Electrician Sydney | Evaready Electrical 24/7",
+    title:
+      "Emergency & Level 2 Electrician Sydney & Greater Regions | Evaready Electrical 24/7",
   description:
     "Electrical support for urgent faults, Level 2 work, switchboards, outages and commercial jobs across Sydney and surrounding regions.",
-    url: "https://evareadyelectrical.com.au",
+    url: business.siteUrl,
     siteName: "Evaready Electrical",
     type: "website",
     locale: "en_AU",
-    images: [business.brandImage],
+    images: [absoluteUrl(business.brandImage)],
   },
   alternates: {
-    canonical: "/",
+    canonical: canonicalPath("/"),
   },
   robots: {
     index: true,
@@ -44,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const brandStyle = {
-    "--ee-van-image": `url("${assetPath(business.brandImage)}")`,
+    "--ee-van-image": `url("${assetPath(business.heroImage)}")`,
   } as CSSProperties;
 
   return (

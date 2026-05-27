@@ -23,7 +23,7 @@ import {
   getSuburbBySlug,
   getSuburbPaths,
 } from "@/data/service-area-coverage";
-import { business } from "@/data/site";
+import { business, canonicalPath } from "@/data/site";
 
 type SuburbPageProps = {
   params: Promise<{ area: string; region: string; suburb: string }>;
@@ -57,7 +57,9 @@ export async function generateMetadata({
     title: `Electrician ${suburb.name} ${suburb.postcode}`,
     description: copy.metaDescription,
     alternates: {
-      canonical: `/service-areas/${region.slug}/${area.slug}/${suburb.slug}`,
+      canonical: canonicalPath(
+        `/service-areas/${region.slug}/${area.slug}/${suburb.slug}`,
+      ),
     },
   };
 }

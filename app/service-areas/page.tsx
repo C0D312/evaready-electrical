@@ -21,14 +21,14 @@ import {
   coverageSearchItems,
   coverageStats,
 } from "@/data/service-area-coverage";
-import { business } from "@/data/site";
+import { business, canonicalPath } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Service Areas",
   description:
     "Evaready Electrical services homes and businesses across Sydney, nearby suburbs and surrounding regions.",
   alternates: {
-    canonical: "/service-areas",
+    canonical: canonicalPath("/service-areas"),
   },
 };
 
@@ -67,14 +67,14 @@ export default function AreasPage() {
 
       <ServiceAreaHero
         eyebrow="Electrical service areas"
-        title="Electricians Across Sydney & Surrounding Regions"
+        title="Electricians Across Sydney & Greater Regions"
       >
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
           Evaready Electrical helps homes and businesses across Sydney and
           surrounding regions, including the Shire, Macarthur, Blue Mountains,
           Northern Beaches, Wollongong, Illawarra and Central Coast South.
-          Search your suburb or postcode, browse the major regions, then call
-          or open the quote form.
+          Search your suburb or postcode, browse nearby regions, then call for
+          urgent faults or open the booking form for planned work.
         </p>
 
         <div className="mt-7 grid max-w-xl gap-3 sm:flex sm:flex-wrap">
@@ -139,7 +139,7 @@ export default function AreasPage() {
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
-              Fast search
+              Search suburb or postcode
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Find your suburb or postcode.
@@ -148,6 +148,13 @@ export default function AreasPage() {
               Type a suburb, postcode, area or region to find local electrical
               service information and the best way to contact Evaready
               Electrical.
+            </p>
+            <p className="mt-5 text-lg leading-8 text-slate-600">
+              Evaready Electrical provides fast electrical support across
+              Sydney and greater regions. Call first for urgent faults such as
+              power loss, burning smells, sparking, tripping safety switches or
+              unsafe wiring. For planned work, open the booking form and send
+              your suburb, job details and photos.
             </p>
           </div>
 

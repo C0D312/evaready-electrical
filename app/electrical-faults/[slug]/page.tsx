@@ -15,7 +15,7 @@ import {
   electricalFaultPages,
   getElectricalFaultPage,
 } from "@/data/electrical-faults";
-import { business } from "@/data/site";
+import { absoluteUrl, business, canonicalPath } from "@/data/site";
 
 export const dynamicParams = false;
 
@@ -35,7 +35,7 @@ export async function generateMetadata({
 
   if (!fault) {
     return {
-      title: "Electrical Faults Sydney",
+      title: "Electrical Faults Sydney & Greater Regions",
     };
   }
 
@@ -43,13 +43,13 @@ export async function generateMetadata({
     title: fault.metaTitle,
     description: fault.metaDescription,
     alternates: {
-      canonical: `/electrical-faults/${fault.slug}`,
+      canonical: canonicalPath(`/electrical-faults/${fault.slug}`),
     },
     openGraph: {
       title: `${fault.metaTitle} | ${business.name}`,
       description: fault.metaDescription,
-      url: `/electrical-faults/${fault.slug}`,
-      images: [business.brandImage],
+      url: absoluteUrl(`/electrical-faults/${fault.slug}`),
+      images: [absoluteUrl(business.brandImage)],
     },
   };
 }
@@ -69,7 +69,7 @@ export default async function ElectricalFaultDetailPage({
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: `${fault.title} Sydney`,
+    name: `${fault.title} Sydney & Greater Regions`,
     description: fault.metaDescription,
     serviceType: "Electrical fault finding",
     areaServed: business.serviceArea,

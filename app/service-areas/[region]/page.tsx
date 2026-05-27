@@ -10,7 +10,7 @@ import {
   getRegionBySlug,
   getRegionPaths,
 } from "@/data/service-area-coverage";
-import { business } from "@/data/site";
+import { business, canonicalPath } from "@/data/site";
 import { notFound } from "next/navigation";
 
 type RegionPageProps = {
@@ -37,7 +37,7 @@ export async function generateMetadata({
     title: `${region.name} Electrician Service Areas`,
     description: `Evaready Electrical services ${region.name} with residential, commercial, emergency and Level 2 electrical work. Browse areas and suburbs covered.`,
     alternates: {
-      canonical: `/service-areas/${region.slug}`,
+      canonical: canonicalPath(`/service-areas/${region.slug}`),
     },
   };
 }

@@ -16,14 +16,14 @@ import {
 } from "lucide-react";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
-import { business } from "@/data/site";
+import { absoluteUrl, business, canonicalPath } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Electrical Services Sydney & Surrounding Regions",
+  title: "Electrical Services Sydney & Greater Regions",
   description:
     "Evaready Electrical handles residential, commercial, emergency and Level 2 electrical work including switchboards, fault finding, hot water electrical, CCTV, data cabling, lighting, power points and smoke alarms.",
   alternates: {
-    canonical: "/services",
+    canonical: canonicalPath("/services"),
   },
 };
 
@@ -169,17 +169,17 @@ const services = [
     ],
   },
   {
-    title: "Split System Air Conditioning",
+    title: "Air Conditioning",
     description:
-      "Split system air-conditioning electrical support, isolators, dedicated circuits and switchboard capacity checks.",
+      "Air-conditioning services, split-system support, AC isolators, dedicated circuits, heat pump electrical support and switchboard capacity checks.",
     icon: Bolt,
     includes: [
-      "Split system circuits",
+      "Air-conditioning electrical support",
+      "Split-system air conditioning",
       "AC isolators",
-      "Switchboard capacity checks",
+      "Dedicated aircon circuits",
       "Outdoor unit power",
-      "Safety switch checks",
-      "Electrical supply planning",
+      "Heat pump support",
     ],
   },
   {
@@ -420,7 +420,7 @@ const servicePageLinks: Record<string, string> = {
   "Power Points": "/services/power-point-installation-sydney",
   "Smoke Alarms": "/services/smoke-alarm-electrician-sydney",
   "Hot Water System Electrical": "/services/hot-water-system-electrician-sydney",
-  "Split System Air Conditioning": "/services/split-system-air-conditioning-sydney",
+  "Air Conditioning": "/services/split-system-air-conditioning-sydney",
   "CCTV & Security Cameras": "/services/cctv-security-camera-installation-sydney",
   "Data Cabling & Internet Points": "/services/data-cabling-electrician-sydney",
   "Ceiling & Exhaust Fans": "/services/ceiling-fan-installation-sydney",
@@ -445,7 +445,7 @@ const featuredServiceTitles = [
   "Switchboard Upgrades",
   "Electrical Fault Finding",
   "Hot Water System Electrical",
-  "Split System Air Conditioning",
+  "Air Conditioning",
   "CCTV & Security Cameras",
 ];
 
@@ -467,12 +467,12 @@ export default function ServicesPage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Electrician",
-    name: "Evaready Electrical - Electrical Services Sydney & Surrounding Regions",
+    name: "Evaready Electrical - Electrical Services Sydney & Greater Regions",
     telephone: business.phoneDisplay,
     email: business.email,
     areaServed:
-      "Sydney & Surrounding Regions",
-    url: "https://evareadyelectrical.com.au/services",
+      "Sydney & Greater Regions",
+    url: absoluteUrl("/services"),
     priceRange: "$$",
     serviceType: services.map((service) => service.title),
     identifier: [
@@ -521,7 +521,7 @@ export default function ServicesPage() {
             </div>
 
             <h1 className="text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
-              Electrical Services Across Sydney & Surrounding Regions
+              Electrical Services Sydney & Greater Regions
             </h1>
 
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">

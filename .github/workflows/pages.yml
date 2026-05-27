@@ -39,6 +39,7 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: /evaready-electrical
+          NEXT_PUBLIC_SITE_URL: https://c0d312.github.io/evaready-electrical
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -16,22 +16,22 @@ import {
   getServiceLandingPage,
   serviceLandingPages,
 } from "@/data/service-pages";
-import { business } from "@/data/site";
+import { absoluteUrl, business, canonicalPath } from "@/data/site";
 
 export const dynamicParams = false;
 
 const staticRelatedServices: Record<string, { href: string; label: string }> = {
   "emergency-electrician-sydney": {
     href: "/emergency-electrician-sydney",
-    label: "Emergency Electrician Sydney",
+    label: "Emergency Electrician Sydney & Greater Regions",
   },
   "level-2-electrician-sydney": {
     href: "/level-2-electrician-sydney",
-    label: "Level 2 Electrician Sydney",
+    label: "Level 2 Electrician Sydney & Greater Regions",
   },
   "switchboard-upgrades-sydney": {
     href: "/services/switchboard-upgrades-sydney",
-    label: "Switchboard Upgrades Sydney",
+    label: "Switchboard Upgrades Sydney & Greater Regions",
   },
 };
 
@@ -61,7 +61,7 @@ const finalCtaEyebrows: Record<string, string> = {
   "defect-notice-repairs-sydney": "Need help with a defect notice?",
   "private-power-pole-sydney": "Need private pole electrical support?",
   "hot-water-system-electrician-sydney": "Need help with an electric hot water fault?",
-  "split-system-air-conditioning-sydney": "Need split system air conditioning support?",
+  "split-system-air-conditioning-sydney": "Need air conditioning support?",
   "cctv-security-camera-installation-sydney": "Need CCTV or security camera wiring?",
   "data-cabling-electrician-sydney": "Need data cabling or internet points?",
   "ceiling-fan-installation-sydney": "Need ceiling fan installation?",
@@ -103,7 +103,7 @@ export async function generateMetadata({
 
   if (!service) {
     return {
-      title: "Electrical Services Sydney & Surrounding Regions",
+      title: "Electrical Services Sydney & Greater Regions",
     };
   }
 
@@ -111,13 +111,13 @@ export async function generateMetadata({
     title: service.metaTitle,
     description: service.metaDescription,
     alternates: {
-      canonical: `/services/${service.slug}`,
+      canonical: canonicalPath(`/services/${service.slug}`),
     },
     openGraph: {
       title: `${service.metaTitle} | ${business.name}`,
       description: service.metaDescription,
-      url: `/services/${service.slug}`,
-      images: [business.brandImage],
+      url: absoluteUrl(`/services/${service.slug}`),
+      images: [absoluteUrl(business.brandImage)],
     },
   };
 }
@@ -184,8 +184,14 @@ export default async function ServiceLandingPage({
     })),
   };
   const coreRelatedLinks: { href: string; label: string; quote?: boolean }[] = [
-    { href: "/emergency-electrician-sydney", label: "Emergency Electrician" },
-    { href: "/level-2-electrician-sydney", label: "Level 2 Electrician" },
+    {
+      href: "/emergency-electrician-sydney",
+      label: "Emergency Electrician Sydney & Greater Regions",
+    },
+    {
+      href: "/level-2-electrician-sydney",
+      label: "Level 2 Electrician Sydney & Greater Regions",
+    },
     {
       href: "/services/switchboard-upgrades-sydney",
       label: "Switchboard Upgrades",
@@ -207,6 +213,7 @@ export default async function ServiceLandingPage({
     `Electrical Licence ${business.licence}`,
     `ABN ${business.abn}`,
     "Booking Details & Photos",
+    ...(service.credentialHighlights ?? []),
   ];
 
   return (

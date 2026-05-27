@@ -12,7 +12,7 @@ import {
   getAreaPaths,
   getRegionBySlug,
 } from "@/data/service-area-coverage";
-import { business } from "@/data/site";
+import { business, canonicalPath } from "@/data/site";
 
 type AreaPageProps = {
   params: Promise<{ area: string; region: string }>;
@@ -39,7 +39,7 @@ export async function generateMetadata({
     title: `${area.name} Electrician Service Areas`,
     description: `Evaready Electrical services ${area.name} in ${region.name}. View covered suburbs for emergency faults, switchboards, Level 2 work and planned electrical services.`,
     alternates: {
-      canonical: `/service-areas/${region.slug}/${area.slug}`,
+      canonical: canonicalPath(`/service-areas/${region.slug}/${area.slug}`),
     },
   };
 }

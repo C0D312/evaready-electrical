@@ -5,7 +5,7 @@ import {
 } from "@/data/service-area-coverage";
 import { electricalFaultPages } from "@/data/electrical-faults";
 import { serviceLandingPages } from "@/data/service-pages";
-import { business } from "@/data/site";
+import { absoluteUrl } from "@/data/site";
 
 export const dynamic = "force-static";
 
@@ -51,7 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   return [...routes, ...serviceRoutes, ...faultRoutes, ...regionRoutes, ...areaRoutes, ...suburbRoutes].map((route) => ({
-    url: `${business.siteUrl}${route.path}`,
+    url: absoluteUrl(route.path),
     lastModified,
     changeFrequency: "weekly",
     priority: route.priority,

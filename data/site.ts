@@ -9,9 +9,41 @@ import {
   Zap,
 } from "lucide-react";
 
+export const deploymentBasePath = (
+  process.env.NEXT_PUBLIC_BASE_PATH || ""
+).replace(/\/$/, "");
+
+export const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  `https://c0d312.github.io${deploymentBasePath || "/evaready-electrical"}`
+).replace(/\/$/, "");
+
+export function absoluteUrl(path = "") {
+  if (!path) {
+    return siteUrl;
+  }
+
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  return `${siteUrl}${normalizedPath}`;
+}
+
+export function canonicalPath(path = "") {
+  if (!path || path === "/") {
+    return "";
+  }
+
+  return path.replace(/^\/+/, "").replace(/\/$/, "");
+}
+
+export function assetPath(path: string) {
+  return `${deploymentBasePath}${path}`;
+}
+
 export const business = {
   name: "Evaready Electrical",
   brandImage: "/images/evaready-electrical-sydney-service-van.png",
+  heroImage: "/images/evaready-electrical-sydney-service-van.webp",
+  logoImage: "/images/evareadyelectrical-logo.webp",
   brandImageAlt: "Evaready Electrical 24/7 service van in Sydney",
   phoneDisplay: "0461 247 247",
   phoneHref: "tel:+61461247247",
@@ -23,15 +55,12 @@ export const business = {
   licence: "398937C",
   abn: "44 650 697 797",
   openCablerRegistration: "46691",
-  serviceArea: "Sydney & Surrounding Regions",
-  siteUrl: "https://evareadyelectrical.com.au",
+  arctickLicence: "L157323",
+  serviceArea: "Sydney & Greater Regions",
+  siteUrl,
   bookingUrl:
     "https://book.servicem8.com/request_booking?uuid=78c2a862-45cf-413b-8ca5-1bf6d8f8944b",
 };
-
-export function assetPath(path: string) {
-  return `${process.env.NEXT_PUBLIC_BASE_PATH || ""}${path}`;
-}
 
 export const services = [
   {
@@ -115,10 +144,10 @@ export const services = [
     intent: "Major Work",
   },
   {
-    title: "Split System Air Conditioning",
+    title: "Air Conditioning",
     slug: "split-system-air-conditioning-sydney",
     description:
-      "Split system air-conditioning electrical support, isolators, dedicated circuits and switchboard capacity checks.",
+      "Air-conditioning services, split-system support, AC isolators, dedicated circuits, heat pumps and switchboard capacity checks.",
     icon: Bolt,
     intent: "Climate",
   },
@@ -243,7 +272,12 @@ export const quoteServiceOptions = [
   "Oven Installation",
   "Rangehood Installation",
   "Dishwasher Electrical Connection",
-  "Split System Air Conditioning",
+  "Air Conditioning Services",
+  "Split-System Air Conditioning",
+  "AC Isolators",
+  "Dedicated Aircon Circuits",
+  "Hot Water Heat Pump Electrical Support",
+  "Swimming Pool Heat Pump Electrical Support",
   "Pool and Spa Electrical",
   "Rewiring Homes",
   "Renovation Wiring",

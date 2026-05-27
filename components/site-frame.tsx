@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
-import { FooterMobileAccordions } from "@/components/footer-mobile-accordions";
+import { ArrowRight, MapPin, Phone } from "lucide-react";
+import { FooterLinkGroups, type FooterColumn } from "@/components/footer-link-groups";
 import { MobileStickyCta } from "@/components/mobile-sticky-cta";
 import { MobilePrimaryNav } from "@/components/mobile-primary-nav";
 import { QuoteFormModal } from "@/components/quote-form-modal";
@@ -19,7 +19,7 @@ const navItems = [
   { href: "/service-areas", label: "Service Areas" },
 ];
 
-const footerColumns = [
+const footerColumns: FooterColumn[] = [
   {
     title: "Emergency Services",
     links: [
@@ -45,7 +45,7 @@ const footerColumns = [
       { href: "/services/switchboard-upgrades-sydney", label: "Switchboard upgrades" },
       { href: "/services/commercial-electrician-sydney", label: "Commercial electrician" },
       { href: "/services/hot-water-system-electrician-sydney", label: "Hot water electrical" },
-      { href: "/services/split-system-air-conditioning-sydney", label: "Split system air conditioning" },
+      { href: "/services/split-system-air-conditioning-sydney", label: "Air conditioning" },
       { href: "/services/cctv-security-camera-installation-sydney", label: "CCTV and security" },
     ],
   },
@@ -67,6 +67,30 @@ const footerColumns = [
       { href: "/electrical-faults/no-power-to-house", label: "No power to house" },
     ],
   },
+  {
+    title: "Contact",
+    links: [
+      {
+        href: business.phoneHref,
+        label: `Call ${business.phoneDisplay}`,
+        action: "call",
+        ariaLabel: `Call ${business.phoneDisplay}`,
+      },
+      {
+        href: business.bookingUrl,
+        label: business.quoteCta,
+        action: "quote",
+        ariaLabel: "Get a Quote",
+        quoteTrigger: true,
+      },
+      {
+        href: business.emailHref,
+        label: "Email",
+        action: "email",
+        ariaLabel: `Email ${business.email}`,
+      },
+    ],
+  },
 ];
 
 const footerColumnsOrdered = [
@@ -75,6 +99,7 @@ const footerColumnsOrdered = [
   footerColumns[2],
   footerColumns[4],
   footerColumns[3],
+  footerColumns[5],
 ];
 
 const legalLinks = [
@@ -95,7 +120,7 @@ export function SiteHeader() {
               className="site-logo-link flex min-w-0 shrink-0 items-center justify-center overflow-visible"
             >
               <Image
-                src={assetPath("/images/evareadyelectrical-logo.png")}
+                src={assetPath(business.logoImage)}
                 alt="Evaready Electrical 24/7"
                 width={1426}
                 height={503}
@@ -172,7 +197,7 @@ export function SiteFooter() {
           <div className="footer-brand-block">
             <div className="footer-logo-shell w-fit overflow-visible">
               <Image
-                src={assetPath("/images/evareadyelectrical-logo.png")}
+                src={assetPath(business.logoImage)}
                 alt="Evaready Electrical 24/7"
                 width={1426}
                 height={503}
@@ -205,79 +230,16 @@ export function SiteFooter() {
                 </dt>
                 <dd>{business.openCablerRegistration}</dd>
               </div>
+              <div>
+                <dt className="font-black uppercase tracking-[0.12em] text-cyan-200">
+                  ARCtick Licensed
+                </dt>
+                <dd>{business.arctickLicence}</dd>
+              </div>
             </dl>
-
-            <div className="mt-4 grid gap-2 text-sm text-slate-200">
-              <a
-                href={business.phoneHref}
-                className="footer-link inline-flex w-fit items-center gap-2 font-black text-white"
-              >
-                <Phone className="h-4 w-4 shrink-0 text-red-300" />
-                Call {business.phoneDisplay}
-              </a>
-              <a
-                href={business.emailHref}
-                className="footer-link inline-flex w-fit items-center gap-2 break-all font-bold text-white"
-              >
-                <Mail className="h-4 w-4 shrink-0 text-cyan-300" />
-                {business.email}
-              </a>
-              <a
-                href={business.bookingUrl}
-                data-quote-trigger="true"
-                aria-haspopup="dialog"
-                className="footer-link inline-flex w-fit items-center gap-2 font-black text-white"
-              >
-                <ArrowRight className="h-4 w-4 shrink-0 text-cyan-300" />
-                {business.quoteCta}
-              </a>
-            </div>
-
-            <div className="footer-action-grid mt-4 grid grid-cols-1 gap-2 min-[390px]:grid-cols-3 md:grid-cols-1 lg:grid-cols-3">
-              <a
-                href={business.phoneHref}
-                className="footer-action footer-action-call"
-              >
-                <Phone className="h-4 w-4 shrink-0" />
-                <span>Call {business.phoneDisplay}</span>
-              </a>
-              <a
-                href={business.bookingUrl}
-                data-quote-trigger="true"
-                aria-haspopup="dialog"
-                className="footer-action footer-action-quote"
-              >
-                <span>{business.quoteCta}</span>
-                <ArrowRight className="h-4 w-4 shrink-0" />
-              </a>
-              <a href={business.emailHref} className="footer-action footer-action-email">
-                <Mail className="h-4 w-4 shrink-0" />
-                <span>Email</span>
-              </a>
-            </div>
           </div>
 
-          <nav
-            aria-label="Footer navigation"
-            className="hidden gap-x-5 gap-y-7 md:grid md:grid-cols-2 lg:grid-cols-5"
-          >
-            {footerColumnsOrdered.map((column) => (
-              <div key={column.title}>
-                <h3 className="text-xs font-black uppercase tracking-[0.14em] text-white">
-                  {column.title}
-                </h3>
-                <div className="mt-3 grid gap-2.5">
-                  {column.links.map((link) => (
-                    <Link key={link.href} href={link.href} className="footer-link">
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </nav>
-
-          <FooterMobileAccordions columns={footerColumnsOrdered} />
+          <FooterLinkGroups columns={footerColumnsOrdered} />
         </div>
 
         <div className="mt-7 flex flex-col gap-3 border-t border-cyan-300/15 pt-4 text-xs text-slate-400 md:mt-8 md:flex-row md:items-center md:justify-between">
@@ -306,13 +268,6 @@ export function ServiceAreaHero({
 }) {
   return (
     <section className="brand-internal-hero relative overflow-hidden bg-slate-950 text-white">
-      <Image
-        src={assetPath(business.brandImage)}
-        alt={business.brandImageAlt}
-        fill
-        sizes="100vw"
-        className="brand-internal-hero-image object-cover object-[67%_center]"
-      />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(0,200,255,0.22),transparent_30%),radial-gradient(circle_at_85%_30%,rgba(255,0,30,0.2),transparent_32%)]" />
       <div className="absolute inset-0 bg-gradient-to-br from-[#020814]/94 via-[#061A3A]/88 to-[#020814]/76" />
 

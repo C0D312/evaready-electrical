@@ -16,21 +16,29 @@ import {
 } from "lucide-react";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
-import { assetPath, business, priorityRegions, services } from "@/data/site";
+import {
+  absoluteUrl,
+  assetPath,
+  business,
+  canonicalPath,
+  priorityRegions,
+  services,
+} from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Emergency & Level 2 Electrician Sydney",
+  title: "Emergency & Level 2 Electrician Sydney & Greater Regions",
   description:
     "Evaready Electrical helps with urgent faults, Level 2 work, switchboards, fault finding, residential and commercial electrical jobs across Sydney and surrounding regions.",
   alternates: {
-    canonical: "/",
+    canonical: canonicalPath("/"),
   },
   openGraph: {
-    title: "Emergency & Level 2 Electrician Sydney | Evaready Electrical",
+    title:
+      "Emergency & Level 2 Electrician Sydney & Greater Regions | Evaready Electrical",
     description:
       "Emergency, Level 2 and general electrical work across Sydney and surrounding regions.",
-    url: "/",
-    images: [business.brandImage],
+    url: business.siteUrl,
+    images: [absoluteUrl(business.brandImage)],
   },
 };
 
@@ -150,6 +158,12 @@ const issuePaths = [
     text: "Wet electrical equipment needs a safe check.",
     href: "/electrical-faults/power-outage-after-storm",
     icon: Bolt,
+  },
+  {
+    title: "Lights flickering",
+    text: "Flickering or dimming lights should be checked.",
+    href: "/electrical-faults/lights-flickering",
+    icon: AlertTriangle,
   },
   {
     title: "Need Level 2 electrician",
@@ -288,7 +302,7 @@ export default function HomePage() {
 
       <section className="home-brand-hero relative isolate overflow-hidden bg-[#020814] text-white">
         <Image
-          src={assetPath(business.brandImage)}
+          src={assetPath(business.heroImage)}
           alt={business.brandImageAlt}
           fill
           priority
@@ -306,7 +320,7 @@ export default function HomePage() {
             </div>
 
             <h1 className="max-w-5xl text-4xl font-black leading-[0.98] tracking-tight text-white sm:text-6xl lg:text-7xl">
-              Emergency & Level 2 Electrical Help in Sydney
+              Emergency & Level 2 Electrical Help in Sydney & Greater Regions
             </h1>
 
             <p className="mt-5 max-w-2xl text-base leading-7 text-slate-100 sm:mt-6 sm:text-xl sm:leading-8">
@@ -343,16 +357,16 @@ export default function HomePage() {
                 return (
                   <div
                     key={mark.title}
-                    className="flex items-center gap-3 rounded-lg border border-cyan-300/20 bg-[#15171C]/70 p-3 shadow-xl shadow-cyan-500/10 backdrop-blur"
+                    className="home-hero-trust-card flex items-center gap-3 rounded-lg border border-cyan-300/20 bg-[#15171C]/70 p-3 shadow-xl shadow-cyan-500/10 backdrop-blur"
                   >
-                    <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#005BFF]/20 text-[#00C8FF]">
+                    <span className="home-hero-trust-icon inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#005BFF]/20 text-[#00C8FF]">
                       <Icon className="h-5 w-5" />
                     </span>
                     <span>
-                      <span className="block text-sm font-black text-white">
+                      <span className="home-hero-trust-title block text-sm font-black text-white">
                         {mark.title}
                       </span>
-                      <span className="mt-1 block text-xs font-semibold leading-5 text-slate-300">
+                      <span className="home-hero-trust-description mt-1 block text-xs font-semibold leading-5 text-slate-300">
                         {mark.text}
                       </span>
                     </span>
@@ -366,7 +380,7 @@ export default function HomePage() {
 
       <section className="issue-selector-section border-y border-cyan-300/15 bg-slate-950 py-12 text-white sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-[0.76fr_1.24fr] lg:items-end">
+          <div className="grid gap-8 lg:grid-cols-[0.76fr_1.24fr] lg:items-start">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.2em] text-cyan-200">
                 Choose your electrical issue
@@ -606,7 +620,7 @@ export default function HomePage() {
               Service areas
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl">
-              Sydney & Surrounding Regions.
+              Sydney & Greater Regions.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
               Browse major regions or search suburb and postcode pages for local

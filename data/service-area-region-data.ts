@@ -5,7 +5,7 @@ export const generatedCoverageRegions = [
     "name": "Canterbury-Bankstown & Inner South West",
     "slug": "canterbury-bankstown-and-inner-south-west",
     "description": "Local electrical service around Panania, Revesby, Padstow, Bankstown and the Inner South West corridor.",
-    "travelNote": "Priority local response area for urgent faults and everyday electrical work.",
+    "travelNote": "Fast local electrical support for urgent faults and everyday electrical work.",
     "areas": [
       {
         "name": "Canterbury-Bankstown",
@@ -195,7 +195,7 @@ export const generatedCoverageRegions = [
     "name": "St George & Bayside",
     "slug": "st-george-and-bayside",
     "description": "Electrical service across St George, Bayside, Hurstville, Kogarah, Rockdale, Bexley and the airport corridor.",
-    "travelNote": "Regular service area for residential, commercial, strata and urgent electrical work.",
+    "travelNote": "Fast electrical support for residential, commercial, strata and urgent electrical work.",
     "areas": [
       {
         "name": "Bayside & Airport",
@@ -986,7 +986,7 @@ export const generatedCoverageRegions = [
     "name": "Macarthur, Camden & Wollondilly",
     "slug": "macarthur-camden-and-wollondilly",
     "description": "Electrical service for Campbelltown, Camden, Oran Park, Wollondilly and the growing south west corridor.",
-    "travelNote": "Electrical service availability depends on urgency, access, job type and scheduling.",
+    "travelNote": "Fast electrical support across Macarthur, Camden and Wollondilly, with urgent faults handled by phone first and planned work reviewed through the booking form.",
     "areas": [
       {
         "name": "Camden",
@@ -1721,7 +1721,7 @@ export const generatedCoverageRegions = [
     "name": "Sydney City & Eastern Suburbs",
     "slug": "sydney-city-and-eastern-suburbs",
     "description": "City, apartment, commercial, strata and eastern suburbs electrical service.",
-    "travelNote": "City and eastern suburbs jobs are accepted based on urgency, parking access and scheduling.",
+    "travelNote": "Fast electrical support across Sydney City and Eastern Suburbs, with urgent faults handled by phone first and planned work reviewed through the booking form.",
     "areas": [
       {
         "name": "Randwick",
@@ -2294,7 +2294,7 @@ export const generatedCoverageRegions = [
     "name": "Western Sydney & Nepean",
     "slug": "western-sydney-and-nepean",
     "description": "Electrical service for Blacktown, Mount Druitt, Rooty Hill, Penrith, St Marys and the Nepean corridor.",
-    "travelNote": "Service availability depends on job type, access and current schedule.",
+    "travelNote": "Fast electrical support across Western Sydney and Nepean, with urgent faults handled by phone first and planned work reviewed through the booking form.",
     "areas": [
       {
         "name": "Blacktown",
@@ -2691,7 +2691,7 @@ export const generatedCoverageRegions = [
     "name": "Hills, Hawkesbury & Hornsby",
     "slug": "hills-hawkesbury-and-hornsby",
     "description": "Electrical service for the Hills District, Hornsby, Dural, Galston, Windsor, Richmond and Hawkesbury-side suburbs.",
-    "travelNote": "Electrical service availability depends on job type, urgency, access and scheduling.",
+    "travelNote": "Fast electrical support across Hills, Hawkesbury and Hornsby, with urgent faults handled by phone first and planned work reviewed through the booking form.",
     "areas": [
       {
         "name": "Hawkesbury",
@@ -3567,7 +3567,7 @@ export const generatedCoverageRegions = [
     "name": "Northern Beaches",
     "slug": "northern-beaches",
     "description": "Electrical service for Manly, Balgowlah, Dee Why, Brookvale, Narrabeen and Northern Beaches suburbs within the service area.",
-    "travelNote": "Service availability depends on job type, urgency, access and scheduling.",
+    "travelNote": "Fast electrical support across Northern Beaches, with urgent faults handled by phone first and planned work reviewed through the booking form.",
     "areas": [
       {
         "name": "Northern Beaches",
@@ -3846,8 +3846,8 @@ export const generatedCoverageRegions = [
   {
     "name": "Blue Mountains",
     "slug": "blue-mountains",
-    "description": "Selected electrical service for Lower and Mid Blue Mountains suburbs from Lapstone, Glenbrook and Blaxland through to Springwood, Wentworth Falls, Leura and Katoomba.",
-    "travelNote": "Blue Mountains work may suit larger jobs, urgent faults or scheduled service days.",
+    "description": "Fast electrical support across Blue Mountains, with urgent faults handled by phone first and planned work reviewed through the booking form.",
+    "travelNote": "Electrical services across Blue Mountains for urgent faults, planned work and larger electrical jobs.",
     "areas": [
       {
         "name": "Blue Mountains",
@@ -4415,8 +4415,8 @@ export const generatedCoverageRegions = [
   {
     "name": "Southern Highlands",
     "slug": "southern-highlands",
-    "description": "Selected electrical service for Mittagong, Bowral, Moss Vale and Southern Highlands suburbs inside the service area.",
-    "travelNote": "Southern Highlands jobs are accepted based on urgency, access, job type and scheduling.",
+    "description": "Fast electrical support across Southern Highlands, with urgent faults handled by phone first and planned work reviewed through the booking form.",
+    "travelNote": "Electrical services across Southern Highlands for urgent faults, planned work and larger electrical jobs.",
     "areas": [
       {
         "name": "Wingecarribee",
@@ -4570,8 +4570,8 @@ export const generatedCoverageRegions = [
   {
     "name": "Central Coast South",
     "slug": "central-coast-south",
-    "description": "Selected electrical service for southern Central Coast suburbs, Hawkesbury River communities, Gosford, Woy Woy and nearby areas.",
-    "travelNote": "Central Coast South jobs are assessed by suburb, access, urgency and the electrical work required.",
+    "description": "Fast electrical support across Central Coast South, with urgent faults handled by phone first and planned work reviewed through the booking form.",
+    "travelNote": "Electrical services across Central Coast South for urgent faults, planned work and larger electrical jobs.",
     "areas": [
       {
         "name": "Central Coast",

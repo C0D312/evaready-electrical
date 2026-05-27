@@ -1193,8 +1193,7 @@ main {
   background: #020814;
 }
 
-.brand-hero-image,
-.brand-internal-hero-image {
+.brand-hero-image {
   filter: saturate(1.12) contrast(1.05);
 }
 
@@ -1208,14 +1207,16 @@ main {
 .brand-internal-hero {
   min-height: auto;
   background:
-    linear-gradient(110deg, rgba(2, 8, 20, 0.96), rgba(6, 26, 58, 0.84) 48%, rgba(2, 8, 20, 0.62)),
-    var(--ee-van-image) center right / cover no-repeat !important;
+    radial-gradient(circle at 18% 12%, rgba(0, 200, 255, 0.18), transparent 32%),
+    radial-gradient(circle at 88% 78%, rgba(255, 0, 30, 0.12), transparent 34%),
+    linear-gradient(110deg, rgba(2, 8, 20, 0.98), rgba(6, 26, 58, 0.9) 48%, rgba(2, 8, 20, 0.74)) !important;
 }
 
 main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) {
   background:
-    linear-gradient(110deg, rgba(2, 8, 20, 0.96), rgba(6, 26, 58, 0.86) 48%, rgba(2, 8, 20, 0.58)),
-    var(--ee-van-image) center right / cover no-repeat !important;
+    radial-gradient(circle at 18% 12%, rgba(0, 200, 255, 0.18), transparent 32%),
+    radial-gradient(circle at 88% 78%, rgba(255, 0, 30, 0.12), transparent 34%),
+    linear-gradient(110deg, rgba(2, 8, 20, 0.98), rgba(6, 26, 58, 0.9) 48%, rgba(2, 8, 20, 0.74)) !important;
 }
 
 main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) > .absolute {
@@ -1510,14 +1511,16 @@ footer .bg-white {
 
   main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) {
     background:
-      linear-gradient(180deg, rgba(2, 8, 20, 0.94), rgba(6, 26, 58, 0.88) 56%, rgba(2, 8, 20, 0.86)),
-      var(--ee-van-image) 68% center / cover no-repeat !important;
+      radial-gradient(circle at 18% 12%, rgba(0, 200, 255, 0.18), transparent 32%),
+      radial-gradient(circle at 88% 78%, rgba(255, 0, 30, 0.12), transparent 34%),
+      linear-gradient(180deg, rgba(2, 8, 20, 0.96), rgba(6, 26, 58, 0.9) 56%, rgba(2, 8, 20, 0.88)) !important;
   }
 
   .brand-internal-hero {
     background:
-      linear-gradient(180deg, rgba(2, 8, 20, 0.94), rgba(6, 26, 58, 0.9) 58%, rgba(2, 8, 20, 0.86)),
-      var(--ee-van-image) 68% center / cover no-repeat !important;
+      radial-gradient(circle at 18% 12%, rgba(0, 200, 255, 0.18), transparent 32%),
+      radial-gradient(circle at 88% 78%, rgba(255, 0, 30, 0.12), transparent 34%),
+      linear-gradient(180deg, rgba(2, 8, 20, 0.96), rgba(6, 26, 58, 0.9) 58%, rgba(2, 8, 20, 0.88)) !important;
   }
 
   main > section:first-of-type:not(.home-brand-hero) h1 {
@@ -1543,15 +1546,17 @@ footer .bg-white {
 .brand-internal-hero {
   min-height: 0 !important;
   background:
-    linear-gradient(110deg, rgba(2, 8, 20, 0.96), rgba(6, 26, 58, 0.84) 48%, rgba(2, 8, 20, 0.62)),
-    var(--ee-van-image) 68% center / cover no-repeat !important;
+    radial-gradient(circle at 18% 12%, rgba(0, 200, 255, 0.18), transparent 32%),
+    radial-gradient(circle at 88% 78%, rgba(255, 0, 30, 0.12), transparent 34%),
+    linear-gradient(110deg, rgba(2, 8, 20, 0.98), rgba(6, 26, 58, 0.9) 48%, rgba(2, 8, 20, 0.74)) !important;
 }
 
 section.brand-internal-hero.bg-slate-950,
 section.brand-internal-hero.bg-\[\#020617\] {
   background:
-    linear-gradient(110deg, rgba(2, 8, 20, 0.96), rgba(6, 26, 58, 0.84) 48%, rgba(2, 8, 20, 0.62)),
-    var(--ee-van-image) 68% center / cover no-repeat !important;
+    radial-gradient(circle at 18% 12%, rgba(0, 200, 255, 0.18), transparent 32%),
+    radial-gradient(circle at 88% 78%, rgba(255, 0, 30, 0.12), transparent 34%),
+    linear-gradient(110deg, rgba(2, 8, 20, 0.98), rgba(6, 26, 58, 0.9) 48%, rgba(2, 8, 20, 0.74)) !important;
 }
 
 .brand-internal-hero > .absolute {
@@ -1660,8 +1665,9 @@ section.brand-internal-hero.bg-\[\#020617\] {
 
   .brand-internal-hero {
     background:
-      linear-gradient(180deg, rgba(2, 8, 20, 0.96), rgba(6, 26, 58, 0.88) 58%, rgba(2, 8, 20, 0.84)),
-      var(--ee-van-image) 68% center / cover no-repeat !important;
+      radial-gradient(circle at 18% 12%, rgba(0, 200, 255, 0.18), transparent 32%),
+      radial-gradient(circle at 88% 78%, rgba(255, 0, 30, 0.12), transparent 34%),
+      linear-gradient(180deg, rgba(2, 8, 20, 0.96), rgba(6, 26, 58, 0.9) 58%, rgba(2, 8, 20, 0.88)) !important;
   }
 
   .brand-internal-hero > div.mx-auto {
@@ -2104,8 +2110,9 @@ body.quote-modal-open .quote-modal-iframe {
 
   .brand-internal-hero {
     background:
-      linear-gradient(180deg, rgba(2, 8, 20, 0.93), rgba(6, 26, 58, 0.8) 48%, rgba(2, 8, 20, 0.72)),
-      var(--ee-van-image) 82% center / cover no-repeat !important;
+      radial-gradient(circle at 18% 12%, rgba(0, 200, 255, 0.18), transparent 32%),
+      radial-gradient(circle at 88% 78%, rgba(255, 0, 30, 0.12), transparent 34%),
+      linear-gradient(180deg, rgba(2, 8, 20, 0.96), rgba(6, 26, 58, 0.9) 58%, rgba(2, 8, 20, 0.88)) !important;
   }
 }
 
@@ -2429,10 +2436,6 @@ a[data-quote-trigger="true"].site-header-quote {
   filter: saturate(1.12) contrast(1.08) brightness(1.02) !important;
 }
 
-.brand-internal-hero-image {
-  object-position: 72% center !important;
-}
-
 .quote-modal-backdrop {
   --quote-modal-safe-top: env(safe-area-inset-top, 0px);
   --quote-modal-header-height: 92px;
@@ -2611,8 +2614,9 @@ a[data-quote-trigger="true"].site-header-quote {
 
   .brand-internal-hero {
     background:
-      linear-gradient(180deg, rgba(2, 8, 20, 0.92), rgba(6, 26, 58, 0.82) 48%, rgba(2, 8, 20, 0.76)),
-      var(--ee-van-image) 78% center / cover no-repeat !important;
+      radial-gradient(circle at 18% 12%, rgba(0, 200, 255, 0.18), transparent 32%),
+      radial-gradient(circle at 88% 78%, rgba(255, 0, 30, 0.12), transparent 34%),
+      linear-gradient(180deg, rgba(2, 8, 20, 0.96), rgba(6, 26, 58, 0.9) 58%, rgba(2, 8, 20, 0.88)) !important;
   }
 
   .quote-modal-backdrop {
@@ -3095,7 +3099,7 @@ a[data-quote-trigger="true"].site-header-quote {
 
 .footer-link:focus-visible,
 .footer-action:focus-visible,
-.footer-mobile-accordion-button:focus-visible {
+.footer-link-group-button:focus-visible {
   outline: 3px solid rgba(103, 232, 249, 0.48);
   outline-offset: 3px;
 }
@@ -3139,19 +3143,21 @@ a[data-quote-trigger="true"].site-header-quote {
   background: rgba(2, 8, 20, 0.54);
 }
 
-.footer-mobile-accordions {
+.footer-link-groups {
   display: grid;
+  min-width: 0;
   gap: 0.55rem;
 }
 
-.footer-mobile-accordion {
+.footer-link-group {
+  min-width: 0;
   overflow: hidden;
   border: 1px solid rgba(103, 232, 249, 0.14);
   border-radius: 0.65rem;
   background: rgba(2, 8, 20, 0.46);
 }
 
-.footer-mobile-accordion-button {
+.footer-link-group-button {
   display: flex;
   min-height: 44px;
   width: 100%;
@@ -3168,21 +3174,100 @@ a[data-quote-trigger="true"].site-header-quote {
   text-transform: uppercase;
 }
 
-.footer-mobile-accordion-panel {
+.footer-link-group-icon {
+  color: #67e8f9;
+  transition: transform 0.2s ease;
+}
+
+.footer-link-group-open .footer-link-group-icon {
+  transform: rotate(180deg);
+}
+
+.footer-link-panel {
   max-height: 0;
   overflow: hidden;
   padding-inline: 0.85rem;
   transition: max-height 0.22s ease;
 }
 
-.footer-mobile-accordion-panel-open {
-  max-height: 18rem;
+.footer-link-group-open .footer-link-panel {
+  max-height: 24rem;
 }
 
-.footer-mobile-accordion-link {
-  min-height: 32px;
-  align-items: center;
-  font-size: 0.84rem;
+.footer-link-list {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0.15rem 0 0.85rem;
+  list-style: none;
+}
+
+.footer-link-list li {
+  min-width: 0;
+}
+
+.footer-link-groups .footer-action {
+  width: 100%;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .footer-link-groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.75rem 1.25rem;
+  }
+
+  .footer-link-group {
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .footer-link-group-button {
+    min-height: 0;
+    cursor: default;
+    padding: 0;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    pointer-events: none;
+  }
+
+  .footer-link-group-icon {
+    display: none;
+  }
+
+  .footer-link-panel {
+    max-height: none;
+    overflow: visible;
+    padding: 0;
+  }
+
+  .footer-link-list {
+    gap: 0.65rem;
+    padding: 0;
+    margin-top: 0.8rem;
+  }
+
+  .footer-link-groups .footer-action {
+    min-height: 38px;
+    justify-content: center;
+    padding: 0.64rem 0.65rem;
+    font-size: 0.72rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-link-groups {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .footer-link-groups {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
 }
 
 .floating-call-button--footer-visible {
@@ -3202,10 +3287,6 @@ a[data-quote-trigger="true"].site-header-quote {
     width: 11.875rem !important;
     min-width: 11.875rem !important;
     max-width: 11.875rem !important;
-  }
-
-  .footer-action-grid {
-    margin-right: 0.25rem;
   }
 
   .footer-link {
@@ -3600,18 +3681,13 @@ a[data-quote-trigger="true"].site-header-quote {
 
 /* Hero van visibility pass: use the real van photo as the hero image instead
    of a separate mobile picture card, and keep the vehicle clear on every page. */
-.home-brand-hero .brand-hero-image,
-.brand-internal-hero .brand-internal-hero-image {
+.home-brand-hero .brand-hero-image {
   opacity: 1 !important;
-  filter: saturate(1.18) contrast(1.08) brightness(1.08) !important;
+  filter: saturate(1.2) contrast(1.08) brightness(1.16) !important;
 }
 
 .home-brand-hero .brand-hero-image {
   object-position: 72% center !important;
-}
-
-.brand-internal-hero .brand-internal-hero-image {
-  object-position: 74% center !important;
 }
 
 .home-hero-readability-overlay {
@@ -3693,15 +3769,11 @@ a[data-quote-trigger="true"].site-header-quote {
   }
 
   .brand-internal-hero {
-    min-height: clamp(560px, 78svh, 780px) !important;
-  }
-
-  .brand-internal-hero .brand-internal-hero-image {
-    object-position: 80% center !important;
+    min-height: auto !important;
   }
 
   .brand-internal-hero > div.mx-auto {
-    padding-bottom: clamp(8.5rem, 38vw, 15rem) !important;
+    padding-bottom: clamp(2.5rem, 10vw, 4rem) !important;
   }
 
   .brand-internal-hero h1 {
@@ -3739,8 +3811,9 @@ a[data-quote-trigger="true"].site-header-quote {
 
   .home-brand-hero > .relative.mx-auto,
   .brand-internal-hero > div.mx-auto {
+    box-sizing: border-box !important;
     width: 100% !important;
-    max-width: 100vw !important;
+    max-width: 100% !important;
     min-width: 0 !important;
     padding-right: 1rem !important;
     padding-left: 1rem !important;
@@ -3841,22 +3914,15 @@ main section:not(.quote-request-panel) :is(a, button).bg-blue-700 svg {
       linear-gradient(180deg, #020814 0%, #061a3a 52%, #020814 100%) !important;
   }
 
-  .brand-internal-hero:has(.brand-internal-hero-image) {
-    min-height: auto !important;
-    background:
-      linear-gradient(180deg, #020814 0%, #061a3a 52%, #020814 100%) !important;
-  }
-
-  .brand-internal-hero:not(:has(.brand-internal-hero-image)),
+  .brand-internal-hero,
   main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) {
-    min-height: clamp(680px, 102svh, 840px) !important;
     background:
-      linear-gradient(180deg, rgba(2, 8, 20, 0.97) 0%, rgba(6, 26, 58, 0.9) 46%, rgba(2, 8, 20, 0.5) 66%, rgba(2, 8, 20, 0.16) 100%),
-      var(--ee-van-image) center bottom / min(92vw, 430px) auto no-repeat !important;
+      radial-gradient(circle at 18% 12%, rgba(0, 200, 255, 0.18), transparent 32%),
+      radial-gradient(circle at 88% 78%, rgba(255, 0, 30, 0.12), transparent 34%),
+      linear-gradient(180deg, rgba(2, 8, 20, 0.96), rgba(6, 26, 58, 0.9) 58%, rgba(2, 8, 20, 0.88)) !important;
   }
 
-  .home-brand-hero .brand-hero-image,
-  .brand-internal-hero .brand-internal-hero-image {
+  .home-brand-hero .brand-hero-image {
     position: absolute !important;
     inset: auto auto 0 50% !important;
     right: auto !important;
@@ -3869,20 +3935,79 @@ main section:not(.quote-request-panel) :is(a, button).bg-blue-700 svg {
     object-fit: contain !important;
     object-position: center bottom !important;
     z-index: 0 !important;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 100%);
   }
 
   .home-brand-hero > .relative.mx-auto {
     z-index: 2 !important;
-    padding-bottom: clamp(16.75rem, 68vw, 23rem) !important;
+    padding-bottom: clamp(1.75rem, 6vw, 2.75rem) !important;
+  }
+
+  .home-brand-hero .mt-8.grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.45rem !important;
+    margin-top: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .home-brand-hero .home-hero-trust-card {
+    min-width: 0 !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.45rem !important;
+    min-height: 5.1rem !important;
+    padding: 0.65rem !important;
+    border-color: rgba(0, 200, 255, 0.32) !important;
+    background: rgba(6, 26, 58, 0.42) !important;
+    backdrop-filter: none !important;
+  }
+
+  .home-brand-hero .home-hero-trust-card:nth-child(3) {
+    grid-column: 1 / -1 !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    min-height: 3.4rem !important;
+  }
+
+  .home-brand-hero .home-hero-trust-icon {
+    width: 1.9rem !important;
+    height: 1.9rem !important;
+    border-radius: 0.55rem !important;
+  }
+
+  .home-brand-hero .home-hero-trust-card > span:last-child {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    min-width: 0 !important;
+  }
+
+  .home-brand-hero .mt-8.grid svg {
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+
+  .home-brand-hero .home-hero-trust-card > span:last-child > span {
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+  }
+
+  .home-brand-hero .home-hero-trust-title {
+    font-size: 0.75rem !important;
+    line-height: 1.08 !important;
+  }
+
+  .home-brand-hero .home-hero-trust-description {
+    display: none !important;
   }
 
   .brand-internal-hero > div.mx-auto {
     z-index: 2 !important;
-    padding-bottom: clamp(15.5rem, 62vw, 21rem) !important;
-  }
-
-  .brand-internal-hero:has(.brand-internal-hero-image)::before {
-    display: none !important;
+    padding-bottom: clamp(10rem, 34vw, 16rem) !important;
   }
 
   .home-hero-readability-overlay,
@@ -3898,7 +4023,7 @@ main section:not(.quote-request-panel) :is(a, button).bg-blue-700 svg {
   .home-hero-readability-overlay,
   .brand-internal-hero > .absolute + .absolute {
     background:
-      linear-gradient(180deg, rgba(2, 8, 20, 0.98) 0%, rgba(2, 8, 20, 0.9) 44%, rgba(2, 8, 20, 0.56) 64%, rgba(2, 8, 20, 0.2) 82%, rgba(2, 8, 20, 0.1) 100%) !important;
+      linear-gradient(180deg, rgba(2, 8, 20, 0.98) 0%, rgba(2, 8, 20, 0.9) 44%, rgba(2, 8, 20, 0.5) 64%, rgba(2, 8, 20, 0.08) 82%, rgba(2, 8, 20, 0.04) 100%) !important;
   }
 
   .brand-internal-hero .mt-8.grid > div {
@@ -3933,17 +4058,614 @@ main section:not(.quote-request-panel) :is(a, button).bg-blue-700 svg {
     font-size: 0.84rem !important;
   }
 
-  .home-brand-hero .brand-hero-image,
-  .brand-internal-hero .brand-internal-hero-image {
+  .home-brand-hero .brand-hero-image {
     width: 100vw !important;
     height: 66.67vw !important;
   }
 
   .home-brand-hero > .relative.mx-auto {
-    padding-bottom: clamp(15.25rem, 64vw, 20rem) !important;
+    padding-bottom: clamp(1.5rem, 6vw, 2.25rem) !important;
   }
 
   .brand-internal-hero > div.mx-auto {
-    padding-bottom: clamp(14.75rem, 60vw, 19rem) !important;
+    padding-bottom: clamp(9.25rem, 42vw, 13rem) !important;
+  }
+}
+
+/* Site-wide hero van visual: image stays in the hero background, never as a
+   separate page/card image. */
+.brand-internal-hero,
+main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(0, 200, 255, 0.18), transparent 32%),
+    linear-gradient(110deg, rgba(2, 8, 20, 0.98) 0%, rgba(6, 26, 58, 0.92) 45%, rgba(2, 8, 20, 0.34) 68%, rgba(2, 8, 20, 0.18) 100%),
+    var(--ee-van-image) right center / 58vw auto no-repeat,
+    linear-gradient(135deg, #020814 0%, #061a3a 54%, #020814 100%) !important;
+}
+
+@media (min-width: 768px) {
+  .brand-internal-hero > div.mx-auto {
+    padding-bottom: clamp(4.5rem, 10vw, 8rem) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .brand-internal-hero,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) {
+    background:
+      linear-gradient(180deg, rgba(2, 8, 20, 0.98) 0%, rgba(2, 8, 20, 0.9) 44%, rgba(2, 8, 20, 0.52) 64%, rgba(2, 8, 20, 0.12) 82%, rgba(2, 8, 20, 0.08) 100%),
+      var(--ee-van-image) center bottom / 96vw auto no-repeat,
+      linear-gradient(180deg, #020814 0%, #061a3a 54%, #020814 100%) !important;
+  }
+
+  .brand-internal-hero > div.mx-auto {
+    padding-bottom: clamp(10rem, 46vw, 14rem) !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .brand-internal-hero > div.mx-auto {
+    padding-bottom: clamp(9.25rem, 43vw, 12.25rem) !important;
+  }
+}
+
+/* Final hero-image guard: keep the Evaready van visible as part of the hero
+   treatment across pages, without adding any standalone van cards. */
+.home-brand-hero {
+  min-height: clamp(36rem, 72vh, 48rem) !important;
+}
+
+.home-brand-hero .brand-hero-image {
+  opacity: 1 !important;
+  object-fit: cover !important;
+  object-position: right center !important;
+  filter: saturate(1.18) contrast(1.06) brightness(1.08) !important;
+}
+
+.home-hero-readability-overlay {
+  background:
+    linear-gradient(90deg, rgba(2, 8, 20, 0.96) 0%, rgba(2, 8, 20, 0.82) 34%, rgba(2, 8, 20, 0.28) 62%, rgba(2, 8, 20, 0.04) 100%) !important;
+}
+
+.brand-internal-hero,
+main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(0, 200, 255, 0.18), transparent 32%),
+    linear-gradient(110deg, rgba(2, 8, 20, 0.98) 0%, rgba(6, 26, 58, 0.9) 42%, rgba(2, 8, 20, 0.22) 70%, rgba(2, 8, 20, 0.08) 100%),
+    var(--ee-van-image) right center / 60vw auto no-repeat,
+    linear-gradient(135deg, #020814 0%, #061a3a 54%, #020814 100%) !important;
+}
+
+.brand-internal-hero > .absolute {
+  opacity: 0.28 !important;
+}
+
+.brand-internal-hero > .absolute + .absolute {
+  background:
+    linear-gradient(90deg, rgba(2, 8, 20, 0.96) 0%, rgba(6, 26, 58, 0.78) 38%, rgba(2, 8, 20, 0.16) 70%, rgba(2, 8, 20, 0.03) 100%) !important;
+}
+
+@media (min-width: 768px) {
+  .brand-internal-hero {
+    min-height: clamp(31rem, 54vh, 42rem) !important;
+  }
+
+  .brand-internal-hero > div.mx-auto {
+    padding-bottom: clamp(4rem, 8vw, 7rem) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-brand-hero {
+    min-height: auto !important;
+    background: linear-gradient(180deg, #020814 0%, #061a3a 50%, #020814 100%) !important;
+  }
+
+  .home-brand-hero .brand-hero-image {
+    position: absolute !important;
+    inset: auto auto 0 50% !important;
+    width: min(100vw, 430px) !important;
+    height: min(66.67vw, 287px) !important;
+    max-width: none !important;
+    transform: translateX(-50%) !important;
+    object-fit: contain !important;
+    object-position: center bottom !important;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 14%, #000 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 14%, #000 100%);
+  }
+
+  .home-brand-hero > .relative.mx-auto {
+    padding-bottom: clamp(13.5rem, 57vw, 18rem) !important;
+  }
+
+  .home-hero-readability-overlay {
+    background:
+      linear-gradient(180deg, rgba(2, 8, 20, 0.98) 0%, rgba(2, 8, 20, 0.91) 44%, rgba(2, 8, 20, 0.44) 62%, rgba(2, 8, 20, 0.1) 82%, rgba(2, 8, 20, 0.04) 100%) !important;
+  }
+
+  .brand-internal-hero,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) {
+    background:
+      linear-gradient(180deg, rgba(2, 8, 20, 0.98) 0%, rgba(2, 8, 20, 0.91) 43%, rgba(2, 8, 20, 0.44) 62%, rgba(2, 8, 20, 0.1) 82%, rgba(2, 8, 20, 0.04) 100%),
+      var(--ee-van-image) center bottom / 100vw auto no-repeat,
+      linear-gradient(180deg, #020814 0%, #061a3a 54%, #020814 100%) !important;
+  }
+
+  .brand-internal-hero > div.mx-auto {
+    padding-bottom: clamp(13rem, 54vw, 18rem) !important;
+  }
+
+  .brand-internal-hero > .absolute {
+    opacity: 0.2 !important;
+  }
+
+  .brand-internal-hero > .absolute + .absolute {
+    background:
+      linear-gradient(180deg, rgba(2, 8, 20, 0.98) 0%, rgba(2, 8, 20, 0.9) 44%, rgba(2, 8, 20, 0.4) 62%, rgba(2, 8, 20, 0.08) 82%, rgba(2, 8, 20, 0.04) 100%) !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .home-brand-hero > .relative.mx-auto {
+    padding-bottom: clamp(12.25rem, 54vw, 16rem) !important;
+  }
+
+  .brand-internal-hero > div.mx-auto {
+    padding-bottom: clamp(12rem, 52vw, 16rem) !important;
+  }
+}
+
+/* Dedicated internal hero van layer. This keeps the van as part of the hero
+   artwork even when page-specific gradient overlays are present. */
+.brand-internal-hero,
+main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.brand-internal-hero::before,
+main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: var(--ee-van-image);
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: min(60vw, 58rem) auto;
+  opacity: 0.92;
+  filter: saturate(1.18) contrast(1.06) brightness(1.05);
+}
+
+.brand-internal-hero > .absolute,
+main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) > .absolute {
+  z-index: 1;
+}
+
+.brand-internal-hero > .absolute + .absolute,
+main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) > .absolute + .absolute {
+  z-index: 2;
+}
+
+.brand-internal-hero > div.mx-auto,
+main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) > div.mx-auto {
+  position: relative;
+  z-index: 3;
+}
+
+@media (max-width: 767px) {
+  .brand-internal-hero::before,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white)::before {
+    inset: auto 0 0;
+    height: clamp(13.5rem, 64vw, 18rem);
+    background-position: center bottom;
+    background-size: min(100vw, 430px) auto;
+    opacity: 0.96;
+  }
+}
+
+/* Unified van hero placement. Keep the Sydney van as a hero visual on every
+   primary page, positioned high enough on mobile that it never falls below
+   the main hero content. */
+.home-brand-hero,
+.brand-internal-hero,
+main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+}
+
+.home-brand-hero .brand-hero-image {
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  transform: none !important;
+  object-fit: cover !important;
+  object-position: 74% center !important;
+  opacity: 1 !important;
+  filter: saturate(1.18) contrast(1.06) brightness(1.08) !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+.brand-internal-hero::before,
+main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white)::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  height: auto !important;
+  pointer-events: none !important;
+  background-image: var(--ee-van-image) !important;
+  background-repeat: no-repeat !important;
+  background-position: right center !important;
+  background-size: min(62vw, 58rem) auto !important;
+  opacity: 0.96 !important;
+  filter: saturate(1.18) contrast(1.06) brightness(1.08) !important;
+}
+
+.brand-internal-hero > .absolute,
+main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) > .absolute {
+  z-index: 1 !important;
+  opacity: 0.34 !important;
+}
+
+.brand-internal-hero > .absolute + .absolute,
+main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) > .absolute + .absolute {
+  z-index: 2 !important;
+  opacity: 1 !important;
+  background:
+    linear-gradient(90deg, rgba(2, 8, 20, 0.97) 0%, rgba(6, 26, 58, 0.82) 36%, rgba(2, 8, 20, 0.2) 67%, rgba(2, 8, 20, 0.06) 100%) !important;
+}
+
+.home-brand-hero > .relative.mx-auto,
+.brand-internal-hero > div.mx-auto,
+main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) > div.mx-auto {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+@media (min-width: 768px) {
+  .home-brand-hero {
+    min-height: clamp(36rem, 72vh, 48rem) !important;
+  }
+
+  .brand-internal-hero,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) {
+    min-height: clamp(30rem, 54vh, 42rem) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-brand-hero,
+  .brand-internal-hero,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) {
+    min-height: clamp(41rem, 92svh, 50rem) !important;
+    background: linear-gradient(180deg, #020814 0%, #061a3a 50%, #020814 100%) !important;
+  }
+
+  .home-brand-hero .brand-hero-image {
+    object-fit: cover !important;
+    object-position: 64% 42% !important;
+  }
+
+  .brand-internal-hero::before,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white)::before {
+    inset: 0 !important;
+    height: auto !important;
+    background-position: 64% 42% !important;
+    background-size: auto 100% !important;
+    opacity: 0.95 !important;
+  }
+
+  .home-hero-readability-overlay {
+    background:
+      linear-gradient(180deg, rgba(2, 8, 20, 0.97) 0%, rgba(2, 8, 20, 0.82) 36%, rgba(2, 8, 20, 0.5) 58%, rgba(2, 8, 20, 0.18) 76%, rgba(2, 8, 20, 0.38) 100%) !important;
+  }
+
+  .home-hero-glow-overlay {
+    opacity: 0.76 !important;
+  }
+
+  .brand-internal-hero > .absolute + .absolute,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) > .absolute + .absolute {
+    background:
+      linear-gradient(180deg, rgba(2, 8, 20, 0.97) 0%, rgba(2, 8, 20, 0.82) 36%, rgba(2, 8, 20, 0.46) 58%, rgba(2, 8, 20, 0.16) 76%, rgba(2, 8, 20, 0.4) 100%) !important;
+  }
+
+  .home-brand-hero > .relative.mx-auto,
+  .brand-internal-hero > div.mx-auto,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) > div.mx-auto {
+    padding-top: clamp(3rem, 9vw, 4.25rem) !important;
+    padding-bottom: clamp(9rem, 30vw, 12.5rem) !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .home-brand-hero .brand-hero-image,
+  .brand-internal-hero::before,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white)::before {
+    object-position: 66% 40% !important;
+    background-position: 66% 40% !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .home-brand-hero,
+  .brand-internal-hero,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) {
+    min-height: clamp(39rem, 96svh, 47rem) !important;
+  }
+
+  .home-brand-hero > .relative.mx-auto,
+  .brand-internal-hero > div.mx-auto,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) > div.mx-auto {
+    padding-bottom: clamp(8rem, 27vw, 11rem) !important;
+  }
+}
+
+/* Route strip base: keep the visual strip clipped so the ticker animates
+   automatically instead of showing a manual horizontal scrollbar. */
+.emergency-issue-marquee__viewport {
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+  overscroll-behavior-x: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.emergency-issue-marquee__track {
+  display: flex !important;
+  width: max-content !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0.34rem 0.6rem !important;
+  gap: 0.5rem !important;
+  list-style: none !important;
+  animation: routeChipTicker 32s linear infinite !important;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+.emergency-issue-chip {
+  list-style: none !important;
+}
+
+.emergency-issue-marquee__viewport::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.emergency-issue-marquee__viewport::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.emergency-issue-marquee__viewport::-webkit-scrollbar-thumb {
+  background: transparent !important;
+}
+
+@media (max-width: 767px) {
+  main,
+  main > section,
+  main > section > div {
+    max-width: 100vw;
+  }
+
+  .home-brand-hero p,
+  .brand-internal-hero p {
+    width: min(18.75rem, calc(100vw - 3rem)) !important;
+    max-width: calc(100vw - 3rem) !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+  }
+
+  .trust-symbol-band h2,
+  .trust-symbol-band h3,
+  .trust-symbol-band p {
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+  }
+
+  .trust-symbol-band .grid,
+  .trust-symbol-band .grid > * {
+    min-width: 0 !important;
+  }
+}
+
+/* Final shared hero/route strip pass:
+   - the chip strip auto-scrolls without a visible scrollbar or arrow controls
+   - the van image is held high inside every mobile hero, including longer
+     service pages where the background previously slipped below the fold. */
+.emergency-issue-marquee {
+  --strip-rail-height: 2px;
+  --strip-chip-gap: 0.55rem;
+  min-height: calc(2.45rem + (var(--strip-rail-height) * 2)) !important;
+}
+
+.emergency-issue-marquee::before,
+.emergency-issue-marquee::after {
+  width: clamp(1.8rem, 8vw, 3.25rem) !important;
+}
+
+.emergency-issue-marquee__viewport {
+  width: 100% !important;
+  overflow: hidden !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.emergency-issue-marquee__viewport::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.emergency-issue-marquee__track {
+  display: flex !important;
+  width: max-content !important;
+  max-width: none !important;
+  gap: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  animation: routeChipTicker 32s linear infinite !important;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+.emergency-issue-marquee__group {
+  display: flex !important;
+  flex: 0 0 auto !important;
+  gap: var(--strip-chip-gap) !important;
+  margin: 0 !important;
+  padding: 0.3rem calc(var(--strip-chip-gap) / 2) !important;
+  list-style: none !important;
+}
+
+.emergency-issue-chip {
+  min-height: 1.82rem !important;
+  padding: 0.3rem 0.68rem !important;
+  font-size: clamp(0.73rem, 3.35vw, 0.95rem) !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+@keyframes routeChipTicker {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .emergency-issue-marquee__track {
+    animation-duration: 80s !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-brand-hero,
+  .brand-internal-hero,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) {
+    min-height: clamp(42rem, 93svh, 51rem) !important;
+  }
+
+  .home-brand-hero .brand-hero-image {
+    object-position: 73% 58% !important;
+  }
+
+  .brand-internal-hero::before,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white)::before {
+    inset: clamp(7.25rem, 18vw, 9rem) 0 auto 0 !important;
+    height: clamp(34rem, 82svh, 43rem) !important;
+    background-position: 74% center !important;
+    background-size: auto 100% !important;
+    opacity: 1 !important;
+  }
+
+  .home-hero-readability-overlay {
+    background:
+      linear-gradient(180deg, rgba(2, 8, 20, 0.96) 0%, rgba(2, 8, 20, 0.78) 34%, rgba(2, 8, 20, 0.34) 58%, rgba(2, 8, 20, 0.2) 76%, rgba(2, 8, 20, 0.36) 100%) !important;
+  }
+
+  .brand-internal-hero > .absolute + .absolute,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) > .absolute + .absolute {
+    background:
+      linear-gradient(180deg, rgba(2, 8, 20, 0.96) 0%, rgba(2, 8, 20, 0.8) 32%, rgba(2, 8, 20, 0.36) 56%, rgba(2, 8, 20, 0.18) 76%, rgba(2, 8, 20, 0.34) 100%) !important;
+  }
+
+  .home-brand-hero > .relative.mx-auto,
+  .brand-internal-hero > div.mx-auto,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) > div.mx-auto {
+    padding-top: clamp(2.8rem, 8vw, 4rem) !important;
+    padding-bottom: clamp(7.75rem, 24vw, 10rem) !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .brand-internal-hero::before,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white)::before {
+    top: clamp(6.5rem, 17vw, 8rem) !important;
+    height: clamp(35rem, 85svh, 44rem) !important;
+    background-position: 76% center !important;
+  }
+
+  .home-brand-hero .brand-hero-image {
+    object-position: 75% 58% !important;
+  }
+}
+
+/* Final mobile hero visibility correction. The van needs to read as a clear
+   hero visual on every route, not sink behind the CTA area or lower cards. */
+@media (max-width: 767px) {
+  .home-brand-hero,
+  .brand-internal-hero,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) {
+    min-height: clamp(41rem, 91svh, 50rem) !important;
+  }
+
+  .home-brand-hero .brand-hero-image {
+    transform: translate3d(0, -7%, 0) scale(1.1) !important;
+    object-position: 74% center !important;
+    filter: saturate(1.22) contrast(1.08) brightness(1.18) !important;
+  }
+
+  .brand-internal-hero::before,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white)::before {
+    inset: 0 0 auto !important;
+    height: clamp(38rem, 92svh, 49rem) !important;
+    background-position: 74% bottom !important;
+    background-size: auto 126% !important;
+    opacity: 1 !important;
+    filter: saturate(1.24) contrast(1.08) brightness(1.2) !important;
+  }
+
+  .home-hero-readability-overlay {
+    background:
+      linear-gradient(180deg, rgba(2, 8, 20, 0.94) 0%, rgba(2, 8, 20, 0.72) 30%, rgba(2, 8, 20, 0.34) 55%, rgba(2, 8, 20, 0.12) 74%, rgba(2, 8, 20, 0.28) 100%) !important;
+  }
+
+  .brand-internal-hero > .absolute + .absolute,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) > .absolute + .absolute {
+    background:
+      linear-gradient(180deg, rgba(2, 8, 20, 0.94) 0%, rgba(2, 8, 20, 0.74) 30%, rgba(2, 8, 20, 0.32) 55%, rgba(2, 8, 20, 0.1) 74%, rgba(2, 8, 20, 0.28) 100%) !important;
+  }
+
+  .home-brand-hero > .relative.mx-auto,
+  .brand-internal-hero > div.mx-auto,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) > div.mx-auto {
+    padding-bottom: clamp(6.75rem, 22vw, 9rem) !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .home-brand-hero .brand-hero-image {
+    transform: translate3d(0, -8%, 0) scale(1.14) !important;
+    object-position: 76% center !important;
+  }
+
+  .brand-internal-hero::before,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white)::before {
+    height: clamp(39rem, 94svh, 50rem) !important;
+    background-position: 76% bottom !important;
+    background-size: auto 132% !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-brand-hero p.max-w-2xl,
+  .brand-internal-hero p.max-w-2xl,
+  .brand-internal-hero p.max-w-3xl,
+  .brand-internal-hero p.max-w-4xl {
+    width: min(22rem, calc(100vw - 2rem)) !important;
+    max-width: min(22rem, calc(100vw - 2rem)) !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
   }
 }

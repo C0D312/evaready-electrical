@@ -12,14 +12,14 @@ import {
 import { QuoteRequestPanel } from "@/components/quote-request-panel";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
-import { business } from "@/data/site";
+import { absoluteUrl, business, canonicalPath } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Switchboard Upgrades Sydney",
+  title: "Switchboard Upgrades Sydney & Greater Regions",
   description:
     "Switchboard upgrades in Sydney including ceramic fuse replacement, safety switch installation, RCBO protection, switchboard fault finding and testing.",
   alternates: {
-    canonical: "/services/switchboard-upgrades-sydney",
+    canonical: canonicalPath("/services/switchboard-upgrades-sydney"),
   },
 };
 
@@ -119,14 +119,14 @@ export default function SwitchboardUpgradesSydneyPage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Electrician",
-    name: "Evaready Electrical - Switchboard Upgrades Sydney",
+    name: "Evaready Electrical - Switchboard Upgrades Sydney & Greater Regions",
     telephone: business.phoneDisplay,
     email: business.email,
     areaServed: "Sydney, NSW",
-    url: "https://evareadyelectrical.com.au/services/switchboard-upgrades-sydney",
+    url: absoluteUrl("/services/switchboard-upgrades-sydney"),
     priceRange: "$$",
     serviceType: [
-      "Switchboard Upgrades Sydney",
+      "Switchboard Upgrades Sydney & Greater Regions",
       "Safety Switch Installation",
       "RCBO Upgrades",
       "Ceramic Fuse Replacement",
@@ -192,7 +192,7 @@ export default function SwitchboardUpgradesSydneyPage() {
             </div>
 
             <h1 className="max-w-5xl text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
-              Switchboard Upgrades Sydney
+              Switchboard Upgrades Sydney & Greater Regions
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">

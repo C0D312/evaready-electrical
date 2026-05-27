@@ -9,6 +9,7 @@ export type ServiceProcessStep = {
 };
 
 export type ServiceLandingPage = {
+  credentialHighlights?: string[];
   description: string;
   faqs: ServiceFaq[];
   heroBullets: string[];
@@ -26,10 +27,10 @@ export type ServiceLandingPage = {
 export const serviceLandingPages: ServiceLandingPage[] = [
   {
     slug: "residential-electrician-sydney",
-    metaTitle: "Residential Electrician Sydney",
+    metaTitle: "Residential Electrician Sydney & Greater Regions",
     metaDescription:
       "Residential electrician in Sydney for power points, lighting, smoke alarms, switchboards, fault finding, renovations and home electrical repairs.",
-    title: "Residential Electrician Sydney",
+    title: "Residential Electrician Sydney & Greater Regions",
     description:
       "Safe, tidy electrical work for homes, units, townhouses, granny flats and renovations across the service area.",
     intro:
@@ -98,10 +99,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "commercial-electrician-sydney",
-    metaTitle: "Commercial Electrician Sydney",
+    metaTitle: "Commercial Electrician Sydney & Greater Regions",
     metaDescription:
       "Commercial electrician in Sydney for shops, offices, strata, warehouses, builders, real estate maintenance, lighting, power and electrical repairs.",
-    title: "Commercial Electrician Sydney",
+    title: "Commercial Electrician Sydney & Greater Regions",
     description:
       "Electrical maintenance and installation support for Sydney businesses, builders, strata and real estate clients.",
     intro:
@@ -170,10 +171,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "electrical-fault-finding-sydney",
-    metaTitle: "Electrical Fault Finding Sydney",
+    metaTitle: "Electrical Fault Finding Sydney & Greater Regions",
     metaDescription:
       "Electrical fault finding in Sydney for tripping safety switches, power faults, burning smells, damaged wiring, water damage and circuit issues.",
-    title: "Electrical Fault Finding Sydney",
+    title: "Electrical Fault Finding Sydney & Greater Regions",
     description:
       "Find the cause of tripping circuits, power loss, damaged wiring and unsafe electrical faults.",
     intro:
@@ -242,10 +243,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "lighting-electrician-sydney",
-    metaTitle: "Lighting Electrician Sydney",
+    metaTitle: "Lighting Electrician Sydney & Greater Regions",
     metaDescription:
       "Lighting electrician in Sydney for LED downlights, outdoor lighting, security lighting, bathroom lighting, feature lights and lighting repairs.",
-    title: "Lighting Electrician Sydney",
+    title: "Lighting Electrician Sydney & Greater Regions",
     description:
       "LED, indoor, outdoor, security and commercial lighting installed safely across the service area.",
     intro:
@@ -314,10 +315,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "power-point-installation-sydney",
-    metaTitle: "Power Point Installation Sydney",
+    metaTitle: "Power Point Installation Sydney & Greater Regions",
     metaDescription:
       "Power point installation in Sydney for new outlets, double power points, outdoor outlets, appliance circuits, USB outlets and faulty power point repairs.",
-    title: "Power Point Installation Sydney",
+    title: "Power Point Installation Sydney & Greater Regions",
     description:
       "Install, replace and repair power points for homes, offices, kitchens, garages and outdoor areas.",
     intro:
@@ -386,10 +387,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "smoke-alarm-electrician-sydney",
-    metaTitle: "Smoke Alarm Electrician Sydney",
+    metaTitle: "Smoke Alarm Electrician Sydney & Greater Regions",
     metaDescription:
       "Smoke alarm electrician in Sydney for installation, testing, replacement and hardwired smoke alarm support for homes, rentals and property managers.",
-    title: "Smoke Alarm Electrician Sydney",
+    title: "Smoke Alarm Electrician Sydney & Greater Regions",
     description:
       "Smoke alarm installation, replacement and testing for homes, rentals and property managers.",
     intro:
@@ -458,10 +459,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "ev-charger-installation-sydney",
-    metaTitle: "EV Charger Installation Sydney",
+    metaTitle: "EV Charger Installation Sydney & Greater Regions",
     metaDescription:
       "EV charger installation in Sydney for homes and businesses, including load checks, dedicated circuits, switchboard checks and future-ready electrical upgrades.",
-    title: "EV Charger Installation Sydney",
+    title: "EV Charger Installation Sydney & Greater Regions",
     description:
       "Home and business EV charger installation support with load checks, circuit planning and switchboard review.",
     intro:
@@ -530,10 +531,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "consumer-mains-sydney",
-    metaTitle: "Consumer Mains Sydney",
+    metaTitle: "Consumer Mains Sydney & Greater Regions",
     metaDescription:
       "Consumer mains electrician in Sydney for damaged, undersized or ageing consumer mains, service upgrades, switchboard supply work and Level 2 electrical enquiries.",
-    title: "Consumer Mains Sydney",
+    title: "Consumer Mains Sydney & Greater Regions",
     description:
       "Consumer mains checks, upgrades and repair discussions for Sydney properties that need supply-side electrical work.",
     intro:
@@ -602,10 +603,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "defect-notice-repairs-sydney",
-    metaTitle: "Defect Notice Repairs Sydney",
+    metaTitle: "Defect Notice Repairs Sydney & Greater Regions",
     metaDescription:
       "Electrical defect notice repairs in Sydney for consumer mains, point of attachment, switchboards, private poles and supply-side electrical defects.",
-    title: "Electrical Defect Notice Repairs Sydney",
+    title: "Electrical Defect Notice Repairs Sydney & Greater Regions",
     description:
       "Help understanding and responding to electrical defect notices before they become a bigger problem.",
     intro:
@@ -674,10 +675,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "private-power-pole-sydney",
-    metaTitle: "Private Power Pole Sydney",
+    metaTitle: "Private Power Pole Sydney & Greater Regions",
     metaDescription:
       "Private power pole electrician in Sydney for damaged poles, overhead service issues, defect notices, supply concerns and Level 2 electrical enquiries.",
-    title: "Private Power Pole Sydney",
+    title: "Private Power Pole Sydney & Greater Regions",
     description:
       "Electrical support for private power pole concerns, overhead service issues and related defect notices.",
     intro:
@@ -746,10 +747,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "hot-water-system-electrician-sydney",
-    metaTitle: "Hot Water System Electrician Sydney",
+    metaTitle: "Hot Water System Electrician Sydney & Greater Regions",
     metaDescription:
       "Hot water system electrician in Sydney for electric hot water faults, circuits, isolators, thermostat checks and hot water heat pump electrical support.",
-    title: "Hot Water System Electrician Sydney",
+    title: "Hot Water System Electrician Sydney & Greater Regions",
     description:
       "Electrical support for electric hot water faults, hot water circuits, isolators, replacement wiring and heat pump electrical support.",
     intro:
@@ -823,57 +824,82 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "split-system-air-conditioning-sydney",
-    metaTitle: "Split System Air Conditioning Electrician Sydney",
+    metaTitle: "Air Conditioning Electrician Sydney & Greater Regions",
     metaDescription:
-      "Split system air conditioning electrician in Sydney for electrical support, isolators, dedicated circuits and switchboard capacity checks.",
-    title: "Split System Air Conditioning Electrician Sydney",
+      "Air conditioning electrician in Sydney for AC isolators, dedicated circuits, outdoor unit power, heat pump electrical support and switchboard capacity checks.",
+    title: "Air Conditioning Electrician Sydney & Greater Regions",
     description:
-      "Electrical support for split system air conditioning, isolators, dedicated circuits and switchboard capacity checks.",
+      "Air-conditioning electrical support, split-system air conditioning, AC isolators, dedicated circuits, heat pump support and switchboard capacity checks.",
     intro:
-      "Split system air-conditioning equipment needs the right electrical supply, isolation and switchboard capacity. Evaready Electrical helps with split system electrical support, isolators, dedicated circuits, safety switches, outdoor unit power and clear quote steps.",
+      "Evaready provides air-conditioning electrical support and air-conditioning services through appropriately licensed technicians. We help with split-system air conditioning, AC isolators, dedicated circuits, outdoor unit power, safety switches, heat pump electrical support and switchboard capacity checks across Sydney and surrounding regions.",
+    credentialHighlights: [
+      "ARCtick Licensed — L157323",
+      "Licence L157323 for eligible air-conditioning, heat pump and related work.",
+    ],
     heroBullets: [
-      "Split system electrical circuits",
-      "AC isolators and switchboard checks",
-      "Outdoor unit power support",
-      "Switchboard capacity checks",
+      "Air-conditioning electrical support",
+      "Split-system air conditioning",
+      "AC isolators and dedicated circuits",
+      "Heat pump electrical support",
     ],
     warningSigns: [
-      "A split system needs a dedicated electrical circuit",
-      "An isolator or outdoor unit supply needs attention",
-      "The switchboard may not support the new load",
-      "A heat pump installation needs electrical support",
+      "An air conditioner needs a dedicated circuit or isolator",
+      "Outdoor unit power or an AC isolator needs attention",
+      "Switchboard capacity or safety switch protection needs checking",
+      "A hot water or swimming pool heat pump needs electrical support",
     ],
     services: [
+      "Air-conditioning electrical support",
+      "Split-system air conditioning",
+      "AC isolators",
       "Dedicated air conditioning circuits",
-      "Split system isolators",
-      "Switchboard capacity checks",
-      "Safety switch and circuit protection checks",
       "Outdoor unit power",
-      "Air conditioning electrical supply checks",
+      "Switchboard capacity checks",
+      "Safety switches and RCBOs",
+      "Heat pump electrical support",
+      "Hot water heat pumps",
+      "Swimming pool heat pumps",
+      "Aircon fault support",
+      "Electrical supply planning",
     ],
     process: [
       {
-        title: "Confirm the equipment",
-        text: "Share the model details, location, photos and whether the job involves a split system, hot water heat pump or swimming pool heat pump.",
+        title: "Confirm the aircon job",
+        text: "Share the equipment type, location, photos and whether the job involves split-system air conditioning, a hot water heat pump or a swimming pool heat pump.",
       },
       {
-        title: "Check the electrical supply",
-        text: "The switchboard, circuit space, protection and isolator requirements are reviewed before work begins.",
+        title: "Check power and protection",
+        text: "The switchboard, circuit space, dedicated supply, safety switch protection and isolator requirements are reviewed before work begins.",
       },
       {
-        title: "Plan the licensed work",
-        text: "Electrical work is planned around circuit protection, switchboard capacity, isolator location and safe access.",
+        title: "Arrange the right technician",
+        text: "Evaready plans the electrical work and can arrange an appropriately licensed technician where the air-conditioning scope requires one.",
       },
       {
         title: "Install, test and explain",
-        text: "Approved work is completed neatly, tested and explained before handover.",
+        text: "Approved work is completed neatly, tested where required and explained before handover.",
       },
     ],
     faqs: [
       {
-        question: "Can you install air conditioning electrical circuits?",
+        question: "Can you help with air-conditioning electrical work?",
         answer:
-          "Yes. Evaready Electrical can help with dedicated circuits, isolators, switchboard checks and electrical support for split systems.",
+          "Yes. Evaready Electrical can help with dedicated aircon circuits, AC isolators, outdoor unit power, switchboard checks, safety switches and split-system electrical support.",
+      },
+      {
+        question: "Do you only help with split systems?",
+        answer:
+          "No. Split-system air conditioning is a key service, but Evaready also helps with air-conditioning electrical support, hot water heat pumps, swimming pool heat pumps, aircon fault support and electrical supply planning.",
+      },
+      {
+        question: "Can Evaready arrange the right licensed technician?",
+        answer:
+          "Yes. Evaready provides air-conditioning electrical support and air-conditioning services through appropriately licensed technicians.",
+      },
+      {
+        question: "What does ARCtick Licensed mean here?",
+        answer:
+          "ARCtick Licensed — L157323. Licence L157323 applies to eligible air-conditioning, heat pump and related work.",
       },
     ],
     relatedServices: [
@@ -885,10 +911,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "cctv-security-camera-installation-sydney",
-    metaTitle: "CCTV Electrician Sydney",
+    metaTitle: "CCTV Electrician Sydney & Greater Regions",
     metaDescription:
       "CCTV electrician in Sydney for security camera installation, camera wiring, recorder setup support, home CCTV and business CCTV cabling.",
-    title: "CCTV Electrician Sydney",
+    title: "CCTV Electrician Sydney & Greater Regions",
     description:
       "Security camera and CCTV cabling installed neatly for homes, shops, offices and strata sites.",
     intro:
@@ -957,10 +983,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "data-cabling-electrician-sydney",
-    metaTitle: "Data Cabling Electrician Sydney",
+    metaTitle: "Data Cabling Electrician Sydney & Greater Regions",
     metaDescription:
       "Data cabling electrician in Sydney for network points, internet outlets, NBN internal cabling, phone line repairs and office data cabling.",
-    title: "Data Cabling Electrician Sydney",
+    title: "Data Cabling Electrician Sydney & Greater Regions",
     description:
       "Network data cabling, internet points and communication outlets for homes, offices and renovations.",
     intro:
@@ -1029,10 +1055,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "ceiling-fan-installation-sydney",
-    metaTitle: "Ceiling Fan Installation Sydney",
+    metaTitle: "Ceiling Fan Installation Sydney & Greater Regions",
     metaDescription:
       "Ceiling fan installation in Sydney for bedrooms, living areas, outdoor fans, exhaust fans, bathroom fans and fan replacement wiring.",
-    title: "Ceiling Fan Installation Sydney",
+    title: "Ceiling Fan Installation Sydney & Greater Regions",
     description:
       "Ceiling fans, exhaust fans and bathroom fans installed or replaced with safe wiring and neat finishes.",
     intro:
@@ -1101,10 +1127,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "safety-switch-rcd-installation-sydney",
-    metaTitle: "Safety Switch Installation Sydney",
+    metaTitle: "Safety Switch Installation Sydney & Greater Regions",
     metaDescription:
       "Safety switch installation and RCD repairs in Sydney for tripping circuits, switchboard protection, RCBO upgrades and electrical safety checks.",
-    title: "Safety Switch Installation Sydney",
+    title: "Safety Switch Installation Sydney & Greater Regions",
     description:
       "Safety switches, RCDs and RCBO circuit protection installed, repaired and checked carefully.",
     intro:
@@ -1173,10 +1199,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "three-phase-power-sydney",
-    metaTitle: "3 Phase Power Electrician Sydney",
+    metaTitle: "3 Phase Power Electrician Sydney & Greater Regions",
     metaDescription:
       "3 phase power electrician in Sydney for 3 phase upgrades, equipment circuits, commercial power, EV charger load checks and switchboard support.",
-    title: "3 Phase Power Electrician Sydney",
+    title: "3 Phase Power Electrician Sydney & Greater Regions",
     description:
       "3 phase power support for higher electrical demand, commercial equipment, workshops and major property upgrades.",
     intro:
@@ -1245,10 +1271,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "surge-protection-electrician-sydney",
-    metaTitle: "Surge Protection Electrician Sydney",
+    metaTitle: "Surge Protection Electrician Sydney & Greater Regions",
     metaDescription:
       "Surge protection electrician in Sydney for switchboard surge protection devices, appliance protection, storm risk and sensitive equipment protection.",
-    title: "Surge Protection Electrician Sydney",
+    title: "Surge Protection Electrician Sydney & Greater Regions",
     description:
       "Switchboard surge protection to help protect appliances, electronics and sensitive equipment.",
     intro:
@@ -1317,10 +1343,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "appliance-installation-electrician-sydney",
-    metaTitle: "Appliance Installation Electrician Sydney",
+    metaTitle: "Appliance Installation Electrician Sydney & Greater Regions",
     metaDescription:
       "Appliance installation electrician in Sydney for cooktops, ovens, rangehoods, dishwasher electrical connections, appliance isolators and dedicated circuits.",
-    title: "Appliance Installation Electrician Sydney",
+    title: "Appliance Installation Electrician Sydney & Greater Regions",
     description:
       "Electrical connections, isolators and circuits for cooktops, ovens, rangehoods, dishwashers and dedicated appliances.",
     intro:
@@ -1389,10 +1415,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "rewiring-electrician-sydney",
-    metaTitle: "Rewiring Electrician Sydney",
+    metaTitle: "Rewiring Electrician Sydney & Greater Regions",
     metaDescription:
       "Rewiring electrician in Sydney for old home wiring, renovation wiring, damaged cables, unsafe wiring, new circuits and safety upgrades.",
-    title: "Rewiring Electrician Sydney",
+    title: "Rewiring Electrician Sydney & Greater Regions",
     description:
       "Rewiring support for older homes, renovations, damaged cables and unsafe electrical wiring.",
     intro:
@@ -1461,10 +1487,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "metering-services-sydney",
-    metaTitle: "Metering Services Sydney",
+    metaTitle: "Metering Services Sydney & Greater Regions",
     metaDescription:
       "Metering services electrician in Sydney for meter support, service equipment checks, Level 2 electrical work, defect notices and supply-side enquiries.",
-    title: "Metering Services Sydney",
+    title: "Metering Services Sydney & Greater Regions",
     description:
       "Metering support, service equipment checks and Level 2 electrical coordination for supply-side electrical issues.",
     intro:
@@ -1533,10 +1559,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "new-build-renovation-electrician-sydney",
-    metaTitle: "New Build & Renovation Electrician Sydney",
+    metaTitle: "New Build & Renovation Electrician Sydney & Greater Regions",
     metaDescription:
       "New build and renovation electrician in Sydney for rough-ins, fit-offs, kitchen upgrades, bathroom wiring, lighting layouts, power planning and switchboard upgrades.",
-    title: "New Build & Renovation Electrician Sydney",
+    title: "New Build & Renovation Electrician Sydney & Greater Regions",
     description:
       "Electrical planning, rough-ins, fit-offs and upgrade work for renovations, extensions and new builds.",
     intro:
@@ -1605,10 +1631,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "electrical-testing-tagging-reports-sydney",
-    metaTitle: "Electrical Testing, Tagging & Reports Sydney",
+    metaTitle: "Electrical Testing, Tagging & Reports Sydney & Greater Regions",
     metaDescription:
       "Electrical testing, tagging and reports in Sydney for safety checks, property managers, businesses, rentals, fault notes and electrical compliance support.",
-    title: "Electrical Testing, Tagging & Reports Sydney",
+    title: "Electrical Testing, Tagging & Reports Sydney & Greater Regions",
     description:
       "Electrical safety checks, testing, tagging and reporting support for homes, businesses, rentals and managed properties.",
     intro:
@@ -1677,10 +1703,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "smart-home-electrician-sydney",
-    metaTitle: "Smart Home Electrician Sydney",
+    metaTitle: "Smart Home Electrician Sydney & Greater Regions",
     metaDescription:
       "Smart home electrician in Sydney for smart switches, lighting control, automation wiring, future-ready cabling, data points and electrical upgrades.",
-    title: "Smart Home Electrician Sydney",
+    title: "Smart Home Electrician Sydney & Greater Regions",
     description:
       "Smart switching, automation wiring, lighting control and future-ready cabling for homes and businesses.",
     intro:
@@ -1749,10 +1775,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "tv-antenna-wall-cabling-sydney",
-    metaTitle: "TV, Antenna & Wall Cabling Sydney",
+    metaTitle: "TV, Antenna & Wall Cabling Sydney & Greater Regions",
     metaDescription:
       "TV, antenna and wall cabling electrician in Sydney for TV points, antenna outlets, wall-mount power, hidden cabling, media wiring and data combinations.",
-    title: "TV, Antenna & Wall Cabling Sydney",
+    title: "TV, Antenna & Wall Cabling Sydney & Greater Regions",
     description:
       "TV points, antenna points, wall-mount power, hidden cabling and tidy media wiring.",
     intro:
@@ -1821,10 +1847,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "intercom-access-control-electrician-sydney",
-    metaTitle: "Intercom & Access Control Electrician Sydney",
+    metaTitle: "Intercom & Access Control Electrician Sydney & Greater Regions",
     metaDescription:
       "Intercom and access control electrician in Sydney for entry systems, intercom wiring, gate provisions, strata access, security wiring and commercial entry support.",
-    title: "Intercom & Access Control Electrician Sydney",
+    title: "Intercom & Access Control Electrician Sydney & Greater Regions",
     description:
       "Intercom, entry, access control and security wiring support for homes, strata and commercial sites.",
     intro:
@@ -1893,10 +1919,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "storm-damage-electrician-sydney",
-    metaTitle: "Storm Damage Electrician Sydney",
+    metaTitle: "Storm Damage Electrician Sydney & Greater Regions",
     metaDescription:
       "Storm damage electrician in Sydney for water-affected wiring, damaged fittings, unsafe circuits, emergency disconnections, outdoor faults and make-safe support.",
-    title: "Storm Damage Electrician Sydney",
+    title: "Storm Damage Electrician Sydney & Greater Regions",
     description:
       "Urgent electrical help for storm damage, unsafe wiring, damaged equipment and emergency appliance disconnections.",
     intro:
@@ -1965,10 +1991,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "electrical-load-capacity-checks-sydney",
-    metaTitle: "Electrical Load & Capacity Checks Sydney",
+    metaTitle: "Electrical Load & Capacity Checks Sydney & Greater Regions",
     metaDescription:
       "Electrical load and capacity checks in Sydney for EV chargers, 3 phase upgrades, workshops, commercial equipment, switchboards and major electrical upgrades.",
-    title: "Electrical Load & Capacity Checks Sydney",
+    title: "Electrical Load & Capacity Checks Sydney & Greater Regions",
     description:
       "Electrical capacity checks for upgrades, 3 phase enquiries, EV charging, workshops and commercial equipment.",
     intro:

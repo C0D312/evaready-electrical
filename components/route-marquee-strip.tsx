@@ -100,14 +100,16 @@ const serviceItemsBySlug: Record<string, string[]> = {
     "Wiring faults",
   ],
   "split-system-air-conditioning-sydney": [
-    "Split system circuits",
+    "Aircon electrical support",
+    "Split-system air conditioning",
     "AC isolators",
     "Dedicated aircon circuits",
-    "Switchboard load checks",
-    "Safety switch protection",
     "Outdoor unit power",
+    "Switchboard load checks",
+    "Safety switches and RCBOs",
     "Heat pump electrical support",
-    "Clear quote steps",
+    "Hot water heat pumps",
+    "Swimming pool heat pumps",
     "Electrical supply planning",
   ],
   "cctv-security-camera-installation-sydney": [
@@ -524,14 +526,10 @@ function configForPath(pathname: string): MarqueeConfig {
 export function RouteMarqueeStrip() {
   const pathname = usePathname();
   const config = useMemo(() => configForPath(pathname), [pathname]);
-  const repeatGroups = ["repeat-1", "repeat-2", "repeat-3", "repeat-4", "repeat-5", "repeat-6", "repeat-7"];
-  const renderChips = (group: string) =>
-    config.items.map((item) => (
-      <span key={`${group}-${item}`} className="emergency-issue-chip">
-        <Zap className="h-4 w-4 shrink-0" />
-        {item}
-      </span>
-    ));
+  const visualItems = useMemo(
+    () => [...config.items, ...config.items, ...config.items],
+    [config.items],
+  );
 
   return (
     <section
@@ -539,19 +537,36 @@ export function RouteMarqueeStrip() {
       aria-label={config.ariaLabel}
       data-nosnippet
     >
+      <ul className="sr-only" role="list">
+        {config.items.map((item) => (
+          <li key={`semantic-${item}`}>{item}</li>
+        ))}
+      </ul>
       <div
         id="route-service-highlights"
         className="emergency-issue-marquee__viewport"
+        aria-hidden="true"
       >
         <div className="emergency-issue-marquee__track">
-          <div className="emergency-issue-marquee__group">
-            {renderChips("primary")}
-          </div>
-          {repeatGroups.map((group) => (
-            <div key={group} className="emergency-issue-marquee__group" aria-hidden="true">
-              {renderChips(group)}
-            </div>
-          ))}
+          <ul className="emergency-issue-marquee__group">
+            {visualItems.map((item, index) => (
+              <li key={`${item}-${index}`} className="emergency-issue-chip">
+                <Zap className="h-4 w-4 shrink-0" aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
+          <ul className="emergency-issue-marquee__group">
+            {visualItems.map((item, index) => (
+              <li
+                key={`repeat-${item}-${index}`}
+                className="emergency-issue-chip"
+              >
+                <Zap className="h-4 w-4 shrink-0" aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
