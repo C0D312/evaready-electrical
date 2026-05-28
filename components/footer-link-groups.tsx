@@ -3,12 +3,12 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ArrowRight, ChevronDown, Mail, Phone } from "lucide-react";
+import { business } from "@/data/site";
 
 export type FooterLink = {
   href: string;
   label: string;
   action?: "call" | "quote" | "email";
-  ariaLabel?: string;
   quoteTrigger?: boolean;
 };
 
@@ -16,6 +16,77 @@ export type FooterColumn = {
   title: string;
   links: FooterLink[];
 };
+
+const footerColumns: FooterColumn[] = [
+  {
+    title: "Emergency Services",
+    links: [
+      { href: "/emergency-electrician-sydney", label: "Emergency electrician" },
+      { href: "/electrical-faults", label: "Electrical fault guides" },
+      { href: "/services/electrical-fault-finding-sydney", label: "Fault finding" },
+      { href: "/services/safety-switch-rcd-installation-sydney", label: "Safety switches" },
+      { href: "/services/storm-damage-electrician-sydney", label: "Storm damage" },
+    ],
+  },
+  {
+    title: "Level 2 Services",
+    links: [
+      { href: "/level-2-electrician-sydney", label: "Level 2 electrician" },
+      { href: "/services/consumer-mains-sydney", label: "Consumer mains" },
+      { href: "/services/defect-notice-repairs-sydney", label: "Defect notices" },
+      { href: "/services/metering-services-sydney", label: "Metering services" },
+    ],
+  },
+  {
+    title: "Popular Services",
+    links: [
+      { href: "/services/switchboard-upgrades-sydney", label: "Switchboard upgrades" },
+      { href: "/services/commercial-electrician-sydney", label: "Commercial electrician" },
+      { href: "/services/hot-water-system-electrician-sydney", label: "Hot water electrical" },
+      { href: "/services/split-system-air-conditioning-sydney", label: "Air conditioning" },
+      { href: "/services/cctv-security-camera-installation-sydney", label: "CCTV and security" },
+    ],
+  },
+  {
+    title: "Electrical Fault Guides",
+    links: [
+      { href: "/electrical-faults", label: "Fault help centre" },
+      { href: "/electrical-faults/safety-switch-keeps-tripping", label: "Safety switch tripping" },
+      { href: "/electrical-faults/burning-smell-from-switchboard", label: "Burning smell from switchboard" },
+      { href: "/electrical-faults/no-power-to-house", label: "No power to house" },
+    ],
+  },
+  {
+    title: "Service Areas",
+    links: [
+      { href: "/service-areas", label: "All service areas" },
+      { href: "/service-areas/sutherland-shire", label: "Sutherland Shire" },
+      { href: "/service-areas/st-george-and-bayside", label: "St George and Bayside" },
+      { href: "/service-areas/wollongong-and-illawarra", label: "Wollongong and Illawarra" },
+    ],
+  },
+  {
+    title: "Contact",
+    links: [
+      {
+        href: business.phoneHref,
+        label: `Call ${business.phoneDisplay}`,
+        action: "call",
+      },
+      {
+        href: business.bookingUrl,
+        label: business.quoteCta,
+        action: "quote",
+        quoteTrigger: true,
+      },
+      {
+        href: business.emailHref,
+        label: "Email",
+        action: "email",
+      },
+    ],
+  },
+];
 
 function toPanelId(title: string) {
   return `footer-${title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
@@ -43,7 +114,6 @@ function FooterNavLink({ link, isVisible }: { link: FooterLink; isVisible: boole
     : "footer-link";
   const commonProps = {
     "aria-haspopup": link.quoteTrigger ? "dialog" : undefined,
-    "aria-label": link.ariaLabel,
     "data-quote-trigger": link.quoteTrigger ? "true" : undefined,
     className,
     tabIndex: isVisible ? 0 : -1,
@@ -71,7 +141,7 @@ function FooterNavLink({ link, isVisible }: { link: FooterLink; isVisible: boole
   );
 }
 
-export function FooterLinkGroups({ columns }: { columns: FooterColumn[] }) {
+export function FooterLinkGroups() {
   const [openPanel, setOpenPanel] = useState<string | null>(toPanelId("Contact"));
   const [isDesktop, setIsDesktop] = useState(false);
 
@@ -87,7 +157,7 @@ export function FooterLinkGroups({ columns }: { columns: FooterColumn[] }) {
 
   return (
     <nav aria-label="Footer navigation" className="footer-link-groups">
-      {columns.map((column) => {
+      {footerColumns.map((column) => {
         const panelId = toPanelId(column.title);
         const isOpen = isDesktop || openPanel === panelId;
 

@@ -551,15 +551,10 @@ export function RouteMarqueeStrip() {
   return (
     <section
       className="emergency-issue-marquee"
-      aria-label={config.ariaLabel}
+      aria-hidden="true"
       data-nosnippet
     >
       <style>{visualLabelStyles}</style>
-      <ul className="sr-only" role="list">
-        {config.items.map((item) => (
-          <li key={`semantic-${item}`}>{item}</li>
-        ))}
-      </ul>
       <div
         id="route-service-highlights"
         className="emergency-issue-marquee__viewport"

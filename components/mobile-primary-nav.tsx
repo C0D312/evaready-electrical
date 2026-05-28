@@ -16,6 +16,7 @@ import {
   Wrench,
   X,
 } from "lucide-react";
+import { HomeNavigationLink } from "@/components/home-navigation-link";
 import { business } from "@/data/site";
 
 const mobileNavItems = [
@@ -116,17 +117,33 @@ export function MobilePrimaryNav() {
           {mobileNavItems.map((item) => {
             const Icon = item.icon;
 
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="flex min-h-12 items-center gap-3 rounded-lg border border-slate-200 bg-white px-4 py-3 text-left font-black text-slate-900 shadow-sm transition hover:border-blue-500 hover:bg-blue-50"
-              >
+            const className =
+              "flex min-h-12 items-center gap-3 rounded-lg border border-slate-200 bg-white px-4 py-3 text-left font-black text-slate-900 shadow-sm transition hover:border-blue-500 hover:bg-blue-50";
+            const content = (
+              <>
                 <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-700">
                   <Icon className="h-5 w-5" />
                 </span>
                 <span className="text-base leading-tight">{item.label}</span>
+              </>
+            );
+
+            return item.href === "/" ? (
+              <HomeNavigationLink
+                key={item.href}
+                onClick={() => setOpen(false)}
+                className={className}
+              >
+                {content}
+              </HomeNavigationLink>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className={className}
+              >
+                {content}
               </Link>
             );
           })}

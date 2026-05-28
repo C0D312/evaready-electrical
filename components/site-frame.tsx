@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRight, MapPin, Phone } from "lucide-react";
-import { FooterLinkGroups, type FooterColumn } from "@/components/footer-link-groups";
+import { FooterLinkGroups } from "@/components/footer-link-groups";
+import { HomeNavigationLink } from "@/components/home-navigation-link";
 import { MobileStickyCta } from "@/components/mobile-sticky-cta";
 import { MobilePrimaryNav } from "@/components/mobile-primary-nav";
 import { QuoteFormModal } from "@/components/quote-form-modal";
@@ -19,89 +20,6 @@ const navItems = [
   { href: "/service-areas", label: "Service Areas" },
 ];
 
-const footerColumns: FooterColumn[] = [
-  {
-    title: "Emergency Services",
-    links: [
-      { href: "/emergency-electrician-sydney", label: "Emergency electrician" },
-      { href: "/electrical-faults", label: "Electrical fault guides" },
-      { href: "/services/electrical-fault-finding-sydney", label: "Fault finding" },
-      { href: "/services/safety-switch-rcd-installation-sydney", label: "Safety switches" },
-      { href: "/services/storm-damage-electrician-sydney", label: "Storm damage" },
-    ],
-  },
-  {
-    title: "Level 2 Services",
-    links: [
-      { href: "/level-2-electrician-sydney", label: "Level 2 electrician" },
-      { href: "/services/consumer-mains-sydney", label: "Consumer mains" },
-      { href: "/services/defect-notice-repairs-sydney", label: "Defect notices" },
-      { href: "/services/metering-services-sydney", label: "Metering services" },
-    ],
-  },
-  {
-    title: "Popular Services",
-    links: [
-      { href: "/services/switchboard-upgrades-sydney", label: "Switchboard upgrades" },
-      { href: "/services/commercial-electrician-sydney", label: "Commercial electrician" },
-      { href: "/services/hot-water-system-electrician-sydney", label: "Hot water electrical" },
-      { href: "/services/split-system-air-conditioning-sydney", label: "Air conditioning" },
-      { href: "/services/cctv-security-camera-installation-sydney", label: "CCTV and security" },
-    ],
-  },
-  {
-    title: "Service Areas",
-    links: [
-      { href: "/service-areas", label: "All service areas" },
-      { href: "/service-areas/sutherland-shire", label: "Sutherland Shire" },
-      { href: "/service-areas/st-george-and-bayside", label: "St George and Bayside" },
-      { href: "/service-areas/wollongong-and-illawarra", label: "Wollongong and Illawarra" },
-    ],
-  },
-  {
-    title: "Electrical Fault Guides",
-    links: [
-      { href: "/electrical-faults", label: "Fault help centre" },
-      { href: "/electrical-faults/safety-switch-keeps-tripping", label: "Safety switch tripping" },
-      { href: "/electrical-faults/burning-smell-from-switchboard", label: "Burning smell from switchboard" },
-      { href: "/electrical-faults/no-power-to-house", label: "No power to house" },
-    ],
-  },
-  {
-    title: "Contact",
-    links: [
-      {
-        href: business.phoneHref,
-        label: `Call ${business.phoneDisplay}`,
-        action: "call",
-        ariaLabel: `Call ${business.phoneDisplay}`,
-      },
-      {
-        href: business.bookingUrl,
-        label: business.quoteCta,
-        action: "quote",
-        ariaLabel: "Get a Quote",
-        quoteTrigger: true,
-      },
-      {
-        href: business.emailHref,
-        label: "Email",
-        action: "email",
-        ariaLabel: `Email ${business.email}`,
-      },
-    ],
-  },
-];
-
-const footerColumnsOrdered = [
-  footerColumns[0],
-  footerColumns[1],
-  footerColumns[2],
-  footerColumns[4],
-  footerColumns[3],
-  footerColumns[5],
-];
-
 const legalLinks = [
   { href: "/privacy-policy", label: "Privacy Policy" },
   { href: "/terms", label: "Terms" },
@@ -114,8 +32,7 @@ export function SiteHeader() {
       <header className="site-header fixed inset-x-0 top-0 z-50 border-b border-slate-200 bg-white/95 pt-[env(safe-area-inset-top)] shadow-sm backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-2 py-2 sm:px-6 sm:py-3 lg:px-8">
           <div className="site-header-top flex items-center justify-between gap-2 sm:gap-3">
-            <Link
-              href="/"
+            <HomeNavigationLink
               data-header-logo="true"
               className="site-logo-link flex min-w-0 shrink-0 items-center justify-center overflow-visible"
             >
@@ -128,17 +45,26 @@ export function SiteHeader() {
                 sizes="(max-width: 767px) 320px, (max-width: 1180px) 280px, 368px"
                 className="logo-img site-logo-image"
               />
-            </Link>
+            </HomeNavigationLink>
 
             <nav className="hidden items-center gap-4 text-sm font-bold text-slate-700 xl:gap-5 lg:flex">
               {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="hover:text-blue-700"
-                >
-                  {item.label}
-                </Link>
+                item.href === "/" ? (
+                  <HomeNavigationLink
+                    key={item.href}
+                    className="hover:text-blue-700"
+                  >
+                    {item.label}
+                  </HomeNavigationLink>
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="hover:text-blue-700"
+                  >
+                    {item.label}
+                  </Link>
+                )
               ))}
             </nav>
 
@@ -239,7 +165,7 @@ export function SiteFooter() {
             </dl>
           </div>
 
-          <FooterLinkGroups columns={footerColumnsOrdered} />
+          <FooterLinkGroups />
         </div>
 
         <div className="mt-7 flex flex-col gap-3 border-t border-cyan-300/15 pt-4 text-xs text-slate-400 md:mt-8 md:flex-row md:items-center md:justify-between">
