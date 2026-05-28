@@ -67,7 +67,7 @@ export default function AreasPage() {
 
       <ServiceAreaHero
         eyebrow="Electrical service areas"
-        title="Electricians Across Sydney & Greater Regions"
+        title="Electricians Across Sydney & Surrounding Regions"
       >
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
           Evaready Electrical helps homes and businesses across Sydney and
@@ -75,6 +75,9 @@ export default function AreasPage() {
           Northern Beaches, Wollongong, Illawarra and Central Coast South.
           Search your suburb or postcode, browse nearby regions, then call for
           urgent faults or open the booking form for planned work.
+          Core electrical service across Sydney and surrounding regions.
+          Extended service areas may depend on job type, urgency and
+          availability.
         </p>
 
         <div className="mt-7 grid max-w-xl gap-3 sm:flex sm:flex-wrap">
@@ -151,10 +154,11 @@ export default function AreasPage() {
             </p>
             <p className="mt-5 text-lg leading-8 text-slate-600">
               Evaready Electrical provides fast electrical support across
-              Sydney and greater regions. Call first for urgent faults such as
-              power loss, burning smells, sparking, tripping safety switches or
-              unsafe wiring. For planned work, open the booking form and send
-              your suburb, job details and photos.
+              Sydney and surrounding regions. Extended service areas may depend
+              on job type, urgency and availability. Call first for urgent
+              faults such as power loss, burning smells, sparking, tripping
+              safety switches or unsafe wiring. For planned work, open the
+              booking form and send your suburb, job details and photos.
             </p>
           </div>
 

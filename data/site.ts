@@ -56,7 +56,7 @@ export const business = {
   abn: "44 650 697 797",
   openCablerRegistration: "46691",
   arctickLicence: "L157323",
-  serviceArea: "Sydney & Greater Regions",
+  serviceArea: "Sydney & Surrounding Regions",
   siteUrl,
   bookingUrl:
     "https://book.servicem8.com/request_booking?uuid=78c2a862-45cf-413b-8ca5-1bf6d8f8944b",

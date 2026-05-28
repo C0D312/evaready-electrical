@@ -23,15 +23,15 @@ export const dynamicParams = false;
 const staticRelatedServices: Record<string, { href: string; label: string }> = {
   "emergency-electrician-sydney": {
     href: "/emergency-electrician-sydney",
-    label: "Emergency Electrician Sydney & Greater Regions",
+    label: "Emergency Electrician Sydney & Surrounding Regions",
   },
   "level-2-electrician-sydney": {
     href: "/level-2-electrician-sydney",
-    label: "Level 2 Electrician Sydney & Greater Regions",
+    label: "Level 2 Electrician Sydney & Surrounding Regions",
   },
   "switchboard-upgrades-sydney": {
     href: "/services/switchboard-upgrades-sydney",
-    label: "Switchboard Upgrades Sydney & Greater Regions",
+    label: "Switchboard Upgrades Sydney & Surrounding Regions",
   },
 };
 
@@ -103,7 +103,7 @@ export async function generateMetadata({
 
   if (!service) {
     return {
-      title: "Electrical Services Sydney & Greater Regions",
+      title: "Electrical Services Sydney & Surrounding Regions",
     };
   }
 
@@ -186,11 +186,11 @@ export default async function ServiceLandingPage({
   const coreRelatedLinks: { href: string; label: string; quote?: boolean }[] = [
     {
       href: "/emergency-electrician-sydney",
-      label: "Emergency Electrician Sydney & Greater Regions",
+      label: "Emergency Electrician Sydney & Surrounding Regions",
     },
     {
       href: "/level-2-electrician-sydney",
-      label: "Level 2 Electrician Sydney & Greater Regions",
+      label: "Level 2 Electrician Sydney & Surrounding Regions",
     },
     {
       href: "/services/switchboard-upgrades-sydney",

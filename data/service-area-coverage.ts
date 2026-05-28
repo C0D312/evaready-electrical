@@ -60,17 +60,23 @@ export const coverageStats = {
 };
 
 export type SuburbServiceIntent =
+  | "aircon"
+  | "dataCctv"
   | "emergency"
+  | "faultFinding"
   | "general"
+  | "hotWater"
   | "level2"
   | "switchboard";
 
 export type SuburbPageCopy = {
   ctaHeading: string;
   faqAnswers: {
+    combined: string;
     emergency: string;
     level2: string;
     quote: string;
+    service: string;
   };
   faqIntro: string;
   faqHeading: string;
@@ -971,10 +977,10 @@ export function getSuburbPageCopy(
 
   const heroDescription = pick(
     [
-      `Evaready Electrical helps ${suburbLabel} homes and businesses with ${context.commonJobs}. Planned work is easier to assess with clear job details, while urgent electrical hazards should be phoned through directly.`,
-      `For ${suburbLabel}, Evaready Electrical focuses on practical electrical service for ${context.propertyMix}. Common requests include ${context.commonJobs}, plus Level 2 electrical enquiries where the supply side of the installation needs attention.`,
-      `Electrical work in ${suburbLabel} can range from urgent faults to planned upgrades. Evaready Electrical supports local ${context.propertyMix} with ${context.commonJobs}. Call first for hazards, or open the secure booking form for scheduled work.`,
-      `Evaready Electrical services ${suburbLabel} with electrical fault support, repairs and upgrade work shaped around ${context.propertyMix}. Services include ${context.commonJobs}, along with switchboard and Level 2 enquiries across ${areaLabel}.`,
+      `Evaready Electrical helps ${suburbLabel} homes, businesses and strata properties with urgent faults, Level 2 electrical work, switchboard upgrades, lighting, power points, smoke alarms, hot water circuits, split-system electrical support, CCTV, data cabling and planned electrical work.`,
+      `For ${suburbLabel}, Evaready Electrical supports ${context.propertyMix} with emergency electrical faults, consumer mains and metering enquiries, switchboard upgrades, hot water electrical issues, air-conditioning electrical support, CCTV, data and everyday electrical work.`,
+      `Electrical work in ${suburbLabel} can range from urgent faults to planned upgrades. Evaready Electrical helps with power loss, safety switch tripping, Level 2 enquiries, switchboards, hot water circuits, split-system electrical support, CCTV, data cabling and general repairs.`,
+      `Evaready Electrical services ${suburbLabel} with local electrical support for ${context.propertyMix}. That includes emergency faults, Level 2 work, switchboard upgrades, lighting, power, smoke alarms, hot water electrical faults, air-conditioning electrical support, CCTV and data cabling.`,
     ],
     seed,
     suburbPosition + 5,
@@ -1057,84 +1063,168 @@ export function getSuburbPageCopy(
       intent: "emergency" as const,
       title: pick(
         [
-          "Emergency fault calls",
-          "Urgent electrical faults",
-          "Call-first electrical hazards",
+          `Emergency electrician in ${coverageSuburb.name}`,
+          `Urgent electrical faults in ${coverageSuburb.name}`,
+          `Call-first electrical hazards in ${coverageSuburb.name}`,
         ],
         seed,
         11,
       ),
       text: pick(
         [
-          `For ${coverageSuburb.name}, call first if you notice ${context.emergencySignals}. Unsafe electrical symptoms should not wait for an online response.`,
-          `Emergency enquiries in ${suburbLabel} often involve ${context.emergencySignals}. The safest move is to stop using the affected circuit and call directly.`,
-          `When ${coverageSuburb.name} homes or businesses have ${context.emergencySignals}, the priority is to make the situation safe before planning repairs.`,
+          `Call first in ${coverageSuburb.name} for power outages, burning smells, sparking, safety switch tripping, storm damage, water-affected fittings or anything electrical that feels unsafe.`,
+          `Emergency enquiries in ${suburbLabel} often involve ${context.emergencySignals}. Stop using the affected circuit where safe and call before touching the area again.`,
+          `When ${coverageSuburb.name} homes, shops or strata properties have power loss, smoke, heat, sparking or repeated tripping, the first step is a direct phone call.`,
         ],
         seed,
         13,
       ),
     },
     {
-      intent: "switchboard" as const,
+      intent: "level2" as const,
       title: pick(
         [
-          "Switchboard upgrades",
-          "Safety switch work",
-          "Board faults and upgrades",
+          `Level 2 electrician in ${coverageSuburb.name}`,
+          `Supply-side electrical work in ${coverageSuburb.name}`,
+          `Consumer mains support in ${coverageSuburb.name}`,
         ],
         seed,
         17,
       ),
       text: pick(
         [
-          `Switchboard requests around ${coverageSuburb.name} can involve ${context.switchboardDetail}, especially during renovations or added appliance loads.`,
-          `${areaLabel} switchboard work often needs a careful look at ${context.switchboardDetail} before the right upgrade path is chosen.`,
-          `For ${suburbLabel}, switchboard enquiries commonly cover ${context.switchboardDetail} and nuisance tripping that needs proper testing.`,
+          `Level 2 electrical enquiries in ${coverageSuburb.name} can involve consumer mains, metering, defect notices, overhead or underground services, point of attachment issues and other supply-side work.`,
+          `For ${coverageSuburb.name} properties, ${context.level2Detail} should be assessed with clear photos and any paperwork from the network, retailer or supply authority.`,
+          `${regionLabel} Level 2 enquiries can include consumer mains, metering, point of attachment issues, defect notice repairs and overhead or underground service work.`,
         ],
         seed,
         19,
       ),
     },
     {
-      intent: "level2" as const,
+      intent: "switchboard" as const,
       title: pick(
         [
-          "Level 2 enquiries",
-          "Supply-side electrical work",
-          "Consumer mains support",
+          `Switchboard upgrades in ${coverageSuburb.name}`,
+          `Safety switch and RCBO work in ${coverageSuburb.name}`,
+          `Board faults and upgrades in ${coverageSuburb.name}`,
         ],
         seed,
         23,
       ),
       text: pick(
         [
-          `Level 2 style enquiries in ${coverageSuburb.name} may involve ${context.level2Detail}. Photos of the meter board, point of attachment or notice help clarify the scope.`,
-          `For ${coverageSuburb.name} properties, ${context.level2Detail} should be assessed with clear photos and any paperwork from the network or retailer.`,
-          `${regionLabel} Level 2 enquiries can include ${context.level2Detail}, particularly where a switchboard or supply upgrade is being planned.`,
+          `Switchboard requests around ${coverageSuburb.name} can include ceramic fuse replacement, safety switches, RCBOs, overloaded circuits, burnt wiring checks and capacity planning for EV chargers or air-conditioning.`,
+          `${areaLabel} switchboard work often needs a careful look at ${context.switchboardDetail}, nuisance tripping, old fuse gear and added appliance loads before the right upgrade path is chosen.`,
+          `For ${suburbLabel}, switchboard enquiries commonly cover safety switch upgrades, RCBO protection, burnt wiring, overloaded circuits and older boards that need proper testing.`,
         ],
         seed,
         29,
       ),
     },
     {
-      intent: "general" as const,
+      intent: "faultFinding" as const,
       title: pick(
         [
-          "Planned electrical work",
-          "General electrical repairs",
-          "Lighting, power and maintenance",
+          `Electrical fault finding in ${coverageSuburb.name}`,
+          `Testing tripping circuits in ${coverageSuburb.name}`,
+          `Fault isolation in ${coverageSuburb.name}`,
         ],
         seed,
         31,
       ),
       text: pick(
         [
-          `Planned jobs in ${coverageSuburb.name} can cover ${context.plannedWork}. Send photos and a clear description so the work is easier to assess.`,
-          `For everyday electrical work in ${suburbLabel}, common requests include ${context.plannedWork} and small repairs around ${context.propertyMix}.`,
-          `Planned electrical enquiries in ${coverageSuburb.name} are well suited to ${context.plannedWork}, especially when photos and access details are provided early.`,
+          `Fault finding in ${coverageSuburb.name} covers intermittent faults, tripping circuits, damaged wiring, hot power points, flickering lights and careful testing to isolate the cause.`,
+          `For ${suburbLabel}, symptoms such as nuisance tripping, hot switches, flickering lights or damaged fittings should be checked before parts are replaced.`,
+          `Electrical fault testing around ${areaLabel} focuses on the affected circuit, appliance, fitting or switchboard so the repair path is clear.`,
         ],
         seed,
         37,
+      ),
+    },
+    {
+      intent: "hotWater" as const,
+      title: pick(
+        [
+          `Hot water electrical in ${coverageSuburb.name}`,
+          `Hot water circuit support in ${coverageSuburb.name}`,
+          `No hot water electrical checks in ${coverageSuburb.name}`,
+        ],
+        seed,
+        41,
+      ),
+      text: pick(
+        [
+          `Hot water electrical help in ${coverageSuburb.name} can include hot water circuits, isolators, safety switches, electrical supply faults and heat pump hot water support where relevant.`,
+          `If there is no hot water in ${suburbLabel}, the electrical circuit, isolator, safety switch and supply side of the system may need to be checked.`,
+          `Evaready can help ${coverageSuburb.name} customers with hot water circuit faults, isolator issues, tripping safety switches and electrical support for replacement systems.`,
+        ],
+        seed,
+        43,
+      ),
+    },
+    {
+      intent: "aircon" as const,
+      title: pick(
+        [
+          `Air-conditioning electrical support in ${coverageSuburb.name}`,
+          `Split-system electrical support in ${coverageSuburb.name}`,
+          `AC circuits and isolators in ${coverageSuburb.name}`,
+        ],
+        seed,
+        47,
+      ),
+      text: pick(
+        [
+          `Air-conditioning electrical support in ${coverageSuburb.name} can include dedicated circuits, isolators, switchboard capacity checks and outdoor unit power.`,
+          `Split-system enquiries in ${suburbLabel} may need electrical supply planning, safety switch checks, outdoor unit power and clear coordination with appropriately licensed technicians where required.`,
+          `ARCtick Refrigerant Handling Licence L157323 - Split Systems (1) applies to eligible split systems, hot water heat pumps and swimming pool heat pumps under licence scope.`,
+        ],
+        seed,
+        53,
+      ),
+    },
+    {
+      intent: "dataCctv" as const,
+      title: pick(
+        [
+          `CCTV and data cabling in ${coverageSuburb.name}`,
+          `Data points and CCTV support in ${coverageSuburb.name}`,
+          `Communications cabling in ${coverageSuburb.name}`,
+        ],
+        seed,
+        59,
+      ),
+      text: pick(
+        [
+          `CCTV and data work in ${coverageSuburb.name} can include CCTV cabling, data points and communications cabling under Open Cabler Registration 46691.`,
+          `For ${suburbLabel}, CCTV cameras, data points and communications cabling are planned with clear access details and the right cabling scope.`,
+          `Open Cabler Registration 46691 supports eligible data, CCTV and communications cabling enquiries across ${areaLabel}.`,
+        ],
+        seed,
+        61,
+      ),
+    },
+    {
+      intent: "general" as const,
+      title: pick(
+        [
+          `General electrical work in ${coverageSuburb.name}`,
+          `Lighting, power and maintenance in ${coverageSuburb.name}`,
+          `Planned electrical repairs in ${coverageSuburb.name}`,
+        ],
+        seed,
+        67,
+      ),
+      text: pick(
+        [
+          `General electrical work in ${coverageSuburb.name} can cover power points, lighting, smoke alarms, ceiling fans, renovations, commercial maintenance, strata jobs and small repairs.`,
+          `For everyday electrical work in ${suburbLabel}, common requests include ${context.plannedWork}, smoke alarms, lighting, power and repairs around ${context.propertyMix}.`,
+          `Planned electrical enquiries in ${coverageSuburb.name} are easier to review when you send photos, access details, job notes and the preferred timing through the secure booking form.`,
+        ],
+        seed,
+        71,
       ),
     },
   ];
@@ -1145,14 +1235,16 @@ export function getSuburbPageCopy(
         `Electrical help in ${coverageSuburb.name}, with a clear next step.`,
         `Planning electrical work in ${coverageSuburb.name}? Send the details through.`,
         `For ${suburbLabel} electrical faults or upgrades, start here.`,
-      ],
-      seed,
-      41,
-    ),
+    ],
+    seed,
+    41,
+  ),
     faqAnswers: {
-      emergency: `Yes. For ${coverageSuburb.name} emergency electrical faults such as ${context.emergencySignals}, call Evaready Electrical directly so the issue can be treated as urgent.`,
-      level2: `Yes. Level 2 enquiries in ${coverageSuburb.name} can include ${context.level2Detail}. Include photos of the switchboard, meter area, point of attachment or any defect paperwork if you have it.`,
-      quote: `For ${suburbLabel}, include your contact details, job address, photos, a short description and ${context.accessDetail}. If there is heat, smoke, sparking or power loss, call first.`,
+      combined: `Yes. Evaready Electrical can help with switchboards, fault finding, hot water electrical circuits, split-system electrical support, CCTV and data cabling, and general electrical work in ${coverageSuburb.name} under the relevant licence scope.`,
+      emergency: `Yes. Call first for power loss, burning smells, sparking, tripping circuits, storm damage or any fault in ${coverageSuburb.name} that feels unsafe.`,
+      level2: `Evaready Electrical can assist with Level 2 electrical work in ${coverageSuburb.name}, including consumer mains, metering, defect notices, point of attachment issues and supply-side electrical issues.`,
+      quote: `Yes. For planned work in ${suburbLabel}, use the secure booking form to send your address, contact details, job notes and photos. If there is heat, smoke, sparking or power loss, call first.`,
+      service: `Yes. Evaready Electrical provides emergency, Level 2 and general electrical support across ${coverageSuburb.name} and nearby suburbs.`,
     },
     faqHeading: pick(
       [
@@ -1166,7 +1258,17 @@ export function getSuburbPageCopy(
     faqIntro: `Use these quick answers to decide whether to call for an urgent hazard or open the quote form for planned work in ${coverageSuburb.name}.`,
     heroDescription,
     heroNote,
-    metaDescription: `Evaready Electrical helps ${suburbLabel} properties with ${context.commonJobs}, switchboards, urgent faults and Level 2 enquiries around ${areaLabel}.`,
+    metaDescription: clampMetaDescription(
+      pick(
+        [
+          `Need an electrician in ${coverageSuburb.name}? Evaready helps with emergency faults, Level 2, switchboards, hot water, aircon, CCTV/data and general electrical work.`,
+          `Need electrical help in ${suburbLabel}? Emergency faults, Level 2, switchboards, hot water, aircon, CCTV/data and general electrical work across ${areaLabel}.`,
+          `Evaready helps ${coverageSuburb.name} with urgent faults, Level 2, switchboards, hot water electrical, aircon, CCTV/data and planned electrical work.`,
+        ],
+        seed,
+        45,
+      ),
+    ),
     processDescription: pick(
       [
         `For ${coverageSuburb.name}, the process starts by understanding the fault, the property type and the level of urgency. Planned jobs are easier to price when the request includes photos, while unsafe faults should be phoned through directly.`,
@@ -1195,7 +1297,7 @@ export function getSuburbPageCopy(
       59,
     ),
     processSteps,
-    serviceIntro: `For ${coverageSuburb.name}, common electrical enquiries across ${areaLabel} include work matched to ${context.propertyMix}.`,
+    serviceIntro: `For ${coverageSuburb.name}, Evaready Electrical brings emergency, Level 2, switchboard, hot water, air-conditioning electrical, CCTV/data and general electrical support together on one local page.`,
     serviceLinks: [
       {
         title: `Emergency electrician ${coverageSuburb.name}`,
@@ -1214,30 +1316,54 @@ export function getSuburbPageCopy(
       },
       {
         title: `Electrical fault finding ${coverageSuburb.name}`,
-        href: "/services/electrical-fault-finding-sydney",
-        text: `Testing for faults affecting ${context.propertyMix}.`,
+        href: "/electrical-faults",
+        text: `Fault guides and testing advice for tripping circuits, hot fittings and unsafe symptoms.`,
+      },
+      {
+        title: `Electrical services ${coverageSuburb.name}`,
+        href: "/services",
+        text: `Browse electrical services for urgent faults, planned work and property upgrades.`,
+      },
+      {
+        title: `Hot water electrician ${coverageSuburb.name}`,
+        href: "/services/hot-water-system-electrician-sydney",
+        text: `Electrical support for hot water circuits, isolators, safety switches and heat pump enquiries.`,
+      },
+      {
+        title: `Air conditioning electrician ${coverageSuburb.name}`,
+        href: "/services/split-system-air-conditioning-sydney",
+        text: `Electrical support for split systems, isolators, dedicated circuits and outdoor unit power.`,
+      },
+      {
+        title: `CCTV and data cabling ${coverageSuburb.name}`,
+        href: "/services/data-cabling-electrician-sydney",
+        text: `Data points, CCTV cabling and communications cabling under the relevant registration scope.`,
       },
       {
         title: `Power points and lighting ${coverageSuburb.name}`,
         href: "/services/power-point-installation-sydney",
-        text: `Planned help with ${context.plannedWork}.`,
+        text: `Planned help with lighting, power points, smoke alarms, fans and maintenance.`,
       },
       {
-        title: `Commercial electrician ${coverageSuburb.name}`,
-        href: "/services/commercial-electrician-sydney",
-        text: `Electrical support for commercial, strata and property maintenance enquiries in ${areaLabel}.`,
+        title: `Service areas near ${coverageSuburb.name}`,
+        href: "/service-areas",
+        text: `Browse nearby suburbs, areas and regions covered across Sydney and surrounding regions.`,
       },
     ],
     serviceSummaries,
     servicesHeading: `Electrical services available in ${coverageSuburb.name}.`,
     trustItems: [
-      `Electrical help for ${coverageSuburb.postcode}`,
-      `Local support around ${areaLabel}`,
+      `NSW Electrical Licence 398937C`,
+      `ABN 44 650 697 797`,
+      `Open 24/7 for urgent electrical faults`,
+      `Level 2 Electrical Work`,
+      `Open Cabler Registration 46691`,
+      `ARCtick Refrigerant Handling Licence L157323 - Split Systems (1)`,
       pick(
         [
+          `Electrical help for ${coverageSuburb.postcode}`,
+          `Local support around ${areaLabel}`,
           "Call first for unsafe faults",
-          "Photos help planned work",
-          "Clear details before attendance",
         ],
         seed,
         67,

@@ -209,7 +209,10 @@ body {
 }
 
 .emergency-issue-chip--visual::after {
-  content: attr(data-label);
+  content: none;
+}
+
+.emergency-issue-chip__text {
   display: inline-block;
 }
 
@@ -4672,5 +4675,121 @@ main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not
     max-width: min(22rem, calc(100vw - 2rem)) !important;
     overflow-wrap: break-word !important;
     word-break: normal !important;
+  }
+}
+
+/* Launch hero clarity pass: keep the van/Sydney photo as the full hero visual
+   on every primary page. The readability shade is kept to the copy side so the
+   van side stays bright, sharp and untinted. */
+.emergency-issue-marquee__track {
+  animation-duration: 44s !important;
+}
+
+.home-brand-hero,
+.brand-internal-hero,
+main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) {
+  background-color: #020814 !important;
+}
+
+.home-brand-hero .brand-hero-image {
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: 76% center !important;
+  transform: none !important;
+  opacity: 1 !important;
+  filter: saturate(1.22) contrast(1.08) brightness(1.12) !important;
+}
+
+.home-hero-readability-overlay {
+  background:
+    linear-gradient(90deg, rgba(2, 8, 20, 0.97) 0%, rgba(2, 8, 20, 0.86) 30%, rgba(2, 8, 20, 0.48) 48%, rgba(2, 8, 20, 0.08) 61%, rgba(2, 8, 20, 0) 100%) !important;
+}
+
+.home-hero-glow-overlay {
+  background:
+    radial-gradient(circle at 18% 24%, rgba(0, 200, 255, 0.18), transparent 34%) !important;
+  opacity: 0.55 !important;
+}
+
+.brand-internal-hero::before,
+main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white)::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-image: var(--ee-van-image) !important;
+  background-repeat: no-repeat !important;
+  background-position: right center !important;
+  background-size: cover !important;
+  opacity: 1 !important;
+  filter: saturate(1.22) contrast(1.08) brightness(1.12) !important;
+  pointer-events: none !important;
+}
+
+.brand-internal-hero > .absolute,
+main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) > .absolute {
+  opacity: 0 !important;
+}
+
+.brand-internal-hero > .absolute + .absolute,
+main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) > .absolute + .absolute {
+  opacity: 1 !important;
+  background:
+    linear-gradient(90deg, rgba(2, 8, 20, 0.97) 0%, rgba(2, 8, 20, 0.86) 31%, rgba(2, 8, 20, 0.46) 48%, rgba(2, 8, 20, 0.08) 61%, rgba(2, 8, 20, 0) 100%) !important;
+}
+
+@media (max-width: 767px) {
+  .home-brand-hero,
+  .brand-internal-hero,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) {
+    min-height: clamp(42rem, 94svh, 52rem) !important;
+  }
+
+  .home-brand-hero .brand-hero-image {
+    object-position: 74% center !important;
+  }
+
+  .brand-internal-hero::before,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white)::before {
+    inset: 0 !important;
+    height: 100% !important;
+    background-position: 74% center !important;
+    background-size: cover !important;
+  }
+
+  .home-hero-readability-overlay {
+    background:
+      linear-gradient(180deg, rgba(2, 8, 20, 0.93) 0%, rgba(2, 8, 20, 0.68) 30%, rgba(2, 8, 20, 0.25) 50%, rgba(2, 8, 20, 0.04) 69%, rgba(2, 8, 20, 0) 100%),
+      linear-gradient(90deg, rgba(2, 8, 20, 0.86) 0%, rgba(2, 8, 20, 0.5) 52%, rgba(2, 8, 20, 0) 100%) !important;
+  }
+
+  .brand-internal-hero > .absolute + .absolute,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) > .absolute + .absolute {
+    background:
+      linear-gradient(180deg, rgba(2, 8, 20, 0.93) 0%, rgba(2, 8, 20, 0.68) 30%, rgba(2, 8, 20, 0.25) 50%, rgba(2, 8, 20, 0.04) 69%, rgba(2, 8, 20, 0) 100%),
+      linear-gradient(90deg, rgba(2, 8, 20, 0.86) 0%, rgba(2, 8, 20, 0.5) 52%, rgba(2, 8, 20, 0) 100%) !important;
+  }
+}
+
+main .home-brand-hero .home-hero-readability-overlay.absolute.inset-0 {
+  background:
+    linear-gradient(90deg, rgba(2, 8, 20, 0.97) 0%, rgba(2, 8, 20, 0.86) 30%, rgba(2, 8, 20, 0.48) 48%, rgba(2, 8, 20, 0.08) 61%, rgba(2, 8, 20, 0) 100%) !important;
+}
+
+main .home-brand-hero .home-hero-glow-overlay.absolute.inset-0 {
+  background:
+    radial-gradient(circle at 18% 24%, rgba(0, 200, 255, 0.18), transparent 34%) !important;
+  opacity: 0.55 !important;
+}
+
+@media (max-width: 767px) {
+  main .home-brand-hero .home-hero-readability-overlay.absolute.inset-0 {
+    background:
+      linear-gradient(180deg, rgba(2, 8, 20, 0.93) 0%, rgba(2, 8, 20, 0.68) 30%, rgba(2, 8, 20, 0.25) 50%, rgba(2, 8, 20, 0.04) 69%, rgba(2, 8, 20, 0) 100%),
+      linear-gradient(90deg, rgba(2, 8, 20, 0.86) 0%, rgba(2, 8, 20, 0.5) 52%, rgba(2, 8, 20, 0) 100%) !important;
   }
 }

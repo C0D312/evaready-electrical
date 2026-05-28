@@ -62,12 +62,14 @@ export default async function AreaPage({ params }: AreaPageProps) {
         title={`${area.name} Electrician Service Area`}
       >
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
-          {area.description} Evaready Electrical helps customers here with
-          urgent faults, safety switch problems, switchboard upgrades, smoke
-          alarms, lighting, power points and planned electrical work.
+          {area.description} Evaready Electrical provides emergency, Level 2,
+          switchboard, hot water, air-conditioning electrical, CCTV/data and
+          general electrical support across {area.name}.
         </p>
         <p className="mt-4 max-w-3xl text-base font-semibold leading-7 text-blue-100">
-          Region: {region.name}. {region.travelNote}
+          Region: {region.name}. Core electrical service across Sydney and
+          surrounding regions. Extended service areas may depend on job type,
+          urgency and availability.
         </p>
       </ServiceAreaHero>
 
@@ -76,7 +78,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
           {[
             `Licensed electrician ${business.licence}`,
             "Urgent fault support",
-            "Photo-friendly job details",
+            "Booking details and photos",
             `${area.suburbs.length} suburbs covered`,
           ].map((item) => (
             <div key={item} className="flex items-center gap-3">
@@ -138,7 +140,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
             {[
               "Confirm the job type, suburb, access and urgency.",
               "Prioritise urgent electrical hazards and power faults.",
-              "Use photos and clear job details to plan the work.",
+              "Use photos, job notes and access details to plan the work.",
               "Complete the electrical work safely and explain the next steps.",
             ].map((item) => (
               <div
@@ -177,6 +179,8 @@ export default async function AreaPage({ params }: AreaPageProps) {
 
             <a
               href={business.bookingUrl}
+              data-quote-trigger="true"
+              aria-haspopup="dialog"
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
             >
               Get a Quote

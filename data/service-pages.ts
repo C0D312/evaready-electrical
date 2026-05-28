@@ -27,10 +27,10 @@ export type ServiceLandingPage = {
 export const serviceLandingPages: ServiceLandingPage[] = [
   {
     slug: "residential-electrician-sydney",
-    metaTitle: "Residential Electrician Sydney & Greater Regions",
+    metaTitle: "Residential Electrician Sydney & Surrounding Regions",
     metaDescription:
       "Residential electrician in Sydney for power points, lighting, smoke alarms, switchboards, fault finding, renovations and home electrical repairs.",
-    title: "Residential Electrician Sydney & Greater Regions",
+    title: "Residential Electrician Sydney & Surrounding Regions",
     description:
       "Safe, tidy electrical work for homes, units, townhouses, granny flats and renovations across the service area.",
     intro:
@@ -99,10 +99,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "commercial-electrician-sydney",
-    metaTitle: "Commercial Electrician Sydney & Greater Regions",
+    metaTitle: "Commercial Electrician Sydney & Surrounding Regions",
     metaDescription:
       "Commercial electrician in Sydney for shops, offices, strata, warehouses, builders, real estate maintenance, lighting, power and electrical repairs.",
-    title: "Commercial Electrician Sydney & Greater Regions",
+    title: "Commercial Electrician Sydney & Surrounding Regions",
     description:
       "Electrical maintenance and installation support for Sydney businesses, builders, strata and real estate clients.",
     intro:
@@ -171,10 +171,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "electrical-fault-finding-sydney",
-    metaTitle: "Electrical Fault Finding Sydney & Greater Regions",
+    metaTitle: "Electrical Fault Finding Sydney & Surrounding Regions",
     metaDescription:
       "Electrical fault finding in Sydney for tripping safety switches, power faults, burning smells, damaged wiring, water damage and circuit issues.",
-    title: "Electrical Fault Finding Sydney & Greater Regions",
+    title: "Electrical Fault Finding Sydney & Surrounding Regions",
     description:
       "Find the cause of tripping circuits, power loss, damaged wiring and unsafe electrical faults.",
     intro:
@@ -243,10 +243,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "lighting-electrician-sydney",
-    metaTitle: "Lighting Electrician Sydney & Greater Regions",
+    metaTitle: "Lighting Electrician Sydney & Surrounding Regions",
     metaDescription:
       "Lighting electrician in Sydney for LED downlights, outdoor lighting, security lighting, bathroom lighting, feature lights and lighting repairs.",
-    title: "Lighting Electrician Sydney & Greater Regions",
+    title: "Lighting Electrician Sydney & Surrounding Regions",
     description:
       "LED, indoor, outdoor, security and commercial lighting installed safely across the service area.",
     intro:
@@ -315,10 +315,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "power-point-installation-sydney",
-    metaTitle: "Power Point Installation Sydney & Greater Regions",
+    metaTitle: "Power Point Installation Sydney & Surrounding Regions",
     metaDescription:
       "Power point installation in Sydney for new outlets, double power points, outdoor outlets, appliance circuits, USB outlets and faulty power point repairs.",
-    title: "Power Point Installation Sydney & Greater Regions",
+    title: "Power Point Installation Sydney & Surrounding Regions",
     description:
       "Install, replace and repair power points for homes, offices, kitchens, garages and outdoor areas.",
     intro:
@@ -387,10 +387,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "smoke-alarm-electrician-sydney",
-    metaTitle: "Smoke Alarm Electrician Sydney & Greater Regions",
+    metaTitle: "Smoke Alarm Electrician Sydney & Surrounding Regions",
     metaDescription:
       "Smoke alarm electrician in Sydney for installation, testing, replacement and hardwired smoke alarm support for homes, rentals and property managers.",
-    title: "Smoke Alarm Electrician Sydney & Greater Regions",
+    title: "Smoke Alarm Electrician Sydney & Surrounding Regions",
     description:
       "Smoke alarm installation, replacement and testing for homes, rentals and property managers.",
     intro:
@@ -459,10 +459,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "ev-charger-installation-sydney",
-    metaTitle: "EV Charger Installation Sydney & Greater Regions",
+    metaTitle: "EV Charger Installation Sydney & Surrounding Regions",
     metaDescription:
       "EV charger installation in Sydney for homes and businesses, including load checks, dedicated circuits, switchboard checks and future-ready electrical upgrades.",
-    title: "EV Charger Installation Sydney & Greater Regions",
+    title: "EV Charger Installation Sydney & Surrounding Regions",
     description:
       "Home and business EV charger installation support with load checks, circuit planning and switchboard review.",
     intro:
@@ -531,10 +531,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "consumer-mains-sydney",
-    metaTitle: "Consumer Mains Sydney & Greater Regions",
+    metaTitle: "Consumer Mains Sydney & Surrounding Regions",
     metaDescription:
       "Consumer mains electrician in Sydney for damaged, undersized or ageing consumer mains, service upgrades, switchboard supply work and Level 2 electrical enquiries.",
-    title: "Consumer Mains Sydney & Greater Regions",
+    title: "Consumer Mains Sydney & Surrounding Regions",
     description:
       "Consumer mains checks, upgrades and repair discussions for Sydney properties that need supply-side electrical work.",
     intro:
@@ -603,10 +603,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "defect-notice-repairs-sydney",
-    metaTitle: "Defect Notice Repairs Sydney & Greater Regions",
+    metaTitle: "Defect Notice Repairs Sydney & Surrounding Regions",
     metaDescription:
       "Electrical defect notice repairs in Sydney for consumer mains, point of attachment, switchboards, private poles and supply-side electrical defects.",
-    title: "Electrical Defect Notice Repairs Sydney & Greater Regions",
+    title: "Electrical Defect Notice Repairs Sydney & Surrounding Regions",
     description:
       "Help understanding and responding to electrical defect notices before they become a bigger problem.",
     intro:
@@ -675,10 +675,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "private-power-pole-sydney",
-    metaTitle: "Private Power Pole Sydney & Greater Regions",
+    metaTitle: "Private Power Pole Sydney & Surrounding Regions",
     metaDescription:
       "Private power pole electrician in Sydney for damaged poles, overhead service issues, defect notices, supply concerns and Level 2 electrical enquiries.",
-    title: "Private Power Pole Sydney & Greater Regions",
+    title: "Private Power Pole Sydney & Surrounding Regions",
     description:
       "Electrical support for private power pole concerns, overhead service issues and related defect notices.",
     intro:
@@ -747,10 +747,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "hot-water-system-electrician-sydney",
-    metaTitle: "Hot Water System Electrician Sydney & Greater Regions",
+    metaTitle: "Hot Water System Electrician Sydney & Surrounding Regions",
     metaDescription:
       "Hot water system electrician in Sydney for electric hot water faults, circuits, isolators, thermostat checks and hot water heat pump electrical support.",
-    title: "Hot Water System Electrician Sydney & Greater Regions",
+    title: "Hot Water System Electrician Sydney & Surrounding Regions",
     description:
       "Electrical support for electric hot water faults, hot water circuits, isolators, replacement wiring and heat pump electrical support.",
     intro:
@@ -824,10 +824,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "split-system-air-conditioning-sydney",
-    metaTitle: "Air Conditioning Electrician Sydney & Greater Regions",
+    metaTitle: "Air Conditioning Electrician Sydney & Surrounding Regions",
     metaDescription:
       "Air conditioning electrician in Sydney for AC isolators, dedicated circuits, outdoor unit power, heat pump electrical support and switchboard capacity checks.",
-    title: "Air Conditioning Electrician Sydney & Greater Regions",
+    title: "Air Conditioning Electrician Sydney & Surrounding Regions",
     description:
       "Air-conditioning electrical support, split-system air conditioning, AC isolators, dedicated circuits, heat pump support and switchboard capacity checks.",
     intro:
@@ -911,10 +911,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "cctv-security-camera-installation-sydney",
-    metaTitle: "CCTV Electrician Sydney & Greater Regions",
+    metaTitle: "CCTV Electrician Sydney & Surrounding Regions",
     metaDescription:
       "CCTV electrician in Sydney for security camera installation, camera wiring, recorder setup support, home CCTV and business CCTV cabling.",
-    title: "CCTV Electrician Sydney & Greater Regions",
+    title: "CCTV Electrician Sydney & Surrounding Regions",
     description:
       "Security camera and CCTV cabling installed neatly for homes, shops, offices and strata sites.",
     intro:
@@ -983,10 +983,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "data-cabling-electrician-sydney",
-    metaTitle: "Data Cabling Electrician Sydney & Greater Regions",
+    metaTitle: "Data Cabling Electrician Sydney & Surrounding Regions",
     metaDescription:
       "Data cabling electrician in Sydney for network points, internet outlets, NBN internal cabling, phone line repairs and office data cabling.",
-    title: "Data Cabling Electrician Sydney & Greater Regions",
+    title: "Data Cabling Electrician Sydney & Surrounding Regions",
     description:
       "Network data cabling, internet points and communication outlets for homes, offices and renovations.",
     intro:
@@ -1055,10 +1055,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "ceiling-fan-installation-sydney",
-    metaTitle: "Ceiling Fan Installation Sydney & Greater Regions",
+    metaTitle: "Ceiling Fan Installation Sydney & Surrounding Regions",
     metaDescription:
       "Ceiling fan installation in Sydney for bedrooms, living areas, outdoor fans, exhaust fans, bathroom fans and fan replacement wiring.",
-    title: "Ceiling Fan Installation Sydney & Greater Regions",
+    title: "Ceiling Fan Installation Sydney & Surrounding Regions",
     description:
       "Ceiling fans, exhaust fans and bathroom fans installed or replaced with safe wiring and neat finishes.",
     intro:
@@ -1127,10 +1127,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "safety-switch-rcd-installation-sydney",
-    metaTitle: "Safety Switch Installation Sydney & Greater Regions",
+    metaTitle: "Safety Switch Installation Sydney & Surrounding Regions",
     metaDescription:
       "Safety switch installation and RCD repairs in Sydney for tripping circuits, switchboard protection, RCBO upgrades and electrical safety checks.",
-    title: "Safety Switch Installation Sydney & Greater Regions",
+    title: "Safety Switch Installation Sydney & Surrounding Regions",
     description:
       "Safety switches, RCDs and RCBO circuit protection installed, repaired and checked carefully.",
     intro:
@@ -1199,10 +1199,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "three-phase-power-sydney",
-    metaTitle: "3 Phase Power Electrician Sydney & Greater Regions",
+    metaTitle: "3 Phase Power Electrician Sydney & Surrounding Regions",
     metaDescription:
       "3 phase power electrician in Sydney for 3 phase upgrades, equipment circuits, commercial power, EV charger load checks and switchboard support.",
-    title: "3 Phase Power Electrician Sydney & Greater Regions",
+    title: "3 Phase Power Electrician Sydney & Surrounding Regions",
     description:
       "3 phase power support for higher electrical demand, commercial equipment, workshops and major property upgrades.",
     intro:
@@ -1271,10 +1271,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "surge-protection-electrician-sydney",
-    metaTitle: "Surge Protection Electrician Sydney & Greater Regions",
+    metaTitle: "Surge Protection Electrician Sydney & Surrounding Regions",
     metaDescription:
       "Surge protection electrician in Sydney for switchboard surge protection devices, appliance protection, storm risk and sensitive equipment protection.",
-    title: "Surge Protection Electrician Sydney & Greater Regions",
+    title: "Surge Protection Electrician Sydney & Surrounding Regions",
     description:
       "Switchboard surge protection to help protect appliances, electronics and sensitive equipment.",
     intro:
@@ -1343,10 +1343,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "appliance-installation-electrician-sydney",
-    metaTitle: "Appliance Installation Electrician Sydney & Greater Regions",
+    metaTitle: "Appliance Installation Electrician Sydney & Surrounding Regions",
     metaDescription:
       "Appliance installation electrician in Sydney for cooktops, ovens, rangehoods, dishwasher electrical connections, appliance isolators and dedicated circuits.",
-    title: "Appliance Installation Electrician Sydney & Greater Regions",
+    title: "Appliance Installation Electrician Sydney & Surrounding Regions",
     description:
       "Electrical connections, isolators and circuits for cooktops, ovens, rangehoods, dishwashers and dedicated appliances.",
     intro:
@@ -1415,10 +1415,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "rewiring-electrician-sydney",
-    metaTitle: "Rewiring Electrician Sydney & Greater Regions",
+    metaTitle: "Rewiring Electrician Sydney & Surrounding Regions",
     metaDescription:
       "Rewiring electrician in Sydney for old home wiring, renovation wiring, damaged cables, unsafe wiring, new circuits and safety upgrades.",
-    title: "Rewiring Electrician Sydney & Greater Regions",
+    title: "Rewiring Electrician Sydney & Surrounding Regions",
     description:
       "Rewiring support for older homes, renovations, damaged cables and unsafe electrical wiring.",
     intro:
@@ -1487,10 +1487,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "metering-services-sydney",
-    metaTitle: "Metering Services Sydney & Greater Regions",
+    metaTitle: "Metering Services Sydney & Surrounding Regions",
     metaDescription:
       "Metering services electrician in Sydney for meter support, service equipment checks, Level 2 electrical work, defect notices and supply-side enquiries.",
-    title: "Metering Services Sydney & Greater Regions",
+    title: "Metering Services Sydney & Surrounding Regions",
     description:
       "Metering support, service equipment checks and Level 2 electrical coordination for supply-side electrical issues.",
     intro:
@@ -1559,10 +1559,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "new-build-renovation-electrician-sydney",
-    metaTitle: "New Build & Renovation Electrician Sydney & Greater Regions",
+    metaTitle: "New Build & Renovation Electrician Sydney & Surrounding Regions",
     metaDescription:
       "New build and renovation electrician in Sydney for rough-ins, fit-offs, kitchen upgrades, bathroom wiring, lighting layouts, power planning and switchboard upgrades.",
-    title: "New Build & Renovation Electrician Sydney & Greater Regions",
+    title: "New Build & Renovation Electrician Sydney & Surrounding Regions",
     description:
       "Electrical planning, rough-ins, fit-offs and upgrade work for renovations, extensions and new builds.",
     intro:
@@ -1631,10 +1631,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "electrical-testing-tagging-reports-sydney",
-    metaTitle: "Electrical Testing, Tagging & Reports Sydney & Greater Regions",
+    metaTitle: "Electrical Testing, Tagging & Reports Sydney & Surrounding Regions",
     metaDescription:
       "Electrical testing, tagging and reports in Sydney for safety checks, property managers, businesses, rentals, fault notes and electrical compliance support.",
-    title: "Electrical Testing, Tagging & Reports Sydney & Greater Regions",
+    title: "Electrical Testing, Tagging & Reports Sydney & Surrounding Regions",
     description:
       "Electrical safety checks, testing, tagging and reporting support for homes, businesses, rentals and managed properties.",
     intro:
@@ -1703,10 +1703,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "smart-home-electrician-sydney",
-    metaTitle: "Smart Home Electrician Sydney & Greater Regions",
+    metaTitle: "Smart Home Electrician Sydney & Surrounding Regions",
     metaDescription:
       "Smart home electrician in Sydney for smart switches, lighting control, automation wiring, future-ready cabling, data points and electrical upgrades.",
-    title: "Smart Home Electrician Sydney & Greater Regions",
+    title: "Smart Home Electrician Sydney & Surrounding Regions",
     description:
       "Smart switching, automation wiring, lighting control and future-ready cabling for homes and businesses.",
     intro:
@@ -1775,10 +1775,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "tv-antenna-wall-cabling-sydney",
-    metaTitle: "TV, Antenna & Wall Cabling Sydney & Greater Regions",
+    metaTitle: "TV, Antenna & Wall Cabling Sydney & Surrounding Regions",
     metaDescription:
       "TV, antenna and wall cabling electrician in Sydney for TV points, antenna outlets, wall-mount power, hidden cabling, media wiring and data combinations.",
-    title: "TV, Antenna & Wall Cabling Sydney & Greater Regions",
+    title: "TV, Antenna & Wall Cabling Sydney & Surrounding Regions",
     description:
       "TV points, antenna points, wall-mount power, hidden cabling and tidy media wiring.",
     intro:
@@ -1847,10 +1847,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "intercom-access-control-electrician-sydney",
-    metaTitle: "Intercom & Access Control Electrician Sydney & Greater Regions",
+    metaTitle: "Intercom & Access Control Electrician Sydney & Surrounding Regions",
     metaDescription:
       "Intercom and access control electrician in Sydney for entry systems, intercom wiring, gate provisions, strata access, security wiring and commercial entry support.",
-    title: "Intercom & Access Control Electrician Sydney & Greater Regions",
+    title: "Intercom & Access Control Electrician Sydney & Surrounding Regions",
     description:
       "Intercom, entry, access control and security wiring support for homes, strata and commercial sites.",
     intro:
@@ -1919,10 +1919,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "storm-damage-electrician-sydney",
-    metaTitle: "Storm Damage Electrician Sydney & Greater Regions",
+    metaTitle: "Storm Damage Electrician Sydney & Surrounding Regions",
     metaDescription:
       "Storm damage electrician in Sydney for water-affected wiring, damaged fittings, unsafe circuits, emergency disconnections, outdoor faults and make-safe support.",
-    title: "Storm Damage Electrician Sydney & Greater Regions",
+    title: "Storm Damage Electrician Sydney & Surrounding Regions",
     description:
       "Urgent electrical help for storm damage, unsafe wiring, damaged equipment and emergency appliance disconnections.",
     intro:
@@ -1991,10 +1991,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "electrical-load-capacity-checks-sydney",
-    metaTitle: "Electrical Load & Capacity Checks Sydney & Greater Regions",
+    metaTitle: "Electrical Load & Capacity Checks Sydney & Surrounding Regions",
     metaDescription:
       "Electrical load and capacity checks in Sydney for EV chargers, 3 phase upgrades, workshops, commercial equipment, switchboards and major electrical upgrades.",
-    title: "Electrical Load & Capacity Checks Sydney & Greater Regions",
+    title: "Electrical Load & Capacity Checks Sydney & Surrounding Regions",
     description:
       "Electrical capacity checks for upgrades, 3 phase enquiries, EV charging, workshops and commercial equipment.",
     intro:

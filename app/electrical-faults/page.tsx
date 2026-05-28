@@ -15,14 +15,14 @@ import { electricalFaultPages } from "@/data/electrical-faults";
 import { absoluteUrl, business, canonicalPath } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Electrical Faults Sydney & Greater Regions",
+  title: "Electrical Faults Sydney & Surrounding Regions",
   description:
     "Electrical fault help in Sydney for tripping safety switches, burning smells, no power, sparking power points, hot outlets, flickering lights and storm damage.",
   alternates: {
     canonical: canonicalPath("/electrical-faults"),
   },
   openGraph: {
-    title: `Electrical Faults Sydney & Greater Regions | ${business.name}`,
+    title: `Electrical Faults Sydney & Surrounding Regions | ${business.name}`,
     description:
       "Sydney-wide emergency electrical help for urgent hazards and planned fault finding across Sydney and surrounding regions.",
     url: absoluteUrl("/electrical-faults"),
@@ -59,7 +59,7 @@ export default function ElectricalFaultsPage() {
   const collectionSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Electrical Faults Sydney & Greater Regions",
+    name: "Electrical Faults Sydney & Surrounding Regions",
     description: metadata.description,
     url: `${business.siteUrl}/electrical-faults`,
     provider: {
@@ -104,7 +104,7 @@ export default function ElectricalFaultsPage() {
             </div>
 
             <h1 className="max-w-5xl text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
-              Electrical Faults Sydney & Greater Regions
+              Electrical Faults Sydney & Surrounding Regions
             </h1>
 
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">

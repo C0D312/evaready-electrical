@@ -26,7 +26,7 @@ import {
 } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Emergency & Level 2 Electrician Sydney & Greater Regions",
+  title: "Emergency & Level 2 Electrician Sydney & Surrounding Regions",
   description:
     "Evaready Electrical helps with urgent faults, Level 2 work, switchboards, fault finding, residential and commercial electrical jobs across Sydney and surrounding regions.",
   alternates: {
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Emergency & Level 2 Electrician Sydney & Greater Regions | Evaready Electrical",
+      "Emergency & Level 2 Electrician Sydney & Surrounding Regions | Evaready Electrical",
     description:
       "Emergency, Level 2 and general electrical work across Sydney and surrounding regions.",
     url: business.siteUrl,
@@ -309,8 +309,8 @@ export default function HomePage() {
           sizes="100vw"
           className="brand-hero-image object-cover object-[67%_center] sm:object-[66%_center] lg:object-center"
         />
-        <div className="home-hero-readability-overlay absolute inset-0 bg-[linear-gradient(90deg,rgba(2,8,20,0.96)_0%,rgba(2,8,20,0.84)_34%,rgba(2,8,20,0.42)_62%,rgba(2,8,20,0.18)_100%)]" />
-        <div className="home-hero-glow-overlay absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(0,200,255,0.22),transparent_36%),radial-gradient(circle_at_78%_72%,rgba(255,0,30,0.18),transparent_34%)]" />
+        <div className="home-hero-readability-overlay absolute inset-0" />
+        <div className="home-hero-glow-overlay absolute inset-0" />
 
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
           <div className="max-w-3xl">
@@ -320,7 +320,7 @@ export default function HomePage() {
             </div>
 
             <h1 className="max-w-5xl text-4xl font-black leading-[0.98] tracking-tight text-white sm:text-6xl lg:text-7xl">
-              Emergency & Level 2 Electrical Help in Sydney & Greater Regions
+              Emergency & Level 2 Electrical Help in Sydney & Surrounding Regions
             </h1>
 
             <p className="mt-5 max-w-2xl text-base leading-7 text-slate-100 sm:mt-6 sm:text-xl sm:leading-8">
@@ -513,8 +513,8 @@ export default function HomePage() {
                 The main ways Evaready can help.
               </h2>
               <p className="mt-4 text-lg leading-8 text-slate-700">
-                The homepage stays focused on the services customers usually
-                need first. The full services page covers the rest.
+                Start with the electrical help customers usually need first,
+                then view the full services page for more specialised work.
               </p>
             </div>
             <Link
@@ -620,11 +620,16 @@ export default function HomePage() {
               Service areas
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl">
-              Sydney & Greater Regions.
+              Sydney & Surrounding Regions.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
               Browse major regions or search suburb and postcode pages for local
               electrical service information.
+            </p>
+            <p className="mt-4 text-base font-semibold leading-7 text-slate-600">
+              Core electrical service across Sydney and surrounding regions.
+              Extended service areas may depend on job type, urgency and
+              availability.
             </p>
             <Link
               href="/service-areas"

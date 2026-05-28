@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import { absoluteUrl, assetPath, business, canonicalPath } from "@/data/site";
 import "./globals.css";
@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(`${business.siteUrl}/`),
   title: {
     default:
-      "Emergency & Level 2 Electrician Sydney & Greater Regions | Evaready Electrical 24/7",
+      "Emergency & Level 2 Electrician Sydney & Surrounding Regions | Evaready Electrical 24/7",
     template: "%s | Evaready Electrical",
   },
   description:
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title:
-      "Emergency & Level 2 Electrician Sydney & Greater Regions | Evaready Electrical 24/7",
+      "Emergency & Level 2 Electrician Sydney & Surrounding Regions | Evaready Electrical 24/7",
   description:
     "Electrical support for urgent faults, Level 2 work, switchboards, outages and commercial jobs across Sydney and surrounding regions.",
     url: business.siteUrl,

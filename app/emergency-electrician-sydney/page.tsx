@@ -15,7 +15,7 @@ import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { absoluteUrl, business, canonicalPath } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Emergency Electrician Sydney & Greater Regions",
+  title: "Emergency Electrician Sydney & Surrounding Regions",
   description:
     "Call Evaready Electrical for urgent Sydney electrical faults including power loss, burning smells, tripping safety switches, switchboard faults and unsafe hazards.",
   alternates: {
@@ -164,14 +164,14 @@ export default function EmergencyElectricianSydneyPage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Electrician",
-    name: "Evaready Electrical - Emergency Electrician Sydney & Greater Regions",
+    name: "Evaready Electrical - Emergency Electrician Sydney & Surrounding Regions",
     telephone: business.phoneDisplay,
     email: business.email,
     areaServed: "Sydney, NSW",
     url: absoluteUrl("/emergency-electrician-sydney"),
     priceRange: "$$",
     serviceType: [
-      "Emergency Electrician Sydney & Greater Regions",
+      "Emergency Electrician Sydney & Surrounding Regions",
       "24/7 Electrical Fault Finding",
       "Power Outage Electrician",
       "Safety Switch Tripping",
@@ -234,7 +234,7 @@ export default function EmergencyElectricianSydneyPage() {
             </div>
 
             <h1 className="max-w-5xl text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
-              Emergency Electrician Sydney & Greater Regions
+              Emergency Electrician Sydney & Surrounding Regions
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">

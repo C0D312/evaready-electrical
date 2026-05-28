@@ -54,7 +54,7 @@ export async function generateMetadata({
   const copy = getSuburbPageCopy(region, area, suburb);
 
   return {
-    title: `Electrician ${suburb.name} ${suburb.postcode}`,
+    title: `Electrician ${suburb.name} ${suburb.postcode} | Emergency & Level 2 Electrical Help`,
     description: copy.metaDescription,
     alternates: {
       canonical: canonicalPath(
@@ -107,23 +107,35 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
     ],
   };
   const serviceIconByIntent = {
+    aircon: Bolt,
+    dataCctv: ShieldCheck,
     emergency: Flame,
+    faultFinding: Wrench,
     general: Wrench,
+    hotWater: Flame,
     level2: Bolt,
     switchboard: ShieldCheck,
   };
   const suburbFaqs = [
     {
-      question: `Do you provide emergency electrical help in ${suburb.name}?`,
+      question: `Do you service ${suburb.name}?`,
+      answer: copy.faqAnswers.service,
+    },
+    {
+      question: `Do you handle emergency faults in ${suburb.name}?`,
       answer: copy.faqAnswers.emergency,
     },
     {
-      question: `Can you help with Level 2 electrical work in ${suburb.name}?`,
+      question: `Do you provide Level 2 electrical work in ${suburb.name}?`,
       answer: copy.faqAnswers.level2,
     },
     {
-      question: `What details should I send for electrical work in ${suburb.name}?`,
+      question: "Can I send photos for a quote?",
       answer: copy.faqAnswers.quote,
+    },
+    {
+      question: `Do you help with switchboards, hot water circuits, aircon electrical and CCTV/data in ${suburb.name}?`,
+      answer: copy.faqAnswers.combined,
     },
   ];
   const faqSchema = {
@@ -174,6 +186,8 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
 
           <a
             href={business.bookingUrl}
+            data-quote-trigger="true"
+            aria-haspopup="dialog"
             className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-700/25 transition hover:bg-blue-600"
           >
             Get a Quote
@@ -437,6 +451,8 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
 
             <a
               href={business.bookingUrl}
+              data-quote-trigger="true"
+              aria-haspopup="dialog"
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
             >
               Get a Quote

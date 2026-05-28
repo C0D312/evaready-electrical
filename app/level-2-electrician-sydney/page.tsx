@@ -19,7 +19,7 @@ import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { absoluteUrl, business, canonicalPath } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Level 2 Electrician Sydney & Greater Regions",
+  title: "Level 2 Electrician Sydney & Surrounding Regions",
   description:
     "Licensed Level 2 electrician in Sydney for consumer mains, service equipment, metering support, defect notices, overhead services, underground services and switchboard upgrades.",
   alternates: {
@@ -203,14 +203,14 @@ export default function Level2ElectricianSydneyPage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Electrician",
-    name: "Evaready Electrical - Level 2 Electrician Sydney & Greater Regions",
+    name: "Evaready Electrical - Level 2 Electrician Sydney & Surrounding Regions",
     telephone: business.phoneDisplay,
     email: business.email,
     areaServed: "Sydney, NSW",
     url: absoluteUrl("/level-2-electrician-sydney"),
     priceRange: "$$",
     serviceType: [
-      "Level 2 Electrician Sydney & Greater Regions",
+      "Level 2 Electrician Sydney & Surrounding Regions",
       "Consumer Mains",
       "Overhead Service Work",
       "Underground Service Work",
@@ -274,7 +274,7 @@ export default function Level2ElectricianSydneyPage() {
             </div>
 
             <h1 className="max-w-5xl text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
-              Level 2 Electrician Sydney & Greater Regions
+              Level 2 Electrician Sydney & Surrounding Regions
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">

@@ -15,7 +15,7 @@ import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { absoluteUrl, business, canonicalPath } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Switchboard Upgrades Sydney & Greater Regions",
+  title: "Switchboard Upgrades Sydney & Surrounding Regions",
   description:
     "Switchboard upgrades in Sydney including ceramic fuse replacement, safety switch installation, RCBO protection, switchboard fault finding and testing.",
   alternates: {
@@ -119,14 +119,14 @@ export default function SwitchboardUpgradesSydneyPage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Electrician",
-    name: "Evaready Electrical - Switchboard Upgrades Sydney & Greater Regions",
+    name: "Evaready Electrical - Switchboard Upgrades Sydney & Surrounding Regions",
     telephone: business.phoneDisplay,
     email: business.email,
     areaServed: "Sydney, NSW",
     url: absoluteUrl("/services/switchboard-upgrades-sydney"),
     priceRange: "$$",
     serviceType: [
-      "Switchboard Upgrades Sydney & Greater Regions",
+      "Switchboard Upgrades Sydney & Surrounding Regions",
       "Safety Switch Installation",
       "RCBO Upgrades",
       "Ceramic Fuse Replacement",
@@ -192,7 +192,7 @@ export default function SwitchboardUpgradesSydneyPage() {
             </div>
 
             <h1 className="max-w-5xl text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
-              Switchboard Upgrades Sydney & Greater Regions
+              Switchboard Upgrades Sydney & Surrounding Regions
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">

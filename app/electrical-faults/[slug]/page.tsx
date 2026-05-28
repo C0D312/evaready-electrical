@@ -35,7 +35,7 @@ export async function generateMetadata({
 
   if (!fault) {
     return {
-      title: "Electrical Faults Sydney & Greater Regions",
+      title: "Electrical Faults Sydney & Surrounding Regions",
     };
   }
 
@@ -69,7 +69,7 @@ export default async function ElectricalFaultDetailPage({
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: `${fault.title} Sydney & Greater Regions`,
+    name: `${fault.title} Sydney & Surrounding Regions`,
     description: fault.metaDescription,
     serviceType: "Electrical fault finding",
     areaServed: business.serviceArea,

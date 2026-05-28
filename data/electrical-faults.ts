@@ -43,7 +43,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
   {
     slug: "safety-switch-keeps-tripping",
     title: "Safety Switch Keeps Tripping",
-    metaTitle: "Safety Switch Keeps Tripping Sydney & Greater Regions",
+    metaTitle: "Safety Switch Keeps Tripping Sydney & Surrounding Regions",
     metaDescription:
       "Safety switch keeps tripping in Sydney? Evaready Electrical can help test the circuit, isolate the cause and explain the next step.",
     intro:
@@ -90,7 +90,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
   {
     slug: "burning-smell-from-switchboard",
     title: "Burning Smell From Switchboard",
-    metaTitle: "Burning Smell From Switchboard Sydney & Greater Regions",
+    metaTitle: "Burning Smell From Switchboard Sydney & Surrounding Regions",
     metaDescription:
       "Burning smell near a switchboard in Sydney? Call Evaready Electrical for urgent electrical fault support before touching the board.",
     intro:
@@ -137,7 +137,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
   {
     slug: "no-power-in-one-room",
     title: "No Power In One Room",
-    metaTitle: "No Power In One Room Sydney & Greater Regions",
+    metaTitle: "No Power In One Room Sydney & Surrounding Regions",
     metaDescription:
       "No power in one room in Sydney? Evaready Electrical can trace tripped circuits, faulty outlets, damaged wiring and switchboard issues.",
     intro:
@@ -190,7 +190,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
   {
     slug: "no-power-to-house",
     title: "No Power To House",
-    metaTitle: "No Power To House Sydney & Greater Regions",
+    metaTitle: "No Power To House Sydney & Surrounding Regions",
     metaDescription:
       "No power to the house in Sydney? Evaready Electrical can help check switchboards, tripped safety devices, storm faults and supply-side concerns.",
     intro:
@@ -251,7 +251,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
   {
     slug: "power-point-sparking",
     title: "Power Point Sparking",
-    metaTitle: "Power Point Sparking Sydney & Greater Regions",
+    metaTitle: "Power Point Sparking Sydney & Surrounding Regions",
     metaDescription:
       "Power point sparking in Sydney? Stop using the outlet and call Evaready Electrical for safe testing, repair or replacement.",
     intro:
@@ -304,7 +304,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
   {
     slug: "burning-smell-from-outlet",
     title: "Burning Smell From Outlet",
-    metaTitle: "Burning Smell From Outlet Sydney & Greater Regions",
+    metaTitle: "Burning Smell From Outlet Sydney & Surrounding Regions",
     metaDescription:
       "Burning smell from an outlet in Sydney? Stop using the power point and call Evaready Electrical for urgent testing and repair.",
     intro:
@@ -357,7 +357,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
   {
     slug: "safety-switch-trips-at-night",
     title: "Safety Switch Trips At Night",
-    metaTitle: "Safety Switch Trips At Night Sydney & Greater Regions",
+    metaTitle: "Safety Switch Trips At Night Sydney & Surrounding Regions",
     metaDescription:
       "Safety switch trips at night in Sydney? Evaready Electrical can trace appliance, hot water, outdoor and circuit faults that trip after hours.",
     intro:
@@ -410,7 +410,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
   {
     slug: "circuit-breaker-keeps-tripping",
     title: "Circuit Breaker Keeps Tripping",
-    metaTitle: "Circuit Breaker Keeps Tripping Sydney & Greater Regions",
+    metaTitle: "Circuit Breaker Keeps Tripping Sydney & Surrounding Regions",
     metaDescription:
       "Circuit breaker keeps tripping in Sydney? Evaready Electrical can check overloaded circuits, faulty appliances, wiring damage and switchboard issues.",
     intro:
@@ -463,7 +463,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
   {
     slug: "power-surge-damage",
     title: "Power Surge Damage",
-    metaTitle: "Power Surge Damage Sydney & Greater Regions",
+    metaTitle: "Power Surge Damage Sydney & Surrounding Regions",
     metaDescription:
       "Power surge damage in Sydney? Evaready Electrical can inspect affected circuits, switchboards and surge protection options after storms or supply events.",
     intro:
@@ -520,7 +520,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
   {
     slug: "hot-power-point",
     title: "Hot Power Point",
-    metaTitle: "Hot Power Point Sydney & Greater Regions",
+    metaTitle: "Hot Power Point Sydney & Surrounding Regions",
     metaDescription:
       "Hot power point in Sydney? Evaready Electrical can check loose connections, overloaded outlets, damaged wiring and circuit load issues.",
     intro:
@@ -573,7 +573,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
   {
     slug: "lights-flickering",
     title: "Lights Flickering",
-    metaTitle: "Lights Flickering Sydney & Greater Regions",
+    metaTitle: "Lights Flickering Sydney & Surrounding Regions",
     metaDescription:
       "Lights flickering in Sydney? Evaready Electrical can check fittings, circuits, switchboards, loose connections and load issues.",
     intro:
@@ -626,7 +626,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
   {
     slug: "rcd-trips-when-raining",
     title: "RCD Trips When Raining",
-    metaTitle: "RCD Trips When Raining Sydney & Greater Regions",
+    metaTitle: "RCD Trips When Raining Sydney & Surrounding Regions",
     metaDescription:
       "RCD trips when raining in Sydney? Evaready Electrical can test outdoor circuits, water-affected fittings and safety switch faults.",
     intro:
@@ -679,7 +679,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
   {
     slug: "power-outage-after-storm",
     title: "Power Outage After Storm",
-    metaTitle: "Power Outage After Storm Sydney & Greater Regions",
+    metaTitle: "Power Outage After Storm Sydney & Surrounding Regions",
     metaDescription:
       "Power outage after a storm in Sydney? Evaready Electrical can help check storm-damaged circuits, switchboards, outdoor fittings and supply concerns.",
     intro:
@@ -736,7 +736,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
   {
     slug: "electric-shock-from-outlet",
     title: "Electric Shock From Outlet",
-    metaTitle: "Electric Shock From Outlet Sydney & Greater Regions",
+    metaTitle: "Electric Shock From Outlet Sydney & Surrounding Regions",
     metaDescription:
       "Electric shock from an outlet in Sydney? Stop using the power point and call Evaready Electrical for urgent electrical fault support.",
     intro:
@@ -793,7 +793,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
   {
     slug: "smoke-from-electrical-panel",
     title: "Smoke From Electrical Panel",
-    metaTitle: "Smoke From Electrical Panel Sydney & Greater Regions",
+    metaTitle: "Smoke From Electrical Panel Sydney & Surrounding Regions",
     metaDescription:
       "Smoke from an electrical panel or switchboard in Sydney? Keep clear and call Evaready Electrical for urgent electrical support.",
     intro:

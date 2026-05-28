@@ -19,7 +19,7 @@ import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { absoluteUrl, business, canonicalPath } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Electrical Services Sydney & Greater Regions",
+  title: "Electrical Services Sydney & Surrounding Regions",
   description:
     "Evaready Electrical handles residential, commercial, emergency and Level 2 electrical work including switchboards, fault finding, hot water electrical, CCTV, data cabling, lighting, power points and smoke alarms.",
   alternates: {
@@ -467,11 +467,11 @@ export default function ServicesPage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Electrician",
-    name: "Evaready Electrical - Electrical Services Sydney & Greater Regions",
+    name: "Evaready Electrical - Electrical Services Sydney & Surrounding Regions",
     telephone: business.phoneDisplay,
     email: business.email,
     areaServed:
-      "Sydney & Greater Regions",
+      "Sydney & Surrounding Regions",
     url: absoluteUrl("/services"),
     priceRange: "$$",
     serviceType: services.map((service) => service.title),
@@ -521,7 +521,7 @@ export default function ServicesPage() {
             </div>
 
             <h1 className="text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
-              Electrical Services Sydney & Greater Regions
+              Electrical Services Sydney & Surrounding Regions
             </h1>
 
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">

@@ -65,11 +65,14 @@ export default async function RegionPage({ params }: RegionPageProps) {
       >
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
           {region.description} Browse the areas below for local electrical
-          information covering urgent faults, planned work, switchboards,
-          lighting, power points and Level 2 enquiries.
+          information covering urgent faults, Level 2 work, switchboards, hot
+          water electrical, air-conditioning electrical, CCTV/data and planned
+          electrical work.
         </p>
         <p className="mt-4 max-w-3xl text-base font-semibold leading-7 text-blue-100">
-          {region.travelNote}
+          Core electrical service across Sydney and surrounding regions.
+          Extended service areas may depend on job type, urgency and
+          availability. {region.travelNote}
         </p>
 
         <div className="mt-8 grid max-w-2xl gap-3 sm:grid-cols-2">
@@ -94,7 +97,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
             `Licensed electrician ${business.licence}`,
             "Emergency and planned work",
             "Residential and commercial",
-            "Photo-friendly job details",
+            "Booking details and photos",
           ].map((item) => (
             <div key={item} className="flex items-center gap-3">
               <CheckCircle2 className="h-6 w-6 shrink-0 text-blue-600" />
@@ -166,6 +169,8 @@ export default async function RegionPage({ params }: RegionPageProps) {
 
             <a
               href={business.bookingUrl}
+              data-quote-trigger="true"
+              aria-haspopup="dialog"
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
             >
               Get a Quote

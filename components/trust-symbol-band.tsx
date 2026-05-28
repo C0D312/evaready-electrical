@@ -91,8 +91,8 @@ export function TrustSymbolBand({
           <p
             className={`${isDark ? "text-slate-300" : "text-slate-600"} mt-4 text-base font-semibold leading-7 sm:text-lg`}
           >
-            Evaready keeps licence details, booking steps and service
-            credentials clear so customers know who they are contacting.
+            Licence details, credentials and booking steps are clearly shown
+            before you call or request a quote.
           </p>
         </div>
 

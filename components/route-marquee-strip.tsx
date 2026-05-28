@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
 import { Zap } from "lucide-react";
 
@@ -9,11 +9,15 @@ type MarqueeConfig = {
   items: string[];
 };
 
+const subscribeToHydration = () => () => {};
+const hydratedSnapshot = () => true;
+const serverSnapshot = () => false;
+
 const homeItems = [
   "Open 24/7 for urgent faults",
   "NSW licensed electrician",
   "Emergency and Level 2 help",
-  "Sydney & surrounding regions",
+  "Sydney and surrounding regions",
   "Call first if unsafe",
   "Quote planned work",
 ];
@@ -377,10 +381,6 @@ function stripBasePath(pathname: string) {
   return pathname.replace(/^\/evaready-electrical(?=\/|$)/, "") || "/";
 }
 
-function cssContentValue(value: string) {
-  return JSON.stringify(value).replace(/<\/style/gi, "<\\/style");
-}
-
 function configForPath(pathname: string): MarqueeConfig {
   const path = stripBasePath(pathname);
   const segments = path.split("/").filter(Boolean);
@@ -449,7 +449,7 @@ function configForPath(pathname: string): MarqueeConfig {
           "Photos and job notes",
           "Clear next steps before work begins",
           "Residential and commercial",
-          "Sydney & surrounding regions",
+          "Sydney and surrounding regions",
         ],
     };
   }
@@ -479,7 +479,7 @@ function configForPath(pathname: string): MarqueeConfig {
           "Safety checks",
           "Call first if unsafe",
           "Photos help us review",
-          "Sydney & surrounding regions",
+          "Sydney and surrounding regions",
         ],
     };
   }
@@ -504,7 +504,7 @@ function configForPath(pathname: string): MarqueeConfig {
     return {
       ariaLabel: "Electrical service areas",
       items: [
-        path === "/service-areas" ? "Sydney & surrounding regions" : `${placeName} electrician`,
+        path === "/service-areas" ? "Sydney and surrounding regions" : `${placeName} electrician`,
         "Emergency faults",
         "Level 2 enquiries",
         "Switchboard upgrades",
@@ -522,13 +522,18 @@ function configForPath(pathname: string): MarqueeConfig {
       "Emergency faults",
       "Level 2 work",
       "Get a quote",
-      "Sydney & surrounding regions",
+      "Sydney and surrounding regions",
     ],
   };
 }
 
 export function RouteMarqueeStrip() {
   const pathname = usePathname();
+  const showDecorativeLabels = useSyncExternalStore(
+    subscribeToHydration,
+    hydratedSnapshot,
+    serverSnapshot,
+  );
   const config = useMemo(() => configForPath(pathname), [pathname]);
   const visualItemIndexes = useMemo(
     () => {
@@ -537,47 +542,48 @@ export function RouteMarqueeStrip() {
     },
     [config.items],
   );
-  const visualLabelStyles = useMemo(
-    () =>
-      config.items
-        .map(
-          (item, index) =>
-            `.emergency-issue-chip--label-${index}::after{content:${cssContentValue(item)}}`,
-        )
-        .join("\n"),
-    [config.items],
-  );
 
   return (
     <section
       className="emergency-issue-marquee"
       aria-hidden="true"
       data-nosnippet
+      role="presentation"
     >
-      <style>{visualLabelStyles}</style>
       <div
         id="route-service-highlights"
         className="emergency-issue-marquee__viewport"
         aria-hidden="true"
+        role="presentation"
       >
         <div className="emergency-issue-marquee__track">
-          <ul className="emergency-issue-marquee__group">
+          <ul className="emergency-issue-marquee__group" role="presentation">
             {visualItemIndexes.map((itemIndex, index) => (
               <li
                 key={`${itemIndex}-${index}`}
-                className={`emergency-issue-chip emergency-issue-chip--visual emergency-issue-chip--label-${itemIndex}`}
+                className="emergency-issue-chip emergency-issue-chip--visual"
+                aria-hidden="true"
+                role="presentation"
               >
                 <Zap className="h-4 w-4 shrink-0" aria-hidden="true" />
+                <span className="emergency-issue-chip__text" aria-hidden="true">
+                  {showDecorativeLabels ? config.items[itemIndex] : ""}
+                </span>
               </li>
             ))}
           </ul>
-          <ul className="emergency-issue-marquee__group">
+          <ul className="emergency-issue-marquee__group" role="presentation">
             {visualItemIndexes.map((itemIndex, index) => (
               <li
                 key={`repeat-${itemIndex}-${index}`}
-                className={`emergency-issue-chip emergency-issue-chip--visual emergency-issue-chip--label-${itemIndex}`}
+                className="emergency-issue-chip emergency-issue-chip--visual"
+                aria-hidden="true"
+                role="presentation"
               >
                 <Zap className="h-4 w-4 shrink-0" aria-hidden="true" />
+                <span className="emergency-issue-chip__text" aria-hidden="true">
+                  {showDecorativeLabels ? config.items[itemIndex] : ""}
+                </span>
               </li>
             ))}
           </ul>
