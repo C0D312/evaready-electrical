@@ -109,22 +109,22 @@ const issuePaths = [
     icon: Bolt,
   },
   {
-    title: "No hot water?",
-    text: "Hot water circuits, isolators and tripping faults.",
-    href: "/services/hot-water-system-electrician-sydney",
-    icon: Droplets,
+    title: "Burning smell or heat",
+    text: "Treat smoke, heat or burning smells as urgent.",
+    href: "/electrical-faults/burning-smell-from-switchboard",
+    icon: Flame,
+  },
+  {
+    title: "Need Level 2 electrician",
+    text: "Defect notices, consumer mains and service work.",
+    href: "/level-2-electrician-sydney",
+    icon: BadgeCheck,
   },
   {
     title: "Safety switch keeps tripping",
     text: "Stop repeated resets and isolate the fault.",
     href: "/electrical-faults/safety-switch-keeps-tripping",
     icon: ShieldCheck,
-  },
-  {
-    title: "Burning smell or heat",
-    text: "Treat smoke, heat or burning smells as urgent.",
-    href: "/electrical-faults/burning-smell-from-switchboard",
-    icon: Flame,
   },
   {
     title: "Sparking or buzzing fittings",
@@ -145,16 +145,16 @@ const issuePaths = [
     icon: Bolt,
   },
   {
+    title: "No hot water?",
+    text: "Hot water circuits, isolators and tripping faults.",
+    href: "/services/hot-water-system-electrician-sydney",
+    icon: Droplets,
+  },
+  {
     title: "Lights flickering",
     text: "Flickering or dimming lights should be checked.",
     href: "/electrical-faults/lights-flickering",
     icon: AlertTriangle,
-  },
-  {
-    title: "Need Level 2 electrician",
-    text: "Defect notices, consumer mains and service work.",
-    href: "/level-2-electrician-sydney",
-    icon: BadgeCheck,
   },
 ];
 

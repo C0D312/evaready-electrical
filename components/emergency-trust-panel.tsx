@@ -1,20 +1,24 @@
+import Link from "next/link";
 import { ArrowRight, Clock3, Flame, Phone, ShieldCheck, Zap } from "lucide-react";
 import { business } from "@/data/site";
 
 const emergencyCards = [
   {
+    href: "/emergency-electrician-sydney",
     icon: Flame,
     title: "Emergency Fault Help",
     text: "Power outages, burning smells, sparking, repeated tripping and unsafe wiring.",
     tone: "red",
   },
   {
+    href: "/",
     icon: ShieldCheck,
     title: "Licensed NSW Electrician",
     text: `Electrical Licence ${business.licence}.`,
     tone: "cyan",
   },
   {
+    href: "/level-2-electrician-sydney",
     icon: Zap,
     title: "Level 2 Electrical Work",
     text: "Consumer mains, metering, defect notices and supply-side issues.",
@@ -23,14 +27,38 @@ const emergencyCards = [
 ];
 
 const checklist = [
-  "Power is out",
-  "Safety switch keeps tripping",
-  "Burning smell or heat",
-  "Sparking or buzzing fittings",
-  "Damaged switchboard or wiring",
-  "Storm or water damage",
-  "Electrical hazard",
-  "Urgent Level 2 issue",
+  {
+    href: "/electrical-faults/no-power-to-house",
+    label: "Power is out",
+  },
+  {
+    href: "/electrical-faults/safety-switch-keeps-tripping",
+    label: "Safety switch keeps tripping",
+  },
+  {
+    href: "/electrical-faults/burning-smell-from-switchboard",
+    label: "Burning smell or heat",
+  },
+  {
+    href: "/electrical-faults/power-point-sparking",
+    label: "Sparking or buzzing fittings",
+  },
+  {
+    href: "/services/switchboard-upgrades-sydney",
+    label: "Damaged switchboard or wiring",
+  },
+  {
+    href: "/electrical-faults/power-outage-after-storm",
+    label: "Storm or water damage",
+  },
+  {
+    href: "/emergency-electrician-sydney",
+    label: "Electrical hazard",
+  },
+  {
+    href: "/level-2-electrician-sydney",
+    label: "Urgent Level 2 issue",
+  },
 ];
 
 export function EmergencyTrustPanel({ className = "" }: { className?: string }) {
@@ -80,9 +108,10 @@ export function EmergencyTrustPanel({ className = "" }: { className?: string }) 
                     : "border-cyan-300/20 bg-cyan-300/10 text-cyan-100";
 
                 return (
-                  <article
+                  <Link
+                    href={card.href}
                     key={card.title}
-                    className={`rounded-[1.35rem] border p-5 shadow-xl shadow-slate-950/20 ${tone}`}
+                    className={`group rounded-[1.35rem] border p-5 shadow-xl shadow-slate-950/20 transition hover:-translate-y-0.5 hover:border-cyan-200/45 hover:shadow-cyan-500/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200 ${tone}`}
                   >
                     <span
                       className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10"
@@ -96,7 +125,7 @@ export function EmergencyTrustPanel({ className = "" }: { className?: string }) 
                     <p className="mt-2 text-sm font-semibold leading-6 text-slate-300">
                       {card.text}
                     </p>
-                  </article>
+                  </Link>
                 );
               })}
             </div>
@@ -104,17 +133,22 @@ export function EmergencyTrustPanel({ className = "" }: { className?: string }) 
             <div className="rounded-[1.35rem] border border-cyan-300/18 bg-white/[0.055] p-4 shadow-xl shadow-slate-950/20">
               <div className="grid gap-2 sm:grid-cols-2">
                 {checklist.map((item) => (
-                  <div
-                    key={item}
-                    className="flex min-h-11 items-center gap-3 rounded-xl bg-white/[0.055] px-3 py-2"
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="group flex min-h-11 items-center gap-3 rounded-xl bg-white/[0.055] px-3 py-2 transition hover:bg-cyan-300/12 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
                   >
                     <Zap
                       className="h-4 w-4 shrink-0 text-cyan-200"
                       strokeWidth={2.1}
                       aria-hidden="true"
                     />
-                    <span className="text-sm font-black text-white">{item}</span>
-                  </div>
+                    <span className="text-sm font-black text-white">{item.label}</span>
+                    <ArrowRight
+                      className="ml-auto h-4 w-4 shrink-0 text-cyan-100 opacity-0 transition group-hover:translate-x-0.5 group-hover:opacity-100"
+                      aria-hidden="true"
+                    />
+                  </Link>
                 ))}
               </div>
             </div>
