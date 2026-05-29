@@ -15,6 +15,10 @@ import {
   SiteFooter,
   SiteHeader,
 } from "@/components/site-frame";
+import {
+  getSuburbCredentialItems,
+  ServiceCredentialStrip,
+} from "@/components/service-credential-strip";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import {
   getAreaBySlug,
@@ -174,6 +178,11 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         <p className="mt-4 max-w-3xl text-base font-semibold leading-7 text-blue-100">
           {copy.heroNote}
         </p>
+
+        <ServiceCredentialStrip
+          items={getSuburbCredentialItems(suburb.name)}
+          className="mt-6 max-w-4xl"
+        />
 
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">
           <a

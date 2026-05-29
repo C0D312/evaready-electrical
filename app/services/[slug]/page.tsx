@@ -10,6 +10,10 @@ import {
   ShieldCheck,
   Wrench,
 } from "lucide-react";
+import {
+  getServiceCredentialItems,
+  ServiceCredentialStrip,
+} from "@/components/service-credential-strip";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import {
@@ -247,6 +251,11 @@ export default async function ServiceLandingPage({
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
               {service.intro}
             </p>
+
+            <ServiceCredentialStrip
+              items={getServiceCredentialItems(service.slug)}
+              className="mt-6 max-w-4xl"
+            />
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a

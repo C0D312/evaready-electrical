@@ -10,6 +10,10 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { QuoteRequestPanel } from "@/components/quote-request-panel";
+import {
+  ServiceCredentialStrip,
+  serviceCredentialPresets,
+} from "@/components/service-credential-strip";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { absoluteUrl, business, canonicalPath } from "@/data/site";
@@ -201,6 +205,11 @@ export default function SwitchboardUpgradesSydneyPage() {
               tidy switchboard upgrades for homes and businesses across the
               service area.
             </p>
+
+            <ServiceCredentialStrip
+              items={serviceCredentialPresets.switchboard}
+              className="mt-6 max-w-4xl"
+            />
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a

@@ -1232,7 +1232,7 @@ export function getSuburbPageCopy(
   const generatedCopy: SuburbPageCopy = {
     ctaHeading: pick(
       [
-        `Electrical help in ${coverageSuburb.name}, with a clear next step.`,
+        `Electrical help in ${coverageSuburb.name}, with clear next steps before work begins.`,
         `Planning electrical work in ${coverageSuburb.name}? Send the details through.`,
         `For ${suburbLabel} electrical faults or upgrades, start here.`,
     ],

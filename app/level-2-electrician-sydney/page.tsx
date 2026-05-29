@@ -14,6 +14,10 @@ import {
   Zap,
 } from "lucide-react";
 import { QuoteRequestPanel } from "@/components/quote-request-panel";
+import {
+  ServiceCredentialStrip,
+  serviceCredentialPresets,
+} from "@/components/service-credential-strip";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { absoluteUrl, business, canonicalPath } from "@/data/site";
@@ -282,6 +286,11 @@ export default function Level2ElectricianSydneyPage() {
               metering, overhead supplies and underground electrical work across
               Sydney and surrounding regions.
             </p>
+
+            <ServiceCredentialStrip
+              items={serviceCredentialPresets.level2}
+              className="mt-6 max-w-4xl"
+            />
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a

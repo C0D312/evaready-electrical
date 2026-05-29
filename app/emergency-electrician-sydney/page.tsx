@@ -9,7 +9,12 @@ import {
   ShieldCheck,
   Zap,
 } from "lucide-react";
+import { EmergencyTrustPanel } from "@/components/emergency-trust-panel";
 import { QuoteRequestPanel } from "@/components/quote-request-panel";
+import {
+  ServiceCredentialStrip,
+  serviceCredentialPresets,
+} from "@/components/service-credential-strip";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { absoluteUrl, business, canonicalPath } from "@/data/site";
@@ -243,6 +248,11 @@ export default function EmergencyElectricianSydneyPage() {
               anything that feels unsafe across the service area.
             </p>
 
+            <ServiceCredentialStrip
+              items={serviceCredentialPresets.emergency}
+              className="mt-6 max-w-4xl"
+            />
+
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a
                 href={business.phoneHref}
@@ -327,6 +337,8 @@ export default function EmergencyElectricianSydneyPage() {
           </div>
         </div>
       </section>
+
+      <EmergencyTrustPanel className="border-b border-cyan-300/15" />
 
       <TrustSymbolBand className="border-b border-slate-200" />
 

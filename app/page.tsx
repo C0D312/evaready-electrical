@@ -14,6 +14,9 @@ import {
   ShieldCheck,
   Wrench,
 } from "lucide-react";
+import { HeroCredentialBadges } from "@/components/credential-badges";
+import { EmergencyTrustPanel } from "@/components/emergency-trust-panel";
+import { QuoteProcessGraphic } from "@/components/quote-process-graphic";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import {
@@ -41,24 +44,6 @@ export const metadata: Metadata = {
     images: [absoluteUrl(business.brandImage)],
   },
 };
-
-const heroTrustMarks = [
-  {
-    title: "NSW licensed",
-    text: business.licence,
-    icon: ShieldCheck,
-  },
-  {
-    title: "Open 24/7",
-    text: "Urgent electrical faults",
-    icon: Clock3,
-  },
-  {
-    title: "Clear next steps before work begins",
-    text: "Call first or request a quote",
-    icon: BadgeCheck,
-  },
-];
 
 const coreServiceTitles = [
   {
@@ -350,33 +335,12 @@ export default function HomePage() {
               </a>
             </div>
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              {heroTrustMarks.map((mark) => {
-                const Icon = mark.icon;
-
-                return (
-                  <div
-                    key={mark.title}
-                    className="home-hero-trust-card flex items-center gap-3 rounded-lg border border-cyan-300/20 bg-[#15171C]/70 p-3 shadow-xl shadow-cyan-500/10 backdrop-blur"
-                  >
-                    <span className="home-hero-trust-icon inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#005BFF]/20 text-[#00C8FF]">
-                      <Icon className="h-5 w-5" />
-                    </span>
-                    <span>
-                      <span className="home-hero-trust-title block text-sm font-black text-white">
-                        {mark.title}
-                      </span>
-                      <span className="home-hero-trust-description mt-1 block text-xs font-semibold leading-5 text-slate-300">
-                        {mark.text}
-                      </span>
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
+            <HeroCredentialBadges className="mt-8 max-w-3xl" />
           </div>
         </div>
       </section>
+
+      <EmergencyTrustPanel className="border-y border-cyan-300/15" />
 
       <section className="issue-selector-section border-y border-cyan-300/15 bg-slate-950 py-12 text-white sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -497,6 +461,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+          <QuoteProcessGraphic className="mt-6 sm:mt-8" />
         </div>
       </section>
 
@@ -513,8 +478,8 @@ export default function HomePage() {
                 The main ways Evaready can help.
               </h2>
               <p className="mt-4 text-lg leading-8 text-slate-700">
-                Start with the electrical help customers usually need first,
-                then view the full services page for more specialised work.
+                Choose the service that matches your job, then call for urgent
+                faults or request a quote for planned work.
               </p>
             </div>
             <Link
@@ -563,7 +528,7 @@ export default function HomePage() {
               Why choose Evaready
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl">
-              Licensed electrical help with a clear next step.
+              Licensed electrical help with clear next steps before work begins.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
               Evaready Electrical keeps licence details visible, explains what

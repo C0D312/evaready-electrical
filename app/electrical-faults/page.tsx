@@ -109,7 +109,7 @@ export default function ElectricalFaultsPage() {
 
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
               Power loss, tripping safety switches, burning smells, hot outlets
-              and storm damage need a clear next step. Call for urgent hazards
+              and storm damage need clear next steps. Call for urgent hazards
               or send photos and job notes for planned fault finding.
             </p>
 

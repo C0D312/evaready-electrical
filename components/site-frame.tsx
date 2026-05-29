@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRight, MapPin, Phone } from "lucide-react";
+import { FooterCredentialStrip } from "@/components/credential-badges";
 import { FooterLinkGroups } from "@/components/footer-link-groups";
 import { HomeNavigationLink } from "@/components/home-navigation-link";
 import { MobileStickyCta } from "@/components/mobile-sticky-cta";
@@ -137,32 +138,7 @@ export function SiteFooter() {
               urgent faults, homes, businesses, Level 2 work, CCTV and data.
             </p>
 
-            <dl className="mt-4 grid gap-1.5 text-xs leading-5 text-slate-300 sm:grid-cols-2 md:grid-cols-1">
-              <div>
-                <dt className="font-black uppercase tracking-[0.12em] text-cyan-200">
-                  Electrical Licence
-                </dt>
-                <dd>{business.licence}</dd>
-              </div>
-              <div>
-                <dt className="font-black uppercase tracking-[0.12em] text-cyan-200">
-                  ABN
-                </dt>
-                <dd>{business.abn}</dd>
-              </div>
-              <div>
-                <dt className="font-black uppercase tracking-[0.12em] text-cyan-200">
-                  Open Cabler Registration
-                </dt>
-                <dd>{business.openCablerRegistration}</dd>
-              </div>
-              <div>
-                <dt className="font-black uppercase tracking-[0.12em] text-cyan-200">
-                  ARCtick Licensed
-                </dt>
-                <dd>{business.arctickLicence}</dd>
-              </div>
-            </dl>
+            <FooterCredentialStrip className="mt-4 sm:grid-cols-2 md:grid-cols-1" />
           </div>
 
           <FooterLinkGroups />

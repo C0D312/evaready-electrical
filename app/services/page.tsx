@@ -14,6 +14,10 @@ import {
   Wrench,
   Zap,
 } from "lucide-react";
+import {
+  ServiceCredentialStrip,
+  serviceCredentialPresets,
+} from "@/components/service-credential-strip";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { absoluteUrl, business, canonicalPath } from "@/data/site";
@@ -527,10 +531,16 @@ export default function ServicesPage() {
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
               Evaready Electrical helps homes, strata, shops, builders and
               businesses with electrical work that needs a licensed hand and a
-              clear next step. That includes urgent faults, Level 2 work,
-              switchboards, testing, lighting, hot water electrical faults,
-              data, CCTV, fans, smart wiring and larger upgrades.
+              clear next steps before work begins. That includes urgent faults,
+              Level 2 work, switchboards, testing, lighting, hot water
+              electrical faults, data, CCTV, fans, smart wiring and larger
+              upgrades.
             </p>
+
+            <ServiceCredentialStrip
+              items={serviceCredentialPresets.general}
+              className="mt-6 max-w-4xl"
+            />
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a
