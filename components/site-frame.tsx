@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRight, MapPin, Phone } from "lucide-react";
 import { FooterCredentialStrip } from "@/components/credential-badges";
+import { CurrentYear } from "@/components/current-year";
 import { FooterLinkGroups } from "@/components/footer-link-groups";
 import { HomeNavigationLink } from "@/components/home-navigation-link";
 import { MobileStickyCta } from "@/components/mobile-sticky-cta";
@@ -146,7 +147,9 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-7 flex flex-col gap-3 border-t border-cyan-300/15 pt-4 text-xs text-slate-400 md:mt-8 md:flex-row md:items-center md:justify-between">
-          <p>&copy; 2026 Evaready Electrical. All rights reserved.</p>
+          <p>
+            &copy; <CurrentYear /> Evaready Electrical. All rights reserved.
+          </p>
           <div className="flex flex-wrap gap-x-4 gap-y-2">
             {legalLinks.map((link) => (
               <Link key={link.href} href={link.href} className="footer-link">

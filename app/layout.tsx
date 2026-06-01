@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
+import { GoogleAdsTag } from "@/components/google-ads-tag";
 import { absoluteUrl, assetPath, business } from "@/data/site";
 import "./globals.css";
 
@@ -51,7 +52,10 @@ export default function RootLayout({
 
   return (
     <html lang="en-AU">
-      <body style={brandStyle}>{children}</body>
+      <body style={brandStyle}>
+        <GoogleAdsTag />
+        {children}
+      </body>
     </html>
   );
 }
