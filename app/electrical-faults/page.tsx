@@ -12,23 +12,15 @@ import {
 } from "lucide-react";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { electricalFaultPages } from "@/data/electrical-faults";
-import { absoluteUrl, business, canonicalPath } from "@/data/site";
+import { absoluteUrl, business } from "@/data/site";
+import {
+  buildBreadcrumbSchema,
+  buildElectricianSchema,
+  schemaJson,
+} from "@/lib/schema";
+import { faultsIndexSeoMetadata, toMetadata } from "@/lib/seo-metadata";
 
-export const metadata: Metadata = {
-  title: "Electrical Faults Sydney & Surrounding Regions",
-  description:
-    "Electrical fault help in Sydney for tripping safety switches, burning smells, no power, sparking power points, hot outlets, flickering lights and storm damage.",
-  alternates: {
-    canonical: canonicalPath("/electrical-faults"),
-  },
-  openGraph: {
-    title: `Electrical Faults Sydney & Surrounding Regions | ${business.name}`,
-    description:
-      "Sydney-wide emergency electrical help for urgent hazards and planned fault finding across Sydney and surrounding regions.",
-    url: absoluteUrl("/electrical-faults"),
-    images: [absoluteUrl(business.brandImage)],
-  },
-};
+export const metadata: Metadata = toMetadata(faultsIndexSeoMetadata());
 
 const trustItems = [
   {
@@ -56,37 +48,43 @@ const fastPath = [
 ];
 
 export default function ElectricalFaultsPage() {
+  const electricianSchema = buildElectricianSchema({
+    description:
+      "Electrical fault finding and urgent fault support across Sydney and surrounding regions.",
+    offerNames: electricalFaultPages.map((fault) => fault.title),
+    serviceTypes: ["Electrical fault finding", "Emergency electrical faults"],
+    urgentCalls24Seven: true,
+    url: absoluteUrl("/electrical-faults"),
+  });
   const collectionSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Electrical Faults Sydney & Surrounding Regions",
     description: metadata.description,
-    url: `${business.siteUrl}/electrical-faults`,
-    provider: {
-      "@type": "Electrician",
-      name: business.name,
-      telephone: business.phoneDisplay,
-      url: business.siteUrl,
-      identifier: [
-        {
-          "@type": "PropertyValue",
-          name: "NSW Electrical Licence",
-          value: business.licence,
-        },
-        {
-          "@type": "PropertyValue",
-          name: "ABN",
-          value: business.abn,
-        },
-      ],
-    },
+    url: absoluteUrl("/electrical-faults"),
+    provider: { "@id": `${absoluteUrl("/")}#evaready-electrical` },
   };
+  const breadcrumbSchema = buildBreadcrumbSchema(
+    [
+      { name: "Home", path: "/" },
+      { name: "Electrical Faults", path: "/electrical-faults" },
+    ],
+    "/electrical-faults",
+  );
 
   return (
     <main className="min-h-screen bg-white text-slate-950">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+        dangerouslySetInnerHTML={schemaJson(electricianSchema)}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaJson(collectionSchema)}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
       />
 
       <SiteHeader />
@@ -116,6 +114,7 @@ export default function ElectricalFaultsPage() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href={business.phoneHref}
+                aria-label={business.callCta}
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
@@ -124,9 +123,12 @@ export default function ElectricalFaultsPage() {
 
               <a
                 href={business.bookingUrl}
+                data-quote-trigger="true"
+                aria-haspopup="dialog"
+                aria-label="Get a quote from Evaready Electrical"
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
               >
-                Get a Quote
+                {business.quoteCta}
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -225,10 +227,10 @@ export default function ElectricalFaultsPage() {
               Call or quote
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Call now or request a quote.
+              Call now or get a quote.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
-              We&apos;ll guide you to the right next step. For hazards, phone
+              We&apos;ll point you to the safest next action. For hazards, phone
               first. For planned fault finding, photos and job notes help
               Evaready Electrical review the work before the next step.
             </p>
@@ -252,6 +254,7 @@ export default function ElectricalFaultsPage() {
             <div className="mt-7 grid gap-3 sm:grid-cols-2">
               <a
                 href={business.phoneHref}
+                aria-label={business.callCta}
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-6 py-4 font-black text-white transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
@@ -259,9 +262,12 @@ export default function ElectricalFaultsPage() {
               </a>
               <a
                 href={business.bookingUrl}
+                data-quote-trigger="true"
+                aria-haspopup="dialog"
+                aria-label="Get a quote from Evaready Electrical"
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white transition hover:bg-blue-600"
               >
-                Get a Quote
+                {business.quoteCta}
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>

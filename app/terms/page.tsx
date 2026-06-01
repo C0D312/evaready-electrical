@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { business } from "@/data/site";
+import { legalSeoMetadata, toMetadata } from "@/lib/seo-metadata";
 
-export const metadata: Metadata = {
-  title: `Terms | ${business.name}`,
-  description:
-    "General website and service terms for Evaready Electrical enquiries, quotes and bookings.",
-};
+export const metadata: Metadata = toMetadata(legalSeoMetadata("/terms"));
 
 export default function TermsPage() {
   return (
@@ -35,6 +32,7 @@ export default function TermsPage() {
               Urgent hazards should be phoned through directly on{" "}
               <a
                 href={business.phoneHref}
+                aria-label={business.callCta}
                 className="font-black text-blue-700 underline-offset-4 hover:underline"
               >
                 {business.phoneDisplay}

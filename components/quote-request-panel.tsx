@@ -44,6 +44,7 @@ export function QuoteRequestPanel({
             </div>
             <a
               href={business.phoneHref}
+              aria-label={business.callCta}
               className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-3 py-4 text-center text-[clamp(0.9rem,4vw,1.05rem)] font-black leading-6 text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 sm:gap-3 sm:px-5"
             >
               <Phone className="h-5 w-5 shrink-0" />
@@ -60,7 +61,7 @@ export function QuoteRequestPanel({
               Job details
             </p>
             <h3 className="text-2xl font-black sm:mt-2 sm:text-2xl">
-              Request a Booking or Quote
+              Request a Quote
             </h3>
             <p className="mt-3 max-w-2xl text-sm font-semibold leading-6 text-slate-300 sm:text-sm">
               Add your contact details, address and photos so we can review the job.
@@ -87,6 +88,7 @@ export function QuoteRequestPanel({
             For urgent electrical faults,{" "}
             <a
               href={business.phoneHref}
+              aria-label={business.callCta}
               className="font-black text-white underline underline-offset-2"
             >
               {business.callCta}
@@ -97,6 +99,7 @@ export function QuoteRequestPanel({
           <div className="mt-5 grid gap-3 sm:hidden">
             <a
               href={business.phoneHref}
+              aria-label={business.callCta}
               className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-3 text-sm font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500"
             >
               <Phone className="h-4 w-4 shrink-0" />
@@ -108,6 +111,7 @@ export function QuoteRequestPanel({
               href={business.bookingUrl}
               data-quote-trigger="true"
               aria-haspopup="dialog"
+              aria-label="Open booking form for planned electrical work"
               className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
             >
               Open Booking Form
@@ -128,6 +132,7 @@ export function QuoteRequestPanel({
                 href={business.bookingUrl}
                 data-quote-trigger="true"
                 aria-haspopup="dialog"
+                aria-label="Open booking form for planned electrical work"
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
               >
                 Open Booking Form
@@ -135,6 +140,7 @@ export function QuoteRequestPanel({
               </a>
               <a
                 href={business.phoneHref}
+                aria-label={business.callCta}
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-3 text-sm font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500"
               >
                 <Phone className="h-4 w-4 shrink-0" />

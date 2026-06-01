@@ -1,0 +1,254 @@
+import { absoluteUrl, business, services } from "@/data/site";
+
+type SchemaValue =
+  | string
+  | number
+  | boolean
+  | null
+  | undefined
+  | SchemaValue[]
+  | { [key: string]: SchemaValue };
+
+export type BreadcrumbItem = {
+  name: string;
+  path: string;
+};
+
+export type FaqItem = {
+  answer: string;
+  question: string;
+};
+
+export type ServiceSchemaOptions = {
+  areaServed?: SchemaValue;
+  description: string;
+  id?: string;
+  name: string;
+  offerNames?: string[];
+  path: string;
+  providerId?: string;
+  serviceType?: string | string[];
+};
+
+export type ElectricianSchemaOptions = {
+  areaServed?: SchemaValue;
+  description?: string;
+  id?: string;
+  name?: string;
+  offerNames?: string[];
+  serviceTypes?: string[];
+  urgentCalls24Seven?: boolean;
+  url?: string;
+};
+
+const allDays = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
+
+export const defaultAreaServed = [
+  { "@type": "City", name: "Sydney" },
+  { "@type": "AdministrativeArea", name: "Sydney & Surrounding Regions" },
+];
+
+export const businessSchemaId = `${absoluteUrl("/")}#evaready-electrical`;
+
+export function schemaJson(schema: SchemaValue) {
+  return { __html: JSON.stringify(cleanSchema(schema)) };
+}
+
+export function businessIdentifiers() {
+  return [
+    {
+      "@type": "PropertyValue",
+      name: "NSW Electrical Licence",
+      value: business.licence,
+    },
+    {
+      "@type": "PropertyValue",
+      name: "ABN",
+      value: business.abn,
+    },
+    {
+      "@type": "PropertyValue",
+      name: "Open Cabler Registration",
+      value: business.openCablerRegistration,
+    },
+    {
+      "@type": "PropertyValue",
+      name: "ARCtick Refrigerant Handling Licence",
+      value: business.arctickLicence,
+    },
+  ];
+}
+
+export function buildBreadcrumbSchema(
+  items: BreadcrumbItem[],
+  idPath?: string,
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": idPath ? `${absoluteUrl(idPath)}#breadcrumb` : undefined,
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: absoluteUrl(item.path),
+    })),
+  };
+}
+
+export function buildFaqSchema(faqs: FaqItem[], idPath?: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": idPath ? `${absoluteUrl(idPath)}#faq` : undefined,
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+}
+
+export function buildElectricianSchema({
+  areaServed = defaultAreaServed,
+  description,
+  id = businessSchemaId,
+  name = business.name,
+  offerNames,
+  serviceTypes,
+  urgentCalls24Seven = false,
+  url = absoluteUrl("/"),
+}: ElectricianSchemaOptions = {}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Electrician",
+    "@id": id,
+    name,
+    description,
+    url,
+    telephone: business.phoneDisplay,
+    email: business.email,
+    image: [absoluteUrl(business.brandImage), absoluteUrl(business.heroImage)],
+    logo: absoluteUrl(business.logoImage),
+    priceRange: "$$",
+    areaServed,
+    identifier: businessIdentifiers(),
+    serviceType: serviceTypes,
+    contactPoint: urgentCalls24Seven
+      ? {
+          "@type": "ContactPoint",
+          telephone: business.phoneDisplay,
+          contactType: "Urgent electrical fault calls",
+          areaServed: business.serviceArea,
+          availableLanguage: "English",
+          hoursAvailable: {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: allDays,
+            opens: "00:00",
+            closes: "23:59",
+          },
+          description:
+            "Calls are open 24/7 for urgent electrical faults that feel unsafe.",
+        }
+      : undefined,
+    makesOffer: offerNames?.map((offerName) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: offerName,
+      },
+    })),
+  };
+}
+
+export function buildServiceSchema({
+  areaServed = business.serviceArea,
+  description,
+  id,
+  name,
+  offerNames,
+  path,
+  providerId = businessSchemaId,
+  serviceType = name,
+}: ServiceSchemaOptions) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": id ?? `${absoluteUrl(path)}#service`,
+    name,
+    description,
+    serviceType,
+    areaServed,
+    url: absoluteUrl(path),
+    provider: {
+      "@id": providerId,
+      "@type": "Electrician",
+      name: business.name,
+      telephone: business.phoneDisplay,
+      email: business.email,
+      url: absoluteUrl("/"),
+    },
+    hasOfferCatalog: offerNames
+      ? {
+          "@type": "OfferCatalog",
+          name: `${name} services`,
+          itemListElement: offerNames.map((offerName) => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: offerName,
+            },
+          })),
+        }
+      : undefined,
+  };
+}
+
+export function buildSiteOfferCatalog() {
+  return {
+    "@type": "OfferCatalog",
+    name: "Evaready Electrical services",
+    itemListElement: services.map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service.title,
+        serviceType: service.intent,
+        description: service.description,
+        url:
+          service.slug === "emergency-electrician-sydney"
+            ? absoluteUrl("/emergency-electrician-sydney")
+            : service.slug === "level-2-electrician-sydney"
+              ? absoluteUrl("/level-2-electrician-sydney")
+              : absoluteUrl(`/services/${service.slug}`),
+      },
+    })),
+  };
+}
+
+function cleanSchema<T extends SchemaValue>(value: T): T {
+  if (Array.isArray(value)) {
+    return value.map((item) => cleanSchema(item)) as T;
+  }
+
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value)
+        .filter(([, item]) => item !== undefined)
+        .map(([key, item]) => [key, cleanSchema(item)]),
+    ) as T;
+  }
+
+  return value;
+}

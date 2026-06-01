@@ -20,16 +20,16 @@ import {
 } from "@/components/service-credential-strip";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
-import { absoluteUrl, business, canonicalPath } from "@/data/site";
+import { absoluteUrl, business } from "@/data/site";
+import {
+  buildBreadcrumbSchema,
+  buildElectricianSchema,
+  buildSiteOfferCatalog,
+  schemaJson,
+} from "@/lib/schema";
+import { servicesIndexSeoMetadata, toMetadata } from "@/lib/seo-metadata";
 
-export const metadata: Metadata = {
-  title: "Electrical Services Sydney & Surrounding Regions",
-  description:
-    "Evaready Electrical handles residential, commercial, emergency and Level 2 electrical work including switchboards, fault finding, hot water electrical, CCTV, data cabling, lighting, power points and smoke alarms.",
-  alternates: {
-    canonical: canonicalPath("/services"),
-  },
-};
+export const metadata: Metadata = toMetadata(servicesIndexSeoMetadata());
 
 const services = [
   {
@@ -468,46 +468,39 @@ function isExternalServiceLink(title: string) {
 }
 
 export default function ServicesPage() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Electrician",
+  const schema = buildElectricianSchema({
+    description:
+      "Residential, commercial, emergency, Level 2 and planned electrical services across Sydney and surrounding regions.",
     name: "Evaready Electrical - Electrical Services Sydney & Surrounding Regions",
-    telephone: business.phoneDisplay,
-    email: business.email,
-    areaServed:
-      "Sydney & Surrounding Regions",
+    offerNames: services.map((service) => service.title),
+    serviceTypes: services.map((service) => service.title),
     url: absoluteUrl("/services"),
-    priceRange: "$$",
-    serviceType: services.map((service) => service.title),
-    identifier: [
-      {
-        "@type": "PropertyValue",
-        name: "NSW Electrical Licence",
-        value: business.licence,
-      },
-      {
-        "@type": "PropertyValue",
-        name: "ABN",
-        value: business.abn,
-      },
-      {
-        "@type": "PropertyValue",
-        name: "Open Cabler Registration",
-        value: business.openCablerRegistration,
-      },
-      {
-        "@type": "PropertyValue",
-        name: "Booking Details",
-        value: "Secure booking form for planned electrical work",
-      },
-    ],
+  });
+  const offerCatalogSchema = {
+    "@context": "https://schema.org",
+    ...buildSiteOfferCatalog(),
   };
+  const breadcrumbSchema = buildBreadcrumbSchema(
+    [
+      { name: "Home", path: "/" },
+      { name: "Electrical Services", path: "/services" },
+    ],
+    "/services",
+  );
 
   return (
     <main className="min-h-screen bg-white text-slate-950">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={schemaJson(schema)}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaJson(offerCatalogSchema)}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
       />
 
       <SiteHeader />
@@ -545,6 +538,7 @@ export default function ServicesPage() {
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a
                 href={business.phoneHref}
+                aria-label={business.callCta}
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
@@ -553,9 +547,12 @@ export default function ServicesPage() {
 
               <a
                 href={business.bookingUrl}
+                data-quote-trigger="true"
+                aria-haspopup="dialog"
+                aria-label="Get a quote from Evaready Electrical"
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
               >
-                Get a Quote
+                {business.quoteCta}
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -666,7 +663,7 @@ export default function ServicesPage() {
                       href={getServiceHref(service.title)}
                       className="mt-7 inline-flex items-center gap-2 font-black text-blue-700"
                     >
-                      Get a Quote <ArrowRight className="h-4 w-4" />
+                      {business.quoteCta} <ArrowRight className="h-4 w-4" />
                     </a>
                   ) : (
                     <Link
@@ -700,6 +697,7 @@ export default function ServicesPage() {
           <div className="flex flex-col gap-4 sm:flex-row">
             <a
               href={business.phoneHref}
+              aria-label={business.callCta}
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
             >
               <Phone className="h-5 w-5" />
@@ -708,9 +706,12 @@ export default function ServicesPage() {
 
             <a
               href={business.bookingUrl}
+              data-quote-trigger="true"
+              aria-haspopup="dialog"
+              aria-label="Get a quote from Evaready Electrical"
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
             >
-              Get a Quote
+              {business.quoteCta}
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>

@@ -251,25 +251,29 @@ export function QuoteFormModal() {
       className="quote-modal-backdrop fixed inset-0 z-[100] grid h-[100dvh] w-[100vw] place-items-center overflow-hidden bg-slate-950/88 p-0 backdrop-blur-sm sm:w-auto sm:p-4"
       role="dialog"
       aria-modal="true"
-      aria-label="Request a booking or quote"
+      aria-label="Request a quote"
     >
       <button
         type="button"
-        aria-label="Close quote form"
+        aria-label="Close booking form"
         className="absolute inset-0 hidden sm:block"
         onClick={() => close()}
       />
 
       <div className="quote-modal-panel fixed inset-0 mx-0 flex h-[100dvh] max-h-[100dvh] min-h-0 w-[100vw] max-w-[100vw] flex-col overflow-hidden overflow-x-hidden rounded-none border-0 border-white/12 bg-slate-950 text-white shadow-2xl shadow-slate-950/45 sm:relative sm:inset-auto sm:mx-auto sm:h-[85dvh] sm:max-h-[85dvh] sm:w-full sm:max-w-[760px] sm:rounded-[1.35rem] sm:border">
         <div className="quote-modal-action-bar">
-          <a href={business.phoneHref} className="quote-modal-emergency">
+          <a
+            href={business.phoneHref}
+            aria-label={business.callCta}
+            className="quote-modal-emergency"
+          >
             <Phone className="h-5 w-5 shrink-0" />
-            <span>Emergency? Call Now {business.phoneDisplay}</span>
+            <span>Emergency? {business.callCta}</span>
           </a>
 
           <button
             type="button"
-            aria-label="Close quote form"
+            aria-label="Close booking form"
             ref={closeButtonRef}
             className="quote-modal-close"
             onClick={() => close()}
@@ -281,7 +285,7 @@ export function QuoteFormModal() {
         <div className="quote-modal-frame-shell min-h-0 flex-1 overflow-hidden bg-white">
           <ServiceM8Frame
             src={business.bookingUrl}
-            title="Evaready Electrical quote form"
+            title="Evaready Electrical booking form"
             className="quote-modal-iframe h-full w-full bg-white"
           />
         </div>

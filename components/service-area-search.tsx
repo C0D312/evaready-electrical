@@ -77,6 +77,7 @@ export function ServiceAreaSearch({ items }: ServiceAreaSearchProps) {
               No matching suburb found. Call{" "}
               <a
                 href={business.phoneHref}
+                aria-label={business.callCta}
                 className="font-black underline underline-offset-2"
               >
                 {business.phoneDisplay}

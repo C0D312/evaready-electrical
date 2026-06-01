@@ -81,18 +81,20 @@ export function EmergencyTrustPanel({ className = "" }: { className?: string }) 
             <div className="mt-7 grid gap-3 sm:flex sm:flex-wrap">
               <a
                 href={business.phoneHref}
+                aria-label={business.callCta}
                 className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-red-600 px-5 py-3 font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" aria-hidden="true" />
-                <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
+                <span className="whitespace-nowrap">{business.callCta}</span>
               </a>
               <a
                 href={business.bookingUrl}
                 data-quote-trigger="true"
                 aria-haspopup="dialog"
+                aria-label="Get a quote from Evaready Electrical"
                 className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-blue-700 px-5 py-3 font-black text-white shadow-xl shadow-blue-700/20 transition hover:bg-blue-600"
               >
-                Get a Quote
+                {business.quoteCta}
                 <ArrowRight className="h-5 w-5" aria-hidden="true" />
               </a>
             </div>

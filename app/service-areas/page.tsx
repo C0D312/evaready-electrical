@@ -21,46 +21,55 @@ import {
   coverageSearchItems,
   coverageStats,
 } from "@/data/service-area-coverage";
-import { business, canonicalPath } from "@/data/site";
+import { absoluteUrl, business } from "@/data/site";
+import {
+  buildBreadcrumbSchema,
+  buildElectricianSchema,
+  buildServiceSchema,
+  schemaJson,
+} from "@/lib/schema";
+import { serviceAreaIndexSeoMetadata, toMetadata } from "@/lib/seo-metadata";
 
-export const metadata: Metadata = {
-  title: "Service Areas",
-  description:
-    "Evaready Electrical services homes and businesses across Sydney, nearby suburbs and surrounding regions.",
-  alternates: {
-    canonical: canonicalPath("/service-areas"),
-  },
-};
+export const metadata: Metadata = toMetadata(serviceAreaIndexSeoMetadata());
 
 export default function AreasPage() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Electrician",
-    name: "Evaready Electrical - Service Areas",
-    telephone: business.phoneDisplay,
-    email: business.email,
+  const schema = buildElectricianSchema({
     areaServed: coverageRegions.map((region) => region.name),
-    url: `${business.siteUrl}/service-areas`,
-    priceRange: "$$",
-    identifier: [
-      {
-        "@type": "PropertyValue",
-        name: "NSW Electrical Licence",
-        value: business.licence,
-      },
-      {
-        "@type": "PropertyValue",
-        name: "ABN",
-        value: business.abn,
-      },
+    description:
+      "Electrical service areas across Sydney and surrounding regions for urgent faults, Level 2 work and planned electrical jobs.",
+    name: "Evaready Electrical - Service Areas",
+    serviceTypes: ["Emergency electrical faults", "Level 2 electrical work", "Planned electrical work"],
+    url: absoluteUrl("/service-areas"),
+  });
+  const serviceSchema = buildServiceSchema({
+    areaServed: coverageRegions.map((region) => region.name),
+    description:
+      "Electrical service coverage across Sydney and surrounding regions, including urgent faults, Level 2 enquiries and planned work.",
+    name: "Electrician service areas across Sydney & Surrounding Regions",
+    path: "/service-areas",
+    serviceType: "Electrical service area coverage",
+  });
+  const breadcrumbSchema = buildBreadcrumbSchema(
+    [
+      { name: "Home", path: "/" },
+      { name: "Service Areas", path: "/service-areas" },
     ],
-  };
+    "/service-areas",
+  );
 
   return (
     <main className="min-h-screen bg-white text-slate-950">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={schemaJson(schema)}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaJson(serviceSchema)}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
       />
 
       <SiteHeader />
@@ -74,15 +83,15 @@ export default function AreasPage() {
           surrounding regions, including the Shire, Macarthur, Blue Mountains,
           Northern Beaches, Wollongong, Illawarra and Central Coast South.
           Search your suburb or postcode, browse nearby regions, then call for
-          urgent faults or open the booking form for planned work.
-          Core electrical service across Sydney and surrounding regions.
-          Extended service areas may depend on job type, urgency and
-          availability.
+          urgent faults or open the booking form for planned work. Core
+          service areas cover Sydney and surrounding regions; extended areas may
+          depend on job type, urgency and availability.
         </p>
 
         <div className="mt-7 grid max-w-xl gap-3 sm:flex sm:flex-wrap">
           <a
             href={business.phoneHref}
+            aria-label={business.callCta}
             className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-red-600 px-5 py-3 text-center text-sm font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500 sm:text-base"
           >
             <Phone className="h-5 w-5 shrink-0" />
@@ -90,6 +99,7 @@ export default function AreasPage() {
           </a>
           <a
             href={business.bookingUrl}
+            aria-label="Get a quote from Evaready Electrical"
             data-quote-trigger="true"
             aria-haspopup="dialog"
             className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-blue-700 px-5 py-3 text-center text-sm font-black text-white shadow-xl shadow-blue-700/20 transition hover:bg-blue-600 sm:text-base"
@@ -270,6 +280,7 @@ export default function AreasPage() {
           <div className="flex flex-col gap-4 sm:flex-row">
             <a
               href={business.phoneHref}
+              aria-label={business.callCta}
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
             >
               <Phone className="h-5 w-5" />
@@ -278,9 +289,12 @@ export default function AreasPage() {
 
             <a
               href={business.bookingUrl}
+              data-quote-trigger="true"
+              aria-haspopup="dialog"
+              aria-label="Get a quote from Evaready Electrical"
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
             >
-              Get a Quote
+              {business.quoteCta}
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>

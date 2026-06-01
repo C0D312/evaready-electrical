@@ -27,7 +27,16 @@ import {
   getSuburbBySlug,
   getSuburbPaths,
 } from "@/data/service-area-coverage";
-import { business, canonicalPath } from "@/data/site";
+import { rankSuburbsForInternalLinks } from "@/data/internal-links";
+import { absoluteUrl, business } from "@/data/site";
+import {
+  buildBreadcrumbSchema,
+  buildElectricianSchema,
+  buildFaqSchema,
+  buildServiceSchema,
+  schemaJson,
+} from "@/lib/schema";
+import { suburbSeoMetadata, toMetadata } from "@/lib/seo-metadata";
 
 type SuburbPageProps = {
   params: Promise<{ area: string; region: string; suburb: string }>;
@@ -57,15 +66,7 @@ export async function generateMetadata({
 
   const copy = getSuburbPageCopy(region, area, suburb);
 
-  return {
-    title: `Electrician ${suburb.name} ${suburb.postcode} | Emergency & Level 2 Electrical Help`,
-    description: copy.metaDescription,
-    alternates: {
-      canonical: canonicalPath(
-        `/service-areas/${region.slug}/${area.slug}/${suburb.slug}`,
-      ),
-    },
-  };
+  return toMetadata(suburbSeoMetadata(region, area, suburb, copy));
 }
 
 export default async function SuburbPage({ params }: SuburbPageProps) {
@@ -82,34 +83,20 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
     notFound();
   }
 
-  const nearbySuburbs = area.suburbs
-    .filter((nearbySuburb) => nearbySuburb.slug !== suburb.slug)
-    .slice(0, 8);
+  const nearbySuburbs = rankSuburbsForInternalLinks(
+    area.suburbs.filter((nearbySuburb) => nearbySuburb.slug !== suburb.slug),
+  ).slice(0, 8);
   const copy = getSuburbPageCopy(region, area, suburb);
 
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Electrician",
-    name: `${business.name} - Electrician ${suburb.name}`,
-    description: copy.metaDescription,
-    telephone: business.phoneDisplay,
-    email: business.email,
-    url: `${business.siteUrl}/service-areas/${region.slug}/${area.slug}/${suburb.slug}`,
+  const pagePath = `/service-areas/${region.slug}/${area.slug}/${suburb.slug}`;
+  const schema = buildElectricianSchema({
     areaServed: `${suburb.name} ${suburb.postcode}`,
-    priceRange: "$$",
-    identifier: [
-      {
-        "@type": "PropertyValue",
-        name: "NSW Electrical Licence",
-        value: business.licence,
-      },
-      {
-        "@type": "PropertyValue",
-        name: "ABN",
-        value: business.abn,
-      },
-    ],
-  };
+    description: copy.metaDescription,
+    name: `${business.name} - Electrician ${suburb.name}`,
+    offerNames: copy.serviceSummaries.map((service) => service.title),
+    serviceTypes: copy.serviceSummaries.map((service) => service.title),
+    url: absoluteUrl(pagePath),
+  });
   const serviceIconByIntent = {
     aircon: Bolt,
     dataCctv: ShieldCheck,
@@ -142,28 +129,47 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
       answer: copy.faqAnswers.combined,
     },
   ];
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: suburbFaqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
+  const faqSchema = buildFaqSchema(suburbFaqs, pagePath);
+  const serviceSchema = buildServiceSchema({
+    areaServed: `${suburb.name} ${suburb.postcode}`,
+    description: copy.heroDescription,
+    name: `Electrician ${suburb.name} ${suburb.postcode}`,
+    offerNames: copy.serviceSummaries.map((service) => service.title),
+    path: pagePath,
+    serviceType: [
+      `Emergency electrician ${suburb.name}`,
+      `Level 2 electrician ${suburb.name}`,
+      `General electrical work ${suburb.name}`,
+    ],
+  });
+  const breadcrumbSchema = buildBreadcrumbSchema(
+    [
+      { name: "Home", path: "/" },
+      { name: "Service Areas", path: "/service-areas" },
+      { name: region.name, path: `/service-areas/${region.slug}` },
+      { name: area.name, path: `/service-areas/${region.slug}/${area.slug}` },
+      { name: `${suburb.name} ${suburb.postcode}`, path: pagePath },
+    ],
+    pagePath,
+  );
 
   return (
     <main className="min-h-screen bg-white text-slate-950">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={schemaJson(schema)}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={schemaJson(serviceSchema)}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaJson(faqSchema)}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
       />
 
       <SiteHeader />
@@ -187,6 +193,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">
           <a
             href={business.phoneHref}
+            aria-label={business.callCta}
             className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
           >
             <Phone className="h-5 w-5" />
@@ -195,11 +202,12 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
 
           <a
             href={business.bookingUrl}
+            aria-label="Get a quote from Evaready Electrical"
             data-quote-trigger="true"
             aria-haspopup="dialog"
             className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-700/25 transition hover:bg-blue-600"
           >
-            Get a Quote
+            {business.quoteCta}
             <ArrowRight className="h-5 w-5" />
           </a>
         </div>
@@ -339,7 +347,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
               },
               {
                 href: business.bookingUrl,
-                label: "Get a Quote",
+                label: business.quoteCta,
                 text: "Open the secure booking form to send photos, notes and the job address.",
                 quote: true,
               },
@@ -357,7 +365,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                   </h3>
                   <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
                   <span className="mt-5 inline-flex items-center gap-2 font-black text-blue-600">
-                    Open form
+                    Open Booking Form
                     <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                   </span>
                 </a>
@@ -452,6 +460,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
           <div className="flex flex-col gap-4 sm:flex-row">
             <a
               href={business.phoneHref}
+              aria-label={business.callCta}
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
             >
               <Phone className="h-5 w-5" />
@@ -460,11 +469,12 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
 
             <a
               href={business.bookingUrl}
+              aria-label="Get a quote from Evaready Electrical"
               data-quote-trigger="true"
               aria-haspopup="dialog"
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
             >
-              Get a Quote
+              {business.quoteCta}
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>

@@ -97,9 +97,9 @@ export const services = [
   },
   {
     title: "Power Points & Lighting",
-    slug: "power-points-lighting-sydney",
+    slug: "power-point-installation-sydney",
     description:
-      "Power points, LED lighting, downlights, outdoor lights, sensor lights, bathroom lights and everyday installation work.",
+      "Power point installation, outlet repairs, LED lighting, outdoor lights, sensor lights and everyday installation work.",
     icon: Zap,
     intent: "Residential",
   },

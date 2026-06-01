@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
-import { absoluteUrl, assetPath, business, canonicalPath } from "@/data/site";
+import { absoluteUrl, assetPath, business } from "@/data/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(`${business.siteUrl}/`),
   title: {
     default:
-      "Emergency & Level 2 Electrician Sydney & Surrounding Regions | Evaready Electrical 24/7",
-    template: "%s | Evaready Electrical",
+      "Emergency & Level 2 Electrician Sydney & Surrounding Regions",
+    template: "%s",
   },
   description:
     "Evaready Electrical handles urgent faults, Level 2 work, switchboards, fault finding, EV chargers and commercial electrical jobs across Sydney and surrounding regions.",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     images: [absoluteUrl(business.brandImage)],
   },
   alternates: {
-    canonical: canonicalPath("/"),
+    canonical: business.siteUrl,
   },
   robots: {
     index: true,

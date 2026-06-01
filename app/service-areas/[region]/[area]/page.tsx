@@ -12,7 +12,16 @@ import {
   getAreaPaths,
   getRegionBySlug,
 } from "@/data/service-area-coverage";
-import { business, canonicalPath } from "@/data/site";
+import { rankSuburbsForInternalLinks } from "@/data/internal-links";
+import { absoluteUrl, business } from "@/data/site";
+import {
+  buildBreadcrumbSchema,
+  buildElectricianSchema,
+  buildFaqSchema,
+  buildServiceSchema,
+  schemaJson,
+} from "@/lib/schema";
+import { areaSeoMetadata, toMetadata } from "@/lib/seo-metadata";
 
 type AreaPageProps = {
   params: Promise<{ area: string; region: string }>;
@@ -35,13 +44,7 @@ export async function generateMetadata({
     return {};
   }
 
-  return {
-    title: `${area.name} Electrician Service Areas`,
-    description: `Evaready Electrical services ${area.name} in ${region.name}. View covered suburbs for emergency faults, switchboards, Level 2 work and planned electrical services.`,
-    alternates: {
-      canonical: canonicalPath(`/service-areas/${region.slug}/${area.slug}`),
-    },
-  };
+  return toMetadata(areaSeoMetadata(region, area));
 }
 
 export default async function AreaPage({ params }: AreaPageProps) {
@@ -53,22 +56,122 @@ export default async function AreaPage({ params }: AreaPageProps) {
     notFound();
   }
 
+  const sortedSuburbs = rankSuburbsForInternalLinks(area.suburbs);
+  const localServiceCards = [
+    {
+      title: `Emergency electrician in ${area.name}`,
+      text: `Call first for no power, burning smells, sparking, hot outlets, tripping safety switches, storm or water damage and unsafe electrical faults around ${area.name}.`,
+      href: "/emergency-electrician-sydney",
+    },
+    {
+      title: `Level 2 electrician in ${area.name}`,
+      text: `Level 2 enquiries can include consumer mains, metering, overhead or underground service work, point of attachment issues and defect notice repairs.`,
+      href: "/level-2-electrician-sydney",
+    },
+    {
+      title: `Switchboard upgrades in ${area.name}`,
+      text: `Switchboard work may include ceramic fuse replacement, safety switches, RCBO upgrades, burnt wiring checks and capacity planning.`,
+      href: "/services/switchboard-upgrades-sydney",
+    },
+    {
+      title: `Electrical fault finding`,
+      text: `Fault checks cover tripping circuits, damaged wiring, hot power points, flickering lights, appliance issues and safe isolation testing.`,
+      href: "/services/electrical-fault-finding-sydney",
+    },
+    {
+      title: `Consumer mains`,
+      text: `Consumer mains and supply-side electrical questions are reviewed with the right Level 2 process for the site and network requirements.`,
+      href: "/services/consumer-mains-sydney",
+    },
+    {
+      title: `Defect notice repairs`,
+      text: `For defect notices, send the notice, photos, suburb and deadline so the next step can be scoped clearly.`,
+      href: "/services/defect-notice-repairs-sydney",
+    },
+  ];
+  const faqItems = [
+    {
+      question: `Do you service ${area.name}?`,
+      answer: `Yes. Evaready Electrical services ${area.name} and the listed suburbs for emergency faults, Level 2 enquiries, switchboards, fault finding and planned electrical work.`,
+    },
+    {
+      question: `Can I call for an emergency electrician in ${area.name}?`,
+      answer: `Yes. Call first for no power, burning smells, sparking, hot outlets, repeated safety switch tripping, storm damage or any electrical fault that feels unsafe.`,
+    },
+    {
+      question: `Do you help with Level 2 electrical work in ${area.name}?`,
+      answer: `Evaready Electrical can assist with Level 2 electrical enquiries involving consumer mains, metering, defect notices, overhead or underground services and supply-side issues.`,
+    },
+    {
+      question: `What common electrical jobs do you handle in ${area.name}?`,
+      answer: `Common jobs include switchboard upgrades, fault finding, hot water circuits, lighting, power points, smoke alarms, air-conditioning electrical support, CCTV/data and general electrical repairs.`,
+    },
+    {
+      question: `How do I request a quote in ${area.name}?`,
+      answer: `Open the secure booking form and send your suburb, address, contact details, photos and job notes. For unsafe faults, call first.`,
+    },
+  ];
+  const pagePath = `/service-areas/${region.slug}/${area.slug}`;
+  const breadcrumbSchema = buildBreadcrumbSchema(
+    [
+      { name: "Home", path: "/" },
+      { name: "Service Areas", path: "/service-areas" },
+      { name: region.name, path: `/service-areas/${region.slug}` },
+      { name: area.name, path: pagePath },
+    ],
+    pagePath,
+  );
+  const faqSchema = buildFaqSchema(faqItems, pagePath);
+  const electricianSchema = buildElectricianSchema({
+    areaServed: area.name,
+    description: `${area.name} electrical service area for urgent faults, Level 2 enquiries, switchboards and planned electrical work.`,
+    name: `${business.name} - ${area.name} Electrician`,
+    offerNames: localServiceCards.map((card) => card.title),
+    serviceTypes: localServiceCards.map((card) => card.title),
+    url: absoluteUrl(pagePath),
+  });
+  const serviceSchema = buildServiceSchema({
+    areaServed: area.name,
+    description: `Emergency, Level 2 and planned electrical work across ${area.name}.`,
+    name: `${area.name} electrician service area`,
+    offerNames: localServiceCards.map((card) => card.title),
+    path: pagePath,
+    serviceType: [`Emergency electrician in ${area.name}`, `Level 2 electrician in ${area.name}`],
+  });
+
   return (
     <main className="min-h-screen bg-white text-slate-950">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaJson(electricianSchema)}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaJson(serviceSchema)}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaJson(faqSchema)}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
+      />
       <SiteHeader />
 
       <ServiceAreaHero
         eyebrow="Area service"
-        title={`${area.name} Electrician Service Area`}
+        title={`${area.name} Electrician - Emergency, Level 2 & Planned Work`}
       >
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
-          {area.description} Evaready Electrical provides emergency, Level 2,
-          switchboard, hot water, air-conditioning electrical, CCTV/data and
-          general electrical support across {area.name}.
+          {area.description} Evaready Electrical provides emergency
+          electrician support, Level 2 electrical enquiries, switchboards,
+          consumer mains, defect notices, fault finding, hot water,
+          air-conditioning electrical, CCTV/data and general electrical work
+          across {area.name}.
         </p>
         <p className="mt-4 max-w-3xl text-base font-semibold leading-7 text-blue-100">
-          Region: {region.name}. Core electrical service across Sydney and
-          surrounding regions. Extended service areas may depend on job type,
+          Region: {region.name}. Extended service areas may depend on job type,
           urgency and availability.
         </p>
       </ServiceAreaHero>
@@ -89,6 +192,38 @@ export default async function AreaPage({ params }: AreaPageProps) {
         </div>
       </section>
 
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
+            Local services
+          </p>
+          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+            Emergency, Level 2 and common electrical jobs in {area.name}.
+          </h2>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
+            Choose the service that matches the job, call first for unsafe
+            faults, or send photos and notes for planned work.
+          </p>
+
+          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {localServiceCards.map((card) => (
+              <Link
+                key={card.title}
+                href={card.href}
+                className="group rounded-lg border border-slate-200 bg-slate-50 p-6 transition hover:-translate-y-1 hover:border-blue-600 hover:bg-blue-50 hover:shadow-xl"
+              >
+                <h3 className="text-2xl font-black">{card.title}</h3>
+                <p className="mt-3 leading-7 text-slate-600">{card.text}</p>
+                <span className="mt-5 inline-flex items-center gap-2 font-black text-blue-700">
+                  View service
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-slate-50 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
@@ -97,9 +232,23 @@ export default async function AreaPage({ params }: AreaPageProps) {
           <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
             Suburbs covered in {area.name}.
           </h2>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <Link
+              href="/service-areas"
+              className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-black text-slate-800 transition hover:border-blue-600 hover:text-blue-700"
+            >
+              All service areas
+            </Link>
+            <Link
+              href={`/service-areas/${region.slug}`}
+              className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-black text-slate-800 transition hover:border-blue-600 hover:text-blue-700"
+            >
+              {region.name}
+            </Link>
+          </div>
 
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {area.suburbs.map((suburb) => (
+            {sortedSuburbs.map((suburb) => (
               <Link
                 key={suburb.slug}
                 href={`/service-areas/${region.slug}/${area.slug}/${suburb.slug}`}
@@ -157,6 +306,31 @@ export default async function AreaPage({ params }: AreaPageProps) {
         </div>
       </section>
 
+      <section className="bg-slate-50 py-20">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+              Area FAQs
+            </p>
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+              Common electrical questions for {area.name}.
+            </h2>
+          </div>
+
+          <div className="grid gap-4">
+            {faqItems.map((item) => (
+              <div
+                key={item.question}
+                className="rounded-lg border border-slate-200 bg-white p-6"
+              >
+                <h3 className="text-xl font-black">{item.question}</h3>
+                <p className="mt-3 leading-7 text-slate-600">{item.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-gradient-to-r from-[#031640] via-[#020617] to-[#43040e] py-20 text-white">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
           <div>
@@ -171,6 +345,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
           <div className="flex flex-col gap-4 sm:flex-row">
             <a
               href={business.phoneHref}
+              aria-label={business.callCta}
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
             >
               <Phone className="h-5 w-5" />
@@ -179,11 +354,12 @@ export default async function AreaPage({ params }: AreaPageProps) {
 
             <a
               href={business.bookingUrl}
+              aria-label="Get a quote from Evaready Electrical"
               data-quote-trigger="true"
               aria-haspopup="dialog"
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
             >
-              Get a Quote
+              {business.quoteCta}
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>

@@ -140,6 +140,207 @@ function getLocalPageContext(
   const key = `${coverageRegion.name} ${coverageArea.name} ${coverageArea.description} ${coverageSuburb.name}`.toLowerCase();
 
   if (
+    key.includes("northern beaches") ||
+    key.includes("manly") ||
+    key.includes("brookvale") ||
+    key.includes("dee why") ||
+    key.includes("curl curl") ||
+    key.includes("narrabeen") ||
+    key.includes("mona vale") ||
+    key.includes("newport") ||
+    key.includes("avalon") ||
+    key.includes("palm beach")
+  ) {
+    return {
+      accessDetail:
+        "strata entry notes, parking details, outdoor fitting photos and any weather-exposed circuit information",
+      commonJobs:
+        "apartment faults, outdoor lighting, CCTV cabling, safety switch trips and coastal switchboard checks",
+      emergencySignals:
+        "storm faults, water-affected fittings, tripping circuits, hot outlets and unsafe outdoor power",
+      level2Detail:
+        "consumer mains, point of attachment, service equipment and defect notice enquiries",
+      plannedWork:
+        "weather-rated lighting, apartment power, CCTV, data points and switchboard upgrade planning",
+      propertyMix:
+        "coastal homes, apartments, strata buildings, cafes, shops and hospitality venues",
+      setting: "Northern Beaches coastal and strata service area",
+      switchboardDetail:
+        "coastal exposure, older apartment boards, safety switch protection and circuit capacity",
+    };
+  }
+
+  if (
+    key.includes("blue mountains") ||
+    key.includes("hawkesbury") ||
+    key.includes("katoomba") ||
+    key.includes("springwood") ||
+    key.includes("windsor") ||
+    key.includes("richmond")
+  ) {
+    return {
+      accessDetail:
+        "driveway details, gate access, private pole photos, outbuilding notes and switchboard photos",
+      commonJobs:
+        "storm fault checks, shed power, outdoor circuits, private pole enquiries and switchboard upgrades",
+      emergencySignals:
+        "storm damage, power loss, tripping safety switches, unsafe outdoor circuits and fallen-line concerns",
+      level2Detail:
+        "consumer mains, point of attachment, private pole, overhead service and defect notice enquiries",
+      plannedWork:
+        "shed circuits, outdoor lighting, renovation wiring, switchboard capacity checks and supply upgrade planning",
+      propertyMix:
+        "larger blocks, family homes, village shops, acreage properties, sheds and outbuildings",
+      setting: "larger-block and weather-exposed service area",
+      switchboardDetail:
+        "older boards, long outdoor circuit runs, shed loads, safety switches and future upgrade capacity",
+    };
+  }
+
+  if (
+    key.includes("wollongong") ||
+    key.includes("illawarra") ||
+    key.includes("shellharbour") ||
+    key.includes("corrimal") ||
+    key.includes("fairy meadow") ||
+    key.includes("thirroul")
+  ) {
+    return {
+      accessDetail:
+        "parking details, strata entry notes, business hours and photos of outdoor or coastal electrical areas",
+      commonJobs:
+        "hot water electrical faults, switchboards, outdoor lighting, apartment repairs and commercial maintenance",
+      emergencySignals:
+        "coastal storm faults, power loss, tripping circuits, hot isolators and water-affected fittings",
+      level2Detail:
+        "consumer mains, metering, service equipment and defect notice enquiries",
+      plannedWork:
+        "hot water circuits, weather-rated fittings, shop lighting, CCTV/data and switchboard upgrades",
+      propertyMix:
+        "coastal homes, apartments, shops, warehouses, strata properties and commercial sites",
+      setting: "Illawarra coastal and mixed commercial service area",
+      switchboardDetail:
+        "coastal exposure, older protection, added appliance loads and clearer circuit labelling",
+    };
+  }
+
+  if (
+    key.includes("central coast") ||
+    key.includes("gosford") ||
+    key.includes("woy woy") ||
+    key.includes("umina") ||
+    key.includes("ettalong") ||
+    key.includes("terrigal") ||
+    key.includes("avoca")
+  ) {
+    return {
+      accessDetail:
+        "driveway access, outdoor fitting photos, switchboard photos and notes about holiday or strata access",
+      commonJobs:
+        "outdoor lighting, hot water electrical checks, safety switch faults, CCTV and switchboard upgrades",
+      emergencySignals:
+        "storm faults, water-affected fittings, loss of power, hot outlets and repeated safety switch tripping",
+      level2Detail:
+        "consumer mains, point of attachment, metering and supply-side upgrade enquiries",
+      plannedWork:
+        "weather-rated power, CCTV, data points, outdoor lighting and hot water circuit support",
+      propertyMix:
+        "coastal homes, apartments, holiday properties, shops and small commercial sites",
+      setting: "Central Coast South coastal service area",
+      switchboardDetail:
+        "weather exposure, older enclosures, safety switch protection and capacity for extra circuits",
+    };
+  }
+
+  if (
+    key.includes("south west") ||
+    key.includes("liverpool") ||
+    key.includes("fairfield") ||
+    key.includes("campbelltown") ||
+    key.includes("macarthur") ||
+    key.includes("narellan") ||
+    key.includes("leppington") ||
+    key.includes("prestons") ||
+    key.includes("moorebank")
+  ) {
+    return {
+      accessDetail:
+        "estate access, business hours, warehouse entry notes, switchboard photos and equipment details",
+      commonJobs:
+        "switchboard upgrades, hot water circuits, commercial maintenance, warehouse lighting and extra circuits",
+      emergencySignals:
+        "power loss, hot fittings, tripping circuits, business outages and damaged outdoor power",
+      level2Detail:
+        "consumer mains, supply capacity, metering, defect notices and service equipment questions",
+      plannedWork:
+        "new circuits, EV-ready wiring, CCTV, data cabling, outdoor power and fit-out changes",
+      propertyMix:
+        "family homes, new estates, townhouses, workshops, warehouses, shops and commercial units",
+      setting: "South West growth and mixed commercial service area",
+      switchboardDetail:
+        "extra circuit capacity, newer loads, older boards, safety switches and clear circuit identification",
+    };
+  }
+
+  if (
+    key.includes("western sydney") ||
+    key.includes("blacktown") ||
+    key.includes("penrith") ||
+    key.includes("auburn") ||
+    key.includes("granville") ||
+    key.includes("lidcombe") ||
+    key.includes("wetherill") ||
+    key.includes("smithfield")
+  ) {
+    return {
+      accessDetail:
+        "parking details, workshop access, equipment photos, switchboard photos and operating hours",
+      commonJobs:
+        "fault finding, switchboards, commercial lighting, workshop circuits, CCTV/data and hot water electrical",
+      emergencySignals:
+        "partial power loss, hot outlets, tripping circuits, damaged wiring and business-critical faults",
+      level2Detail:
+        "consumer mains, metering, service equipment, defect notices and supply capacity enquiries",
+      plannedWork:
+        "lighting upgrades, extra circuits, commercial maintenance, data cabling and switchboard capacity checks",
+      propertyMix:
+        "homes, units, townhouses, shops, workshops, warehouses and small commercial properties",
+      setting: "Western Sydney mixed residential and commercial service area",
+      switchboardDetail:
+        "load changes, ageing protection, RCBOs, safety switches and clearer circuit labelling",
+    };
+  }
+
+  if (
+    key.includes("inner west") ||
+    key.includes("ashfield") ||
+    key.includes("camperdown") ||
+    key.includes("annandale") ||
+    key.includes("leichhardt") ||
+    key.includes("newtown") ||
+    key.includes("marrickville") ||
+    key.includes("dulwich hill")
+  ) {
+    return {
+      accessDetail:
+        "street access, terrace entry notes, strata details, shop timing and switchboard photos",
+      commonJobs:
+        "renovation wiring, cafe maintenance, lighting changes, data points and switchboard upgrades",
+      emergencySignals:
+        "tripping safety switches, hot outlets, burning smells, older wiring faults and shop power issues",
+      level2Detail:
+        "consumer mains, metering, service equipment and defect notice discussions",
+      plannedWork:
+        "terrace renovations, extra outlets, pendant lighting, shop maintenance, data cabling and safety upgrades",
+      propertyMix:
+        "older homes, terraces, apartments, cafes, shops, strata buildings and renovated properties",
+      setting: "Inner West older-home, terrace and strata service area",
+      switchboardDetail:
+        "ceramic fuses, crowded boards, older wiring, strata boards and safety switch upgrades",
+    };
+  }
+
+  if (
     key.includes("coastal") ||
     key.includes("beach") ||
     key.includes("bondi") ||
@@ -887,6 +1088,94 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
     serviceIntro:
       "Typical Dee Why requests include apartment repairs, outdoor lighting, safety switch trips, smoke alarms, switchboard upgrades, CCTV, data cabling and shop maintenance.",
   },
+  katoomba: {
+    heroDescription:
+      "Evaready Electrical supports Katoomba homes, village shops, guest accommodation, larger blocks and Blue Mountains properties with storm-related faults, switchboards, outdoor circuits, smoke alarms, shed power, consumer mains and Level 2 enquiries.",
+    heroNote:
+      "Katoomba jobs often need driveway notes, weather exposure details, photos of outbuildings or private poles and clear information about any power loss after storms.",
+    processDescription:
+      "Katoomba electrical work is scoped around access, weather and the distance between the switchboard and affected circuits. Unsafe faults are call-first jobs, while planned upgrades are easier with photos and site notes.",
+    serviceIntro:
+      "Common Katoomba requests include storm fault checks, outdoor lighting, shed circuits, switchboard upgrades, smoke alarms, hot water electrical faults and private pole or point-of-attachment enquiries.",
+    serviceSummaryText: {
+      emergency:
+        "Katoomba emergency calls often involve storm damage, power loss, tripping safety switches, unsafe outdoor circuits or faults affecting detached areas.",
+      level2:
+        "Level 2 enquiries in Katoomba can involve consumer mains, point of attachment, private poles, overhead service work, service equipment and defect notices.",
+      switchboard:
+        "Katoomba switchboard work often needs checks for older protection, outdoor circuit loads, safety switches, labelling and capacity for future upgrades.",
+    },
+  },
+  gosford: {
+    heroDescription:
+      "Evaready Electrical helps Gosford homes, apartments, shops, offices and strata properties with urgent faults, switchboards, hot water circuits, outdoor lighting, CCTV, data cabling and Level 2 electrical enquiries.",
+    heroNote:
+      "Gosford jobs often involve apartment access, coastal weather exposure, small business maintenance, parking details and photos of the switchboard or affected circuit.",
+    processDescription:
+      "Gosford work is triaged by risk first. No power, heat, smoke, sparking or repeated tripping should be called through, while planned work is reviewed from photos and booking details.",
+    serviceIntro:
+      "Common Gosford requests include safety switch tripping, hot water electrical faults, switchboard upgrades, lighting, data points, CCTV, smoke alarms and Level 2 supply questions.",
+  },
+  hornsby: {
+    heroDescription:
+      "Evaready Electrical supports Hornsby homes, apartments, shops, offices and larger residential blocks with emergency faults, switchboards, lighting, power, data, CCTV and Level 2 enquiries.",
+    heroNote:
+      "Hornsby jobs often include apartment access, older homes, larger blocks, shop maintenance, parking notes and switchboard photos for planned upgrades.",
+    processDescription:
+      "Hornsby electrical work is scoped around access and property type. Unsafe faults should be phoned through, while switchboard, data, lighting and upgrade work benefits from photos and clear details.",
+    serviceIntro:
+      "Typical Hornsby requests include switchboard upgrades, power faults, lighting, smoke alarms, CCTV cabling, data points, hot water circuits and Level 2 supply enquiries.",
+  },
+  lidcombe: {
+    heroDescription:
+      "Evaready Electrical works across Lidcombe homes, apartments, shops, warehouses and strata buildings with urgent faults, switchboards, commercial lighting, power, data cabling, CCTV and Level 2 support.",
+    heroNote:
+      "Lidcombe jobs often mix older homes, apartment access, industrial units, busy roads, shop maintenance and clear parking or loading details.",
+    processDescription:
+      "Lidcombe electrical work is planned around safety and business impact. Commercial faults need quick phone details, while planned upgrades are easier with switchboard photos and site access notes.",
+    serviceIntro:
+      "Common Lidcombe requests include commercial maintenance, switchboard upgrades, data cabling, CCTV, power faults, smoke alarms, hot water electrical and metering questions.",
+  },
+  ashfield: {
+    heroDescription:
+      "Evaready Electrical helps Ashfield apartments, older homes, terraces, shopfronts and strata buildings with electrical faults, switchboards, lighting, power points, smoke alarms, data, CCTV and Level 2 enquiries.",
+    heroNote:
+      "Ashfield jobs often involve older wiring, unit access, strata contact details, busy street parking and switchboards that need careful testing before upgrades.",
+    processDescription:
+      "Ashfield work is scoped around access and the age of the installation. Hot fittings, burning smells and tripping circuits should be phoned through, while planned work needs photos and notes.",
+    serviceIntro:
+      "Typical Ashfield requests include safety switch trips, power points, lighting, smoke alarms, apartment repairs, switchboard upgrades, data cabling and Level 2 service questions.",
+  },
+  maroubra: {
+    heroDescription:
+      "Evaready Electrical supports Maroubra homes, apartments, strata properties, shops and coastal buildings with urgent faults, outdoor lighting, switchboards, smoke alarms, power, CCTV, data and Level 2 enquiries.",
+    heroNote:
+      "Maroubra electrical jobs often involve coastal exposure, apartment access, strata communication, outdoor fittings, older boards and parking notes near busy streets.",
+    processDescription:
+      "Maroubra work is assessed with weather exposure and building access in mind. Water-affected fittings, tripping circuits and hot outlets should be checked before repairs proceed.",
+    serviceIntro:
+      "Common Maroubra requests include outdoor lighting, apartment faults, smoke alarms, switchboard upgrades, data cabling, CCTV, safety switch tripping and weather-rated power.",
+  },
+  "bondi-junction": {
+    heroDescription:
+      "Evaready Electrical helps Bondi Junction apartments, shops, offices, strata buildings and renovated homes with urgent faults, commercial lighting, power, data, CCTV, switchboards and Level 2 enquiries.",
+    heroNote:
+      "Bondi Junction work often needs apartment access, shop trading hours, loading-zone notes, strata contacts and clear photos before planned electrical work is quoted.",
+    processDescription:
+      "Bondi Junction jobs are scoped around access, timing and risk. Business outages, hot outlets and tripping circuits need phone details, while planned work needs booking notes and photos.",
+    serviceIntro:
+      "Typical Bondi Junction requests include shop lighting, office power, apartment repairs, switchboard checks, smoke alarms, data cabling, CCTV and service equipment questions.",
+  },
+  camperdown: {
+    heroDescription:
+      "Evaready Electrical services Camperdown terraces, apartments, medical and education sites, cafes, shops and strata properties with urgent faults, lighting, power, switchboards, data, CCTV and Level 2 enquiries.",
+    heroNote:
+      "Camperdown jobs often involve tight access, older terrace wiring, strata buildings, business hours, loading or parking notes and clear site contacts.",
+    processDescription:
+      "Camperdown electrical work is scoped around access and safe testing. Unsafe faults are call-first issues, while planned lighting, power or data work is clearer with photos and entry notes.",
+    serviceIntro:
+      "Common Camperdown requests include terrace wiring, apartment faults, commercial lighting, data points, smoke alarms, switchboard upgrades, CCTV and Level 2 service questions.",
+  },
 };
 
 function clampMetaDescription(description: string) {
@@ -905,6 +1194,23 @@ function clampMetaDescription(description: string) {
     .replace(/\.+$/, "");
 
   return `${shortened}.`;
+}
+
+function countWords(value: string) {
+  return value.trim().split(/\s+/).filter(Boolean).length;
+}
+
+function ensureSuburbHeroDepth(
+  description: string,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+  context: LocalPageContext,
+) {
+  if (countWords(description) >= 32) {
+    return description;
+  }
+
+  return `${description} Common local enquiries include ${context.commonJobs}, with call-first support for ${context.emergencySignals} and planned booking details for ${context.plannedWork} across ${coverageArea.name}.`;
 }
 
 function buildOverrideMetaDescription(
@@ -1179,7 +1485,7 @@ export function getSuburbPageCopy(
         [
           `Air-conditioning electrical support in ${coverageSuburb.name} can include dedicated circuits, isolators, switchboard capacity checks and outdoor unit power.`,
           `Split-system enquiries in ${suburbLabel} may need electrical supply planning, safety switch checks, outdoor unit power and clear coordination with appropriately licensed technicians where required.`,
-          `ARCtick Refrigerant Handling Licence L157323 - Split Systems (1) applies to eligible split systems, hot water heat pumps and swimming pool heat pumps under licence scope.`,
+          `ARCtick Refrigerant Handling Licence L157323 — Split Systems (1) applies to eligible split systems, hot water heat pumps and swimming pool heat pumps under licence scope.`,
         ],
         seed,
         53,
@@ -1255,7 +1561,7 @@ export function getSuburbPageCopy(
       seed,
       43,
     ),
-    faqIntro: `Use these quick answers to decide whether to call for an urgent hazard or open the quote form for planned work in ${coverageSuburb.name}.`,
+    faqIntro: `Use these quick answers to decide whether to call for an urgent hazard or open the booking form for planned work in ${coverageSuburb.name}.`,
     heroDescription,
     heroNote,
     metaDescription: clampMetaDescription(
@@ -1297,7 +1603,7 @@ export function getSuburbPageCopy(
       59,
     ),
     processSteps,
-    serviceIntro: `For ${coverageSuburb.name}, Evaready Electrical brings emergency, Level 2, switchboard, hot water, air-conditioning electrical, CCTV/data and general electrical support together on one local page.`,
+    serviceIntro: `For ${coverageSuburb.name}, Evaready Electrical brings emergency, Level 2, switchboard, hot water, air-conditioning electrical, CCTV/data and general electrical support into one clear local enquiry path.`,
     serviceLinks: [
       {
         title: `Emergency electrician ${coverageSuburb.name}`,
@@ -1310,14 +1616,39 @@ export function getSuburbPageCopy(
         text: `Support with ${context.level2Detail} around ${suburbLabel}.`,
       },
       {
+        title: `Consumer mains ${coverageSuburb.name}`,
+        href: "/services/consumer-mains-sydney",
+        text: `Consumer mains, supply capacity and service equipment enquiries for ${coverageSuburb.name}.`,
+      },
+      {
+        title: `Defect notice repairs ${coverageSuburb.name}`,
+        href: "/services/defect-notice-repairs-sydney",
+        text: `Send the notice, deadline, suburb and photos so the next step can be reviewed clearly.`,
+      },
+      {
+        title: `Private pole and overhead service work ${coverageSuburb.name}`,
+        href: "/services/private-power-pole-sydney",
+        text: `Point of attachment, private pole and overhead service enquiries where they apply.`,
+      },
+      {
+        title: `Metering services ${coverageSuburb.name}`,
+        href: "/services/metering-services-sydney",
+        text: `Metering, service equipment and supply-side questions connected to Level 2 work.`,
+      },
+      {
         title: `Switchboard upgrades ${coverageSuburb.name}`,
         href: "/services/switchboard-upgrades-sydney",
         text: `Upgrade enquiries covering ${context.switchboardDetail}.`,
       },
       {
         title: `Electrical fault finding ${coverageSuburb.name}`,
+        href: "/services/electrical-fault-finding-sydney",
+        text: `Fault testing for tripping circuits, hot fittings, intermittent faults and unsafe symptoms.`,
+      },
+      {
+        title: `Electrical fault guides for ${coverageSuburb.name}`,
         href: "/electrical-faults",
-        text: `Fault guides and testing advice for tripping circuits, hot fittings and unsafe symptoms.`,
+        text: `Read practical fault guides for power loss, burning smells, sparking outlets and tripping safety switches.`,
       },
       {
         title: `Electrical services ${coverageSuburb.name}`,
@@ -1340,6 +1671,11 @@ export function getSuburbPageCopy(
         text: `Data points, CCTV cabling and communications cabling under the relevant registration scope.`,
       },
       {
+        title: `CCTV camera installation ${coverageSuburb.name}`,
+        href: "/services/cctv-security-camera-installation-sydney",
+        text: `Security camera cabling and CCTV setup support for homes, strata and businesses.`,
+      },
+      {
         title: `Power points and lighting ${coverageSuburb.name}`,
         href: "/services/power-point-installation-sydney",
         text: `Planned help with lighting, power points, smoke alarms, fans and maintenance.`,
@@ -1358,7 +1694,7 @@ export function getSuburbPageCopy(
       `Open 24/7 for urgent electrical faults`,
       `Level 2 Electrical Work`,
       `Open Cabler Registration 46691`,
-      `ARCtick Refrigerant Handling Licence L157323 - Split Systems (1)`,
+      `ARCtick Refrigerant Handling Licence L157323 — Split Systems (1)`,
       pick(
         [
           `Electrical help for ${coverageSuburb.postcode}`,
@@ -1371,7 +1707,20 @@ export function getSuburbPageCopy(
     ],
   };
 
-  return applySuburbCopyOverride(generatedCopy, coverageSuburb.slug);
+  const copyWithOverrides = applySuburbCopyOverride(
+    generatedCopy,
+    coverageSuburb.slug,
+  );
+
+  return {
+    ...copyWithOverrides,
+    heroDescription: ensureSuburbHeroDepth(
+      copyWithOverrides.heroDescription,
+      coverageArea,
+      coverageSuburb,
+      context,
+    ),
+  };
 }
 
 export function getRegionBySlug(regionSlug: string) {

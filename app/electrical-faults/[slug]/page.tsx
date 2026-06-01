@@ -15,7 +15,19 @@ import {
   electricalFaultPages,
   getElectricalFaultPage,
 } from "@/data/electrical-faults";
-import { absoluteUrl, business, canonicalPath } from "@/data/site";
+import { absoluteUrl, business } from "@/data/site";
+import {
+  buildBreadcrumbSchema,
+  buildElectricianSchema,
+  buildFaqSchema,
+  buildServiceSchema,
+  schemaJson,
+} from "@/lib/schema";
+import {
+  faultPageSeoMetadata,
+  faultsIndexSeoMetadata,
+  toMetadata,
+} from "@/lib/seo-metadata";
 
 export const dynamicParams = false;
 
@@ -34,24 +46,10 @@ export async function generateMetadata({
   const fault = getElectricalFaultPage(slug);
 
   if (!fault) {
-    return {
-      title: "Electrical Faults Sydney & Surrounding Regions",
-    };
+    return toMetadata(faultsIndexSeoMetadata());
   }
 
-  return {
-    title: fault.metaTitle,
-    description: fault.metaDescription,
-    alternates: {
-      canonical: canonicalPath(`/electrical-faults/${fault.slug}`),
-    },
-    openGraph: {
-      title: `${fault.metaTitle} | ${business.name}`,
-      description: fault.metaDescription,
-      url: absoluteUrl(`/electrical-faults/${fault.slug}`),
-      images: [absoluteUrl(business.brandImage)],
-    },
-  };
+  return toMetadata(faultPageSeoMetadata(fault));
 }
 
 export default async function ElectricalFaultDetailPage({
@@ -66,58 +64,47 @@ export default async function ElectricalFaultDetailPage({
     notFound();
   }
 
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
+  const electricianSchema = buildElectricianSchema({
+    description: fault.metaDescription,
+    offerNames: [fault.title],
+    serviceTypes: ["Electrical fault finding", "Emergency electrical faults"],
+    urgentCalls24Seven: true,
+    url: absoluteUrl(`/electrical-faults/${fault.slug}`),
+  });
+  const serviceSchema = buildServiceSchema({
     name: `${fault.title} Sydney & Surrounding Regions`,
     description: fault.metaDescription,
     serviceType: "Electrical fault finding",
-    areaServed: business.serviceArea,
-    url: `${business.siteUrl}/electrical-faults/${fault.slug}`,
-    provider: {
-      "@type": "Electrician",
-      name: business.name,
-      telephone: business.phoneDisplay,
-      email: business.email,
-      url: business.siteUrl,
-      priceRange: "$$",
-      identifier: [
-        {
-          "@type": "PropertyValue",
-          name: "NSW Electrical Licence",
-          value: business.licence,
-        },
-        {
-          "@type": "PropertyValue",
-          name: "ABN",
-          value: business.abn,
-        },
-      ],
-    },
-  };
+    path: `/electrical-faults/${fault.slug}`,
+  });
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: fault.faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
+  const faqSchema = buildFaqSchema(fault.faqs, `/electrical-faults/${fault.slug}`);
+  const breadcrumbSchema = buildBreadcrumbSchema(
+    [
+      { name: "Home", path: "/" },
+      { name: "Electrical Faults", path: "/electrical-faults" },
+      { name: fault.title, path: `/electrical-faults/${fault.slug}` },
+    ],
+    `/electrical-faults/${fault.slug}`,
+  );
 
   return (
     <main className="min-h-screen bg-white text-slate-950">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        dangerouslySetInnerHTML={schemaJson(electricianSchema)}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={schemaJson(serviceSchema)}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaJson(faqSchema)}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
       />
 
       <SiteHeader />
@@ -148,6 +135,7 @@ export default async function ElectricalFaultDetailPage({
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href={business.phoneHref}
+                aria-label={business.callCta}
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
@@ -156,9 +144,12 @@ export default async function ElectricalFaultDetailPage({
 
               <a
                 href={business.bookingUrl}
+                data-quote-trigger="true"
+                aria-haspopup="dialog"
+                aria-label="Get a quote from Evaready Electrical"
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
               >
-                Get a Quote
+                {business.quoteCta}
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -273,6 +264,7 @@ export default async function ElectricalFaultDetailPage({
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a
                 href={business.phoneHref}
+                aria-label={business.callCta}
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-6 py-4 font-black text-white transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
@@ -280,9 +272,12 @@ export default async function ElectricalFaultDetailPage({
               </a>
               <a
                 href={business.bookingUrl}
+                data-quote-trigger="true"
+                aria-haspopup="dialog"
+                aria-label="Get a quote from Evaready Electrical"
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-600 px-6 py-4 font-black text-white transition hover:bg-blue-500"
               >
-                Get a Quote
+                {business.quoteCta}
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>

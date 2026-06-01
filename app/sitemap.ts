@@ -6,10 +6,16 @@ import {
 import { electricalFaultPages } from "@/data/electrical-faults";
 import { serviceLandingPages } from "@/data/service-pages";
 import { absoluteUrl } from "@/data/site";
+import { sitemapLastModified } from "@/lib/seo-metadata";
 
 export const dynamic = "force-static";
 
-const routes = [
+type SitemapRoute = {
+  path: string;
+  priority: number;
+};
+
+const routes: SitemapRoute[] = [
   { path: "", priority: 1 },
   { path: "/services", priority: 0.9 },
   { path: "/emergency-electrician-sydney", priority: 0.95 },
@@ -22,7 +28,6 @@ const routes = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
   const regionRoutes = coverageRegions.map((region) => ({
     path: `/service-areas/${region.slug}`,
     priority: 0.82,
@@ -50,9 +55,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.84,
   }));
 
-  return [...routes, ...serviceRoutes, ...faultRoutes, ...regionRoutes, ...areaRoutes, ...suburbRoutes].map((route) => ({
+  const routeMap = new Map<string, SitemapRoute>();
+
+  for (const route of [
+    ...routes,
+    ...serviceRoutes,
+    ...faultRoutes,
+    ...regionRoutes,
+    ...areaRoutes,
+    ...suburbRoutes,
+  ]) {
+    const existingRoute = routeMap.get(route.path);
+
+    if (!existingRoute || route.priority > existingRoute.priority) {
+      routeMap.set(route.path, route);
+    }
+  }
+
+  return Array.from(routeMap.values()).map((route) => ({
     url: absoluteUrl(route.path),
-    lastModified,
+    lastModified: sitemapLastModified,
     changeFrequency: "weekly",
     priority: route.priority,
   }));

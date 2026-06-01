@@ -42,8 +42,8 @@ export const heroCredentialItems: CredentialBadgeItem[] = [
   },
   {
     icon: BadgeCheck,
-    title: "Accredited Level 2 ASP",
-    text: "Service provider",
+    title: "Level 2 Work",
+    text: "Mains, metering & defects",
     tone: "cyan",
   },
 ];

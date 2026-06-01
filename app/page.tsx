@@ -20,30 +20,20 @@ import { QuoteProcessGraphic } from "@/components/quote-process-graphic";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import {
-  absoluteUrl,
   assetPath,
   business,
-  canonicalPath,
   priorityRegions,
   services,
 } from "@/data/site";
+import {
+  buildBreadcrumbSchema,
+  buildElectricianSchema,
+  buildFaqSchema,
+  schemaJson,
+} from "@/lib/schema";
+import { homeSeoMetadata, toMetadata } from "@/lib/seo-metadata";
 
-export const metadata: Metadata = {
-  title: "Emergency & Level 2 Electrician Sydney & Surrounding Regions",
-  description:
-    "Evaready Electrical helps with urgent faults, Level 2 work, switchboards, fault finding, residential and commercial electrical jobs across Sydney and surrounding regions.",
-  alternates: {
-    canonical: canonicalPath("/"),
-  },
-  openGraph: {
-    title:
-      "Emergency & Level 2 Electrician Sydney & Surrounding Regions | Evaready Electrical",
-    description:
-      "Emergency, Level 2 and general electrical work across Sydney and surrounding regions.",
-    url: business.siteUrl,
-    images: [absoluteUrl(business.brandImage)],
-  },
-};
+export const metadata: Metadata = toMetadata(homeSeoMetadata());
 
 const coreServiceTitles = [
   {
@@ -178,8 +168,7 @@ const faqs = [
   },
   {
     question: "How do I request a quote?",
-    answer:
-      "Call 0461 247 247 or open the secure booking form to send your address, contact details, photos and a short note about what needs attention.",
+    answer: `Call ${business.phoneDisplay} or open the secure booking form to send your address, contact details, photos and a short note about what needs attention.`,
   },
 ];
 
@@ -198,6 +187,7 @@ function PhoneLinkedText({ text }: { text: string }) {
           {index < parts.length - 1 ? (
             <a
               href={business.phoneHref}
+              aria-label={business.callCta}
               className="font-black text-blue-700 underline underline-offset-2 hover:text-blue-900"
             >
               {business.phoneDisplay}
@@ -210,77 +200,30 @@ function PhoneLinkedText({ text }: { text: string }) {
 }
 
 export default function HomePage() {
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "Electrician",
-    name: business.name,
-    image: `${business.siteUrl}${business.brandImage}`,
+  const localBusinessSchema = buildElectricianSchema({
+    description:
+      "Emergency, Level 2 and general electrical work across Sydney and surrounding regions.",
+    offerNames: coreServices.map((service) => service.title),
+    serviceTypes: coreServices.map((service) => service.title),
+    urgentCalls24Seven: true,
     url: business.siteUrl,
-    telephone: business.phoneDisplay,
-    email: business.email,
-    priceRange: "$$",
-    areaServed: [
-      "Sydney",
-      "Canterbury-Bankstown",
-      "South West Sydney",
-      "Western Sydney",
-      "St George",
-      "Sutherland Shire",
-      "Inner West",
-      "Northern Beaches",
-      "Blue Mountains",
-      "Wollongong",
-      "Illawarra",
-      "Central Coast South",
-    ],
-    identifier: [
-      {
-        "@type": "PropertyValue",
-        name: "NSW Electrical Licence",
-        value: business.licence,
-      },
-      {
-        "@type": "PropertyValue",
-        name: "ABN",
-        value: business.abn,
-      },
-      {
-        "@type": "PropertyValue",
-        name: "Open Cabler Registration",
-        value: business.openCablerRegistration,
-      },
-    ],
-    makesOffer: coreServices.map((service) => ({
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: service.title,
-      },
-    })),
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
+  });
+  const faqSchema = buildFaqSchema(faqs, "/");
+  const breadcrumbSchema = buildBreadcrumbSchema([{ name: "Home", path: "/" }], "/");
 
   return (
     <main className="min-h-screen bg-slate-50 text-slate-950">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={schemaJson(localBusinessSchema)}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={schemaJson(faqSchema)}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
       />
 
       <SiteHeader />
@@ -317,6 +260,7 @@ export default function HomePage() {
             <div className="mt-7 grid gap-3 sm:flex sm:flex-wrap">
               <a
                 href={business.phoneHref}
+                aria-label={business.callCta}
                 className="inline-flex min-h-14 items-center justify-center gap-3 rounded-lg bg-red-600 px-6 py-4 text-center text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500 sm:px-7"
               >
                 <Phone className="h-5 w-5 shrink-0" />
@@ -326,6 +270,7 @@ export default function HomePage() {
               </a>
               <a
                 href={business.bookingUrl}
+                aria-label="Get a quote from Evaready Electrical"
                 data-quote-trigger="true"
                 aria-haspopup="dialog"
                 className="inline-flex min-h-14 items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 text-center text-base font-black text-white shadow-xl shadow-blue-700/20 transition hover:bg-blue-600 sm:px-7"
@@ -350,26 +295,28 @@ export default function HomePage() {
                 Choose your electrical issue
               </p>
               <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl">
-                Call now or request a quote.
+                Call now or get a quote.
               </h2>
               <p className="mt-4 text-base font-semibold leading-7 text-slate-300 sm:text-lg sm:leading-8">
-                We will guide you to the right next step.
+                We&apos;ll point you to the safest next action.
               </p>
               <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
                 <a
                   href={business.phoneHref}
+                  aria-label={business.callCta}
                   className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-red-600 px-5 py-3 font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
                 >
                   <Phone className="h-5 w-5 shrink-0" />
-                  <span className="whitespace-nowrap">Call {business.phoneDisplay}</span>
+                  <span className="whitespace-nowrap">{business.callCta}</span>
                 </a>
                 <a
                   href={business.bookingUrl}
+                  aria-label="Get a quote from Evaready Electrical"
                   data-quote-trigger="true"
                   aria-haspopup="dialog"
                   className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-blue-700 px-5 py-3 font-black text-white shadow-xl shadow-blue-700/20 transition hover:bg-blue-600"
                 >
-                  Request a Quote
+                  {business.quoteCta}
                   <ArrowRight className="h-5 w-5 shrink-0" />
                 </a>
               </div>
@@ -419,16 +366,17 @@ export default function HomePage() {
                   Job details
                 </p>
                 <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl">
-                  Request a Booking or Quote
+                  Request a Quote
                 </h2>
                 <p className="mt-5 text-base font-semibold leading-7 text-slate-200 sm:text-lg">
                   Add your contact details, address and photos so Evaready can
-                  review the job and reply with the clearest next step.
+                  review the job and reply with what to do next.
                 </p>
                 <p className="mt-4 rounded-lg border border-red-400/25 bg-red-500/10 px-4 py-3 text-sm font-black leading-6 text-white">
                   Urgent electrical fault?{" "}
                   <a
                     href={business.phoneHref}
+                    aria-label={business.callCta}
                     className="underline underline-offset-2"
                   >
                     {business.callCta}
@@ -441,6 +389,7 @@ export default function HomePage() {
                 <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
                   <a
                     href={business.phoneHref}
+                    aria-label={business.callCta}
                     className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-red-600 px-5 py-3 font-black text-white shadow-lg shadow-red-600/25 transition hover:bg-red-500"
                   >
                     <Phone className="h-4 w-4" />
@@ -450,6 +399,7 @@ export default function HomePage() {
                   </a>
                   <a
                     href={business.bookingUrl}
+                    aria-label="Get a quote from Evaready Electrical"
                     data-quote-trigger="true"
                     aria-haspopup="dialog"
                     className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-blue-700 px-5 py-3 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
@@ -538,6 +488,7 @@ export default function HomePage() {
             <div className="mt-7 grid gap-3 sm:flex">
               <a
                 href={business.phoneHref}
+                aria-label={business.callCta}
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-6 py-4 font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
@@ -547,6 +498,7 @@ export default function HomePage() {
               </a>
               <a
                 href={business.bookingUrl}
+                aria-label="Get a quote from Evaready Electrical"
                 data-quote-trigger="true"
                 aria-haspopup="dialog"
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
@@ -658,6 +610,7 @@ export default function HomePage() {
                     <div className="mt-4 flex flex-col gap-3 sm:flex-row">
                       <a
                         href={business.phoneHref}
+                        aria-label={business.callCta}
                         className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-3 text-sm font-black text-white shadow-sm transition hover:bg-red-500 sm:w-auto"
                       >
                         <Phone className="h-4 w-4" />
@@ -667,6 +620,7 @@ export default function HomePage() {
                       </a>
                       <a
                         href={business.bookingUrl}
+                        aria-label="Get a quote from Evaready Electrical"
                         data-quote-trigger="true"
                         aria-haspopup="dialog"
                         className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-sm transition hover:bg-blue-600 sm:w-auto"

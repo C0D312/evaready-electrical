@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
   AlertTriangle,
   ArrowRight,
@@ -16,16 +17,18 @@ import {
 } from "@/components/service-credential-strip";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
-import { absoluteUrl, business, canonicalPath } from "@/data/site";
+import { serviceClusterLinksBySlug } from "@/data/internal-links";
+import { absoluteUrl, business } from "@/data/site";
+import {
+  buildBreadcrumbSchema,
+  buildElectricianSchema,
+  buildFaqSchema,
+  buildServiceSchema,
+  schemaJson,
+} from "@/lib/schema";
+import { switchboardSeoMetadata, toMetadata } from "@/lib/seo-metadata";
 
-export const metadata: Metadata = {
-  title: "Switchboard Upgrades Sydney & Surrounding Regions",
-  description:
-    "Switchboard upgrades in Sydney including ceramic fuse replacement, safety switch installation, RCBO protection, switchboard fault finding and testing.",
-  alternates: {
-    canonical: canonicalPath("/services/switchboard-upgrades-sydney"),
-  },
-};
+export const metadata: Metadata = toMetadata(switchboardSeoMetadata());
 
 const upgradeServices = [
   "Ceramic fuse replacement",
@@ -119,66 +122,62 @@ const switchboardFaqs = [
   },
 ];
 
+const relatedLinks =
+  serviceClusterLinksBySlug["switchboard-upgrades-sydney"] ?? [];
+
 export default function SwitchboardUpgradesSydneyPage() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Electrician",
+  const pagePath = "/services/switchboard-upgrades-sydney";
+  const serviceTypes = [
+    "Switchboard Upgrades Sydney & Surrounding Regions",
+    "Safety Switch Installation",
+    "RCBO Upgrades",
+    "Ceramic Fuse Replacement",
+    "Switchboard Fault Finding",
+    "Overloaded Circuit Investigation",
+    "Burnt Wiring Repairs",
+    "EV Charger Load Checks",
+  ];
+  const schema = buildElectricianSchema({
+    description: metadata.description as string,
     name: "Evaready Electrical - Switchboard Upgrades Sydney & Surrounding Regions",
-    telephone: business.phoneDisplay,
-    email: business.email,
-    areaServed: "Sydney, NSW",
-    url: absoluteUrl("/services/switchboard-upgrades-sydney"),
-    priceRange: "$$",
-    serviceType: [
-      "Switchboard Upgrades Sydney & Surrounding Regions",
-      "Safety Switch Installation",
-      "RCBO Upgrades",
-      "Ceramic Fuse Replacement",
-      "Switchboard Fault Finding",
-      "Overloaded Circuit Investigation",
-      "Burnt Wiring Repairs",
-      "EV Charger Load Checks",
+    offerNames: upgradeServices,
+    serviceTypes,
+    url: absoluteUrl(pagePath),
+  });
+  const serviceSchema = buildServiceSchema({
+    description: metadata.description as string,
+    name: "Switchboard Upgrades Sydney & Surrounding Regions",
+    offerNames: upgradeServices,
+    path: pagePath,
+    serviceType: serviceTypes,
+  });
+  const faqSchema = buildFaqSchema(switchboardFaqs, pagePath);
+  const breadcrumbSchema = buildBreadcrumbSchema(
+    [
+      { name: "Home", path: "/" },
+      { name: "Electrical Services", path: "/services" },
+      { name: "Switchboard Upgrades", path: pagePath },
     ],
-    identifier: [
-      {
-        "@type": "PropertyValue",
-        name: "NSW Electrical Licence",
-        value: business.licence,
-      },
-      {
-        "@type": "PropertyValue",
-        name: "ABN",
-        value: business.abn,
-      },
-      {
-        "@type": "PropertyValue",
-        name: "Open Cabler Registration",
-        value: business.openCablerRegistration,
-      },
-    ],
-  };
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: switchboardFaqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
+    pagePath,
+  );
 
   return (
     <main className="min-h-screen bg-white text-slate-950">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={schemaJson(schema)}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={schemaJson(serviceSchema)}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaJson(faqSchema)}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
       />
 
       <SiteHeader />
@@ -214,6 +213,7 @@ export default function SwitchboardUpgradesSydneyPage() {
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a
                 href={business.phoneHref}
+                aria-label={business.callCta}
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
@@ -222,9 +222,12 @@ export default function SwitchboardUpgradesSydneyPage() {
 
               <a
                 href={business.bookingUrl}
+                data-quote-trigger="true"
+                aria-haspopup="dialog"
+                aria-label="Get a quote from Evaready Electrical"
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
               >
-                Get a Quote
+                {business.quoteCta}
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -274,16 +277,18 @@ export default function SwitchboardUpgradesSydneyPage() {
             <div className="mt-6 grid gap-4">
               <a
                 href={business.bookingUrl}
+                aria-label="Get a quote from Evaready Electrical"
                 data-quote-trigger="true"
                 aria-haspopup="dialog"
                 className="inline-flex items-center justify-center gap-3 rounded-xl bg-blue-600 px-6 py-4 font-black text-white transition hover:bg-blue-500"
               >
-                Get a Quote
+                {business.quoteCta}
                 <ArrowRight className="h-5 w-5" />
               </a>
 
               <a
                 href={business.phoneHref}
+                aria-label={business.callCta}
                 className="inline-flex items-center justify-center gap-3 rounded-xl bg-red-600 px-6 py-4 font-black text-white transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
@@ -482,6 +487,33 @@ export default function SwitchboardUpgradesSydneyPage() {
         </div>
       </section>
 
+      <section className="bg-slate-50 py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+            Connected electrical work
+          </p>
+          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+            Switchboard upgrades often connect with supply, fault and load
+            checks.
+          </h2>
+          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {relatedLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="group rounded-lg border border-slate-200 bg-white p-5 transition hover:border-blue-600 hover:bg-blue-50"
+              >
+                <h3 className="font-black text-slate-950">{link.label}</h3>
+                <span className="mt-4 inline-flex items-center gap-2 font-black text-blue-700">
+                  View related service
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="bg-gradient-to-r from-[#031640] via-[#020617] to-[#43040e] py-24 text-white">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
@@ -499,6 +531,7 @@ export default function SwitchboardUpgradesSydneyPage() {
           <div className="flex flex-col gap-4 sm:flex-row">
             <a
               href={business.phoneHref}
+              aria-label={business.callCta}
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
             >
               <Phone className="h-5 w-5" />
@@ -507,9 +540,12 @@ export default function SwitchboardUpgradesSydneyPage() {
 
             <a
               href={business.bookingUrl}
+              data-quote-trigger="true"
+              aria-haspopup="dialog"
+              aria-label="Get a quote from Evaready Electrical"
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
             >
-              Get a Quote
+              {business.quoteCta}
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>

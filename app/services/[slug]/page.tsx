@@ -20,7 +20,20 @@ import {
   getServiceLandingPage,
   serviceLandingPages,
 } from "@/data/service-pages";
-import { absoluteUrl, business, canonicalPath } from "@/data/site";
+import { serviceClusterLinksBySlug } from "@/data/internal-links";
+import { absoluteUrl, business } from "@/data/site";
+import {
+  buildBreadcrumbSchema,
+  buildElectricianSchema,
+  buildFaqSchema,
+  buildServiceSchema,
+  schemaJson,
+} from "@/lib/schema";
+import {
+  servicePageSeoMetadata,
+  servicesIndexSeoMetadata,
+  toMetadata,
+} from "@/lib/seo-metadata";
 
 export const dynamicParams = false;
 
@@ -58,7 +71,8 @@ const finalCtaEyebrows: Record<string, string> = {
   "residential-electrician-sydney": "Need residential electrical work sorted?",
   "commercial-electrician-sydney": "Need commercial electrical support?",
   "electrical-fault-finding-sydney": "Need an electrical fault checked?",
-  "power-points-lighting-sydney": "Need power points or lighting installed?",
+  "lighting-electrician-sydney": "Need lighting installed or repaired?",
+  "power-point-installation-sydney": "Need power points installed or repaired?",
   "smoke-alarm-electrician-sydney": "Need smoke alarm electrical work?",
   "ev-charger-installation-sydney": "Planning an EV charger installation?",
   "consumer-mains-sydney": "Need consumer mains work reviewed?",
@@ -84,6 +98,12 @@ const finalCtaEyebrows: Record<string, string> = {
   "electrical-load-capacity-checks-sydney": "Need load or capacity checked?",
 };
 
+const urgentServiceSlugs = new Set([
+  "electrical-fault-finding-sydney",
+  "private-power-pole-sydney",
+  "storm-damage-electrician-sydney",
+]);
+
 function finalCtaEyebrow(service: { slug: string; title: string }) {
   return (
     finalCtaEyebrows[service.slug] ??
@@ -106,24 +126,10 @@ export async function generateMetadata({
   const service = getServiceLandingPage(slug);
 
   if (!service) {
-    return {
-      title: "Electrical Services Sydney & Surrounding Regions",
-    };
+    return toMetadata(servicesIndexSeoMetadata());
   }
 
-  return {
-    title: service.metaTitle,
-    description: service.metaDescription,
-    alternates: {
-      canonical: canonicalPath(`/services/${service.slug}`),
-    },
-    openGraph: {
-      title: `${service.metaTitle} | ${business.name}`,
-      description: service.metaDescription,
-      url: absoluteUrl(`/services/${service.slug}`),
-      images: [absoluteUrl(business.brandImage)],
-    },
-  };
+  return toMetadata(servicePageSeoMetadata(service));
 }
 
 export default async function ServiceLandingPage({
@@ -138,55 +144,41 @@ export default async function ServiceLandingPage({
     notFound();
   }
 
-  const providerIdentifiers = [
-    {
-      "@type": "PropertyValue",
-      name: "NSW Electrical Licence",
-      value: business.licence,
-    },
-    {
-      "@type": "PropertyValue",
-      name: "ABN",
-      value: business.abn,
-    },
-    {
-      "@type": "PropertyValue",
-      name: "Open Cabler Registration",
-      value: business.openCablerRegistration,
-    },
-  ];
+  const serviceUrl = absoluteUrl(`/services/${service.slug}`);
+  const electricianSchema = buildElectricianSchema({
+    description: service.metaDescription,
+    name: `${business.name} - ${service.title}`,
+    offerNames: service.services,
+    serviceTypes: [service.title],
+    url: serviceUrl,
+  });
+  const breadcrumbSchema = buildBreadcrumbSchema(
+    [
+      {
+        name: "Home",
+        path: "/",
+      },
+      {
+        name: "Electrical Services",
+        path: "/services",
+      },
+      {
+        name: service.title,
+        path: `/services/${service.slug}`,
+      },
+    ],
+    `/services/${service.slug}`,
+  );
 
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
+  const serviceSchema = buildServiceSchema({
     name: service.title,
     description: service.metaDescription,
     serviceType: service.title,
-    areaServed: business.serviceArea,
-    url: `${business.siteUrl}/services/${service.slug}`,
-    provider: {
-      "@type": "Electrician",
-      name: business.name,
-      telephone: business.phoneDisplay,
-      email: business.email,
-      url: business.siteUrl,
-      priceRange: "$$",
-      identifier: providerIdentifiers,
-    },
-  };
+    offerNames: service.services,
+    path: `/services/${service.slug}`,
+  });
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: service.faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
+  const faqSchema = buildFaqSchema(service.faqs, `/services/${service.slug}`);
   const coreRelatedLinks: { href: string; label: string; quote?: boolean }[] = [
     {
       href: "/emergency-electrician-sydney",
@@ -201,10 +193,11 @@ export default async function ServiceLandingPage({
       label: "Switchboard Upgrades",
     },
     { href: "/service-areas", label: "Service Areas" },
-    { href: business.bookingUrl, label: "Get a Quote", quote: true },
+    { href: business.bookingUrl, label: business.quoteCta, quote: true },
   ];
   const relatedLinks: { href: string; label: string; quote?: boolean }[] = [
     ...coreRelatedLinks,
+    ...(serviceClusterLinksBySlug[service.slug] ?? []),
     ...service.relatedServices.map((relatedSlug) => ({
       href: serviceHref(relatedSlug),
       label: serviceLabel(relatedSlug),
@@ -219,16 +212,25 @@ export default async function ServiceLandingPage({
     "Booking Details & Photos",
     ...(service.credentialHighlights ?? []),
   ];
+  const isUrgentService = urgentServiceSlugs.has(service.slug);
 
   return (
     <main className="min-h-screen bg-white text-slate-950">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        dangerouslySetInnerHTML={schemaJson(electricianSchema)}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={schemaJson(serviceSchema)}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaJson(faqSchema)}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
       />
 
       <SiteHeader />
@@ -260,6 +262,7 @@ export default async function ServiceLandingPage({
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href={business.phoneHref}
+                aria-label={business.callCta}
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
@@ -268,9 +271,12 @@ export default async function ServiceLandingPage({
 
               <a
                 href={business.bookingUrl}
+                data-quote-trigger="true"
+                aria-haspopup="dialog"
+                aria-label="Get a quote from Evaready Electrical"
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
               >
-                Get a Quote
+                {business.quoteCta}
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -284,10 +290,18 @@ export default async function ServiceLandingPage({
               {service.heroBullets.map((item) => (
                 <a
                   key={item}
-                  href={business.bookingUrl}
-                  data-quote-trigger="true"
-                  aria-haspopup="dialog"
-                  aria-label={`Request a quote for ${item}`}
+                  href={isUrgentService ? business.phoneHref : business.bookingUrl}
+                  {...(!isUrgentService
+                    ? {
+                        "data-quote-trigger": "true",
+                        "aria-haspopup": "dialog" as const,
+                      }
+                    : {})}
+                  aria-label={
+                    isUrgentService
+                      ? `Call Evaready Electrical about ${item}`
+                      : `Request a quote for ${item}`
+                  }
                   className="group rounded-lg bg-white/10 p-4 transition hover:bg-white/15"
                 >
                   <span className="flex items-start gap-3">
@@ -295,7 +309,7 @@ export default async function ServiceLandingPage({
                     <span className="font-bold text-slate-100">{item}</span>
                   </span>
                   <span className="mt-3 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.12em] text-cyan-200">
-                    Open booking form
+                    {isUrgentService ? "Call Now" : "Open Booking Form"}
                     <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                   </span>
                 </a>
@@ -310,9 +324,10 @@ export default async function ServiceLandingPage({
                 shock risk or loss of power,{" "}
                 <a
                   href={business.phoneHref}
+                  aria-label={business.callCta}
                   className="font-black text-white underline decoration-cyan-300/70 underline-offset-4 transition hover:text-cyan-100"
                 >
-                  call {business.phoneDisplay}
+                  {business.callCta}
                 </a>{" "}
                 before touching the affected area.
               </p>
@@ -354,7 +369,7 @@ export default async function ServiceLandingPage({
                   <span className="font-bold text-slate-800">{item}</span>
                 </span>
                 <span className="mt-4 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.12em] text-blue-700">
-                  Open booking form
+                  Open Booking Form
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 </span>
               </a>
@@ -393,7 +408,7 @@ export default async function ServiceLandingPage({
                     <span className="font-semibold leading-7 text-slate-800">{item}</span>
                   </span>
                   <span className="ml-8 mt-2 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.12em] text-red-600">
-                    Call now
+                    Call Now
                     <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                   </span>
                 </a>
@@ -454,6 +469,7 @@ export default async function ServiceLandingPage({
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a
                 href={business.phoneHref}
+                aria-label={business.callCta}
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-6 py-4 font-black text-white transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
@@ -461,9 +477,12 @@ export default async function ServiceLandingPage({
               </a>
               <a
                 href={business.bookingUrl}
+                data-quote-trigger="true"
+                aria-haspopup="dialog"
+                aria-label="Get a quote from Evaready Electrical"
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white transition hover:bg-blue-600"
               >
-                Get a Quote
+                {business.quoteCta}
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -539,7 +558,7 @@ export default async function ServiceLandingPage({
                 >
                   <h3 className="font-black text-slate-950">{link.label}</h3>
                   <span className="mt-4 inline-flex items-center gap-2 font-black text-blue-600">
-                    Open form
+                    Open Booking Form
                     <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                   </span>
                 </a>
@@ -574,6 +593,7 @@ export default async function ServiceLandingPage({
           <div className="flex flex-col gap-3 sm:flex-row">
             <a
               href={business.phoneHref}
+              aria-label={business.callCta}
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
             >
               <Phone className="h-5 w-5" />
@@ -581,9 +601,12 @@ export default async function ServiceLandingPage({
             </a>
             <a
               href={business.bookingUrl}
+              data-quote-trigger="true"
+              aria-haspopup="dialog"
+              aria-label="Get a quote from Evaready Electrical"
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
             >
-              Get a Quote
+              {business.quoteCta}
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>

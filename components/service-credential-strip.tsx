@@ -47,7 +47,11 @@ export const serviceCredentialPresets = {
   level2: [
     { icon: Zap, title: "Level 2 Electrical Work", text: "Supply-side support" },
     { icon: Wrench, title: "Consumer Mains", text: "Repairs & upgrades" },
-    { icon: ShieldAlert, title: "Defect Notices", text: "Clear next steps" },
+    {
+      icon: ShieldAlert,
+      title: "Defect Notices",
+      text: "Clear next steps before work begins",
+    },
     { icon: BadgeCheck, title: "Metering & Supply Issues", text: "Service equipment" },
   ],
   switchboard: [

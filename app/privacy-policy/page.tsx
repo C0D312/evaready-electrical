@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { business } from "@/data/site";
+import { legalSeoMetadata, toMetadata } from "@/lib/seo-metadata";
 
-export const metadata: Metadata = {
-  title: `Privacy Policy | ${business.name}`,
-  description:
-    "Privacy information for Evaready Electrical enquiries, quote requests and customer contact details.",
-};
+export const metadata: Metadata = toMetadata(legalSeoMetadata("/privacy-policy"));
 
 export default function PrivacyPolicyPage() {
   return (
@@ -29,7 +26,7 @@ export default function PrivacyPolicyPage() {
             <p>
               Information you provide may include your name, phone number, email,
               address, business name, job notes and any photos or documents you
-              choose to attach through the quote form.
+              choose to attach through the booking form.
             </p>
             <p>
               We do not sell your personal information. We may use trusted

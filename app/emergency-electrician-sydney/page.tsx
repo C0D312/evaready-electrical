@@ -3,10 +3,7 @@ import Link from "next/link";
 import {
   AlertTriangle,
   ArrowRight,
-  Bolt,
-  Clock3,
   Phone,
-  ShieldCheck,
   Zap,
 } from "lucide-react";
 import { EmergencyTrustPanel } from "@/components/emergency-trust-panel";
@@ -17,56 +14,61 @@ import {
 } from "@/components/service-credential-strip";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
-import { absoluteUrl, business, canonicalPath } from "@/data/site";
+import { emergencyFaultGuideLinks } from "@/data/internal-links";
+import { absoluteUrl, business } from "@/data/site";
+import { emergencySeoMetadata, toMetadata } from "@/lib/seo-metadata";
 
-export const metadata: Metadata = {
-  title: "Emergency Electrician Sydney & Surrounding Regions",
-  description:
-    "Call Evaready Electrical for urgent Sydney electrical faults including power loss, burning smells, tripping safety switches, switchboard faults and unsafe hazards.",
-  alternates: {
-    canonical: canonicalPath("/emergency-electrician-sydney"),
-  },
-};
+export const metadata: Metadata = toMetadata(emergencySeoMetadata());
 
 const emergencyServices = [
   {
-    title: "Power outage fault finding",
+    title: "No power or partial power loss",
+    text: "Call first if a home, shop or strata area has lost power or only part of the property is working.",
     href: "/electrical-faults/no-power-to-house",
   },
   {
-    title: "Safety switch tripping",
+    title: "Safety switch keeps tripping",
+    text: "Repeated resets can hide a real fault. Stop resetting and have the circuit tested.",
     href: "/electrical-faults/safety-switch-keeps-tripping",
   },
   {
-    title: "Burning smell or hot joint investigation",
+    title: "Burning smell from a switchboard",
+    text: "Smoke, heat or a burning smell near electrical equipment should be treated as urgent.",
     href: "/electrical-faults/burning-smell-from-switchboard",
   },
   {
-    title: "Switchboard faults",
-    href: "/services/switchboard-upgrades-sydney",
-  },
-  {
-    title: "Damaged power points or switches",
+    title: "Sparking power point or buzzing fitting",
+    text: "Keep clear of noisy, hot or sparking outlets, switches and light fittings until checked.",
     href: "/electrical-faults/power-point-sparking",
   },
   {
-    title: "Storm or water-related electrical faults",
+    title: "Hot outlet, switch or cable",
+    text: "Heat around an outlet or cable can point to a damaged connection, overload or unsafe wiring.",
+    href: "/electrical-faults/hot-power-point",
+  },
+  {
+    title: "Storm or water-damaged electrical fault",
+    text: "Do not use wet outlets, outdoor lights or affected circuits until they have been inspected.",
     href: "/electrical-faults/power-outage-after-storm",
   },
   {
-    title: "Urgent lighting faults",
-    href: "/electrical-faults/lights-flickering",
+    title: "Switchboard fault or damaged wiring",
+    text: "Burnt wiring, old protection or damaged switchboard gear needs careful testing and repair.",
+    href: "/services/switchboard-upgrades-sydney",
   },
   {
-    title: "Electrical hazards and unsafe wiring",
-    href: "/services/rewiring-electrician-sydney",
+    title: "Supply-side or Level 2 electrical issue",
+    text: "Consumer mains, metering, point-of-attachment and supply issues may need Level 2 support.",
+    href: "/level-2-electrician-sydney",
   },
   {
-    title: "Commercial emergency faults",
+    title: "Commercial after-hours electrical fault",
+    text: "Businesses can call for urgent faults affecting power, safety, access or trading areas.",
     href: "/services/commercial-electrician-sydney",
   },
   {
-    title: "After-hours electrical call-outs",
+    title: "After-hours electrician Sydney",
+    text: "If the fault feels unsafe after hours, call first so the risk can be triaged by phone.",
     href: business.phoneHref,
     external: true,
   },
@@ -74,144 +76,283 @@ const emergencyServices = [
 
 const warningSigns = [
   {
-    title: "Burning smell near a switchboard, power point or light fitting",
+    title: "No power, partial power loss or a circuit that will not stay on",
+    text: "Turn off sensitive appliances if safe and call if the loss of power feels unsafe or unexplained.",
+    href: "/electrical-faults/no-power-to-house",
+  },
+  {
+    title: "Burning smell, smoke or heat near a switchboard",
+    text: "Keep clear, do not touch the switchboard, and call for urgent electrical advice.",
     href: "/electrical-faults/burning-smell-from-switchboard",
   },
   {
     title: "Safety switch or circuit breaker keeps tripping",
+    text: "Stop repeated resets. The switch may be reacting to water ingress, damaged wiring or appliance faults.",
     href: "/electrical-faults/safety-switch-keeps-tripping",
   },
   {
-    title: "Partial power loss in the house or business",
-    href: "/electrical-faults/no-power-in-one-room",
-  },
-  {
-    title: "Sparking, buzzing or crackling sounds",
+    title: "Sparking, buzzing, crackling or a hot power point",
+    text: "Stop using the outlet or fitting and keep people away from the affected area.",
     href: "/electrical-faults/power-point-sparking",
   },
   {
-    title: "Power point, switch or cable feels hot",
-    href: "/electrical-faults/hot-power-point",
-  },
-  {
-    title: "Lights flickering or dimming unexpectedly",
-    href: "/electrical-faults/lights-flickering",
-  },
-  {
-    title: "Storm damage has affected overhead lines, outdoor lights or fittings",
-    href: "/electrical-faults/power-outage-after-storm",
-  },
-  {
-    title: "Water has reached switches, outlets, lights or electrical equipment",
+    title: "Storm damage, water around fittings or outdoor electrical faults",
+    text: "Water and electricity are a serious risk. Do not use wet switches, outlets or lights.",
     href: "/electrical-faults/rcd-trips-when-raining",
+  },
+  {
+    title: "Fallen service lines, exposed wiring or electric shock risk",
+    text: "Keep clear. For life-threatening danger, call emergency services first.",
+    href: "/electrical-faults/electric-shock-from-outlet",
   },
 ];
 
 const safetySteps = [
   {
-    title: "Do not touch exposed wires, damaged fittings or wet electrical equipment.",
+    title: "Keep clear of exposed wires, wet fittings, smoke, burning smells or fallen lines.",
+    text: "Do not touch damaged equipment and keep other people away from the affected area.",
     href: "/electrical-faults/electric-shock-from-outlet",
   },
   {
-    title: "If it is safe, turn off the affected circuit or main switch and keep people away.",
+    title: "Turn off the affected circuit only if it is safe to do so.",
+    text: "If the switchboard area is hot, smoking, wet or damaged, keep clear and call for help.",
     href: "/electrical-faults/circuit-breaker-keeps-tripping",
   },
   {
-    title: "Call immediately if you smell burning, see smoke, hear buzzing or notice sparking.",
-    href: business.phoneHref,
+    title: "For life-threatening danger, call emergency services first.",
+    text: "For fallen powerlines, fire, electric shock or immediate danger, keep clear and call 000 or the relevant distributor.",
+    href: "tel:000",
     external: true,
   },
   {
-    title: "For fallen powerlines or life-threatening danger, keep clear and call emergency services first.",
-    href: "tel:000",
+    title: "Call Evaready Electrical for urgent fault guidance.",
+    text: "Explain what has happened, whether anything is hot, smoking, wet, sparking or repeatedly tripping.",
+    href: business.phoneHref,
     external: true,
   },
 ];
 
 const emergencyFaqs = [
   {
-    question: "What counts as an electrical emergency?",
+    question: "Do you answer emergency electrician calls after hours?",
     answer:
-      "Burning smells, sparking, exposed wiring, electric shock risk, hot power points, buzzing switchboards, repeated safety switch tripping and power loss should all be treated as urgent.",
+      "Yes. Evaready Electrical takes urgent electrical fault calls day and night. Call first for no power, burning smells, smoke, sparking, repeated tripping or anything that feels unsafe.",
+  },
+  {
+    question: "What should I do if my power is out?",
+    answer:
+      "Check whether nearby properties also have no power. If only your property or part of it has lost power, keep clear of damaged equipment, avoid repeated resets and call a licensed electrician.",
+  },
+  {
+    question: "Is a burning smell from a switchboard urgent?",
+    answer:
+      "Yes. A burning smell, smoke, heat, buzzing or crackling near a switchboard can point to a dangerous electrical fault. Keep clear and call before touching the switchboard.",
   },
   {
     question: "Should I keep resetting a tripping safety switch?",
     answer:
-      "No. If the safety switch keeps tripping, stop resetting it and call a licensed electrician. It may be reacting to a fault that needs proper testing.",
+      "No. If a safety switch or circuit breaker keeps tripping, stop resetting it. It may be reacting to water, damaged wiring, a faulty appliance or another fault that needs testing.",
   },
   {
-    question: "Can water-damaged electrical fittings be used again?",
+    question: "Can you help with storm or water-damaged electrical faults?",
     answer:
-      "Do not use water-damaged outlets, switches or lights until they have been checked. Water around electrical equipment can create a serious safety risk.",
+      "Yes. Call first if water has reached switches, outlets, lights, outdoor fittings or electrical equipment. Do not use affected circuits until they have been checked.",
+  },
+  {
+    question: "Can businesses call for urgent electrical faults?",
+    answer:
+      "Yes. Shops, offices, strata buildings, warehouses and commercial sites can call for urgent electrical faults, power loss, switchboard issues and safety hazards.",
   },
 ];
 
 const process = [
   {
-    title: "Call or request help online",
-    text: "Call directly for urgent faults or send clear job notes when the work can be planned.",
+    title: "Call first for unsafe faults",
+    text: "No power, burning smells, sparking, smoke, hot outlets and repeated tripping should be discussed by phone first.",
   },
   {
-    title: "Fault diagnosis",
-    text: "We inspect, test and identify the cause of the electrical issue carefully.",
+    title: "Keep the area clear",
+    text: "Avoid damaged fittings, wet equipment, exposed wires and switchboards that smell hot or look damaged.",
   },
   {
-    title: "Safe repair",
-    text: "We make the area safe and complete the repair or provide clear next steps.",
+    title: "Fault testing and isolation",
+    text: "The affected circuit, switchboard, fitting or appliance is tested so the cause is not guessed.",
   },
   {
-    title: "Final testing",
-    text: "Where required, we test the circuit and confirm the installation is safe before leaving.",
+    title: "Repair or clear next steps",
+    text: "The fault is repaired where suitable, or the safest next step is explained before further work proceeds.",
   },
 ];
 
+const relatedLinks = [
+  ...emergencyFaultGuideLinks,
+  {
+    label: "Switchboard upgrades",
+    href: "/services/switchboard-upgrades-sydney",
+  },
+  {
+    label: "Level 2 electrician",
+    href: "/level-2-electrician-sydney",
+  },
+  {
+    label: "Service areas",
+    href: "/service-areas",
+  },
+];
+
+function EmergencyActionLink({
+  className = "",
+  compact = false,
+}: {
+  className?: string;
+  compact?: boolean;
+}) {
+  return (
+    <a
+      href={business.phoneHref}
+      aria-label={business.callCta}
+      className={`inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500 ${compact ? "px-5 py-3 text-sm" : "px-7 py-4 text-base"} ${className}`}
+    >
+      <Phone className="h-5 w-5" aria-hidden="true" />
+      <span className="whitespace-nowrap">{business.callCta}</span>
+    </a>
+  );
+}
+
+function QuoteActionLink({
+  className = "",
+  compact = false,
+}: {
+  className?: string;
+  compact?: boolean;
+}) {
+  return (
+    <a
+      href={business.bookingUrl}
+      data-quote-trigger="true"
+      aria-haspopup="dialog"
+      aria-label="Get a quote from Evaready Electrical"
+      className={`inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-600 font-black text-white shadow-xl shadow-blue-600/20 transition hover:bg-blue-500 ${compact ? "px-5 py-3 text-sm" : "px-7 py-4 text-base"} ${className}`}
+    >
+      {business.quoteCta}
+      <ArrowRight className="h-5 w-5" aria-hidden="true" />
+    </a>
+  );
+}
+
+function buildSchema() {
+  const pageUrl = absoluteUrl("/emergency-electrician-sydney");
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Electrician",
+        "@id": `${pageUrl}#electrician`,
+        name: business.name,
+        url: pageUrl,
+        telephone: business.phoneDisplay,
+        email: business.email,
+        image: [absoluteUrl(business.brandImage), absoluteUrl(business.heroImage)],
+        logo: absoluteUrl(business.logoImage),
+        priceRange: "$$",
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: business.phoneDisplay,
+          contactType: "Urgent electrical fault calls",
+          areaServed: business.serviceArea,
+          availableLanguage: "English",
+          hoursAvailable: {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday",
+            ],
+            opens: "00:00",
+            closes: "23:59",
+          },
+          description:
+            "Calls are open 24/7 for urgent electrical faults that feel unsafe.",
+        },
+        areaServed: [
+          { "@type": "City", name: "Sydney" },
+          { "@type": "AdministrativeArea", name: "Sydney and surrounding regions" },
+        ],
+        identifier: [
+          {
+            "@type": "PropertyValue",
+            name: "NSW Electrical Licence",
+            value: business.licence,
+          },
+          {
+            "@type": "PropertyValue",
+            name: "ABN",
+            value: business.abn,
+          },
+          {
+            "@type": "PropertyValue",
+            name: "Open Cabler Registration",
+            value: business.openCablerRegistration,
+          },
+          {
+            "@type": "PropertyValue",
+            name: "ARCtick Refrigerant Handling Licence",
+            value: business.arctickLicence,
+          },
+        ],
+      },
+      {
+        "@type": "Service",
+        "@id": `${pageUrl}#emergency-service`,
+        name: "24/7 Emergency Electrical Fault Help",
+        serviceType: "Emergency electrical fault finding and repairs",
+        provider: { "@id": `${pageUrl}#electrician` },
+        areaServed: "Sydney and surrounding regions",
+        url: pageUrl,
+        description:
+          "Emergency electrical help for power loss, burning smells, sparking outlets, tripping safety switches, switchboard faults and storm or water-related electrical hazards.",
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${pageUrl}#faq`,
+        mainEntity: emergencyFaqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: absoluteUrl("/"),
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Emergency Electrician Sydney",
+            item: pageUrl,
+          },
+        ],
+      },
+    ],
+  };
+}
+
 export default function EmergencyElectricianSydneyPage() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Electrician",
-    name: "Evaready Electrical - Emergency Electrician Sydney & Surrounding Regions",
-    telephone: business.phoneDisplay,
-    email: business.email,
-    areaServed: "Sydney, NSW",
-    url: absoluteUrl("/emergency-electrician-sydney"),
-    priceRange: "$$",
-    serviceType: [
-      "Emergency Electrician Sydney & Surrounding Regions",
-      "24/7 Electrical Fault Finding",
-      "Power Outage Electrician",
-      "Safety Switch Tripping",
-      "Switchboard Faults",
-    ],
-    identifier: [
-      {
-        "@type": "PropertyValue",
-        name: "NSW Electrical Licence",
-        value: business.licence,
-      },
-      {
-        "@type": "PropertyValue",
-        name: "ABN",
-        value: business.abn,
-      },
-      {
-        "@type": "PropertyValue",
-        name: "Open Cabler Registration",
-        value: business.openCablerRegistration,
-      },
-    ],
-  };
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: emergencyFaqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
+  const schema = buildSchema();
 
   return (
     <main className="min-h-screen bg-white text-slate-950">
@@ -219,122 +360,78 @@ export default function EmergencyElectricianSydneyPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
 
       <SiteHeader />
 
-      {/* Hero */}
       <section className="brand-internal-hero relative overflow-hidden bg-[#020617] text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(239,68,68,0.35),transparent_30%),radial-gradient(circle_at_85%_30%,rgba(37,99,235,0.28),transparent_32%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(239,68,68,0.22),transparent_30%),radial-gradient(circle_at_82%_28%,rgba(37,99,235,0.16),transparent_32%)]" />
         <div className="absolute inset-0 bg-gradient-to-br from-[#160208] via-[#020617] to-[#031640]" />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-28">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-24">
           <div>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-red-400/30 bg-red-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-red-200">
-              <AlertTriangle className="h-4 w-4" />
+              <AlertTriangle className="h-4 w-4" aria-hidden="true" />
               Open 24/7 for urgent electrical faults
             </div>
 
             <h1 className="max-w-5xl text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
-              Emergency Electrician Sydney & Surrounding Regions
+              Emergency Electrician Sydney for Urgent Electrical Faults
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">
-              Call when an electrical fault needs attention now: power loss,
-              burning smells, switchboard issues, tripping circuits, sparking or
-              anything that feels unsafe across the service area.
+              Call now for no power, burning smells, smoke, sparking power
+              points, hot outlets, tripping safety switches, storm damage,
+              water-affected fittings or after-hours electrical hazards.
             </p>
+
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <EmergencyActionLink />
+              <QuoteActionLink />
+            </div>
 
             <ServiceCredentialStrip
               items={serviceCredentialPresets.emergency}
-              className="mt-6 max-w-4xl"
+              className="mt-7 max-w-4xl"
             />
-
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <a
-                href={business.phoneHref}
-                className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
-              >
-                <Phone className="h-5 w-5" />
-                <span className="whitespace-nowrap">{business.callCta}</span>
-              </a>
-
-              <a
-                href={business.bookingUrl}
-                className="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
-              >
-                Get a Quote
-                <ArrowRight className="h-5 w-5" />
-              </a>
-            </div>
-
-            <div className="mt-10 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
-              <div className="rounded-2xl border border-white/10 bg-white/10 p-4">
-                <Clock3 className="h-6 w-6 text-blue-300" />
-                <p className="mt-3 text-xl font-black">24/7</p>
-                <p className="mt-1 text-sm text-slate-300">
-                  Calls answered day and night.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-white/10 bg-white/10 p-4">
-                <ShieldCheck className="h-6 w-6 text-blue-300" />
-                <p className="mt-3 text-xl font-black">{business.licence}</p>
-                <p className="mt-1 text-sm text-slate-300">
-                  NSW licensed electrician.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-white/10 bg-white/10 p-4">
-                <Bolt className="h-6 w-6 text-blue-300" />
-                <p className="mt-3 text-xl font-black">Clear</p>
-                <p className="mt-1 text-sm text-slate-300">
-                  Fault checks and next steps.
-                </p>
-              </div>
-            </div>
           </div>
 
-          {/* Quote card */}
-          <div className="rounded-[2rem] border border-white/15 bg-white/10 p-6 shadow-2xl backdrop-blur-xl">
+          <aside className="rounded-[2rem] border border-red-300/20 bg-[#111827]/85 p-6 shadow-2xl shadow-red-950/20 backdrop-blur-xl">
             <p className="text-sm font-black uppercase tracking-[0.2em] text-red-300">
-              Urgent fault support
+              What to do now
             </p>
-
             <h2 className="mt-3 text-3xl font-black">
-              Something electrical feels unsafe?
+              Keep clear and call first if it feels unsafe.
             </h2>
 
-            <p className="mt-3 text-slate-300">
-              Call for no power, hazards, smoke, sparking, heat or repeated
-              tripping. If it can wait, send the details and photos for review.
-            </p>
+            <div className="mt-5 grid gap-3">
+              {safetySteps.slice(0, 3).map((step) => (
+                <div
+                  key={step.title}
+                  className="rounded-2xl border border-white/10 bg-white/[0.055] p-4"
+                >
+                  <p className="flex gap-3 font-black text-white">
+                    <AlertTriangle
+                      className="mt-0.5 h-5 w-5 shrink-0 text-red-300"
+                      aria-hidden="true"
+                    />
+                    {step.title}
+                  </p>
+                  <p className="mt-2 pl-8 text-sm leading-6 text-slate-300">
+                    {step.text}
+                  </p>
+                </div>
+              ))}
+            </div>
 
-            <div className="mt-6 grid gap-4">
-              <a
-                href={business.phoneHref}
-                className="inline-flex items-center justify-center gap-3 rounded-xl bg-red-600 px-6 py-4 font-black text-white transition hover:bg-red-500"
-              >
-                <Phone className="h-5 w-5" />
-                <span className="whitespace-nowrap">{business.callCta}</span>
-              </a>
-
-              <a
-                href={business.bookingUrl}
-                className="inline-flex items-center justify-center gap-3 rounded-xl bg-blue-600 px-6 py-4 font-black text-white transition hover:bg-blue-500"
-              >
-                Get a Quote
-                <ArrowRight className="h-5 w-5" />
-              </a>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <EmergencyActionLink compact />
+              <QuoteActionLink compact />
             </div>
 
             <p className="mt-4 text-center text-xs text-slate-400">
               Electrical Licence: {business.licence}
             </p>
-          </div>
+          </aside>
         </div>
       </section>
 
@@ -342,7 +439,6 @@ export default function EmergencyElectricianSydneyPage() {
 
       <TrustSymbolBand className="border-b border-slate-200" />
 
-      {/* Emergency services */}
       <section className="bg-slate-50 py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
@@ -355,36 +451,57 @@ export default function EmergencyElectricianSydneyPage() {
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              Electrical faults can become dangerous quickly. If something is
-              sparking, heating, smoking, tripping or unsafe, call before using
-              the affected area again.
+              Start with the symptom you are seeing. If there is heat, smoke,
+              sparking, water around electrical equipment or power loss that
+              feels unsafe, use the phone first.
             </p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            {emergencyServices.map((item) => (
+            {emergencyServices.map((item) =>
               item.external ? (
                 <a
                   key={item.title}
                   href={item.href}
-                  className="group flex min-h-20 items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-red-300 hover:bg-red-50"
+                  aria-label={item.href === business.phoneHref ? business.callCta : item.title}
+                  className="group flex min-h-28 gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-red-300 hover:bg-red-50"
                 >
-                  <Zap className="h-5 w-5 shrink-0 text-red-600" />
-                  <span className="font-bold text-slate-800">{item.title}</span>
-                  <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-red-600" />
+                  <Zap className="mt-1 h-5 w-5 shrink-0 text-red-600" aria-hidden="true" />
+                  <span>
+                    <span className="block font-black text-slate-900">
+                      {item.title}
+                    </span>
+                    <span className="mt-2 block text-sm leading-6 text-slate-600">
+                      {item.text}
+                    </span>
+                  </span>
+                  <ArrowRight
+                    className="ml-auto mt-1 h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-red-600"
+                    aria-hidden="true"
+                  />
                 </a>
               ) : (
                 <Link
                   key={item.title}
                   href={item.href}
-                  className="group flex min-h-20 items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-red-300 hover:bg-red-50"
+                  className="group flex min-h-28 gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-red-300 hover:bg-red-50"
                 >
-                  <Zap className="h-5 w-5 shrink-0 text-red-600" />
-                  <span className="font-bold text-slate-800">{item.title}</span>
-                  <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-red-600" />
+                  <Zap className="mt-1 h-5 w-5 shrink-0 text-red-600" aria-hidden="true" />
+                  <span>
+                    <span className="block font-black text-slate-900">
+                      {item.title}
+                    </span>
+                    <span className="mt-2 block text-sm leading-6 text-slate-600">
+                      {item.text}
+                    </span>
+                  </span>
+                  <ArrowRight
+                    className="ml-auto mt-1 h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-red-600"
+                    aria-hidden="true"
+                  />
                 </Link>
-              )
-            ))}
+              ),
+            )}
           </div>
         </div>
       </section>
@@ -395,7 +512,6 @@ export default function EmergencyElectricianSydneyPage() {
         description="For unsafe faults, call first. For planned help, include the suburb, what has lost power, whether anything is hot, buzzing, wet, sparking or tripping, and photos of the switchboard or damaged fitting if available."
       />
 
-      {/* Warning signs */}
       <section className="bg-white py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
           <div>
@@ -408,9 +524,8 @@ export default function EmergencyElectricianSydneyPage() {
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              If you notice any of these warning signs, stop using the affected
-              circuit or equipment where safe to do so and contact a licensed
-              electrician.
+              Electrical faults can look minor before they become dangerous.
+              These warning signs deserve a call-first approach.
             </p>
           </div>
 
@@ -420,11 +535,26 @@ export default function EmergencyElectricianSydneyPage() {
                 <Link
                   key={item.title}
                   href={item.href}
-                  className="group flex gap-3 rounded-lg p-2 transition hover:bg-red-50"
+                  className="group rounded-xl p-3 transition hover:bg-red-50"
                 >
-                  <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" />
-                  <span className="font-semibold text-slate-800">{item.title}</span>
-                  <ArrowRight className="ml-auto mt-1 h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-red-600" />
+                  <span className="flex gap-3">
+                    <AlertTriangle
+                      className="mt-1 h-5 w-5 shrink-0 text-red-600"
+                      aria-hidden="true"
+                    />
+                    <span>
+                      <span className="block font-black text-slate-900">
+                        {item.title}
+                      </span>
+                      <span className="mt-1 block text-sm leading-6 text-slate-600">
+                        {item.text}
+                      </span>
+                    </span>
+                    <ArrowRight
+                      className="ml-auto mt-1 h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-red-600"
+                      aria-hidden="true"
+                    />
+                  </span>
                 </Link>
               ))}
             </div>
@@ -436,7 +566,7 @@ export default function EmergencyElectricianSydneyPage() {
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
-              Safety first
+              Safety First
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               What to do before an electrician arrives.
@@ -449,18 +579,27 @@ export default function EmergencyElectricianSydneyPage() {
           </div>
 
           <div className="grid gap-4">
-            {safetySteps.map((item) => (
+            {safetySteps.map((item) =>
               item.external ? (
                 <a
                   key={item.title}
                   href={item.href}
+                  aria-label={item.href === business.phoneHref ? business.callCta : item.title}
                   className="group flex gap-3 rounded-lg border border-red-100 bg-white p-5 transition hover:border-red-300 hover:bg-red-50"
                 >
-                  <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" />
-                  <span className="font-semibold leading-7 text-slate-800">
-                    {item.title}
+                  <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" aria-hidden="true" />
+                  <span>
+                    <span className="block font-black leading-7 text-slate-900">
+                      {item.title}{" "}
+                    </span>
+                    <span className="mt-1 block leading-7 text-slate-600">
+                      {item.text}
+                    </span>
                   </span>
-                  <ArrowRight className="ml-auto mt-1 h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-red-600" />
+                  <ArrowRight
+                    className="ml-auto mt-1 h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-red-600"
+                    aria-hidden="true"
+                  />
                 </a>
               ) : (
                 <Link
@@ -468,27 +607,34 @@ export default function EmergencyElectricianSydneyPage() {
                   href={item.href}
                   className="group flex gap-3 rounded-lg border border-red-100 bg-white p-5 transition hover:border-red-300 hover:bg-red-50"
                 >
-                  <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" />
-                  <span className="font-semibold leading-7 text-slate-800">
-                    {item.title}
+                  <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" aria-hidden="true" />
+                  <span>
+                    <span className="block font-black leading-7 text-slate-900">
+                      {item.title}{" "}
+                    </span>
+                    <span className="mt-1 block leading-7 text-slate-600">
+                      {item.text}
+                    </span>
                   </span>
-                  <ArrowRight className="ml-auto mt-1 h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-red-600" />
+                  <ArrowRight
+                    className="ml-auto mt-1 h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-red-600"
+                    aria-hidden="true"
+                  />
                 </Link>
-              )
-            ))}
+              ),
+            )}
           </div>
         </div>
       </section>
 
-      {/* Process */}
       <section className="bg-[#020617] py-24 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-black uppercase tracking-[0.35em] text-red-400">
-            How It Works
+            Emergency Call Flow
           </p>
 
           <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-            Fast response, proper testing and safe repairs.
+            Clear phone triage, proper testing and safe next steps.
           </h2>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -534,7 +680,32 @@ export default function EmergencyElectricianSydneyPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      <section className="bg-slate-50 py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+            Helpful fault guides
+          </p>
+          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+            Read more about common emergency electrical faults.
+          </h2>
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {relatedLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="group flex min-h-14 items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 font-black text-slate-900 transition hover:border-blue-300 hover:bg-blue-50"
+              >
+                {link.label}
+                <ArrowRight
+                  className="h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-blue-700"
+                  aria-hidden="true"
+                />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-gradient-to-r from-[#160208] via-[#020617] to-[#031640] py-24 text-white">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
           <div>
@@ -543,37 +714,23 @@ export default function EmergencyElectricianSydneyPage() {
             </p>
 
             <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Call Evaready Electrical before the problem gets worse.
+              Call first for no power, smoke, burning smells or sparking.
             </h2>
+            <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-300">
+              Planned work can go through the booking form. Anything unsafe
+              should start with a phone call before the affected area is used
+              again.
+            </p>
           </div>
 
           <div className="flex flex-col gap-4 sm:flex-row">
-            <a
-              href={business.phoneHref}
-              className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
-            >
-              <Phone className="h-5 w-5" />
-              <span className="whitespace-nowrap">{business.callCta}</span>
-            </a>
-
-            <a
-              href={business.bookingUrl}
-              className="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
-            >
-              Get a Quote
-              <ArrowRight className="h-5 w-5" />
-            </a>
+            <EmergencyActionLink />
+            <QuoteActionLink />
           </div>
         </div>
       </section>
 
       <SiteFooter />
-
     </main>
   );
 }
-
-
-
-
-
