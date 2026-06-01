@@ -4865,3 +4865,102 @@ main .home-brand-hero .home-hero-glow-overlay.absolute.inset-0 {
       linear-gradient(90deg, rgba(2, 8, 20, 0.86) 0%, rgba(2, 8, 20, 0.5) 52%, rgba(2, 8, 20, 0) 100%) !important;
   }
 }
+
+/* Site-wide branded van hero correction. Keep the van as a full hero visual
+   on intentional hero sections only, with the mobile framing lifted and the
+   van side kept bright. */
+main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white)::before {
+  content: none !important;
+  background-image: none !important;
+}
+
+.home-brand-hero .brand-hero-image {
+  object-position: 76% center !important;
+  filter: saturate(1.2) contrast(1.06) brightness(1.14) !important;
+}
+
+.brand-internal-hero::before {
+  background-position: right center !important;
+  background-size: cover !important;
+  filter: saturate(1.2) contrast(1.06) brightness(1.14) !important;
+}
+
+.home-hero-readability-overlay,
+main .home-brand-hero .home-hero-readability-overlay.absolute.inset-0,
+.brand-internal-hero > .absolute + .absolute {
+  background:
+    linear-gradient(90deg, rgba(2, 8, 20, 0.97) 0%, rgba(2, 8, 20, 0.86) 30%, rgba(2, 8, 20, 0.45) 47%, rgba(2, 8, 20, 0.08) 60%, rgba(2, 8, 20, 0) 100%) !important;
+}
+
+@media (max-width: 767px) {
+  .home-brand-hero,
+  .brand-internal-hero {
+    min-height: clamp(42rem, 94svh, 52rem) !important;
+  }
+
+  .home-brand-hero .brand-hero-image {
+    object-position: 77% 38% !important;
+    transform: translate3d(0, -5%, 0) scale(1.08) !important;
+    filter: saturate(1.24) contrast(1.08) brightness(1.24) !important;
+  }
+
+  .brand-internal-hero::before {
+    inset: 0 !important;
+    height: 100% !important;
+    background-position: 77% 36% !important;
+    background-size: auto 116% !important;
+    opacity: 1 !important;
+    filter: saturate(1.24) contrast(1.08) brightness(1.24) !important;
+  }
+
+  .home-hero-readability-overlay,
+  main .home-brand-hero .home-hero-readability-overlay.absolute.inset-0,
+  .brand-internal-hero > .absolute + .absolute {
+    background:
+      linear-gradient(90deg, rgba(2, 8, 20, 0.82) 0%, rgba(2, 8, 20, 0.6) 48%, rgba(2, 8, 20, 0.12) 72%, rgba(2, 8, 20, 0) 100%),
+      linear-gradient(180deg, rgba(2, 8, 20, 0.72) 0%, rgba(2, 8, 20, 0.36) 28%, rgba(2, 8, 20, 0.08) 56%, rgba(2, 8, 20, 0) 100%) !important;
+  }
+
+  .home-brand-hero h1,
+  .home-brand-hero p,
+  .brand-internal-hero h1,
+  .brand-internal-hero p {
+    text-shadow: 0 2px 16px rgba(2, 8, 20, 0.92), 0 1px 3px rgba(2, 8, 20, 0.82) !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .home-brand-hero .brand-hero-image {
+    object-position: 78% 36% !important;
+    transform: translate3d(0, -6%, 0) scale(1.12) !important;
+  }
+
+  .brand-internal-hero::before {
+    background-position: 78% 34% !important;
+    background-size: auto 120% !important;
+  }
+}
+
+/* Final mobile lift for the shared internal branded hero. Several internal
+   pages place more copy above the buttons, so the van needs a stronger upward
+   crop than the homepage image while keeping the text side readable. */
+@media (max-width: 767px) {
+  .brand-internal-hero::before {
+    background-position: 78% 100% !important;
+    background-size: auto 132% !important;
+    filter: saturate(1.28) contrast(1.08) brightness(1.3) !important;
+  }
+
+  .brand-internal-hero > .absolute + .absolute {
+    background:
+      linear-gradient(90deg, rgba(2, 8, 20, 0.76) 0%, rgba(2, 8, 20, 0.52) 44%, rgba(2, 8, 20, 0.1) 70%, rgba(2, 8, 20, 0) 100%),
+      linear-gradient(180deg, rgba(2, 8, 20, 0.58) 0%, rgba(2, 8, 20, 0.26) 28%, rgba(2, 8, 20, 0.04) 58%, rgba(2, 8, 20, 0) 100%) !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .brand-internal-hero::before {
+    background-position: 79% 100% !important;
+    background-size: auto 140% !important;
+  }
+}
