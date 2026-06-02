@@ -10,6 +10,7 @@ import {
   ShieldCheck,
   Zap,
 } from "lucide-react";
+import { GoogleReviewProof } from "@/components/google-review-proof";
 import { ServiceAreaSearch } from "@/components/service-area-search";
 import {
   ServiceAreaHero,
@@ -91,6 +92,7 @@ export default function AreasPage() {
         <div className="mt-7 grid max-w-xl gap-3 sm:flex sm:flex-wrap">
           <a
             href={business.phoneHref}
+            data-conversion-action="phone-click"
             aria-label={business.callCta}
             className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-red-600 px-5 py-3 text-center text-sm font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500 sm:text-base"
           >
@@ -101,6 +103,7 @@ export default function AreasPage() {
             href={business.bookingUrl}
             aria-label="Get a quote from Evaready Electrical"
             data-quote-trigger="true"
+            data-conversion-action="quote-click"
             aria-haspopup="dialog"
             className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-blue-700 px-5 py-3 text-center text-sm font-black text-white shadow-xl shadow-blue-700/20 transition hover:bg-blue-600 sm:text-base"
           >
@@ -147,6 +150,11 @@ export default function AreasPage() {
           ))}
         </div>
       </section>
+
+      <GoogleReviewProof
+        heading="See Evaready Electrical reviews before choosing your area."
+        subheading="Use the service-area search to find your suburb, then view Evaready Electrical on Google before calling or sending planned job details."
+      />
 
       <section className="bg-slate-50 py-16">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
@@ -280,6 +288,7 @@ export default function AreasPage() {
           <div className="flex flex-col gap-4 sm:flex-row">
             <a
               href={business.phoneHref}
+              data-conversion-action="phone-click"
               aria-label={business.callCta}
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
             >
@@ -290,6 +299,7 @@ export default function AreasPage() {
             <a
               href={business.bookingUrl}
               data-quote-trigger="true"
+              data-conversion-action="quote-click"
               aria-haspopup="dialog"
               aria-label="Get a quote from Evaready Electrical"
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"

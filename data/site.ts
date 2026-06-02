@@ -58,6 +58,13 @@ export const business = {
   arctickLicence: "L157323",
   serviceArea: "Sydney & Surrounding Regions",
   siteUrl,
+  googleBusinessProfileUrl:
+    "https://www.google.com/search?q=Evaready+Electrical+Pty+Ltd+reviews",
+  googleReviewUrl:
+    "https://www.google.com/search?q=Evaready+Electrical+Pty+Ltd+reviews",
+  googleRating: null as number | null,
+  googleReviewCount: null as number | null,
+  googleReviewDisplayText: "See Evaready Electrical on Google",
   bookingUrl:
     "https://book.servicem8.com/request_booking?uuid=78c2a862-45cf-413b-8ca5-1bf6d8f8944b",
 };

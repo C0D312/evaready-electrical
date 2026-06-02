@@ -16,23 +16,32 @@ type AuditRow = {
   "FAQ count": number;
   H1: string;
   "Level 2 summary present": "yes" | "no";
+  "call-first safety wording present": "yes" | "no";
   "duplicate text hash": string;
   "emergency summary present": "yes" | "no";
+  "fake office claim present": "yes" | "no";
   "generated URL": string;
+  "guaranteed response-time claim present": "yes" | "no";
   "hero description": string;
   "hero description word count": number;
   "hero note": string;
   "internal links count": number;
+  "local examples present": "yes" | "no";
+  "local property mix present": "yes" | "no";
   "meta description": string;
   "meta description length": number;
   "meta title": string;
   "meta title length": number;
   "nearby suburbs count": number;
+  "nearby suburb section present": "yes" | "no";
   "phone CTA present": "yes" | "no";
   "process heading": string;
+  "quote-photo guidance present": "yes" | "no";
   "quote CTA present": "yes" | "no";
+  "repeated phrase risk": "yes" | "no";
   "service intro": string;
   "switchboard summary present": "yes" | "no";
+  "thin-copy risk": "yes" | "no";
   area: string;
   postcode: string;
   region: string;
@@ -98,6 +107,21 @@ function hasIntent(
   return copy.serviceSummaries.some((summary) => summary.intent === intent);
 }
 
+function combinedCopy(copy: ReturnType<typeof getSuburbPageCopy>) {
+  return [
+    copy.heroDescription,
+    copy.heroNote,
+    copy.processDescription,
+    copy.serviceIntro,
+    ...copy.localHighlights.flatMap((item) => [item.title, item.text]),
+    ...copy.serviceSummaries.flatMap((summary) => [
+      summary.title,
+      summary.text,
+    ]),
+    ...Object.values(copy.faqAnswers),
+  ].join(" ");
+}
+
 function yesNo(value: boolean): "yes" | "no" {
   return value ? "yes" : "no";
 }
@@ -146,7 +170,11 @@ function buildAuditRows(records: SuburbRecord[]) {
     const url = pageUrl(region, area, suburb);
     const title = titleForSuburb(suburb);
     const nearbySuburbsCount = Math.min(
-      area.suburbs.filter((nearbySuburb) => nearbySuburb.slug !== suburb.slug).length,
+      region.areas.flatMap((areaItem) =>
+        areaItem.suburbs.filter(
+          (nearbySuburb) => nearbySuburb.slug !== suburb.slug,
+        ),
+      ).length,
       8,
     );
     const hash = textHash([
@@ -165,6 +193,43 @@ function buildAuditRows(records: SuburbRecord[]) {
     const emergencySummaryPresent = hasIntent(copy, "emergency");
     const level2SummaryPresent = hasIntent(copy, "level2");
     const switchboardSummaryPresent = hasIntent(copy, "switchboard");
+    const allCopy = combinedCopy(copy);
+    const localPropertyMixPresent =
+      /\b(homes|apartments|strata|shops|businesses|warehouses|units|duplexes|terraces|acreage|commercial|townhouses|villas|family homes|older homes|workshops)\b/i.test(
+        allCopy,
+      );
+    const quotePhotoGuidancePresent =
+      /\b(photo|photos|job notes|booking form|address|access|switchboard photos)\b/i.test(
+        allCopy,
+      );
+    const callFirstSafetyPresent =
+      /\b(call first|call before|phone first|unsafe|no power|power loss|sparking|burning|smoke|heat)\b/i.test(
+        allCopy,
+      );
+    const localExamplesPresent = copy.localHighlights.some((highlight) =>
+      /typical|common|examples|enquiries/i.test(
+        `${highlight.title} ${highlight.text}`,
+      ),
+    );
+    const fakeOfficeClaimPresent = new RegExp(
+      `\\b(?:office|branch)\\s+(?:in|at)\\s+${suburb.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}|\\bbased\\s+in\\s+${suburb.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`,
+      "i",
+    ).test(allCopy);
+    const guaranteedResponseClaimPresent =
+      /\b(guaranteed|30[- ]minute|1[- ]hour|same[- ]day guaranteed|always arrive|guaranteed response)\b/i.test(
+        allCopy,
+      );
+    const thinCopyRisk =
+      wordCount(copy.heroDescription) +
+        wordCount(copy.heroNote) +
+        wordCount(copy.serviceIntro) +
+        copy.localHighlights.reduce(
+          (total, highlight) => total + wordCount(highlight.text),
+          0,
+        ) <
+      170;
+    const repeatedPhraseRisk = (hashCounts.get(hash) ?? 0) > 1;
+    const nearbySuburbSectionPresent = nearbySuburbsCount > 0;
     const warnings: string[] = [];
     const areaKey = `${region.slug}/${area.slug}`;
     const duplicateSlugCount =
@@ -217,6 +282,33 @@ function buildAuditRows(records: SuburbRecord[]) {
     if (Object.keys(copy.faqAnswers).length < 5) {
       warnings.push("too few FAQs");
     }
+    if (!localPropertyMixPresent) {
+      warnings.push("local property mix missing");
+    }
+    if (!quotePhotoGuidancePresent) {
+      warnings.push("quote-photo guidance missing");
+    }
+    if (!callFirstSafetyPresent) {
+      warnings.push("call-first safety wording missing");
+    }
+    if (!localExamplesPresent) {
+      warnings.push("local examples missing");
+    }
+    if (!nearbySuburbSectionPresent) {
+      warnings.push("nearby suburb section missing");
+    }
+    if (fakeOfficeClaimPresent) {
+      warnings.push("possible fake office claim");
+    }
+    if (guaranteedResponseClaimPresent) {
+      warnings.push("possible guaranteed response-time claim");
+    }
+    if (thinCopyRisk) {
+      warnings.push("thin-copy risk");
+    }
+    if (repeatedPhraseRisk) {
+      warnings.push("repeated phrase risk");
+    }
     if ((hashCounts.get(hash) ?? 0) > 1) {
       warnings.push(`duplicate text hash shared by ${hashCounts.get(hash)} pages`);
     }
@@ -238,6 +330,10 @@ function buildAuditRows(records: SuburbRecord[]) {
       "hero note": copy.heroNote,
       "process heading": copy.processHeading,
       "service intro": copy.serviceIntro,
+      "local property mix present": yesNo(localPropertyMixPresent),
+      "quote-photo guidance present": yesNo(quotePhotoGuidancePresent),
+      "call-first safety wording present": yesNo(callFirstSafetyPresent),
+      "local examples present": yesNo(localExamplesPresent),
       "emergency summary present": yesNo(emergencySummaryPresent),
       "Level 2 summary present": yesNo(level2SummaryPresent),
       "switchboard summary present": yesNo(switchboardSummaryPresent),
@@ -247,7 +343,14 @@ function buildAuditRows(records: SuburbRecord[]) {
       "FAQ count": Object.keys(copy.faqAnswers).length,
       "internal links count": internalLinksCount,
       "nearby suburbs count": nearbySuburbsCount,
+      "nearby suburb section present": yesNo(nearbySuburbSectionPresent),
       "duplicate text hash": hash,
+      "fake office claim present": yesNo(fakeOfficeClaimPresent),
+      "guaranteed response-time claim present": yesNo(
+        guaranteedResponseClaimPresent,
+      ),
+      "thin-copy risk": yesNo(thinCopyRisk),
+      "repeated phrase risk": yesNo(repeatedPhraseRisk),
       warnings: warnings.join("; "),
     } satisfies AuditRow;
   });
@@ -272,6 +375,10 @@ const columns: (keyof AuditRow)[] = [
   "hero note",
   "process heading",
   "service intro",
+  "local property mix present",
+  "quote-photo guidance present",
+  "call-first safety wording present",
+  "local examples present",
   "emergency summary present",
   "Level 2 summary present",
   "switchboard summary present",
@@ -281,7 +388,12 @@ const columns: (keyof AuditRow)[] = [
   "FAQ count",
   "internal links count",
   "nearby suburbs count",
+  "nearby suburb section present",
   "duplicate text hash",
+  "fake office claim present",
+  "guaranteed response-time claim present",
+  "thin-copy risk",
+  "repeated phrase risk",
   "warnings",
 ];
 

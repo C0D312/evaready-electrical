@@ -9,6 +9,7 @@ import {
 } from "@/components/site-frame";
 import {
   getAreaBySlug,
+  getAreaLocalContext,
   getAreaPaths,
   getRegionBySlug,
 } from "@/data/service-area-coverage";
@@ -56,6 +57,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
     notFound();
   }
 
+  const localContext = getAreaLocalContext(region, area);
   const sortedSuburbs = rankSuburbsForInternalLinks(area.suburbs);
   const localServiceCards = [
     {
@@ -170,6 +172,12 @@ export default async function AreaPage({ params }: AreaPageProps) {
           air-conditioning electrical, CCTV/data and general electrical work
           across {area.name}.
         </p>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-slate-200">
+          Local jobs around {area.name} commonly involve
+          {" "}
+          {localContext.propertyMix}. Planned enquiries are easier to review
+          when they include {localContext.accessDetail}.
+        </p>
         <p className="mt-4 max-w-3xl text-base font-semibold leading-7 text-blue-100">
           Region: {region.name}. Extended service areas may depend on job type,
           urgency and availability.
@@ -204,6 +212,33 @@ export default async function AreaPage({ params }: AreaPageProps) {
             Choose the service that matches the job, call first for unsafe
             faults, or send photos and notes for planned work.
           </p>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {[
+              {
+                title: "Local property mix",
+                text: `${area.name} enquiries often involve ${localContext.propertyMix}.`,
+              },
+              {
+                title: "Urgent fault patterns",
+                text: `Call first for ${localContext.emergencySignals}, especially if there is heat, smoke, sparking or no power.`,
+              },
+              {
+                title: "Level 2 and switchboards",
+                text: `Level 2 enquiries can involve ${localContext.level2Detail}; switchboards often need checks for ${localContext.switchboardDetail}.`,
+              },
+            ].map((item) => (
+              <article
+                key={item.title}
+                className="rounded-lg border border-slate-200 bg-slate-50 p-5"
+              >
+                <h3 className="text-lg font-black text-slate-950">
+                  {item.title}
+                </h3>
+                <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
+              </article>
+            ))}
+          </div>
 
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {localServiceCards.map((card) => (
@@ -345,6 +380,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
           <div className="flex flex-col gap-4 sm:flex-row">
             <a
               href={business.phoneHref}
+              data-conversion-action="phone-click"
               aria-label={business.callCta}
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
             >
@@ -356,6 +392,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
               href={business.bookingUrl}
               aria-label="Get a quote from Evaready Electrical"
               data-quote-trigger="true"
+              data-conversion-action="quote-click"
               aria-haspopup="dialog"
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
             >

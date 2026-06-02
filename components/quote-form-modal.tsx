@@ -264,6 +264,7 @@ export function QuoteFormModal() {
         <div className="quote-modal-action-bar">
           <a
             href={business.phoneHref}
+            data-conversion-action="phone-click"
             aria-label={business.callCta}
             className="quote-modal-emergency"
           >

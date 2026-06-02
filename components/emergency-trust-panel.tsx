@@ -81,6 +81,7 @@ export function EmergencyTrustPanel({ className = "" }: { className?: string }) 
             <div className="mt-7 grid gap-3 sm:flex sm:flex-wrap">
               <a
                 href={business.phoneHref}
+                data-conversion-action="phone-click"
                 aria-label={business.callCta}
                 className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-red-600 px-5 py-3 font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
               >
@@ -90,6 +91,7 @@ export function EmergencyTrustPanel({ className = "" }: { className?: string }) 
               <a
                 href={business.bookingUrl}
                 data-quote-trigger="true"
+                data-conversion-action="quote-click"
                 aria-haspopup="dialog"
                 aria-label="Get a quote from Evaready Electrical"
                 className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-blue-700 px-5 py-3 font-black text-white shadow-xl shadow-blue-700/20 transition hover:bg-blue-600"

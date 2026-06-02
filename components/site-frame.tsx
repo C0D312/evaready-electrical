@@ -74,6 +74,7 @@ export function SiteHeader() {
               <a
                 href={business.bookingUrl}
                 data-quote-trigger="true"
+                data-conversion-action="quote-click"
                 aria-haspopup="dialog"
                 aria-label="Get a quote from Evaready Electrical"
                 className="site-header-quote inline-flex min-h-10 shrink-0 items-center justify-center gap-1 rounded-lg bg-blue-700 px-2.5 py-2 text-[0.68rem] font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 min-[380px]:px-3 sm:min-h-11 sm:gap-2 sm:px-4 sm:text-sm lg:px-4 lg:py-3"
@@ -87,6 +88,7 @@ export function SiteHeader() {
 
               <a
                 href={business.phoneHref}
+                data-conversion-action="phone-click"
                 aria-label={business.callCta}
                 className="hidden min-h-10 w-[7.15rem] shrink-0 items-center justify-center gap-1 rounded-lg bg-red-600 px-1 py-2 text-[0.52rem] font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 min-[380px]:w-[7.75rem] min-[380px]:text-[0.58rem] sm:min-h-11 sm:w-auto sm:gap-2 sm:px-4 sm:text-sm md:inline-flex"
               >

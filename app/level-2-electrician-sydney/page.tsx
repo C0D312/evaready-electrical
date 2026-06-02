@@ -13,6 +13,7 @@ import {
   ShieldCheck,
   Zap,
 } from "lucide-react";
+import { GoogleReviewProof } from "@/components/google-review-proof";
 import { QuoteRequestPanel } from "@/components/quote-request-panel";
 import {
   ServiceCredentialStrip,
@@ -181,6 +182,7 @@ function CallActionLink({ className = "" }: { className?: string }) {
   return (
     <a
       href={business.phoneHref}
+      data-conversion-action="phone-click"
       aria-label={business.callCta}
       className={`inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500 ${className}`}
     >
@@ -195,6 +197,7 @@ function QuoteActionLink({ className = "" }: { className?: string }) {
     <a
       href={business.bookingUrl}
       data-quote-trigger="true"
+      data-conversion-action="quote-click"
       aria-haspopup="dialog"
       aria-label="Get a quote from Evaready Electrical for Level 2 electrical work"
       className={`inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-700 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-700/25 transition hover:bg-blue-600 ${className}`}
@@ -392,6 +395,11 @@ export default function Level2ElectricianSydneyPage() {
       </section>
 
       <TrustSymbolBand className="border-b border-slate-200" />
+
+      <GoogleReviewProof
+        heading="Review Evaready Electrical before sending Level 2 details."
+        subheading="Level 2 enquiries often need photos, paperwork and clear communication. Read Evaready Electrical on Google before sending planned work details."
+      />
 
       <section className="bg-slate-50 py-20 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">

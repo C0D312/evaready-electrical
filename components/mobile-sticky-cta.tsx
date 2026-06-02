@@ -36,6 +36,7 @@ export function MobileStickyCta() {
     >
       <a
         href={business.phoneHref}
+        data-conversion-action="phone-click"
         aria-label={business.callCta}
         title={business.callCta}
         className="mobile-sticky-cta__link mobile-sticky-cta__call"
@@ -46,6 +47,7 @@ export function MobileStickyCta() {
       <a
         href={business.bookingUrl}
         data-quote-trigger="true"
+        data-conversion-action="quote-click"
         aria-haspopup="dialog"
         aria-label="Get a quote from Evaready Electrical"
         className="mobile-sticky-cta__link mobile-sticky-cta__quote"

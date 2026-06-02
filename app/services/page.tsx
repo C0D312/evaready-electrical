@@ -538,6 +538,7 @@ export default function ServicesPage() {
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a
                 href={business.phoneHref}
+                data-conversion-action="phone-click"
                 aria-label={business.callCta}
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
               >
@@ -548,6 +549,7 @@ export default function ServicesPage() {
               <a
                 href={business.bookingUrl}
                 data-quote-trigger="true"
+                data-conversion-action="quote-click"
                 aria-haspopup="dialog"
                 aria-label="Get a quote from Evaready Electrical"
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
@@ -697,6 +699,7 @@ export default function ServicesPage() {
           <div className="flex flex-col gap-4 sm:flex-row">
             <a
               href={business.phoneHref}
+              data-conversion-action="phone-click"
               aria-label={business.callCta}
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
             >
@@ -707,6 +710,7 @@ export default function ServicesPage() {
             <a
               href={business.bookingUrl}
               data-quote-trigger="true"
+              data-conversion-action="quote-click"
               aria-haspopup="dialog"
               aria-label="Get a quote from Evaready Electrical"
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"

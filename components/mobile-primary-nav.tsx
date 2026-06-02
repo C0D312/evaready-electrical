@@ -153,6 +153,7 @@ export function MobilePrimaryNav() {
           <a
             href={business.bookingUrl}
             data-quote-trigger="true"
+            data-conversion-action="quote-click"
             aria-haspopup="dialog"
             aria-label="Get a quote from Evaready Electrical"
             onClick={() => setOpen(false)}
@@ -163,6 +164,7 @@ export function MobilePrimaryNav() {
           </a>
           <a
             href={business.phoneHref}
+            data-conversion-action="phone-click"
             aria-label={business.callCta}
             onClick={() => setOpen(false)}
             className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-3 text-sm font-black text-white shadow-lg shadow-red-600/20"

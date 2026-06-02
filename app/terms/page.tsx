@@ -79,7 +79,7 @@ export default function TermsPage() {
             <h2>Emergency electrical faults</h2>
             <p>
               For urgent hazards, call Evaready Electrical directly on{" "}
-              <a href={business.phoneHref} aria-label={business.callCta}>
+              <a href={business.phoneHref} aria-label={business.callCta} data-conversion-action="phone-click">
                 {business.phoneDisplay}
               </a>
               . Do not rely on a form submission for immediate danger, unsafe
@@ -200,7 +200,7 @@ export default function TermsPage() {
             <p>
               For questions about these terms, contact Evaready Electrical by
               email at <a href={business.emailHref}>{business.email}</a> or call{" "}
-              <a href={business.phoneHref} aria-label={business.callCta}>
+              <a href={business.phoneHref} aria-label={business.callCta} data-conversion-action="phone-click">
                 {business.phoneDisplay}
               </a>
               .
@@ -223,6 +223,7 @@ export default function TermsPage() {
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a
                 href={business.phoneHref}
+                data-conversion-action="phone-click"
                 aria-label={business.callCta}
                 className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-gradient-to-r from-[#ff1236] to-[#ff4b3f] px-6 py-3 text-base font-black text-white shadow-[0_16px_40px_rgba(255,18,54,0.3)]"
               >
@@ -231,6 +232,7 @@ export default function TermsPage() {
               <a
                 href={business.bookingUrl}
                 data-quote-trigger="true"
+                data-conversion-action="quote-click"
                 aria-haspopup="dialog"
                 className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-gradient-to-r from-[#0b7cff] to-[#00c8ff] px-6 py-3 text-base font-black text-white"
               >

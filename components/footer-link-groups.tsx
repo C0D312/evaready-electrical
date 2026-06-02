@@ -115,6 +115,11 @@ function FooterNavLink({ link, isVisible }: { link: FooterLink; isVisible: boole
   const commonProps = {
     "aria-haspopup": link.quoteTrigger ? "dialog" : undefined,
     "data-quote-trigger": link.quoteTrigger ? "true" : undefined,
+    "data-conversion-action": link.quoteTrigger
+      ? "quote-click"
+      : link.href === business.phoneHref
+        ? "phone-click"
+        : undefined,
     "aria-label":
       link.action === "call"
         ? business.callCta

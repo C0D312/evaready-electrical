@@ -82,6 +82,10 @@ export type SuburbPageCopy = {
   faqHeading: string;
   heroDescription: string;
   heroNote: string;
+  localHighlights: {
+    text: string;
+    title: string;
+  }[];
   metaDescription: string;
   processDescription: string;
   processHeading: string;
@@ -532,11 +536,49 @@ function getLocalPageContext(
   };
 }
 
+function firstSuburbForArea(area: CoverageArea, fallbackName: string) {
+  return (
+    area.suburbs[0] ?? {
+      name: fallbackName,
+      postcode: "",
+      slug: area.slug,
+    }
+  );
+}
+
+export function getAreaLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+) {
+  return getLocalPageContext(
+    coverageRegion,
+    coverageArea,
+    firstSuburbForArea(coverageArea, coverageArea.name),
+  );
+}
+
+export function getRegionLocalContext(coverageRegion: CoverageRegion) {
+  const firstArea =
+    coverageRegion.areas[0] ?? ({
+      description: coverageRegion.description,
+      name: coverageRegion.name,
+      slug: coverageRegion.slug,
+      suburbs: [],
+    } satisfies CoverageArea);
+
+  return getLocalPageContext(
+    coverageRegion,
+    firstArea,
+    firstSuburbForArea(firstArea, coverageRegion.name),
+  );
+}
+
 type SuburbCopyOverride = Partial<
   Pick<
     SuburbPageCopy,
     | "heroDescription"
     | "heroNote"
+    | "localHighlights"
     | "metaDescription"
     | "processDescription"
     | "serviceIntro"
@@ -1535,6 +1577,29 @@ export function getSuburbPageCopy(
     },
   ];
 
+  const localHighlights = [
+    {
+      title: "Local property mix",
+      text: `${coverageSuburb.name} electrical work can involve ${context.propertyMix}. Common enquiries include ${context.commonJobs}, with the site details checked before work is scoped.`,
+    },
+    {
+      title: "Urgent fault patterns",
+      text: `Call first in ${coverageSuburb.name} for ${context.emergencySignals}, especially if there is no power, heat, smoke, sparking, water near electrical fittings or repeated tripping.`,
+    },
+    {
+      title: "Level 2 and switchboards",
+      text: `Level 2 enquiries may involve ${context.level2Detail}. Switchboard checks often look at ${context.switchboardDetail} before upgrades or repairs are recommended.`,
+    },
+    {
+      title: "Access and quote details",
+      text: `For planned work, send ${context.accessDetail}, plus photos, job notes and the address through the secure booking form so the next step can be reviewed.`,
+    },
+    {
+      title: "Typical local examples",
+      text: `Typical ${coverageSuburb.name} examples include ${context.plannedWork}. For unsafe symptoms, phone first; for planned work, photos help keep the quote process clear.`,
+    },
+  ];
+
   const generatedCopy: SuburbPageCopy = {
     ctaHeading: pick(
       [
@@ -1564,6 +1629,7 @@ export function getSuburbPageCopy(
     faqIntro: `Use these quick answers to decide whether to call for an urgent hazard or open the booking form for planned work in ${coverageSuburb.name}.`,
     heroDescription,
     heroNote,
+    localHighlights,
     metaDescription: clampMetaDescription(
       pick(
         [

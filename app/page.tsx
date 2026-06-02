@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { HeroCredentialBadges } from "@/components/credential-badges";
 import { EmergencyTrustPanel } from "@/components/emergency-trust-panel";
+import { GoogleReviewProof } from "@/components/google-review-proof";
 import { QuoteProcessGraphic } from "@/components/quote-process-graphic";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
@@ -187,6 +188,7 @@ function PhoneLinkedText({ text }: { text: string }) {
           {index < parts.length - 1 ? (
             <a
               href={business.phoneHref}
+              data-conversion-action="phone-click"
               aria-label={business.callCta}
               className="font-black text-blue-700 underline underline-offset-2 hover:text-blue-900"
             >
@@ -260,6 +262,7 @@ export default function HomePage() {
             <div className="mt-7 grid gap-3 sm:flex sm:flex-wrap">
               <a
                 href={business.phoneHref}
+                data-conversion-action="phone-click"
                 aria-label={business.callCta}
                 className="inline-flex min-h-14 items-center justify-center gap-3 rounded-lg bg-red-600 px-6 py-4 text-center text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500 sm:px-7"
               >
@@ -272,6 +275,7 @@ export default function HomePage() {
                 href={business.bookingUrl}
                 aria-label="Get a quote from Evaready Electrical"
                 data-quote-trigger="true"
+                data-conversion-action="quote-click"
                 aria-haspopup="dialog"
                 className="inline-flex min-h-14 items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 text-center text-base font-black text-white shadow-xl shadow-blue-700/20 transition hover:bg-blue-600 sm:px-7"
               >
@@ -286,6 +290,8 @@ export default function HomePage() {
       </section>
 
       <EmergencyTrustPanel className="border-y border-cyan-300/15" />
+
+      <GoogleReviewProof />
 
       <section className="issue-selector-section border-y border-cyan-300/15 bg-slate-950 py-12 text-white sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -303,6 +309,7 @@ export default function HomePage() {
               <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
                 <a
                   href={business.phoneHref}
+                  data-conversion-action="phone-click"
                   aria-label={business.callCta}
                   className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-red-600 px-5 py-3 font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
                 >
@@ -313,6 +320,7 @@ export default function HomePage() {
                   href={business.bookingUrl}
                   aria-label="Get a quote from Evaready Electrical"
                   data-quote-trigger="true"
+                  data-conversion-action="quote-click"
                   aria-haspopup="dialog"
                   className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-blue-700 px-5 py-3 font-black text-white shadow-xl shadow-blue-700/20 transition hover:bg-blue-600"
                 >
@@ -376,6 +384,7 @@ export default function HomePage() {
                   Urgent electrical fault?{" "}
                   <a
                     href={business.phoneHref}
+                    data-conversion-action="phone-click"
                     aria-label={business.callCta}
                     className="underline underline-offset-2"
                   >
@@ -389,6 +398,7 @@ export default function HomePage() {
                 <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
                   <a
                     href={business.phoneHref}
+                    data-conversion-action="phone-click"
                     aria-label={business.callCta}
                     className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-red-600 px-5 py-3 font-black text-white shadow-lg shadow-red-600/25 transition hover:bg-red-500"
                   >
@@ -401,6 +411,7 @@ export default function HomePage() {
                     href={business.bookingUrl}
                     aria-label="Get a quote from Evaready Electrical"
                     data-quote-trigger="true"
+                    data-conversion-action="quote-click"
                     aria-haspopup="dialog"
                     className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-blue-700 px-5 py-3 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
                   >
@@ -488,6 +499,7 @@ export default function HomePage() {
             <div className="mt-7 grid gap-3 sm:flex">
               <a
                 href={business.phoneHref}
+                data-conversion-action="phone-click"
                 aria-label={business.callCta}
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-6 py-4 font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500"
               >
@@ -500,6 +512,7 @@ export default function HomePage() {
                 href={business.bookingUrl}
                 aria-label="Get a quote from Evaready Electrical"
                 data-quote-trigger="true"
+                data-conversion-action="quote-click"
                 aria-haspopup="dialog"
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
               >
@@ -610,6 +623,7 @@ export default function HomePage() {
                     <div className="mt-4 flex flex-col gap-3 sm:flex-row">
                       <a
                         href={business.phoneHref}
+                        data-conversion-action="phone-click"
                         aria-label={business.callCta}
                         className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-3 text-sm font-black text-white shadow-sm transition hover:bg-red-500 sm:w-auto"
                       >
@@ -622,6 +636,7 @@ export default function HomePage() {
                         href={business.bookingUrl}
                         aria-label="Get a quote from Evaready Electrical"
                         data-quote-trigger="true"
+                        data-conversion-action="quote-click"
                         aria-haspopup="dialog"
                         className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-sm transition hover:bg-blue-600 sm:w-auto"
                       >

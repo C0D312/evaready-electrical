@@ -7,6 +7,7 @@ import {
   Zap,
 } from "lucide-react";
 import { EmergencyTrustPanel } from "@/components/emergency-trust-panel";
+import { GoogleReviewProof } from "@/components/google-review-proof";
 import { QuoteRequestPanel } from "@/components/quote-request-panel";
 import {
   ServiceCredentialStrip,
@@ -210,6 +211,7 @@ function EmergencyActionLink({
   return (
     <a
       href={business.phoneHref}
+      data-conversion-action="phone-click"
       aria-label={business.callCta}
       className={`inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500 ${compact ? "px-5 py-3 text-sm" : "px-7 py-4 text-base"} ${className}`}
     >
@@ -230,6 +232,7 @@ function QuoteActionLink({
     <a
       href={business.bookingUrl}
       data-quote-trigger="true"
+      data-conversion-action="quote-click"
       aria-haspopup="dialog"
       aria-label="Get a quote from Evaready Electrical"
       className={`inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-600 font-black text-white shadow-xl shadow-blue-600/20 transition hover:bg-blue-500 ${compact ? "px-5 py-3 text-sm" : "px-7 py-4 text-base"} ${className}`}
@@ -437,6 +440,11 @@ export default function EmergencyElectricianSydneyPage() {
 
       <EmergencyTrustPanel className="border-b border-cyan-300/15" />
 
+      <GoogleReviewProof
+        heading="Check Evaready Electrical reviews before you call."
+        subheading="For urgent electrical faults, call first. You can also view Evaready Electrical on Google to read real customer feedback before booking planned work."
+      />
+
       <TrustSymbolBand className="border-b border-slate-200" />
 
       <section className="bg-slate-50 py-24">
@@ -464,6 +472,9 @@ export default function EmergencyElectricianSydneyPage() {
                   key={item.title}
                   href={item.href}
                   aria-label={item.href === business.phoneHref ? business.callCta : item.title}
+                  data-conversion-action={
+                    item.href === business.phoneHref ? "phone-click" : undefined
+                  }
                   className="group flex min-h-28 gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-red-300 hover:bg-red-50"
                 >
                   <Zap className="mt-1 h-5 w-5 shrink-0 text-red-600" aria-hidden="true" />
@@ -585,6 +596,9 @@ export default function EmergencyElectricianSydneyPage() {
                   key={item.title}
                   href={item.href}
                   aria-label={item.href === business.phoneHref ? business.callCta : item.title}
+                  data-conversion-action={
+                    item.href === business.phoneHref ? "phone-click" : undefined
+                  }
                   className="group flex gap-3 rounded-lg border border-red-100 bg-white p-5 transition hover:border-red-300 hover:bg-red-50"
                 >
                   <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" aria-hidden="true" />

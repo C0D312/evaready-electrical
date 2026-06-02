@@ -10,6 +10,7 @@ import {
   ShieldCheck,
   Wrench,
 } from "lucide-react";
+import { GoogleReviewProof } from "@/components/google-review-proof";
 import {
   getServiceCredentialItems,
   ServiceCredentialStrip,
@@ -262,6 +263,7 @@ export default async function ServiceLandingPage({
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href={business.phoneHref}
+                data-conversion-action="phone-click"
                 aria-label={business.callCta}
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
               >
@@ -272,6 +274,7 @@ export default async function ServiceLandingPage({
               <a
                 href={business.bookingUrl}
                 data-quote-trigger="true"
+                data-conversion-action="quote-click"
                 aria-haspopup="dialog"
                 aria-label="Get a quote from Evaready Electrical"
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
@@ -291,12 +294,15 @@ export default async function ServiceLandingPage({
                 <a
                   key={item}
                   href={isUrgentService ? business.phoneHref : business.bookingUrl}
-                  {...(!isUrgentService
+                  {...(isUrgentService
                     ? {
-                        "data-quote-trigger": "true",
-                        "aria-haspopup": "dialog" as const,
+                        "data-conversion-action": "phone-click",
                       }
-                    : {})}
+                    : {
+                        "data-quote-trigger": "true",
+                        "data-conversion-action": "quote-click",
+                        "aria-haspopup": "dialog" as const,
+                      })}
                   aria-label={
                     isUrgentService
                       ? `Call Evaready Electrical about ${item}`
@@ -324,6 +330,7 @@ export default async function ServiceLandingPage({
                 shock risk or loss of power,{" "}
                 <a
                   href={business.phoneHref}
+                  data-conversion-action="phone-click"
                   aria-label={business.callCta}
                   className="font-black text-white underline decoration-cyan-300/70 underline-offset-4 transition hover:text-cyan-100"
                 >
@@ -337,6 +344,11 @@ export default async function ServiceLandingPage({
       </section>
 
       <TrustSymbolBand className="border-b border-slate-200" />
+
+      <GoogleReviewProof
+        heading={`Read Evaready Electrical reviews before booking ${service.title.toLowerCase()}.`}
+        subheading="View Evaready Electrical on Google before sending planned job details. For unsafe electrical faults, use the phone first."
+      />
 
       <section className="bg-slate-50 py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
@@ -360,6 +372,7 @@ export default async function ServiceLandingPage({
                 key={item}
                 href={business.bookingUrl}
                 data-quote-trigger="true"
+                data-conversion-action="quote-click"
                 aria-haspopup="dialog"
                 aria-label={`Request a quote for ${item}`}
                 className="group rounded-lg border border-slate-200 bg-white p-4 shadow-sm transition hover:border-blue-500 hover:bg-blue-50"
@@ -400,6 +413,7 @@ export default async function ServiceLandingPage({
                 <a
                   key={item}
                   href={business.phoneHref}
+                  data-conversion-action="phone-click"
                   aria-label={`Call Evaready Electrical about ${item}`}
                   className="group rounded-lg p-2 transition hover:bg-red-50"
                 >
@@ -469,6 +483,7 @@ export default async function ServiceLandingPage({
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a
                 href={business.phoneHref}
+                data-conversion-action="phone-click"
                 aria-label={business.callCta}
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-6 py-4 font-black text-white transition hover:bg-red-500"
               >
@@ -478,6 +493,7 @@ export default async function ServiceLandingPage({
               <a
                 href={business.bookingUrl}
                 data-quote-trigger="true"
+                data-conversion-action="quote-click"
                 aria-haspopup="dialog"
                 aria-label="Get a quote from Evaready Electrical"
                 className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white transition hover:bg-blue-600"
@@ -553,6 +569,7 @@ export default async function ServiceLandingPage({
                   key={link.href}
                   href={link.href}
                   data-quote-trigger="true"
+                  data-conversion-action="quote-click"
                   aria-haspopup="dialog"
                   className="group rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-600 hover:bg-blue-50"
                 >
@@ -593,6 +610,7 @@ export default async function ServiceLandingPage({
           <div className="flex flex-col gap-3 sm:flex-row">
             <a
               href={business.phoneHref}
+              data-conversion-action="phone-click"
               aria-label={business.callCta}
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
             >
@@ -602,6 +620,7 @@ export default async function ServiceLandingPage({
             <a
               href={business.bookingUrl}
               data-quote-trigger="true"
+              data-conversion-action="quote-click"
               aria-haspopup="dialog"
               aria-label="Get a quote from Evaready Electrical"
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"

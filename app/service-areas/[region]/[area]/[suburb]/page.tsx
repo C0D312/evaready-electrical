@@ -10,6 +10,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { notFound } from "next/navigation";
+import { GoogleReviewProof } from "@/components/google-review-proof";
 import {
   ServiceAreaHero,
   SiteFooter,
@@ -84,7 +85,14 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
   }
 
   const nearbySuburbs = rankSuburbsForInternalLinks(
-    area.suburbs.filter((nearbySuburb) => nearbySuburb.slug !== suburb.slug),
+    region.areas.flatMap((areaItem) =>
+      areaItem.suburbs
+        .filter((nearbySuburb) => nearbySuburb.slug !== suburb.slug)
+        .map((nearbySuburb) => ({
+          ...nearbySuburb,
+          areaSlug: areaItem.slug,
+        })),
+    ),
   ).slice(0, 8);
   const copy = getSuburbPageCopy(region, area, suburb);
 
@@ -193,6 +201,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">
           <a
             href={business.phoneHref}
+            data-conversion-action="phone-click"
             aria-label={business.callCta}
             className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
           >
@@ -204,6 +213,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
             href={business.bookingUrl}
             aria-label="Get a quote from Evaready Electrical"
             data-quote-trigger="true"
+            data-conversion-action="quote-click"
             aria-haspopup="dialog"
             className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-700/25 transition hover:bg-blue-600"
           >
@@ -226,6 +236,44 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
               <span className="font-bold text-slate-800">{item}</span>
             </div>
           ))}
+        </div>
+      </section>
+
+      <GoogleReviewProof
+        compact
+        heading={`Read Evaready Electrical reviews before booking an electrician in ${suburb.name}.`}
+        subheading={`View Evaready Electrical on Google before sending planned electrical details for ${suburb.name}. If the fault feels unsafe, call first.`}
+      />
+
+      <section className="bg-white py-20">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+              Local site notes
+            </p>
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+              Practical electrical support around {suburb.name}.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">
+              These local notes help separate urgent call-first faults from
+              planned work that can be reviewed through the secure booking
+              form with photos and job details.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            {copy.localHighlights.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-lg border border-slate-200 bg-slate-50 p-6"
+              >
+                <h3 className="text-xl font-black text-slate-950">
+                  {item.title}
+                </h3>
+                <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -357,6 +405,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                   key={item.label}
                   href={item.href}
                   data-quote-trigger="true"
+                  data-conversion-action="quote-click"
                   aria-haspopup="dialog"
                   className="group rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-600 hover:bg-blue-50"
                 >
@@ -433,7 +482,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
             {nearbySuburbs.map((nearbySuburb) => (
               <Link
                 key={nearbySuburb.slug}
-                href={`/service-areas/${region.slug}/${area.slug}/${nearbySuburb.slug}`}
+                href={`/service-areas/${region.slug}/${nearbySuburb.areaSlug}/${nearbySuburb.slug}`}
                 className="flex items-center justify-between gap-4 rounded-lg border border-slate-200 bg-white px-4 py-3 font-bold text-slate-800 transition hover:border-blue-600 hover:bg-blue-50"
               >
                 <span>
@@ -460,6 +509,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
           <div className="flex flex-col gap-4 sm:flex-row">
             <a
               href={business.phoneHref}
+              data-conversion-action="phone-click"
               aria-label={business.callCta}
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
             >
@@ -471,6 +521,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
               href={business.bookingUrl}
               aria-label="Get a quote from Evaready Electrical"
               data-quote-trigger="true"
+              data-conversion-action="quote-click"
               aria-haspopup="dialog"
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
             >
