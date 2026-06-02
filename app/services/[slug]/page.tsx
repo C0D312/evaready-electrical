@@ -97,12 +97,33 @@ const finalCtaEyebrows: Record<string, string> = {
   "intercom-access-control-electrician-sydney": "Need intercom or access control wiring?",
   "storm-damage-electrician-sydney": "Need storm-damaged electrical work checked?",
   "electrical-load-capacity-checks-sydney": "Need load or capacity checked?",
+  "point-of-attachment-repairs-sydney": "Need point of attachment work reviewed?",
+  "overhead-service-lines-sydney": "Need overhead service line support?",
+  "underground-service-mains-sydney": "Need underground service mains checked?",
+  "disconnect-reconnect-electrician-sydney": "Planning disconnect and reconnect work?",
+  "electrical-safety-inspection-sydney": "Need an electrical safety inspection?",
+  "testing-and-tagging-sydney": "Need testing and tagging support?",
+  "phone-line-electrician-sydney": "Need phone line or cabling help?",
+  "intercom-installation-sydney": "Need intercom installation wiring?",
+  "tv-points-antenna-electrician-sydney": "Need TV points or antenna cabling?",
+  "emergency-exit-lighting-sydney": "Need emergency or exit lighting checked?",
+  "hot-power-point-electrician-sydney": "Hot power point or burning smell?",
+  "electric-shock-electrician-sydney": "Electric shock or tingling fault?",
+  "circuit-breaker-electrician-sydney": "Need circuit breaker fault support?",
+  "rcd-safety-switch-repairs-sydney": "Need RCD or safety switch repairs?",
+  "smart-meter-electrician-sydney": "Need smart meter electrical support?",
 };
 
 const urgentServiceSlugs = new Set([
   "electrical-fault-finding-sydney",
   "private-power-pole-sydney",
   "storm-damage-electrician-sydney",
+  "hot-power-point-electrician-sydney",
+  "electric-shock-electrician-sydney",
+  "circuit-breaker-electrician-sydney",
+  "rcd-safety-switch-repairs-sydney",
+  "overhead-service-lines-sydney",
+  "point-of-attachment-repairs-sydney",
 ]);
 
 function finalCtaEyebrow(service: { slug: string; title: string }) {

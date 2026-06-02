@@ -4,6 +4,7 @@ import {
   Building2,
   Flame,
   Home,
+  Phone,
   ShieldCheck,
   Wrench,
   Zap,
@@ -230,6 +231,126 @@ export const services = [
     icon: BadgeCheck,
     intent: "Level 2",
   },
+  {
+    title: "Point of Attachment Repairs",
+    slug: "point-of-attachment-repairs-sydney",
+    description:
+      "Supply-side support for damaged point of attachment issues, overhead connections and defect notice enquiries.",
+    icon: Bolt,
+    intent: "Level 2",
+  },
+  {
+    title: "Overhead Service Lines",
+    slug: "overhead-service-lines-sydney",
+    description:
+      "Overhead service line support for damaged supply connections, private poles, point of attachment issues and defects.",
+    icon: Bolt,
+    intent: "Level 2",
+  },
+  {
+    title: "Underground Service Mains",
+    slug: "underground-service-mains-sydney",
+    description:
+      "Underground service mains support for supply upgrades, consumer mains, defect notices and service equipment.",
+    icon: Wrench,
+    intent: "Level 2",
+  },
+  {
+    title: "Disconnect & Reconnect",
+    slug: "disconnect-reconnect-electrician-sydney",
+    description:
+      "Disconnect and reconnect planning for renovations, supply-side electrical work, service equipment and defects.",
+    icon: Wrench,
+    intent: "Level 2",
+  },
+  {
+    title: "Electrical Safety Inspections",
+    slug: "electrical-safety-inspection-sydney",
+    description:
+      "Safety checks for switchboards, wiring, power points, safety switches, lighting and property electrical concerns.",
+    icon: ShieldCheck,
+    intent: "Compliance",
+  },
+  {
+    title: "Testing and Tagging",
+    slug: "testing-and-tagging-sydney",
+    description:
+      "Testing and tagging support for workplaces, managed properties, portable equipment and electrical records.",
+    icon: BadgeCheck,
+    intent: "Compliance",
+  },
+  {
+    title: "Phone Line Electrician",
+    slug: "phone-line-electrician-sydney",
+    description:
+      "Internal phone outlets, communications cabling, data point support and eligible phone line cabling work.",
+    icon: Phone,
+    intent: "Communications",
+  },
+  {
+    title: "Intercom Installation",
+    slug: "intercom-installation-sydney",
+    description:
+      "Intercom installation wiring, entry system support, gate power and access control electrical provisions.",
+    icon: ShieldCheck,
+    intent: "Security",
+  },
+  {
+    title: "TV Points & Antenna",
+    slug: "tv-points-antenna-electrician-sydney",
+    description:
+      "TV points, antenna outlets, wall-mount power, media cabling and tidy home entertainment wiring.",
+    icon: Zap,
+    intent: "Communications",
+  },
+  {
+    title: "Emergency & Exit Lighting",
+    slug: "emergency-exit-lighting-sydney",
+    description:
+      "Emergency and exit lighting support for shops, offices, strata, warehouses and commercial safety lighting.",
+    icon: BadgeCheck,
+    intent: "Commercial",
+  },
+  {
+    title: "Hot Power Point",
+    slug: "hot-power-point-electrician-sydney",
+    description:
+      "Urgent fault checks for hot outlets, burning smells, buzzing sockets, damaged wiring and unsafe power points.",
+    icon: Flame,
+    intent: "Emergency",
+  },
+  {
+    title: "Electric Shock Faults",
+    slug: "electric-shock-electrician-sydney",
+    description:
+      "Urgent electrical support for shock risk, tingles, wet fittings, faulty appliances and unsafe circuits.",
+    icon: Flame,
+    intent: "Emergency",
+  },
+  {
+    title: "Circuit Breaker Electrician",
+    slug: "circuit-breaker-electrician-sydney",
+    description:
+      "Circuit breaker fault finding, tripping breaker checks, switchboard protection and overload support.",
+    icon: ShieldCheck,
+    intent: "Emergency",
+  },
+  {
+    title: "RCD Safety Switch Repairs",
+    slug: "rcd-safety-switch-repairs-sydney",
+    description:
+      "RCD and safety switch repairs for tripping circuits, moisture faults, RCBO upgrades and switchboard protection.",
+    icon: ShieldCheck,
+    intent: "Emergency",
+  },
+  {
+    title: "Smart Meter Electrician",
+    slug: "smart-meter-electrician-sydney",
+    description:
+      "Meter area checks, switchboard preparation, service equipment support and smart meter related electrical enquiries.",
+    icon: BadgeCheck,
+    intent: "Level 2",
+  },
 ];
 
 export const quoteServiceOptions = [
@@ -242,10 +363,13 @@ export const quoteServiceOptions = [
   "Level 2 Electrician",
   "Consumer Mains",
   "Defect Notice Repairs",
+  "Point of Attachment Repairs",
   "Private Power Pole",
   "Overhead Service Work",
   "Underground Service Work",
+  "Disconnect and Reconnect Electrical Work",
   "Metering Services",
+  "Smart Meter Electrical Support",
   "3 Phase Power",
   "Hot Water System Electrical",
   "CCTV Electrician",
@@ -291,6 +415,7 @@ export const quoteServiceOptions = [
   "New Build Electrical",
   "Electrical Safety Inspections",
   "Testing and Tagging",
+  "Emergency and Exit Lighting",
   "Electrical Property Reports",
   "Home Automation",
   "Intercom Installation",
@@ -300,6 +425,10 @@ export const quoteServiceOptions = [
   "Exit and Emergency Lighting",
   "Storm Damage Electrical Repairs",
   "Emergency Appliance Disconnection",
+  "Hot Power Point Fault",
+  "Electric Shock Electrical Fault",
+  "Circuit Breaker Repairs",
+  "RCD Safety Switch Repairs",
   "USB Power Point Installation",
   "Antenna Installation",
   "TV Points",

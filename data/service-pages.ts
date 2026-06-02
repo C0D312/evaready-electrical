@@ -2061,6 +2061,1093 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "level-2-electrician-sydney",
     ],
   },
+  {
+    slug: "point-of-attachment-repairs-sydney",
+    metaTitle: "Point of Attachment Repairs Sydney",
+    metaDescription:
+      "Point of attachment repairs in Sydney for damaged brackets, overhead supply issues, defect notices and supply-side electrical enquiries.",
+    title: "Point of Attachment Repairs Sydney & Surrounding Regions",
+    description:
+      "Supply-side electrical support for damaged point of attachment issues, overhead supply enquiries and defect notice work.",
+    intro:
+      "The point of attachment is where the overhead service connects to the property. If it is damaged, loose, affected by storm damage or listed on a defect notice, Evaready Electrical can review the electrical side of the issue and explain the next step clearly.",
+    heroBullets: [
+      "Point of attachment checks",
+      "Overhead supply issues",
+      "Defect notice support",
+      "Supply-side electrical enquiries",
+    ],
+    warningSigns: [
+      "The overhead service bracket looks damaged, loose or pulled away",
+      "A defect notice mentions the point of attachment",
+      "Storm damage has affected overhead supply equipment",
+      "There is sparking, heat or visible damage near the supply connection",
+    ],
+    services: [
+      "Point of attachment inspection and advice",
+      "Damaged bracket and connection support",
+      "Defect notice review",
+      "Overhead service work planning",
+      "Consumer mains and supply-side checks",
+      "Network or retailer paperwork guidance where relevant",
+    ],
+    process: [
+      {
+        title: "Send the notice or photos",
+        text: "Share photos of the point of attachment, switchboard, service line and any defect notice if it is safe to take them.",
+      },
+      {
+        title: "Review the supply side",
+        text: "The connection, consumer mains and related service equipment are checked before the scope is explained.",
+      },
+      {
+        title: "Plan the correct pathway",
+        text: "Where network or retailer requirements apply, the next step is explained without promising third-party approvals or timeframes.",
+      },
+      {
+        title: "Complete and document",
+        text: "Approved electrical work is completed, tested and documented where required for the job type.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Is a damaged point of attachment urgent?",
+        answer:
+          "It can be. If the service line looks damaged, loose, sparking or unsafe, keep clear and call directly before touching the area.",
+      },
+      {
+        question: "Can a defect notice mention the point of attachment?",
+        answer:
+          "Yes. Defect notices can list point of attachment, overhead service or consumer mains issues that need the correct electrical process.",
+      },
+      {
+        question: "What should I send for a point of attachment quote?",
+        answer:
+          "Send the defect notice, your suburb, photos of the overhead connection, switchboard, meter area and any visible damage if safe.",
+      },
+    ],
+    relatedServices: [
+      "level-2-electrician-sydney",
+      "overhead-service-lines-sydney",
+      "consumer-mains-sydney",
+      "defect-notice-repairs-sydney",
+      "private-power-pole-sydney",
+    ],
+  },
+  {
+    slug: "overhead-service-lines-sydney",
+    metaTitle: "Overhead Service Lines Sydney | Level 2 Help",
+    metaDescription:
+      "Overhead service line support in Sydney for damaged supply lines, point of attachment issues, private poles and defect notices.",
+    title: "Overhead Service Lines Sydney & Surrounding Regions",
+    description:
+      "Supply-side electrical support for overhead service line enquiries, storm damage, private poles and defect notice work.",
+    intro:
+      "Overhead service issues need careful handling because they can involve the property connection, point of attachment, private poles, consumer mains and network requirements. Evaready Electrical can review overhead service enquiries and guide the correct next step.",
+    heroBullets: [
+      "Overhead service work planning",
+      "Storm and damage checks",
+      "Private pole related enquiries",
+      "Defect notice support",
+    ],
+    warningSigns: [
+      "An overhead service line has dropped, moved or looks damaged",
+      "A private pole or point of attachment has storm damage",
+      "A defect notice mentions overhead service equipment",
+      "The supply connection looks unsafe or exposed",
+    ],
+    services: [
+      "Overhead service line electrical enquiries",
+      "Private pole and point of attachment checks",
+      "Storm damage assessment",
+      "Consumer mains planning",
+      "Defect notice support",
+      "Supply-side paperwork guidance where relevant",
+    ],
+    process: [
+      {
+        title: "Call first if unsafe",
+        text: "If a line is down, exposed or close to danger, keep clear and call emergency services or the relevant distributor first.",
+      },
+      {
+        title: "Send safe photos",
+        text: "Photos of the service line, pole, point of attachment, switchboard and defect notice help the job be reviewed.",
+      },
+      {
+        title: "Check the electrical scope",
+        text: "The property-side electrical requirements are checked and explained clearly.",
+      },
+      {
+        title: "Coordinate next steps",
+        text: "Where network involvement is needed, the process is explained without overpromising approvals or attendance times.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Who should I call if an overhead line is down?",
+        answer:
+          "Keep clear and call emergency services or the relevant distributor first if there is immediate danger, fallen lines or life-threatening risk.",
+      },
+      {
+        question: "Can overhead service work involve Level 2 electrical work?",
+        answer:
+          "Yes. Overhead services, consumer mains and point of attachment issues can involve Level 2 electrical processes.",
+      },
+      {
+        question: "Can storm damage affect overhead service lines?",
+        answer:
+          "Yes. Storms can affect overhead service lines, private poles, brackets, fittings and the point of attachment.",
+      },
+    ],
+    relatedServices: [
+      "level-2-electrician-sydney",
+      "point-of-attachment-repairs-sydney",
+      "private-power-pole-sydney",
+      "storm-damage-electrician-sydney",
+      "consumer-mains-sydney",
+    ],
+  },
+  {
+    slug: "underground-service-mains-sydney",
+    metaTitle: "Underground Service Mains Sydney | Level 2 Help",
+    metaDescription:
+      "Underground service mains support in Sydney for supply-side faults, consumer mains, defect notices and service upgrades.",
+    title: "Underground Service Mains Sydney & Surrounding Regions",
+    description:
+      "Supply-side electrical support for underground consumer mains, defect notices and service upgrade enquiries.",
+    intro:
+      "Underground service mains can be involved in renovations, supply upgrades, defect notices, damaged consumer mains and property supply issues. Evaready Electrical can review the electrical scope and explain the right pathway before work proceeds.",
+    heroBullets: [
+      "Underground service mains enquiries",
+      "Consumer mains support",
+      "Defect notice review",
+      "Supply upgrade planning",
+    ],
+    warningSigns: [
+      "A defect notice mentions underground service mains",
+      "The property supply needs upgrade planning",
+      "Consumer mains are old, damaged or undersized",
+      "Excavation or renovation work may affect supply cabling",
+    ],
+    services: [
+      "Underground consumer mains enquiries",
+      "Supply-side electrical checks",
+      "Defect notice support",
+      "Service upgrade planning",
+      "Switchboard and meter area review",
+      "Coordination guidance for network requirements",
+    ],
+    process: [
+      {
+        title: "Review the paperwork",
+        text: "Defect notices, retailer notes, photos and property details help determine the next electrical step.",
+      },
+      {
+        title: "Check supply equipment",
+        text: "The switchboard, meter area, consumer mains and visible service equipment are reviewed.",
+      },
+      {
+        title: "Plan the pathway",
+        text: "The job is scoped around the property type, access, trenching or supply requirements where relevant.",
+      },
+      {
+        title: "Complete the approved work",
+        text: "Approved electrical work is completed, tested and documented where required.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Are underground service mains the same as normal circuits?",
+        answer:
+          "No. Underground service mains are supply-side cabling and may involve a different process to normal final subcircuits.",
+      },
+      {
+        question: "Can underground service mains work be needed for upgrades?",
+        answer:
+          "Yes. Renovations, larger loads, defect notices and supply upgrades can trigger a review of underground service mains.",
+      },
+      {
+        question: "What details help with an underground service mains quote?",
+        answer:
+          "Send photos of the switchboard, meter area, any notice, property access and the reason the supply work is being reviewed.",
+      },
+    ],
+    relatedServices: [
+      "level-2-electrician-sydney",
+      "consumer-mains-sydney",
+      "defect-notice-repairs-sydney",
+      "disconnect-reconnect-electrician-sydney",
+      "electrical-load-capacity-checks-sydney",
+    ],
+  },
+  {
+    slug: "disconnect-reconnect-electrician-sydney",
+    metaTitle: "Disconnect Reconnect Electrician Sydney",
+    metaDescription:
+      "Disconnect and reconnect electrician in Sydney for supply-side planning, renovations, defect notices and service equipment work.",
+    title: "Disconnect & Reconnect Electrician Sydney & Surrounding Regions",
+    description:
+      "Electrical disconnect and reconnect planning for supply-side work, renovations, defect notices and service equipment changes.",
+    intro:
+      "Some jobs need a safe disconnect and reconnect process before work can proceed, especially around consumer mains, metering, major renovations or supply-side equipment. Evaready Electrical can review the job and explain the right electrical pathway.",
+    heroBullets: [
+      "Disconnect and reconnect planning",
+      "Service equipment support",
+      "Renovation and upgrade enquiries",
+      "Defect notice related work",
+    ],
+    warningSigns: [
+      "A renovation needs safe supply isolation",
+      "A defect notice requires service equipment work",
+      "Consumer mains or metering equipment need review",
+      "A major upgrade cannot proceed with normal circuit isolation",
+    ],
+    services: [
+      "Disconnect and reconnect electrical enquiries",
+      "Supply-side isolation planning",
+      "Consumer mains and meter area checks",
+      "Renovation supply support",
+      "Defect notice pathway advice",
+      "Switchboard upgrade coordination",
+    ],
+    process: [
+      {
+        title: "Confirm why isolation is needed",
+        text: "Share job details, photos and any paperwork so the reason for disconnect and reconnect work is clear.",
+      },
+      {
+        title: "Review the supply setup",
+        text: "The meter area, consumer mains, service equipment and switchboard are checked.",
+      },
+      {
+        title: "Explain requirements",
+        text: "Where network, retailer or Level 2 processes apply, the next steps are explained carefully.",
+      },
+      {
+        title: "Complete the electrical work",
+        text: "Approved electrical work is completed, tested and documented as required for the job.",
+      },
+    ],
+    faqs: [
+      {
+        question: "When is disconnect and reconnect work needed?",
+        answer:
+          "It can be needed for major renovations, supply upgrades, consumer mains work, service equipment changes or defect notice repairs.",
+      },
+      {
+        question: "Can you guarantee network timing?",
+        answer:
+          "No. Network or retailer attendance and approvals depend on third parties, but Evaready can explain the electrical process clearly.",
+      },
+      {
+        question: "What should I send for disconnect and reconnect planning?",
+        answer:
+          "Send photos of the switchboard, meter area, service connection, any notice or paperwork, plus the suburb and job deadline.",
+      },
+    ],
+    relatedServices: [
+      "level-2-electrician-sydney",
+      "consumer-mains-sydney",
+      "metering-services-sydney",
+      "switchboard-upgrades-sydney",
+      "electrical-load-capacity-checks-sydney",
+    ],
+  },
+  {
+    slug: "electrical-safety-inspection-sydney",
+    metaTitle: "Electrical Safety Inspection Sydney",
+    metaDescription:
+      "Electrical safety inspection in Sydney for switchboards, safety switches, wiring, power points, lighting and visible fault risks.",
+    title: "Electrical Safety Inspection Sydney & Surrounding Regions",
+    description:
+      "Electrical safety checks for homes, rentals, strata, commercial sites and properties with wiring or switchboard concerns.",
+    intro:
+      "Electrical safety inspections help identify visible risks before they become larger problems. Evaready Electrical can check switchboards, safety switches, power points, lighting, wiring condition and fault symptoms so the next step is clear.",
+    heroBullets: [
+      "Switchboard and safety checks",
+      "Wiring and outlet review",
+      "Rental, strata and property support",
+      "Clear next steps before work begins",
+    ],
+    warningSigns: [
+      "Safety switches keep tripping",
+      "Power points are hot, cracked or buzzing",
+      "Lights flicker or dim unexpectedly",
+      "A property has older wiring or an outdated switchboard",
+    ],
+    services: [
+      "Switchboard safety inspection",
+      "Safety switch and RCD checks",
+      "Power point and lighting review",
+      "Visible wiring condition checks",
+      "Rental, strata and property manager support",
+      "Written notes or photos where required",
+    ],
+    process: [
+      {
+        title: "Confirm the concern",
+        text: "Share the property type, suburb, photos and the reason for the safety check.",
+      },
+      {
+        title: "Inspect and test",
+        text: "Relevant circuits, protection, outlets and fittings are checked safely.",
+      },
+      {
+        title: "Explain findings",
+        text: "The results are explained in practical terms, including urgent and planned next steps.",
+      },
+      {
+        title: "Quote repair work",
+        text: "If repairs or upgrades are needed, the scope can be quoted before work proceeds.",
+      },
+    ],
+    faqs: [
+      {
+        question: "What does an electrical safety inspection include?",
+        answer:
+          "It can include switchboards, safety switches, visible wiring condition, power points, lighting and fault symptoms relevant to the property.",
+      },
+      {
+        question: "Should I call if something feels unsafe?",
+        answer:
+          "Yes. If there is heat, smoke, sparking, burning smell or shock risk, call first rather than waiting for a form response.",
+      },
+      {
+        question: "Can safety inspections help before buying or renting?",
+        answer:
+          "They can help identify electrical items that may need attention, but they do not replace specialist building or legal advice.",
+      },
+    ],
+    relatedServices: [
+      "switchboard-upgrades-sydney",
+      "electrical-fault-finding-sydney",
+      "safety-switch-rcd-installation-sydney",
+      "smoke-alarm-electrician-sydney",
+      "testing-and-tagging-sydney",
+    ],
+  },
+  {
+    slug: "testing-and-tagging-sydney",
+    metaTitle: "Testing and Tagging Sydney | Electrical Safety",
+    metaDescription:
+      "Testing and tagging in Sydney for workplaces, managed properties, appliances, safety checks and clear electrical records.",
+    title: "Testing and Tagging Sydney & Surrounding Regions",
+    description:
+      "Testing and tagging support for workplaces, managed sites, appliances and practical electrical safety records.",
+    intro:
+      "Testing and tagging helps workplaces and managed sites keep portable electrical equipment checks organised. Evaready Electrical can assist with testing, tagging, safety checks and related electrical notes for homes, businesses, strata and managed properties.",
+    heroBullets: [
+      "Testing and tagging",
+      "Workplace electrical safety checks",
+      "Managed property support",
+      "Clear records where required",
+    ],
+    warningSigns: [
+      "Appliances are damaged, frayed or overheating",
+      "Equipment is used on a worksite or commercial premises",
+      "A property manager needs electrical records",
+      "Portable equipment has not been checked recently",
+    ],
+    services: [
+      "Testing and tagging for portable equipment",
+      "Appliance lead and plug checks",
+      "Commercial and managed property support",
+      "Electrical safety observations",
+      "Tagging records where required",
+      "Follow-up repairs or circuit checks",
+    ],
+    process: [
+      {
+        title: "List the equipment",
+        text: "Share the site type, suburb and approximate number of items so the booking can be planned.",
+      },
+      {
+        title: "Check and tag",
+        text: "Relevant equipment is checked and tagged in line with the agreed scope.",
+      },
+      {
+        title: "Record results",
+        text: "Results and any failed or unsafe items are recorded clearly.",
+      },
+      {
+        title: "Plan repairs",
+        text: "If repair work is needed, the next step can be quoted separately.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Do you provide testing and tagging for businesses?",
+        answer:
+          "Yes. Evaready Electrical can assist workplaces, shops, offices and managed sites with testing and tagging enquiries.",
+      },
+      {
+        question: "Can you repair items that fail testing?",
+        answer:
+          "Electrical repair work can be reviewed separately where it is safe and practical to do so.",
+      },
+      {
+        question: "What should I send for a testing and tagging quote?",
+        answer:
+          "Send the suburb, site type, approximate number of items and any access requirements for the property.",
+      },
+    ],
+    relatedServices: [
+      "electrical-testing-tagging-reports-sydney",
+      "commercial-electrician-sydney",
+      "electrical-safety-inspection-sydney",
+      "emergency-exit-lighting-sydney",
+    ],
+  },
+  {
+    slug: "phone-line-electrician-sydney",
+    metaTitle: "Phone Line Electrician Sydney | Cabling Help",
+    metaDescription:
+      "Phone line electrician in Sydney for internal phone outlets, communications cabling, data points and cabling fault support.",
+    title: "Phone Line Electrician Sydney & Surrounding Regions",
+    description:
+      "Internal phone outlet, communications cabling and data point support under the relevant cabling scope.",
+    intro:
+      "Phone and communications cabling can be affected by renovations, damaged outlets, older cabling and internet changes. Evaready Electrical can assist with eligible internal phone line and communications cabling work under the relevant cabling scope.",
+    heroBullets: [
+      "Internal phone outlets",
+      "Communications cabling",
+      "Data and internet points",
+      "Open Cabler registration",
+    ],
+    warningSigns: [
+      "A phone outlet is damaged or loose",
+      "Renovation work has affected communications cabling",
+      "A room needs a phone or data outlet moved",
+      "Old cabling needs to be checked before new equipment is installed",
+    ],
+    services: [
+      "Internal phone outlet support",
+      "Communications cabling enquiries",
+      "Data and internet point planning",
+      "Outlet replacement or relocation",
+      "CCTV and data cabling coordination",
+      "Cabling fault review where eligible",
+    ],
+    process: [
+      {
+        title: "Confirm the cabling need",
+        text: "Share photos of the outlet, equipment, wall location and suburb so the job can be assessed.",
+      },
+      {
+        title: "Check cable pathways",
+        text: "Access, wall cavities, ceiling spaces and existing cabling are reviewed where practical.",
+      },
+      {
+        title: "Complete eligible work",
+        text: "Approved internal cabling and outlet work is completed under the relevant cabling scope.",
+      },
+      {
+        title: "Test and explain",
+        text: "The completed work is checked and any carrier or provider issue is explained clearly.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Can you work on phone line cabling?",
+        answer:
+          "Evaready Electrical can assist with eligible internal phone and communications cabling under Open Cabler Registration 46691.",
+      },
+      {
+        question: "Do carrier network faults need the provider?",
+        answer:
+          "Sometimes. Carrier-side faults, lead-in issues or provider equipment may need the telecommunications provider.",
+      },
+      {
+        question: "What photos help with a phone line quote?",
+        answer:
+          "Send photos of the outlet, modem or phone equipment, the room location, access points and any damaged cabling.",
+      },
+    ],
+    credentialHighlights: ["Open Cabler Registration 46691"],
+    relatedServices: [
+      "data-cabling-electrician-sydney",
+      "cctv-security-camera-installation-sydney",
+      "intercom-installation-sydney",
+      "tv-points-antenna-electrician-sydney",
+    ],
+  },
+  {
+    slug: "intercom-installation-sydney",
+    metaTitle: "Intercom Installation Sydney | Electrician",
+    metaDescription:
+      "Intercom installation electrician in Sydney for homes, strata, entry systems, gate cabling and access control support.",
+    title: "Intercom Installation Electrician Sydney & Surrounding Regions",
+    description:
+      "Intercom installation, entry system wiring and access control electrical support for homes, strata and commercial sites.",
+    intro:
+      "A reliable intercom setup needs the right power, cabling pathway and entry-point planning. Evaready Electrical can assist with intercom installation wiring, replacement support, gate provisions and access control electrical work.",
+    heroBullets: [
+      "Intercom installation wiring",
+      "Gate and entry provisions",
+      "Strata entry support",
+      "Access control electrical work",
+    ],
+    warningSigns: [
+      "An old intercom needs replacement wiring",
+      "A front gate or entry system needs power",
+      "A strata building needs entry cabling reviewed",
+      "Renovation work needs intercom provisions planned early",
+    ],
+    services: [
+      "Intercom installation electrical support",
+      "Entry system wiring",
+      "Gate power and cabling provisions",
+      "Access control wiring support",
+      "Strata and commercial entry assistance",
+      "Coordination with selected hardware where needed",
+    ],
+    process: [
+      {
+        title: "Review entry points",
+        text: "Photos of the gate, doorway, indoor station and existing wiring help plan the job.",
+      },
+      {
+        title: "Check power and pathways",
+        text: "Cable routes, power availability and access through walls or ceilings are reviewed.",
+      },
+      {
+        title: "Install wiring",
+        text: "Approved wiring and electrical support are completed neatly.",
+      },
+      {
+        title: "Test and hand over",
+        text: "The electrical work is checked and any hardware or commissioning notes are explained.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Can you install intercom cabling?",
+        answer:
+          "Yes. Evaready Electrical can assist with intercom wiring, power and cabling support for homes, strata and commercial entry systems.",
+      },
+      {
+        question: "Can you help with electric gate power?",
+        answer:
+          "Yes. Gate power and cabling provisions can be reviewed as part of the intercom or access control work.",
+      },
+      {
+        question: "What should I send for an intercom quote?",
+        answer:
+          "Send photos of the entry point, internal monitor area, existing wiring, gate or door hardware and your suburb.",
+      },
+    ],
+    relatedServices: [
+      "intercom-access-control-electrician-sydney",
+      "data-cabling-electrician-sydney",
+      "cctv-security-camera-installation-sydney",
+      "phone-line-electrician-sydney",
+    ],
+  },
+  {
+    slug: "tv-points-antenna-electrician-sydney",
+    metaTitle: "TV Points & Antenna Electrician Sydney",
+    metaDescription:
+      "TV points and antenna electrician in Sydney for TV outlets, wall cabling, media points, antenna cabling and tidy power support.",
+    title: "TV Points & Antenna Electrician Sydney & Surrounding Regions",
+    description:
+      "TV points, antenna outlets, wall cabling and tidy media electrical support for homes, apartments and renovations.",
+    intro:
+      "TV and media areas work best when power, outlets and cabling are planned together. Evaready Electrical can assist with TV points, antenna outlets, wall-mount power, hidden cabling and tidy media setups.",
+    heroBullets: [
+      "TV points and antenna outlets",
+      "Wall-mount power and cabling",
+      "Media room wiring",
+      "Renovation cabling support",
+    ],
+    warningSigns: [
+      "A room needs a new TV or antenna point",
+      "A wall-mounted TV needs safe power nearby",
+      "Existing media cabling is loose, damaged or messy",
+      "Renovation work needs TV and data cabling planned",
+    ],
+    services: [
+      "TV point installation",
+      "Antenna outlet support",
+      "Wall-mount power points",
+      "Hidden media cabling",
+      "Data and TV cabling coordination",
+      "Renovation cabling provisions",
+    ],
+    process: [
+      {
+        title: "Confirm the room layout",
+        text: "Share photos of the wall, TV position, nearby outlets and roof or wall access if known.",
+      },
+      {
+        title: "Plan cable routes",
+        text: "Power, antenna and data pathways are reviewed so the finish can be kept neat.",
+      },
+      {
+        title: "Install outlets",
+        text: "Approved outlets and cabling are installed with safe power separation where required.",
+      },
+      {
+        title: "Check the finish",
+        text: "The final setup is checked and any device-specific next steps are explained.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Can you install TV points?",
+        answer:
+          "Yes. Evaready Electrical can assist with TV points, antenna outlets, wall cabling and nearby power points.",
+      },
+      {
+        question: "Can you hide cables for a wall-mounted TV?",
+        answer:
+          "Yes. Hidden cabling and safe wall-mount power can be reviewed based on wall type and access.",
+      },
+      {
+        question: "What photos help with a TV point quote?",
+        answer:
+          "Send photos of the wall, existing outlets, TV location, roof or ceiling access and any current antenna point.",
+      },
+    ],
+    relatedServices: [
+      "tv-antenna-wall-cabling-sydney",
+      "data-cabling-electrician-sydney",
+      "power-point-installation-sydney",
+      "phone-line-electrician-sydney",
+    ],
+  },
+  {
+    slug: "emergency-exit-lighting-sydney",
+    metaTitle: "Emergency Exit Lighting Sydney | Electrician",
+    metaDescription:
+      "Emergency and exit lighting electrician in Sydney for commercial sites, testing support, replacements and safety lighting checks.",
+    title: "Emergency & Exit Lighting Electrician Sydney & Surrounding Regions",
+    description:
+      "Emergency and exit lighting electrical support for shops, offices, strata, warehouses and commercial sites.",
+    intro:
+      "Emergency and exit lighting helps people find a safe path when normal lighting fails. Evaready Electrical can assist with emergency and exit lighting checks, replacements, wiring support and commercial safety lighting enquiries.",
+    heroBullets: [
+      "Emergency lighting checks",
+      "Exit light replacement",
+      "Commercial and strata support",
+      "Testing records where required",
+    ],
+    warningSigns: [
+      "Exit lights are flickering, damaged or not illuminated",
+      "Emergency lighting has failed a check",
+      "A shop, office or strata area needs safety lighting reviewed",
+      "Renovation work has changed paths of travel or exits",
+    ],
+    services: [
+      "Emergency lighting electrical support",
+      "Exit light replacement",
+      "Battery and fitting checks",
+      "Commercial and strata lighting reviews",
+      "Testing and tagging coordination where relevant",
+      "Repair quotes for failed fittings or circuits",
+    ],
+    process: [
+      {
+        title: "Confirm site requirements",
+        text: "Share the site type, location, number of fittings and any inspection notes.",
+      },
+      {
+        title: "Check fittings and circuits",
+        text: "Emergency and exit lighting fittings, power and visible wiring are checked.",
+      },
+      {
+        title: "Repair or replace",
+        text: "Approved repairs, replacements or wiring work are completed neatly.",
+      },
+      {
+        title: "Record next steps",
+        text: "Any follow-up notes, failed fittings or planned upgrades are explained clearly.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Do commercial sites need emergency and exit lighting?",
+        answer:
+          "Many commercial and common areas have emergency and exit lighting requirements. Evaready can help review the electrical side and next steps.",
+      },
+      {
+        question: "Can you replace failed exit lights?",
+        answer:
+          "Yes. Failed or damaged exit lights can be checked and replacement work can be quoted where suitable.",
+      },
+      {
+        question: "What should I send for an emergency lighting quote?",
+        answer:
+          "Send the suburb, site type, number of fittings, photos of failed lights and any inspection or maintenance notes.",
+      },
+    ],
+    relatedServices: [
+      "commercial-electrician-sydney",
+      "electrical-safety-inspection-sydney",
+      "testing-and-tagging-sydney",
+      "switchboard-upgrades-sydney",
+    ],
+  },
+  {
+    slug: "hot-power-point-electrician-sydney",
+    metaTitle: "Hot Power Point Electrician Sydney",
+    metaDescription:
+      "Hot power point electrician in Sydney for warm outlets, burning smells, buzzing sockets, damaged wiring and urgent fault checks.",
+    title: "Hot Power Point Electrician Sydney & Surrounding Regions",
+    description:
+      "Urgent electrical fault support for hot outlets, burning smells, buzzing sockets and unsafe power point concerns.",
+    intro:
+      "A hot power point can be a warning sign of a loose connection, overload, damaged wiring or failing outlet. If there is heat, smoke, sparking or a burning smell, call first and stop using the outlet until it has been checked.",
+    heroBullets: [
+      "Hot outlet fault checks",
+      "Burning smell or buzzing sockets",
+      "Damaged power point repairs",
+      "Call first if unsafe",
+    ],
+    warningSigns: [
+      "A power point feels hot to touch",
+      "There is a burning smell near an outlet",
+      "A plug or socket is discoloured",
+      "The outlet buzzes, crackles or sparks",
+    ],
+    services: [
+      "Hot power point fault finding",
+      "Outlet replacement",
+      "Loose connection checks",
+      "Overload and circuit review",
+      "Damaged wiring assessment",
+      "Switchboard and safety switch checks where relevant",
+    ],
+    process: [
+      {
+        title: "Stop using the outlet",
+        text: "Unplug equipment if it is safe and keep clear if there is heat, smoke or sparking.",
+      },
+      {
+        title: "Call for urgent faults",
+        text: "Call directly for hot outlets, burning smells or shock risk so the issue can be triaged first.",
+      },
+      {
+        title: "Inspect and test",
+        text: "The outlet, wiring, circuit and protection are checked before repairs are completed.",
+      },
+      {
+        title: "Repair and retest",
+        text: "Approved repairs are completed and the circuit is retested before use.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Is a hot power point dangerous?",
+        answer:
+          "It can be. Heat, burning smells, crackling or discolouration should be treated as unsafe until checked.",
+      },
+      {
+        question: "Should I keep using a warm outlet?",
+        answer:
+          "No. Stop using the outlet if it feels hot, smells burnt or sparks, and call an electrician.",
+      },
+      {
+        question: "Can a hot outlet be caused by overload?",
+        answer:
+          "Yes. Overload, loose connections, damaged wiring or a failing outlet can all create heat.",
+      },
+    ],
+    relatedServices: [
+      "emergency-electrician-sydney",
+      "electrical-fault-finding-sydney",
+      "power-point-installation-sydney",
+      "switchboard-upgrades-sydney",
+    ],
+  },
+  {
+    slug: "electric-shock-electrician-sydney",
+    metaTitle: "Electric Shock Electrician Sydney",
+    metaDescription:
+      "Electric shock electrician in Sydney for shock risk, tingles from outlets, appliances, wet fittings and urgent safety checks.",
+    title: "Electric Shock Electrician Sydney & Surrounding Regions",
+    description:
+      "Urgent electrical safety support for shock risk, tingles, wet fittings, faulty appliances and unsafe circuits.",
+    intro:
+      "Any electric shock or tingling from an outlet, appliance, switch, tap, pool area or fitting should be treated seriously. Keep clear of the affected item and call first so the fault can be handled safely.",
+    heroBullets: [
+      "Electric shock risk",
+      "Tingles from outlets or fittings",
+      "Wet or damaged electrical equipment",
+      "Call first for unsafe faults",
+    ],
+    warningSigns: [
+      "A switch, tap, appliance or outlet gives a tingle",
+      "Water has reached electrical equipment",
+      "A safety switch has tripped after shock risk",
+      "There is burning smell, smoke, heat or sparking",
+    ],
+    services: [
+      "Electric shock fault checks",
+      "Safety switch and RCD testing",
+      "Wet area electrical assessment",
+      "Appliance and circuit isolation",
+      "Damaged wiring investigation",
+      "Switchboard protection review",
+    ],
+    process: [
+      {
+        title: "Keep clear",
+        text: "Do not touch affected equipment again. For life-threatening danger, call emergency services first.",
+      },
+      {
+        title: "Call directly",
+        text: "Electric shock risk should be handled by phone first, not through a delayed form response.",
+      },
+      {
+        title: "Test safely",
+        text: "The affected circuit, protection and likely fault source are tested safely.",
+      },
+      {
+        title: "Repair and verify",
+        text: "Approved repairs are completed and safety protection is checked before normal use resumes.",
+      },
+    ],
+    faqs: [
+      {
+        question: "What should I do after an electric shock?",
+        answer:
+          "Keep clear of the affected item. If anyone is injured or there is life-threatening danger, call emergency services first.",
+      },
+      {
+        question: "Can a safety switch prevent electric shock?",
+        answer:
+          "Safety switches reduce risk by disconnecting power in certain fault conditions, but they do not make unsafe wiring safe.",
+      },
+      {
+        question: "Should I use a form for electric shock faults?",
+        answer:
+          "No. Call directly for electric shock risk, tingles, wet fittings, smoke, heat or sparking.",
+      },
+    ],
+    relatedServices: [
+      "emergency-electrician-sydney",
+      "electrical-fault-finding-sydney",
+      "safety-switch-rcd-installation-sydney",
+      "switchboard-upgrades-sydney",
+    ],
+  },
+  {
+    slug: "circuit-breaker-electrician-sydney",
+    metaTitle: "Circuit Breaker Electrician Sydney",
+    metaDescription:
+      "Circuit breaker electrician in Sydney for tripping breakers, overloaded circuits, switchboard faults and circuit protection checks.",
+    title: "Circuit Breaker Electrician Sydney & Surrounding Regions",
+    description:
+      "Circuit breaker fault checks, replacement support and switchboard protection reviews for homes and businesses.",
+    intro:
+      "A circuit breaker that keeps tripping is usually protecting against a fault, overload or unsafe condition. Evaready Electrical can test the circuit, check the switchboard and explain whether repair, replacement or an upgrade is needed.",
+    heroBullets: [
+      "Circuit breaker tripping",
+      "Overloaded circuit checks",
+      "Switchboard fault support",
+      "RCBO and protection upgrades",
+    ],
+    warningSigns: [
+      "A circuit breaker trips repeatedly",
+      "A breaker feels hot, loose or damaged",
+      "Lights or outlets fail on one circuit",
+      "New equipment overloads the existing circuit",
+    ],
+    services: [
+      "Circuit breaker fault finding",
+      "Breaker replacement where suitable",
+      "Overload and load checks",
+      "Switchboard protection review",
+      "RCBO upgrade advice",
+      "Circuit labelling and testing",
+    ],
+    process: [
+      {
+        title: "Do not keep resetting",
+        text: "Repeated resets can hide a fault. Stop using the affected circuit if it keeps tripping.",
+      },
+      {
+        title: "Test the circuit",
+        text: "The circuit, breaker, connected loads and wiring are tested to identify the likely cause.",
+      },
+      {
+        title: "Repair or upgrade",
+        text: "Approved repair, replacement or protection upgrade work is completed.",
+      },
+      {
+        title: "Confirm safe operation",
+        text: "The circuit is retested and the next steps are explained clearly.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Why does a circuit breaker keep tripping?",
+        answer:
+          "Common causes include overload, damaged wiring, faulty equipment, moisture or a failing breaker.",
+      },
+      {
+        question: "Should I replace a breaker myself?",
+        answer:
+          "No. Circuit breaker work belongs in the switchboard and should be checked by a licensed electrician.",
+      },
+      {
+        question: "Can circuit breaker issues mean a switchboard upgrade is needed?",
+        answer:
+          "Sometimes. Older switchboards, overloaded circuits or missing protection may need upgrade planning.",
+      },
+    ],
+    relatedServices: [
+      "switchboard-upgrades-sydney",
+      "electrical-fault-finding-sydney",
+      "safety-switch-rcd-installation-sydney",
+      "electrical-load-capacity-checks-sydney",
+    ],
+  },
+  {
+    slug: "rcd-safety-switch-repairs-sydney",
+    metaTitle: "RCD Safety Switch Repairs Sydney",
+    metaDescription:
+      "RCD safety switch repairs in Sydney for tripping circuits, faulty safety switches, RCBO upgrades and switchboard protection checks.",
+    title: "RCD Safety Switch Repairs Sydney & Surrounding Regions",
+    description:
+      "Safety switch and RCD fault checks, repairs and protection upgrades for tripping circuits and switchboard issues.",
+    intro:
+      "A safety switch that keeps tripping is usually warning that something needs attention. Evaready Electrical can test the circuit, check the RCD or RCBO, isolate the likely cause and explain the safest repair pathway.",
+    heroBullets: [
+      "RCD tripping checks",
+      "Safety switch repairs",
+      "RCBO upgrade advice",
+      "Switchboard protection testing",
+    ],
+    warningSigns: [
+      "A safety switch trips repeatedly",
+      "A circuit only trips when it rains",
+      "One appliance or room keeps causing trips",
+      "The switchboard has old or limited protection",
+    ],
+    services: [
+      "RCD and safety switch fault checks",
+      "Circuit fault isolation",
+      "Safety switch replacement where suitable",
+      "RCBO upgrade recommendations",
+      "Moisture and outdoor circuit checks",
+      "Switchboard protection review",
+    ],
+    process: [
+      {
+        title: "Stop repeated resets",
+        text: "If the same safety switch keeps tripping, stop repeated resets and call for advice.",
+      },
+      {
+        title: "Find the fault",
+        text: "Circuits, appliances and connected loads are checked to identify the likely cause.",
+      },
+      {
+        title: "Repair or replace",
+        text: "Approved RCD, RCBO, wiring or circuit repairs are completed.",
+      },
+      {
+        title: "Retest protection",
+        text: "The safety switch or protection device is retested before the job is closed.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Why does my safety switch keep tripping?",
+        answer:
+          "Common causes include faulty appliances, moisture, damaged wiring, overloaded circuits or a failing protection device.",
+      },
+      {
+        question: "Should I keep resetting an RCD?",
+        answer:
+          "No. Repeated tripping means the fault should be checked rather than reset over and over.",
+      },
+      {
+        question: "Can rain make an RCD trip?",
+        answer:
+          "Yes. Outdoor circuits, fittings and water ingress can cause RCD tripping during or after rain.",
+      },
+    ],
+    relatedServices: [
+      "safety-switch-rcd-installation-sydney",
+      "electrical-fault-finding-sydney",
+      "switchboard-upgrades-sydney",
+      "storm-damage-electrician-sydney",
+    ],
+  },
+  {
+    slug: "smart-meter-electrician-sydney",
+    metaTitle: "Smart Meter Electrician Sydney | Metering Help",
+    metaDescription:
+      "Smart meter electrician in Sydney for meter area checks, switchboard preparation, service equipment and retailer coordination advice.",
+    title: "Smart Meter Electrician Sydney & Surrounding Regions",
+    description:
+      "Meter area electrical support, switchboard preparation and service equipment checks for smart meter related enquiries.",
+    intro:
+      "Smart meter work can involve the meter provider, retailer and the property electrical setup. Evaready Electrical can help with the electrical side: meter area checks, switchboard preparation, service equipment issues and clear guidance on what may need to happen next.",
+    heroBullets: [
+      "Smart meter related enquiries",
+      "Meter area checks",
+      "Switchboard preparation",
+      "Service equipment support",
+    ],
+    warningSigns: [
+      "A retailer or meter provider has requested electrical work",
+      "The meter panel or switchboard needs preparation",
+      "A defect notice mentions metering or service equipment",
+      "The property supply setup is old or unclear",
+    ],
+    services: [
+      "Meter area electrical checks",
+      "Switchboard preparation for meter work",
+      "Service equipment review",
+      "Defect notice and retailer paperwork guidance",
+      "Consumer mains and supply-side advice",
+      "Coordination notes for provider requirements",
+    ],
+    process: [
+      {
+        title: "Send provider details",
+        text: "Share any retailer or meter provider notes, photos of the meter area, switchboard and your suburb.",
+      },
+      {
+        title: "Review electrical readiness",
+        text: "The switchboard, meter panel and service equipment are checked for visible issues.",
+      },
+      {
+        title: "Explain responsibilities",
+        text: "Evaready explains the electrical side while provider-owned or network work remains with the relevant third party.",
+      },
+      {
+        title: "Complete approved work",
+        text: "Approved electrical preparation or repair work is completed and tested.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Can an electrician install the smart meter?",
+        answer:
+          "Smart meter installation is usually arranged through the retailer or metering provider. Evaready can help with property-side electrical preparation and issues.",
+      },
+      {
+        question: "Can smart meter work involve Level 2 electrical enquiries?",
+        answer:
+          "Sometimes. Metering, service equipment, consumer mains or defect issues may need the right Level 2 electrical process.",
+      },
+      {
+        question: "What should I send for a smart meter enquiry?",
+        answer:
+          "Send provider notes, photos of the meter area and switchboard, your suburb, and any defect notice or deadline.",
+      },
+    ],
+    relatedServices: [
+      "metering-services-sydney",
+      "level-2-electrician-sydney",
+      "defect-notice-repairs-sydney",
+      "switchboard-upgrades-sydney",
+      "consumer-mains-sydney",
+    ],
+  },
 ];
 
 export function getServiceLandingPage(slug: string) {

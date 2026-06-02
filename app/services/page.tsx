@@ -410,6 +410,216 @@ const services = [
       "Upgrade advice",
     ],
   },
+  {
+    title: "Point of Attachment Repairs",
+    description:
+      "Supply-side support for damaged point of attachment issues, overhead connections and defect notice enquiries.",
+    icon: Bolt,
+    includes: [
+      "Point of attachment checks",
+      "Overhead connection issues",
+      "Defect notices",
+      "Storm damage review",
+      "Consumer mains support",
+      "Supply-side planning",
+    ],
+  },
+  {
+    title: "Overhead Service Lines",
+    description:
+      "Overhead service line support for damaged supply connections, private poles, point of attachment issues and defects.",
+    icon: Bolt,
+    includes: [
+      "Overhead service work",
+      "Private pole enquiries",
+      "Storm damage checks",
+      "Point of attachment",
+      "Defect support",
+      "Supply-side guidance",
+    ],
+  },
+  {
+    title: "Underground Service Mains",
+    description:
+      "Underground service mains support for supply upgrades, consumer mains, defect notices and service equipment.",
+    icon: Wrench,
+    includes: [
+      "Underground service mains",
+      "Consumer mains",
+      "Defect notices",
+      "Supply upgrades",
+      "Meter area checks",
+      "Planning guidance",
+    ],
+  },
+  {
+    title: "Disconnect & Reconnect",
+    description:
+      "Disconnect and reconnect planning for renovations, supply-side electrical work, service equipment and defects.",
+    icon: Wrench,
+    includes: [
+      "Supply isolation planning",
+      "Renovation support",
+      "Consumer mains",
+      "Metering support",
+      "Defect work",
+      "Switchboard upgrades",
+    ],
+  },
+  {
+    title: "Electrical Safety Inspections",
+    description:
+      "Safety checks for switchboards, wiring, power points, safety switches, lighting and property electrical concerns.",
+    icon: ShieldCheck,
+    includes: [
+      "Switchboard checks",
+      "Safety switches",
+      "Wiring review",
+      "Power points",
+      "Lighting checks",
+      "Property reports",
+    ],
+  },
+  {
+    title: "Testing and Tagging",
+    description:
+      "Testing and tagging support for workplaces, managed properties, portable equipment and electrical records.",
+    icon: BadgeCheck,
+    includes: [
+      "Testing and tagging",
+      "Appliance checks",
+      "Workplace support",
+      "Managed sites",
+      "Electrical records",
+      "Follow-up repairs",
+    ],
+  },
+  {
+    title: "Phone Line Electrician",
+    description:
+      "Internal phone outlets, communications cabling, data point support and eligible phone line cabling work.",
+    icon: Phone,
+    includes: [
+      "Phone outlets",
+      "Communications cabling",
+      "Data points",
+      "Outlet relocation",
+      "Cabling checks",
+      "Open Cabler work",
+    ],
+  },
+  {
+    title: "Intercom Installation",
+    description:
+      "Intercom installation wiring, entry system support, gate power and access control electrical provisions.",
+    icon: ShieldCheck,
+    includes: [
+      "Intercom wiring",
+      "Entry systems",
+      "Gate power",
+      "Access control",
+      "Strata support",
+      "Commercial entry",
+    ],
+  },
+  {
+    title: "TV Points & Antenna",
+    description:
+      "TV points, antenna outlets, wall-mount power, media cabling and tidy home entertainment wiring.",
+    icon: Zap,
+    includes: [
+      "TV points",
+      "Antenna outlets",
+      "Wall-mount power",
+      "Hidden cabling",
+      "Media rooms",
+      "Data coordination",
+    ],
+  },
+  {
+    title: "Emergency & Exit Lighting",
+    description:
+      "Emergency and exit lighting support for shops, offices, strata, warehouses and commercial safety lighting.",
+    icon: Lightbulb,
+    includes: [
+      "Exit lights",
+      "Emergency lighting",
+      "Commercial checks",
+      "Replacement fittings",
+      "Testing support",
+      "Repair quotes",
+    ],
+  },
+  {
+    title: "Hot Power Point",
+    description:
+      "Urgent fault checks for hot outlets, burning smells, buzzing sockets, damaged wiring and unsafe power points.",
+    icon: Flame,
+    includes: [
+      "Hot outlets",
+      "Burning smells",
+      "Buzzing sockets",
+      "Damaged wiring",
+      "Outlet replacement",
+      "Circuit checks",
+    ],
+  },
+  {
+    title: "Electric Shock Faults",
+    description:
+      "Urgent electrical support for shock risk, tingles, wet fittings, faulty appliances and unsafe circuits.",
+    icon: Flame,
+    includes: [
+      "Electric shock risk",
+      "Wet fittings",
+      "Tingles from outlets",
+      "Safety switch checks",
+      "Fault isolation",
+      "Call first if unsafe",
+    ],
+  },
+  {
+    title: "Circuit Breaker Electrician",
+    description:
+      "Circuit breaker fault finding, tripping breaker checks, switchboard protection and overload support.",
+    icon: ShieldCheck,
+    includes: [
+      "Tripping breakers",
+      "Overloaded circuits",
+      "Breaker replacement",
+      "RCBO upgrades",
+      "Switchboard checks",
+      "Circuit testing",
+    ],
+  },
+  {
+    title: "RCD Safety Switch Repairs",
+    description:
+      "RCD and safety switch repairs for tripping circuits, moisture faults, RCBO upgrades and switchboard protection.",
+    icon: ShieldCheck,
+    includes: [
+      "RCD repairs",
+      "Safety switch faults",
+      "Tripping circuits",
+      "Moisture checks",
+      "RCBO upgrades",
+      "Protection testing",
+    ],
+  },
+  {
+    title: "Smart Meter Electrician",
+    description:
+      "Meter area checks, switchboard preparation, service equipment support and smart meter related electrical enquiries.",
+    icon: BadgeCheck,
+    includes: [
+      "Meter area checks",
+      "Switchboard preparation",
+      "Service equipment",
+      "Retailer notes",
+      "Defect support",
+      "Level 2 enquiries",
+    ],
+  },
 ];
 
 
@@ -441,6 +651,21 @@ const servicePageLinks: Record<string, string> = {
   "Intercoms & Access Control": "/services/intercom-access-control-electrician-sydney",
   "Storm Damage & Appliance Disconnects": "/services/storm-damage-electrician-sydney",
   "Load Balancing & Capacity Checks": "/services/electrical-load-capacity-checks-sydney",
+  "Point of Attachment Repairs": "/services/point-of-attachment-repairs-sydney",
+  "Overhead Service Lines": "/services/overhead-service-lines-sydney",
+  "Underground Service Mains": "/services/underground-service-mains-sydney",
+  "Disconnect & Reconnect": "/services/disconnect-reconnect-electrician-sydney",
+  "Electrical Safety Inspections": "/services/electrical-safety-inspection-sydney",
+  "Testing and Tagging": "/services/testing-and-tagging-sydney",
+  "Phone Line Electrician": "/services/phone-line-electrician-sydney",
+  "Intercom Installation": "/services/intercom-installation-sydney",
+  "TV Points & Antenna": "/services/tv-points-antenna-electrician-sydney",
+  "Emergency & Exit Lighting": "/services/emergency-exit-lighting-sydney",
+  "Hot Power Point": "/services/hot-power-point-electrician-sydney",
+  "Electric Shock Faults": "/services/electric-shock-electrician-sydney",
+  "Circuit Breaker Electrician": "/services/circuit-breaker-electrician-sydney",
+  "RCD Safety Switch Repairs": "/services/rcd-safety-switch-repairs-sydney",
+  "Smart Meter Electrician": "/services/smart-meter-electrician-sydney",
 };
 
 const featuredServiceTitles = [
@@ -727,7 +952,6 @@ export default function ServicesPage() {
     </main>
   );
 }
-
 
 
 

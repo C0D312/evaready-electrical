@@ -543,6 +543,17 @@ export function RouteMarqueeStrip() {
     [config.items],
   );
 
+  if (!showDecorativeLabels) {
+    return (
+      <section
+        className="emergency-issue-marquee"
+        aria-hidden="true"
+        data-nosnippet
+        role="presentation"
+      />
+    );
+  }
+
   return (
     <section
       className="emergency-issue-marquee"

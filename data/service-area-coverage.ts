@@ -1697,6 +1697,16 @@ export function getSuburbPageCopy(
         text: `Point of attachment, private pole and overhead service enquiries where they apply.`,
       },
       {
+        title: `Point of attachment repairs ${coverageSuburb.name}`,
+        href: "/services/point-of-attachment-repairs-sydney",
+        text: `Support for point of attachment issues, damaged brackets and supply connection concerns.`,
+      },
+      {
+        title: `Overhead and underground service work ${coverageSuburb.name}`,
+        href: "/services/overhead-service-lines-sydney",
+        text: `Overhead service lines, underground service mains and supply-side planning where the job requires it.`,
+      },
+      {
         title: `Metering services ${coverageSuburb.name}`,
         href: "/services/metering-services-sydney",
         text: `Metering, service equipment and supply-side questions connected to Level 2 work.`,
@@ -1707,9 +1717,19 @@ export function getSuburbPageCopy(
         text: `Upgrade enquiries covering ${context.switchboardDetail}.`,
       },
       {
+        title: `Circuit breakers and safety switches ${coverageSuburb.name}`,
+        href: "/services/rcd-safety-switch-repairs-sydney",
+        text: `RCD, safety switch, circuit breaker and repeated tripping issues reviewed with safety first.`,
+      },
+      {
         title: `Electrical fault finding ${coverageSuburb.name}`,
         href: "/services/electrical-fault-finding-sydney",
         text: `Fault testing for tripping circuits, hot fittings, intermittent faults and unsafe symptoms.`,
+      },
+      {
+        title: `Hot power point electrician ${coverageSuburb.name}`,
+        href: "/services/hot-power-point-electrician-sydney",
+        text: `Call first if a power point, switch or cable feels hot, smells burnt or looks damaged.`,
       },
       {
         title: `Electrical fault guides for ${coverageSuburb.name}`,

@@ -93,7 +93,24 @@ export function getServiceCredentialItems(slug: string): ServiceCredentialItem[]
     return serviceCredentialPresets.cctvData;
   }
 
+  if (
+    slug.includes("phone-line") ||
+    slug.includes("intercom") ||
+    slug.includes("tv-points") ||
+    slug.includes("tv-antenna")
+  ) {
+    return serviceCredentialPresets.cctvData;
+  }
+
   if (slug.includes("switchboard")) {
+    return serviceCredentialPresets.switchboard;
+  }
+
+  if (
+    slug.includes("circuit-breaker") ||
+    slug.includes("rcd-safety-switch") ||
+    slug.includes("safety-switch")
+  ) {
     return serviceCredentialPresets.switchboard;
   }
 
@@ -101,7 +118,12 @@ export function getServiceCredentialItems(slug: string): ServiceCredentialItem[]
     slug.includes("consumer-mains") ||
     slug.includes("defect-notice") ||
     slug.includes("metering") ||
-    slug.includes("private-power-pole")
+    slug.includes("private-power-pole") ||
+    slug.includes("point-of-attachment") ||
+    slug.includes("overhead-service") ||
+    slug.includes("underground-service") ||
+    slug.includes("disconnect-reconnect") ||
+    slug.includes("smart-meter")
   ) {
     return serviceCredentialPresets.level2;
   }
