@@ -1,2 +1,2 @@
-:HL["/evaready-electrical/_next/static/chunks/0_gseq38msjza.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"electrical-faults","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"smoke-from-electrical-panel","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"_5ibnHV-bb5f4j8AkO1aV"}
+:HL["/evaready-electrical/_next/static/chunks/0g3dmrcdsn3bs.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"electrical-faults","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"smoke-from-electrical-panel","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"sWWT6bOl_BTrfjRV7Vmpn"}
