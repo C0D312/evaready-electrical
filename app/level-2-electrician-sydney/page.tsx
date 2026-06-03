@@ -51,19 +51,19 @@ const serviceCards = [
     href: "/services/defect-notice-repairs-sydney",
   },
   {
-    title: "Overhead service work",
-    text: "Overhead supply issues, point of attachment concerns and clearance problems should be checked safely.",
-    href: "/services/private-power-pole-sydney",
+    title: "Point of attachment repairs",
+    text: "Loose, damaged or pulled-away attachment points need photos, site details and the right supply-side pathway.",
+    href: "/services/point-of-attachment-repairs-sydney",
   },
   {
-    title: "Underground service work",
+    title: "Overhead service lines",
+    text: "Overhead supply issues, clearance concerns, private poles and storm damage should be checked safely.",
+    href: "/services/overhead-service-lines-sydney",
+  },
+  {
+    title: "Underground service mains",
     text: "Underground supply issues can involve consumer mains, service equipment and site access planning.",
-    href: "/services/consumer-mains-sydney",
-  },
-  {
-    title: "Point of attachment issues",
-    text: "Loose, damaged or non-compliant attachment points should be photographed and reviewed before work starts.",
-    href: "/services/private-power-pole-sydney",
+    href: "/services/underground-service-mains-sydney",
   },
   {
     title: "Private power poles",
@@ -71,9 +71,19 @@ const serviceCards = [
     href: "/services/private-power-pole-sydney",
   },
   {
+    title: "Disconnect and reconnect planning",
+    text: "Major renovations, supply changes and service equipment work may need planned isolation and reconnection steps.",
+    href: "/services/disconnect-reconnect-electrician-sydney",
+  },
+  {
     title: "Three-phase and supply upgrades",
     text: "Larger loads, workshops and equipment upgrades may need a supply and switchboard capacity review.",
     href: "/services/three-phase-power-sydney",
+  },
+  {
+    title: "Electrical load capacity checks",
+    text: "EV chargers, air conditioning, workshops and larger appliances can require load and supply capacity checks.",
+    href: "/services/electrical-load-capacity-checks-sydney",
   },
   {
     title: "EV charger load upgrade checks",
@@ -87,7 +97,9 @@ const detailsChecklist = [
   "Clear switchboard photo with labels visible where possible",
   "Meter box, service fuse or service equipment photo",
   "Point of attachment or private pole photo if relevant",
-  "Suburb, property type and the deadline listed on the notice",
+  "Job address, suburb, property type and best contact number",
+  "Deadline listed on the notice or requested by the retailer or builder",
+  "Access notes such as gates, strata entry, parking or business hours",
   "Retailer, network or supply authority paperwork if available",
 ];
 
@@ -110,12 +122,17 @@ const whenToCall = [
   {
     title: "Overhead or underground supply needs attention",
     text: "Service line, point of attachment and underground supply issues need a careful inspection path.",
-    href: "/services/private-power-pole-sydney",
+    href: "/services/overhead-service-lines-sydney",
   },
   {
     title: "Metering or service equipment is involved",
     text: "Metering, service fuses and service protection can involve retailer and network requirements.",
     href: "/services/metering-services-sydney",
+  },
+  {
+    title: "Disconnect and reconnect work is being discussed",
+    text: "Major renovations, supply upgrades and service equipment changes may need a planned isolation pathway.",
+    href: "/services/disconnect-reconnect-electrician-sydney",
   },
   {
     title: "The fault feels unsafe",
@@ -345,9 +362,10 @@ export default function Level2ElectricianSydneyPage() {
             </p>
 
             <p className="mt-4 max-w-2xl text-sm font-semibold leading-6 text-slate-300">
-              If your retailer, builder or defect notice says you need an ASP
-              Level 2 electrician, send the paperwork through so the right
-              Level 2 pathway can be reviewed before work is booked.
+              If your retailer, builder or defect notice says the job needs
+              Level 2 or supply-side electrical work, send the paperwork
+              through so the right pathway can be reviewed before work is
+              booked.
             </p>
 
             <ServiceCredentialStrip

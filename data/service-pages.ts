@@ -539,11 +539,16 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Consumer mains checks, upgrades and repair discussions for Sydney properties that need supply-side electrical work.",
     intro:
       "Consumer mains carry power from the service connection to the switchboard. If they are old, damaged, undersized or part of a defect notice, the work needs the right electrical process and documentation.",
+    credentialHighlights: [
+      "Level 2 electrical enquiries",
+      "Consumer mains and supply capacity",
+    ],
     heroBullets: [
       "Consumer mains repairs and upgrades",
       "Supply capacity discussions",
       "Defect notice support",
       "Switchboard supply-side work",
+      "Overhead and underground supply considerations",
     ],
     warningSigns: [
       "A defect notice mentions consumer mains",
@@ -557,7 +562,9 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Defect notice discussion",
       "Switchboard supply checks",
       "Overhead and underground service considerations",
-      "Level 2 electrical coordination where required",
+      "Point of attachment and service equipment context",
+      "Load capacity review for EV, aircon or larger equipment",
+      "Level 2 electrical process guidance where required",
     ],
     process: [
       {
@@ -593,12 +600,27 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         answer:
           "Consumer mains work often involves specialised supply-side requirements and should be assessed by the right licensed electrician.",
       },
+      {
+        question: "What photos help with a consumer mains quote?",
+        answer:
+          "Send photos of the switchboard, meter area, point of attachment or service path, any defect notice, your suburb and the reason the mains are being reviewed.",
+      },
+      {
+        question: "Can new loads trigger consumer mains upgrades?",
+        answer:
+          "Sometimes. EV chargers, air conditioning, workshops and larger appliances can trigger a load and supply capacity review before work proceeds.",
+      },
     ],
     relatedServices: [
       "defect-notice-repairs-sydney",
+      "metering-services-sydney",
       "private-power-pole-sydney",
+      "point-of-attachment-repairs-sydney",
+      "overhead-service-lines-sydney",
+      "underground-service-mains-sydney",
       "switchboard-upgrades-sydney",
       "ev-charger-installation-sydney",
+      "electrical-load-capacity-checks-sydney",
     ],
   },
   {
@@ -611,6 +633,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Help understanding and responding to electrical defect notices before they become a bigger problem.",
     intro:
       "An electrical defect notice should be acted on quickly. Evaready Electrical can review the notice, inspect the affected equipment and explain what needs to be done to bring the issue back toward compliance.",
+    credentialHighlights: [
+      "Defect notice review",
+      "Photos, deadlines and paperwork",
+    ],
     heroBullets: [
       "Defect notice review",
       "Consumer mains and service defects",
@@ -629,6 +655,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Point of attachment checks",
       "Switchboard defect support",
       "Private pole related defect support",
+      "Metering and service equipment defect review",
       "Documentation guidance where applicable",
     ],
     process: [
@@ -665,10 +692,23 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         answer:
           "Send the notice, your address, photos of the switchboard or affected equipment, and any deadline listed.",
       },
+      {
+        question: "Can a defect notice involve Level 2 work?",
+        answer:
+          "Yes. Defect notices can involve consumer mains, metering, point of attachment, private pole, overhead service or supply-side equipment issues.",
+      },
+      {
+        question: "Should I call if the defect looks unsafe?",
+        answer:
+          "Yes. If there is no power, smoke, sparking, heat, a burning smell or exposed equipment, call first before touching the affected area.",
+      },
     ],
     relatedServices: [
       "consumer-mains-sydney",
+      "metering-services-sydney",
       "private-power-pole-sydney",
+      "point-of-attachment-repairs-sydney",
+      "overhead-service-lines-sydney",
       "switchboard-upgrades-sydney",
       "electrical-fault-finding-sydney",
     ],
@@ -683,6 +723,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Electrical support for private power pole concerns, overhead service issues and related defect notices.",
     intro:
       "Private power poles and overhead services can become a serious safety issue when damaged, leaning or flagged in a defect notice. Evaready Electrical can assess the electrical side of the issue and explain the next steps.",
+    credentialHighlights: [
+      "Private pole enquiries",
+      "Overhead supply and defects",
+    ],
     heroBullets: [
       "Private pole electrical enquiries",
       "Overhead service concerns",
@@ -737,10 +781,17 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         answer:
           "Send photos of the pole, overhead cables, switchboard and any defect notice you received.",
       },
+      {
+        question: "What if a line is down or close to danger?",
+        answer:
+          "Keep clear and call emergency services or the relevant distributor first if there is immediate danger, fallen lines or life-threatening risk.",
+      },
     ],
     relatedServices: [
       "defect-notice-repairs-sydney",
       "consumer-mains-sydney",
+      "point-of-attachment-repairs-sydney",
+      "overhead-service-lines-sydney",
       "electrical-fault-finding-sydney",
       "switchboard-upgrades-sydney",
     ],
@@ -1495,11 +1546,15 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Metering support, service equipment checks and Level 2 electrical coordination for supply-side electrical issues.",
     intro:
       "Metering and service equipment sits at the point where property wiring and electricity supply requirements meet. Evaready Electrical can assess metering-related electrical issues, service equipment concerns, defect notices and upgrade enquiries.",
+    credentialHighlights: [
+      "Meter area checks",
+      "Retailer and provider notes",
+    ],
     heroBullets: [
       "Metering support",
       "Service equipment checks",
       "Defect notice assistance",
-      "Level 2 electrical coordination",
+      "Smart meter preparation",
     ],
     warningSigns: [
       "A notice mentions metering or service equipment",
@@ -1513,7 +1568,9 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Supply-side electrical assessment",
       "Defect notice review",
       "Switchboard and meter area coordination",
-      "Level 2 electrical support where required",
+      "Smart meter electrical preparation",
+      "Retailer and metering provider notes review",
+      "Level 2 electrical process guidance where required",
     ],
     process: [
       {
@@ -1549,11 +1606,24 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         answer:
           "Send photos of the meter area, switchboard, any notice or job request, and your suburb.",
       },
+      {
+        question: "Can you install the smart meter itself?",
+        answer:
+          "Smart meter installation is usually arranged through the retailer or metering provider. Evaready can help with property-side electrical preparation and issues.",
+      },
+      {
+        question: "Can metering issues be urgent?",
+        answer:
+          "If the meter area or service equipment is hot, smoking, sparking, damaged or unsafe, call first before touching the area.",
+      },
     ],
     relatedServices: [
       "level-2-electrician-sydney",
       "consumer-mains-sydney",
       "defect-notice-repairs-sydney",
+      "smart-meter-electrician-sydney",
+      "disconnect-reconnect-electrician-sydney",
+      "electrical-load-capacity-checks-sydney",
       "switchboard-upgrades-sydney",
     ],
   },
@@ -1999,11 +2069,16 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Electrical capacity checks for upgrades, 3 phase enquiries, EV charging, workshops and commercial equipment.",
     intro:
       "Before adding major loads, it is worth checking whether the existing electrical system is suitable. Evaready Electrical can assess load and capacity questions for EV chargers, workshops, commercial equipment, renovations, 3 phase enquiries and switchboard upgrades.",
+    credentialHighlights: [
+      "Load and supply review",
+      "EV, aircon and equipment planning",
+    ],
     heroBullets: [
       "Load and capacity checks",
       "EV charger planning",
       "3 phase upgrade enquiries",
       "Workshop and commercial equipment",
+      "Aircon and heat pump loads",
     ],
     warningSigns: [
       "New equipment may need more power than the property has available",
@@ -2017,6 +2092,8 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "EV charger supply planning",
       "3 phase power enquiries",
       "Commercial equipment circuits",
+      "Air conditioning and heat pump load planning",
+      "Consumer mains and supply capacity review",
       "Switchboard upgrade recommendations",
     ],
     process: [
@@ -2053,17 +2130,29 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         answer:
           "Send equipment ratings, EV charger details, photos of the switchboard, property type and what new loads you want to add.",
       },
+      {
+        question: "Can air conditioning or heat pumps need capacity checks?",
+        answer:
+          "Yes. Split systems, heat pumps and larger appliances can require dedicated circuits, safety protection and switchboard capacity checks.",
+      },
+      {
+        question: "Should urgent overload or burning smells be quoted online?",
+        answer:
+          "No. If there is heat, burning smell, sparking, no power or repeated tripping, call first so the fault can be treated as urgent.",
+      },
     ],
     relatedServices: [
       "three-phase-power-sydney",
       "ev-charger-installation-sydney",
+      "consumer-mains-sydney",
+      "metering-services-sydney",
       "switchboard-upgrades-sydney",
       "level-2-electrician-sydney",
     ],
   },
   {
     slug: "point-of-attachment-repairs-sydney",
-    metaTitle: "Point of Attachment Repairs Sydney",
+    metaTitle: "Point of Attachment Repairs Sydney | Level 2 Help",
     metaDescription:
       "Point of attachment repairs in Sydney for damaged brackets, overhead supply issues, defect notices and supply-side electrical enquiries.",
     title: "Point of Attachment Repairs Sydney & Surrounding Regions",
@@ -2071,6 +2160,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Supply-side electrical support for damaged point of attachment issues, overhead supply enquiries and defect notice work.",
     intro:
       "The point of attachment is where the overhead service connects to the property. If it is damaged, loose, affected by storm damage or listed on a defect notice, Evaready Electrical can review the electrical side of the issue and explain the next step clearly.",
+    credentialHighlights: [
+      "Point of attachment review",
+      "Overhead service and defect support",
+    ],
     heroBullets: [
       "Point of attachment checks",
       "Overhead supply issues",
@@ -2125,6 +2218,16 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         answer:
           "Send the defect notice, your suburb, photos of the overhead connection, switchboard, meter area and any visible damage if safe.",
       },
+      {
+        question: "Can this involve a private power pole?",
+        answer:
+          "Yes. Point of attachment issues can be connected to private poles, overhead service lines, consumer mains and defect notice work.",
+      },
+      {
+        question: "Who should I call if the service line is fallen or dangerous?",
+        answer:
+          "Keep clear and call emergency services or the relevant distributor first if there is immediate danger, fallen lines or life-threatening risk.",
+      },
     ],
     relatedServices: [
       "level-2-electrician-sydney",
@@ -2132,6 +2235,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "consumer-mains-sydney",
       "defect-notice-repairs-sydney",
       "private-power-pole-sydney",
+      "emergency-electrician-sydney",
     ],
   },
   {
@@ -2144,6 +2248,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Supply-side electrical support for overhead service line enquiries, storm damage, private poles and defect notice work.",
     intro:
       "Overhead service issues need careful handling because they can involve the property connection, point of attachment, private poles, consumer mains and network requirements. Evaready Electrical can review overhead service enquiries and guide the correct next step.",
+    credentialHighlights: [
+      "Overhead service enquiries",
+      "Point of attachment and private pole links",
+    ],
     heroBullets: [
       "Overhead service work planning",
       "Storm and damage checks",
@@ -2198,13 +2306,25 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         answer:
           "Yes. Storms can affect overhead service lines, private poles, brackets, fittings and the point of attachment.",
       },
+      {
+        question: "What photos help with an overhead service enquiry?",
+        answer:
+          "Send photos of the service line, point of attachment, private pole if present, switchboard, meter area and any defect notice if it is safe.",
+      },
+      {
+        question: "Can you guarantee network attendance times?",
+        answer:
+          "No. Evaready can explain and complete the property-side electrical work pathway, but network attendance and approvals depend on the relevant parties.",
+      },
     ],
     relatedServices: [
       "level-2-electrician-sydney",
       "point-of-attachment-repairs-sydney",
       "private-power-pole-sydney",
+      "defect-notice-repairs-sydney",
       "storm-damage-electrician-sydney",
       "consumer-mains-sydney",
+      "emergency-electrician-sydney",
     ],
   },
   {
@@ -2217,6 +2337,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Supply-side electrical support for underground consumer mains, defect notices and service upgrade enquiries.",
     intro:
       "Underground service mains can be involved in renovations, supply upgrades, defect notices, damaged consumer mains and property supply issues. Evaready Electrical can review the electrical scope and explain the right pathway before work proceeds.",
+    credentialHighlights: [
+      "Underground supply enquiries",
+      "Consumer mains and access planning",
+    ],
     heroBullets: [
       "Underground service mains enquiries",
       "Consumer mains support",
@@ -2271,12 +2395,24 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         answer:
           "Send photos of the switchboard, meter area, any notice, property access and the reason the supply work is being reviewed.",
       },
+      {
+        question: "Can excavation or renovations affect underground mains?",
+        answer:
+          "Yes. Renovations, trenching, driveways and other site work can affect the planning and access requirements for underground service mains.",
+      },
+      {
+        question: "Should I call if underground supply equipment looks unsafe?",
+        answer:
+          "Yes. If there is no power, exposed wiring, heat, smoke, sparking or water-affected equipment, call first and keep clear.",
+      },
     ],
     relatedServices: [
       "level-2-electrician-sydney",
       "consumer-mains-sydney",
       "defect-notice-repairs-sydney",
       "disconnect-reconnect-electrician-sydney",
+      "metering-services-sydney",
+      "point-of-attachment-repairs-sydney",
       "electrical-load-capacity-checks-sydney",
     ],
   },
@@ -2290,6 +2426,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Electrical disconnect and reconnect planning for supply-side work, renovations, defect notices and service equipment changes.",
     intro:
       "Some jobs need a safe disconnect and reconnect process before work can proceed, especially around consumer mains, metering, major renovations or supply-side equipment. Evaready Electrical can review the job and explain the right electrical pathway.",
+    credentialHighlights: [
+      "Disconnect and reconnect planning",
+      "Supply-side electrical pathway",
+    ],
     heroBullets: [
       "Disconnect and reconnect planning",
       "Service equipment support",
@@ -2344,11 +2484,24 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         answer:
           "Send photos of the switchboard, meter area, service connection, any notice or paperwork, plus the suburb and job deadline.",
       },
+      {
+        question: "Can renovations need disconnect and reconnect planning?",
+        answer:
+          "Yes. Major renovations, demolition stages, switchboard work and service equipment changes may need planned isolation before work can proceed.",
+      },
+      {
+        question: "Should I use the booking form for an unsafe supply fault?",
+        answer:
+          "No. If there is smoke, sparking, heat, burning smell, exposed equipment or no power, call first rather than waiting for a form response.",
+      },
     ],
     relatedServices: [
       "level-2-electrician-sydney",
       "consumer-mains-sydney",
       "metering-services-sydney",
+      "defect-notice-repairs-sydney",
+      "underground-service-mains-sydney",
+      "point-of-attachment-repairs-sydney",
       "switchboard-upgrades-sydney",
       "electrical-load-capacity-checks-sydney",
     ],

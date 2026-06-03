@@ -123,6 +123,8 @@ export function getServiceCredentialItems(slug: string): ServiceCredentialItem[]
     slug.includes("overhead-service") ||
     slug.includes("underground-service") ||
     slug.includes("disconnect-reconnect") ||
+    slug.includes("electrical-load-capacity") ||
+    slug.includes("three-phase") ||
     slug.includes("smart-meter")
   ) {
     return serviceCredentialPresets.level2;

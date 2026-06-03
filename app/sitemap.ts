@@ -27,6 +27,19 @@ const routes: SitemapRoute[] = [
   { path: "/terms", priority: 0.4 },
 ];
 
+const level2ServiceSlugs = new Set([
+  "consumer-mains-sydney",
+  "defect-notice-repairs-sydney",
+  "private-power-pole-sydney",
+  "metering-services-sydney",
+  "point-of-attachment-repairs-sydney",
+  "overhead-service-lines-sydney",
+  "underground-service-mains-sydney",
+  "disconnect-reconnect-electrician-sydney",
+  "electrical-load-capacity-checks-sydney",
+  "smart-meter-electrician-sydney",
+]);
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const regionRoutes = coverageRegions.map((region) => ({
     path: `/service-areas/${region.slug}`,
@@ -44,11 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
   const serviceRoutes = serviceLandingPages.map((service) => ({
     path: `/services/${service.slug}`,
-    priority: ["consumer-mains-sydney", "defect-notice-repairs-sydney", "private-power-pole-sydney"].includes(
-      service.slug,
-    )
-      ? 0.86
-      : 0.88,
+    priority: level2ServiceSlugs.has(service.slug) ? 0.9 : 0.88,
   }));
   const faultRoutes = electricalFaultPages.map((fault) => ({
     path: `/electrical-faults/${fault.slug}`,
