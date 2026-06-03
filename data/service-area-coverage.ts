@@ -1260,7 +1260,11 @@ function buildOverrideMetaDescription(
   copy: SuburbPageCopy,
   override: SuburbCopyOverride,
 ) {
-  const prefix = `${copy.metaDescription.split("?")[0]}? `;
+  const questionIndex = copy.metaDescription.indexOf("?");
+  const prefix =
+    questionIndex >= 0
+      ? `${copy.metaDescription.slice(0, questionIndex + 1)} `
+      : "";
   const detail = (override.heroDescription ?? override.serviceIntro ?? copy.heroDescription)
     .replace(
       /^Evaready Electrical (?:helps|supports|services|works across|works) .+? with /,
@@ -1806,7 +1810,7 @@ export function getSuburbPageCopy(
     ? copyWithOverrides.heroDescription
     : `${copyWithOverrides.heroDescription} ${response.suburbDisplay}`;
   const emergencyFaq = copyWithOverrides.faqAnswers.emergency.includes(
-    "minute response",
+    response.shortDisplay,
   )
     ? copyWithOverrides.faqAnswers.emergency
     : `${copyWithOverrides.faqAnswers.emergency} Emergency call-outs in this region use ${response.shortDisplay}.`;
