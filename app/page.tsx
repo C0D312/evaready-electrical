@@ -69,7 +69,7 @@ const coreServices = coreServiceTitles.flatMap((item) => {
   return service ? [{ ...service, href: item.href }] : [];
 });
 
-const whyChoose = [
+  const whyChoose = [
   {
     title: "Licensed electrical work",
     text: `NSW Electrical Licence ${business.licence} is kept visible before you book.`,
@@ -77,8 +77,13 @@ const whyChoose = [
   },
   {
     title: "Call-first emergency help",
-    text: "Unsafe faults are handled by phone first so the next step is clear.",
+    text: `${business.emergencyResponse.combinedDisplay} Call first if it feels unsafe.`,
     icon: Phone,
+  },
+  {
+    title: business.level2Asp.shortDisplay,
+    text: `${business.level2Asp.networks.join(" & ")} service provider for supply-side electrical work.`,
+    icon: BadgeCheck,
   },
   {
     title: "Photos and job notes",
@@ -155,12 +160,12 @@ const faqs = [
   {
     question: "Do you offer 24/7 emergency electrician call-outs?",
     answer:
-      "Yes. Call Evaready Electrical any time for power outages, tripping circuits, burning smells, sparking or electrical issues that feel unsafe.",
+      "Yes. Call Evaready Electrical any time for power outages, tripping circuits, burning smells, sparking or electrical issues that feel unsafe. Emergency call-outs can be on site within 60 minutes in core service areas, with 90-minute response for greater regions.",
   },
   {
     question: "Can you help with Level 2 electrical work?",
     answer:
-      "Yes. Evaready Electrical can assist with Level 2 electrical work including consumer mains, service equipment, overhead and underground services, metering support and defect notices.",
+      `Yes. Evaready Electrical is an ${business.level2Asp.display} and can assist with consumer mains, service equipment, overhead and underground services, metering support and defect notices.`,
   },
   {
     question: "Do you provide switchboard upgrades?",
@@ -204,9 +209,14 @@ function PhoneLinkedText({ text }: { text: string }) {
 export default function HomePage() {
   const localBusinessSchema = buildElectricianSchema({
     description:
-      "Emergency, Level 2 and general electrical work across Sydney and surrounding regions.",
+      "Emergency, accredited Level 2 ASP and general electrical work across Sydney and surrounding regions, with 60-minute emergency response in core areas and 90 minutes for greater regions.",
     offerNames: coreServices.map((service) => service.title),
-    serviceTypes: coreServices.map((service) => service.title),
+    serviceTypes: [
+      "60-minute emergency electrician response in core service areas",
+      "90-minute emergency response for greater regions",
+      business.level2Asp.display,
+      ...coreServices.map((service) => service.title),
+    ],
     urgentCalls24Seven: true,
     url: business.siteUrl,
   });
@@ -256,7 +266,9 @@ export default function HomePage() {
             <p className="mt-5 max-w-2xl text-base leading-7 text-slate-100 sm:mt-6 sm:text-xl sm:leading-8">
               Call Evaready Electrical for urgent faults, Level 2 work,
               switchboards, fault finding and general electrical service across
-              Sydney and surrounding regions.
+              Sydney and surrounding regions. Emergency call-outs can be on site
+              within 60 minutes in core service areas, with 90-minute response
+              for greater regions. Evaready is an {business.level2Asp.display}.
             </p>
 
             <div className="mt-7 grid gap-3 sm:flex sm:flex-wrap">

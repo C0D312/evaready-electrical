@@ -7,7 +7,7 @@ const emergencyCards = [
     href: "/emergency-electrician-sydney",
     icon: Flame,
     title: "Emergency Fault Help",
-    text: "Power outages, burning smells, sparking, repeated tripping and unsafe wiring.",
+    text: "60-minute response in core areas and 90 minutes for greater regions.",
     tone: "red",
   },
   {
@@ -20,8 +20,8 @@ const emergencyCards = [
   {
     href: "/level-2-electrician-sydney",
     icon: Zap,
-    title: "Level 2 Electrical Work",
-    text: "Consumer mains, metering, defect notices and supply-side issues.",
+    title: business.level2Asp.shortDisplay,
+    text: `${business.level2Asp.networks.join(" & ")} service provider.`,
     tone: "cyan",
   },
 ];
@@ -75,8 +75,9 @@ export function EmergencyTrustPanel({ className = "" }: { className?: string }) 
               24/7 Emergency Electrician Sydney
             </h2>
             <p className="mt-4 max-w-3xl text-base font-semibold leading-7 text-slate-300 sm:text-lg">
-              Call first for faults that feel unsafe. Use the booking form for
-              planned work or jobs where photos help us assess the next step.
+              Emergency call-outs can be on site within 60 minutes in core
+              service areas, with 90-minute response for greater regions. Call
+              first for unsafe faults; use the booking form for planned work.
             </p>
             <div className="mt-7 grid gap-3 sm:flex sm:flex-wrap">
               <a

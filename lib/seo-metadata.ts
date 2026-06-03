@@ -88,9 +88,9 @@ export function homeSeoMetadata(): RouteSeoMetadata {
   return {
     path,
     canonical: routeUrl(path),
-    title: "Emergency & Level 2 Electrician Sydney & Surrounding Regions",
+    title: "Emergency & Level 2 Electrician Sydney | 60-Min Response",
     description: clampDescription(
-      "Evaready Electrical helps with urgent faults, Level 2 work, switchboards, fault finding, residential and commercial jobs across Sydney and surrounding regions.",
+      "Emergency electrician in Sydney with 60-minute core response, 90-minute greater region response and accredited Level 2 ASP support.",
     ),
   };
 }
@@ -114,9 +114,9 @@ export function emergencySeoMetadata(): RouteSeoMetadata {
   return {
     path,
     canonical: routeUrl(path),
-    title: "Emergency Electrician Sydney | 24/7 Urgent Help",
+    title: "Emergency Electrician Sydney | 60-Min Response",
     description: clampDescription(
-      "Need an emergency electrician in Sydney? Call Evaready for power loss, burning smells, sparking, tripping safety switches and storm faults.",
+      "Call Evaready for emergency electrical faults in Sydney. 60-minute core response, 90 minutes for greater regions. Power loss and sparking.",
     ),
   };
 }
@@ -127,9 +127,9 @@ export function level2SeoMetadata(): RouteSeoMetadata {
   return {
     path,
     canonical: routeUrl(path),
-    title: "Level 2 Electrician Sydney | Mains & Defects",
+    title: "Level 2 Electrician Sydney | Accredited ASP",
     description: clampDescription(
-      "Level 2 electrician Sydney for consumer mains, defect notices, metering, overhead and underground services. Send photos and paperwork.",
+      "Ausgrid & Endeavour Energy accredited Level 2 ASP for consumer mains, defect notices, metering and supply-side electrical work in Sydney.",
     ),
   };
 }

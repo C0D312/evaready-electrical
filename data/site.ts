@@ -68,7 +68,78 @@ export const business = {
   googleReviewDisplayText: "See Evaready Electrical on Google",
   bookingUrl:
     "https://book.servicem8.com/request_booking?uuid=78c2a862-45cf-413b-8ca5-1bf6d8f8944b",
+  emergencyResponse: {
+    coreMinutes: 60,
+    greaterRegionMinutes: 90,
+    coreDisplay: "On site within 60 minutes for emergency call-outs",
+    greaterDisplay: "Within 90 minutes for greater regions",
+    combinedDisplay:
+      "60-minute emergency response in core areas. 90 minutes for greater regions.",
+    disclaimer:
+      "Response time depends on location, access, traffic, safety conditions, job type and current availability.",
+    emergencyOnlyNote:
+      "Response times apply to emergency electrical call-outs, not planned quote work.",
+  },
+  level2Asp: {
+    enabled: true,
+    networks: ["Ausgrid", "Endeavour Energy"],
+    display: "Ausgrid & Endeavour Energy Accredited Level 2 ASP",
+    shortDisplay: "Accredited Level 2 ASP",
+    aspNumber: "",
+    categories: [] as string[],
+    verificationNote:
+      "Level 2 ASP work is handled within the relevant network, licence and job scope.",
+  },
+  emergencyResponseRegions: {
+    core: [
+      "Canterbury-Bankstown & Inner South West",
+      "St George & Bayside",
+      "Sutherland Shire",
+      "Inner West, Burwood & Canada Bay",
+      "Sydney City & Eastern Suburbs",
+      "Parramatta & Cumberland",
+      "Liverpool & Fairfield",
+    ],
+    greater: [
+      "Macarthur, Camden & Wollondilly",
+      "Western Sydney & Nepean",
+      "Hills, Hawkesbury & Hornsby",
+      "Northern Sydney & Ryde",
+      "Northern Beaches",
+      "Blue Mountains",
+      "Wollongong & Illawarra",
+      "Southern Highlands",
+      "Central Coast South",
+    ],
+  },
 };
+
+export function getEmergencyResponseForRegion(regionName: string) {
+  const normalizedRegion = regionName.trim();
+  const isCore = business.emergencyResponseRegions.core.includes(normalizedRegion);
+  const isGreater =
+    business.emergencyResponseRegions.greater.includes(normalizedRegion);
+  const minutes = isCore
+    ? business.emergencyResponse.coreMinutes
+    : business.emergencyResponse.greaterRegionMinutes;
+
+  return {
+    isCore,
+    isGreater,
+    minutes,
+    badgeTitle: isCore ? "60-Minute Response" : "90-Minute Response",
+    badgeText: isCore ? "Core emergency areas" : "Greater regions",
+    shortDisplay: isCore
+      ? "60-minute emergency response"
+      : "90-minute emergency response",
+    regionDisplay: isCore
+      ? "Emergency call-outs in this core service area can be on site within 60 minutes."
+      : "Emergency call-outs across this greater region can be on site within 90 minutes.",
+    suburbDisplay: isCore
+      ? "60-minute response for urgent call-outs."
+      : "90-minute response for urgent call-outs across greater regions.",
+  };
+}
 
 export const services = [
   {

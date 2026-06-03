@@ -10,7 +10,7 @@ import {
   Wrench,
   Zap,
 } from "lucide-react";
-import { business } from "@/data/site";
+import { business, getEmergencyResponseForRegion } from "@/data/site";
 
 export type ServiceCredentialItem = {
   icon: LucideIcon;
@@ -34,18 +34,22 @@ const iconTone = {
 export const serviceCredentialPresets = {
   general: [
     { icon: ShieldCheck, title: "NSW Licensed", text: business.licence },
-    { icon: Clock3, title: "Open 24/7", text: "Urgent faults" },
+    { icon: Clock3, title: "60-Min Response", text: "Core emergencies", tone: "red" },
+    { icon: Clock3, title: "90-Min Response", text: "Greater regions" },
     { icon: Camera, title: "Booking Details & Photos", text: "Secure form" },
     { icon: BadgeCheck, title: "Safety-First Testing", text: "Checked clearly" },
   ],
   emergency: [
-    { icon: Clock3, title: "Open 24/7", text: "Urgent faults", tone: "red" },
+    { icon: Clock3, title: "60-Minute Response", text: "Core emergency areas", tone: "red" },
+    { icon: Clock3, title: "90-Minute Response", text: "Greater regions" },
     { icon: ShieldAlert, title: "Call First If Unsafe", text: "Smoke, heat or sparking", tone: "red" },
     { icon: ShieldCheck, title: `NSW Licence ${business.licence}`, text: "Licensed electrician" },
     { icon: Flame, title: "Urgent Fault Support", text: "Power loss & hazards", tone: "red" },
   ],
   level2: [
-    { icon: Zap, title: "Level 2 Electrical Work", text: "Supply-side support" },
+    { icon: Zap, title: business.level2Asp.shortDisplay, text: "Ausgrid & Endeavour" },
+    { icon: Clock3, title: "60-Minute Emergency", text: "Core areas", tone: "red" },
+    { icon: Clock3, title: "90-Minute Emergency", text: "Greater regions" },
     { icon: Wrench, title: "Consumer Mains", text: "Repairs & upgrades" },
     {
       icon: ShieldAlert,
@@ -133,11 +137,22 @@ export function getServiceCredentialItems(slug: string): ServiceCredentialItem[]
   return serviceCredentialPresets.general;
 }
 
-export function getSuburbCredentialItems(suburb: string): ServiceCredentialItem[] {
+export function getSuburbCredentialItems(
+  suburb: string,
+  regionName?: string,
+): ServiceCredentialItem[] {
+  const response = regionName
+    ? getEmergencyResponseForRegion(regionName)
+    : {
+        badgeTitle: "60/90-Min Response",
+        badgeText: "Emergency call-outs",
+      };
+
   return [
     { icon: MapPin, title: `Servicing ${suburb}`, text: "Local electrical help" },
     { icon: ShieldCheck, title: `NSW Licence ${business.licence}`, text: "Licensed electrician" },
-    { icon: Zap, title: "Emergency & Level 2 Work", text: "Call first if unsafe", tone: "red" },
+    { icon: Clock3, title: response.badgeTitle, text: response.badgeText, tone: "red" },
+    { icon: Zap, title: business.level2Asp.shortDisplay, text: "Ausgrid & Endeavour" },
     { icon: Camera, title: "Get a Quote Online", text: "Send notes & photos" },
     { icon: BadgeCheck, title: `Open Cabler ${business.openCablerRegistration}`, text: "CCTV & data" },
     { icon: ShieldCheck, title: `ARCtick ${business.arctickLicence}`, text: "Where relevant" },

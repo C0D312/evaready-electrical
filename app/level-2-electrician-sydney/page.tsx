@@ -32,7 +32,7 @@ const pageUrl = absoluteUrl("/level-2-electrician-sydney");
 const serviceCards = [
   {
     title: "Consumer mains repairs and upgrades",
-    text: "Damaged, ageing or undersized consumer mains can affect supply capacity and may need the right Level 2 process.",
+    text: "Damaged, ageing or undersized consumer mains can affect supply capacity and may need an accredited Level 2 ASP pathway.",
     href: "/services/consumer-mains-sydney",
   },
   {
@@ -144,7 +144,7 @@ const whenToCall = [
 const authorityTopics = [
   {
     title: "Ausgrid and Endeavour Energy requirements",
-    text: "If you have been told you need an Ausgrid Level 2 electrician or Endeavour Energy Level 2 electrician, send the paperwork so the job can be reviewed against the correct process for that connection.",
+    text: `${business.level2Asp.display}. If you have been told the job needs Ausgrid or Endeavour Energy Level 2 work, send the paperwork so the job can be reviewed against the correct process for that connection.`,
   },
   {
     title: "No control over network timing",
@@ -161,6 +161,11 @@ const authorityTopics = [
 ];
 
 const level2Faqs = [
+  {
+    question: "Are you an Ausgrid and Endeavour Energy accredited Level 2 ASP?",
+    answer:
+      `Yes. Evaready Electrical is an ${business.level2Asp.display}. Level 2 ASP work is handled within the relevant network, licence and job scope.`,
+  },
   {
     question: "What is Level 2 electrical work?",
     answer:
@@ -269,13 +274,18 @@ function buildSchema() {
       {
         "@type": "Service",
         "@id": `${pageUrl}#service`,
-        name: "Level 2 electrical work in Sydney",
-        serviceType: "Level 2 electrical work",
+        name: "Accredited Level 2 ASP electrical work in Sydney",
+        serviceType: [
+          business.level2Asp.display,
+          "Emergency Level 2 ASP response within 60 minutes in core service areas",
+          "90-minute emergency Level 2 response for greater regions",
+          "Level 2 electrical work",
+        ],
         url: pageUrl,
         provider: { "@id": `${pageUrl}#electrician` },
         areaServed: "Sydney and surrounding regions",
         description:
-          "Level 2 electrical work enquiries for consumer mains, defect notices, metering, overhead services, underground services, private poles and supply-side electrical work.",
+          "Ausgrid and Endeavour Energy accredited Level 2 ASP enquiries for consumer mains, defect notices, metering, overhead services, underground services, private poles and supply-side electrical work. Emergency supply-side call-outs can be on site within 60 minutes in core service areas and 90 minutes for greater regions.",
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Level 2 electrical services",
@@ -349,23 +359,29 @@ export default function Level2ElectricianSydneyPage() {
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">
-              Evaready Electrical helps with consumer mains, defect notice
-              repairs, metering, service equipment, point of attachment,
-              private pole, overhead and underground service enquiries across
-              Sydney and surrounding regions.
+              {business.level2Asp.display}. Evaready Electrical helps with
+              consumer mains, defect notice repairs, metering, service
+              equipment, point of attachment, private pole, overhead and
+              underground service enquiries across Sydney and surrounding
+              regions.
             </p>
 
             <p className="mt-4 max-w-2xl rounded-2xl border border-red-300/25 bg-red-500/10 p-4 text-sm font-bold leading-6 text-slate-100">
+              Emergency Level 2 ASP response within 60 minutes in core service
+              areas, with 90-minute emergency response for greater regions.
               Have a defect notice? Send the notice, switchboard photos,
               service equipment photos, suburb and deadline. If there is smoke,
-              sparking, heat or no power, call first.
+              sparking, heat, no power, damaged point of attachment, overhead
+              service concern, private pole damage, consumer mains fault or
+              unsafe service equipment, call first.
             </p>
 
             <p className="mt-4 max-w-2xl text-sm font-semibold leading-6 text-slate-300">
               If your retailer, builder or defect notice says the job needs
               Level 2 or supply-side electrical work, send the paperwork
               through so the right pathway can be reviewed before work is
-              booked.
+              booked. Evaready does not control distributor, retailer or network
+              approval timing.
             </p>
 
             <ServiceCredentialStrip
@@ -536,7 +552,7 @@ export default function Level2ElectricianSydneyPage() {
             Some Level 2 enquiries are linked to retailer, network or supply
             authority requirements. Evaready can help review the electrical
             side, document the issue and guide the next step without promising
-            network approvals or attendance times.
+            network approvals, network attendance or processing times.
           </p>
 
           <div className="mt-10 grid gap-5 md:grid-cols-2">

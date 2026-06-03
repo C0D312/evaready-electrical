@@ -14,7 +14,7 @@ import {
   getRegionBySlug,
 } from "@/data/service-area-coverage";
 import { rankSuburbsForInternalLinks } from "@/data/internal-links";
-import { absoluteUrl, business } from "@/data/site";
+import { absoluteUrl, business, getEmergencyResponseForRegion } from "@/data/site";
 import {
   buildBreadcrumbSchema,
   buildElectricianSchema,
@@ -58,16 +58,17 @@ export default async function AreaPage({ params }: AreaPageProps) {
   }
 
   const localContext = getAreaLocalContext(region, area);
+  const emergencyResponse = getEmergencyResponseForRegion(region.name);
   const sortedSuburbs = rankSuburbsForInternalLinks(area.suburbs);
   const localServiceCards = [
     {
       title: `Emergency electrician in ${area.name}`,
-      text: `Call first for no power, burning smells, sparking, hot outlets, tripping safety switches, storm or water damage and unsafe electrical faults around ${area.name}.`,
+      text: `Call first for no power, burning smells, sparking, hot outlets, tripping safety switches, storm or water damage and unsafe electrical faults around ${area.name}. ${emergencyResponse.regionDisplay}`,
       href: "/emergency-electrician-sydney",
     },
     {
       title: `Level 2 electrician in ${area.name}`,
-      text: `Level 2 enquiries can include consumer mains, metering, overhead or underground service work, point of attachment issues and defect notice repairs.`,
+      text: `${business.level2Asp.display} support can include consumer mains, metering, overhead or underground service work, point of attachment issues and defect notice repairs.`,
       href: "/level-2-electrician-sydney",
     },
     {
@@ -98,11 +99,11 @@ export default async function AreaPage({ params }: AreaPageProps) {
     },
     {
       question: `Can I call for an emergency electrician in ${area.name}?`,
-      answer: `Yes. Call first for no power, burning smells, sparking, hot outlets, repeated safety switch tripping, storm damage or any electrical fault that feels unsafe.`,
+      answer: `Yes. Call first for no power, burning smells, sparking, hot outlets, repeated safety switch tripping, storm damage or any electrical fault that feels unsafe. ${emergencyResponse.regionDisplay}`,
     },
     {
       question: `Do you help with Level 2 electrical work in ${area.name}?`,
-      answer: `Evaready Electrical can assist with Level 2 electrical enquiries involving consumer mains, metering, defect notices, overhead or underground services and supply-side issues.`,
+      answer: `Evaready Electrical is an ${business.level2Asp.display} and can assist with Level 2 electrical enquiries involving consumer mains, metering, defect notices, overhead or underground services and supply-side issues.`,
     },
     {
       question: `What common electrical jobs do you handle in ${area.name}?`,
@@ -138,7 +139,11 @@ export default async function AreaPage({ params }: AreaPageProps) {
     name: `${area.name} electrician service area`,
     offerNames: localServiceCards.map((card) => card.title),
     path: pagePath,
-    serviceType: [`Emergency electrician in ${area.name}`, `Level 2 electrician in ${area.name}`],
+    serviceType: [
+      `Emergency electrician in ${area.name}`,
+      `${emergencyResponse.shortDisplay} in ${area.name}`,
+      `${business.level2Asp.display} in ${area.name}`,
+    ],
   });
 
   return (
@@ -167,7 +172,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
       >
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
           {area.description} Evaready Electrical provides emergency
-          electrician support, Level 2 electrical enquiries, switchboards,
+          electrician support, Level 2 ASP enquiries, switchboards,
           consumer mains, defect notices, fault finding, hot water,
           air-conditioning electrical, CCTV/data and general electrical work
           across {area.name}.
@@ -179,8 +184,8 @@ export default async function AreaPage({ params }: AreaPageProps) {
           when they include {localContext.accessDetail}.
         </p>
         <p className="mt-4 max-w-3xl text-base font-semibold leading-7 text-blue-100">
-          Region: {region.name}. Extended service areas may depend on job type,
-          urgency and availability.
+          Region: {region.name}. {emergencyResponse.regionDisplay} Extended
+          service areas may depend on job type, urgency and availability.
         </p>
       </ServiceAreaHero>
 
@@ -188,6 +193,8 @@ export default async function AreaPage({ params }: AreaPageProps) {
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           {[
             `Licensed electrician ${business.licence}`,
+            emergencyResponse.shortDisplay,
+            business.level2Asp.shortDisplay,
             "Urgent fault support",
             "Booking details and photos",
             `${area.suburbs.length} suburbs covered`,

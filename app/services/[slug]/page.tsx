@@ -126,6 +126,18 @@ const urgentServiceSlugs = new Set([
   "point-of-attachment-repairs-sydney",
 ]);
 
+const level2ResponseServiceSlugs = new Set([
+  "consumer-mains-sydney",
+  "defect-notice-repairs-sydney",
+  "private-power-pole-sydney",
+  "metering-services-sydney",
+  "point-of-attachment-repairs-sydney",
+  "overhead-service-lines-sydney",
+  "underground-service-mains-sydney",
+  "disconnect-reconnect-electrician-sydney",
+  "electrical-load-capacity-checks-sydney",
+]);
+
 function finalCtaEyebrow(service: { slug: string; title: string }) {
   return (
     finalCtaEyebrows[service.slug] ??
@@ -166,12 +178,22 @@ export default async function ServiceLandingPage({
     notFound();
   }
 
+  const isLevel2ResponseService = level2ResponseServiceSlugs.has(service.slug);
   const serviceUrl = absoluteUrl(`/services/${service.slug}`);
   const electricianSchema = buildElectricianSchema({
     description: service.metaDescription,
     name: `${business.name} - ${service.title}`,
     offerNames: service.services,
-    serviceTypes: [service.title],
+    serviceTypes: [
+      service.title,
+      ...(isLevel2ResponseService
+        ? [
+            business.level2Asp.display,
+            "60-minute emergency attendance in core service areas",
+            "90-minute emergency attendance for greater regions",
+          ]
+        : []),
+    ],
     url: serviceUrl,
   });
   const breadcrumbSchema = buildBreadcrumbSchema(
@@ -195,7 +217,14 @@ export default async function ServiceLandingPage({
   const serviceSchema = buildServiceSchema({
     name: service.title,
     description: service.metaDescription,
-    serviceType: service.title,
+    serviceType: isLevel2ResponseService
+      ? [
+          service.title,
+          business.level2Asp.display,
+          "60-minute emergency attendance in core service areas",
+          "90-minute emergency attendance for greater regions",
+        ]
+      : service.title,
     offerNames: service.services,
     path: `/services/${service.slug}`,
   });
@@ -232,6 +261,13 @@ export default async function ServiceLandingPage({
     `Electrical Licence ${business.licence}`,
     `ABN ${business.abn}`,
     "Booking Details & Photos",
+    ...(isLevel2ResponseService
+      ? [
+          business.level2Asp.display,
+          "60-minute emergency response in core areas",
+          "90 minutes for greater regions",
+        ]
+      : []),
     ...(service.credentialHighlights ?? []),
   ];
   const isUrgentService = urgentServiceSlugs.has(service.slug);
@@ -280,6 +316,18 @@ export default async function ServiceLandingPage({
               items={getServiceCredentialItems(service.slug)}
               className="mt-6 max-w-4xl"
             />
+
+            {isLevel2ResponseService ? (
+              <p className="mt-5 max-w-3xl rounded-2xl border border-cyan-300/20 bg-cyan-300/10 p-4 text-sm font-bold leading-6 text-cyan-50">
+                {business.level2Asp.display}. Emergency supply-side call-outs
+                can be on site within 60 minutes in core service areas, with
+                90-minute emergency attendance for greater regions. Call first
+                for unsafe service equipment, damaged point of attachment,
+                overhead service concerns, consumer mains faults, private pole
+                damage or urgent defect notice deadlines. Network approvals and
+                distributor timing remain with the relevant parties.
+              </p>
+            ) : null}
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a

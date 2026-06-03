@@ -12,7 +12,7 @@ import {
   getRegionPaths,
 } from "@/data/service-area-coverage";
 import { rankSuburbsForInternalLinks } from "@/data/internal-links";
-import { absoluteUrl, business } from "@/data/site";
+import { absoluteUrl, business, getEmergencyResponseForRegion } from "@/data/site";
 import {
   buildBreadcrumbSchema,
   buildElectricianSchema,
@@ -59,6 +59,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
     0,
   );
   const localContext = getRegionLocalContext(region);
+  const emergencyResponse = getEmergencyResponseForRegion(region.name);
   const topSuburbs = rankSuburbsForInternalLinks(
     region.areas.flatMap((area) =>
       area.suburbs.map((suburb) => ({
@@ -70,12 +71,12 @@ export default async function RegionPage({ params }: RegionPageProps) {
   const localServiceCards = [
     {
       title: `Emergency electrician in ${region.name}`,
-      text: `Call first for no power, burning smells, sparking, hot outlets, tripping safety switches, storm damage or any fault in ${region.name} that feels unsafe.`,
+      text: `Call first for no power, burning smells, sparking, hot outlets, tripping safety switches, storm damage or any fault in ${region.name} that feels unsafe. ${emergencyResponse.regionDisplay}`,
       href: "/emergency-electrician-sydney",
     },
     {
       title: `Level 2 electrician in ${region.name}`,
-      text: `Level 2 enquiries can involve consumer mains, metering, overhead or underground services, point of attachment issues and defect notice work.`,
+      text: `${business.level2Asp.display} support can involve consumer mains, metering, overhead or underground services, point of attachment issues and defect notice work.`,
       href: "/level-2-electrician-sydney",
     },
     {
@@ -106,11 +107,11 @@ export default async function RegionPage({ params }: RegionPageProps) {
     },
     {
       question: `Can I call for an emergency electrician in ${region.name}?`,
-      answer: `Yes. Call first for no power, burning smells, sparking, hot outlets, tripping safety switches, storm damage or electrical issues that feel unsafe.`,
+      answer: `Yes. Call first for no power, burning smells, sparking, hot outlets, tripping safety switches, storm damage or electrical issues that feel unsafe. ${emergencyResponse.regionDisplay}`,
     },
     {
       question: `Do you help with Level 2 electrical work in ${region.name}?`,
-      answer: `Evaready Electrical can assist with Level 2 electrical enquiries involving consumer mains, metering, defect notices, overhead or underground services and supply-side electrical issues.`,
+      answer: `Evaready Electrical is an ${business.level2Asp.display} and can assist with Level 2 electrical enquiries involving consumer mains, metering, defect notices, overhead or underground services and supply-side electrical issues.`,
     },
     {
       question: `What details should I send for planned work in ${region.name}?`,
@@ -145,7 +146,11 @@ export default async function RegionPage({ params }: RegionPageProps) {
     name: `${region.name} electrician service area`,
     offerNames: localServiceCards.map((card) => card.title),
     path: pagePath,
-    serviceType: [`Emergency electrician in ${region.name}`, `Level 2 electrician in ${region.name}`],
+    serviceType: [
+      `Emergency electrician in ${region.name}`,
+      `${emergencyResponse.shortDisplay} in ${region.name}`,
+      `${business.level2Asp.display} in ${region.name}`,
+    ],
   });
 
   return (
@@ -174,7 +179,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
       >
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
           {region.description} Evaready Electrical helps with emergency
-          electrician calls, Level 2 electrical enquiries, switchboards,
+          electrician calls, Level 2 ASP enquiries, switchboards,
           consumer mains, defect notices, electrical fault finding and planned
           electrical work across {region.name}.
         </p>
@@ -184,8 +189,8 @@ export default async function RegionPage({ params }: RegionPageProps) {
           {localContext.accessDetail} helping planned jobs stay clear.
         </p>
         <p className="mt-4 max-w-3xl text-base font-semibold leading-7 text-blue-100">
-          {region.travelNote} Extended service areas may depend on job type,
-          urgency and availability.
+          {emergencyResponse.regionDisplay} {region.travelNote} Extended
+          service areas may depend on job type, urgency and availability.
         </p>
 
         <div className="mt-8 grid max-w-2xl gap-3 sm:grid-cols-2">
@@ -208,6 +213,8 @@ export default async function RegionPage({ params }: RegionPageProps) {
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           {[
             `Licensed electrician ${business.licence}`,
+            emergencyResponse.shortDisplay,
+            business.level2Asp.shortDisplay,
             "Emergency and planned work",
             "Residential and commercial",
             "Booking details and photos",

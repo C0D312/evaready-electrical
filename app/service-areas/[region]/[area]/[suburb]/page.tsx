@@ -29,7 +29,7 @@ import {
   getSuburbPaths,
 } from "@/data/service-area-coverage";
 import { rankSuburbsForInternalLinks } from "@/data/internal-links";
-import { absoluteUrl, business } from "@/data/site";
+import { absoluteUrl, business, getEmergencyResponseForRegion } from "@/data/site";
 import {
   buildBreadcrumbSchema,
   buildElectricianSchema,
@@ -95,6 +95,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
     ),
   ).slice(0, 8);
   const copy = getSuburbPageCopy(region, area, suburb);
+  const emergencyResponse = getEmergencyResponseForRegion(region.name);
 
   const pagePath = `/service-areas/${region.slug}/${area.slug}/${suburb.slug}`;
   const schema = buildElectricianSchema({
@@ -146,7 +147,8 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
     path: pagePath,
     serviceType: [
       `Emergency electrician ${suburb.name}`,
-      `Level 2 electrician ${suburb.name}`,
+      `${emergencyResponse.shortDisplay} ${suburb.name}`,
+      `${business.level2Asp.display} ${suburb.name}`,
       `General electrical work ${suburb.name}`,
     ],
   });
@@ -194,7 +196,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         </p>
 
         <ServiceCredentialStrip
-          items={getSuburbCredentialItems(suburb.name)}
+          items={getSuburbCredentialItems(suburb.name, region.name)}
           className="mt-6 max-w-4xl"
         />
 

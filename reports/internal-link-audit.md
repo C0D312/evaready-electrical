@@ -1,6 +1,6 @@
 # Internal Link Audit
 
-Generated: 2026-06-02T06:24:48.496Z
+Generated: 2026-06-03T12:59:46.820Z
 
 ## Route Inventory
 
@@ -21,7 +21,7 @@ Generated: 2026-06-02T06:24:48.496Z
 - Generated service-area search links
 - Generated suburb service links
 
-Internal links checked: 19936
+Internal links checked: 19963
 
 ## Broken Links
 

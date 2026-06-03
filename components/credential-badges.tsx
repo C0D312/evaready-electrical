@@ -29,21 +29,27 @@ const iconToneClasses = {
 
 export const heroCredentialItems: CredentialBadgeItem[] = [
   {
-    icon: ShieldCheck,
-    title: "NSW Licensed",
-    text: business.licence,
-    tone: "cyan",
+    icon: Clock3,
+    title: "60-Min Response",
+    text: "Core emergencies",
+    tone: "red",
   },
   {
     icon: Clock3,
-    title: "Open 24/7",
-    text: "Urgent electrical faults",
+    title: "90-Min Response",
+    text: "Greater regions",
     tone: "blue",
   },
   {
     icon: BadgeCheck,
-    title: "Level 2 Work",
-    text: "Mains, metering & defects",
+    title: business.level2Asp.shortDisplay,
+    text: "Ausgrid & Endeavour",
+    tone: "cyan",
+  },
+  {
+    icon: ShieldCheck,
+    title: "NSW Licensed",
+    text: business.licence,
     tone: "cyan",
   },
 ];

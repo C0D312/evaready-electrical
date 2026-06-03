@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useSyncExternalStore } from "react";
+import { useMemo } from "react";
 import { usePathname } from "next/navigation";
 import { Zap } from "lucide-react";
 
@@ -8,10 +8,6 @@ type MarqueeConfig = {
   ariaLabel: string;
   items: string[];
 };
-
-const subscribeToHydration = () => () => {};
-const hydratedSnapshot = () => true;
-const serverSnapshot = () => false;
 
 const homeItems = [
   "Open 24/7 for urgent faults",
@@ -529,11 +525,6 @@ function configForPath(pathname: string): MarqueeConfig {
 
 export function RouteMarqueeStrip() {
   const pathname = usePathname();
-  const showDecorativeLabels = useSyncExternalStore(
-    subscribeToHydration,
-    hydratedSnapshot,
-    serverSnapshot,
-  );
   const config = useMemo(() => configForPath(pathname), [pathname]);
   const visualItemIndexes = useMemo(
     () => {
@@ -542,17 +533,6 @@ export function RouteMarqueeStrip() {
     },
     [config.items],
   );
-
-  if (!showDecorativeLabels) {
-    return (
-      <section
-        className="emergency-issue-marquee"
-        aria-hidden="true"
-        data-nosnippet
-        role="presentation"
-      />
-    );
-  }
 
   return (
     <section
@@ -577,9 +557,11 @@ export function RouteMarqueeStrip() {
                 role="presentation"
               >
                 <Zap className="h-4 w-4 shrink-0" aria-hidden="true" />
-                <span className="emergency-issue-chip__text" aria-hidden="true">
-                  {showDecorativeLabels ? config.items[itemIndex] : ""}
-                </span>
+                <span
+                  className="emergency-issue-chip__text"
+                  aria-hidden="true"
+                  data-label={config.items[itemIndex]}
+                />
               </li>
             ))}
           </ul>
@@ -592,9 +574,11 @@ export function RouteMarqueeStrip() {
                 role="presentation"
               >
                 <Zap className="h-4 w-4 shrink-0" aria-hidden="true" />
-                <span className="emergency-issue-chip__text" aria-hidden="true">
-                  {showDecorativeLabels ? config.items[itemIndex] : ""}
-                </span>
+                <span
+                  className="emergency-issue-chip__text"
+                  aria-hidden="true"
+                  data-label={config.items[itemIndex]}
+                />
               </li>
             ))}
           </ul>

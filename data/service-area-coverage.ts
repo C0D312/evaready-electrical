@@ -1,3 +1,4 @@
+import { business, getEmergencyResponseForRegion } from "./site";
 import { generatedCoverageRegions } from "./service-area-region-data";
 
 export type CoverageSuburb = {
@@ -1316,6 +1317,7 @@ export function getSuburbPageCopy(
   const suburbLabel = `${coverageSuburb.name} ${coverageSuburb.postcode}`;
   const areaLabel = coverageArea.name;
   const regionLabel = coverageRegion.name;
+  const response = getEmergencyResponseForRegion(regionLabel);
   const suburbPosition = Math.max(
     coverageArea.suburbs.findIndex(
       (suburbItem) => suburbItem.slug === coverageSuburb.slug,
@@ -1326,9 +1328,9 @@ export function getSuburbPageCopy(
   const heroDescription = pick(
     [
       `Evaready Electrical helps ${suburbLabel} homes, businesses and strata properties with urgent faults, Level 2 electrical work, switchboard upgrades, lighting, power points, smoke alarms, hot water circuits, split-system electrical support, CCTV, data cabling and planned electrical work.`,
-      `For ${suburbLabel}, Evaready Electrical supports ${context.propertyMix} with emergency electrical faults, consumer mains and metering enquiries, switchboard upgrades, hot water electrical issues, air-conditioning electrical support, CCTV, data and everyday electrical work.`,
+      `For ${suburbLabel}, Evaready Electrical supports ${context.propertyMix} with emergency electrical faults, consumer mains and metering enquiries, switchboard upgrades, hot water electrical issues, air-conditioning electrical support, CCTV, data and everyday electrical work. ${response.suburbDisplay}`,
       `Electrical work in ${suburbLabel} can range from urgent faults to planned upgrades. Evaready Electrical helps with power loss, safety switch tripping, Level 2 enquiries, switchboards, hot water circuits, split-system electrical support, CCTV, data cabling and general repairs.`,
-      `Evaready Electrical services ${suburbLabel} with local electrical support for ${context.propertyMix}. That includes emergency faults, Level 2 work, switchboard upgrades, lighting, power, smoke alarms, hot water electrical faults, air-conditioning electrical support, CCTV and data cabling.`,
+      `Evaready Electrical services ${suburbLabel} with local electrical support for ${context.propertyMix}. That includes emergency faults, Level 2 ASP work, switchboard upgrades, lighting, power, smoke alarms, hot water electrical faults, air-conditioning electrical support, CCTV and data cabling.`,
     ],
     seed,
     suburbPosition + 5,
@@ -1338,7 +1340,7 @@ export function getSuburbPageCopy(
     [
       `${coverageArea.description} This ${context.setting} often needs clear job details, photos and safe fault testing before work begins.`,
       `${coverageSuburb.name} is part of the ${areaLabel} area in ${regionLabel}. Planned enquiries are easier to assess when they include ${context.accessDetail}.`,
-      `${coverageRegion.travelNote} For ${coverageSuburb.name}, the best first step depends on the issue: call for unsafe faults, or send photos and details for planned work.`,
+      `${coverageRegion.travelNote} For ${coverageSuburb.name}, emergency call-outs use ${response.shortDisplay}; call for unsafe faults, or send photos and details for planned work.`,
       `${coverageArea.description} Typical enquiries in this pocket include ${context.plannedWork}, along with urgent fault checks when something feels unsafe.`,
     ],
     seed,
@@ -1368,7 +1370,7 @@ export function getSuburbPageCopy(
       [
         {
           title: "Triage the risk",
-          text: `Unsafe issues in ${coverageSuburb.name} are handled as call-first enquiries, especially where there is heat, smoke or sparking.`,
+          text: `Unsafe issues in ${coverageSuburb.name} are handled as call-first enquiries, especially where there is heat, smoke, sparking or urgent supply-side risk.`,
         },
         {
           title: "Confirm the site",
@@ -1420,9 +1422,9 @@ export function getSuburbPageCopy(
       ),
       text: pick(
         [
-          `Call first in ${coverageSuburb.name} for power outages, burning smells, sparking, safety switch tripping, storm damage, water-affected fittings or anything electrical that feels unsafe.`,
+          `Call first in ${coverageSuburb.name} for power outages, burning smells, sparking, safety switch tripping, storm damage, water-affected fittings or anything electrical that feels unsafe. Evaready provides ${response.shortDisplay} for emergency call-outs in this region.`,
           `Emergency enquiries in ${suburbLabel} often involve ${context.emergencySignals}. Stop using the affected circuit where safe and call before touching the area again.`,
-          `When ${coverageSuburb.name} homes, shops or strata properties have power loss, smoke, heat, sparking or repeated tripping, the first step is a direct phone call.`,
+          `When ${coverageSuburb.name} homes, shops or strata properties have power loss, smoke, heat, sparking or repeated tripping, the first step is a direct phone call so the risk and response time can be triaged.`,
         ],
         seed,
         13,
@@ -1441,9 +1443,9 @@ export function getSuburbPageCopy(
       ),
       text: pick(
         [
-          `Level 2 electrical enquiries in ${coverageSuburb.name} can involve consumer mains, metering, defect notices, overhead or underground services, point of attachment issues and other supply-side work.`,
+          `${business.level2Asp.display} support in ${coverageSuburb.name} can involve consumer mains, metering, defect notices, overhead or underground services, point of attachment issues and other supply-side work.`,
           `For ${coverageSuburb.name} properties, ${context.level2Detail} should be assessed with clear photos and any paperwork from the network, retailer or supply authority.`,
-          `${regionLabel} Level 2 enquiries can include consumer mains, metering, point of attachment issues, defect notice repairs and overhead or underground service work.`,
+          `${regionLabel} Level 2 ASP enquiries can include consumer mains, metering, point of attachment issues, defect notice repairs and overhead or underground service work.`,
         ],
         seed,
         19,
@@ -1612,8 +1614,8 @@ export function getSuburbPageCopy(
   ),
     faqAnswers: {
       combined: `Yes. Evaready Electrical can help with switchboards, fault finding, hot water electrical circuits, split-system electrical support, CCTV and data cabling, and general electrical work in ${coverageSuburb.name} under the relevant licence scope.`,
-      emergency: `Yes. Call first for power loss, burning smells, sparking, tripping circuits, storm damage or any fault in ${coverageSuburb.name} that feels unsafe.`,
-      level2: `Evaready Electrical can assist with Level 2 electrical work in ${coverageSuburb.name}, including consumer mains, metering, defect notices, point of attachment issues and supply-side electrical issues.`,
+      emergency: `Yes. Call first for power loss, burning smells, sparking, tripping circuits, storm damage or any fault in ${coverageSuburb.name} that feels unsafe. Emergency call-outs in this region use ${response.shortDisplay}.`,
+      level2: `Evaready Electrical is an ${business.level2Asp.display} and can assist with Level 2 electrical work in ${coverageSuburb.name}, including consumer mains, metering, defect notices, point of attachment issues and supply-side electrical issues.`,
       quote: `Yes. For planned work in ${suburbLabel}, use the secure booking form to send your address, contact details, job notes and photos. If there is heat, smoke, sparking or power loss, call first.`,
       service: `Yes. Evaready Electrical provides emergency, Level 2 and general electrical support across ${coverageSuburb.name} and nearby suburbs.`,
     },
@@ -1633,9 +1635,9 @@ export function getSuburbPageCopy(
     metaDescription: clampMetaDescription(
       pick(
         [
-          `Need an electrician in ${coverageSuburb.name}? Evaready helps with emergency faults, Level 2, switchboards, hot water, aircon, CCTV/data and general electrical work.`,
-          `Need electrical help in ${suburbLabel}? Emergency faults, Level 2, switchboards, hot water, aircon, CCTV/data and general electrical work across ${areaLabel}.`,
-          `Evaready helps ${coverageSuburb.name} with urgent faults, Level 2, switchboards, hot water electrical, aircon, CCTV/data and planned electrical work.`,
+          `Need an electrician in ${coverageSuburb.name}? Evaready helps with emergency faults, Level 2 ASP work, switchboards, hot water, aircon, CCTV/data and general electrical work.`,
+          `Need electrical help in ${suburbLabel}? Emergency faults, Level 2 ASP, switchboards, hot water, aircon, CCTV/data and general electrical work across ${areaLabel}.`,
+          `Evaready helps ${coverageSuburb.name} with urgent faults, Level 2 ASP work, switchboards, hot water electrical, aircon, CCTV/data and planned electrical work.`,
         ],
         seed,
         45,
@@ -1669,17 +1671,17 @@ export function getSuburbPageCopy(
       59,
     ),
     processSteps,
-    serviceIntro: `For ${coverageSuburb.name}, Evaready Electrical brings emergency, Level 2, switchboard, hot water, air-conditioning electrical, CCTV/data and general electrical support into one clear local enquiry path.`,
+    serviceIntro: `For ${coverageSuburb.name}, Evaready Electrical brings emergency response, Level 2 ASP, switchboard, hot water, air-conditioning electrical, CCTV/data and general electrical support into one clear local enquiry path.`,
     serviceLinks: [
       {
         title: `Emergency electrician ${coverageSuburb.name}`,
         href: "/emergency-electrician-sydney",
-        text: `Urgent help for ${context.emergencySignals} in ${coverageSuburb.name}.`,
+        text: `Urgent help for ${context.emergencySignals} in ${coverageSuburb.name}, with ${response.shortDisplay}.`,
       },
       {
         title: `Level 2 electrician ${coverageSuburb.name}`,
         href: "/level-2-electrician-sydney",
-        text: `Support with ${context.level2Detail} around ${suburbLabel}.`,
+        text: `${business.level2Asp.display} support with ${context.level2Detail} around ${suburbLabel}.`,
       },
       {
         title: `Consumer mains ${coverageSuburb.name}`,
@@ -1778,7 +1780,8 @@ export function getSuburbPageCopy(
       `NSW Electrical Licence 398937C`,
       `ABN 44 650 697 797`,
       `Open 24/7 for urgent electrical faults`,
-      `Level 2 Electrical Work`,
+      `${response.badgeTitle} for emergency call-outs`,
+      business.level2Asp.display,
       `Open Cabler Registration 46691`,
       `ARCtick Refrigerant Handling Licence L157323 — Split Systems (1)`,
       pick(
@@ -1797,14 +1800,44 @@ export function getSuburbPageCopy(
     generatedCopy,
     coverageSuburb.slug,
   );
+  const heroWithResponse = copyWithOverrides.heroDescription.includes(
+    "minute response",
+  )
+    ? copyWithOverrides.heroDescription
+    : `${copyWithOverrides.heroDescription} ${response.suburbDisplay}`;
+  const emergencyFaq = copyWithOverrides.faqAnswers.emergency.includes(
+    "minute response",
+  )
+    ? copyWithOverrides.faqAnswers.emergency
+    : `${copyWithOverrides.faqAnswers.emergency} Emergency call-outs in this region use ${response.shortDisplay}.`;
+  const level2Faq = copyWithOverrides.faqAnswers.level2.includes(
+    business.level2Asp.shortDisplay,
+  )
+    ? copyWithOverrides.faqAnswers.level2
+    : `${copyWithOverrides.faqAnswers.level2} Evaready is an ${business.level2Asp.display}.`;
 
   return {
     ...copyWithOverrides,
+    faqAnswers: {
+      ...copyWithOverrides.faqAnswers,
+      emergency: emergencyFaq,
+      level2: level2Faq,
+    },
     heroDescription: ensureSuburbHeroDepth(
-      copyWithOverrides.heroDescription,
+      heroWithResponse,
       coverageArea,
       coverageSuburb,
       context,
+    ),
+    serviceIntro: copyWithOverrides.serviceIntro.includes("Level 2 ASP")
+      ? copyWithOverrides.serviceIntro
+      : `${copyWithOverrides.serviceIntro} Emergency response timing and ${business.level2Asp.shortDisplay} support are confirmed from the job location and scope.`,
+    trustItems: Array.from(
+      new Set([
+        ...copyWithOverrides.trustItems,
+        `${response.badgeTitle} for emergency call-outs`,
+        business.level2Asp.display,
+      ]),
     ),
   };
 }

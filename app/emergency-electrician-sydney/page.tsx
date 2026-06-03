@@ -135,6 +135,11 @@ const safetySteps = [
 
 const emergencyFaqs = [
   {
+    question: "Can you be on site within 60 minutes?",
+    answer:
+      "Yes. For emergency electrical call-outs in core service areas, Evaready can be on site within 60 minutes. For greater regions, emergency attendance is within 90 minutes. Call first so the fault, location and safety risk can be triaged. Timing depends on the job location, access, traffic and safety conditions.",
+  },
+  {
     question: "Do you answer emergency electrician calls after hours?",
     answer:
       "Yes. Evaready Electrical takes urgent electrical fault calls day and night. Call first for no power, burning smells, smoke, sparking, repeated tripping or anything that feels unsafe.",
@@ -313,12 +318,16 @@ function buildSchema() {
         "@type": "Service",
         "@id": `${pageUrl}#emergency-service`,
         name: "24/7 Emergency Electrical Fault Help",
-        serviceType: "Emergency electrical fault finding and repairs",
+        serviceType: [
+          "60-minute emergency electrician response in core service areas",
+          "90-minute emergency response for greater regions",
+          "Emergency electrical fault finding and repairs",
+        ],
         provider: { "@id": `${pageUrl}#electrician` },
         areaServed: "Sydney and surrounding regions",
         url: pageUrl,
         description:
-          "Emergency electrical help for power loss, burning smells, sparking outlets, tripping safety switches, switchboard faults and storm or water-related electrical hazards.",
+          "Emergency electrical help for power loss, burning smells, sparking outlets, tripping safety switches, switchboard faults and storm or water-related electrical hazards, with 60-minute response in core service areas and 90-minute response for greater regions.",
       },
       {
         "@type": "FAQPage",
@@ -385,6 +394,14 @@ export default function EmergencyElectricianSydneyPage() {
               Call now for no power, burning smells, smoke, sparking power
               points, hot outlets, tripping safety switches, storm damage,
               water-affected fittings or after-hours electrical hazards.
+            </p>
+
+            <p className="mt-4 max-w-2xl rounded-2xl border border-red-300/25 bg-red-500/10 p-4 text-sm font-bold leading-6 text-slate-100">
+              Emergency electrician on site within 60 minutes in core service
+              areas, with 90-minute response for greater Sydney and surrounding
+              regions. Call first for power loss, burning smells, sparking,
+              tripping safety switches, switchboard faults, storm damage or
+              water-affected electrical equipment.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
