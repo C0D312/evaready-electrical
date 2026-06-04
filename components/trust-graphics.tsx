@@ -23,7 +23,7 @@ const trustGraphicItems: TrustGraphicItem[] = [
   {
     icon: Clock3,
     title: "24/7 Emergency Electrical Help",
-    text: "Call first for power loss, burning smells, sparking or repeated tripping.",
+    text: "Call first for power loss and burning smells, sparking or repeated tripping.",
     tone: "red",
   },
   {
@@ -34,7 +34,7 @@ const trustGraphicItems: TrustGraphicItem[] = [
   {
     icon: BadgeCheck,
     title: `ABN ${business.abn}`,
-    text: "Business details are displayed clearly across the website.",
+    text: "ABN and licence details are displayed clearly across the website.",
   },
   {
     icon: BadgeCheck,

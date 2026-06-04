@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowRight, CheckCircle2, MapPin, Phone } from "lucide-react";
 import { notFound } from "next/navigation";
@@ -63,7 +63,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
   const localServiceCards = [
     {
       title: `Emergency electrician in ${area.name}`,
-      text: `Call first for no power, burning smells, sparking, hot outlets, tripping safety switches, storm or water damage and unsafe electrical faults around ${area.name}. ${emergencyResponse.regionDisplay}`,
+      text: `Call first for no power and burning smells, sparking and overheating power points, tripping safety switches, storm or water damage and unsafe electrical faults around ${area.name}. ${emergencyResponse.regionDisplay}`,
       href: "/emergency-electrician-sydney",
     },
     {
@@ -78,7 +78,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
     },
     {
       title: `Electrical fault finding`,
-      text: `Fault checks cover tripping circuits, damaged wiring, hot power points, flickering lights, appliance issues and safe isolation testing.`,
+      text: `Fault checks cover circuit tripping, damaged wiring, hot power points, flickering lights, appliance issues and safe isolation testing.`,
       href: "/services/electrical-fault-finding-sydney",
     },
     {
@@ -99,7 +99,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
     },
     {
       question: `Can I call for an emergency electrician in ${area.name}?`,
-      answer: `Yes. Call first for no power, burning smells, sparking, hot outlets, repeated safety switch tripping, storm damage or any electrical fault that feels unsafe. ${emergencyResponse.regionDisplay}`,
+      answer: `Yes. Call first for no power and burning smells, sparking and overheating power points, repeated safety switch tripping, storm damage or any electrical fault that feels unsafe. ${emergencyResponse.regionDisplay}`,
     },
     {
       question: `Do you help with Level 2 electrical work in ${area.name}?`,
@@ -414,3 +414,4 @@ export default async function AreaPage({ params }: AreaPageProps) {
     </main>
   );
 }
+

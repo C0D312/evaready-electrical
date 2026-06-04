@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ArrowRight, Clock3, Flame, Phone, ShieldCheck, Zap } from "lucide-react";
 import { business } from "@/data/site";
 
@@ -41,7 +41,7 @@ const checklist = [
   },
   {
     href: "/electrical-faults/power-point-sparking",
-    label: "Sparking or buzzing fittings",
+    label: "Sparking or buzzing fixtures",
   },
   {
     href: "/services/switchboard-upgrades-sydney",
@@ -163,3 +163,4 @@ export function EmergencyTrustPanel({ className = "" }: { className?: string }) 
     </section>
   );
 }
+

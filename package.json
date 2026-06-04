@@ -8,8 +8,11 @@
     "start": "next start",
     "lint": "eslint",
     "audit:suburbs": "tsx scripts/audit-suburb-pages.ts",
+    "audit:all-suburb-copy": "tsx scripts/audit-all-suburb-visible-copy.ts",
     "audit:links": "tsx scripts/audit-internal-links.ts",
     "audit:metadata": "tsx scripts/audit-metadata.ts",
+    "audit:page-health": "tsx scripts/audit-page-health.ts",
+    "audit:response-times": "tsx scripts/audit-response-time-classification.ts",
     "audit:visible-copy": "tsx scripts/audit-visible-copy.ts"
   },
   "dependencies": {

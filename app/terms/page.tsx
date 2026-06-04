@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { business } from "@/data/site";
 import { legalSeoMetadata, toMetadata } from "@/lib/seo-metadata";
@@ -84,7 +84,7 @@ export default function TermsPage() {
                 {business.phoneDisplay}
               </a>
               . Do not rely on a form submission for immediate danger, unsafe
-              wiring, smoke, burning smells, sparking, electric shock risk, wet
+              wiring, smoke and burning smells, sparking, electric shock risk, wet
               electrical equipment or loss of power.
             </p>
             <p>
@@ -97,7 +97,7 @@ export default function TermsPage() {
           <article className="legal-content-card">
             <h2>Safety disclaimer</h2>
             <p>
-              Do not touch exposed wires, damaged fittings, wet electrical
+              Do not touch exposed wires, damaged fixtures, wet electrical
               equipment or anything that may be live. If it is safe to do so,
               turn off the affected circuit or main switch and keep people away
               from the area until qualified help is arranged.
@@ -158,7 +158,7 @@ export default function TermsPage() {
               operate the website.
             </p>
             <p>
-              Third-party tools may have their own terms or privacy settings.
+              Third-party tools may have their own terms or privacy preferences.
               Submitting an enquiry through those tools does not by itself
               confirm that a job has been accepted or scheduled.
             </p>
@@ -247,3 +247,4 @@ export default function TermsPage() {
     </>
   );
 }
+

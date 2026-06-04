@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import {
@@ -123,8 +123,8 @@ const issuePaths = [
     icon: ShieldCheck,
   },
   {
-    title: "Sparking or buzzing fittings",
-    text: "Keep clear of noisy, hot or sparking fittings.",
+    title: "Sparking or buzzing fixtures",
+    text: "Keep clear of noisy, hot or sparking fixtures.",
     href: "/electrical-faults/power-point-sparking",
     icon: AlertTriangle,
   },
@@ -160,7 +160,7 @@ const faqs = [
   {
     question: "Do you offer 24/7 emergency electrician call-outs?",
     answer:
-      "Yes. Call Evaready Electrical any time for power outages, tripping circuits, burning smells, sparking or electrical issues that feel unsafe. Emergency call-outs can be on site within 60 minutes in core service areas, with 90-minute response for greater regions.",
+      "Yes. Call Evaready Electrical any time for power outages and circuit tripping and burning smells, sparking or electrical issues that feel unsafe. Emergency call-outs can be on site within 60 minutes in core service areas, with 90-minute response for greater regions.",
   },
   {
     question: "Can you help with Level 2 electrical work?",
@@ -668,3 +668,4 @@ export default function HomePage() {
     </main>
   );
 }
+

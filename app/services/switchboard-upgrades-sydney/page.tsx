@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import {
   AlertTriangle,
@@ -50,7 +50,7 @@ const upgradeServices = [
 
 const warningSigns = [
   "Old ceramic fuses are still installed",
-  "No safety switches protecting circuits",
+  "No safety switches protecting electrical circuits",
   "Safety switch or breaker keeps tripping",
   "Burning smell near the switchboard",
   "Buzzing, crackling or heat at the board",
@@ -82,7 +82,7 @@ const process = [
 const upgradeOutcomes = [
   "Modern safety switch and RCBO protection where suitable",
   "Clearer circuit labelling for easier fault finding",
-  "Reduced risk from old ceramic fuses and damaged fittings",
+  "Reduced risk from old ceramic fuses and damaged fixtures",
   "Better preparation for renovations, EV chargers and added circuits",
 ];
 
@@ -569,3 +569,5 @@ export default function SwitchboardUpgradesSydneyPage() {
     </main>
   );
 }
+
+

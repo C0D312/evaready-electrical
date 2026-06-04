@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { business } from "@/data/site";
 import { legalSeoMetadata, toMetadata } from "@/lib/seo-metadata";
@@ -95,7 +95,7 @@ export default function PrivacyPolicyPage() {
               work, keep basic job records and improve the website experience.
             </p>
             <p>
-              For urgent faults such as no power, burning smells, sparking, wet
+              For urgent faults such as no power and burning smells, sparking, wet
               electrical equipment or repeated tripping, you should call
               directly rather than relying on a form submission.
             </p>
@@ -153,7 +153,7 @@ export default function PrivacyPolicyPage() {
               Cookies and similar technologies may be used to keep the website
               working, measure traffic, understand how visitors use pages and
               support advertising measurement. You can manage cookies through
-              your browser settings.
+              your browser preferences.
             </p>
           </article>
 
@@ -244,3 +244,4 @@ export default function PrivacyPolicyPage() {
     </>
   );
 }
+

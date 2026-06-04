@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import {
   AlertTriangle,
@@ -106,7 +106,7 @@ export default function ElectricalFaultsPage() {
             </h1>
 
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
-              Power loss, tripping safety switches, burning smells, hot outlets
+              Power loss, tripping safety switches and burning smells and overheating power points
               and storm damage need clear next steps. Call for urgent hazards
               or send photos and job notes for planned fault finding.
             </p>
@@ -244,7 +244,7 @@ export default function ElectricalFaultsPage() {
                 "Call if there is smoke, sparking, heat, shock risk or burning smell.",
                 "Send the switchboard photo, fault area photo and suburb for planned work.",
                 "Mention whether the fault is constant, intermittent, storm-related or appliance-related.",
-                "Keep clear of wet fittings, damaged outlets and exposed wiring.",
+                "Keep clear of wet fixtures, damaged outlets and exposed wiring.",
               ].map((item) => (
                 <div key={item} className="flex gap-3">
                   <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" />
@@ -283,3 +283,4 @@ export default function ElectricalFaultsPage() {
     </main>
   );
 }
+

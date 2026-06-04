@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import type { Metadata } from "next";
 import {
   ArrowRight,
@@ -64,11 +64,11 @@ const services = [
   {
     title: "Emergency Electrician",
     description:
-      "Urgent fault support for outages, burning smells, tripping circuits and electrical issues that need a direct call.",
+      "Urgent fault support for outages and burning smells and circuit tripping and electrical issues that need a direct call.",
     icon: Flame,
     includes: [
       "Power outages",
-      "Tripping circuits",
+      "Circuit tripping",
       "Burning smells",
       "Switchboard faults",
       "Unsafe wiring",
@@ -106,7 +106,7 @@ const services = [
   {
     title: "Electrical Fault Finding",
     description:
-      "Professional testing and diagnosis for tripping circuits, power issues, water damage, damaged wiring and unsafe faults.",
+      "Professional testing and diagnosis for circuit tripping, power issues, water damage, damaged wiring and unsafe faults.",
     icon: Wrench,
     includes: [
       "Safety switch tripping",
@@ -204,12 +204,12 @@ const services = [
   {
     title: "Data Cabling & Internet Points",
     description:
-      "Network cabling, data points, internet outlets and communication cabling for homes, offices and renovations.",
+      "Network cabling, data points, internet points and communication cabling for homes, offices and renovations.",
     icon: Bolt,
     includes: [
       "Data points",
       "Network cabling",
-      "Internet outlets",
+      "Internet points",
       "NBN internal cabling",
       "Office data runs",
       "Phone line repairs",
@@ -391,7 +391,7 @@ const services = [
     includes: [
       "Storm damage checks",
       "Emergency disconnections",
-      "Damaged fittings",
+      "Damaged fixtures",
       "Unsafe circuits",
       "Water-affected wiring",
       "Temporary make-safe support",
@@ -546,7 +546,7 @@ const services = [
       "Exit lights",
       "Emergency lighting",
       "Commercial checks",
-      "Replacement fittings",
+      "Replacement fixtures",
       "Testing support",
       "Repair quotes",
     ],
@@ -554,10 +554,10 @@ const services = [
   {
     title: "Hot Power Point",
     description:
-      "Urgent fault checks for hot outlets, burning smells, buzzing sockets, damaged wiring and unsafe power points.",
+      "Urgent fault checks for overheating power points and burning smells, buzzing sockets, damaged wiring and unsafe power points.",
     icon: Flame,
     includes: [
-      "Hot outlets",
+      "Overheating power points",
       "Burning smells",
       "Buzzing sockets",
       "Damaged wiring",
@@ -568,11 +568,11 @@ const services = [
   {
     title: "Electric Shock Faults",
     description:
-      "Urgent electrical support for shock risk, tingles, wet fittings, faulty appliances and unsafe circuits.",
+      "Urgent electrical support for shock risk, tingles, wet fixtures, faulty appliances and unsafe circuits.",
     icon: Flame,
     includes: [
       "Electric shock risk",
-      "Wet fittings",
+      "Wet fixtures",
       "Tingles from outlets",
       "Safety switch checks",
       "Fault isolation",
@@ -596,12 +596,12 @@ const services = [
   {
     title: "RCD Safety Switch Repairs",
     description:
-      "RCD and safety switch repairs for tripping circuits, moisture faults, RCBO upgrades and switchboard protection.",
+      "RCD and safety switch repairs for circuit tripping, moisture faults, RCBO upgrades and switchboard protection.",
     icon: ShieldCheck,
     includes: [
       "RCD repairs",
       "Safety switch faults",
-      "Tripping circuits",
+      "Circuit tripping",
       "Moisture checks",
       "RCBO upgrades",
       "Protection testing",
@@ -958,6 +958,7 @@ export default function ServicesPage() {
     </main>
   );
 }
+
 
 
 

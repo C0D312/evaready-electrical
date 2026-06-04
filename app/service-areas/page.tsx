@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import type { Metadata } from "next";
 import {
   ArrowRight,
@@ -174,7 +174,7 @@ export default function AreasPage() {
               Evaready Electrical provides fast electrical support across
               Sydney and surrounding regions. Extended service areas may depend
               on job type, urgency and availability. Call first for urgent
-              faults such as power loss, burning smells, sparking, tripping
+              faults such as power loss and burning smells, sparking, tripping
               safety switches or unsafe wiring. For planned work, open the
               booking form and send your suburb, job details and photos.
             </p>
@@ -249,7 +249,7 @@ export default function AreasPage() {
             },
             {
               title: "Emergency",
-              text: "Power loss, tripping circuits and electrical issues that should be checked quickly.",
+              text: "Power loss and circuit tripping and electrical issues that should be checked quickly.",
               icon: Zap,
             },
             {
@@ -315,3 +315,4 @@ export default function AreasPage() {
     </main>
   );
 }
+

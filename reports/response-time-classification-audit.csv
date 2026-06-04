@@ -1,0 +1,874 @@
+region,area,suburb,postcode,route,classification,expected minutes,actual visible minutes,html exists,mismatch,both 60 and 90 confusingly present,guarantee wording,office/depot wording,needs owner review
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Bankstown,2200,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/bankstown,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Bass Hill,2197,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/bass-hill,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Belfield,2191,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/belfield,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Belmore,2192,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/belmore,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Beverly Hills,2209,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/beverly-hills,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Birrong,2143,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/birrong,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Campsie,2194,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/campsie,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Canterbury,2193,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/canterbury,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Chester Hill,2162,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/chester-hill,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Clemton Park,2206,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/clemton-park,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Condell Park,2200,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/condell-park,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Earlwood,2206,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/earlwood,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,East Hills,2213,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/east-hills,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Georges Hall,2198,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/georges-hall,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Greenacre,2190,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/greenacre,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Kingsgrove,2208,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/kingsgrove,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Lakemba,2195,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/lakemba,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Lansdowne,2163,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/lansdowne,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Milperra,2214,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/milperra,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Mount Lewis,2190,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/mount-lewis,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Narwee,2209,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/narwee,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Padstow,2211,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/padstow,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Padstow Heights,2211,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/padstow-heights,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Panania,2213,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Picnic Point,2213,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/picnic-point,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Potts Hill,2143,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/potts-hill,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Punchbowl,2196,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/punchbowl,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Revesby,2212,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/revesby,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Revesby Heights,2212,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/revesby-heights,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Riverwood,2210,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/riverwood,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Roselands,2196,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/roselands,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Sefton,2162,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/sefton,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Villawood,2163,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/villawood,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Wiley Park,2195,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/wiley-park,core,60,60,yes,no,no,no,no,no
+Canterbury-Bankstown & Inner South West,Canterbury-Bankstown,Yagoona,2199,/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/yagoona,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Bayside & Airport,Banksmeadow,2019,/service-areas/st-george-and-bayside/bayside-and-airport/banksmeadow,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Bayside & Airport,Botany,2019,/service-areas/st-george-and-bayside/bayside-and-airport/botany,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Bayside & Airport,Daceyville,2032,/service-areas/st-george-and-bayside/bayside-and-airport/daceyville,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Bayside & Airport,Eastgardens,2036,/service-areas/st-george-and-bayside/bayside-and-airport/eastgardens,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Bayside & Airport,Eastlakes,2018,/service-areas/st-george-and-bayside/bayside-and-airport/eastlakes,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Bayside & Airport,Hillsdale,2036,/service-areas/st-george-and-bayside/bayside-and-airport/hillsdale,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Bayside & Airport,Mascot,2020,/service-areas/st-george-and-bayside/bayside-and-airport/mascot,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Bayside & Airport,Pagewood,2035,/service-areas/st-george-and-bayside/bayside-and-airport/pagewood,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Bayside & Airport,Rosebery,2018,/service-areas/st-george-and-bayside/bayside-and-airport/rosebery,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Georges River,Allawah,2218,/service-areas/st-george-and-bayside/georges-river/allawah,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Georges River,Beverley Park,2217,/service-areas/st-george-and-bayside/georges-river/beverley-park,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Georges River,Blakehurst,2221,/service-areas/st-george-and-bayside/georges-river/blakehurst,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Georges River,Carlton,2218,/service-areas/st-george-and-bayside/georges-river/carlton,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Georges River,Carss Park,2221,/service-areas/st-george-and-bayside/georges-river/carss-park,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Georges River,Connells Point,2221,/service-areas/st-george-and-bayside/georges-river/connells-point,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Georges River,Hurstville,2220,/service-areas/st-george-and-bayside/georges-river/hurstville,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Georges River,Hurstville Grove,2220,/service-areas/st-george-and-bayside/georges-river/hurstville-grove,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Georges River,Kogarah,2217,/service-areas/st-george-and-bayside/georges-river/kogarah,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Georges River,Kogarah Bay,2217,/service-areas/st-george-and-bayside/georges-river/kogarah-bay,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Georges River,Kyle Bay,2221,/service-areas/st-george-and-bayside/georges-river/kyle-bay,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Georges River,Lugarno,2210,/service-areas/st-george-and-bayside/georges-river/lugarno,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Georges River,Mortdale,2223,/service-areas/st-george-and-bayside/georges-river/mortdale,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Georges River,Oatley,2223,/service-areas/st-george-and-bayside/georges-river/oatley,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Georges River,Peakhurst,2210,/service-areas/st-george-and-bayside/georges-river/peakhurst,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Georges River,Peakhurst Heights,2210,/service-areas/st-george-and-bayside/georges-river/peakhurst-heights,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Georges River,Penshurst,2222,/service-areas/st-george-and-bayside/georges-river/penshurst,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Georges River,Ramsgate,2217,/service-areas/st-george-and-bayside/georges-river/ramsgate,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Georges River,Sans Souci,2219,/service-areas/st-george-and-bayside/georges-river/sans-souci,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Georges River,South Hurstville,2221,/service-areas/st-george-and-bayside/georges-river/south-hurstville,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Rockdale & Bexley,Arncliffe,2205,/service-areas/st-george-and-bayside/rockdale-and-bexley/arncliffe,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Rockdale & Bexley,Banksia,2216,/service-areas/st-george-and-bayside/rockdale-and-bexley/banksia,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Rockdale & Bexley,Bardwell Park,2207,/service-areas/st-george-and-bayside/rockdale-and-bexley/bardwell-park,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Rockdale & Bexley,Bardwell Valley,2207,/service-areas/st-george-and-bayside/rockdale-and-bexley/bardwell-valley,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Rockdale & Bexley,Bexley,2207,/service-areas/st-george-and-bayside/rockdale-and-bexley/bexley,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Rockdale & Bexley,Bexley North,2207,/service-areas/st-george-and-bayside/rockdale-and-bexley/bexley-north,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Rockdale & Bexley,Brighton-le-Sands,2216,/service-areas/st-george-and-bayside/rockdale-and-bexley/brighton-le-sands,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Rockdale & Bexley,Dolls Point,2219,/service-areas/st-george-and-bayside/rockdale-and-bexley/dolls-point,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Rockdale & Bexley,Kyeemagh,2216,/service-areas/st-george-and-bayside/rockdale-and-bexley/kyeemagh,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Rockdale & Bexley,Monterey,2217,/service-areas/st-george-and-bayside/rockdale-and-bexley/monterey,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Rockdale & Bexley,Ramsgate Beach,2217,/service-areas/st-george-and-bayside/rockdale-and-bexley/ramsgate-beach,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Rockdale & Bexley,Rockdale,2216,/service-areas/st-george-and-bayside/rockdale-and-bexley/rockdale,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Rockdale & Bexley,Sandringham,2219,/service-areas/st-george-and-bayside/rockdale-and-bexley/sandringham,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Rockdale & Bexley,Turrella,2205,/service-areas/st-george-and-bayside/rockdale-and-bexley/turrella,core,60,60,yes,no,no,no,no,no
+St George & Bayside,Rockdale & Bexley,Wolli Creek,2205,/service-areas/st-george-and-bayside/rockdale-and-bexley/wolli-creek,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Alfords Point,2234,/service-areas/sutherland-shire/sutherland-shire/alfords-point,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Bangor,2234,/service-areas/sutherland-shire/sutherland-shire/bangor,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Barden Ridge,2234,/service-areas/sutherland-shire/sutherland-shire/barden-ridge,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Bonnet Bay,2226,/service-areas/sutherland-shire/sutherland-shire/bonnet-bay,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Bundeena,2230,/service-areas/sutherland-shire/sutherland-shire/bundeena,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Burraneer,2230,/service-areas/sutherland-shire/sutherland-shire/burraneer,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Caringbah,2229,/service-areas/sutherland-shire/sutherland-shire/caringbah,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Caringbah South,2229,/service-areas/sutherland-shire/sutherland-shire/caringbah-south,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Como,2226,/service-areas/sutherland-shire/sutherland-shire/como,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Cronulla,2230,/service-areas/sutherland-shire/sutherland-shire/cronulla,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Dolans Bay,2229,/service-areas/sutherland-shire/sutherland-shire/dolans-bay,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Engadine,2233,/service-areas/sutherland-shire/sutherland-shire/engadine,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Grays Point,2232,/service-areas/sutherland-shire/sutherland-shire/grays-point,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Greenhills Beach,2230,/service-areas/sutherland-shire/sutherland-shire/greenhills-beach,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Gymea,2227,/service-areas/sutherland-shire/sutherland-shire/gymea,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Gymea Bay,2227,/service-areas/sutherland-shire/sutherland-shire/gymea-bay,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Heathcote,2233,/service-areas/sutherland-shire/sutherland-shire/heathcote,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Illawong,2234,/service-areas/sutherland-shire/sutherland-shire/illawong,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Jannali,2226,/service-areas/sutherland-shire/sutherland-shire/jannali,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Kangaroo Point,2224,/service-areas/sutherland-shire/sutherland-shire/kangaroo-point,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Kareela,2232,/service-areas/sutherland-shire/sutherland-shire/kareela,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Kirrawee,2232,/service-areas/sutherland-shire/sutherland-shire/kirrawee,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Kurnell,2231,/service-areas/sutherland-shire/sutherland-shire/kurnell,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Lilli Pilli,2229,/service-areas/sutherland-shire/sutherland-shire/lilli-pilli,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Loftus,2232,/service-areas/sutherland-shire/sutherland-shire/loftus,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Maianbar,2230,/service-areas/sutherland-shire/sutherland-shire/maianbar,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Menai,2234,/service-areas/sutherland-shire/sutherland-shire/menai,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Miranda,2228,/service-areas/sutherland-shire/sutherland-shire/miranda,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Oyster Bay,2225,/service-areas/sutherland-shire/sutherland-shire/oyster-bay,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Port Hacking,2229,/service-areas/sutherland-shire/sutherland-shire/port-hacking,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Royal National Park,2233,/service-areas/sutherland-shire/sutherland-shire/royal-national-park,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Sandy Point,2172,/service-areas/sutherland-shire/sutherland-shire/sandy-point,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Sutherland,2232,/service-areas/sutherland-shire/sutherland-shire/sutherland,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Sylvania,2224,/service-areas/sutherland-shire/sutherland-shire/sylvania,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Sylvania Waters,2224,/service-areas/sutherland-shire/sutherland-shire/sylvania-waters,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Taren Point,2229,/service-areas/sutherland-shire/sutherland-shire/taren-point,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Waterfall,2233,/service-areas/sutherland-shire/sutherland-shire/waterfall,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Woolooware,2230,/service-areas/sutherland-shire/sutherland-shire/woolooware,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Woronora,2232,/service-areas/sutherland-shire/sutherland-shire/woronora,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Woronora Heights,2233,/service-areas/sutherland-shire/sutherland-shire/woronora-heights,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Yarrawarrah,2233,/service-areas/sutherland-shire/sutherland-shire/yarrawarrah,core,60,60,yes,no,no,no,no,no
+Sutherland Shire,Sutherland Shire,Yowie Bay,2228,/service-areas/sutherland-shire/sutherland-shire/yowie-bay,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Abbotsbury,2176,/service-areas/liverpool-and-fairfield/fairfield/abbotsbury,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Bonnyrigg,2177,/service-areas/liverpool-and-fairfield/fairfield/bonnyrigg,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Bonnyrigg Heights,2177,/service-areas/liverpool-and-fairfield/fairfield/bonnyrigg-heights,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Bossley Park,2176,/service-areas/liverpool-and-fairfield/fairfield/bossley-park,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Cabramatta,2166,/service-areas/liverpool-and-fairfield/fairfield/cabramatta,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Cabramatta West,2166,/service-areas/liverpool-and-fairfield/fairfield/cabramatta-west,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Canley Heights,2166,/service-areas/liverpool-and-fairfield/fairfield/canley-heights,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Canley Vale,2166,/service-areas/liverpool-and-fairfield/fairfield/canley-vale,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Carramar,2163,/service-areas/liverpool-and-fairfield/fairfield/carramar,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Cecil Park,2178,/service-areas/liverpool-and-fairfield/fairfield/cecil-park,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Edensor Park,2176,/service-areas/liverpool-and-fairfield/fairfield/edensor-park,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Fairfield,2165,/service-areas/liverpool-and-fairfield/fairfield/fairfield,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Fairfield East,2165,/service-areas/liverpool-and-fairfield/fairfield/fairfield-east,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Fairfield Heights,2165,/service-areas/liverpool-and-fairfield/fairfield/fairfield-heights,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Fairfield West,2165,/service-areas/liverpool-and-fairfield/fairfield/fairfield-west,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Greenfield Park,2176,/service-areas/liverpool-and-fairfield/fairfield/greenfield-park,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Horsley Park,2175,/service-areas/liverpool-and-fairfield/fairfield/horsley-park,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Lansvale,2166,/service-areas/liverpool-and-fairfield/fairfield/lansvale,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Mount Pritchard,2170,/service-areas/liverpool-and-fairfield/fairfield/mount-pritchard,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Old Guildford,2161,/service-areas/liverpool-and-fairfield/fairfield/old-guildford,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Prairiewood,2176,/service-areas/liverpool-and-fairfield/fairfield/prairiewood,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Smithfield,2164,/service-areas/liverpool-and-fairfield/fairfield/smithfield,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,St Johns Park,2176,/service-areas/liverpool-and-fairfield/fairfield/st-johns-park,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Wakeley,2176,/service-areas/liverpool-and-fairfield/fairfield/wakeley,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Wetherill Park,2164,/service-areas/liverpool-and-fairfield/fairfield/wetherill-park,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Fairfield,Yennora,2161,/service-areas/liverpool-and-fairfield/fairfield/yennora,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Ashcroft,2168,/service-areas/liverpool-and-fairfield/liverpool/ashcroft,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Austral,2179,/service-areas/liverpool-and-fairfield/liverpool/austral,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Badgerys Creek,2555,/service-areas/liverpool-and-fairfield/liverpool/badgerys-creek,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Busby,2168,/service-areas/liverpool-and-fairfield/liverpool/busby,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Carnes Hill,2171,/service-areas/liverpool-and-fairfield/liverpool/carnes-hill,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Cartwright,2168,/service-areas/liverpool-and-fairfield/liverpool/cartwright,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Casula,2170,/service-areas/liverpool-and-fairfield/liverpool/casula,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Cecil Hills,2171,/service-areas/liverpool-and-fairfield/liverpool/cecil-hills,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Chipping Norton,2170,/service-areas/liverpool-and-fairfield/liverpool/chipping-norton,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Edmondson Park,2174,/service-areas/liverpool-and-fairfield/liverpool/edmondson-park,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Elizabeth Hills,2171,/service-areas/liverpool-and-fairfield/liverpool/elizabeth-hills,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Green Valley,2168,/service-areas/liverpool-and-fairfield/liverpool/green-valley,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Greendale,2745,/service-areas/liverpool-and-fairfield/liverpool/greendale,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Hammondville,2170,/service-areas/liverpool-and-fairfield/liverpool/hammondville,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Heckenberg,2168,/service-areas/liverpool-and-fairfield/liverpool/heckenberg,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Hinchinbrook,2168,/service-areas/liverpool-and-fairfield/liverpool/hinchinbrook,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Horningsea Park,2171,/service-areas/liverpool-and-fairfield/liverpool/horningsea-park,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Hoxton Park,2171,/service-areas/liverpool-and-fairfield/liverpool/hoxton-park,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Kemps Creek,2178,/service-areas/liverpool-and-fairfield/liverpool/kemps-creek,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Liverpool,2170,/service-areas/liverpool-and-fairfield/liverpool/liverpool,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Luddenham,2745,/service-areas/liverpool-and-fairfield/liverpool/luddenham,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Lurnea,2170,/service-areas/liverpool-and-fairfield/liverpool/lurnea,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Middleton Grange,2171,/service-areas/liverpool-and-fairfield/liverpool/middleton-grange,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Miller,2168,/service-areas/liverpool-and-fairfield/liverpool/miller,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Moorebank,2170,/service-areas/liverpool-and-fairfield/liverpool/moorebank,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Pleasure Point,2172,/service-areas/liverpool-and-fairfield/liverpool/pleasure-point,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Prestons,2170,/service-areas/liverpool-and-fairfield/liverpool/prestons,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Sadleir,2168,/service-areas/liverpool-and-fairfield/liverpool/sadleir,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Voyager Point,2172,/service-areas/liverpool-and-fairfield/liverpool/voyager-point,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Wallacia,2745,/service-areas/liverpool-and-fairfield/liverpool/wallacia,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Warwick Farm,2170,/service-areas/liverpool-and-fairfield/liverpool/warwick-farm,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,Wattle Grove,2173,/service-areas/liverpool-and-fairfield/liverpool/wattle-grove,core,60,60,yes,no,no,no,no,no
+Liverpool & Fairfield,Liverpool,West Hoxton,2171,/service-areas/liverpool-and-fairfield/liverpool/west-hoxton,core,60,60,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Camden,Bringelly,2556,/service-areas/macarthur-camden-and-wollondilly/camden/bringelly,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Camden,Camden,2570,/service-areas/macarthur-camden-and-wollondilly/camden/camden,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Camden,Camden South,2570,/service-areas/macarthur-camden-and-wollondilly/camden/camden-south,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Camden,Catherine Field,2557,/service-areas/macarthur-camden-and-wollondilly/camden/catherine-field,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Camden,Cawdor,2570,/service-areas/macarthur-camden-and-wollondilly/camden/cawdor,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Camden,Cobbitty,2570,/service-areas/macarthur-camden-and-wollondilly/camden/cobbitty,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Camden,Currans Hill,2567,/service-areas/macarthur-camden-and-wollondilly/camden/currans-hill,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Camden,Elderslie,2570,/service-areas/macarthur-camden-and-wollondilly/camden/elderslie,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Camden,Ellis Lane,2570,/service-areas/macarthur-camden-and-wollondilly/camden/ellis-lane,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Camden,Gledswood Hills,2557,/service-areas/macarthur-camden-and-wollondilly/camden/gledswood-hills,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Camden,Grasmere,2570,/service-areas/macarthur-camden-and-wollondilly/camden/grasmere,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Camden,Gregory Hills,2557,/service-areas/macarthur-camden-and-wollondilly/camden/gregory-hills,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Camden,Harrington Park,2567,/service-areas/macarthur-camden-and-wollondilly/camden/harrington-park,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Camden,Kirkham,2570,/service-areas/macarthur-camden-and-wollondilly/camden/kirkham,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Camden,Leppington,2179,/service-areas/macarthur-camden-and-wollondilly/camden/leppington,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Camden,Mount Annan,2567,/service-areas/macarthur-camden-and-wollondilly/camden/mount-annan,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Camden,Narellan,2567,/service-areas/macarthur-camden-and-wollondilly/camden/narellan,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Camden,Narellan Vale,2567,/service-areas/macarthur-camden-and-wollondilly/camden/narellan-vale,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Camden,Oran Park,2570,/service-areas/macarthur-camden-and-wollondilly/camden/oran-park,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Camden,Rossmore,2557,/service-areas/macarthur-camden-and-wollondilly/camden/rossmore,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Camden,Smeaton Grange,2567,/service-areas/macarthur-camden-and-wollondilly/camden/smeaton-grange,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Camden,Spring Farm,2570,/service-areas/macarthur-camden-and-wollondilly/camden/spring-farm,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Airds,2560,/service-areas/macarthur-camden-and-wollondilly/campbelltown/airds,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Ambarvale,2560,/service-areas/macarthur-camden-and-wollondilly/campbelltown/ambarvale,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Bardia,2565,/service-areas/macarthur-camden-and-wollondilly/campbelltown/bardia,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Blair Athol,2560,/service-areas/macarthur-camden-and-wollondilly/campbelltown/blair-athol,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Blairmount,2559,/service-areas/macarthur-camden-and-wollondilly/campbelltown/blairmount,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Bow Bowing,2566,/service-areas/macarthur-camden-and-wollondilly/campbelltown/bow-bowing,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Bradbury,2560,/service-areas/macarthur-camden-and-wollondilly/campbelltown/bradbury,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Campbelltown,2560,/service-areas/macarthur-camden-and-wollondilly/campbelltown/campbelltown,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Claymore,2559,/service-areas/macarthur-camden-and-wollondilly/campbelltown/claymore,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Denham Court,2565,/service-areas/macarthur-camden-and-wollondilly/campbelltown/denham-court,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Eagle Vale,2558,/service-areas/macarthur-camden-and-wollondilly/campbelltown/eagle-vale,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Englorie Park,2560,/service-areas/macarthur-camden-and-wollondilly/campbelltown/englorie-park,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Eschol Park,2558,/service-areas/macarthur-camden-and-wollondilly/campbelltown/eschol-park,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Gilead,2560,/service-areas/macarthur-camden-and-wollondilly/campbelltown/gilead,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Glen Alpine,2560,/service-areas/macarthur-camden-and-wollondilly/campbelltown/glen-alpine,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Glenfield,2167,/service-areas/macarthur-camden-and-wollondilly/campbelltown/glenfield,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Holsworthy,2173,/service-areas/macarthur-camden-and-wollondilly/campbelltown/holsworthy,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Ingleburn,2565,/service-areas/macarthur-camden-and-wollondilly/campbelltown/ingleburn,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Kearns,2558,/service-areas/macarthur-camden-and-wollondilly/campbelltown/kearns,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Kentlyn,2560,/service-areas/macarthur-camden-and-wollondilly/campbelltown/kentlyn,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Leumeah,2560,/service-areas/macarthur-camden-and-wollondilly/campbelltown/leumeah,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Long Point,2564,/service-areas/macarthur-camden-and-wollondilly/campbelltown/long-point,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Macquarie Fields,2564,/service-areas/macarthur-camden-and-wollondilly/campbelltown/macquarie-fields,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Macquarie Links,2565,/service-areas/macarthur-camden-and-wollondilly/campbelltown/macquarie-links,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Menangle Park,2563,/service-areas/macarthur-camden-and-wollondilly/campbelltown/menangle-park,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Minto,2566,/service-areas/macarthur-camden-and-wollondilly/campbelltown/minto,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Minto Heights,2566,/service-areas/macarthur-camden-and-wollondilly/campbelltown/minto-heights,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Raby,2566,/service-areas/macarthur-camden-and-wollondilly/campbelltown/raby,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Rosemeadow,2560,/service-areas/macarthur-camden-and-wollondilly/campbelltown/rosemeadow,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Ruse,2560,/service-areas/macarthur-camden-and-wollondilly/campbelltown/ruse,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,St Andrews,2566,/service-areas/macarthur-camden-and-wollondilly/campbelltown/st-andrews,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,St Helens Park,2560,/service-areas/macarthur-camden-and-wollondilly/campbelltown/st-helens-park,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Varroville,2566,/service-areas/macarthur-camden-and-wollondilly/campbelltown/varroville,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Wedderburn,2560,/service-areas/macarthur-camden-and-wollondilly/campbelltown/wedderburn,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Woodbine,2560,/service-areas/macarthur-camden-and-wollondilly/campbelltown/woodbine,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Campbelltown,Woronora Dam,2508,/service-areas/macarthur-camden-and-wollondilly/campbelltown/woronora-dam,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Appin,2560,/service-areas/macarthur-camden-and-wollondilly/wollondilly/appin,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Belimbla Park,2570,/service-areas/macarthur-camden-and-wollondilly/wollondilly/belimbla-park,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Brownlow Hill,2570,/service-areas/macarthur-camden-and-wollondilly/wollondilly/brownlow-hill,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Camden Park,2570,/service-areas/macarthur-camden-and-wollondilly/wollondilly/camden-park,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Cataract,2560,/service-areas/macarthur-camden-and-wollondilly/wollondilly/cataract,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Couridjah,2571,/service-areas/macarthur-camden-and-wollondilly/wollondilly/couridjah,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Douglas Park,2569,/service-areas/macarthur-camden-and-wollondilly/wollondilly/douglas-park,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Glenmore,2570,/service-areas/macarthur-camden-and-wollondilly/wollondilly/glenmore,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Lakesland,2572,/service-areas/macarthur-camden-and-wollondilly/wollondilly/lakesland,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Maldon,2571,/service-areas/macarthur-camden-and-wollondilly/wollondilly/maldon,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Menangle,2568,/service-areas/macarthur-camden-and-wollondilly/wollondilly/menangle,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Mount Hunter,2570,/service-areas/macarthur-camden-and-wollondilly/wollondilly/mount-hunter,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Mowbray Park,2571,/service-areas/macarthur-camden-and-wollondilly/wollondilly/mowbray-park,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Nattai,2570,/service-areas/macarthur-camden-and-wollondilly/wollondilly/nattai,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Oakdale,2570,/service-areas/macarthur-camden-and-wollondilly/wollondilly/oakdale,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Orangeville,2570,/service-areas/macarthur-camden-and-wollondilly/wollondilly/orangeville,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Pheasants Nest,2574,/service-areas/macarthur-camden-and-wollondilly/wollondilly/pheasants-nest,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Picton,2571,/service-areas/macarthur-camden-and-wollondilly/wollondilly/picton,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Razorback,2571,/service-areas/macarthur-camden-and-wollondilly/wollondilly/razorback,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Silverdale,2752,/service-areas/macarthur-camden-and-wollondilly/wollondilly/silverdale,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Tahmoor,2573,/service-areas/macarthur-camden-and-wollondilly/wollondilly/tahmoor,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,The Oaks,2570,/service-areas/macarthur-camden-and-wollondilly/wollondilly/the-oaks,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Theresa Park,2570,/service-areas/macarthur-camden-and-wollondilly/wollondilly/theresa-park,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Thirlmere,2572,/service-areas/macarthur-camden-and-wollondilly/wollondilly/thirlmere,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Warragamba,2752,/service-areas/macarthur-camden-and-wollondilly/wollondilly/warragamba,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Werombi,2570,/service-areas/macarthur-camden-and-wollondilly/wollondilly/werombi,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Wilton,2571,/service-areas/macarthur-camden-and-wollondilly/wollondilly/wilton,greater,90,90,yes,no,no,no,no,no
+"Macarthur, Camden & Wollondilly",Wollondilly,Yanderra,2574,/service-areas/macarthur-camden-and-wollondilly/wollondilly/yanderra,greater,90,90,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Burwood,Burwood,2134,/service-areas/inner-west-burwood-and-canada-bay/burwood/burwood,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Burwood,Burwood Heights,2136,/service-areas/inner-west-burwood-and-canada-bay/burwood/burwood-heights,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Burwood,Enfield,2136,/service-areas/inner-west-burwood-and-canada-bay/burwood/enfield,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Burwood,Strathfield,2135,/service-areas/inner-west-burwood-and-canada-bay/burwood/strathfield,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Canada Bay,Abbotsford,2046,/service-areas/inner-west-burwood-and-canada-bay/canada-bay/abbotsford,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Canada Bay,Breakfast Point,2137,/service-areas/inner-west-burwood-and-canada-bay/canada-bay/breakfast-point,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Canada Bay,Cabarita,2137,/service-areas/inner-west-burwood-and-canada-bay/canada-bay/cabarita,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Canada Bay,Canada Bay,2046,/service-areas/inner-west-burwood-and-canada-bay/canada-bay/canada-bay,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Canada Bay,Chiswick,2046,/service-areas/inner-west-burwood-and-canada-bay/canada-bay/chiswick,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Canada Bay,Concord,2137,/service-areas/inner-west-burwood-and-canada-bay/canada-bay/concord,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Canada Bay,Concord West,2138,/service-areas/inner-west-burwood-and-canada-bay/canada-bay/concord-west,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Canada Bay,Drummoyne,2047,/service-areas/inner-west-burwood-and-canada-bay/canada-bay/drummoyne,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Canada Bay,Five Dock,2046,/service-areas/inner-west-burwood-and-canada-bay/canada-bay/five-dock,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Canada Bay,Liberty Grove,2138,/service-areas/inner-west-burwood-and-canada-bay/canada-bay/liberty-grove,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Canada Bay,Mortlake,2137,/service-areas/inner-west-burwood-and-canada-bay/canada-bay/mortlake,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Canada Bay,North Strathfield,2137,/service-areas/inner-west-burwood-and-canada-bay/canada-bay/north-strathfield,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Canada Bay,Rhodes,2138,/service-areas/inner-west-burwood-and-canada-bay/canada-bay/rhodes,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Canada Bay,Rodd Point,2046,/service-areas/inner-west-burwood-and-canada-bay/canada-bay/rodd-point,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Canada Bay,Russell Lea,2046,/service-areas/inner-west-burwood-and-canada-bay/canada-bay/russell-lea,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Canada Bay,Wareemba,2046,/service-areas/inner-west-burwood-and-canada-bay/canada-bay/wareemba,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Annandale,2038,/service-areas/inner-west-burwood-and-canada-bay/inner-west/annandale,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Ashbury,2193,/service-areas/inner-west-burwood-and-canada-bay/inner-west/ashbury,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Ashfield,2131,/service-areas/inner-west-burwood-and-canada-bay/inner-west/ashfield,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Balmain,2041,/service-areas/inner-west-burwood-and-canada-bay/inner-west/balmain,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Balmain East,2041,/service-areas/inner-west-burwood-and-canada-bay/inner-west/balmain-east,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Birchgrove,2041,/service-areas/inner-west-burwood-and-canada-bay/inner-west/birchgrove,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Camperdown,2050,/service-areas/inner-west-burwood-and-canada-bay/inner-west/camperdown,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Croydon,2132,/service-areas/inner-west-burwood-and-canada-bay/inner-west/croydon,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Croydon Park,2133,/service-areas/inner-west-burwood-and-canada-bay/inner-west/croydon-park,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Dulwich Hill,2203,/service-areas/inner-west-burwood-and-canada-bay/inner-west/dulwich-hill,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Enmore,2042,/service-areas/inner-west-burwood-and-canada-bay/inner-west/enmore,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Haberfield,2045,/service-areas/inner-west-burwood-and-canada-bay/inner-west/haberfield,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Hurlstone Park,2193,/service-areas/inner-west-burwood-and-canada-bay/inner-west/hurlstone-park,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Leichhardt,2040,/service-areas/inner-west-burwood-and-canada-bay/inner-west/leichhardt,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Lewisham,2049,/service-areas/inner-west-burwood-and-canada-bay/inner-west/lewisham,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Lilyfield,2040,/service-areas/inner-west-burwood-and-canada-bay/inner-west/lilyfield,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Marrickville,2204,/service-areas/inner-west-burwood-and-canada-bay/inner-west/marrickville,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Newtown,2042,/service-areas/inner-west-burwood-and-canada-bay/inner-west/newtown,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Petersham,2049,/service-areas/inner-west-burwood-and-canada-bay/inner-west/petersham,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Rozelle,2039,/service-areas/inner-west-burwood-and-canada-bay/inner-west/rozelle,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,St Peters,2044,/service-areas/inner-west-burwood-and-canada-bay/inner-west/st-peters,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Stanmore,2048,/service-areas/inner-west-burwood-and-canada-bay/inner-west/stanmore,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Summer Hill,2130,/service-areas/inner-west-burwood-and-canada-bay/inner-west/summer-hill,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Sydenham,2044,/service-areas/inner-west-burwood-and-canada-bay/inner-west/sydenham,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Inner West,Tempe,2044,/service-areas/inner-west-burwood-and-canada-bay/inner-west/tempe,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Strathfield,Homebush,2140,/service-areas/inner-west-burwood-and-canada-bay/strathfield/homebush,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Strathfield,Homebush West,2140,/service-areas/inner-west-burwood-and-canada-bay/strathfield/homebush-west,core,60,60,yes,no,no,no,no,no
+"Inner West, Burwood & Canada Bay",Strathfield,Strathfield South,2136,/service-areas/inner-west-burwood-and-canada-bay/strathfield/strathfield-south,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Randwick,Centennial Park,2021,/service-areas/sydney-city-and-eastern-suburbs/randwick/centennial-park,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Randwick,Chifley,2036,/service-areas/sydney-city-and-eastern-suburbs/randwick/chifley,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Randwick,Clovelly,2031,/service-areas/sydney-city-and-eastern-suburbs/randwick/clovelly,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Randwick,Coogee,2034,/service-areas/sydney-city-and-eastern-suburbs/randwick/coogee,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Randwick,Kensington,2033,/service-areas/sydney-city-and-eastern-suburbs/randwick/kensington,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Randwick,Kingsford,2032,/service-areas/sydney-city-and-eastern-suburbs/randwick/kingsford,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Randwick,La Perouse,2036,/service-areas/sydney-city-and-eastern-suburbs/randwick/la-perouse,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Randwick,Little Bay,2036,/service-areas/sydney-city-and-eastern-suburbs/randwick/little-bay,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Randwick,Malabar,2036,/service-areas/sydney-city-and-eastern-suburbs/randwick/malabar,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Randwick,Maroubra,2035,/service-areas/sydney-city-and-eastern-suburbs/randwick/maroubra,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Randwick,Matraville,2036,/service-areas/sydney-city-and-eastern-suburbs/randwick/matraville,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Randwick,Phillip Bay,2036,/service-areas/sydney-city-and-eastern-suburbs/randwick/phillip-bay,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Randwick,Randwick,2031,/service-areas/sydney-city-and-eastern-suburbs/randwick/randwick,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Randwick,South Coogee,2034,/service-areas/sydney-city-and-eastern-suburbs/randwick/south-coogee,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Alexandria,2015,/service-areas/sydney-city-and-eastern-suburbs/sydney/alexandria,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Barangaroo,2000,/service-areas/sydney-city-and-eastern-suburbs/sydney/barangaroo,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Beaconsfield,2015,/service-areas/sydney-city-and-eastern-suburbs/sydney/beaconsfield,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Chippendale,2008,/service-areas/sydney-city-and-eastern-suburbs/sydney/chippendale,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Darlinghurst,2010,/service-areas/sydney-city-and-eastern-suburbs/sydney/darlinghurst,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Darlington,2008,/service-areas/sydney-city-and-eastern-suburbs/sydney/darlington,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Dawes Point,2000,/service-areas/sydney-city-and-eastern-suburbs/sydney/dawes-point,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Elizabeth Bay,2011,/service-areas/sydney-city-and-eastern-suburbs/sydney/elizabeth-bay,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Erskineville,2043,/service-areas/sydney-city-and-eastern-suburbs/sydney/erskineville,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Eveleigh,2015,/service-areas/sydney-city-and-eastern-suburbs/sydney/eveleigh,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Forest Lodge,2037,/service-areas/sydney-city-and-eastern-suburbs/sydney/forest-lodge,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Glebe,2037,/service-areas/sydney-city-and-eastern-suburbs/sydney/glebe,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Haymarket,2000,/service-areas/sydney-city-and-eastern-suburbs/sydney/haymarket,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Millers Point,2000,/service-areas/sydney-city-and-eastern-suburbs/sydney/millers-point,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Moore Park,2021,/service-areas/sydney-city-and-eastern-suburbs/sydney/moore-park,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Paddington,2021,/service-areas/sydney-city-and-eastern-suburbs/sydney/paddington,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Potts Point,2011,/service-areas/sydney-city-and-eastern-suburbs/sydney/potts-point,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Pyrmont,2009,/service-areas/sydney-city-and-eastern-suburbs/sydney/pyrmont,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Redfern,2016,/service-areas/sydney-city-and-eastern-suburbs/sydney/redfern,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Rushcutters Bay,2011,/service-areas/sydney-city-and-eastern-suburbs/sydney/rushcutters-bay,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Surry Hills,2010,/service-areas/sydney-city-and-eastern-suburbs/sydney/surry-hills,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Sydney,2000,/service-areas/sydney-city-and-eastern-suburbs/sydney/sydney,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,The Rocks,2000,/service-areas/sydney-city-and-eastern-suburbs/sydney/the-rocks,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Ultimo,2007,/service-areas/sydney-city-and-eastern-suburbs/sydney/ultimo,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Waterloo,2017,/service-areas/sydney-city-and-eastern-suburbs/sydney/waterloo,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Woolloomooloo,2011,/service-areas/sydney-city-and-eastern-suburbs/sydney/woolloomooloo,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Sydney,Zetland,2017,/service-areas/sydney-city-and-eastern-suburbs/sydney/zetland,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Waverley,Bondi,2026,/service-areas/sydney-city-and-eastern-suburbs/waverley/bondi,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Waverley,Bondi Beach,2026,/service-areas/sydney-city-and-eastern-suburbs/waverley/bondi-beach,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Waverley,Bondi Junction,2022,/service-areas/sydney-city-and-eastern-suburbs/waverley/bondi-junction,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Waverley,Bronte,2024,/service-areas/sydney-city-and-eastern-suburbs/waverley/bronte,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Waverley,Dover Heights,2030,/service-areas/sydney-city-and-eastern-suburbs/waverley/dover-heights,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Waverley,North Bondi,2026,/service-areas/sydney-city-and-eastern-suburbs/waverley/north-bondi,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Waverley,Queens Park,2022,/service-areas/sydney-city-and-eastern-suburbs/waverley/queens-park,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Waverley,Rose Bay,2029,/service-areas/sydney-city-and-eastern-suburbs/waverley/rose-bay,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Waverley,Tamarama,2026,/service-areas/sydney-city-and-eastern-suburbs/waverley/tamarama,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Waverley,Vaucluse,2030,/service-areas/sydney-city-and-eastern-suburbs/waverley/vaucluse,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Waverley,Waverley,2024,/service-areas/sydney-city-and-eastern-suburbs/waverley/waverley,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Woollahra,Bellevue Hill,2023,/service-areas/sydney-city-and-eastern-suburbs/woollahra/bellevue-hill,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Woollahra,Darling Point,2027,/service-areas/sydney-city-and-eastern-suburbs/woollahra/darling-point,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Woollahra,Double Bay,2028,/service-areas/sydney-city-and-eastern-suburbs/woollahra/double-bay,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Woollahra,Edgecliff,2027,/service-areas/sydney-city-and-eastern-suburbs/woollahra/edgecliff,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Woollahra,Point Piper,2027,/service-areas/sydney-city-and-eastern-suburbs/woollahra/point-piper,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Woollahra,Watsons Bay,2030,/service-areas/sydney-city-and-eastern-suburbs/woollahra/watsons-bay,core,60,60,yes,no,no,no,no,no
+Sydney City & Eastern Suburbs,Woollahra,Woollahra,2025,/service-areas/sydney-city-and-eastern-suburbs/woollahra/woollahra,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Cumberland,Auburn,2144,/service-areas/parramatta-and-cumberland/cumberland/auburn,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Cumberland,Berala,2141,/service-areas/parramatta-and-cumberland/cumberland/berala,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Cumberland,Girraween,2145,/service-areas/parramatta-and-cumberland/cumberland/girraween,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Cumberland,Greystanes,2145,/service-areas/parramatta-and-cumberland/cumberland/greystanes,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Cumberland,Guildford,2161,/service-areas/parramatta-and-cumberland/cumberland/guildford,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Cumberland,Guildford West,2161,/service-areas/parramatta-and-cumberland/cumberland/guildford-west,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Cumberland,Holroyd,2142,/service-areas/parramatta-and-cumberland/cumberland/holroyd,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Cumberland,Lidcombe,2141,/service-areas/parramatta-and-cumberland/cumberland/lidcombe,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Cumberland,Merrylands,2160,/service-areas/parramatta-and-cumberland/cumberland/merrylands,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Cumberland,Merrylands West,2160,/service-areas/parramatta-and-cumberland/cumberland/merrylands-west,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Cumberland,Pemulwuy,2145,/service-areas/parramatta-and-cumberland/cumberland/pemulwuy,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Cumberland,Pendle Hill,2145,/service-areas/parramatta-and-cumberland/cumberland/pendle-hill,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Cumberland,Regents Park,2143,/service-areas/parramatta-and-cumberland/cumberland/regents-park,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Cumberland,Rookwood,2141,/service-areas/parramatta-and-cumberland/cumberland/rookwood,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Cumberland,South Granville,2142,/service-areas/parramatta-and-cumberland/cumberland/south-granville,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Cumberland,South Wentworthville,2145,/service-areas/parramatta-and-cumberland/cumberland/south-wentworthville,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Cumberland,Wentworthville,2145,/service-areas/parramatta-and-cumberland/cumberland/wentworthville,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Cumberland,Westmead,2145,/service-areas/parramatta-and-cumberland/cumberland/westmead,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Cumberland,Woodpark,2164,/service-areas/parramatta-and-cumberland/cumberland/woodpark,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Carlingford,2118,/service-areas/parramatta-and-cumberland/parramatta/carlingford,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Clyde,2142,/service-areas/parramatta-and-cumberland/parramatta/clyde,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Constitution Hill,2145,/service-areas/parramatta-and-cumberland/parramatta/constitution-hill,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Dundas,2117,/service-areas/parramatta-and-cumberland/parramatta/dundas,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Dundas Valley,2117,/service-areas/parramatta-and-cumberland/parramatta/dundas-valley,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Eastwood,2122,/service-areas/parramatta-and-cumberland/parramatta/eastwood,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Epping,2121,/service-areas/parramatta-and-cumberland/parramatta/epping,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Ermington,2115,/service-areas/parramatta-and-cumberland/parramatta/ermington,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Granville,2142,/service-areas/parramatta-and-cumberland/parramatta/granville,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Harris Park,2150,/service-areas/parramatta-and-cumberland/parramatta/harris-park,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Mays Hill,2145,/service-areas/parramatta-and-cumberland/parramatta/mays-hill,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Melrose Park,2114,/service-areas/parramatta-and-cumberland/parramatta/melrose-park,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Newington,2127,/service-areas/parramatta-and-cumberland/parramatta/newington,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,North Parramatta,2151,/service-areas/parramatta-and-cumberland/parramatta/north-parramatta,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,North Rocks,2151,/service-areas/parramatta-and-cumberland/parramatta/north-rocks,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Northmead,2152,/service-areas/parramatta-and-cumberland/parramatta/northmead,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Oatlands,2117,/service-areas/parramatta-and-cumberland/parramatta/oatlands,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Old Toongabbie,2146,/service-areas/parramatta-and-cumberland/parramatta/old-toongabbie,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Parramatta,2150,/service-areas/parramatta-and-cumberland/parramatta/parramatta,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Rosehill,2142,/service-areas/parramatta-and-cumberland/parramatta/rosehill,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Rydalmere,2116,/service-areas/parramatta-and-cumberland/parramatta/rydalmere,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Silverwater,2128,/service-areas/parramatta-and-cumberland/parramatta/silverwater,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Sydney Olympic Park,2127,/service-areas/parramatta-and-cumberland/parramatta/sydney-olympic-park,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Telopea,2117,/service-areas/parramatta-and-cumberland/parramatta/telopea,core,60,60,yes,no,no,no,no,no
+Parramatta & Cumberland,Parramatta,Wentworth Point,2127,/service-areas/parramatta-and-cumberland/parramatta/wentworth-point,core,60,60,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Acacia Gardens,2763,/service-areas/western-sydney-and-nepean/blacktown/acacia-gardens,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Arndell Park,2148,/service-areas/western-sydney-and-nepean/blacktown/arndell-park,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Bidwill,2770,/service-areas/western-sydney-and-nepean/blacktown/bidwill,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Blackett,2770,/service-areas/western-sydney-and-nepean/blacktown/blackett,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Blacktown,2148,/service-areas/western-sydney-and-nepean/blacktown/blacktown,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Bungarribee,2767,/service-areas/western-sydney-and-nepean/blacktown/bungarribee,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Colebee,2761,/service-areas/western-sydney-and-nepean/blacktown/colebee,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Dean Park,2761,/service-areas/western-sydney-and-nepean/blacktown/dean-park,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Dharruk,2770,/service-areas/western-sydney-and-nepean/blacktown/dharruk,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Doonside,2767,/service-areas/western-sydney-and-nepean/blacktown/doonside,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Eastern Creek,2766,/service-areas/western-sydney-and-nepean/blacktown/eastern-creek,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Emerton,2770,/service-areas/western-sydney-and-nepean/blacktown/emerton,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Glendenning,2761,/service-areas/western-sydney-and-nepean/blacktown/glendenning,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Glenwood,2768,/service-areas/western-sydney-and-nepean/blacktown/glenwood,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Hassall Grove,2761,/service-areas/western-sydney-and-nepean/blacktown/hassall-grove,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Hebersham,2770,/service-areas/western-sydney-and-nepean/blacktown/hebersham,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Kellyville Ridge,2155,/service-areas/western-sydney-and-nepean/blacktown/kellyville-ridge,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Kings Langley,2147,/service-areas/western-sydney-and-nepean/blacktown/kings-langley,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Kings Park,2148,/service-areas/western-sydney-and-nepean/blacktown/kings-park,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Lalor Park,2147,/service-areas/western-sydney-and-nepean/blacktown/lalor-park,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Lethbridge Park,2770,/service-areas/western-sydney-and-nepean/blacktown/lethbridge-park,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Marayong,2148,/service-areas/western-sydney-and-nepean/blacktown/marayong,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Marsden Park,2765,/service-areas/western-sydney-and-nepean/blacktown/marsden-park,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Minchinbury,2770,/service-areas/western-sydney-and-nepean/blacktown/minchinbury,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Mount Druitt,2770,/service-areas/western-sydney-and-nepean/blacktown/mount-druitt,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Oakhurst,2761,/service-areas/western-sydney-and-nepean/blacktown/oakhurst,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Parklea,2768,/service-areas/western-sydney-and-nepean/blacktown/parklea,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Plumpton,2761,/service-areas/western-sydney-and-nepean/blacktown/plumpton,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Prospect,2148,/service-areas/western-sydney-and-nepean/blacktown/prospect,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Quakers Hill,2763,/service-areas/western-sydney-and-nepean/blacktown/quakers-hill,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Riverstone,2765,/service-areas/western-sydney-and-nepean/blacktown/riverstone,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Rooty Hill,2766,/service-areas/western-sydney-and-nepean/blacktown/rooty-hill,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Ropes Crossing,2760,/service-areas/western-sydney-and-nepean/blacktown/ropes-crossing,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Schofields,2762,/service-areas/western-sydney-and-nepean/blacktown/schofields,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Seven Hills,2147,/service-areas/western-sydney-and-nepean/blacktown/seven-hills,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Shalvey,2770,/service-areas/western-sydney-and-nepean/blacktown/shalvey,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Shanes Park,2747,/service-areas/western-sydney-and-nepean/blacktown/shanes-park,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Stanhope Gardens,2768,/service-areas/western-sydney-and-nepean/blacktown/stanhope-gardens,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,The Ponds,2769,/service-areas/western-sydney-and-nepean/blacktown/the-ponds,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Toongabbie,2146,/service-areas/western-sydney-and-nepean/blacktown/toongabbie,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Tregear,2770,/service-areas/western-sydney-and-nepean/blacktown/tregear,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Whalan,2770,/service-areas/western-sydney-and-nepean/blacktown/whalan,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Willmot,2770,/service-areas/western-sydney-and-nepean/blacktown/willmot,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Blacktown,Woodcroft,2767,/service-areas/western-sydney-and-nepean/blacktown/woodcroft,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Berkshire Park,2765,/service-areas/western-sydney-and-nepean/penrith/berkshire-park,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Caddens,2747,/service-areas/western-sydney-and-nepean/penrith/caddens,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Cambridge Gardens,2747,/service-areas/western-sydney-and-nepean/penrith/cambridge-gardens,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Cambridge Park,2747,/service-areas/western-sydney-and-nepean/penrith/cambridge-park,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Castlereagh,2749,/service-areas/western-sydney-and-nepean/penrith/castlereagh,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Claremont Meadows,2747,/service-areas/western-sydney-and-nepean/penrith/claremont-meadows,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Colyton,2760,/service-areas/western-sydney-and-nepean/penrith/colyton,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Cranebrook,2749,/service-areas/western-sydney-and-nepean/penrith/cranebrook,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Emu Heights,2750,/service-areas/western-sydney-and-nepean/penrith/emu-heights,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Emu Plains,2750,/service-areas/western-sydney-and-nepean/penrith/emu-plains,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Erskine Park,2759,/service-areas/western-sydney-and-nepean/penrith/erskine-park,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Glenmore Park,2745,/service-areas/western-sydney-and-nepean/penrith/glenmore-park,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Jamisontown,2750,/service-areas/western-sydney-and-nepean/penrith/jamisontown,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Jordan Springs,2747,/service-areas/western-sydney-and-nepean/penrith/jordan-springs,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Kingswood,2747,/service-areas/western-sydney-and-nepean/penrith/kingswood,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Leonay,2750,/service-areas/western-sydney-and-nepean/penrith/leonay,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Llandilo,2747,/service-areas/western-sydney-and-nepean/penrith/llandilo,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Londonderry,2753,/service-areas/western-sydney-and-nepean/penrith/londonderry,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Mount Vernon,2178,/service-areas/western-sydney-and-nepean/penrith/mount-vernon,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Mulgoa,2745,/service-areas/western-sydney-and-nepean/penrith/mulgoa,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,North St Marys,2760,/service-areas/western-sydney-and-nepean/penrith/north-st-marys,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Orchard Hills,2748,/service-areas/western-sydney-and-nepean/penrith/orchard-hills,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Oxley Park,2760,/service-areas/western-sydney-and-nepean/penrith/oxley-park,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Penrith,2750,/service-areas/western-sydney-and-nepean/penrith/penrith,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Regentville,2745,/service-areas/western-sydney-and-nepean/penrith/regentville,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,South Penrith,2750,/service-areas/western-sydney-and-nepean/penrith/south-penrith,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,St Clair,2759,/service-areas/western-sydney-and-nepean/penrith/st-clair,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,St Marys,2760,/service-areas/western-sydney-and-nepean/penrith/st-marys,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Werrington,2747,/service-areas/western-sydney-and-nepean/penrith/werrington,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Werrington County,2747,/service-areas/western-sydney-and-nepean/penrith/werrington-county,greater,90,90,yes,no,no,no,no,no
+Western Sydney & Nepean,Penrith,Werrington Downs,2747,/service-areas/western-sydney-and-nepean/penrith/werrington-downs,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Agnes Banks,2753,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/agnes-banks,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Bilpin,2758,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/bilpin,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Blaxlands Ridge,2758,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/blaxlands-ridge,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Bligh Park,2756,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/bligh-park,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Bowen Mountain,2753,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/bowen-mountain,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Clarendon,2756,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/clarendon,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Cornwallis,2756,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/cornwallis,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Cumberland Reach,2756,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/cumberland-reach,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,East Kurrajong,2758,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/east-kurrajong,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Ebenezer,2756,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/ebenezer,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Freemans Reach,2756,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/freemans-reach,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Glossodia,2756,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/glossodia,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Grose Vale,2753,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/grose-vale,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Grose Wold,2753,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/grose-wold,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Hobartville,2753,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/hobartville,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Kurmond,2757,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/kurmond,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Kurrajong,2758,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/kurrajong,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Kurrajong Heights,2758,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/kurrajong-heights,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Kurrajong Hills,2758,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/kurrajong-hills,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,McGraths Hill,2756,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/mcgraths-hill,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Mulgrave,2756,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/mulgrave,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,North Richmond,2754,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/north-richmond,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Oakville,2765,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/oakville,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Pitt Town,2756,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/pitt-town,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Pitt Town Bottoms,2756,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/pitt-town-bottoms,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Richmond,2753,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/richmond,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Richmond Lowlands,2753,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/richmond-lowlands,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Sackville,2756,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/sackville,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Scheyville,2756,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/scheyville,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,South Windsor,2756,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/south-windsor,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Tennyson,2754,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/tennyson,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,The Slopes,2754,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/the-slopes,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Vineyard,2765,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/vineyard,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Wheeny Creek,2758,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/wheeny-creek,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Wilberforce,2756,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/wilberforce,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Windsor,2756,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/windsor,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Windsor Downs,2756,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/windsor-downs,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hawkesbury,Yarramundi,2753,/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/yarramundi,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,Annangrove,2156,/service-areas/hills-hawkesbury-and-hornsby/hills-district/annangrove,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,Baulkham Hills,2153,/service-areas/hills-hawkesbury-and-hornsby/hills-district/baulkham-hills,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,Beaumont Hills,2155,/service-areas/hills-hawkesbury-and-hornsby/hills-district/beaumont-hills,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,Bella Vista,2153,/service-areas/hills-hawkesbury-and-hornsby/hills-district/bella-vista,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,Box Hill,2765,/service-areas/hills-hawkesbury-and-hornsby/hills-district/box-hill,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,Castle Hill,2154,/service-areas/hills-hawkesbury-and-hornsby/hills-district/castle-hill,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,Cattai,2756,/service-areas/hills-hawkesbury-and-hornsby/hills-district/cattai,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,Dural,2158,/service-areas/hills-hawkesbury-and-hornsby/hills-district/dural,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,Glenhaven,2156,/service-areas/hills-hawkesbury-and-hornsby/hills-district/glenhaven,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,Glenorie,2157,/service-areas/hills-hawkesbury-and-hornsby/hills-district/glenorie,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,Kellyville,2155,/service-areas/hills-hawkesbury-and-hornsby/hills-district/kellyville,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,Kenthurst,2156,/service-areas/hills-hawkesbury-and-hornsby/hills-district/kenthurst,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,Lower Portland,2756,/service-areas/hills-hawkesbury-and-hornsby/hills-district/lower-portland,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,Maraylya,2765,/service-areas/hills-hawkesbury-and-hornsby/hills-district/maraylya,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,Maroota,2756,/service-areas/hills-hawkesbury-and-hornsby/hills-district/maroota,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,Middle Dural,2158,/service-areas/hills-hawkesbury-and-hornsby/hills-district/middle-dural,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,Nelson,2765,/service-areas/hills-hawkesbury-and-hornsby/hills-district/nelson,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,Rouse Hill,2155,/service-areas/hills-hawkesbury-and-hornsby/hills-district/rouse-hill,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,Sackville North,2756,/service-areas/hills-hawkesbury-and-hornsby/hills-district/sackville-north,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,South Maroota,2756,/service-areas/hills-hawkesbury-and-hornsby/hills-district/south-maroota,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,West Pennant Hills,2125,/service-areas/hills-hawkesbury-and-hornsby/hills-district/west-pennant-hills,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,Winston Hills,2153,/service-areas/hills-hawkesbury-and-hornsby/hills-district/winston-hills,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hills District,Wisemans Ferry,2775,/service-areas/hills-hawkesbury-and-hornsby/hills-district/wisemans-ferry,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Arcadia,2159,/service-areas/hills-hawkesbury-and-hornsby/hornsby/arcadia,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Asquith,2077,/service-areas/hills-hawkesbury-and-hornsby/hornsby/asquith,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Beecroft,2119,/service-areas/hills-hawkesbury-and-hornsby/hornsby/beecroft,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Berowra,2081,/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Berowra Creek,2082,/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra-creek,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Berowra Heights,2082,/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra-heights,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Berowra Waters,2082,/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra-waters,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Berrilee,2159,/service-areas/hills-hawkesbury-and-hornsby/hornsby/berrilee,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Brooklyn,2083,/service-areas/hills-hawkesbury-and-hornsby/hornsby/brooklyn,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Canoelands,2157,/service-areas/hills-hawkesbury-and-hornsby/hornsby/canoelands,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Cheltenham,2119,/service-areas/hills-hawkesbury-and-hornsby/hornsby/cheltenham,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Cherrybrook,2126,/service-areas/hills-hawkesbury-and-hornsby/hornsby/cherrybrook,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Cowan,2081,/service-areas/hills-hawkesbury-and-hornsby/hornsby/cowan,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Dangar Island,2083,/service-areas/hills-hawkesbury-and-hornsby/hornsby/dangar-island,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Fiddletown,2159,/service-areas/hills-hawkesbury-and-hornsby/hornsby/fiddletown,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Forest Glen,2157,/service-areas/hills-hawkesbury-and-hornsby/hornsby/forest-glen,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Galston,2159,/service-areas/hills-hawkesbury-and-hornsby/hornsby/galston,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Hornsby,2077,/service-areas/hills-hawkesbury-and-hornsby/hornsby/hornsby,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Hornsby Heights,2077,/service-areas/hills-hawkesbury-and-hornsby/hornsby/hornsby-heights,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Milsons Passage,2083,/service-areas/hills-hawkesbury-and-hornsby/hornsby/milsons-passage,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Mount Colah,2079,/service-areas/hills-hawkesbury-and-hornsby/hornsby/mount-colah,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Mount Kuring-Gai,2080,/service-areas/hills-hawkesbury-and-hornsby/hornsby/mount-kuring-gai,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Normanhurst,2076,/service-areas/hills-hawkesbury-and-hornsby/hornsby/normanhurst,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,North Epping,2121,/service-areas/hills-hawkesbury-and-hornsby/hornsby/north-epping,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Pennant Hills,2120,/service-areas/hills-hawkesbury-and-hornsby/hornsby/pennant-hills,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Thornleigh,2120,/service-areas/hills-hawkesbury-and-hornsby/hornsby/thornleigh,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Wahroonga,2076,/service-areas/hills-hawkesbury-and-hornsby/hornsby/wahroonga,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Waitara,2077,/service-areas/hills-hawkesbury-and-hornsby/hornsby/waitara,greater,90,90,yes,no,no,no,no,no
+"Hills, Hawkesbury & Hornsby",Hornsby,Westleigh,2120,/service-areas/hills-hawkesbury-and-hornsby/hornsby/westleigh,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Hunters Hill,Gladesville,2111,/service-areas/northern-sydney-and-ryde/hunters-hill/gladesville,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Hunters Hill,Henley,2111,/service-areas/northern-sydney-and-ryde/hunters-hill/henley,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Hunters Hill,Hunters Hill,2110,/service-areas/northern-sydney-and-ryde/hunters-hill/hunters-hill,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Hunters Hill,Huntleys Cove,2111,/service-areas/northern-sydney-and-ryde/hunters-hill/huntleys-cove,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Hunters Hill,Huntleys Point,2111,/service-areas/northern-sydney-and-ryde/hunters-hill/huntleys-point,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Hunters Hill,Woolwich,2110,/service-areas/northern-sydney-and-ryde/hunters-hill/woolwich,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ku-ring-gai,East Killara,2071,/service-areas/northern-sydney-and-ryde/ku-ring-gai/east-killara,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ku-ring-gai,East Lindfield,2070,/service-areas/northern-sydney-and-ryde/ku-ring-gai/east-lindfield,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ku-ring-gai,Gordon,2072,/service-areas/northern-sydney-and-ryde/ku-ring-gai/gordon,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ku-ring-gai,Killara,2071,/service-areas/northern-sydney-and-ryde/ku-ring-gai/killara,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ku-ring-gai,Lindfield,2070,/service-areas/northern-sydney-and-ryde/ku-ring-gai/lindfield,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ku-ring-gai,North Turramurra,2074,/service-areas/northern-sydney-and-ryde/ku-ring-gai/north-turramurra,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ku-ring-gai,North Wahroonga,2076,/service-areas/northern-sydney-and-ryde/ku-ring-gai/north-wahroonga,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ku-ring-gai,Pymble,2073,/service-areas/northern-sydney-and-ryde/ku-ring-gai/pymble,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ku-ring-gai,Roseville,2069,/service-areas/northern-sydney-and-ryde/ku-ring-gai/roseville,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ku-ring-gai,Roseville Chase,2069,/service-areas/northern-sydney-and-ryde/ku-ring-gai/roseville-chase,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ku-ring-gai,South Turramurra,2074,/service-areas/northern-sydney-and-ryde/ku-ring-gai/south-turramurra,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ku-ring-gai,St Ives,2075,/service-areas/northern-sydney-and-ryde/ku-ring-gai/st-ives,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ku-ring-gai,St Ives Chase,2075,/service-areas/northern-sydney-and-ryde/ku-ring-gai/st-ives-chase,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ku-ring-gai,Turramurra,2074,/service-areas/northern-sydney-and-ryde/ku-ring-gai/turramurra,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ku-ring-gai,Warrawee,2074,/service-areas/northern-sydney-and-ryde/ku-ring-gai/warrawee,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ku-ring-gai,West Pymble,2073,/service-areas/northern-sydney-and-ryde/ku-ring-gai/west-pymble,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Lane Cove,Greenwich,2065,/service-areas/northern-sydney-and-ryde/lane-cove/greenwich,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Lane Cove,Lane Cove,2066,/service-areas/northern-sydney-and-ryde/lane-cove/lane-cove,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Lane Cove,Lane Cove North,2066,/service-areas/northern-sydney-and-ryde/lane-cove/lane-cove-north,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Lane Cove,Lane Cove West,2066,/service-areas/northern-sydney-and-ryde/lane-cove/lane-cove-west,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Lane Cove,Linley Point,2066,/service-areas/northern-sydney-and-ryde/lane-cove/linley-point,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Lane Cove,Longueville,2066,/service-areas/northern-sydney-and-ryde/lane-cove/longueville,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Lane Cove,Northwood,2066,/service-areas/northern-sydney-and-ryde/lane-cove/northwood,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Lane Cove,Riverview,2066,/service-areas/northern-sydney-and-ryde/lane-cove/riverview,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Lane Cove,St Leonards,2065,/service-areas/northern-sydney-and-ryde/lane-cove/st-leonards,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Mosman,Mosman,2088,/service-areas/northern-sydney-and-ryde/mosman/mosman,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,North Sydney,Cammeray,2062,/service-areas/northern-sydney-and-ryde/north-sydney/cammeray,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,North Sydney,Cremorne,2090,/service-areas/northern-sydney-and-ryde/north-sydney/cremorne,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,North Sydney,Cremorne Point,2090,/service-areas/northern-sydney-and-ryde/north-sydney/cremorne-point,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,North Sydney,Crows Nest,2065,/service-areas/northern-sydney-and-ryde/north-sydney/crows-nest,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,North Sydney,Kirribilli,2061,/service-areas/northern-sydney-and-ryde/north-sydney/kirribilli,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,North Sydney,Kurraba Point,2089,/service-areas/northern-sydney-and-ryde/north-sydney/kurraba-point,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,North Sydney,Lavender Bay,2060,/service-areas/northern-sydney-and-ryde/north-sydney/lavender-bay,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,North Sydney,McMahons Point,2060,/service-areas/northern-sydney-and-ryde/north-sydney/mcmahons-point,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,North Sydney,Milsons Point,2061,/service-areas/northern-sydney-and-ryde/north-sydney/milsons-point,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,North Sydney,Neutral Bay,2089,/service-areas/northern-sydney-and-ryde/north-sydney/neutral-bay,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,North Sydney,North Sydney,2060,/service-areas/northern-sydney-and-ryde/north-sydney/north-sydney,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,North Sydney,Waverton,2060,/service-areas/northern-sydney-and-ryde/north-sydney/waverton,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,North Sydney,Wollstonecraft,2065,/service-areas/northern-sydney-and-ryde/north-sydney/wollstonecraft,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ryde,Chatswood West,2067,/service-areas/northern-sydney-and-ryde/ryde/chatswood-west,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ryde,Denistone,2114,/service-areas/northern-sydney-and-ryde/ryde/denistone,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ryde,Denistone East,2112,/service-areas/northern-sydney-and-ryde/ryde/denistone-east,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ryde,Denistone West,2114,/service-areas/northern-sydney-and-ryde/ryde/denistone-west,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ryde,East Ryde,2113,/service-areas/northern-sydney-and-ryde/ryde/east-ryde,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ryde,Macquarie Park,2113,/service-areas/northern-sydney-and-ryde/ryde/macquarie-park,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ryde,Marsfield,2122,/service-areas/northern-sydney-and-ryde/ryde/marsfield,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ryde,Meadowbank,2114,/service-areas/northern-sydney-and-ryde/ryde/meadowbank,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ryde,North Ryde,2113,/service-areas/northern-sydney-and-ryde/ryde/north-ryde,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ryde,Putney,2112,/service-areas/northern-sydney-and-ryde/ryde/putney,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ryde,Ryde,2112,/service-areas/northern-sydney-and-ryde/ryde/ryde,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ryde,Tennyson Point,2111,/service-areas/northern-sydney-and-ryde/ryde/tennyson-point,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Ryde,West Ryde,2114,/service-areas/northern-sydney-and-ryde/ryde/west-ryde,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Willoughby,Artarmon,2064,/service-areas/northern-sydney-and-ryde/willoughby/artarmon,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Willoughby,Castle Cove,2069,/service-areas/northern-sydney-and-ryde/willoughby/castle-cove,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Willoughby,Castlecrag,2068,/service-areas/northern-sydney-and-ryde/willoughby/castlecrag,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Willoughby,Chatswood,2067,/service-areas/northern-sydney-and-ryde/willoughby/chatswood,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Willoughby,Middle Cove,2068,/service-areas/northern-sydney-and-ryde/willoughby/middle-cove,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Willoughby,Naremburn,2065,/service-areas/northern-sydney-and-ryde/willoughby/naremburn,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Willoughby,North Willoughby,2068,/service-areas/northern-sydney-and-ryde/willoughby/north-willoughby,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Willoughby,Northbridge,2063,/service-areas/northern-sydney-and-ryde/willoughby/northbridge,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Willoughby,Willoughby,2068,/service-areas/northern-sydney-and-ryde/willoughby/willoughby,greater,90,90,yes,no,no,no,no,no
+Northern Sydney & Ryde,Willoughby,Willoughby East,2068,/service-areas/northern-sydney-and-ryde/willoughby/willoughby-east,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Allambie Heights,2100,/service-areas/northern-beaches/northern-beaches/allambie-heights,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Avalon Beach,2107,/service-areas/northern-beaches/northern-beaches/avalon-beach,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Balgowlah,2093,/service-areas/northern-beaches/northern-beaches/balgowlah,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Balgowlah Heights,2093,/service-areas/northern-beaches/northern-beaches/balgowlah-heights,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Bayview,2104,/service-areas/northern-beaches/northern-beaches/bayview,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Beacon Hill,2100,/service-areas/northern-beaches/northern-beaches/beacon-hill,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Belrose,2085,/service-areas/northern-beaches/northern-beaches/belrose,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Bilgola Beach,2107,/service-areas/northern-beaches/northern-beaches/bilgola-beach,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Bilgola Plateau,2107,/service-areas/northern-beaches/northern-beaches/bilgola-plateau,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Brookvale,2100,/service-areas/northern-beaches/northern-beaches/brookvale,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Church Point,2105,/service-areas/northern-beaches/northern-beaches/church-point,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Clareville,2107,/service-areas/northern-beaches/northern-beaches/clareville,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Clontarf,2093,/service-areas/northern-beaches/northern-beaches/clontarf,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Coasters Retreat,2108,/service-areas/northern-beaches/northern-beaches/coasters-retreat,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Collaroy,2097,/service-areas/northern-beaches/northern-beaches/collaroy,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Collaroy Plateau,2097,/service-areas/northern-beaches/northern-beaches/collaroy-plateau,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Cottage Point,2084,/service-areas/northern-beaches/northern-beaches/cottage-point,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Cromer,2099,/service-areas/northern-beaches/northern-beaches/cromer,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Curl Curl,2096,/service-areas/northern-beaches/northern-beaches/curl-curl,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Davidson,2085,/service-areas/northern-beaches/northern-beaches/davidson,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Dee Why,2099,/service-areas/northern-beaches/northern-beaches/dee-why,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Duffys Forest,2084,/service-areas/northern-beaches/northern-beaches/duffys-forest,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Elanora Heights,2101,/service-areas/northern-beaches/northern-beaches/elanora-heights,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Elvina Bay,2105,/service-areas/northern-beaches/northern-beaches/elvina-bay,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Fairlight,2094,/service-areas/northern-beaches/northern-beaches/fairlight,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Forestville,2087,/service-areas/northern-beaches/northern-beaches/forestville,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Frenchs Forest,2086,/service-areas/northern-beaches/northern-beaches/frenchs-forest,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Freshwater,2096,/service-areas/northern-beaches/northern-beaches/freshwater,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Great Mackerel Beach,2108,/service-areas/northern-beaches/northern-beaches/great-mackerel-beach,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Ingleside,2101,/service-areas/northern-beaches/northern-beaches/ingleside,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Killarney Heights,2087,/service-areas/northern-beaches/northern-beaches/killarney-heights,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Ku-Ring-Gai Chase,2084,/service-areas/northern-beaches/northern-beaches/ku-ring-gai-chase,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Lovett Bay,2105,/service-areas/northern-beaches/northern-beaches/lovett-bay,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Manly,2095,/service-areas/northern-beaches/northern-beaches/manly,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Manly Vale,2093,/service-areas/northern-beaches/northern-beaches/manly-vale,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Mona Vale,2103,/service-areas/northern-beaches/northern-beaches/mona-vale,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Morning Bay,2105,/service-areas/northern-beaches/northern-beaches/morning-bay,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Narrabeen,2101,/service-areas/northern-beaches/northern-beaches/narrabeen,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Narraweena,2099,/service-areas/northern-beaches/northern-beaches/narraweena,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Newport,2106,/service-areas/northern-beaches/northern-beaches/newport,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,North Balgowlah,2093,/service-areas/northern-beaches/northern-beaches/north-balgowlah,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,North Curl Curl,2099,/service-areas/northern-beaches/northern-beaches/north-curl-curl,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,North Manly,2100,/service-areas/northern-beaches/northern-beaches/north-manly,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,North Narrabeen,2101,/service-areas/northern-beaches/northern-beaches/north-narrabeen,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Oxford Falls,2100,/service-areas/northern-beaches/northern-beaches/oxford-falls,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Palm Beach,2108,/service-areas/northern-beaches/northern-beaches/palm-beach,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Queenscliff,2096,/service-areas/northern-beaches/northern-beaches/queenscliff,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Scotland Island,2105,/service-areas/northern-beaches/northern-beaches/scotland-island,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Seaforth,2092,/service-areas/northern-beaches/northern-beaches/seaforth,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Terrey Hills,2084,/service-areas/northern-beaches/northern-beaches/terrey-hills,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Warriewood,2102,/service-areas/northern-beaches/northern-beaches/warriewood,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Whale Beach,2107,/service-areas/northern-beaches/northern-beaches/whale-beach,greater,90,90,yes,no,no,no,no,no
+Northern Beaches,Northern Beaches,Wheeler Heights,2097,/service-areas/northern-beaches/northern-beaches/wheeler-heights,greater,90,90,yes,no,no,no,no,no
+Blue Mountains,Blue Mountains,Berambing,2758,/service-areas/blue-mountains/blue-mountains/berambing,greater,90,90,yes,no,no,no,no,no
+Blue Mountains,Blue Mountains,Blaxland,2774,/service-areas/blue-mountains/blue-mountains/blaxland,greater,90,90,yes,no,no,no,no,no
+Blue Mountains,Blue Mountains,Bullaburra,2784,/service-areas/blue-mountains/blue-mountains/bullaburra,greater,90,90,yes,no,no,no,no,no
+Blue Mountains,Blue Mountains,Faulconbridge,2776,/service-areas/blue-mountains/blue-mountains/faulconbridge,greater,90,90,yes,no,no,no,no,no
+Blue Mountains,Blue Mountains,Glenbrook,2773,/service-areas/blue-mountains/blue-mountains/glenbrook,greater,90,90,yes,no,no,no,no,no
+Blue Mountains,Blue Mountains,Hawkesbury Heights,2777,/service-areas/blue-mountains/blue-mountains/hawkesbury-heights,greater,90,90,yes,no,no,no,no,no
+Blue Mountains,Blue Mountains,Hazelbrook,2779,/service-areas/blue-mountains/blue-mountains/hazelbrook,greater,90,90,yes,no,no,no,no,no
+Blue Mountains,Blue Mountains,Katoomba,2780,/service-areas/blue-mountains/blue-mountains/katoomba,greater,90,90,yes,no,no,no,no,no
+Blue Mountains,Blue Mountains,Lapstone,2773,/service-areas/blue-mountains/blue-mountains/lapstone,greater,90,90,yes,no,no,no,no,no
+Blue Mountains,Blue Mountains,Lawson,2783,/service-areas/blue-mountains/blue-mountains/lawson,greater,90,90,yes,no,no,no,no,no
+Blue Mountains,Blue Mountains,Leura,2780,/service-areas/blue-mountains/blue-mountains/leura,greater,90,90,yes,no,no,no,no,no
+Blue Mountains,Blue Mountains,Linden,2778,/service-areas/blue-mountains/blue-mountains/linden,greater,90,90,yes,no,no,no,no,no
+Blue Mountains,Blue Mountains,Mount Riverview,2774,/service-areas/blue-mountains/blue-mountains/mount-riverview,greater,90,90,yes,no,no,no,no,no
+Blue Mountains,Blue Mountains,Springwood,2777,/service-areas/blue-mountains/blue-mountains/springwood,greater,90,90,yes,no,no,no,no,no
+Blue Mountains,Blue Mountains,Sun Valley,2777,/service-areas/blue-mountains/blue-mountains/sun-valley,greater,90,90,yes,no,no,no,no,no
+Blue Mountains,Blue Mountains,Valley Heights,2777,/service-areas/blue-mountains/blue-mountains/valley-heights,greater,90,90,yes,no,no,no,no,no
+Blue Mountains,Blue Mountains,Warrimoo,2774,/service-areas/blue-mountains/blue-mountains/warrimoo,greater,90,90,yes,no,no,no,no,no
+Blue Mountains,Blue Mountains,Wentworth Falls,2782,/service-areas/blue-mountains/blue-mountains/wentworth-falls,greater,90,90,yes,no,no,no,no,no
+Blue Mountains,Blue Mountains,Winmalee,2777,/service-areas/blue-mountains/blue-mountains/winmalee,greater,90,90,yes,no,no,no,no,no
+Blue Mountains,Blue Mountains,Woodford,2778,/service-areas/blue-mountains/blue-mountains/woodford,greater,90,90,yes,no,no,no,no,no
+Blue Mountains,Blue Mountains,Yellow Rock,2777,/service-areas/blue-mountains/blue-mountains/yellow-rock,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Minnamurra & Kiama Downs,Bombo,2533,/service-areas/wollongong-and-illawarra/minnamurra-and-kiama-downs/bombo,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Minnamurra & Kiama Downs,Croom,2527,/service-areas/wollongong-and-illawarra/minnamurra-and-kiama-downs/croom,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Minnamurra & Kiama Downs,Kiama Downs,2533,/service-areas/wollongong-and-illawarra/minnamurra-and-kiama-downs/kiama-downs,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Minnamurra & Kiama Downs,Minnamurra,2533,/service-areas/wollongong-and-illawarra/minnamurra-and-kiama-downs/minnamurra,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Shellharbour,Albion Park,2527,/service-areas/wollongong-and-illawarra/shellharbour/albion-park,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Shellharbour,Albion Park Rail,2527,/service-areas/wollongong-and-illawarra/shellharbour/albion-park-rail,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Shellharbour,Barrack Heights,2528,/service-areas/wollongong-and-illawarra/shellharbour/barrack-heights,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Shellharbour,Barrack Point,2528,/service-areas/wollongong-and-illawarra/shellharbour/barrack-point,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Shellharbour,Blackbutt,2529,/service-areas/wollongong-and-illawarra/shellharbour/blackbutt,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Shellharbour,Calderwood,2527,/service-areas/wollongong-and-illawarra/shellharbour/calderwood,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Shellharbour,Dunmore,2529,/service-areas/wollongong-and-illawarra/shellharbour/dunmore,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Shellharbour,Flinders,2529,/service-areas/wollongong-and-illawarra/shellharbour/flinders,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Shellharbour,Lake Illawarra,2528,/service-areas/wollongong-and-illawarra/shellharbour/lake-illawarra,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Shellharbour,Mount Warrigal,2528,/service-areas/wollongong-and-illawarra/shellharbour/mount-warrigal,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Shellharbour,North Macquarie,2527,/service-areas/wollongong-and-illawarra/shellharbour/north-macquarie,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Shellharbour,Oak Flats,2529,/service-areas/wollongong-and-illawarra/shellharbour/oak-flats,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Shellharbour,Shell Cove,2529,/service-areas/wollongong-and-illawarra/shellharbour/shell-cove,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Shellharbour,Shellharbour,2529,/service-areas/wollongong-and-illawarra/shellharbour/shellharbour,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Shellharbour,Shellharbour City Centre,2529,/service-areas/wollongong-and-illawarra/shellharbour/shellharbour-city-centre,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Shellharbour,Tullimbar,2527,/service-areas/wollongong-and-illawarra/shellharbour/tullimbar,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Shellharbour,Warilla,2528,/service-areas/wollongong-and-illawarra/shellharbour/warilla,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Austinmer,2515,/service-areas/wollongong-and-illawarra/wollongong/austinmer,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Avondale,2530,/service-areas/wollongong-and-illawarra/wollongong/avondale,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Balgownie,2519,/service-areas/wollongong-and-illawarra/wollongong/balgownie,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Bellambi,2518,/service-areas/wollongong-and-illawarra/wollongong/bellambi,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Berkeley,2506,/service-areas/wollongong-and-illawarra/wollongong/berkeley,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Brownsville,2530,/service-areas/wollongong-and-illawarra/wollongong/brownsville,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Bulli,2516,/service-areas/wollongong-and-illawarra/wollongong/bulli,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Cleveland,2530,/service-areas/wollongong-and-illawarra/wollongong/cleveland,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Clifton,2515,/service-areas/wollongong-and-illawarra/wollongong/clifton,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Coalcliff,2508,/service-areas/wollongong-and-illawarra/wollongong/coalcliff,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Coledale,2515,/service-areas/wollongong-and-illawarra/wollongong/coledale,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Coniston,2500,/service-areas/wollongong-and-illawarra/wollongong/coniston,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Cordeaux Heights,2526,/service-areas/wollongong-and-illawarra/wollongong/cordeaux-heights,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Corrimal,2518,/service-areas/wollongong-and-illawarra/wollongong/corrimal,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Cringila,2502,/service-areas/wollongong-and-illawarra/wollongong/cringila,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Dapto,2530,/service-areas/wollongong-and-illawarra/wollongong/dapto,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Darkes Forest,2508,/service-areas/wollongong-and-illawarra/wollongong/darkes-forest,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Dombarton,2530,/service-areas/wollongong-and-illawarra/wollongong/dombarton,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,East Corrimal,2518,/service-areas/wollongong-and-illawarra/wollongong/east-corrimal,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Fairy Meadow,2519,/service-areas/wollongong-and-illawarra/wollongong/fairy-meadow,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Farmborough Heights,2526,/service-areas/wollongong-and-illawarra/wollongong/farmborough-heights,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Fernhill,2519,/service-areas/wollongong-and-illawarra/wollongong/fernhill,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Figtree,2525,/service-areas/wollongong-and-illawarra/wollongong/figtree,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Gwynneville,2500,/service-areas/wollongong-and-illawarra/wollongong/gwynneville,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Haywards Bay,2530,/service-areas/wollongong-and-illawarra/wollongong/haywards-bay,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Helensburgh,2508,/service-areas/wollongong-and-illawarra/wollongong/helensburgh,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Horsley,2530,/service-areas/wollongong-and-illawarra/wollongong/horsley,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Huntley,2530,/service-areas/wollongong-and-illawarra/wollongong/huntley,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Kanahooka,2530,/service-areas/wollongong-and-illawarra/wollongong/kanahooka,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Keiraville,2500,/service-areas/wollongong-and-illawarra/wollongong/keiraville,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Kembla Grange,2526,/service-areas/wollongong-and-illawarra/wollongong/kembla-grange,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Kembla Heights,2526,/service-areas/wollongong-and-illawarra/wollongong/kembla-heights,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Koonawarra,2530,/service-areas/wollongong-and-illawarra/wollongong/koonawarra,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Lake Heights,2502,/service-areas/wollongong-and-illawarra/wollongong/lake-heights,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Lilyvale,2508,/service-areas/wollongong-and-illawarra/wollongong/lilyvale,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Maddens Plains,2508,/service-areas/wollongong-and-illawarra/wollongong/maddens-plains,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Mangerton,2500,/service-areas/wollongong-and-illawarra/wollongong/mangerton,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Marshall Mount,2530,/service-areas/wollongong-and-illawarra/wollongong/marshall-mount,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Mount Keira,2500,/service-areas/wollongong-and-illawarra/wollongong/mount-keira,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Mount Kembla,2526,/service-areas/wollongong-and-illawarra/wollongong/mount-kembla,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Mount Ousley,2519,/service-areas/wollongong-and-illawarra/wollongong/mount-ousley,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Mount Pleasant,2519,/service-areas/wollongong-and-illawarra/wollongong/mount-pleasant,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Mount Saint Thomas,2500,/service-areas/wollongong-and-illawarra/wollongong/mount-saint-thomas,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,North Wollongong,2500,/service-areas/wollongong-and-illawarra/wollongong/north-wollongong,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Otford,2508,/service-areas/wollongong-and-illawarra/wollongong/otford,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Port Kembla,2505,/service-areas/wollongong-and-illawarra/wollongong/port-kembla,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Primbee,2502,/service-areas/wollongong-and-illawarra/wollongong/primbee,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Russell Vale,2517,/service-areas/wollongong-and-illawarra/wollongong/russell-vale,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Scarborough,2515,/service-areas/wollongong-and-illawarra/wollongong/scarborough,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Stanwell Park,2508,/service-areas/wollongong-and-illawarra/wollongong/stanwell-park,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Stanwell Tops,2508,/service-areas/wollongong-and-illawarra/wollongong/stanwell-tops,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Tarrawanna,2518,/service-areas/wollongong-and-illawarra/wollongong/tarrawanna,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Thirroul,2515,/service-areas/wollongong-and-illawarra/wollongong/thirroul,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Towradgi,2518,/service-areas/wollongong-and-illawarra/wollongong/towradgi,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Unanderra,2526,/service-areas/wollongong-and-illawarra/wollongong/unanderra,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Warrawong,2502,/service-areas/wollongong-and-illawarra/wollongong/warrawong,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,West Wollongong,2500,/service-areas/wollongong-and-illawarra/wollongong/west-wollongong,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Windang,2528,/service-areas/wollongong-and-illawarra/wollongong/windang,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Wollongong,2500,/service-areas/wollongong-and-illawarra/wollongong/wollongong,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Wombarra,2515,/service-areas/wollongong-and-illawarra/wollongong/wombarra,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Wongawilli,2530,/service-areas/wollongong-and-illawarra/wollongong/wongawilli,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Woonona,2517,/service-areas/wollongong-and-illawarra/wollongong/woonona,greater,90,90,yes,no,no,no,no,no
+Wollongong & Illawarra,Wollongong,Yallah,2530,/service-areas/wollongong-and-illawarra/wollongong/yallah,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Alpine,2575,/service-areas/southern-highlands/wingecarribee/alpine,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Avoca,2577,/service-areas/southern-highlands/wingecarribee/avoca,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Aylmerton,2575,/service-areas/southern-highlands/wingecarribee/aylmerton,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Balaclava,2575,/service-areas/southern-highlands/wingecarribee/balaclava,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Balmoral,2571,/service-areas/southern-highlands/wingecarribee/balmoral,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Bargo,2574,/service-areas/southern-highlands/wingecarribee/bargo,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Berrima,2577,/service-areas/southern-highlands/wingecarribee/berrima,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Bowral,2576,/service-areas/southern-highlands/wingecarribee/bowral,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Braemar,2575,/service-areas/southern-highlands/wingecarribee/braemar,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Burradoo,2576,/service-areas/southern-highlands/wingecarribee/burradoo,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Burrawang,2577,/service-areas/southern-highlands/wingecarribee/burrawang,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Buxton,2571,/service-areas/southern-highlands/wingecarribee/buxton,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Colo Vale,2575,/service-areas/southern-highlands/wingecarribee/colo-vale,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,East Kangaloon,2576,/service-areas/southern-highlands/wingecarribee/east-kangaloon,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Exeter,2579,/service-areas/southern-highlands/wingecarribee/exeter,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Glenquarry,2576,/service-areas/southern-highlands/wingecarribee/glenquarry,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Hill Top,2575,/service-areas/southern-highlands/wingecarribee/hill-top,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Kangaloon,2576,/service-areas/southern-highlands/wingecarribee/kangaloon,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Medway,2577,/service-areas/southern-highlands/wingecarribee/medway,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Mittagong,2575,/service-areas/southern-highlands/wingecarribee/mittagong,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Moss Vale,2577,/service-areas/southern-highlands/wingecarribee/moss-vale,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,New Berrima,2577,/service-areas/southern-highlands/wingecarribee/new-berrima,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Renwick,2575,/service-areas/southern-highlands/wingecarribee/renwick,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Sutton Forest,2577,/service-areas/southern-highlands/wingecarribee/sutton-forest,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Welby,2575,/service-areas/southern-highlands/wingecarribee/welby,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Willow Vale,2575,/service-areas/southern-highlands/wingecarribee/willow-vale,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Woodlands,2575,/service-areas/southern-highlands/wingecarribee/woodlands,greater,90,90,yes,no,no,no,no,no
+Southern Highlands,Wingecarribee,Yerrinbool,2575,/service-areas/southern-highlands/wingecarribee/yerrinbool,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Alison,2259,/service-areas/central-coast-south/central-coast/alison,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Bar Point,2083,/service-areas/central-coast-south/central-coast/bar-point,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Blackwall,2256,/service-areas/central-coast-south/central-coast/blackwall,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Calga,2250,/service-areas/central-coast-south/central-coast/calga,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Central Mangrove,2250,/service-areas/central-coast-south/central-coast/central-mangrove,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Cheero Point,2083,/service-areas/central-coast-south/central-coast/cheero-point,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Cogra Bay,2083,/service-areas/central-coast-south/central-coast/cogra-bay,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,East Gosford,2250,/service-areas/central-coast-south/central-coast/east-gosford,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Erina,2250,/service-areas/central-coast-south/central-coast/erina,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Gosford,2250,/service-areas/central-coast-south/central-coast/gosford,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Green Point,2251,/service-areas/central-coast-south/central-coast/green-point,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Horsfield Bay,2256,/service-areas/central-coast-south/central-coast/horsfield-bay,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Kangy Angy,2258,/service-areas/central-coast-south/central-coast/kangy-angy,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Kariong,2250,/service-areas/central-coast-south/central-coast/kariong,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Koolewong,2256,/service-areas/central-coast-south/central-coast/koolewong,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Mardi,2259,/service-areas/central-coast-south/central-coast/mardi,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Marlow,2775,/service-areas/central-coast-south/central-coast/marlow,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Mooney Mooney,2083,/service-areas/central-coast-south/central-coast/mooney-mooney,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Mooney Mooney Creek,2250,/service-areas/central-coast-south/central-coast/mooney-mooney-creek,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Mount White,2250,/service-areas/central-coast-south/central-coast/mount-white,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Narara,2250,/service-areas/central-coast-south/central-coast/narara,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Niagara Park,2250,/service-areas/central-coast-south/central-coast/niagara-park,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,North Gosford,2250,/service-areas/central-coast-south/central-coast/north-gosford,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Palmdale,2258,/service-areas/central-coast-south/central-coast/palmdale,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Peats Ridge,2250,/service-areas/central-coast-south/central-coast/peats-ridge,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Phegans Bay,2256,/service-areas/central-coast-south/central-coast/phegans-bay,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Point Clare,2250,/service-areas/central-coast-south/central-coast/point-clare,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Point Frederick,2250,/service-areas/central-coast-south/central-coast/point-frederick,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Somersby,2250,/service-areas/central-coast-south/central-coast/somersby,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Springfield,2250,/service-areas/central-coast-south/central-coast/springfield,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Tascott,2250,/service-areas/central-coast-south/central-coast/tascott,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Tuggerah,2259,/service-areas/central-coast-south/central-coast/tuggerah,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Wendoree Park,2250,/service-areas/central-coast-south/central-coast/wendoree-park,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,West Gosford,2250,/service-areas/central-coast-south/central-coast/west-gosford,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Woy Woy,2256,/service-areas/central-coast-south/central-coast/woy-woy,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Woy Woy Bay,2256,/service-areas/central-coast-south/central-coast/woy-woy-bay,greater,90,90,yes,no,no,no,no,no
+Central Coast South,Central Coast,Wyoming,2250,/service-areas/central-coast-south/central-coast/wyoming,greater,90,90,yes,no,no,no,no,no

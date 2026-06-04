@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowRight, CheckCircle2, MapPin, Phone } from "lucide-react";
 import {
@@ -71,7 +71,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
   const localServiceCards = [
     {
       title: `Emergency electrician in ${region.name}`,
-      text: `Call first for no power, burning smells, sparking, hot outlets, tripping safety switches, storm damage or any fault in ${region.name} that feels unsafe. ${emergencyResponse.regionDisplay}`,
+      text: `Call first for no power and burning smells, sparking and overheating power points, tripping safety switches, storm damage or any fault in ${region.name} that feels unsafe. ${emergencyResponse.regionDisplay}`,
       href: "/emergency-electrician-sydney",
     },
     {
@@ -86,7 +86,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
     },
     {
       title: `Electrical fault finding`,
-      text: `Fault checks cover tripping circuits, damaged wiring, flickering lights, hot power points, appliance faults and safe circuit isolation.`,
+      text: `Fault checks cover circuit tripping, damaged wiring, flickering lights, hot power points, appliance faults and safe circuit isolation.`,
       href: "/services/electrical-fault-finding-sydney",
     },
     {
@@ -107,7 +107,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
     },
     {
       question: `Can I call for an emergency electrician in ${region.name}?`,
-      answer: `Yes. Call first for no power, burning smells, sparking, hot outlets, tripping safety switches, storm damage or electrical issues that feel unsafe. ${emergencyResponse.regionDisplay}`,
+      answer: `Yes. Call first for no power and burning smells, sparking and overheating power points, tripping safety switches, storm damage or electrical issues that feel unsafe. ${emergencyResponse.regionDisplay}`,
     },
     {
       question: `Do you help with Level 2 electrical work in ${region.name}?`,
@@ -419,3 +419,4 @@ export default async function RegionPage({ params }: RegionPageProps) {
     </main>
   );
 }
+

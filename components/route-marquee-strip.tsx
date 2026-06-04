@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useMemo } from "react";
 import { usePathname } from "next/navigation";
@@ -36,7 +36,7 @@ const serviceItemsBySlug: Record<string, string[]> = {
     "Scheduled repairs",
   ],
   "electrical-fault-finding-sydney": [
-    "Tripping circuits",
+    "Circuit tripping",
     "Intermittent faults",
     "Damaged wiring",
     "Water damage",
@@ -214,7 +214,7 @@ const serviceItemsBySlug: Record<string, string[]> = {
     "Wall cabling",
     "Concealed wiring",
     "Entertainment points",
-    "Neat outlets",
+    "Neat power points",
   ],
   "intercom-access-control-electrician-sydney": [
     "Intercom wiring",
@@ -227,7 +227,7 @@ const serviceItemsBySlug: Record<string, string[]> = {
   "storm-damage-electrician-sydney": [
     "Storm damage",
     "Water-affected wiring",
-    "Tripping circuits",
+    "Circuit tripping",
     "Outdoor faults",
     "Safety checks",
     "Call before reuse",
@@ -587,3 +587,5 @@ export function RouteMarqueeStrip() {
     </section>
   );
 }
+
+

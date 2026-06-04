@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import type { ElectricalFaultPage } from "../data/electrical-faults";
 import type {
   CoverageArea,
@@ -155,7 +155,7 @@ export function faultsIndexSeoMetadata(): RouteSeoMetadata {
     canonical: routeUrl(path),
     title: "Electrical Faults Sydney & Surrounding Regions",
     description: clampDescription(
-      "Electrical fault help in Sydney for tripping safety switches, burning smells, no power, sparking power points, hot outlets and storm damage.",
+      "Electrical fault help in Sydney for tripping safety switches and burning smells, no power, sparking power points, overheating power points and storm damage.",
     ),
   };
 }
@@ -284,3 +284,4 @@ export function legalSeoMetadata(
       : "General website and service terms for Evaready Electrical enquiries, quotes and bookings.",
   };
 }
+

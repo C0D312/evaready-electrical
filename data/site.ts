@@ -1,4 +1,4 @@
-import {
+﻿import {
   BadgeCheck,
   Bolt,
   Building2,
@@ -158,7 +158,7 @@ export const services = [
     title: "Emergency Electrician",
     slug: "emergency-electrician-sydney",
     description:
-      "Open 24/7 for power faults, outages, burning smells, tripping circuits and electrical hazards that need a phone call first.",
+      "Open 24/7 for power faults, outages and burning smells and circuit tripping and electrical hazards that need a phone call first.",
     icon: Zap,
     intent: "Emergency",
   },
@@ -390,7 +390,7 @@ export const services = [
     title: "Hot Power Point",
     slug: "hot-power-point-electrician-sydney",
     description:
-      "Urgent fault checks for hot outlets, burning smells, buzzing sockets, damaged wiring and unsafe power points.",
+      "Urgent fault checks for overheating power points and burning smells, buzzing sockets, damaged wiring and unsafe power points.",
     icon: Flame,
     intent: "Emergency",
   },
@@ -398,7 +398,7 @@ export const services = [
     title: "Electric Shock Faults",
     slug: "electric-shock-electrician-sydney",
     description:
-      "Urgent electrical support for shock risk, tingles, wet fittings, faulty appliances and unsafe circuits.",
+      "Urgent electrical support for shock risk, tingles, wet fixtures, faulty appliances and unsafe circuits.",
     icon: Flame,
     intent: "Emergency",
   },
@@ -414,7 +414,7 @@ export const services = [
     title: "RCD Safety Switch Repairs",
     slug: "rcd-safety-switch-repairs-sydney",
     description:
-      "RCD and safety switch repairs for tripping circuits, moisture faults, RCBO upgrades and switchboard protection.",
+      "RCD and safety switch repairs for circuit tripping, moisture faults, RCBO upgrades and switchboard protection.",
     icon: ShieldCheck,
     intent: "Emergency",
   },
@@ -579,7 +579,7 @@ export const offers = [
   {
     title: "Urgent calls open 24/7",
     description:
-      "A direct phone path for power loss, burning smells, switchboard faults and electrical hazards.",
+      "A direct phone path for power loss and burning smells, switchboard faults and electrical hazards.",
   },
   {
     title: "Level 2 electrical support",
@@ -592,3 +592,4 @@ export const offers = [
       "Suburb and postcode search so customers can quickly check local service information.",
   },
 ];
+

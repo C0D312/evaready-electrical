@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import {
   AlertTriangle,
@@ -39,7 +39,7 @@ const emergencyServices = [
   },
   {
     title: "Sparking power point or buzzing fitting",
-    text: "Keep clear of noisy, hot or sparking outlets, switches and light fittings until checked.",
+    text: "Keep clear of noisy, hot or sparking outlets, switches and light fixtures until checked.",
     href: "/electrical-faults/power-point-sparking",
   },
   {
@@ -49,7 +49,7 @@ const emergencyServices = [
   },
   {
     title: "Storm or water-damaged electrical fault",
-    text: "Do not use wet outlets, outdoor lights or affected circuits until they have been inspected.",
+    text: "Do not use wet power points, outdoor lights or affected circuits until they have been inspected.",
     href: "/electrical-faults/power-outage-after-storm",
   },
   {
@@ -97,7 +97,7 @@ const warningSigns = [
     href: "/electrical-faults/power-point-sparking",
   },
   {
-    title: "Storm damage, water around fittings or outdoor electrical faults",
+    title: "Storm damage, water around fixtures or outdoor electrical faults",
     text: "Water and electricity are a serious risk. Do not use wet switches, outlets or lights.",
     href: "/electrical-faults/rcd-trips-when-raining",
   },
@@ -110,7 +110,7 @@ const warningSigns = [
 
 const safetySteps = [
   {
-    title: "Keep clear of exposed wires, wet fittings, smoke, burning smells or fallen lines.",
+    title: "Keep clear of exposed wires, wet fixtures, smoke and burning smells or fallen lines.",
     text: "Do not touch damaged equipment and keep other people away from the affected area.",
     href: "/electrical-faults/electric-shock-from-outlet",
   },
@@ -142,7 +142,7 @@ const emergencyFaqs = [
   {
     question: "Do you answer emergency electrician calls after hours?",
     answer:
-      "Yes. Evaready Electrical takes urgent electrical fault calls day and night. Call first for no power, burning smells, smoke, sparking, repeated tripping or anything that feels unsafe.",
+      "Yes. Evaready Electrical takes urgent electrical fault calls day and night. Call first for no power and burning smells, smoke, sparking, repeated tripping or anything that feels unsafe.",
   },
   {
     question: "What should I do if my power is out?",
@@ -162,7 +162,7 @@ const emergencyFaqs = [
   {
     question: "Can you help with storm or water-damaged electrical faults?",
     answer:
-      "Yes. Call first if water has reached switches, outlets, lights, outdoor fittings or electrical equipment. Do not use affected circuits until they have been checked.",
+      "Yes. Call first if water has reached switches, outlets, lights, outdoor fixtures or electrical equipment. Do not use affected circuits until they have been checked.",
   },
   {
     question: "Can businesses call for urgent electrical faults?",
@@ -174,11 +174,11 @@ const emergencyFaqs = [
 const process = [
   {
     title: "Call first for unsafe faults",
-    text: "No power, burning smells, sparking, smoke, hot outlets and repeated tripping should be discussed by phone first.",
+    text: "No power and burning smells, sparking, smoke and overheating power points and repeated tripping should be discussed by phone first.",
   },
   {
     title: "Keep the area clear",
-    text: "Avoid damaged fittings, wet equipment, exposed wires and switchboards that smell hot or look damaged.",
+    text: "Avoid damaged fixtures, wet equipment, exposed wires and switchboards that smell hot or look damaged.",
   },
   {
     title: "Fault testing and isolation",
@@ -327,7 +327,7 @@ function buildSchema() {
         areaServed: "Sydney and surrounding regions",
         url: pageUrl,
         description:
-          "Emergency electrical help for power loss, burning smells, sparking outlets, tripping safety switches, switchboard faults and storm or water-related electrical hazards, with 60-minute response in core service areas and 90-minute response for greater regions.",
+          "Emergency electrical help for power loss and burning smells, sparking outlets, tripping safety switches, switchboard faults and storm or water-related electrical hazards, with 60-minute response in core service areas and 90-minute response for greater regions.",
       },
       {
         "@type": "FAQPage",
@@ -391,15 +391,15 @@ export default function EmergencyElectricianSydneyPage() {
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">
-              Call now for no power, burning smells, smoke, sparking power
-              points, hot outlets, tripping safety switches, storm damage,
-              water-affected fittings or after-hours electrical hazards.
+              Call now for no power and burning smells, smoke, sparking power
+              points and overheating power points, tripping safety switches, storm damage,
+              water-affected fixtures or after-hours electrical hazards.
             </p>
 
             <p className="mt-4 max-w-2xl rounded-2xl border border-red-300/25 bg-red-500/10 p-4 text-sm font-bold leading-6 text-slate-100">
               Emergency electrician on site within 60 minutes in core service
               areas, with 90-minute response for greater Sydney and surrounding
-              regions. Call first for power loss, burning smells, sparking,
+              regions. Call first for power loss and burning smells, sparking,
               tripping safety switches, switchboard faults, storm damage or
               water-affected electrical equipment.
             </p>
@@ -745,7 +745,7 @@ export default function EmergencyElectricianSydneyPage() {
             </p>
 
             <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Call first for no power, smoke, burning smells or sparking.
+              Call first for no power, smoke and burning smells or sparking.
             </h2>
             <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-300">
               Planned work can go through the booking form. Anything unsafe
@@ -765,3 +765,5 @@ export default function EmergencyElectricianSydneyPage() {
     </main>
   );
 }
+
+

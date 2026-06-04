@@ -1,4 +1,4 @@
-export type ServiceFaq = {
+﻿export type ServiceFaq = {
   answer: string;
   question: string;
 };
@@ -116,7 +116,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     warningSigns: [
       "Power circuits trip during trading hours",
       "Lights fail across a shop, office or common area",
-      "Tenants report unsafe outlets or fittings",
+      "Tenants report unsafe outlets or fixtures",
       "Switchboard capacity is limiting equipment upgrades",
     ],
     services: [
@@ -173,17 +173,17 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     slug: "electrical-fault-finding-sydney",
     metaTitle: "Electrical Fault Finding Sydney | Tripping & Power Faults",
     metaDescription:
-      "Electrical fault finding in Sydney for tripping safety switches, no power, burning smells, damaged wiring, hot outlets and water damage.",
+      "Electrical fault finding in Sydney for tripping safety switches, no power and burning smells, damaged wiring and overheating power points and water damage.",
     title: "Electrical Fault Finding Sydney & Surrounding Regions",
     description:
-      "Find the cause of tripping circuits, power loss, damaged wiring and unsafe electrical faults.",
+      "Find the cause of circuit tripping, power loss, damaged wiring and unsafe electrical faults.",
     intro:
-      "Electrical faults should be tested, not guessed. Evaready Electrical uses a safety-first fault finding process to identify the cause of tripping circuits, power loss, burning smells, hot outlets and wiring problems.",
+      "Electrical faults should be tested, not guessed. Evaready Electrical uses a safety-first fault finding process to identify the cause of circuit tripping, power loss and burning smells and overheating power points and wiring problems.",
     heroBullets: [
       "Safety switch and circuit tripping",
       "Power loss and intermittent faults",
       "Burning smells, heat or buzzing",
-      "Water-damaged electrical fittings",
+      "Water-damaged electrical fixtures",
     ],
     warningSigns: [
       "The same circuit trips repeatedly",
@@ -259,7 +259,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     ],
     warningSigns: [
       "Lights flicker or fail repeatedly",
-      "Old fittings become hot",
+      "Old fixtures become hot",
       "Outdoor lights trip in wet weather",
       "Rooms need safer or brighter lighting",
     ],
@@ -282,7 +282,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Install neatly",
-        text: "Fittings are installed cleanly with attention to finish and function.",
+        text: "Fixtures are installed cleanly with attention to finish and function.",
       },
       {
         title: "Test controls",
@@ -293,7 +293,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Can you replace old lights with LEDs?",
         answer:
-          "Yes. Evaready Electrical can replace many older fittings with LED options suited to the space.",
+          "Yes. Evaready Electrical can replace many older fixtures with LED options suited to the space.",
       },
       {
         question: "Can outdoor lights be repaired?",
@@ -469,7 +469,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "EV chargers add a serious new load to a property, so the electrical setup needs to be checked carefully. Evaready Electrical can assess switchboard capacity, circuit requirements and installation options before the charger is installed.",
     heroBullets: [
       "Home EV charger installations",
-      "Dedicated EV charging circuits",
+      "Dedicated EV charger circuits",
       "Switchboard and load checks",
       "Future-ready upgrade advice",
     ],
@@ -800,7 +800,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     slug: "hot-water-system-electrician-sydney",
     metaTitle: "Hot Water Electrician Sydney | Circuits & Isolators",
     metaDescription:
-      "Hot water electrician in Sydney for no hot water, tripping circuits, isolators, thermostat checks and heat pump electrical support.",
+      "Hot water electrician in Sydney for no hot water and circuit tripping, isolators, thermostat checks and heat pump electrical support.",
     title: "Hot Water System Electrician Sydney & Surrounding Regions",
     description:
       "Electrical support for electric hot water faults, hot water circuits, isolators, replacement wiring and heat pump electrical support.",
@@ -884,7 +884,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     intro:
       "Evaready provides air-conditioning electrical support and air-conditioning services through appropriately licensed technicians. We help with split-system air conditioning, AC isolators, dedicated circuits, outdoor unit power, safety switches, heat pump electrical support and switchboard capacity checks across Sydney and surrounding regions.",
     credentialHighlights: [
-      "ARCtick Licensed — L157323",
+      "ARCtick Licensed â€” L157323",
       "Licence L157323 for eligible air-conditioning, heat pump and related work.",
     ],
     heroBullets: [
@@ -903,7 +903,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Air-conditioning electrical support",
       "Split-system air conditioning",
       "AC isolators",
-      "Dedicated air conditioning circuits",
+      "Dedicated air conditioner circuits",
       "Outdoor unit power",
       "Switchboard capacity checks",
       "Safety switches and RCBOs",
@@ -950,7 +950,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "What does ARCtick Licensed mean here?",
         answer:
-          "ARCtick Licensed — L157323. Licence L157323 applies to eligible air-conditioning, heat pump and related work.",
+          "ARCtick Licensed â€” L157323. Licence L157323 applies to eligible air-conditioning, heat pump and related work.",
       },
     ],
     relatedServices: [
@@ -1036,7 +1036,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     slug: "data-cabling-electrician-sydney",
     metaTitle: "Data Cabling Electrician Sydney | Internet Points",
     metaDescription:
-      "Data cabling electrician in Sydney for network points, internet outlets, NBN internal cabling, phone line repairs and office data runs.",
+      "Data cabling electrician in Sydney for network points, internet points, NBN internal cabling, phone line repairs and office data runs.",
     title: "Data Cabling Electrician Sydney & Surrounding Regions",
     description:
       "Network data cabling, internet points and communication outlets for homes, offices and renovations.",
@@ -1149,7 +1149,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Test operation",
-        text: "Speed settings, light kits and controls are checked before completion.",
+        text: "Speed preferences, light kits and controls are checked before completion.",
       },
     ],
     faqs: [
@@ -1180,7 +1180,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     slug: "safety-switch-rcd-installation-sydney",
     metaTitle: "Safety Switch Electrician Sydney | RCD & RCBO Help",
     metaDescription:
-      "Safety switch installation and RCD repairs in Sydney for tripping circuits, switchboard protection, RCBO upgrades and electrical safety checks.",
+      "Safety switch installation and RCD repairs in Sydney for circuit tripping, switchboard protection, RCBO upgrades and electrical safety checks.",
     title: "Safety Switch Installation Sydney & Surrounding Regions",
     description:
       "Safety switches, RCDs and RCBO circuit protection installed, repaired and checked carefully.",
@@ -1213,7 +1213,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Find tripping causes",
-        text: "Tripping circuits are tested before parts are replaced.",
+        text: "Circuit tripping are tested before parts are replaced.",
       },
       {
         title: "Upgrade where needed",
@@ -1340,7 +1340,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Electronics have failed after storms",
       "A property has expensive equipment to protect",
       "The switchboard has no surge protection",
-      "You are upgrading circuits or switchboards",
+      "You are upgrading the switchboard or circuit capacity",
     ],
     services: [
       "Surge protection device installation",
@@ -1516,7 +1516,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "How do I know if my home needs rewiring?",
         answer:
-          "Warning signs include old cabling, frequent faults, hot outlets, flickering lights, limited safety protection or renovation work exposing unsafe wiring.",
+          "Warning signs include old cabling, frequent faults and overheating power points, flickering lights, limited safety protection or renovation work exposing unsafe wiring.",
       },
       {
         question: "Can rewiring be staged?",
@@ -1672,7 +1672,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Test and finish",
-        text: "Circuits, outlets, lights and fittings are tested before handover.",
+        text: "Circuits, outlets, lights and fixtures are tested before handover.",
       },
     ],
     faqs: [
@@ -1736,7 +1736,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Inspect and test",
-        text: "Relevant equipment, circuits, fittings or switchboard areas are checked safely.",
+        text: "Relevant equipment, circuits, fixtures or switchboard areas are checked safely.",
       },
       {
         title: "Record findings",
@@ -1991,15 +1991,15 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     slug: "storm-damage-electrician-sydney",
     metaTitle: "Storm Damage Electrician Sydney | Water-Affected Faults",
     metaDescription:
-      "Storm damage electrician in Sydney for water-affected wiring, damaged fittings, unsafe circuits, outdoor faults and make-safe support.",
+      "Storm damage electrician in Sydney for water-affected wiring, damaged fixtures, unsafe circuits, outdoor faults and make-safe support.",
     title: "Storm Damage Electrician Sydney & Surrounding Regions",
     description:
       "Urgent electrical help for storm damage, unsafe wiring, damaged equipment and emergency appliance disconnections.",
     intro:
-      "Storm damage can make electrical systems unsafe quickly, especially around outdoor fittings, water-affected wiring, damaged switchboards and appliances. Evaready Electrical can assess storm-related electrical faults and help make the affected area safer before repairs proceed.",
+      "Storm damage can make electrical systems unsafe quickly, especially around outdoor fixtures, water-affected wiring, damaged switchboards and appliances. Evaready Electrical can assess storm-related electrical faults and help make the affected area safer before repairs proceed.",
     heroBullets: [
       "Storm-related electrical faults",
-      "Water-affected wiring and fittings",
+      "Water-affected wiring and fixtures",
       "Emergency appliance disconnections",
       "Outdoor circuit safety checks",
     ],
@@ -2024,7 +2024,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Inspect affected areas",
-        text: "Outdoor circuits, fittings, appliances and switchboard areas are checked safely.",
+        text: "Outdoor circuits, fixtures, appliances and switchboard areas are checked safely.",
       },
       {
         title: "Isolate and repair",
@@ -2039,17 +2039,17 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Should I use power points after water damage?",
         answer:
-          "No. Do not use water-affected fittings or outlets until they have been checked safely.",
+          "No. Do not use water-affected fixtures or outlets until they have been checked safely.",
       },
       {
         question: "Can storm damage cause safety switches to trip?",
         answer:
-          "Yes. Water ingress, damaged outdoor fittings and affected appliances can all cause tripping.",
+          "Yes. Water ingress, damaged outdoor fixtures and affected appliances can all cause tripping.",
       },
       {
         question: "What photos help with storm damage?",
         answer:
-          "Send photos of the affected area, switchboard, outdoor fittings, damaged appliance and any visible water entry if it is safe to do so.",
+          "Send photos of the affected area, switchboard, outdoor fixtures, damaged appliance and any visible water entry if it is safe to do so.",
       },
     ],
     relatedServices: [
@@ -2304,7 +2304,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Can storm damage affect overhead service lines?",
         answer:
-          "Yes. Storms can affect overhead service lines, private poles, brackets, fittings and the point of attachment.",
+          "Yes. Storms can affect overhead service lines, private poles, brackets, fixtures and the point of attachment.",
       },
       {
         question: "What photos help with an overhead service enquiry?",
@@ -2543,7 +2543,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Inspect and test",
-        text: "Relevant circuits, protection, outlets and fittings are checked safely.",
+        text: "Relevant circuits, protection, outlets and fixtures are checked safely.",
       },
       {
         title: "Explain findings",
@@ -2896,16 +2896,16 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Battery and fitting checks",
       "Commercial and strata lighting reviews",
       "Testing and tagging coordination where relevant",
-      "Repair quotes for failed fittings or circuits",
+      "Repair quotes for failed fixtures or circuits",
     ],
     process: [
       {
         title: "Confirm site requirements",
-        text: "Share the site type, location, number of fittings and any inspection notes.",
+        text: "Share the site type, location, number of fixtures and any inspection notes.",
       },
       {
-        title: "Check fittings and circuits",
-        text: "Emergency and exit lighting fittings, power and visible wiring are checked.",
+        title: "Check fixtures and circuits",
+        text: "Emergency and exit lighting fixtures, power and visible wiring are checked.",
       },
       {
         title: "Repair or replace",
@@ -2913,7 +2913,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Record next steps",
-        text: "Any follow-up notes, failed fittings or planned upgrades are explained clearly.",
+        text: "Any follow-up notes, failed fixtures or planned upgrades are explained clearly.",
       },
     ],
     faqs: [
@@ -2930,7 +2930,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "What should I send for an emergency lighting quote?",
         answer:
-          "Send the suburb, site type, number of fittings, photos of failed lights and any inspection or maintenance notes.",
+          "Send the suburb, site type, number of fixtures, photos of failed lights and any inspection or maintenance notes.",
       },
     ],
     relatedServices: [
@@ -2944,10 +2944,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     slug: "hot-power-point-electrician-sydney",
     metaTitle: "Hot Power Point Electrician Sydney",
     metaDescription:
-      "Hot power point electrician in Sydney for warm outlets, burning smells, buzzing sockets, damaged wiring and urgent fault checks.",
+      "Hot power point electrician in Sydney for warm outlets and burning smells, buzzing sockets, damaged wiring and urgent fault checks.",
     title: "Hot Power Point Electrician Sydney & Surrounding Regions",
     description:
-      "Urgent electrical fault support for hot outlets, burning smells, buzzing sockets and unsafe power point concerns.",
+      "Urgent electrical fault support for overheating power points and burning smells, buzzing sockets and unsafe power point concerns.",
     intro:
       "A hot power point can be a warning sign of a loose connection, overload, damaged wiring or failing outlet. If there is heat, smoke, sparking or a burning smell, call first and stop using the outlet until it has been checked.",
     heroBullets: [
@@ -2977,7 +2977,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Call for urgent faults",
-        text: "Call directly for hot outlets, burning smells or shock risk so the issue can be triaged first.",
+        text: "Call directly for overheating power points and burning smells or shock risk so the issue can be triaged first.",
       },
       {
         title: "Inspect and test",
@@ -2992,7 +2992,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Is a hot power point dangerous?",
         answer:
-          "It can be. Heat, burning smells, crackling or discolouration should be treated as unsafe until checked.",
+          "It can be. Heat and burning smells, crackling or discolouration should be treated as unsafe until checked.",
       },
       {
         question: "Should I keep using a warm outlet?",
@@ -3016,15 +3016,15 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     slug: "electric-shock-electrician-sydney",
     metaTitle: "Electric Shock Electrician Sydney",
     metaDescription:
-      "Electric shock electrician in Sydney for shock risk, tingles from outlets, appliances, wet fittings and urgent safety checks.",
+      "Electric shock electrician in Sydney for shock risk, tingles from outlets, appliances, wet fixtures and urgent safety checks.",
     title: "Electric Shock Electrician Sydney & Surrounding Regions",
     description:
-      "Urgent electrical safety support for shock risk, tingles, wet fittings, faulty appliances and unsafe circuits.",
+      "Urgent electrical safety support for shock risk, tingles, wet fixtures, faulty appliances and unsafe circuits.",
     intro:
       "Any electric shock or tingling from an outlet, appliance, switch, tap, pool area or fitting should be treated seriously. Keep clear of the affected item and call first so the fault can be handled safely.",
     heroBullets: [
       "Electric shock risk",
-      "Tingles from outlets or fittings",
+      "Tingles from outlets or fixtures",
       "Wet or damaged electrical equipment",
       "Call first for unsafe faults",
     ],
@@ -3074,7 +3074,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Should I use a form for electric shock faults?",
         answer:
-          "No. Call directly for electric shock risk, tingles, wet fittings, smoke, heat or sparking.",
+          "No. Call directly for electric shock risk, tingles, wet fixtures, smoke, heat or sparking.",
       },
     ],
     relatedServices: [
@@ -3160,10 +3160,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     slug: "rcd-safety-switch-repairs-sydney",
     metaTitle: "RCD Safety Switch Repairs Sydney",
     metaDescription:
-      "RCD safety switch repairs in Sydney for tripping circuits, faulty safety switches, RCBO upgrades and switchboard protection checks.",
+      "RCD safety switch repairs in Sydney for circuit tripping, faulty safety switches, RCBO upgrades and switchboard protection checks.",
     title: "RCD Safety Switch Repairs Sydney & Surrounding Regions",
     description:
-      "Safety switch and RCD fault checks, repairs and protection upgrades for tripping circuits and switchboard issues.",
+      "Safety switch and RCD fault checks, repairs and protection upgrades for circuit tripping and switchboard issues.",
     intro:
       "A safety switch that keeps tripping is usually warning that something needs attention. Evaready Electrical can test the circuit, check the RCD or RCBO, isolate the likely cause and explain the safest repair pathway.",
     heroBullets: [
@@ -3218,7 +3218,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Can rain make an RCD trip?",
         answer:
-          "Yes. Outdoor circuits, fittings and water ingress can cause RCD tripping during or after rain.",
+          "Yes. Outdoor circuits, fixtures and water ingress can cause RCD tripping during or after rain.",
       },
     ],
     relatedServices: [
@@ -3306,3 +3306,5 @@ export const serviceLandingPages: ServiceLandingPage[] = [
 export function getServiceLandingPage(slug: string) {
   return serviceLandingPages.find((service) => service.slug === slug);
 }
+
+

@@ -1,4 +1,4 @@
-import { business, getEmergencyResponseForRegion } from "./site";
+﻿import { business, getEmergencyResponseForRegion } from "./site";
 import { generatedCoverageRegions } from "./service-area-region-data";
 
 export type CoverageSuburb = {
@@ -162,7 +162,7 @@ function getLocalPageContext(
       commonJobs:
         "apartment faults, outdoor lighting, CCTV cabling, safety switch trips and coastal switchboard checks",
       emergencySignals:
-        "storm faults, water-affected fittings, tripping circuits, hot outlets and unsafe outdoor power",
+        "storm faults, water-affected fixtures and circuit tripping and overheating power points and unsafe outdoor power",
       level2Detail:
         "consumer mains, point of attachment, service equipment and defect notice enquiries",
       plannedWork:
@@ -216,11 +216,11 @@ function getLocalPageContext(
       commonJobs:
         "hot water electrical faults, switchboards, outdoor lighting, apartment repairs and commercial maintenance",
       emergencySignals:
-        "coastal storm faults, power loss, tripping circuits, hot isolators and water-affected fittings",
+        "coastal storm faults, power loss and circuit tripping, hot isolators and water-affected fixtures",
       level2Detail:
         "consumer mains, metering, service equipment and defect notice enquiries",
       plannedWork:
-        "hot water circuits, weather-rated fittings, shop lighting, CCTV/data and switchboard upgrades",
+        "hot water circuits, weather-rated fixtures, shop lighting, CCTV/data and switchboard upgrades",
       propertyMix:
         "coastal homes, apartments, shops, warehouses, strata properties and commercial sites",
       setting: "Illawarra coastal and mixed commercial service area",
@@ -244,7 +244,7 @@ function getLocalPageContext(
       commonJobs:
         "outdoor lighting, hot water electrical checks, safety switch faults, CCTV and switchboard upgrades",
       emergencySignals:
-        "storm faults, water-affected fittings, loss of power, hot outlets and repeated safety switch tripping",
+        "storm faults, water-affected fixtures, loss of power and overheating power points and repeated safety switch tripping",
       level2Detail:
         "consumer mains, point of attachment, metering and supply-side upgrade enquiries",
       plannedWork:
@@ -274,7 +274,7 @@ function getLocalPageContext(
       commonJobs:
         "switchboard upgrades, hot water circuits, commercial maintenance, warehouse lighting and extra circuits",
       emergencySignals:
-        "power loss, hot fittings, tripping circuits, business outages and damaged outdoor power",
+        "power loss, hot fixtures and circuit tripping, business outages and damaged outdoor power",
       level2Detail:
         "consumer mains, supply capacity, metering, defect notices and service equipment questions",
       plannedWork:
@@ -303,7 +303,7 @@ function getLocalPageContext(
       commonJobs:
         "fault finding, switchboards, commercial lighting, workshop circuits, CCTV/data and hot water electrical",
       emergencySignals:
-        "partial power loss, hot outlets, tripping circuits, damaged wiring and business-critical faults",
+        "partial power loss and overheating power points and circuit tripping, damaged wiring and business-critical faults",
       level2Detail:
         "consumer mains, metering, service equipment, defect notices and supply capacity enquiries",
       plannedWork:
@@ -332,7 +332,7 @@ function getLocalPageContext(
       commonJobs:
         "renovation wiring, cafe maintenance, lighting changes, data points and switchboard upgrades",
       emergencySignals:
-        "tripping safety switches, hot outlets, burning smells, older wiring faults and shop power issues",
+        "tripping safety switches and overheating power points and burning smells, older wiring faults and shop power issues",
       level2Detail:
         "consumer mains, metering, service equipment and defect notice discussions",
       plannedWork:
@@ -373,11 +373,11 @@ function getLocalPageContext(
   ) {
     return {
       accessDetail:
-        "photos of outdoor fittings, switchboards, weather exposure and parking access",
+        "photos of outdoor fixtures, switchboards, weather exposure and parking access",
       commonJobs:
         "outdoor lighting, safety switch faults, corrosion checks, smoke alarms and power repairs",
       emergencySignals:
-        "storm-related faults, water-affected fittings, tripping safety switches and unsafe outdoor power",
+        "storm-related faults, water-affected fixtures, tripping safety switches and unsafe outdoor power",
       level2Detail:
         "consumer mains, overhead service points and supply-side upgrade enquiries",
       plannedWork:
@@ -419,7 +419,7 @@ function getLocalPageContext(
       commonJobs:
         "fault finding, office power, lighting repairs, switchboard work and commercial maintenance",
       emergencySignals:
-        "partial power loss, tripping circuits, hot outlets, burning smells and after-hours business faults",
+        "partial power loss and circuit tripping and overheating power points and burning smells and after-hours business faults",
       level2Detail:
         "consumer mains, metering, service equipment and defect notice enquiries",
       plannedWork:
@@ -446,7 +446,7 @@ function getLocalPageContext(
       commonJobs:
         "three-phase enquiries, fault finding, lighting, switchboards and maintenance work",
       emergencySignals:
-        "loss of power to equipment, tripping circuits, hot isolators and damaged outlets",
+        "loss of power to equipment and circuit tripping, hot isolators and damaged outlets",
       level2Detail:
         "consumer mains, supply capacity, metering and service equipment questions",
       plannedWork:
@@ -524,7 +524,7 @@ function getLocalPageContext(
     commonJobs:
       "fault finding, lighting, power points, smoke alarms, switchboards and general repairs",
     emergencySignals:
-      "power loss, burning smells, tripping circuits, sparking and unsafe outlets",
+      "power loss and burning smells and circuit tripping, sparking and unsafe outlets",
     level2Detail:
       "consumer mains, service equipment, supply upgrades and defect notice enquiries",
     plannedWork:
@@ -602,7 +602,7 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
       "Bankstown requests often involve switchboards in older homes, commercial maintenance for local shops, strata electrical repairs, smoke alarms, power points, lighting and Level 2 questions around supply upgrades or defect notices.",
     serviceSummaryText: {
       emergency:
-        "Bankstown emergency calls commonly involve partial power loss, hot outlets, tripping safety switches, buzzing fittings and business faults that cannot wait until the next day.",
+        "Bankstown emergency calls commonly involve partial power loss and overheating power points, tripping safety switches, buzzing fixtures and business faults that cannot wait until the next day.",
       switchboard:
         "Switchboard work in Bankstown often means checking older boards, crowded circuits, ceramic fuses, labelling, safety switches and capacity for extra loads.",
       level2:
@@ -639,7 +639,7 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
     processDescription:
       "Revesby jobs are scoped around the property type first: homes and villas need clean residential repairs, while workshops and commercial units often need load checks, three-phase questions or after-hours planning.",
     serviceIntro:
-      "Common Revesby requests include switchboard upgrades, tripping circuits, warehouse lighting, power for equipment, smoke alarms, CCTV cabling, data points and Level 2 enquiries for service or defect issues.",
+      "Common Revesby requests include switchboard upgrades and circuit tripping, warehouse lighting, power for equipment, smoke alarms, CCTV cabling, data points and Level 2 enquiries for service or defect issues.",
   },
   padstow: {
     heroDescription:
@@ -657,7 +657,7 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
     heroNote:
       "Liverpool work often mixes apartment access, busy commercial buildings, new estates and older homes, so quotes are stronger with parking notes, tenancy details, photos and the job urgency.",
     processDescription:
-      "Liverpool electrical work is handled by separating high-risk faults from planned maintenance. Business outages, hot fittings and tripping circuits need fast attention; upgrades and fit-outs need clear scope and access details.",
+      "Liverpool electrical work is handled by separating high-risk faults from planned maintenance. Business outages, hot fixtures and circuit tripping need fast attention; upgrades and fit-outs need clear scope and access details.",
     serviceIntro:
       "Common Liverpool work includes commercial maintenance, apartment electrical repairs, switchboard upgrades, emergency fault finding, data cabling, CCTV, smoke alarms and supply-side Level 2 questions.",
   },
@@ -672,7 +672,7 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
       "Parramatta electrical requests often include tenancy changes, office power, lighting repairs, strata faults, data cabling, switchboard work, smoke alarms and Level 2 support for supply-side issues.",
     serviceSummaryText: {
       emergency:
-        "Parramatta urgent calls often involve apartment outages, commercial faults, tripping circuits, hot outlets and after-hours business interruptions.",
+        "Parramatta urgent calls often involve apartment outages, commercial faults and circuit tripping and overheating power points and after-hours business interruptions.",
       switchboard:
         "Parramatta switchboard work can involve strata boards, tenancy loads, safety switch upgrades, labelling and planning for future circuits.",
       level2:
@@ -735,20 +735,20 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
     heroDescription:
       "Evaready Electrical supports Coogee homes, apartments, strata buildings, terraces and local businesses with coastal electrical faults, outdoor lighting, switchboard upgrades, smoke alarms, power, data, CCTV and Level 2 enquiries.",
     heroNote:
-      "Coogee electrical work often involves coastal corrosion, outdoor fittings, apartment access, strata communication, weather-rated lighting and older switchboards in renovated units and terraces.",
+      "Coogee electrical work often involves coastal corrosion, outdoor fixtures, apartment access, strata communication, weather-rated lighting and older switchboards in renovated units and terraces.",
     processDescription:
-      "For Coogee, weather exposure matters. Outdoor fittings, tripping circuits, switchboards and coastal corrosion concerns are tested carefully before repair or upgrade options are recommended.",
+      "For Coogee, weather exposure matters. Outdoor fixtures and circuit tripping, switchboards and coastal corrosion concerns are tested carefully before repair or upgrade options are recommended.",
     serviceIntro:
       "Coogee customers often ask for outdoor lighting, safety switch fault finding, apartment electrical repairs, smoke alarms, switchboard upgrades, CCTV cabling and weather-rated power.",
     serviceSummaryText: {
       emergency:
-        "Coogee urgent calls often involve water-affected fittings, storm faults, tripping safety switches, hot outlets and unsafe outdoor power.",
+        "Coogee urgent calls often involve water-affected fixtures, storm faults, tripping safety switches and overheating power points and unsafe outdoor power.",
       switchboard:
         "Switchboard work in Coogee can involve older apartment boards, corrosion concerns, safety switch upgrades and clearer circuit protection.",
       level2:
         "Level 2 enquiries in Coogee may include consumer mains, point of attachment issues, service equipment and defect notice questions.",
       general:
-        "Planned Coogee work often covers outdoor lighting, apartment power points, smoke alarms, CCTV cabling and weather-rated fittings.",
+        "Planned Coogee work often covers outdoor lighting, apartment power points, smoke alarms, CCTV cabling and weather-rated fixtures.",
     },
   },
   bondi: {
@@ -757,7 +757,7 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
     heroNote:
       "Bondi jobs often involve coastal weather exposure, apartment access, strata approvals, older boards and limited parking near busy streets.",
     processDescription:
-      "Bondi electrical work is assessed with corrosion, access and urgency in mind. Outdoor electrical issues, tripping circuits and hot fittings need proper testing before repairs.",
+      "Bondi electrical work is assessed with corrosion, access and urgency in mind. Outdoor electrical issues and circuit tripping and hot fixtures need proper testing before repairs.",
     serviceIntro:
       "Common Bondi requests include weather-rated lighting, safety switch faults, apartment repairs, smoke alarms, switchboard upgrades, data cabling, CCTV and shop maintenance.",
   },
@@ -767,7 +767,7 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
     heroNote:
       "Cronulla jobs often involve salt air exposure, outdoor power, renovated apartments, strata access and switchboards that need weather-aware checks.",
     processDescription:
-      "Cronulla work is scoped around safety and exposure. Outdoor faults, storm damage, tripping circuits and coastal corrosion concerns need careful isolation and testing.",
+      "Cronulla work is scoped around safety and exposure. Outdoor faults, storm damage and circuit tripping and coastal corrosion concerns need careful isolation and testing.",
     serviceIntro:
       "Typical Cronulla requests include outdoor lighting, pool-area power enquiries, apartment electrical repairs, switchboard upgrades, safety switch faults, smoke alarms and CCTV cabling.",
   },
@@ -805,9 +805,9 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
     heroDescription:
       "Evaready Electrical services Manly apartments, coastal homes, strata buildings, hospitality venues and shops with urgent faults, outdoor lighting, switchboards, power, smoke alarms, data and CCTV.",
     heroNote:
-      "Manly jobs often include coastal exposure, apartment access, busy streets, shop trading hours and outdoor fittings that need weather-rated solutions.",
+      "Manly jobs often include coastal exposure, apartment access, busy streets, shop trading hours and outdoor fixtures that need weather-rated solutions.",
     processDescription:
-      "Manly electrical work is scoped with access and coastal conditions in mind. Outdoor faults, tripping circuits, strata jobs and urgent business issues need clear details fast.",
+      "Manly electrical work is scoped with access and coastal conditions in mind. Outdoor faults and circuit tripping, strata jobs and urgent business issues need clear details fast.",
     serviceIntro:
       "Common Manly enquiries include outdoor lighting, apartment repairs, switchboard upgrades, safety switch faults, smoke alarms, CCTV cabling and shop maintenance.",
   },
@@ -887,7 +887,7 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
     heroNote:
       "Randwick electrical jobs often involve apartment access, older terraces, school or medical site timing, limited parking and clear communication with strata or building managers.",
     processDescription:
-      "Randwick jobs are scoped around access and risk. Hot fittings, power loss and tripping circuits need direct phone support, while planned work benefits from photos and entry notes.",
+      "Randwick jobs are scoped around access and risk. Hot fixtures, power loss and circuit tripping need direct phone support, while planned work benefits from photos and entry notes.",
     serviceIntro:
       "Typical Randwick requests include apartment fault finding, safety switch issues, smoke alarms, shop or clinic lighting, data points, CCTV cabling and switchboard upgrades.",
   },
@@ -907,7 +907,7 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
     heroNote:
       "Surry Hills work often means tight access, older terrace wiring, hospitality trading hours, tenancy fit-outs and after-hours planning to reduce disruption.",
     processDescription:
-      "Surry Hills jobs are scoped around access and operating hours. Hospitality faults, hot fittings and tripping circuits are call-first issues, while fit-outs need clear plans and photos.",
+      "Surry Hills jobs are scoped around access and operating hours. Hospitality faults, hot fixtures and circuit tripping are call-first issues, while fit-outs need clear plans and photos.",
     serviceIntro:
       "Common Surry Hills requests include cafe and restaurant power, pendant lighting, data points, tenancy wiring, switchboard upgrades, smoke alarms and emergency fault finding.",
   },
@@ -1047,7 +1047,7 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
     heroNote:
       "Blacktown jobs often include family homes, older boards, new circuits, shop maintenance, strata access, workshops and power faults that need clear testing.",
     processDescription:
-      "Blacktown work is triaged by hazard and property type. Power loss, burning smells and sparking are call-first issues; upgrades are clearer with switchboard photos and job details.",
+      "Blacktown work is triaged by hazard and property type. Power loss and burning smells and sparking are call-first issues; upgrades are clearer with switchboard photos and job details.",
     serviceIntro:
       "Typical Blacktown requests include switchboard upgrades, extra power points, lighting, smoke alarms, CCTV, data cabling, safety switch trips and hot water electrical faults.",
   },
@@ -1125,9 +1125,9 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
     heroDescription:
       "Evaready Electrical supports Dee Why apartments, coastal homes, shops, strata buildings and hospitality venues with urgent faults, lighting, power, switchboards, smoke alarms, data and CCTV.",
     heroNote:
-      "Dee Why electrical work often involves coastal exposure, apartment access, shop trading hours, strata coordination, outdoor fittings and parking constraints.",
+      "Dee Why electrical work often involves coastal exposure, apartment access, shop trading hours, strata coordination, outdoor fixtures and parking constraints.",
     processDescription:
-      "Dee Why jobs are scoped around access and exposure. Outdoor faults, tripping circuits and apartment issues need careful testing, while planned work needs photos and entry notes.",
+      "Dee Why jobs are scoped around access and exposure. Outdoor faults and circuit tripping and apartment issues need careful testing, while planned work needs photos and entry notes.",
     serviceIntro:
       "Typical Dee Why requests include apartment repairs, outdoor lighting, safety switch trips, smoke alarms, switchboard upgrades, CCTV, data cabling and shop maintenance.",
   },
@@ -1185,7 +1185,7 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
     heroNote:
       "Ashfield jobs often involve older wiring, unit access, strata contact details, busy street parking and switchboards that need careful testing before upgrades.",
     processDescription:
-      "Ashfield work is scoped around access and the age of the installation. Hot fittings, burning smells and tripping circuits should be phoned through, while planned work needs photos and notes.",
+      "Ashfield work is scoped around access and the age of the installation. Hot fixtures and burning smells and circuit tripping should be phoned through, while planned work needs photos and notes.",
     serviceIntro:
       "Typical Ashfield requests include safety switch trips, power points, lighting, smoke alarms, apartment repairs, switchboard upgrades, data cabling and Level 2 service questions.",
   },
@@ -1193,9 +1193,9 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
     heroDescription:
       "Evaready Electrical supports Maroubra homes, apartments, strata properties, shops and coastal buildings with urgent faults, outdoor lighting, switchboards, smoke alarms, power, CCTV, data and Level 2 enquiries.",
     heroNote:
-      "Maroubra electrical jobs often involve coastal exposure, apartment access, strata communication, outdoor fittings, older boards and parking notes near busy streets.",
+      "Maroubra electrical jobs often involve coastal exposure, apartment access, strata communication, outdoor fixtures, older boards and parking notes near busy streets.",
     processDescription:
-      "Maroubra work is assessed with weather exposure and building access in mind. Water-affected fittings, tripping circuits and hot outlets should be checked before repairs proceed.",
+      "Maroubra work is assessed with weather exposure and building access in mind. Water-affected fixtures and circuit tripping and overheating power points should be checked before repairs proceed.",
     serviceIntro:
       "Common Maroubra requests include outdoor lighting, apartment faults, smoke alarms, switchboard upgrades, data cabling, CCTV, safety switch tripping and weather-rated power.",
   },
@@ -1205,7 +1205,7 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
     heroNote:
       "Bondi Junction work often needs apartment access, shop trading hours, loading-zone notes, strata contacts and clear photos before planned electrical work is quoted.",
     processDescription:
-      "Bondi Junction jobs are scoped around access, timing and risk. Business outages, hot outlets and tripping circuits need phone details, while planned work needs booking notes and photos.",
+      "Bondi Junction jobs are scoped around access, timing and risk. Business outages and overheating power points and circuit tripping need phone details, while planned work needs booking notes and photos.",
     serviceIntro:
       "Typical Bondi Junction requests include shop lighting, office power, apartment repairs, switchboard checks, smoke alarms, data cabling, CCTV and service equipment questions.",
   },
@@ -1426,7 +1426,7 @@ export function getSuburbPageCopy(
       ),
       text: pick(
         [
-          `Call first in ${coverageSuburb.name} for power outages, burning smells, sparking, safety switch tripping, storm damage, water-affected fittings or anything electrical that feels unsafe. Evaready provides ${response.shortDisplay} for emergency call-outs in this region.`,
+          `Call first in ${coverageSuburb.name} for power outages and burning smells, sparking, safety switch tripping, storm damage, water-affected fixtures or anything electrical that feels unsafe. Evaready provides ${response.shortDisplay} for emergency call-outs in this region.`,
           `Emergency enquiries in ${suburbLabel} often involve ${context.emergencySignals}. Stop using the affected circuit where safe and call before touching the area again.`,
           `When ${coverageSuburb.name} homes, shops or strata properties have power loss, smoke, heat, sparking or repeated tripping, the first step is a direct phone call so the risk and response time can be triaged.`,
         ],
@@ -1481,7 +1481,7 @@ export function getSuburbPageCopy(
       title: pick(
         [
           `Electrical fault finding in ${coverageSuburb.name}`,
-          `Testing tripping circuits in ${coverageSuburb.name}`,
+          `Testing circuit tripping in ${coverageSuburb.name}`,
           `Fault isolation in ${coverageSuburb.name}`,
         ],
         seed,
@@ -1489,8 +1489,8 @@ export function getSuburbPageCopy(
       ),
       text: pick(
         [
-          `Fault finding in ${coverageSuburb.name} covers intermittent faults, tripping circuits, damaged wiring, hot power points, flickering lights and careful testing to isolate the cause.`,
-          `For ${suburbLabel}, symptoms such as nuisance tripping, hot switches, flickering lights or damaged fittings should be checked before parts are replaced.`,
+          `Fault finding in ${coverageSuburb.name} covers intermittent faults and circuit tripping, damaged wiring, hot power points, flickering lights and careful testing to isolate the cause.`,
+          `For ${suburbLabel}, symptoms such as nuisance tripping, hot switches, flickering lights or damaged fixtures should be checked before parts are replaced.`,
           `Electrical fault testing around ${areaLabel} focuses on the affected circuit, appliance, fitting or switchboard so the repair path is clear.`,
         ],
         seed,
@@ -1533,7 +1533,7 @@ export function getSuburbPageCopy(
         [
           `Air-conditioning electrical support in ${coverageSuburb.name} can include dedicated circuits, isolators, switchboard capacity checks and outdoor unit power.`,
           `Split-system enquiries in ${suburbLabel} may need electrical supply planning, safety switch checks, outdoor unit power and clear coordination with appropriately licensed technicians where required.`,
-          `ARCtick Refrigerant Handling Licence L157323 — Split Systems (1) applies to eligible split systems, hot water heat pumps and swimming pool heat pumps under licence scope.`,
+          `ARCtick Refrigerant Handling Licence L157323 â€” Split Systems (1) applies to eligible split systems, hot water heat pumps and swimming pool heat pumps under licence scope.`,
         ],
         seed,
         53,
@@ -1590,7 +1590,7 @@ export function getSuburbPageCopy(
     },
     {
       title: "Urgent fault patterns",
-      text: `Call first in ${coverageSuburb.name} for ${context.emergencySignals}, especially if there is no power, heat, smoke, sparking, water near electrical fittings or repeated tripping.`,
+      text: `Call first in ${coverageSuburb.name} for ${context.emergencySignals}, especially if there is no power, heat, smoke, sparking, water near electrical fixtures or repeated tripping.`,
     },
     {
       title: "Level 2 and switchboards",
@@ -1618,7 +1618,7 @@ export function getSuburbPageCopy(
   ),
     faqAnswers: {
       combined: `Yes. Evaready Electrical can help with switchboards, fault finding, hot water electrical circuits, split-system electrical support, CCTV and data cabling, and general electrical work in ${coverageSuburb.name} under the relevant licence scope.`,
-      emergency: `Yes. Call first for power loss, burning smells, sparking, tripping circuits, storm damage or any fault in ${coverageSuburb.name} that feels unsafe. Emergency call-outs in this region use ${response.shortDisplay}.`,
+      emergency: `Yes. Call first for power loss and burning smells, sparking and circuit tripping, storm damage or any fault in ${coverageSuburb.name} that feels unsafe. Emergency call-outs in this region use ${response.shortDisplay}.`,
       level2: `Evaready Electrical is an ${business.level2Asp.display} and can assist with Level 2 electrical work in ${coverageSuburb.name}, including consumer mains, metering, defect notices, point of attachment issues and supply-side electrical issues.`,
       quote: `Yes. For planned work in ${suburbLabel}, use the secure booking form to send your address, contact details, job notes and photos. If there is heat, smoke, sparking or power loss, call first.`,
       service: `Yes. Evaready Electrical provides emergency, Level 2 and general electrical support across ${coverageSuburb.name} and nearby suburbs.`,
@@ -1730,7 +1730,7 @@ export function getSuburbPageCopy(
       {
         title: `Electrical fault finding ${coverageSuburb.name}`,
         href: "/services/electrical-fault-finding-sydney",
-        text: `Fault testing for tripping circuits, hot fittings, intermittent faults and unsafe symptoms.`,
+        text: `Fault testing for circuit tripping, hot fixtures, intermittent faults and unsafe symptoms.`,
       },
       {
         title: `Hot power point electrician ${coverageSuburb.name}`,
@@ -1740,7 +1740,7 @@ export function getSuburbPageCopy(
       {
         title: `Electrical fault guides for ${coverageSuburb.name}`,
         href: "/electrical-faults",
-        text: `Read practical fault guides for power loss, burning smells, sparking outlets and tripping safety switches.`,
+        text: `Read practical fault guides for power loss and burning smells, sparking outlets and tripping safety switches.`,
       },
       {
         title: `Electrical services ${coverageSuburb.name}`,
@@ -1787,10 +1787,10 @@ export function getSuburbPageCopy(
       `${response.badgeTitle} for emergency call-outs`,
       business.level2Asp.display,
       `Open Cabler Registration 46691`,
-      `ARCtick Refrigerant Handling Licence L157323 — Split Systems (1)`,
+      `ARCtick Refrigerant Handling Licence L157323 â€” Split Systems (1)`,
       pick(
         [
-          `Electrical help for ${coverageSuburb.postcode}`,
+          `Electrical help in ${suburbLabel}`,
           `Local support around ${areaLabel}`,
           "Call first for unsafe faults",
         ],
@@ -1894,3 +1894,4 @@ export function getSuburbPaths() {
     ),
   );
 }
+

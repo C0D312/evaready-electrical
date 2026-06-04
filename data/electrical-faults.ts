@@ -1,4 +1,4 @@
-export type FaultRelatedLink = {
+﻿export type FaultRelatedLink = {
   href: string;
   label: string;
 };
@@ -59,7 +59,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
     checks: [
       "Check whether one area of the home or business has lost power.",
       "Unplug appliances on the affected circuit if it is safe to do so.",
-      "Avoid touching wet fittings, damaged outlets or exposed wiring.",
+      "Avoid touching wet fixtures, damaged outlets or exposed wiring.",
       "Call directly if there is heat, smoke, burning smell, sparking or shock risk.",
     ],
     whatToSend: [
@@ -83,7 +83,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
       {
         question: "Can rain make an RCD trip?",
         answer:
-          "Yes. Outdoor lights, power points, pumps and weather-affected fittings can trip safety switches after rain.",
+          "Yes. Outdoor lights, power points, pumps and weather-affected fixtures can trip safety switches after rain.",
       },
     ],
   },
@@ -107,7 +107,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
       "Do not remove switchboard covers.",
       "Do not spray water or cleaners near electrical equipment.",
       "If there is smoke, heat or active sparking, keep clear and call emergency services if needed.",
-      "Call Evaready Electrical before turning circuits back on.",
+      "Call Evaready Electrical before turning affected circuits back on.",
     ],
     whatToSend: [
       "A photo of the switchboard from a safe distance.",
@@ -398,7 +398,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
       {
         question: "Should I switch appliances off overnight?",
         answer:
-          "Only where it is safe and practical. Do not touch wet fittings or damaged equipment. A recurring night trip should be tested.",
+          "Only where it is safe and practical. Do not touch wet fixtures or damaged equipment. A recurring night trip should be tested.",
       },
       {
         question: "Can an electrician find an intermittent fault?",
@@ -469,7 +469,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
     intro:
       "A power surge can affect appliances, lighting, electronics, switchboards and sensitive equipment. The damage is not always obvious straight away.",
     primaryAdvice:
-      "If equipment failed after a storm, outage or supply event, stop resetting circuits and have the affected areas checked before reconnecting expensive appliances.",
+      "If equipment failed after a storm, outage or supply event, stop resetting affected circuits and have the affected areas checked before reconnecting expensive appliances.",
     riskNotes: [
       "Storms and supply interruptions can damage electronics and protection devices.",
       "A surge can reveal weak switchboard protection.",
@@ -503,7 +503,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
       {
         question: "Can a power surge damage wiring?",
         answer:
-          "A surge can damage appliances, electronics, protection devices and sometimes wiring or fittings connected to the affected circuit.",
+          "A surge can damage appliances, electronics, protection devices and sometimes wiring or fixtures connected to the affected circuit.",
       },
       {
         question: "Should I turn everything back on after a surge?",
@@ -559,7 +559,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
           "Power points should not become hot in normal use. Warmth around high-load appliances should be checked if it continues or comes with marks, smell or buzzing.",
       },
       {
-        question: "What appliances commonly cause hot outlets?",
+        question: "What appliances commonly cause overheating power points?",
         answer:
           "Heaters, dryers, kettles, ovens, portable air conditioners and other high-load appliances can expose weak outlets or overloaded circuits.",
       },
@@ -575,14 +575,14 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
     title: "Lights Flickering",
     metaTitle: "Lights Flickering Sydney & Surrounding Regions",
     metaDescription:
-      "Lights flickering in Sydney? Evaready Electrical can check fittings, circuits, switchboards, loose connections and load issues.",
+      "Lights flickering in Sydney? Evaready Electrical can check fixtures, circuits, switchboards, loose connections and load issues.",
     intro:
       "Flickering lights can be a simple fitting issue, but it can also point to loose connections, damaged wiring, switchboard problems or larger load issues.",
     primaryAdvice:
       "Call if flickering affects multiple rooms, happens when appliances start, or comes with buzzing, heat, burning smell or repeated tripping.",
     riskNotes: [
       "Loose neutral or active connections can cause unstable lighting.",
-      "Old fittings or transformers may fail intermittently.",
+      "Old fixtures or transformers may fail intermittently.",
       "Large appliances can cause dips if the circuit or supply is strained.",
       "Flickering after storms can involve water or supply-side issues.",
     ],
@@ -594,9 +594,9 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
     ],
     whatToSend: [
       "A short video of the flickering if safe to capture.",
-      "Which rooms and fittings are affected.",
+      "Which rooms and fixtures are affected.",
       "Whether appliances, storms or rain seem connected.",
-      "Photos of the switchboard and the affected fittings.",
+      "Photos of the switchboard and the affected fixtures.",
     ],
     relatedServices: [
       ...commonRelatedServices,
@@ -614,7 +614,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
       {
         question: "Can LED lights flicker because of old dimmers?",
         answer:
-          "Yes. Some LED fittings need compatible dimmers and drivers. The circuit should still be checked if flickering is severe or inconsistent.",
+          "Yes. Some LED fixtures need compatible dimmers and drivers. The circuit should still be checked if flickering is severe or inconsistent.",
       },
       {
         question: "Why do lights flicker when an appliance turns on?",
@@ -628,7 +628,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
     title: "RCD Trips When Raining",
     metaTitle: "RCD Trips When Raining Sydney & Surrounding Regions",
     metaDescription:
-      "RCD trips when raining in Sydney? Evaready Electrical can test outdoor circuits, water-affected fittings and safety switch faults.",
+      "RCD trips when raining in Sydney? Evaready Electrical can test outdoor circuits, water-affected fixtures and safety switch faults.",
     intro:
       "An RCD or safety switch that trips when it rains often points to water entering an outdoor light, power point, pump, cable joint or weather-exposed fitting.",
     primaryAdvice:
@@ -640,7 +640,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
       "Storms can make a weak fitting fail suddenly.",
     ],
     checks: [
-      "Keep clear of wet fittings, cords and outdoor outlets.",
+      "Keep clear of wet fixtures, cords and outdoor outlets.",
       "Unplug outdoor appliances only if it is safe and dry.",
       "Note whether the same circuit trips every time it rains.",
       "Call if rain-related tripping affects essential power or keeps returning.",
@@ -662,7 +662,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
       {
         question: "Why does rain make my RCD trip?",
         answer:
-          "Moisture can create leakage to earth in outdoor fittings, damaged cables or connected appliances. The RCD trips to reduce shock risk.",
+          "Moisture can create leakage to earth in outdoor fixtures, damaged cables or connected appliances. The RCD trips to reduce shock risk.",
       },
       {
         question: "Can the circuit be left off until dry?",
@@ -670,9 +670,9 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
           "Leaving it off may reduce immediate risk, but the fault should still be found because it can return next time it rains.",
       },
       {
-        question: "Can outdoor fittings be made more reliable?",
+        question: "Can outdoor fixtures be made more reliable?",
         answer:
-          "Yes. Weather-rated fittings, proper sealing, correct cable entry and circuit testing can reduce repeat rain-related faults.",
+          "Yes. Weather-rated fixtures, proper sealing, correct cable entry and circuit testing can reduce repeat rain-related faults.",
       },
     ],
   },
@@ -681,13 +681,13 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
     title: "Power Outage After Storm",
     metaTitle: "Power Outage After Storm Sydney & Surrounding Regions",
     metaDescription:
-      "Power outage after a storm in Sydney? Evaready Electrical can help check storm-damaged circuits, switchboards, outdoor fittings and supply concerns.",
+      "Power outage after a storm in Sydney? Evaready Electrical can help check storm-damaged circuits, switchboards, outdoor fixtures and supply concerns.",
     intro:
       "Storms can cause power outages through water ingress, damaged outdoor equipment, tripped safety switches, switchboard faults or supply-side issues.",
     primaryAdvice:
       "If there is water, smoke, sparking, a fallen service line or damage near supply equipment, keep clear and call before touching anything.",
     riskNotes: [
-      "Water can enter outdoor lights, roof spaces and fittings.",
+      "Water can enter outdoor lights, roof spaces and fixtures.",
       "Storm damage can trip safety switches or damage equipment.",
       "Private poles and overhead services may need supply-side attention.",
       "A partial outage can involve a circuit fault or a broader supply issue.",
@@ -745,7 +745,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
       "Do not keep using the outlet or appliance. Keep people away from the area and call before touching the affected fitting again.",
     riskNotes: [
       "A shock can indicate a live fault or earthing problem.",
-      "Moisture around outlets, bathrooms, kitchens or outdoor fittings can increase risk.",
+      "Moisture around outlets, bathrooms, kitchens or outdoor fixtures can increase risk.",
       "A faulty appliance may energise exposed metal parts.",
       "Older switchboards may not provide suitable modern protection.",
     ],
@@ -852,3 +852,5 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
 export function getElectricalFaultPage(slug: string) {
   return electricalFaultPages.find((page) => page.slug === slug);
 }
+
+
