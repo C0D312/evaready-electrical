@@ -1,2 +1,2 @@
-:HL["/evaready-electrical/_next/static/chunks/0z.8d44-bvp_9.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"services","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"smoke-alarm-electrician-sydney","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"0pbAaoMXcxl_RfCJQ8sSQ"}
+:HL["/evaready-electrical/_next/static/chunks/11q68a_9fctjo.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"services","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"smoke-alarm-electrician-sydney","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"yaGDV2_XEAGL1FaezL_Ay"}
