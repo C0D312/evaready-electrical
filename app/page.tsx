@@ -148,7 +148,7 @@ const issuePaths = [
   },
   {
     title: "Lights flickering",
-    text: "Flickering or dimming lights should be checked.",
+    text: "Dimming or unstable lights should be checked.",
     href: "/electrical-faults/lights-flickering",
     icon: AlertTriangle,
   },

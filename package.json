@@ -9,7 +9,8 @@
     "lint": "eslint",
     "audit:suburbs": "tsx scripts/audit-suburb-pages.ts",
     "audit:links": "tsx scripts/audit-internal-links.ts",
-    "audit:metadata": "tsx scripts/audit-metadata.ts"
+    "audit:metadata": "tsx scripts/audit-metadata.ts",
+    "audit:visible-copy": "tsx scripts/audit-visible-copy.ts"
   },
   "dependencies": {
     "lucide-react": "^1.16.0",

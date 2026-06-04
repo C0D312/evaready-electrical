@@ -78,7 +78,8 @@ export default function TermsPage() {
           <article className="legal-content-card">
             <h2>Emergency electrical faults</h2>
             <p>
-              For urgent hazards, call Evaready Electrical directly on{" "}
+              For urgent hazards, call first and contact Evaready Electrical
+              directly on{" "}
               <a href={business.phoneHref} aria-label={business.callCta} data-conversion-action="phone-click">
                 {business.phoneDisplay}
               </a>

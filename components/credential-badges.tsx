@@ -43,7 +43,7 @@ export const heroCredentialItems: CredentialBadgeItem[] = [
   {
     icon: BadgeCheck,
     title: business.level2Asp.shortDisplay,
-    text: "Ausgrid & Endeavour",
+    text: "Ausgrid & Endeavour Energy",
     tone: "cyan",
   },
   {

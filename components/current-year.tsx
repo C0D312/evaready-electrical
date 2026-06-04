@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 
-export function CurrentYear({ fallbackYear = 2026 }: { fallbackYear?: number }) {
-  const [year, setYear] = useState(fallbackYear);
+export function CurrentYear({ fallbackYear }: { fallbackYear?: number }) {
+  const [year, setYear] = useState<number | null>(fallbackYear ?? null);
 
   useEffect(() => {
     const refreshYear = () => setYear(new Date().getFullYear());
@@ -16,5 +16,5 @@ export function CurrentYear({ fallbackYear = 2026 }: { fallbackYear?: number }) 
     };
   }, []);
 
-  return <span>{year}</span>;
+  return <span suppressHydrationWarning>{year ?? ""}</span>;
 }

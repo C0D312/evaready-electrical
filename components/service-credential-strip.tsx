@@ -47,7 +47,7 @@ export const serviceCredentialPresets = {
     { icon: Flame, title: "Urgent Fault Support", text: "Power loss & hazards", tone: "red" },
   ],
   level2: [
-    { icon: Zap, title: business.level2Asp.shortDisplay, text: "Ausgrid & Endeavour" },
+    { icon: Zap, title: business.level2Asp.shortDisplay, text: "Ausgrid & Endeavour Energy" },
     { icon: Clock3, title: "60-Minute Emergency", text: "Core areas", tone: "red" },
     { icon: Clock3, title: "90-Minute Emergency", text: "Greater regions" },
     { icon: Wrench, title: "Consumer Mains", text: "Repairs & upgrades" },
@@ -152,7 +152,7 @@ export function getSuburbCredentialItems(
     { icon: MapPin, title: `Servicing ${suburb}`, text: "Local electrical help" },
     { icon: ShieldCheck, title: `NSW Licence ${business.licence}`, text: "Licensed electrician" },
     { icon: Clock3, title: response.badgeTitle, text: response.badgeText, tone: "red" },
-    { icon: Zap, title: business.level2Asp.shortDisplay, text: "Ausgrid & Endeavour" },
+    { icon: Zap, title: business.level2Asp.shortDisplay, text: "Ausgrid & Endeavour Energy" },
     { icon: Camera, title: "Get a Quote Online", text: "Send notes & photos" },
     { icon: BadgeCheck, title: `Open Cabler ${business.openCablerRegistration}`, text: "CCTV & data" },
     { icon: ShieldCheck, title: `ARCtick ${business.arctickLicence}`, text: "Where relevant" },

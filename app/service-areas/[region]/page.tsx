@@ -118,7 +118,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
       answer: `Use the secure booking form to send the suburb, address, contact details, photos, job notes and any defect notice or network paperwork if available.`,
     },
     {
-      question: `Which ${region.name} suburbs are covered?`,
+      question: `Which suburbs in ${region.name} are covered?`,
       answer: `The region page links to each covered area and suburb. Extended service areas may depend on job type, urgency and availability.`,
     },
   ];
