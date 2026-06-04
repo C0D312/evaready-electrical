@@ -118,6 +118,20 @@ The footer uses the `CurrentYear` client component. Static output does not inclu
 
 ## Deploy Status
 
-Deploy status will be updated after the final clean gh-pages deployment and public cache-busted verification.
+Source commit: `2d5b680f9010`
 
-Final status before deployment: **PASS**
+gh-pages deploy commit: `49e090afae9f`
+
+Public live verification passed on normal and cache-busted URLs for:
+
+- Homepage
+- Emergency electrician page
+- Level 2 electrician page
+- Privacy policy
+- Terms
+- Sitemap
+- Robots
+
+Every checked URL returned HTTP 200, no stale phrases, Google Ads tag present on HTML pages, phone/quote conversion attributes present on HTML pages, and privacy/terms content substantial.
+
+Final status after deployment: **PASS**
