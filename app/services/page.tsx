@@ -18,6 +18,7 @@ import {
   ServiceCredentialStrip,
   serviceCredentialPresets,
 } from "@/components/service-credential-strip";
+import { GoogleReviewProof } from "@/components/google-review-proof";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { absoluteUrl, business } from "@/data/site";
@@ -789,6 +790,11 @@ export default function ServicesPage() {
 
       <TrustSymbolBand className="border-b border-slate-200" />
 
+      <GoogleReviewProof
+        heading="Read Evaready Electrical reviews before choosing a service."
+        subheading="The Google rating is shown from manually verified Google Business Profile details. Call first for urgent faults, or request a quote for planned work."
+      />
+
       <section className="bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
@@ -952,7 +958,6 @@ export default function ServicesPage() {
     </main>
   );
 }
-
 
 
 
