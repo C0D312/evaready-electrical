@@ -84,9 +84,11 @@ export default function AreasPage() {
           surrounding regions, including the Shire, Macarthur, Blue Mountains,
           Northern Beaches, Wollongong, Illawarra and Central Coast South.
           Search your suburb or postcode, browse nearby regions, then call for
-          urgent faults or open the booking form for planned work. Core
-          service areas cover Sydney and surrounding regions; extended areas may
-          depend on job type, urgency and availability.
+          urgent faults or open the booking form for planned work. Emergency
+          call-outs can be on site within 60 minutes in core service areas, with
+          90-minute response for greater regions. Core service areas cover
+          Sydney and surrounding regions; extended areas may depend on job type,
+          urgency and availability.
         </p>
 
         <div className="mt-7 grid max-w-xl gap-3 sm:flex sm:flex-wrap">

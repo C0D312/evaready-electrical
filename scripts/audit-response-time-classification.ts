@@ -31,7 +31,6 @@ type SuburbRecord = {
   suburb: CoverageSuburb;
 };
 
-const basePath = "/evaready-electrical";
 const outDir = path.join(process.cwd(), "out");
 const reportPath = path.join(
   process.cwd(),
