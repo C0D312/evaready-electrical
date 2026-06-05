@@ -11,6 +11,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { GoogleReviewProof } from "@/components/google-review-proof";
+import { LeadOfferPanel } from "@/components/lead-offer-panel";
 import { QuoteRequestPanel } from "@/components/quote-request-panel";
 import {
   ServiceCredentialStrip,
@@ -313,6 +314,19 @@ export default function SwitchboardUpgradesSydneyPage() {
       <GoogleReviewProof
         heading="Read Evaready Electrical reviews before a switchboard upgrade."
         subheading="Switchboard work should feel clear before it starts. View Evaready Electrical on Google, then send photos or call first if there is heat, smoke or repeated tripping."
+      />
+
+      <LeadOfferPanel
+        className="border-b border-cyan-300/15"
+        eyebrow="Switchboard photo review"
+        heading="Send switchboard photos before planned upgrade work starts."
+        intro="For switchboard upgrades across Sydney and surrounding regions, send photos, tripping details, new load plans or defect notices for review. If there is heat, smoke, buzzing or sparking, call first."
+        items={[
+          "Free photo review for planned electrical work",
+          "Send switchboard, meter box or service equipment photos",
+          "Photos help us quote faster",
+          "Clear next steps before work starts",
+        ]}
       />
 
       {/* Services */}

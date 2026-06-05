@@ -14,6 +14,7 @@ import {
   Zap,
 } from "lucide-react";
 import { GoogleReviewProof } from "@/components/google-review-proof";
+import { LeadOfferPanel } from "@/components/lead-offer-panel";
 import { QuoteRequestPanel } from "@/components/quote-request-panel";
 import {
   ServiceCredentialStrip,
@@ -433,6 +434,19 @@ export default function Level2ElectricianSydneyPage() {
       <GoogleReviewProof
         heading="Review Evaready Electrical before sending Level 2 details."
         subheading="Level 2 enquiries often need photos, paperwork and clear communication. Read Evaready Electrical on Google before sending planned work details."
+      />
+
+      <LeadOfferPanel
+        className="border-b border-cyan-300/15"
+        eyebrow="Level 2 quote support"
+        heading="Send defect notices, photos and supply-side details for review."
+        intro="For Level 2 electrical enquiries across Sydney and surrounding regions, send the defect notice, suburb, deadline, switchboard photos, meter box photos or service equipment photos. Call first if the issue is unsafe."
+        items={[
+          "Send your defect notice for review",
+          "Send switchboard, meter box or service equipment photos",
+          "Photos help us quote faster",
+          "Clear next steps before work starts",
+        ]}
       />
 
       <section className="bg-slate-50 py-20 sm:py-24">

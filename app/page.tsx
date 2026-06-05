@@ -17,6 +17,7 @@ import {
 import { HeroCredentialBadges } from "@/components/credential-badges";
 import { EmergencyTrustPanel } from "@/components/emergency-trust-panel";
 import { GoogleReviewProof } from "@/components/google-review-proof";
+import { LeadOfferPanel } from "@/components/lead-offer-panel";
 import { QuoteProcessGraphic } from "@/components/quote-process-graphic";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
@@ -304,6 +305,13 @@ export default function HomePage() {
       <EmergencyTrustPanel className="border-y border-cyan-300/15" />
 
       <GoogleReviewProof />
+
+      <LeadOfferPanel
+        className="border-y border-cyan-300/15"
+        eyebrow="Free photo review"
+        heading="Get a clearer next step before planned electrical work starts."
+        intro="Send job notes, switchboard photos or affected-area photos for planned electrical work across Sydney and surrounding regions. For urgent faults in core service areas or greater regions, call first."
+      />
 
       <section className="issue-selector-section border-y border-cyan-300/15 bg-slate-950 py-12 text-white sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

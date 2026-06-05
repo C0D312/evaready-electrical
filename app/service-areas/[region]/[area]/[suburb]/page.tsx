@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { notFound } from "next/navigation";
 import { GoogleReviewProof } from "@/components/google-review-proof";
+import { LeadOfferPanel } from "@/components/lead-offer-panel";
 import {
   ServiceAreaHero,
   SiteFooter,
@@ -245,6 +246,20 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         compact
         heading={`Read Evaready Electrical reviews before booking an electrician in ${suburb.name}.`}
         subheading={`View Evaready Electrical on Google before sending planned electrical details for ${suburb.name}. If the fault feels unsafe, call first.`}
+      />
+
+      <LeadOfferPanel
+        compact
+        className="border-b border-cyan-300/15"
+        eyebrow={`${suburb.name} quote support`}
+        heading={`Send photos and job notes for electrical work in ${suburb.name}.`}
+        intro={`For planned electrical work in ${suburb.name} ${suburb.postcode}, photos help us quote faster and confirm clear next steps before work starts. Call first for urgent faults across Sydney and surrounding regions.`}
+        items={[
+          "Free photo review for planned electrical work",
+          "Photos help us quote faster",
+          "No-obligation quote for planned work",
+          "Call-first emergency triage",
+        ]}
       />
 
       <section className="bg-white py-20">

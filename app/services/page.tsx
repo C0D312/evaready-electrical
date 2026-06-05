@@ -19,6 +19,7 @@ import {
   serviceCredentialPresets,
 } from "@/components/service-credential-strip";
 import { GoogleReviewProof } from "@/components/google-review-proof";
+import { LeadOfferPanel } from "@/components/lead-offer-panel";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { absoluteUrl, business } from "@/data/site";
@@ -793,6 +794,13 @@ export default function ServicesPage() {
       <GoogleReviewProof
         heading="Read Evaready Electrical reviews before choosing a service."
         subheading="The Google rating is shown from manually verified Google Business Profile details. Call first for urgent faults, or request a quote for planned work."
+      />
+
+      <LeadOfferPanel
+        className="border-b border-cyan-300/15"
+        eyebrow="Planned work quotes"
+        heading="Send photos and job notes so the right service can be scoped."
+        intro="For electrical services across Sydney and surrounding regions, photos help us quote faster. If the work is urgent or unsafe, call first so the issue can be triaged by phone."
       />
 
       <section className="bg-white py-16 sm:py-20">

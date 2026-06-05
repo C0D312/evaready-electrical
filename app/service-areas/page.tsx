@@ -11,6 +11,7 @@ import {
   Zap,
 } from "lucide-react";
 import { GoogleReviewProof } from "@/components/google-review-proof";
+import { LeadOfferPanel } from "@/components/lead-offer-panel";
 import { ServiceAreaSearch } from "@/components/service-area-search";
 import {
   ServiceAreaHero,
@@ -156,6 +157,14 @@ export default function AreasPage() {
       <GoogleReviewProof
         heading="See Evaready Electrical reviews before choosing your area."
         subheading="Use the service-area search to find your suburb, then view Evaready Electrical on Google before calling or sending planned job details."
+      />
+
+      <LeadOfferPanel
+        compact
+        className="border-b border-cyan-300/15"
+        eyebrow="Area quote support"
+        heading="Find your area, then call or send photos for review."
+        intro="Evaready Electrical supports urgent faults and planned electrical work across Sydney and surrounding regions. Call first for unsafe issues, or send photos and job notes for planned work."
       />
 
       <section className="bg-slate-50 py-16">

@@ -11,6 +11,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { GoogleReviewProof } from "@/components/google-review-proof";
+import { LeadOfferPanel } from "@/components/lead-offer-panel";
 import {
   getServiceCredentialItems,
   ServiceCredentialStrip,
@@ -271,6 +272,21 @@ export default async function ServiceLandingPage({
     ...(service.credentialHighlights ?? []),
   ];
   const isUrgentService = urgentServiceSlugs.has(service.slug);
+  const offerItems = isLevel2ResponseService
+    ? [
+        "Send your defect notice for review",
+        "Send switchboard, meter box or service equipment photos",
+        "Photos help us quote faster",
+        "Clear next steps before work starts",
+      ]
+    : isUrgentService
+      ? [
+          "Call-first emergency triage",
+          "Fast callback for urgent enquiries",
+          "Photos help us quote faster",
+          "Clear next steps before work starts",
+        ]
+      : undefined;
 
   return (
     <main className="min-h-screen bg-white text-slate-950">
@@ -417,6 +433,23 @@ export default async function ServiceLandingPage({
       <GoogleReviewProof
         heading={`Read Evaready Electrical reviews before booking ${service.title.toLowerCase()}.`}
         subheading="View Evaready Electrical on Google before sending planned job details. For unsafe electrical faults, use the phone first."
+      />
+
+      <LeadOfferPanel
+        compact
+        className="border-b border-cyan-300/15"
+        eyebrow={isLevel2ResponseService ? "Level 2 details" : "Quote support"}
+        heading={
+          isLevel2ResponseService
+            ? "Send notices, photos and service details for review."
+            : "Send photos and notes for planned electrical work."
+        }
+        intro={
+          isLevel2ResponseService
+            ? `${business.level2Asp.display}. For ${service.title.toLowerCase()} across Sydney and surrounding regions, send documents and photos for planned work, or call first if the issue is unsafe.`
+            : `For ${service.title.toLowerCase()} across Sydney and surrounding regions, photos help us quote faster. Call first if there is heat, smoke, sparking, power loss or unsafe wiring.`
+        }
+        items={offerItems}
       />
 
       <section className="bg-slate-50 py-20">

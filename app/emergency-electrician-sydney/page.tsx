@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { EmergencyTrustPanel } from "@/components/emergency-trust-panel";
 import { GoogleReviewProof } from "@/components/google-review-proof";
+import { LeadOfferPanel } from "@/components/lead-offer-panel";
 import { QuoteRequestPanel } from "@/components/quote-request-panel";
 import {
   ServiceCredentialStrip,
@@ -460,6 +461,19 @@ export default function EmergencyElectricianSydneyPage() {
       <GoogleReviewProof
         heading="Check Evaready Electrical reviews before you call."
         subheading="For urgent electrical faults, call first. You can also view Evaready Electrical on Google to read real customer feedback before booking planned work."
+      />
+
+      <LeadOfferPanel
+        className="border-b border-cyan-300/15"
+        eyebrow="Emergency triage"
+        heading="Call first for urgent faults, or send photos for planned follow-up work."
+        intro="Evaready Electrical supports emergency call-first triage across Sydney and surrounding regions. Planned electrical work can be reviewed from photos once the immediate safety risk is clear."
+        items={[
+          "Call-first emergency triage",
+          "Fast callback for urgent enquiries",
+          "Photos help us quote faster",
+          "Clear next steps before work starts",
+        ]}
       />
 
       <TrustSymbolBand className="border-b border-slate-200" />
