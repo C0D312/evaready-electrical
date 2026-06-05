@@ -47,7 +47,7 @@ export function GoogleRatingCard({
 
   return (
     <div
-      className={`rounded-[1.5rem] border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(7,18,38,0.94),rgba(5,32,54,0.88))] p-5 text-white shadow-2xl shadow-cyan-950/20 ring-1 ring-white/5 ${
+      className={`google-rating-card rounded-[1.5rem] border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(7,18,38,0.94),rgba(5,32,54,0.88))] p-5 text-white shadow-2xl shadow-cyan-950/20 ring-1 ring-white/5 ${
         compact ? "sm:p-5" : "sm:p-6"
       } ${className}`}
       aria-label={

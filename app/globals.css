@@ -5309,3 +5309,395 @@ main.legal-page :is(h1, h2, p, a),
     grid-template-columns: minmax(0, 1fr) !important;
   }
 }
+
+/* Mobile-first layout fix pass: keep the brand visible, prevent clipped cards,
+   and remove the small-screen marquee overlap without changing page copy. */
+@media (max-width: 767px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: clip !important;
+  }
+
+  body {
+    padding-bottom: calc(4.75rem + env(safe-area-inset-bottom)) !important;
+  }
+
+  header.site-header + div[aria-hidden="true"] {
+    height: calc(92px + env(safe-area-inset-top)) !important;
+  }
+
+  .site-header {
+    overflow: visible !important;
+  }
+
+  .site-header .mx-auto {
+    padding: 0.32rem 0.62rem !important;
+  }
+
+  .site-header-top {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 3.25rem !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    min-height: 82px !important;
+  }
+
+  .site-logo-link {
+    width: min(14.35rem, calc(100vw - 5.7rem)) !important;
+    max-width: min(14.35rem, calc(100vw - 5.7rem)) !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-height: 82px !important;
+    padding: 0 !important;
+    align-items: center !important;
+  }
+
+  .site-logo-image.logo-img,
+  .site-logo-image {
+    width: 100% !important;
+    max-width: 14.35rem !important;
+    height: auto !important;
+    max-height: 78px !important;
+    object-fit: contain !important;
+  }
+
+  .site-header .mobile-nav-trigger,
+  .mobile-nav-trigger {
+    position: static !important;
+    inset: auto !important;
+    width: 3.05rem !important;
+    height: 3.05rem !important;
+    min-width: 3.05rem !important;
+    min-height: 3.05rem !important;
+    align-self: center !important;
+    justify-self: end !important;
+  }
+
+  .site-header .mobile-nav-trigger button,
+  .mobile-nav-trigger button {
+    width: 3rem !important;
+    height: 3rem !important;
+    min-width: 3rem !important;
+    min-height: 3rem !important;
+  }
+
+  .emergency-issue-marquee {
+    display: none !important;
+  }
+
+  .home-brand-hero {
+    min-height: clamp(38rem, calc(100svh - 0.5rem), 45rem) !important;
+  }
+
+  .brand-internal-hero {
+    min-height: auto !important;
+  }
+
+  .home-brand-hero > .relative.mx-auto,
+  .brand-internal-hero > .relative.mx-auto,
+  .brand-internal-hero > div.mx-auto,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) > div.mx-auto {
+    padding-top: clamp(1.6rem, 5vw, 2.4rem) !important;
+    padding-bottom: clamp(4.8rem, 14vw, 6.5rem) !important;
+  }
+
+  .home-brand-hero .brand-hero-image {
+    object-position: 76% 40% !important;
+    transform: translate3d(0, -4%, 0) scale(1.03) !important;
+    filter: saturate(1.16) brightness(1.18) contrast(1.04) !important;
+  }
+
+  .brand-internal-hero::before,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white)::before {
+    background-position: 77% 44% !important;
+    background-size: cover !important;
+    filter: saturate(1.14) brightness(1.16) contrast(1.04) !important;
+    opacity: 0.98 !important;
+  }
+
+  main .home-brand-hero .home-hero-readability-overlay.absolute.inset-0,
+  .brand-internal-hero > .absolute + .absolute,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) > .absolute + .absolute {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(2, 8, 20, 0.94) 0%,
+        rgba(2, 8, 20, 0.8) 42%,
+        rgba(2, 8, 20, 0.28) 66%,
+        rgba(2, 8, 20, 0.04) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(2, 8, 20, 0.08) 0%,
+        rgba(2, 8, 20, 0.18) 78%,
+        rgba(2, 8, 20, 0.42) 100%
+      ) !important;
+  }
+
+  .home-brand-hero h1 {
+    font-size: clamp(2.28rem, 10.2vw, 3.45rem) !important;
+    line-height: 1.04 !important;
+  }
+
+  .brand-internal-hero h1 {
+    font-size: clamp(2.16rem, 9.4vw, 3.25rem) !important;
+    line-height: 1.05 !important;
+  }
+
+  .home-brand-hero p,
+  .brand-internal-hero p {
+    font-size: clamp(0.98rem, 4.1vw, 1.12rem) !important;
+    line-height: 1.5 !important;
+  }
+
+  .home-brand-hero .hero-credential-badges {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.55rem !important;
+    width: 100% !important;
+    max-width: calc(100vw - 2rem) !important;
+  }
+
+  .home-brand-hero .hero-credential-badges > div,
+  .home-brand-hero .home-hero-trust-card {
+    min-height: 3.55rem !important;
+    min-width: 0 !important;
+    padding: 0.58rem 0.62rem !important;
+    gap: 0.48rem !important;
+    overflow: hidden !important;
+  }
+
+  .home-brand-hero .hero-credential-badges svg,
+  .home-brand-hero .home-hero-trust-icon {
+    width: 1.1rem !important;
+    height: 1.1rem !important;
+    flex: 0 0 auto !important;
+  }
+
+  .home-brand-hero .hero-credential-badges p,
+  .home-brand-hero .hero-credential-badges span,
+  .home-brand-hero .home-hero-trust-card p,
+  .home-brand-hero .home-hero-trust-card span {
+    width: auto !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+  }
+
+  .home-brand-hero .home-hero-trust-title,
+  .home-brand-hero .hero-credential-badges p:first-of-type {
+    font-size: 0.74rem !important;
+    line-height: 1.14 !important;
+  }
+
+  .home-brand-hero .home-hero-trust-description,
+  .home-brand-hero .hero-credential-badges p + p {
+    font-size: 0.64rem !important;
+    line-height: 1.16 !important;
+  }
+
+  .brand-internal-hero .service-credential-strip {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    max-width: calc(100vw - 2rem) !important;
+    gap: 0.5rem !important;
+  }
+
+  .brand-internal-hero .service-credential-strip > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    min-height: 3.1rem !important;
+    flex: none !important;
+    padding: 0.58rem 0.68rem !important;
+    border-radius: 1rem !important;
+    gap: 0.5rem !important;
+    overflow: hidden !important;
+  }
+
+  .brand-internal-hero .service-credential-strip svg {
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+
+  .brand-internal-hero .service-credential-strip span,
+  .brand-internal-hero .service-credential-strip p {
+    width: auto !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .brand-internal-hero .service-credential-strip .text-sm,
+  .brand-internal-hero .service-credential-strip .text-base {
+    font-size: 0.72rem !important;
+    line-height: 1.15 !important;
+  }
+
+  .brand-internal-hero aside {
+    margin-top: 1rem !important;
+    padding: 1rem !important;
+    border-radius: 1.25rem !important;
+  }
+
+  .brand-internal-hero aside .grid,
+  .brand-internal-hero aside ol,
+  .brand-internal-hero aside ul {
+    gap: 0.55rem !important;
+  }
+
+  .brand-internal-hero aside li,
+  .brand-internal-hero aside .rounded-2xl {
+    padding: 0.72rem !important;
+  }
+
+  .google-review-proof {
+    padding-top: 2.75rem !important;
+    padding-bottom: 2.75rem !important;
+  }
+
+  .google-review-proof__container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .google-review-proof__panel {
+    gap: 1rem !important;
+    border-radius: 1.15rem !important;
+    padding: 1rem !important;
+  }
+
+  .google-review-proof__copy h2 {
+    margin-top: 0.8rem !important;
+    font-size: clamp(1.45rem, 7vw, 2rem) !important;
+    line-height: 1.08 !important;
+  }
+
+  .google-review-proof__copy p {
+    font-size: 0.92rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .google-review-proof__note {
+    display: block !important;
+    margin-top: 0.9rem !important;
+    padding: 0.75rem !important;
+    font-size: 0.82rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .google-rating-card {
+    border-radius: 1.05rem !important;
+    padding: 1rem !important;
+  }
+
+  .google-rating-card > div {
+    gap: 1rem !important;
+  }
+
+  .google-rating-card a {
+    min-height: 2.75rem !important;
+    padding: 0.7rem 0.9rem !important;
+    font-size: 0.84rem !important;
+  }
+
+  .quote-process-graphic {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: min(100%, calc(100vw - 2rem)) !important;
+    padding: 1rem !important;
+    border-radius: 1.05rem !important;
+  }
+
+  .quote-process-graphic ol {
+    gap: 0.65rem !important;
+  }
+
+  .quote-process-graphic li {
+    padding: 0.75rem !important;
+    border-radius: 1rem !important;
+  }
+
+  .quote-process-graphic li span {
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+
+  .mobile-sticky-cta {
+    left: max(0.5rem, env(safe-area-inset-left)) !important;
+    right: max(0.5rem, env(safe-area-inset-right)) !important;
+    bottom: max(0.45rem, env(safe-area-inset-bottom)) !important;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr) !important;
+    gap: 0.32rem !important;
+    padding: 0.3rem !important;
+    border-radius: 0.9rem !important;
+  }
+
+  .mobile-sticky-cta__link {
+    min-height: 2.45rem !important;
+    padding: 0.42rem 0.38rem !important;
+    font-size: 0.63rem !important;
+    line-height: 1.08 !important;
+  }
+
+  .mobile-sticky-cta__link svg {
+    width: 0.84rem !important;
+    height: 0.84rem !important;
+  }
+
+  .site-footer {
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+@media (min-width: 413px) and (max-width: 767px) {
+  .brand-internal-hero .service-credential-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 374px) {
+  header.site-header + div[aria-hidden="true"] {
+    height: calc(88px + env(safe-area-inset-top)) !important;
+  }
+
+  .site-header-top {
+    min-height: 78px !important;
+    grid-template-columns: minmax(0, 1fr) 2.95rem !important;
+  }
+
+  .site-logo-link {
+    width: min(13.4rem, calc(100vw - 5.35rem)) !important;
+    max-width: min(13.4rem, calc(100vw - 5.35rem)) !important;
+  }
+
+  .site-logo-image.logo-img,
+  .site-logo-image {
+    max-height: 72px !important;
+  }
+
+  .site-header .mobile-nav-trigger,
+  .mobile-nav-trigger,
+  .site-header .mobile-nav-trigger button,
+  .mobile-nav-trigger button {
+    width: 2.75rem !important;
+    height: 2.75rem !important;
+    min-width: 2.75rem !important;
+    min-height: 2.75rem !important;
+  }
+
+  .home-brand-hero h1,
+  .brand-internal-hero h1 {
+    font-size: clamp(2rem, 9.4vw, 2.45rem) !important;
+  }
+
+  .home-brand-hero .hero-credential-badges {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .mobile-sticky-cta__link {
+    font-size: 0.58rem !important;
+  }
+}
