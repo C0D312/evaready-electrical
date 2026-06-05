@@ -17,6 +17,7 @@ import {
   ServiceCredentialStrip,
 } from "@/components/service-credential-strip";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
+import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import {
   getServiceLandingPage,
@@ -272,6 +273,14 @@ export default async function ServiceLandingPage({
     ...(service.credentialHighlights ?? []),
   ];
   const isUrgentService = urgentServiceSlugs.has(service.slug);
+  const processProofVariant =
+    service.slug === "defect-notice-repairs-sydney"
+      ? "defectNotice"
+      : isLevel2ResponseService
+        ? "level2"
+        : isUrgentService
+          ? "emergency"
+          : "general";
   const offerItems = isLevel2ResponseService
     ? [
         "Send your defect notice for review",
@@ -450,6 +459,13 @@ export default async function ServiceLandingPage({
             : `For ${service.title.toLowerCase()} across Sydney and surrounding regions, photos help us quote faster. Call first if there is heat, smoke, sparking, power loss or unsafe wiring.`
         }
         items={offerItems}
+      />
+
+      <TrustProcessProof
+        compact
+        className="border-b border-cyan-300/15"
+        serviceName={service.title}
+        variant={processProofVariant}
       />
 
       <section className="bg-slate-50 py-20">

@@ -20,6 +20,7 @@ import { GoogleReviewProof } from "@/components/google-review-proof";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
 import { QuoteProcessGraphic } from "@/components/quote-process-graphic";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
+import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import {
   assetPath,
@@ -312,6 +313,8 @@ export default function HomePage() {
         heading="Get a clearer next step before planned electrical work starts."
         intro="Send job notes, switchboard photos or affected-area photos for planned electrical work across Sydney and surrounding regions. For urgent faults in core service areas or greater regions, call first."
       />
+
+      <TrustProcessProof className="border-b border-cyan-300/15" />
 
       <section className="issue-selector-section border-y border-cyan-300/15 bg-slate-950 py-12 text-white sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

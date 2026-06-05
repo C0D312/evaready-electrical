@@ -21,6 +21,7 @@ import {
   getSuburbCredentialItems,
   ServiceCredentialStrip,
 } from "@/components/service-credential-strip";
+import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import {
   getAreaBySlug,
@@ -260,6 +261,13 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
           "No-obligation quote for planned work",
           "Call-first emergency triage",
         ]}
+      />
+
+      <TrustProcessProof
+        compact
+        className="border-b border-cyan-300/15"
+        locality={`${suburb.name} ${suburb.postcode}`}
+        variant="suburb"
       />
 
       <section className="bg-white py-20">

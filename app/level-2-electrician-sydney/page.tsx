@@ -21,6 +21,7 @@ import {
   serviceCredentialPresets,
 } from "@/components/service-credential-strip";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
+import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { level2ClusterLinks } from "@/data/internal-links";
 import { absoluteUrl, business } from "@/data/site";
@@ -447,6 +448,11 @@ export default function Level2ElectricianSydneyPage() {
           "Photos help us quote faster",
           "Clear next steps before work starts",
         ]}
+      />
+
+      <TrustProcessProof
+        className="border-b border-cyan-300/15"
+        variant="level2"
       />
 
       <section className="bg-slate-50 py-20 sm:py-24">

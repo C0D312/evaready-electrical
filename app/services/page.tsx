@@ -21,6 +21,7 @@ import {
 import { GoogleReviewProof } from "@/components/google-review-proof";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
+import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { absoluteUrl, business } from "@/data/site";
 import {
@@ -801,6 +802,11 @@ export default function ServicesPage() {
         eyebrow="Planned work quotes"
         heading="Send photos and job notes so the right service can be scoped."
         intro="For electrical services across Sydney and surrounding regions, photos help us quote faster. If the work is urgent or unsafe, call first so the issue can be triaged by phone."
+      />
+
+      <TrustProcessProof
+        className="border-b border-cyan-300/15"
+        serviceName="electrical services"
       />
 
       <section className="bg-white py-16 sm:py-20">

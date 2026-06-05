@@ -15,6 +15,7 @@ import {
   serviceCredentialPresets,
 } from "@/components/service-credential-strip";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
+import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { emergencyFaultGuideLinks } from "@/data/internal-links";
 import { absoluteUrl, business } from "@/data/site";
@@ -474,6 +475,11 @@ export default function EmergencyElectricianSydneyPage() {
           "Photos help us quote faster",
           "Clear next steps before work starts",
         ]}
+      />
+
+      <TrustProcessProof
+        className="border-b border-cyan-300/15"
+        variant="emergency"
       />
 
       <TrustSymbolBand className="border-b border-slate-200" />
