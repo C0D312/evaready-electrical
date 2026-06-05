@@ -71,6 +71,10 @@ export type SuburbServiceIntent =
   | "switchboard";
 
 export type SuburbPageCopy = {
+  callQuoteGuidance: {
+    callFirst: string[];
+    quoteForm: string[];
+  };
   ctaHeading: string;
   faqAnswers: {
     combined: string;
@@ -83,6 +87,15 @@ export type SuburbPageCopy = {
   faqHeading: string;
   heroDescription: string;
   heroNote: string;
+  heroSupportLine: string;
+  landingServiceCards: {
+    href: string;
+    intent: "emergency" | "general" | "level2";
+    items: string[];
+    text: string;
+    title: string;
+  }[];
+  level2QuoteChecklist: string[];
   localHighlights: {
     text: string;
     title: string;
@@ -1607,6 +1620,25 @@ export function getSuburbPageCopy(
   ];
 
   const generatedCopy: SuburbPageCopy = {
+    callQuoteGuidance: {
+      callFirst: [
+        "unsafe faults",
+        "power loss",
+        "burning smells",
+        "sparking",
+        "electric shocks",
+        "storm damage",
+        "water-affected electrical equipment",
+      ],
+      quoteForm: [
+        "planned work",
+        "photos",
+        "defect notices",
+        "switchboard photos",
+        "meter box photos",
+        "job notes",
+      ],
+    },
     ctaHeading: pick(
       [
         `Electrical help in ${coverageSuburb.name}, with clear next steps before work begins.`,
@@ -1635,6 +1667,64 @@ export function getSuburbPageCopy(
     faqIntro: `Use these quick answers to decide whether to call for an urgent hazard or open the booking form for planned work in ${coverageSuburb.name}.`,
     heroDescription,
     heroNote,
+    heroSupportLine: `Emergency, Level 2 and general electrical work in ${coverageSuburb.name} ${coverageSuburb.postcode}.`,
+    landingServiceCards: [
+      {
+        href: "/emergency-electrician-sydney",
+        intent: "emergency",
+        title: `Emergency electrician in ${coverageSuburb.name}`,
+        text: `Call first for burning smells, power loss, sparking, safety switch tripping, storm or water-damaged electrical equipment. For this suburb, urgent call-outs follow ${response.shortDisplay}.`,
+        items: [
+          "Power loss",
+          "Burning smells",
+          "Sparking",
+          "Safety switch tripping",
+          "Storm or water-damaged electrical",
+          response.shortDisplay,
+        ],
+      },
+      {
+        href: "/level-2-electrician-sydney",
+        intent: "level2",
+        title: `Level 2 electrician in ${coverageSuburb.name}`,
+        text: `${business.level2Asp.display} support for consumer mains, defect notices, private poles, point of attachment, overhead and underground services, and metering or service equipment.`,
+        items: [
+          business.level2Asp.display,
+          "Consumer mains",
+          "Defect notices",
+          "Private poles",
+          "Point of attachment",
+          "Overhead and underground services",
+          "Metering and service equipment",
+        ],
+      },
+      {
+        href: "/services",
+        intent: "general",
+        title: `General electrical work in ${coverageSuburb.name}`,
+        text: `Licensed electrical work for ${coverageSuburb.name} can include switchboards, fault finding, lighting and power, hot water electrical, aircon electrical, smoke alarms, CCTV/data, and residential or commercial work where relevant.`,
+        items: [
+          "Switchboards",
+          "Fault finding",
+          "Lighting and power",
+          "Hot water electrical",
+          "Aircon electrical",
+          "Smoke alarms",
+          "CCTV/data",
+          "Residential and commercial work",
+        ],
+      },
+    ],
+    level2QuoteChecklist: [
+      "suburb and job address",
+      "phone number",
+      "defect notice photo if relevant",
+      "switchboard photo",
+      "meter box or service equipment photo",
+      "point of attachment or private pole photo if relevant",
+      "due date or deadline if listed",
+      "access, parking, strata or gate notes",
+    ],
     localHighlights,
     metaDescription: clampMetaDescription(
       pick(

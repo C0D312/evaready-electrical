@@ -46,7 +46,7 @@ const baseProofItems: ProofItem[] = [
   },
   {
     title: "Emergency call triage",
-    text: "Call first for power loss, burning smells, smoke, sparking, repeated tripping, unsafe wiring or urgent Level 2 issues.",
+    text: "Call first for burning smells, power loss, smoke, sparking, repeated tripping, unsafe wiring or urgent Level 2 issues.",
     icon: Phone,
   },
   {
@@ -64,7 +64,7 @@ const baseProofItems: ProofItem[] = [
 const emergencyProofItems: ProofItem[] = [
   {
     title: "Call-first safety warning",
-    text: "Keep clear of exposed wiring, wet fittings, smoke, burning smells, fallen lines and damaged switchboards. For life-threatening danger, call emergency services first.",
+    text: "Keep clear of exposed wiring, wet electrical fixtures, smoke or burning smells, fallen lines and damaged switchboards. For life-threatening danger, call emergency services first.",
     icon: AlertTriangle,
   },
   {
@@ -334,7 +334,7 @@ export function TrustProcessProof({
               {getIntro(variant, serviceName, locality)}
             </p>
             <p className="mt-5 rounded-2xl border border-red-300/25 bg-red-500/10 p-4 text-sm font-bold leading-6 text-red-50">
-              For smoke, sparking, burning smells, power loss, wet electrical
+              For burning smells, smoke, sparking, power loss, wet electrical
               equipment or unsafe wiring, call first. For life-threatening
               danger, keep clear and call emergency services first.
             </p>

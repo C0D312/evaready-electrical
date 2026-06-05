@@ -24,13 +24,20 @@ type SuburbAuditRow = {
   "phone CTA present yes/no": YesNo;
   "quote CTA present yes/no": YesNo;
   "emergency wording present yes/no": YesNo;
+  "emergency electrician wording present yes/no": YesNo;
   "Level 2 wording present yes/no": YesNo;
+  "Level 2 electrician wording present yes/no": YesNo;
+  "general electrical wording present yes/no": YesNo;
+  "switchboard wording present yes/no": YesNo;
   "response-time wording present yes/no": YesNo;
+  "correct response-time wording yes/no": YesNo;
   "core or greater region classification": string;
   "expected response time wording": string;
   "actual response time wording": string;
   "ASP wording present yes/no": YesNo;
   "Sydney and surrounding regions wording present yes/no": YesNo;
+  "internal links count": number;
+  "FAQ count": number;
   "stale strings found": string;
   "risky claims found": string;
   "spelling/grammar warnings": string;
@@ -75,6 +82,14 @@ const staleStrings = [
 ];
 
 const riskyStrings = [
+  "Level 1",
+  "Level One",
+  "Level 3",
+  "Level Three",
+  "ASP1",
+  "ASP 1",
+  "ASP3",
+  "ASP 3",
   "guaranteed arrival",
   "guaranteed same-hour",
   "60 minutes anywhere",
@@ -101,13 +116,20 @@ const columns: (keyof SuburbAuditRow)[] = [
   "phone CTA present yes/no",
   "quote CTA present yes/no",
   "emergency wording present yes/no",
+  "emergency electrician wording present yes/no",
   "Level 2 wording present yes/no",
+  "Level 2 electrician wording present yes/no",
+  "general electrical wording present yes/no",
+  "switchboard wording present yes/no",
   "response-time wording present yes/no",
+  "correct response-time wording yes/no",
   "core or greater region classification",
   "expected response time wording",
   "actual response time wording",
   "ASP wording present yes/no",
   "Sydney and surrounding regions wording present yes/no",
+  "internal links count",
+  "FAQ count",
   "stale strings found",
   "risky claims found",
   "spelling/grammar warnings",
@@ -205,6 +227,53 @@ function findIncluded(text: string, needles: string[]) {
   return needles.filter((needle) => lowerText.includes(needle.toLowerCase()));
 }
 
+function escapeRegExp(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function countInternalLinks(html: string) {
+  const hrefMatches = html.matchAll(/\bhref=["']([^"']+)["']/gi);
+  const hrefs = new Set<string>();
+
+  for (const match of hrefMatches) {
+    const href = decodeEntities(match[1]);
+
+    if (
+      href.startsWith("/evaready-electrical/") ||
+      href.startsWith("/service-areas/") ||
+      href.startsWith("/services/") ||
+      href.startsWith("/electrical-faults/") ||
+      href === "/evaready-electrical/" ||
+      href === "/services" ||
+      href === "/service-areas" ||
+      href === "/electrical-faults"
+    ) {
+      hrefs.add(href);
+    }
+  }
+
+  return hrefs.size;
+}
+
+function countVisibleFaqs(text: string, suburbName: string) {
+  const escapedSuburb = escapeRegExp(suburbName);
+  const faqPatterns = [
+    new RegExp(`Do you service ${escapedSuburb}\\?`, "i"),
+    new RegExp(`Do you handle emergency faults in ${escapedSuburb}\\?`, "i"),
+    new RegExp(
+      `Do you provide Level 2 electrical work in ${escapedSuburb}\\?`,
+      "i",
+    ),
+    /Can I send photos for a quote\?/i,
+    new RegExp(
+      `Do you help with switchboards, hot water circuits, aircon electrical and CCTV/data in ${escapedSuburb}\\?`,
+      "i",
+    ),
+  ];
+
+  return faqPatterns.filter((pattern) => pattern.test(text)).length;
+}
+
 function findResponseWording(text: string) {
   const snippets = new Set<string>();
   const responsePattern =
@@ -288,7 +357,6 @@ function awkwardWordingWarnings(text: string) {
   const checks: [string, RegExp][] = [
     ["around the service area", /\baround the service area\b/i],
     ["postcode-only wording", /\bElectrical help for \d{4}\b/i],
-    ["old quote form wording", /\bquote form\b/i],
     ["Sydney-only wording", /\bSydney only\b/i],
     ["photo-friendly job details", /\bPhoto-friendly job details\b/i],
     ["combined footer CTA", /Call 0461 247 247\s+Get a Quote\s+Email/i],
@@ -334,13 +402,20 @@ function auditRecord(record: SuburbRecord): SuburbAuditRow {
       "phone CTA present yes/no": "no",
       "quote CTA present yes/no": "no",
       "emergency wording present yes/no": "no",
+      "emergency electrician wording present yes/no": "no",
       "Level 2 wording present yes/no": "no",
+      "Level 2 electrician wording present yes/no": "no",
+      "general electrical wording present yes/no": "no",
+      "switchboard wording present yes/no": "no",
       "response-time wording present yes/no": "no",
+      "correct response-time wording yes/no": "no",
       "core or greater region classification": classification,
       "expected response time wording": expectedResponse,
       "actual response time wording": "",
       "ASP wording present yes/no": "no",
       "Sydney and surrounding regions wording present yes/no": "no",
+      "internal links count": 0,
+      "FAQ count": 0,
       "stale strings found": "",
       "risky claims found": "",
       "spelling/grammar warnings": "",
@@ -369,10 +444,35 @@ function auditRecord(record: SuburbRecord): SuburbAuditRow {
   const expectedResponsePattern = response.isCore
     ? /\b(60-minute|within 60 minutes)\b/i
     : /\b(90-minute|within 90 minutes)\b/i;
+  const correctResponsePresent = expectedResponsePattern.test(visibleText);
+  const escapedSuburb = escapeRegExp(record.suburb.name);
+  const emergencyElectricianPresent = new RegExp(
+    `\\bEmergency electrician in ${escapedSuburb}\\b`,
+    "i",
+  ).test(visibleText);
+  const level2ElectricianPresent = new RegExp(
+    `\\bLevel 2 electrician in ${escapedSuburb}\\b`,
+    "i",
+  ).test(visibleText);
+  const generalElectricalPresent = new RegExp(
+    `\\bgeneral electrical work in ${escapedSuburb}\\b`,
+    "i",
+  ).test(visibleText);
+  const switchboardPresent = /\bswitchboard/i.test(visibleText);
+  const internalLinkCount = countInternalLinks(html);
+  const faqCount = countVisibleFaqs(visibleText, record.suburb.name);
   const notes: string[] = [];
 
-  if (!expectedResponsePattern.test(visibleText)) {
+  if (!correctResponsePresent) {
     notes.push(`expected ${expectedResponse} wording not found`);
+  }
+
+  if (internalLinkCount < 8) {
+    notes.push(`fewer than 8 internal links: ${internalLinkCount}`);
+  }
+
+  if (faqCount < 5) {
+    notes.push(`fewer than 5 FAQs: ${faqCount}`);
   }
 
   if (!/^\d{4}$/.test(record.suburb.postcode)) {
@@ -407,16 +507,27 @@ function auditRecord(record: SuburbRecord): SuburbAuditRow {
         visibleText,
       ),
     ),
+    "emergency electrician wording present yes/no": yesNo(
+      emergencyElectricianPresent,
+    ),
     "Level 2 wording present yes/no": yesNo(
       /\b(Level 2|ASP|consumer mains|defect notice|metering|point of attachment|supply-side)\b/i.test(
         visibleText,
       ),
     ),
+    "Level 2 electrician wording present yes/no": yesNo(
+      level2ElectricianPresent,
+    ),
+    "general electrical wording present yes/no": yesNo(
+      generalElectricalPresent,
+    ),
+    "switchboard wording present yes/no": yesNo(switchboardPresent),
     "response-time wording present yes/no": yesNo(
       /\b(60-minute|within 60 minutes|90-minute|within 90 minutes)\b/i.test(
         visibleText,
       ),
     ),
+    "correct response-time wording yes/no": yesNo(correctResponsePresent),
     "core or greater region classification": classification,
     "expected response time wording": expectedResponse,
     "actual response time wording": actualResponse,
@@ -428,6 +539,8 @@ function auditRecord(record: SuburbRecord): SuburbAuditRow {
     "Sydney and surrounding regions wording present yes/no": yesNo(
       /Sydney (?:and|&) Surrounding Regions/i.test(visibleText),
     ),
+    "internal links count": internalLinkCount,
+    "FAQ count": faqCount,
     "stale strings found": staleFound.join("; "),
     "risky claims found": riskyFound.join("; "),
     "spelling/grammar warnings": grammarFound.join("; "),
@@ -449,11 +562,28 @@ function rowHasWarning(row: SuburbAuditRow) {
     row["phone CTA present yes/no"] === "no" ? "missing phone CTA" : "",
     row["quote CTA present yes/no"] === "no" ? "missing quote CTA" : "",
     row["emergency wording present yes/no"] === "no" ? "missing emergency wording" : "",
+    row["emergency electrician wording present yes/no"] === "no"
+      ? "missing emergency electrician wording"
+      : "",
     row["Level 2 wording present yes/no"] === "no" ? "missing Level 2 wording" : "",
+    row["Level 2 electrician wording present yes/no"] === "no"
+      ? "missing Level 2 electrician wording"
+      : "",
+    row["general electrical wording present yes/no"] === "no"
+      ? "missing general electrical wording"
+      : "",
+    row["switchboard wording present yes/no"] === "no"
+      ? "missing switchboard wording"
+      : "",
     row["response-time wording present yes/no"] === "no"
       ? "missing response-time wording"
       : "",
+    row["correct response-time wording yes/no"] === "no"
+      ? "incorrect response-time wording"
+      : "",
     row["ASP wording present yes/no"] === "no" ? "missing ASP wording" : "",
+    row["internal links count"] < 8 ? "fewer than 8 internal links" : "",
+    row["FAQ count"] < 5 ? "fewer than 5 FAQs" : "",
   ].some(Boolean);
 }
 
@@ -475,11 +605,30 @@ function warningSummary(row: SuburbAuditRow) {
     row["phone CTA present yes/no"] === "no" ? "missing phone CTA" : "",
     row["quote CTA present yes/no"] === "no" ? "missing quote CTA" : "",
     row["emergency wording present yes/no"] === "no" ? "missing emergency wording" : "",
+    row["emergency electrician wording present yes/no"] === "no"
+      ? "missing emergency electrician wording"
+      : "",
     row["Level 2 wording present yes/no"] === "no" ? "missing Level 2 wording" : "",
+    row["Level 2 electrician wording present yes/no"] === "no"
+      ? "missing Level 2 electrician wording"
+      : "",
+    row["general electrical wording present yes/no"] === "no"
+      ? "missing general electrical wording"
+      : "",
+    row["switchboard wording present yes/no"] === "no"
+      ? "missing switchboard wording"
+      : "",
     row["response-time wording present yes/no"] === "no"
       ? "missing response-time wording"
       : "",
+    row["correct response-time wording yes/no"] === "no"
+      ? "incorrect response-time wording"
+      : "",
     row["ASP wording present yes/no"] === "no" ? "missing ASP wording" : "",
+    row["internal links count"] < 8
+      ? `fewer than 8 internal links: ${row["internal links count"]}`
+      : "",
+    row["FAQ count"] < 5 ? `fewer than 5 FAQs: ${row["FAQ count"]}` : "",
   ]
     .filter(Boolean)
     .join("; ");
@@ -567,7 +716,6 @@ ${result}
 
 ## Counts
 
-- Confirmed warning categories before fix: 873 suburb pages flagged
 - Expected suburb count: ${expectedSuburbCount}
 - Records from coverageRegions: ${records.length}
 - Records from getSuburbPaths(): ${getSuburbPathCount}

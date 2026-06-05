@@ -8,7 +8,6 @@ PASS â€” all suburb pages checked and no issues
 
 ## Counts
 
-- Confirmed warning categories before fix: 873 suburb pages flagged
 - Expected suburb count: 873
 - Records from coverageRegions: 873
 - Records from getSuburbPaths(): 873

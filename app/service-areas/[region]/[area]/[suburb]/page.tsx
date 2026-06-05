@@ -118,6 +118,14 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
     level2: Bolt,
     switchboard: ShieldCheck,
   };
+  const landingCardStyles = {
+    emergency:
+      "border-red-400/30 bg-gradient-to-br from-red-950 via-slate-950 to-slate-950 text-red-100",
+    general:
+      "border-cyan-300/25 bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-cyan-100",
+    level2:
+      "border-blue-300/30 bg-gradient-to-br from-blue-950 via-slate-950 to-slate-950 text-blue-100",
+  };
   const suburbFaqs = [
     {
       question: `Do you service ${suburb.name}?`,
@@ -190,6 +198,9 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         eyebrow={`${area.name} - ${region.name}`}
         title={`Electrician ${suburb.name} ${suburb.postcode}`}
       >
+        <p className="mt-5 max-w-3xl text-xl font-black leading-8 text-cyan-100 sm:text-2xl">
+          {copy.heroSupportLine}
+        </p>
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
           {copy.heroDescription}
         </p>
@@ -228,6 +239,135 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
       </ServiceAreaHero>
 
       <TrustSymbolBand className="border-b border-slate-200" />
+
+      <section className="bg-[#020814] py-14 text-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-200">
+            Suburb electrical support
+          </p>
+          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+            Emergency, Level 2 and general electrical help in {suburb.name}.
+          </h2>
+
+          <div className="mt-10 grid gap-4 lg:grid-cols-3">
+            {copy.landingServiceCards.map((card) => {
+              const Icon = serviceIconByIntent[card.intent];
+
+              return (
+                <Link
+                  key={card.title}
+                  href={card.href}
+                  className={`group min-w-0 rounded-2xl border p-5 shadow-lg shadow-blue-950/20 transition hover:-translate-y-1 hover:border-cyan-300/60 sm:p-6 ${landingCardStyles[card.intent]}`}
+                >
+                  <div className="flex min-w-0 items-start gap-4">
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-cyan-300/20 bg-white/10 text-cyan-100">
+                      <Icon className="h-6 w-6" aria-hidden="true" />
+                    </span>
+                    <div className="min-w-0">
+                      <h3 className="text-2xl font-black leading-tight text-white">
+                        {card.title}
+                      </h3>
+                      <p className="mt-3 text-sm font-semibold leading-6 text-slate-200">
+                        {card.text}
+                      </p>
+                    </div>
+                  </div>
+
+                  <ul className="mt-5 grid gap-2 text-sm font-bold text-slate-100">
+                    {card.items.map((item) => (
+                      <li key={item} className="flex min-w-0 items-start gap-2">
+                        <CheckCircle2
+                          className="mt-0.5 h-4 w-4 shrink-0 text-cyan-300"
+                          aria-hidden="true"
+                        />
+                        <span className="min-w-0 break-words">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-black text-cyan-200">
+                    View details
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-white py-16">
+        <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-[1fr_1fr_1.1fr] lg:px-8">
+          <article className="rounded-2xl border border-red-200 bg-red-50 p-6">
+            <p className="text-sm font-black uppercase tracking-[0.25em] text-red-700">
+              Call first
+            </p>
+            <h2 className="mt-3 text-2xl font-black text-slate-950">
+              Unsafe faults in {suburb.name} need a phone call.
+            </h2>
+            <p className="mt-3 leading-7 text-slate-700">
+              Call first for burning smells, power loss, unsafe faults,
+              sparking, shocks, storm damage or water-affected electrical
+              equipment.
+            </p>
+            <ul className="mt-5 grid gap-2 text-sm font-bold text-slate-800">
+              {copy.callQuoteGuidance.callFirst.map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <Phone
+                    className="mt-0.5 h-4 w-4 shrink-0 text-red-600"
+                    aria-hidden="true"
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          <article className="rounded-2xl border border-blue-200 bg-blue-50 p-6">
+            <p className="text-sm font-black uppercase tracking-[0.25em] text-blue-700">
+              Use the quote form
+            </p>
+            <h2 className="mt-3 text-2xl font-black text-slate-950">
+              Planned work is clearer with photos and notes.
+            </h2>
+            <p className="mt-3 leading-7 text-slate-700">
+              Use the quote form for planned work, photos, defect notices,
+              switchboard photos, meter box photos and job notes.
+            </p>
+            <ul className="mt-5 grid gap-2 text-sm font-bold text-slate-800">
+              {copy.callQuoteGuidance.quoteForm.map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <CheckCircle2
+                    className="mt-0.5 h-4 w-4 shrink-0 text-blue-700"
+                    aria-hidden="true"
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          <article className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+            <p className="text-sm font-black uppercase tracking-[0.25em] text-blue-700">
+              Level 2 quote checklist
+            </p>
+            <h2 className="mt-3 text-2xl font-black text-slate-950">
+              For Level 2 enquiries in {suburb.name}, send these details.
+            </h2>
+            <ul className="mt-5 grid gap-2 text-sm font-bold text-slate-800">
+              {copy.level2QuoteChecklist.map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <CheckCircle2
+                    className="mt-0.5 h-4 w-4 shrink-0 text-cyan-700"
+                    aria-hidden="true"
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </div>
+      </section>
 
       <section className="border-b border-slate-200 bg-white">
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">

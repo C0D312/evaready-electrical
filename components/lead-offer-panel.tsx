@@ -91,7 +91,7 @@ export function LeadOfferPanel({
               </div>
 
               <p className="mt-4 rounded-xl border border-red-300/25 bg-red-500/10 p-4 text-sm font-bold leading-6 text-red-50">
-                Call-first emergency triage for smoke, burning smells, sparking,
+                Call-first emergency triage for burning smells, smoke, sparking,
                 power loss, unsafe wiring or urgent Level 2 issues. Fast
                 callback for urgent enquiries starts with the phone.
               </p>

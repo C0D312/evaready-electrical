@@ -10,16 +10,22 @@ import {
   getSuburbPageCopy,
   getSuburbPaths,
 } from "../data/service-area-coverage";
+import { getEmergencyResponseForRegion } from "../data/site";
 
 type AuditRow = {
   "CTA count": number;
   "FAQ count": number;
   H1: string;
+  "Level 1 or Level 3 wording present": "yes" | "no";
+  "Level 2 electrician wording present": "yes" | "no";
   "Level 2 summary present": "yes" | "no";
   "call-first safety wording present": "yes" | "no";
+  "correct response-time wording present": "yes" | "no";
   "duplicate text hash": string;
+  "emergency electrician wording present": "yes" | "no";
   "emergency summary present": "yes" | "no";
   "fake office claim present": "yes" | "no";
+  "general electrical wording present": "yes" | "no";
   "generated URL": string;
   "guaranteed response-time claim present": "yes" | "no";
   "hero description": string;
@@ -38,6 +44,7 @@ type AuditRow = {
   "process heading": string;
   "quote-photo guidance present": "yes" | "no";
   "quote CTA present": "yes" | "no";
+  "response-time wording present": "yes" | "no";
   "repeated phrase risk": "yes" | "no";
   "service intro": string;
   "switchboard summary present": "yes" | "no";
@@ -109,10 +116,19 @@ function hasIntent(
 
 function combinedCopy(copy: ReturnType<typeof getSuburbPageCopy>) {
   return [
+    copy.heroSupportLine,
     copy.heroDescription,
     copy.heroNote,
     copy.processDescription,
     copy.serviceIntro,
+    ...copy.landingServiceCards.flatMap((card) => [
+      card.title,
+      card.text,
+      ...card.items,
+    ]),
+    ...copy.callQuoteGuidance.callFirst,
+    ...copy.callQuoteGuidance.quoteForm,
+    ...copy.level2QuoteChecklist,
     ...copy.localHighlights.flatMap((item) => [item.title, item.text]),
     ...copy.serviceSummaries.flatMap((summary) => [
       summary.title,
@@ -194,6 +210,31 @@ function buildAuditRows(records: SuburbRecord[]) {
     const level2SummaryPresent = hasIntent(copy, "level2");
     const switchboardSummaryPresent = hasIntent(copy, "switchboard");
     const allCopy = combinedCopy(copy);
+    const response = getEmergencyResponseForRegion(region.name);
+    const expectedResponsePattern = response.isCore
+      ? /\b(60-minute|within 60 minutes)\b/i
+      : /\b(90-minute|within 90 minutes)\b/i;
+    const emergencyElectricianPresent = new RegExp(
+      `\\bEmergency electrician in ${suburb.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`,
+      "i",
+    ).test(allCopy);
+    const level2ElectricianPresent = new RegExp(
+      `\\bLevel 2 electrician in ${suburb.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`,
+      "i",
+    ).test(allCopy);
+    const generalElectricalPresent = new RegExp(
+      `\\bgeneral electrical work in ${suburb.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`,
+      "i",
+    ).test(allCopy);
+    const responseTimePresent =
+      /\b(60-minute|within 60 minutes|90-minute|within 90 minutes)\b/i.test(
+        allCopy,
+      );
+    const correctResponseTimePresent = expectedResponsePattern.test(allCopy);
+    const level1OrLevel3Present =
+      /\b(Level 1|Level One|Level 3|Level Three|ASP1|ASP 1|ASP3|ASP 3)\b/i.test(
+        allCopy,
+      );
     const localPropertyMixPresent =
       /\b(homes|apartments|strata|shops|businesses|warehouses|units|duplexes|terraces|acreage|commercial|townhouses|villas|family homes|older homes|workshops)\b/i.test(
         allCopy,
@@ -267,11 +308,29 @@ function buildAuditRows(records: SuburbRecord[]) {
     if (!emergencySummaryPresent) {
       warnings.push("emergency summary missing");
     }
+    if (!emergencyElectricianPresent) {
+      warnings.push("emergency electrician wording missing");
+    }
     if (!level2SummaryPresent) {
       warnings.push("Level 2 summary missing");
     }
+    if (!level2ElectricianPresent) {
+      warnings.push("Level 2 electrician wording missing");
+    }
+    if (!generalElectricalPresent) {
+      warnings.push("general electrical wording missing");
+    }
     if (!switchboardSummaryPresent) {
       warnings.push("switchboard summary missing");
+    }
+    if (!responseTimePresent) {
+      warnings.push("response-time wording missing");
+    }
+    if (!correctResponseTimePresent) {
+      warnings.push("correct response-time wording missing");
+    }
+    if (level1OrLevel3Present) {
+      warnings.push("Level 1 or Level 3 wording present");
     }
     if (ctaCount < 4) {
       warnings.push("low CTA count");
@@ -335,8 +394,18 @@ function buildAuditRows(records: SuburbRecord[]) {
       "call-first safety wording present": yesNo(callFirstSafetyPresent),
       "local examples present": yesNo(localExamplesPresent),
       "emergency summary present": yesNo(emergencySummaryPresent),
+      "emergency electrician wording present": yesNo(
+        emergencyElectricianPresent,
+      ),
       "Level 2 summary present": yesNo(level2SummaryPresent),
+      "Level 2 electrician wording present": yesNo(level2ElectricianPresent),
+      "general electrical wording present": yesNo(generalElectricalPresent),
       "switchboard summary present": yesNo(switchboardSummaryPresent),
+      "response-time wording present": yesNo(responseTimePresent),
+      "correct response-time wording present": yesNo(
+        correctResponseTimePresent,
+      ),
+      "Level 1 or Level 3 wording present": yesNo(level1OrLevel3Present),
       "CTA count": ctaCount,
       "phone CTA present": "yes" as const,
       "quote CTA present": "yes" as const,
@@ -380,8 +449,14 @@ const columns: (keyof AuditRow)[] = [
   "call-first safety wording present",
   "local examples present",
   "emergency summary present",
+  "emergency electrician wording present",
   "Level 2 summary present",
+  "Level 2 electrician wording present",
+  "general electrical wording present",
   "switchboard summary present",
+  "response-time wording present",
+  "correct response-time wording present",
+  "Level 1 or Level 3 wording present",
   "CTA count",
   "phone CTA present",
   "quote CTA present",
