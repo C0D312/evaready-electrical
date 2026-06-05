@@ -41,19 +41,22 @@ export function QuoteProcessGraphic({ className = "" }: { className?: string }) 
               <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-black text-white shadow-lg shadow-blue-500/20">
                 {index + 1}
               </span>
-              <p className="text-sm font-black leading-5 text-white">{step}</p>
+              <p className="min-w-0 flex-1 text-sm font-black leading-5 text-white">
+                {step}
+              </p>
+              {index === quoteSteps.length - 1 ? (
+                <CheckCircle2
+                  className="h-5 w-5 shrink-0 text-cyan-200"
+                  aria-hidden="true"
+                />
+              ) : null}
             </div>
             {index < quoteSteps.length - 1 ? (
               <ArrowRight
                 className="absolute -right-4 top-1/2 hidden h-5 w-5 -translate-y-1/2 text-cyan-200 md:block"
                 aria-hidden="true"
               />
-            ) : (
-              <CheckCircle2
-                className="absolute right-4 top-4 h-5 w-5 text-cyan-200"
-                aria-hidden="true"
-              />
-            )}
+            ) : null}
           </li>
         ))}
       </ol>
