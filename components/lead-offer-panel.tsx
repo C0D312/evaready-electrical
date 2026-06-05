@@ -12,8 +12,11 @@ type LeadOfferPanelProps = {
 
 const defaultItems = [
   "Free photo review for planned electrical work",
+  "Send your defect notice for review",
+  "Send switchboard, meter box or service equipment photos",
   "Photos help us quote faster",
   "Clear next steps before work starts",
+  "Fast callback for urgent enquiries",
   "No-obligation quote for planned work",
 ];
 
@@ -92,8 +95,9 @@ export function LeadOfferPanel({
 
               <p className="mt-4 rounded-xl border border-red-300/25 bg-red-500/10 p-4 text-sm font-bold leading-6 text-red-50">
                 Call-first emergency triage for burning smells, smoke, sparking,
-                power loss, unsafe wiring or urgent Level 2 issues. Fast
-                callback for urgent enquiries starts with the phone.
+                power loss, unsafe wiring or urgent Level 2 issues across core
+                service areas and greater regions. Fast callback for urgent
+                enquiries starts with the phone.
               </p>
             </div>
           </div>

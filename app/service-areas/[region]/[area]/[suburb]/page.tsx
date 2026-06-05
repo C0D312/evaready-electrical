@@ -397,9 +397,11 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         intro={`For planned electrical work in ${suburb.name} ${suburb.postcode}, photos help us quote faster and confirm clear next steps before work starts. Call first for urgent faults across Sydney and surrounding regions.`}
         items={[
           "Free photo review for planned electrical work",
+          "Send your defect notice for review",
+          "Send switchboard, meter box or service equipment photos",
           "Photos help us quote faster",
-          "No-obligation quote for planned work",
           "Call-first emergency triage",
+          "No-obligation quote for planned work",
         ]}
       />
 
