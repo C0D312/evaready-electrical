@@ -1552,9 +1552,9 @@ export function getSuburbPageCopy(
       ),
       text: pick(
         [
-          `CCTV and data work in ${coverageSuburb.name} can include CCTV cabling, data points and communications cabling under Open Cabler Registration 46691.`,
+          `CCTV and data work in ${coverageSuburb.name} can include CCTV cabling, data points and communications cabling under the relevant registered cabling scope.`,
           `For ${suburbLabel}, CCTV cameras, data points and communications cabling are planned with clear access details and the right cabling scope.`,
-          `Open Cabler Registration 46691 supports eligible data, CCTV and communications cabling enquiries across ${areaLabel}.`,
+          `Eligible registered cabling scope supports data, CCTV and communications cabling enquiries across ${areaLabel}.`,
         ],
         seed,
         61,
@@ -1786,7 +1786,6 @@ export function getSuburbPageCopy(
       `Open 24/7 for urgent electrical faults`,
       `${response.badgeTitle} for emergency call-outs`,
       business.level2Asp.display,
-      `Open Cabler Registration 46691`,
       `ARCtick Refrigerant Handling Licence L157323 â€” Split Systems (1)`,
       pick(
         [

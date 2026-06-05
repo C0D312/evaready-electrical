@@ -969,7 +969,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Security camera and CCTV cabling installed neatly for homes, shops, offices and strata sites.",
     intro:
-      "A good CCTV setup depends on camera placement, clean cabling and reliable power. Evaready Electrical helps with CCTV and security camera installation for homes and businesses, including camera wiring, power supplies, recorder locations and future camera provisions. Open Cabler Registration 46691 applies to eligible data, CCTV and communications cabling work.",
+      "A good CCTV setup depends on camera placement, clean cabling and reliable power. Evaready Electrical helps with CCTV and security camera installation for homes and businesses, including camera wiring, power supplies, recorder locations and future camera provisions. Open Cabler registration number 46691 applies to eligible data, CCTV and communications cabling work.",
     heroBullets: [
       "Home CCTV installation",
       "Business security cameras",
@@ -1012,7 +1012,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Can you install CCTV at a home or business?",
         answer:
-          "Yes. Evaready Electrical can assist with CCTV camera wiring and installation for residential and commercial properties, including eligible cabling work under Open Cabler Registration 46691.",
+          "Yes. Evaready Electrical can assist with CCTV camera wiring and installation for residential and commercial properties, including eligible cabling work under Open Cabler registration number 46691.",
       },
       {
         question: "Where should CCTV cameras be installed?",
@@ -1041,7 +1041,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Network data cabling, internet points and communication outlets for homes, offices and renovations.",
     intro:
-      "Reliable internet and network points need tidy cabling and sensible placement. Evaready Electrical installs data cabling, internet points and communication outlets for homes, offices, renovations and commercial spaces. Open Cabler Registration 46691 applies to eligible data and communications cabling work.",
+      "Reliable internet and network points need tidy cabling and sensible placement. Evaready Electrical installs data cabling, internet points and communication outlets for homes, offices, renovations and commercial spaces. Open Cabler registration number 46691 applies to eligible data and communications cabling work.",
     heroBullets: [
       "Network data points",
       "Internet outlet installation",
@@ -1089,7 +1089,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Can you help with office data cabling?",
         answer:
-          "Yes. Evaready Electrical can assist with office data runs, outlet placement and eligible communication cabling under Open Cabler Registration 46691.",
+          "Yes. Evaready Electrical can assist with office data runs, outlet placement and eligible communication cabling under Open Cabler registration number 46691.",
       },
       {
         question: "Do you repair phone lines?",
@@ -2703,7 +2703,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Can you work on phone line cabling?",
         answer:
-          "Evaready Electrical can assist with eligible internal phone and communications cabling under Open Cabler Registration 46691.",
+          "Evaready Electrical can assist with eligible internal phone and communications cabling under Open Cabler registration number 46691.",
       },
       {
         question: "Do carrier network faults need the provider?",
@@ -2716,7 +2716,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
           "Send photos of the outlet, modem or phone equipment, the room location, access points and any damaged cabling.",
       },
     ],
-    credentialHighlights: ["Open Cabler Registration 46691"],
+    credentialHighlights: ["Open Cabler Registration: 46691"],
     relatedServices: [
       "data-cabling-electrician-sydney",
       "cctv-security-camera-installation-sydney",

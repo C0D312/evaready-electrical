@@ -38,8 +38,8 @@ const trustGraphicItems: TrustGraphicItem[] = [
   },
   {
     icon: BadgeCheck,
-    title: `Open Cabler Registration ${business.openCablerRegistration}`,
-    text: "Registered cabler for eligible data, CCTV and communications cabling work.",
+    title: "Open Cabler Registration",
+    text: `${business.openCablerRegistration} for eligible data, CCTV and communications cabling work.`,
   },
   {
     icon: FileCheck2,

@@ -563,7 +563,7 @@ export const priorityRegions = [
 export const trustPoints = [
   "Licensed electrician - 398937C",
   "ABN 44 650 697 797",
-  "Open Cabler Registration 46691",
+  "Open Cabler Registration: 46691",
   "Residential, commercial, emergency and Level 2 electrical work",
   "Open 24/7 for urgent calls",
   "Clear communication before work starts",

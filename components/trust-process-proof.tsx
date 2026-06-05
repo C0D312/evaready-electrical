@@ -41,7 +41,7 @@ type TrustProcessProofProps = {
 const baseProofItems: ProofItem[] = [
   {
     title: "Licence verification",
-    text: `NSW Electrical Licence ${business.licence}, ABN ${business.abn}, Open Cabler Registration ${business.openCablerRegistration} and ARCtick ${business.arctickLicence} are shown clearly before you call or book.`,
+    text: `NSW Electrical Licence ${business.licence}, ABN ${business.abn}, Open Cabler registration number ${business.openCablerRegistration} and ARCtick ${business.arctickLicence} are shown clearly before you call or book.`,
     icon: BadgeCheck,
   },
   {
@@ -99,6 +99,15 @@ const switchboardProofItems: ProofItem[] = [
     icon: Wrench,
   },
 ];
+
+const suburbProofItems: ProofItem[] = baseProofItems.map((item) =>
+  item.title === "Licence verification"
+    ? {
+        ...item,
+        text: `NSW Electrical Licence ${business.licence} and ABN ${business.abn} are shown clearly before you call or book. Data, CCTV and refrigeration credentials are shown in the licence credential section where relevant.`,
+      }
+    : item,
+);
 
 const checklistGroupsByVariant: Record<TrustProcessProofVariant, ChecklistGroup[]> = {
   general: [
@@ -226,7 +235,7 @@ function getProofItems(variant: TrustProcessProofVariant) {
 
   if (variant === "suburb") {
     return [
-      ...baseProofItems,
+      ...suburbProofItems,
       {
         title: "Local job details",
         text: "Suburb, access, parking, strata entry, business hours and photos help Evaready review planned work across Sydney and surrounding regions.",

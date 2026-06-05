@@ -154,7 +154,6 @@ export function getSuburbCredentialItems(
     { icon: Clock3, title: response.badgeTitle, text: response.badgeText, tone: "red" },
     { icon: Zap, title: business.level2Asp.shortDisplay, text: "Ausgrid & Endeavour Energy" },
     { icon: Camera, title: "Get a Quote Online", text: "Send notes & photos" },
-    { icon: BadgeCheck, title: `Open Cabler ${business.openCablerRegistration}`, text: "CCTV & data" },
     { icon: ShieldCheck, title: `ARCtick ${business.arctickLicence}`, text: "Where relevant" },
   ];
 }

@@ -268,7 +268,8 @@ function repeatedPhraseWarnings(text: string) {
 
   const repeatedCredentialChecks = [
     { phrase: "NSW Electrical Licence 398937C", maxExpected: 3 },
-    { phrase: "Open Cabler Registration 46691", maxExpected: 4 },
+    { phrase: "Open Cabler Registration 46691", maxExpected: 1 },
+    { phrase: "Open Cabler Registration: 46691", maxExpected: 1 },
     { phrase: "ARCtick Refrigerant Handling Licence", maxExpected: 3 },
   ];
 
