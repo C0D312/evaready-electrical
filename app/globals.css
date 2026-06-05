@@ -5701,3 +5701,132 @@ main.legal-page :is(h1, h2, p, a),
     font-size: 0.58rem !important;
   }
 }
+
+/* Mobile hero van crop fix. This is intentionally the final hero override:
+   one shared mobile framing for every branded van hero, with lighter overlays
+   on the van side and compact trust elements so the vehicle appears early. */
+@media (max-width: 767px) {
+  :root {
+    --mobile-hero-image-position: 66% 31%;
+    --mobile-hero-image-y: -6%;
+    --mobile-hero-image-scale: 1;
+    --mobile-hero-bg-size: auto 84svh;
+  }
+
+  .home-brand-hero,
+  .brand-internal-hero {
+    min-height: clamp(38rem, 90svh, 44rem) !important;
+  }
+
+  .home-brand-hero .brand-hero-image {
+    object-position: var(--mobile-hero-image-position) !important;
+    transform: translate3d(0, var(--mobile-hero-image-y), 0)
+      scale(var(--mobile-hero-image-scale)) !important;
+    filter: saturate(1.18) brightness(1.24) contrast(1.05) !important;
+  }
+
+  .brand-internal-hero,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(2, 8, 20, 0.9) 0%,
+        rgba(2, 8, 20, 0.72) 40%,
+        rgba(2, 8, 20, 0.2) 63%,
+        rgba(2, 8, 20, 0.02) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(2, 8, 20, 0.02) 0%,
+        rgba(2, 8, 20, 0.1) 72%,
+        rgba(2, 8, 20, 0.34) 100%
+      ),
+      linear-gradient(180deg, #020814 0%, #061a3a 52%, #020814 100%) !important;
+  }
+
+  .brand-internal-hero::before,
+  main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white)::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: clamp(4.4rem, 16svh, 7rem) !important;
+    right: clamp(-6.5rem, -18vw, -3rem) !important;
+    bottom: auto !important;
+    left: clamp(0.4rem, 3.5vw, 1.15rem) !important;
+    height: clamp(21rem, 62svh, 32rem) !important;
+    width: auto !important;
+    z-index: 0 !important;
+    background-image: var(--ee-van-image) !important;
+    background-repeat: no-repeat !important;
+    background-position: right top !important;
+    background-size: contain !important;
+    filter: saturate(1.18) brightness(1.24) contrast(1.05) !important;
+    opacity: 0.98 !important;
+    pointer-events: none !important;
+  }
+
+  main .home-brand-hero .home-hero-readability-overlay.absolute.inset-0,
+  .brand-internal-hero > .absolute + .absolute {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(2, 8, 20, 0.9) 0%,
+        rgba(2, 8, 20, 0.72) 40%,
+        rgba(2, 8, 20, 0.2) 63%,
+        rgba(2, 8, 20, 0.02) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(2, 8, 20, 0.02) 0%,
+        rgba(2, 8, 20, 0.1) 72%,
+        rgba(2, 8, 20, 0.34) 100%
+      ) !important;
+  }
+
+  .home-brand-hero > .relative.mx-auto,
+  .brand-internal-hero > .relative.mx-auto,
+  .brand-internal-hero > div.mx-auto {
+    padding-top: clamp(1.15rem, 4vw, 1.8rem) !important;
+    padding-bottom: clamp(4.2rem, 12vw, 5.75rem) !important;
+  }
+
+  .home-brand-hero h1 {
+    font-size: clamp(2.08rem, 9vw, 3.05rem) !important;
+  }
+
+  .brand-internal-hero h1 {
+    font-size: clamp(2rem, 8.8vw, 2.92rem) !important;
+  }
+
+  .home-brand-hero p,
+  .brand-internal-hero p {
+    font-size: clamp(0.95rem, 3.9vw, 1.06rem) !important;
+    line-height: 1.48 !important;
+  }
+
+  .home-brand-hero .hero-credential-badges,
+  .brand-internal-hero .service-credential-strip {
+    margin-top: 1rem !important;
+  }
+}
+
+@media (max-width: 430px) {
+  :root {
+    --mobile-hero-image-position: 68% 30%;
+    --mobile-hero-image-y: -7%;
+    --mobile-hero-bg-size: auto 82svh;
+  }
+}
+
+@media (max-width: 374px) {
+  :root {
+    --mobile-hero-image-position: 69% 29%;
+    --mobile-hero-image-y: -8%;
+    --mobile-hero-bg-size: auto 80svh;
+  }
+
+  .home-brand-hero,
+  .brand-internal-hero {
+    min-height: clamp(37rem, 88svh, 42rem) !important;
+  }
+}
