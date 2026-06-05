@@ -39,6 +39,19 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: [
+      { url: assetPath("/favicon.ico"), sizes: "any" },
+      { url: assetPath("/icon.png"), sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      {
+        url: assetPath("/apple-icon.png"),
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -59,7 +72,6 @@ export default function RootLayout({
     </html>
   );
 }
-
 
 
 
