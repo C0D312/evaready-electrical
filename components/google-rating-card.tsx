@@ -7,11 +7,15 @@ type GoogleRatingCardProps = {
 };
 
 function getGoogleRatingDisplay() {
-  const rating =
-    typeof business.googleRating === "number" &&
-    Number.isFinite(business.googleRating)
-      ? business.googleRating
-      : null;
+  const rawRating: unknown = business.googleRating;
+  const ratingText =
+    typeof rawRating === "string" && rawRating.trim()
+      ? rawRating.trim()
+      : typeof rawRating === "number" && Number.isFinite(rawRating)
+        ? rawRating.toFixed(1)
+        : null;
+  const ratingValue =
+    ratingText !== null ? Number.parseFloat(ratingText) : null;
   const reviewCount =
     typeof business.googleReviewCount === "number" &&
     Number.isFinite(business.googleReviewCount) &&
@@ -20,9 +24,9 @@ function getGoogleRatingDisplay() {
       : null;
 
   return {
-    rating,
+    ratingValue,
     reviewCount,
-    ratingText: rating !== null ? rating.toFixed(1) : null,
+    ratingText,
     reviewsText:
       reviewCount !== null
         ? `Based on ${reviewCount} Google reviews`
@@ -34,7 +38,7 @@ export function GoogleRatingCard({
   className = "",
   compact = false,
 }: GoogleRatingCardProps) {
-  const { rating, ratingText, reviewsText } = getGoogleRatingDisplay();
+  const { ratingValue, ratingText, reviewsText } = getGoogleRatingDisplay();
   const reviewsHref =
     business.googleReviewsUrl ||
     business.googleBusinessProfileUrl ||
@@ -74,7 +78,9 @@ export function GoogleRatingCard({
                   key={index}
                   className="h-5 w-5"
                   fill={
-                    rating !== null && index < Math.round(rating)
+                    ratingValue !== null &&
+                    Number.isFinite(ratingValue) &&
+                    index < Math.round(ratingValue)
                       ? "currentColor"
                       : "none"
                   }

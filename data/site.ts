@@ -67,7 +67,7 @@ export const business = {
   googleReviewUrl:
     "https://www.google.com/maps/place/EVAREADY+ELECTRICAL/@-33.8174926,150.9319747,10z/data=!3m1!4b1!4m6!3m5!1s0x2c48e6ae7a738d3f:0x11aa41dc360ca1dd!8m2!3d-33.8174926!4d150.9319747!16s%2Fg%2F11ytz9tp5p?entry=ttu&g_ep=EgoyMDI2MDUzMS4wIKXMDSoASAFQAw%3D%3D",
   googleLeaveReviewUrl: "https://g.page/r/Cd2hDDbcQaoREBM/review",
-  googleRating: 5.0,
+  googleRating: "5.0",
   googleReviewCount: 83,
   googleReviewDisplayText: "5.0 from 83 Google reviews",
   bookingUrl:
