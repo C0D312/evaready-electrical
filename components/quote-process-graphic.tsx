@@ -37,16 +37,16 @@ export function QuoteProcessGraphic({ className = "" }: { className?: string }) 
             key={step}
             className="relative rounded-2xl border border-cyan-300/14 bg-white/[0.055] p-4"
           >
-            <div className="flex items-center gap-3">
-              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-black text-white shadow-lg shadow-blue-500/20">
+            <div className="quote-process-step-row flex items-center gap-3">
+              <span className="quote-process-step-number inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-black text-white shadow-lg shadow-blue-500/20">
                 {index + 1}
               </span>
-              <p className="min-w-0 flex-1 text-sm font-black leading-5 text-white">
+              <p className="quote-process-step-text min-w-0 flex-1 text-sm font-black leading-5 text-white">
                 {step}
               </p>
               {index === quoteSteps.length - 1 ? (
                 <CheckCircle2
-                  className="h-5 w-5 shrink-0 text-cyan-200"
+                  className="quote-process-complete-icon h-5 w-5 shrink-0 text-cyan-200"
                   aria-hidden="true"
                 />
               ) : null}

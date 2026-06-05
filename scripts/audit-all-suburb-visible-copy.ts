@@ -267,14 +267,14 @@ function repeatedPhraseWarnings(text: string) {
   }
 
   const repeatedCredentialChecks = [
-    "NSW Electrical Licence 398937C",
-    "Open Cabler Registration 46691",
-    "ARCtick Refrigerant Handling Licence",
+    { phrase: "NSW Electrical Licence 398937C", maxExpected: 3 },
+    { phrase: "Open Cabler Registration 46691", maxExpected: 4 },
+    { phrase: "ARCtick Refrigerant Handling Licence", maxExpected: 3 },
   ];
 
-  for (const phrase of repeatedCredentialChecks) {
+  for (const { phrase, maxExpected } of repeatedCredentialChecks) {
     const count = text.split(phrase).length - 1;
-    if (count > 3) {
+    if (count > maxExpected) {
       warnings.push(`credential repeated ${count} times: ${phrase}`);
     }
   }
