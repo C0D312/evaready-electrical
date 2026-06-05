@@ -76,6 +76,8 @@ Required attributes remain:
 
 ## GitHub
 
-- Main SHA: pending source commit.
-- gh-pages SHA: pending deploy.
-- Final status: PASS, ready to deploy after commit.
+- Main source implementation SHA: `98719bb7f813`
+- gh-pages deploy SHA: `d981a91f5dda`
+- Cache-busted live verification: passed for homepage, emergency, Level 2, services, key Level 2 service pages, service areas, Panania suburb page, sitemap and robots.
+- Normal live URL verification: passed for the same checked routes.
+- Final status: PASS, deployed cleanly to GitHub Pages.
