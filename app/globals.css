@@ -5560,7 +5560,7 @@ main.legal-page :is(h1, h2, p, a),
     border-radius: 1rem !important;
   }
 
-  .quote-process-graphic li span {
+  .quote-process-step-number {
     width: 2rem !important;
     height: 2rem !important;
   }

@@ -46,7 +46,7 @@ export function QuoteProcessGraphic({ className = "" }: { className?: string }) 
               </p>
               {index === quoteSteps.length - 1 ? (
                 <CheckCircle2
-                  className="quote-process-complete-icon h-5 w-5 shrink-0 text-cyan-200"
+                  className="quote-process-complete-icon hidden h-5 w-5 shrink-0 text-cyan-200 md:block"
                   aria-hidden="true"
                 />
               ) : null}

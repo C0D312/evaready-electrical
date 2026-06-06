@@ -113,7 +113,7 @@ export function HeroCredentialBadges({
 }) {
   return (
     <div
-      className={`hero-credential-badges grid gap-2 min-[360px]:grid-cols-3 ${className}`}
+      className={`hero-credential-badges grid gap-2 min-[430px]:grid-cols-2 sm:grid-cols-4 ${className}`}
     >
       {items.map((item) => (
         <div
