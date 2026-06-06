@@ -1,0 +1,8 @@
+{
+  "marker": "site-version",
+  "site": "Evaready Electrical",
+  "deployTarget": "GitHub Pages",
+  "basePath": "/evaready-electrical",
+  "buildDate": "2026-06-06T22:56:45+10:00",
+  "versionNote": "Updated during clean deploy verification. Final Git SHAs are recorded in the deployment summary."
+}
