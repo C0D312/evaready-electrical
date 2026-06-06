@@ -11,6 +11,13 @@ Scope: current built site after approved SEO, local-page, Level 2, emergency, tr
 
 Evaready Electrical now has a stronger technical SEO and lead-generation base than most visible Sydney electrician competitors for emergency, Level 2, service-area and suburb intent. Remaining competitor advantages are mostly off-site authority and real proof assets, not core site structure.
 
+GitHub update status:
+
+- Source report commit: `7ea3d8d3aa Add final domination QA report`
+- GitHub Pages deploy commit: `9dd45f0ead Deploy final domination QA build`
+- Remote `main` and `gh-pages` were checked after push and matched the local commits.
+- Cache-busted and normal public URL verification passed after deployment.
+
 ## Final Comparison Table
 
 | Category | Status | QA result |
@@ -114,6 +121,15 @@ The final mobile cleanup pass fixed the known step/check icon overlap and homepa
 - `npm.cmd run audit:response-times`: PASS, 873 suburbs, 0 hard mismatches.
 - `npm.cmd run lint`: PASS.
 - `npm.cmd run build`: PASS, 1,002 static app routes generated.
+
+## Live Verification
+
+- Cache-busted URLs checked with `?v=9dd45f0ead`: PASS.
+- Normal URLs checked without query strings: PASS.
+- Checked public URLs returned HTTP 200 for homepage, emergency, Level 2, consumer mains, service areas, Panania, privacy, terms, sitemap and robots.
+- No stale/risky strings were found on checked public URLs.
+- Google Ads tag and conversion markers were present on checked HTML pages.
+- Static Google rating card was present on the commercial pages checked. Privacy and terms intentionally do not show the rating card.
 
 ## Generated Output Checks
 
