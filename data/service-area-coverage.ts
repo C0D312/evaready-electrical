@@ -6077,6 +6077,235 @@ function getSydneyCbdLocalContext(
   return sydneyCbdLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+function makeWaverleyLocalContext({
+  accessFocus,
+  commonJobs,
+  emergencySignals,
+  level2Detail,
+  plannedWork,
+  propertyMix,
+  setting,
+  switchboardDetail,
+}: Omit<LocalPageContext, "accessDetail"> & {
+  accessFocus: string;
+}): LocalPageContext {
+  return {
+    accessDetail: `photos of the switchboard, meter box, affected fitting, ${accessFocus}, access notes, parking/loading details, strata/building-manager notes and any defect notice or paperwork`,
+    commonJobs,
+    emergencySignals,
+    level2Detail,
+    plannedWork,
+    propertyMix,
+    setting,
+    switchboardDetail,
+  };
+}
+
+const waverleyLocalContexts: Record<string, LocalPageContext> = {
+  bondi: makeWaverleyLocalContext({
+    accessFocus:
+      "shared meter-room information, beachside apartment entry notes, cafe or restaurant timing and limited parking details",
+    commonJobs:
+      "beachside apartment, strata, home, cafe, restaurant, shop and mixed residential electrical work, shared meter rooms, limited parking, switchboards, hot water faults, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, cafe or restaurant outages, shared meter-room issues, hot water electrical faults, smoke smells, sparking, weather-exposed outdoor power and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, homes, shops and hospitality tenancies",
+    plannedWork:
+      "beachside apartment repairs, strata maintenance, cafe and restaurant power, shop lighting, hot water circuits, switchboard upgrades, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "beachside apartments, strata buildings, homes, cafes, restaurants, shops, shared meter rooms, limited parking, hot water loads and consumer mains",
+    setting: "Bondi beachside apartment, strata, hospitality, shop and home service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, hospitality loads, shop circuits, hot water demand, consumer mains and safety switches",
+  }),
+  "bondi-beach": makeWaverleyLocalContext({
+    accessFocus:
+      "hospitality trading hours, shared access details, outdoor power photos and salt-exposure notes",
+    commonJobs:
+      "beachside apartment, strata, cafe, restaurant, hospitality and outdoor power electrical work, salt and corrosion exposure, shared access, switchboards, hot water electrical, CCTV/data and planned quote work",
+    emergencySignals:
+      "hospitality outages, apartment power loss, weather-exposed outdoor power faults, salt-affected equipment, shared access issues, hot water electrical faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for beachside apartments, strata buildings and hospitality tenancies",
+    plannedWork:
+      "hospitality power, cafe and restaurant lighting, beachside apartment repairs, weather-rated outdoor power, salt-exposure checks, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "beachside apartments, strata buildings, cafes, restaurants, hospitality tenancies, outdoor power, shared access and salt or corrosion exposure",
+    setting: "Bondi Beach beachside apartment, strata, hospitality and outdoor-power service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, hospitality loads, outdoor circuits, salt-exposed equipment, hot water demand and safety switches",
+  }),
+  "bondi-junction": makeWaverleyLocalContext({
+    accessFocus:
+      "retail tenancy contacts, medical suite timing, shared meter-room details and loading access information",
+    commonJobs:
+      "shopping, retail, medical suite, commercial workspace, apartment and strata electrical work, shared meter rooms, loading access, business outages, switchboards, CCTV/data, consumer mains, metering and planned quote work",
+    emergencySignals:
+      "retail outages, medical suite faults, apartment power loss, shared meter-room issues, loading-area faults, business outages, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, strata buildings, retail tenancies and medical suites",
+    plannedWork:
+      "retail lighting, medical suite maintenance, apartment repairs, shared meter-room checks, loading access planning, commercial switchboard upgrades, CCTV/data, consumer mains, metering and planned quote work",
+    propertyMix:
+      "shopping and retail tenancies, medical suites, commercial workspaces, apartments, strata buildings, shared meter rooms, loading access and business outages",
+    setting: "Bondi Junction retail, medical-suite, apartment, strata and commercial service area",
+    switchboardDetail:
+      "shared meter rooms, retail loads, medical suite circuits, apartment boards, commercial switchboards, consumer mains, metering and safety switches",
+  }),
+  bronte: makeWaverleyLocalContext({
+    accessFocus:
+      "coastal access notes, renovation details, weather-exposed outdoor power photos and parking information",
+    commonJobs:
+      "coastal home, apartment, strata, older-home and renovation electrical work, weather-exposed outdoor power, exterior electrical points, hot water circuits, switchboard upgrades, CCTV/data and planned quote work",
+    emergencySignals:
+      "coastal home power loss, apartment faults, weather-exposed outdoor power hazards, exterior electrical faults, hot water electrical faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for coastal homes, apartments, strata buildings and renovated homes",
+    plannedWork:
+      "renovation electrical work, coastal home repairs, apartment and strata maintenance, weather-rated outdoor power, hot water circuits, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "coastal homes, apartments, strata buildings, older homes, renovated homes, weather-exposed outdoor power, exterior electrical points, hot water circuits and parking constraints",
+    setting: "Bronte coastal home, apartment, strata and renovation service area",
+    switchboardDetail:
+      "older boards, apartment switchboards, renovation loads, outdoor circuits, hot water demand, consumer mains and safety switches",
+  }),
+  "dover-heights": makeWaverleyLocalContext({
+    accessFocus:
+      "premium-home entry details, outdoor lighting photos, private service equipment notes and point-of-attachment photos",
+    commonJobs:
+      "premium home, coastal, larger residence and outdoor lighting electrical work, private service equipment, point of attachment, consumer mains, weather-related faults, CCTV/data and planned quote work",
+    emergencySignals:
+      "premium-home power loss, coastal weather faults, outdoor lighting hazards, private service equipment issues, point-of-attachment concerns, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, point of attachment concerns, defect notices and supply-side questions for larger coastal homes",
+    plannedWork:
+      "premium-home electrical work, outdoor lighting, weather-rated outdoor power, private service equipment review, point-of-attachment support, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "premium homes, coastal exposure, larger residences, outdoor lighting, private service equipment, point of attachment concerns and consumer mains",
+    setting: "Dover Heights premium coastal home, outdoor-lighting and private-service-equipment service area",
+    switchboardDetail:
+      "larger residence switchboards, outdoor lighting circuits, private service equipment, consumer mains, metering and safety switches",
+  }),
+  "north-bondi": makeWaverleyLocalContext({
+    accessFocus:
+      "beachside home entry notes, cafe or shop timing, limited parking details and service-equipment photos",
+    commonJobs:
+      "apartment, beachside home, cafe, shop and strata electrical work, outdoor power, weather exposure, urgent power faults, limited parking, Level 2 service equipment, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, beachside home faults, cafe or shop outages, weather-exposed outdoor power hazards, urgent power faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, beachside homes, cafes and shops",
+    plannedWork:
+      "beachside home repairs, apartment and strata maintenance, cafe and shop lighting, weather-rated outdoor power, service-equipment review, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, beachside homes, cafes, shops, strata buildings, outdoor power, weather exposure, limited parking and Level 2 service equipment",
+    setting: "North Bondi beachside home, apartment, cafe, shop and service-equipment service area",
+    switchboardDetail:
+      "apartment boards, beachside home switchboards, cafe and shop loads, outdoor circuits, service equipment, consumer mains and safety switches",
+  }),
+  "queens-park": makeWaverleyLocalContext({
+    accessFocus:
+      "park-edge entry notes, terrace access details, strata access information and outdoor lighting photos",
+    commonJobs:
+      "apartment, terrace, older-home, park-edge and strata electrical work, limited parking, outdoor lighting, switchboards, safety-switch faults, hot water electrical, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, terrace wiring faults, park-edge outdoor lighting hazards, strata shared-power issues, older-home faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, terraces, older homes and strata buildings",
+    plannedWork:
+      "apartment repairs, terrace and older-home electrical work, strata maintenance, outdoor lighting, hot water circuits, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, terraces, older homes, park-edge properties, limited parking, strata access, outdoor lighting, switchboards and safety-switch faults",
+    setting: "Queens Park apartment, terrace, older-home, park-edge and strata service area",
+    switchboardDetail:
+      "older wiring, apartment boards, terrace switchboards, outdoor lighting circuits, hot water demand, consumer mains and safety switches",
+  }),
+  "rose-bay": makeWaverleyLocalContext({
+    accessFocus:
+      "waterfront access notes, private service equipment photos, point-of-attachment photos and strata entry details",
+    commonJobs:
+      "waterfront, coastal home, apartment and strata electrical work, older switchboards, outdoor power, private service equipment, point-of-attachment issues, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "waterfront home power loss, apartment faults, outdoor power hazards, private service equipment issues, point-of-attachment concerns, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, point of attachment concerns, defect notices and supply-side questions for waterfront homes, apartments and strata buildings",
+    plannedWork:
+      "waterfront home electrical work, apartment and strata maintenance, weather-rated outdoor power, private service equipment review, point-of-attachment support, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "waterfront and coastal homes, apartments, strata buildings, older switchboards, outdoor power, private service equipment, point of attachment issues and consumer mains",
+    setting: "Rose Bay waterfront home, apartment, strata and private-service-equipment service area",
+    switchboardDetail:
+      "older switchboards, apartment boards, outdoor circuits, private service equipment, point-of-attachment loads, consumer mains and safety switches",
+  }),
+  tamarama: makeWaverleyLocalContext({
+    accessFocus:
+      "steep or tight access notes, renovation details, weather-exposed outdoor power photos and storm or water fault notes",
+    commonJobs:
+      "coastal home, apartment, renovation and strata electrical work, weather-exposed outdoor power, exterior electrical points, steep or tight access, switchboards, hot water circuits, storm or water-affected faults, CCTV/data and planned quote work",
+    emergencySignals:
+      "coastal home power loss, apartment faults, weather-exposed outdoor power hazards, exterior electrical faults, storm or water-affected electrical issues, hot water electrical faults and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for coastal homes, apartments, renovated homes and strata buildings",
+    plannedWork:
+      "coastal home repairs, apartment maintenance, renovation electrical work, weather-rated outdoor power, hot water circuits, switchboard upgrades, storm or water fault checks, CCTV/data and planned quote work",
+    propertyMix:
+      "coastal homes, apartments, renovated homes, weather-exposed outdoor power, exterior electrical points, steep or tight access, switchboards, hot water circuits and storm or water-affected faults",
+    setting: "Tamarama coastal home, apartment, renovation and weather-exposed service area",
+    switchboardDetail:
+      "coastal home switchboards, apartment boards, renovation loads, outdoor circuits, hot water demand, consumer mains and safety switches",
+  }),
+  vaucluse: makeWaverleyLocalContext({
+    accessFocus:
+      "large-home entry details, waterfront access notes, private service equipment photos and renovation plans",
+    commonJobs:
+      "large home, waterfront, coastal property and renovation electrical work, older electrical infrastructure, outdoor lighting, private service equipment, consumer mains, metering, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "large-home power loss, waterfront or coastal weather faults, older electrical infrastructure concerns, outdoor lighting hazards, private service equipment issues, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, service equipment, defect notices and supply-side questions for large waterfront or coastal homes",
+    plannedWork:
+      "large-home electrical work, renovation support, outdoor lighting, private service equipment review, consumer mains checks, metering support, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "large homes, waterfront and coastal properties, older electrical infrastructure, renovations, outdoor lighting, private service equipment, consumer mains, metering and defect notices",
+    setting: "Vaucluse large-home, waterfront, coastal, renovation and private-service-equipment service area",
+    switchboardDetail:
+      "larger home switchboards, older electrical infrastructure, outdoor lighting circuits, private service equipment, consumer mains, metering and safety switches",
+  }),
+  waverley: makeWaverleyLocalContext({
+    accessFocus:
+      "older-home entry notes, terrace access details, strata access information and local shop timing",
+    commonJobs:
+      "older-home, apartment, terrace, strata and local shop electrical work, switchboards, lighting, power, hot water, safety switches, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "older-home power loss, apartment faults, terrace wiring issues, local shop outages, hot water electrical faults, smoke smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes, apartments, terraces, strata buildings and local shops",
+    plannedWork:
+      "older-home repairs, apartment and strata maintenance, terrace electrical work, local shop lighting, hot water circuits, safety-switch work, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "older homes, apartments, terraces, strata buildings, local shops, switchboards, lighting, power, hot water, safety switches and consumer mains",
+    setting: "Waverley older-home, apartment, terrace, strata and local shop service area",
+    switchboardDetail:
+      "older switchboards, apartment boards, terrace loads, local shop circuits, hot water demand, consumer mains and safety switches",
+  }),
+};
+
+function getWaverleyLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "sydney-city-and-eastern-suburbs" ||
+    coverageArea.slug !== "waverley"
+  ) {
+    return null;
+  }
+
+  return waverleyLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 const burwoodLocalContexts: Record<string, LocalPageContext> = {
   burwood: {
     accessDetail:
@@ -6317,6 +6546,16 @@ function getLocalPageContext(
 
   if (sydneyCbdContext) {
     return sydneyCbdContext;
+  }
+
+  const waverleyContext = getWaverleyLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (waverleyContext) {
+    return waverleyContext;
   }
 
   const burwoodContext = getBurwoodLocalContext(
