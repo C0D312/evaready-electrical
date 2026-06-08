@@ -13,7 +13,9 @@
     "audit:metadata": "tsx scripts/audit-metadata.ts",
     "audit:page-health": "tsx scripts/audit-page-health.ts",
     "audit:response-times": "tsx scripts/audit-response-time-classification.ts",
-    "audit:visible-copy": "tsx scripts/audit-visible-copy.ts"
+    "audit:visible-copy": "tsx scripts/audit-visible-copy.ts",
+    "test:e2e": "playwright test",
+    "test:e2e:report": "playwright show-report"
   },
   "dependencies": {
     "lucide-react": "^1.16.0",
@@ -22,6 +24,7 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@playwright/test": "^1.60.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

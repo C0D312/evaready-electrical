@@ -12,6 +12,12 @@
 
 # testing
 /coverage
+/reports/cross-browser-screenshots/
+/reports/playwright-html-report/
+/reports/playwright-test-results/
+/reports/site-smoke-screenshots/
+/reports/playwright-results.json
+/reports/google-rating-card-homepage-current.png
 
 # next.js
 /.next/
