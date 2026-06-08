@@ -8692,6 +8692,732 @@ function getPenrithLocalContext(
   return penrithLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+function makeHawkesburyLocalContext({
+  accessFocus,
+  commonJobs,
+  emergencySignals,
+  level2Detail,
+  plannedWork,
+  propertyMix,
+  setting,
+  switchboardDetail,
+}: Omit<LocalPageContext, "accessDetail"> & {
+  accessFocus: string;
+}): LocalPageContext {
+  return {
+    accessDetail: `photos of the switchboard, meter box, affected fitting, ${accessFocus}, access notes, gate details, parking/loading details and any defect notice or paperwork`,
+    commonJobs,
+    emergencySignals,
+    level2Detail,
+    plannedWork,
+    propertyMix,
+    setting,
+    switchboardDetail,
+  };
+}
+
+const hawkesburyLocalContexts: Record<string, LocalPageContext> = {
+  "agnes-banks": makeHawkesburyLocalContext({
+    accessFocus:
+      "long driveway details, gate notes, shed or outbuilding photos and outdoor power locations",
+    commonJobs:
+      "acreage and rural-edge home electrical work, shed power, outdoor power, private service equipment, consumer mains, metering, CCTV/data and planned quote work",
+    emergencySignals:
+      "rural-edge power loss, shed or outbuilding faults, outdoor power hazards, storm-affected electrical equipment, private service equipment concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, private poles, point of attachment questions and defect notices for acreage blocks, sheds and long-driveway properties",
+    plannedWork:
+      "acreage repairs, shed and outbuilding power, outdoor power, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "rural-edge homes, acreage blocks, sheds, outdoor power, private service equipment, consumer mains and access/gate notes",
+    setting:
+      "Agnes Banks acreage, rural-edge, shed, outdoor-power and long-driveway service area",
+    switchboardDetail:
+      "acreage switchboards, shed loads, outdoor circuits, private service equipment, consumer mains and safety-switch protection",
+  }),
+  bilpin: makeHawkesburyLocalContext({
+    accessFocus:
+      "mountain access notes, driveway details, shed photos and storm or bushfire-exposure information",
+    commonJobs:
+      "mountain and rural property electrical work, shed power, outdoor circuits, storm fault checks, bushland-edge maintenance, private service equipment, CCTV/data and planned quote work",
+    emergencySignals:
+      "mountain property power loss, storm-damaged equipment, outdoor power hazards, bushland-edge electrical faults, private service equipment concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, private poles, point of attachment questions and supply-side planning for mountain and rural properties",
+    plannedWork:
+      "rural repairs, shed and outdoor circuit work, private service equipment review, storm fault follow-up, CCTV/data and planned quote work",
+    propertyMix:
+      "mountain/rural access, bushfire/storm exposure, long driveways, sheds, outdoor circuits and private service equipment",
+    setting:
+      "Bilpin mountain, rural, bushland-edge, shed and storm-exposure service area",
+    switchboardDetail:
+      "rural switchboards, shed loads, outdoor circuits, private service equipment, consumer mains and storm-exposed equipment",
+  }),
+  "blaxlands-ridge": makeHawkesburyLocalContext({
+    accessFocus:
+      "ridge access notes, long driveway details, gate information and private pole or service equipment photos",
+    commonJobs:
+      "ridge and bushland acreage electrical work, outdoor power, private pole and service equipment review, storm fault checks, switchboards, CCTV/data and planned quote work",
+    emergencySignals:
+      "ridge property power loss, storm faults, outdoor power hazards, private pole or service equipment concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, private poles, service equipment, point of attachment issues and defect notices for ridge and acreage properties",
+    plannedWork:
+      "acreage repairs, private pole and service equipment review, outdoor power, storm fault follow-up, CCTV/data and planned quote work",
+    propertyMix:
+      "ridge/bushland homes, acreage, long access, outdoor power, private poles/service equipment and storm faults",
+    setting:
+      "Blaxlands Ridge acreage, bushland-edge, private-pole and long-access service area",
+    switchboardDetail:
+      "acreage switchboards, outdoor circuits, private poles, service equipment, consumer mains and safety-switch protection",
+  }),
+  "bligh-park": makeHawkesburyLocalContext({
+    accessFocus:
+      "family-property access notes, hot water system details, outdoor power photos and switchboard photos",
+    commonJobs:
+      "family-home electrical work, residential switchboards, safety-switch faults, hot water electrical, outdoor power, consumer mains, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "family-home power loss, hot water electrical faults, outdoor power hazards, switchboard faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for family homes and residential upgrades",
+    plannedWork:
+      "family-home repairs, hot water electrical, outdoor power, switchboard upgrades, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, residential switchboards, safety switches, hot water circuits, outdoor power, consumer mains and defect notices",
+    setting:
+      "Bligh Park family-home, residential-switchboard, hot-water and outdoor-power service area",
+    switchboardDetail:
+      "residential switchboards, hot water demand, outdoor circuits, consumer mains and safety-switch protection",
+  }),
+  "bowen-mountain": makeHawkesburyLocalContext({
+    accessFocus:
+      "mountain access notes, steep driveway details, gate notes and storm fault information",
+    commonJobs:
+      "mountain-access and bushland-edge electrical work, storm fault checks, outdoor power, private service equipment, switchboards, CCTV/data and planned quote work",
+    emergencySignals:
+      "mountain power loss, storm-affected electrical equipment, outdoor power hazards, private service equipment concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, private poles, point of attachment questions and defect notices for steep or long-access properties",
+    plannedWork:
+      "mountain home repairs, outdoor power, storm fault follow-up, private service equipment review, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "mountain access, steep/long driveways, bushland-edge properties, storm faults, outdoor power and private service equipment",
+    setting:
+      "Bowen Mountain mountain-access, steep-driveway, bushland-edge and storm-fault service area",
+    switchboardDetail:
+      "mountain home switchboards, outdoor circuits, private service equipment, consumer mains and storm-exposed equipment",
+  }),
+  clarendon: makeHawkesburyLocalContext({
+    accessFocus:
+      "larger-block access notes, shed photos, outdoor power locations and private service equipment details",
+    commonJobs:
+      "rural/residential electrical work, larger-block maintenance, shed power, outdoor power, private service equipment, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "rural/residential power loss, shed faults, outdoor power hazards, switchboard faults, private service equipment concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for rural/residential properties, sheds and larger blocks",
+    plannedWork:
+      "larger-block repairs, shed power, outdoor power, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "rural/residential mix, larger blocks, sheds, outdoor power, private service equipment and consumer mains",
+    setting:
+      "Clarendon rural-residential, larger-block, shed and private-service-equipment service area",
+    switchboardDetail:
+      "larger-block switchboards, shed loads, outdoor circuits, private service equipment and consumer mains",
+  }),
+  cornwallis: makeHawkesburyLocalContext({
+    accessFocus:
+      "river-flat access notes, flood or storm exposure details, driveway notes and shed photos",
+    commonJobs:
+      "river-flat and rural property electrical work, flood and storm fault checks, outdoor power, shed circuits, long-driveway access, Level 2 service equipment, CCTV/data and planned quote work",
+    emergencySignals:
+      "river-flat power loss, water-affected electrical equipment, storm faults, outdoor power hazards, shed electrical faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, private poles and defect notices for river-flat properties, sheds and long driveways",
+    plannedWork:
+      "river-flat repairs, shed power, outdoor power, service equipment review, flood or storm follow-up, CCTV/data and planned quote work",
+    propertyMix:
+      "river-flat/rural properties, flood/storm exposure, outdoor power, sheds, long driveways and Level 2 service equipment",
+    setting:
+      "Cornwallis river-flat, rural, flood-exposure, shed and service-equipment service area",
+    switchboardDetail:
+      "rural switchboards, shed loads, outdoor circuits, water-exposure checks, service equipment and consumer mains",
+  }),
+  "cumberland-reach": makeHawkesburyLocalContext({
+    accessFocus:
+      "riverfront access notes, gate details, larger-block information and storm or water-affected equipment photos",
+    commonJobs:
+      "riverfront and access-sensitive electrical work, larger-block maintenance, outdoor power, storm and water-affected fault checks, private service equipment, CCTV/data and planned quote work",
+    emergencySignals:
+      "riverfront power loss, water-affected electrical equipment, storm faults, outdoor power hazards, private service equipment concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles, point of attachment questions and defect notices for riverfront and remote-access properties",
+    plannedWork:
+      "riverfront repairs, outdoor power, private service equipment review, storm or water-fault follow-up, CCTV/data and planned quote work",
+    propertyMix:
+      "riverfront/remote access, larger blocks, outdoor power, private service equipment and storm/water-affected electrical",
+    setting:
+      "Cumberland Reach riverfront, remote-access, outdoor-power and water-exposure service area",
+    switchboardDetail:
+      "riverfront switchboards, outdoor circuits, water-exposure concerns, private service equipment and consumer mains",
+  }),
+  "east-kurrajong": makeHawkesburyLocalContext({
+    accessFocus:
+      "acreage or bushland-edge access notes, long driveway details, shed photos and outdoor power locations",
+    commonJobs:
+      "acreage and bushland-edge electrical work, shed power, outdoor power, storm fault checks, private service equipment, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "acreage power loss, bushland-edge storm faults, shed electrical faults, outdoor power hazards, private service equipment concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, private poles, point of attachment questions and defect notices for acreage homes and long-driveway properties",
+    plannedWork:
+      "acreage repairs, shed and outdoor power, storm fault follow-up, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage homes, bushland edge, long driveways, sheds, outdoor power, private service equipment and storm faults",
+    setting:
+      "East Kurrajong acreage, bushland-edge, shed, outdoor-power and storm-fault service area",
+    switchboardDetail:
+      "acreage switchboards, shed loads, outdoor circuits, private service equipment, consumer mains and storm-exposed equipment",
+  }),
+  ebenezer: makeHawkesburyLocalContext({
+    accessFocus:
+      "river-area access notes, acreage details, outdoor power photos and private service equipment information",
+    commonJobs:
+      "rural home, acreage and river-area electrical work, private service equipment, consumer mains, outdoor power, storm and water fault checks, CCTV/data and planned quote work",
+    emergencySignals:
+      "rural home power loss, storm or water-affected faults, outdoor power hazards, private service equipment concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles, point of attachment questions and defect notices for rural and river-area properties",
+    plannedWork:
+      "rural and acreage repairs, outdoor power, private service equipment review, consumer mains checks, storm or water-fault follow-up, CCTV/data and planned quote work",
+    propertyMix:
+      "rural homes, acreage, river-area access, private service equipment, consumer mains, outdoor power and storm/water faults",
+    setting:
+      "Ebenezer rural, acreage, river-area, private-service-equipment and storm-fault service area",
+    switchboardDetail:
+      "rural switchboards, outdoor circuits, private service equipment, consumer mains and water-exposure checks",
+  }),
+  "freemans-reach": makeHawkesburyLocalContext({
+    accessFocus:
+      "river-area access notes, larger-block details, shed photos and flood or storm exposure information",
+    commonJobs:
+      "river-area home and larger-block electrical work, shed circuits, outdoor power, private service equipment, consumer mains, flood and storm fault checks, CCTV/data and planned quote work",
+    emergencySignals:
+      "river-area power loss, flood or storm-affected electrical equipment, shed faults, outdoor power hazards, private service equipment concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, private poles and defect notices for larger blocks, sheds and river-area properties",
+    plannedWork:
+      "larger-block repairs, shed and outdoor power, private service equipment review, consumer mains checks, flood or storm follow-up, CCTV/data and planned quote work",
+    propertyMix:
+      "river-area homes, larger blocks, sheds, outdoor circuits, private service equipment, consumer mains and flood/storm exposure",
+    setting:
+      "Freemans Reach river-area, larger-block, shed, outdoor-power and flood-exposure service area",
+    switchboardDetail:
+      "larger-block switchboards, shed loads, outdoor circuits, private service equipment, consumer mains and water-exposure checks",
+  }),
+  glossodia: makeHawkesburyLocalContext({
+    accessFocus:
+      "family-property or rural-edge access notes, outdoor power photos, hot water details and switchboard photos",
+    commonJobs:
+      "family-home and rural-edge electrical work, larger-block maintenance, outdoor power, hot water electrical, safety-switch faults, switchboards, Level 2 support, CCTV/data and planned quote work",
+    emergencySignals:
+      "family-home power loss, rural-edge faults, outdoor power hazards, hot water electrical issues, switchboard faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for family homes, rural-edge properties and larger blocks",
+    plannedWork:
+      "family-home repairs, outdoor power, hot water electrical, switchboard upgrades, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, rural-edge properties, larger blocks, outdoor power, safety switches, hot water, switchboards and Level 2 support",
+    setting:
+      "Glossodia family-home, rural-edge, larger-block, outdoor-power and hot-water service area",
+    switchboardDetail:
+      "family-home boards, outdoor circuits, hot water demand, consumer mains and safety-switch protection",
+  }),
+  "grose-vale": makeHawkesburyLocalContext({
+    accessFocus:
+      "acreage access notes, long driveway details, shed photos and quote-photo guidance",
+    commonJobs:
+      "acreage and semi-rural home electrical work, shed power, outdoor power, storm fault checks, private service equipment, switchboards, CCTV/data and planned quote work",
+    emergencySignals:
+      "acreage power loss, shed electrical faults, outdoor power hazards, storm-affected electrical equipment, private service equipment concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, private poles and defect notices for acreage homes, long driveways and sheds",
+    plannedWork:
+      "acreage repairs, shed and outdoor power, storm fault follow-up, private service equipment review, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage and semi-rural homes, long access, sheds, outdoor power, private service equipment, storm faults and quote-photo guidance",
+    setting:
+      "Grose Vale acreage, semi-rural, shed, outdoor-power and long-access service area",
+    switchboardDetail:
+      "acreage switchboards, shed loads, outdoor circuits, private service equipment and consumer mains",
+  }),
+  "grose-wold": makeHawkesburyLocalContext({
+    accessFocus:
+      "rural access notes, larger-block details, gate information and outdoor power photos",
+    commonJobs:
+      "rural home and larger-block electrical work, outdoor power, private service equipment, switchboards, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "rural home power loss, larger-block faults, outdoor power hazards, private service equipment concerns, switchboard faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, private poles and defect notices for rural homes, larger blocks and access-sensitive properties",
+    plannedWork:
+      "rural home repairs, outdoor power, private service equipment review, switchboard upgrades, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "rural homes, larger blocks, private service equipment, switchboards, outdoor power and access/gate notes",
+    setting:
+      "Grose Wold rural, larger-block, private-service-equipment and gate-access service area",
+    switchboardDetail:
+      "rural switchboards, outdoor circuits, private service equipment, consumer mains and safety-switch protection",
+  }),
+  hobartville: makeHawkesburyLocalContext({
+    accessFocus:
+      "family-property access notes, older-board photos, hot water details and planned quote notes",
+    commonJobs:
+      "home and family-property electrical work, older switchboards, safety-switch tripping, hot water electrical, lighting, power, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "home power loss, older-switchboard faults, hot water electrical issues, lighting or power faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for homes, older boards and residential upgrades",
+    plannedWork:
+      "home repairs, older-board upgrades, hot water electrical, lighting, power, consumer mains review, CCTV/data and planned quotes",
+    propertyMix:
+      "homes, older switchboards, family properties, safety-switch tripping, hot water, lighting/power, consumer mains and planned quotes",
+    setting:
+      "Hobartville home, family-property, older-switchboard and hot-water service area",
+    switchboardDetail:
+      "older residential switchboards, hot water demand, lighting and power circuits, consumer mains and safety-switch protection",
+  }),
+  kurmond: makeHawkesburyLocalContext({
+    accessFocus:
+      "rural road, long driveway and gate notes, shed photos and storm fault information",
+    commonJobs:
+      "acreage and rural-road electrical work, shed power, outdoor power, storm fault checks, private service equipment, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "acreage power loss, storm-affected electrical equipment, shed faults, outdoor power hazards, private service equipment concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, private poles and defect notices for acreage homes, rural roads, sheds and long driveways",
+    plannedWork:
+      "acreage repairs, shed and outdoor power, storm fault follow-up, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage homes, rural roads, long driveways, outdoor power, sheds, private service equipment, storm faults and consumer mains",
+    setting:
+      "Kurmond acreage, rural-road, long-driveway, shed and storm-fault service area",
+    switchboardDetail:
+      "acreage switchboards, shed loads, outdoor circuits, private service equipment and consumer mains",
+  }),
+  kurrajong: makeHawkesburyLocalContext({
+    accessFocus:
+      "village, shop or acreage access notes, mountain access details and defect notice photos",
+    commonJobs:
+      "village home, acreage, shop and local business electrical work, mountain access fault finding, storm fault checks, private service equipment, switchboards, consumer mains, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "village power loss, shop or local business outage, storm-affected electrical equipment, mountain access faults, private service equipment concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, private poles, point of attachment questions and defect notices for village homes, shops and acreage properties",
+    plannedWork:
+      "village repairs, shop maintenance, acreage electrical work, private service equipment review, consumer mains checks, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "village homes, acreage, shops/local businesses, mountain access, storm faults, private service equipment, switchboards, consumer mains and defect notices",
+    setting:
+      "Kurrajong village, acreage, local-business, mountain-access and defect-notice service area",
+    switchboardDetail:
+      "village, shop and acreage switchboards, private service equipment, consumer mains, defect notice items and safety-switch protection",
+  }),
+  "kurrajong-heights": makeHawkesburyLocalContext({
+    accessFocus:
+      "mountain or ridge access notes, long driveway details, outdoor power photos and storm damage information",
+    commonJobs:
+      "mountain and ridge home electrical work, outdoor power, storm damage follow-up, bushland-edge maintenance, private service equipment, switchboards, CCTV/data and planned quote work",
+    emergencySignals:
+      "mountain power loss, storm-damaged electrical equipment, outdoor power hazards, private service equipment concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, private poles and point of attachment questions for mountain/ridge homes and long-access properties",
+    plannedWork:
+      "mountain home repairs, outdoor power, private service equipment review, storm damage follow-up, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "mountain/ridge homes, long/steep access, bushland exposure, outdoor power, private service equipment and storm damage",
+    setting:
+      "Kurrajong Heights mountain, ridge, long-access, outdoor-power and storm-damage service area",
+    switchboardDetail:
+      "mountain home switchboards, outdoor circuits, storm-exposed equipment, private service equipment and consumer mains",
+  }),
+  "kurrajong-hills": makeHawkesburyLocalContext({
+    accessFocus:
+      "acreage access notes, long driveway details, private pole or service equipment photos and storm fault details",
+    commonJobs:
+      "acreage electrical work, outdoor circuits, private pole and service equipment review, switchboards, storm fault checks, access-sensitive maintenance, CCTV/data and planned quote work",
+    emergencySignals:
+      "acreage power loss, storm faults, outdoor circuit hazards, private pole or service equipment concerns, switchboard faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, private poles, service equipment, point of attachment issues and defect notices for acreage and long-driveway properties",
+    plannedWork:
+      "acreage repairs, outdoor circuits, private pole and service equipment review, storm fault follow-up, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage, long driveways, outdoor circuits, private poles/service equipment, switchboards, storm faults and access notes",
+    setting:
+      "Kurrajong Hills acreage, long-driveway, private-pole, outdoor-circuit and storm-fault service area",
+    switchboardDetail:
+      "acreage switchboards, outdoor circuits, private poles, service equipment, consumer mains and safety-switch protection",
+  }),
+  "mcgraths-hill": makeHawkesburyLocalContext({
+    accessFocus:
+      "shop, warehouse, workshop or meter-room access notes, loading details and business outage information",
+    commonJobs:
+      "home, shop, commercial, warehouse and workshop electrical work, business outages, switchboards, consumer mains, metering, load checks, CCTV/data and planned quote work",
+    emergencySignals:
+      "home power loss, shop or commercial outages, warehouse and workshop faults, business outages, switchboard concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for homes, shops, warehouses, workshops and commercial properties",
+    plannedWork:
+      "shop and warehouse maintenance, workshop power, commercial switchboard checks, load checks, consumer mains review, metering support, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, shops, commercial/industrial pockets, warehouses/workshops, business outages, switchboards, consumer mains, metering and load checks",
+    setting:
+      "McGraths Hill home, shop, warehouse, workshop, business-outage and load-check service area",
+    switchboardDetail:
+      "commercial switchboards, warehouse and workshop loads, shop demand, load checks, consumer mains and metering",
+  }),
+  mulgrave: makeHawkesburyLocalContext({
+    accessFocus:
+      "warehouse, workshop, logistics or transport-site access notes, loading details and business contact information",
+    commonJobs:
+      "industrial, commercial, warehouse, workshop, transport and logistics electrical work, business outages, commercial switchboards, load checks, CCTV/data, lighting, power and planned quote work",
+    emergencySignals:
+      "industrial power loss, warehouse or workshop outages, logistics-site faults, commercial switchboard concerns, business outages and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for industrial, commercial, warehouse, workshop and transport sites",
+    plannedWork:
+      "warehouse lighting, workshop power, transport and logistics maintenance, commercial switchboard upgrades, load checks, CCTV/data and planned quote work",
+    propertyMix:
+      "industrial/commercial sites, warehouses, workshops, transport/logistics, business outages, commercial switchboards, load checks and CCTV/data",
+    setting:
+      "Mulgrave industrial, commercial, warehouse, workshop, logistics and load-check service area",
+    switchboardDetail:
+      "commercial switchboards, warehouse and workshop loads, logistics-site demand, load checks, consumer mains and metering",
+  }),
+  "north-richmond": makeHawkesburyLocalContext({
+    accessFocus:
+      "shop, local business, river access or rural-edge notes, outdoor power photos and defect notice paperwork",
+    commonJobs:
+      "home, shop, local business and rural-edge electrical work, river access fault finding, outdoor power, switchboards, consumer mains, defect notices, storm and flood fault checks, CCTV/data and planned quote work",
+    emergencySignals:
+      "home power loss, shop or local business outage, river-area storm or flood faults, outdoor power hazards, switchboard concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for homes, shops, local businesses and rural-edge properties",
+    plannedWork:
+      "home repairs, shop and local business maintenance, outdoor power, storm or flood follow-up, switchboard upgrades, consumer mains review, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, shops, local businesses, river access, rural-edge properties, outdoor power, switchboards, consumer mains, defect notices and storm/flood faults",
+    setting:
+      "North Richmond home, shop, rural-edge, river-access and defect-notice service area",
+    switchboardDetail:
+      "home, shop and local business boards, outdoor circuits, consumer mains, defect notices and safety-switch protection",
+  }),
+  oakville: makeHawkesburyLocalContext({
+    accessFocus:
+      "acreage access notes, long driveway details, shed photos and private service equipment information",
+    commonJobs:
+      "acreage and larger-block electrical work, shed power, outdoor power, long-access maintenance, private service equipment, switchboards, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "acreage power loss, shed faults, outdoor power hazards, private service equipment concerns, switchboard faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, private poles and defect notices for acreage homes, larger blocks, sheds and long-access properties",
+    plannedWork:
+      "acreage repairs, shed and outdoor power, private service equipment review, switchboard upgrades, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage homes, larger blocks, sheds, outdoor power, private service equipment, long access, switchboards and consumer mains",
+    setting:
+      "Oakville acreage, larger-block, shed, long-access and private-service-equipment service area",
+    switchboardDetail:
+      "acreage switchboards, shed loads, outdoor circuits, private service equipment, consumer mains and safety-switch protection",
+  }),
+  "pitt-town": makeHawkesburyLocalContext({
+    accessFocus:
+      "growth-area, acreage, new-build or access notes, outdoor power photos and metering details",
+    commonJobs:
+      "growth-area home, acreage, larger-block and new-build electrical work, outdoor power, private service equipment, consumer mains, metering, CCTV/data and planned quote work",
+    emergencySignals:
+      "growth-area power loss, acreage outdoor power hazards, new-build electrical faults, private service equipment concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for growth-area homes, acreage properties, larger blocks and new builds",
+    plannedWork:
+      "growth-area home repairs, acreage maintenance, outdoor power, private service equipment review, consumer mains checks, metering support, CCTV/data and planned quote work",
+    propertyMix:
+      "growth-area homes, acreage properties, larger blocks, new builds, outdoor power, private service equipment, consumer mains, metering and access notes",
+    setting:
+      "Pitt Town growth-area, acreage, new-build, metering and access-sensitive service area",
+    switchboardDetail:
+      "growth-area and acreage switchboards, new-build loads, outdoor circuits, consumer mains and metering",
+  }),
+  "pitt-town-bottoms": makeHawkesburyLocalContext({
+    accessFocus:
+      "river-flat access notes, flood or water exposure details, driveway notes and shed photos",
+    commonJobs:
+      "river-flat property electrical work, flood and water-exposure fault checks, shed power, outdoor power, private service equipment, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "river-flat power loss, water-affected electrical equipment, flood or storm faults, outdoor power hazards, shed electrical faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and defect notices for river-flat properties, sheds and access-sensitive sites",
+    plannedWork:
+      "river-flat repairs, shed and outdoor power, private service equipment review, flood or water-exposure follow-up, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "river-flat properties, flood/water exposure, long access, outdoor power, sheds, private service equipment and consumer mains",
+    setting:
+      "Pitt Town Bottoms river-flat, flood-exposure, shed and private-service-equipment service area",
+    switchboardDetail:
+      "river-flat switchboards, shed loads, outdoor circuits, water-exposure concerns, private service equipment and consumer mains",
+  }),
+  richmond: makeHawkesburyLocalContext({
+    accessFocus:
+      "town-centre, shop, unit, business or meter-room access notes and defect notice paperwork",
+    commonJobs:
+      "town-centre shop, home, unit and local business electrical work, older switchboards, business outages, consumer mains, metering, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "town-centre power loss, shop or business outage, unit electrical faults, older-switchboard concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for town-centre shops, homes, units and local businesses",
+    plannedWork:
+      "shop maintenance, home and unit repairs, business electrical work, older-board upgrades, consumer mains review, metering support, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "town-centre shops, homes, units where relevant, local businesses, older switchboards, business outages, consumer mains, metering and defect notices",
+    setting:
+      "Richmond town-centre, shop, home, unit, local-business and defect-notice service area",
+    switchboardDetail:
+      "town-centre shop, home and unit boards, business loads, consumer mains, metering and safety-switch protection",
+  }),
+  "richmond-lowlands": makeHawkesburyLocalContext({
+    accessFocus:
+      "river-flat access notes, flood or storm exposure details, long driveway notes and shed photos",
+    commonJobs:
+      "rural and river-flat home electrical work, flood and storm fault checks, outdoor power, shed circuits, long-driveway access, private service equipment, CCTV/data and planned quote work",
+    emergencySignals:
+      "river-flat power loss, flood or storm-affected electrical equipment, outdoor power hazards, shed faults, private service equipment concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and defect notices for rural/river-flat homes, sheds and long-driveway properties",
+    plannedWork:
+      "river-flat repairs, shed and outdoor power, storm or flood follow-up, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "rural/river-flat homes, flood/storm exposure, long driveways, outdoor power, sheds and private service equipment",
+    setting:
+      "Richmond Lowlands rural, river-flat, flood-exposure, shed and long-driveway service area",
+    switchboardDetail:
+      "river-flat switchboards, shed loads, outdoor circuits, water-exposure concerns, private service equipment and consumer mains",
+  }),
+  sackville: makeHawkesburyLocalContext({
+    accessFocus:
+      "river-area access notes, long driveway details, outdoor power photos and planned photo guidance",
+    commonJobs:
+      "rural and river-area home electrical work, larger-block maintenance, outdoor power, long-access planning, private service equipment, storm fault checks, CCTV/data and planned quote work",
+    emergencySignals:
+      "river-area power loss, storm-affected electrical equipment, outdoor power hazards, private service equipment concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and defect notices for rural/river-area homes and long-driveway properties",
+    plannedWork:
+      "rural and river-area repairs, outdoor power, private service equipment review, storm fault follow-up, CCTV/data and planned photo-guided quote work",
+    propertyMix:
+      "rural/river-area homes, larger blocks, outdoor power, long driveways, private service equipment, storm faults and planned photo guidance",
+    setting:
+      "Sackville rural, river-area, larger-block, outdoor-power and long-driveway service area",
+    switchboardDetail:
+      "rural switchboards, outdoor circuits, private service equipment, consumer mains and storm-exposed equipment",
+  }),
+  scheyville: makeHawkesburyLocalContext({
+    accessFocus:
+      "rural-edge or acreage access notes, long driveway details, shed photos and outdoor power locations",
+    commonJobs:
+      "rural-edge and acreage electrical work, larger-block maintenance, shed power, outdoor power, private service equipment, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "rural-edge power loss, shed faults, outdoor power hazards, private service equipment concerns, switchboard faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, service equipment and defect notices for rural-edge homes, acreage and sheds",
+    plannedWork:
+      "rural-edge repairs, acreage maintenance, shed and outdoor power, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "rural-edge homes, acreage, larger blocks, private service equipment, sheds, long driveways, outdoor power and consumer mains",
+    setting:
+      "Scheyville rural-edge, acreage, shed, long-driveway and consumer-mains service area",
+    switchboardDetail:
+      "acreage switchboards, shed loads, outdoor circuits, private service equipment and consumer mains",
+  }),
+  "south-windsor": makeHawkesburyLocalContext({
+    accessFocus:
+      "shop, warehouse, workshop or commercial access notes, business outage details and hot water information",
+    commonJobs:
+      "home, shop, industrial, commercial, warehouse and workshop electrical work, business outages, switchboards, hot water electrical, Level 2 service equipment, CCTV/data and planned quote work",
+    emergencySignals:
+      "home power loss, shop or business outage, warehouse and workshop faults, commercial switchboard concerns, hot water electrical faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for homes, shops, warehouses, workshops and commercial properties",
+    plannedWork:
+      "home repairs, shop maintenance, warehouse and workshop power, commercial switchboard checks, hot water electrical, service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, shops, industrial/commercial pockets, warehouses, workshops, business outages, switchboards, hot water and Level 2 service equipment",
+    setting:
+      "South Windsor home, shop, warehouse, workshop, business-outage and hot-water service area",
+    switchboardDetail:
+      "home and commercial switchboards, warehouse and workshop loads, hot water demand, service equipment and consumer mains",
+  }),
+  tennyson: makeHawkesburyLocalContext({
+    accessFocus:
+      "river-area access notes, larger-block details, outdoor power photos and storm or water-exposure information",
+    commonJobs:
+      "river-area home and larger-block electrical work, outdoor power, storm and water-exposure fault checks, private service equipment, switchboards, CCTV/data and planned quote work",
+    emergencySignals:
+      "river-area power loss, storm or water-affected electrical equipment, outdoor power hazards, private service equipment concerns, switchboard faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and defect notices for river-area homes and larger blocks",
+    plannedWork:
+      "river-area repairs, larger-block maintenance, outdoor power, private service equipment review, storm or water-exposure follow-up, CCTV/data and planned quote work",
+    propertyMix:
+      "river-area homes, larger blocks, outdoor power, storm/water exposure, private service equipment, switchboards and access notes",
+    setting:
+      "Tennyson river-area, larger-block, outdoor-power and storm-exposure service area",
+    switchboardDetail:
+      "river-area switchboards, outdoor circuits, water-exposure concerns, private service equipment and consumer mains",
+  }),
+  "the-slopes": makeHawkesburyLocalContext({
+    accessFocus:
+      "acreage access notes, long driveway details, shed or outbuilding photos and safety-first call details",
+    commonJobs:
+      "acreage property electrical work, shed and outbuilding power, outdoor power, storm fault checks, private service equipment, safety-first emergency triage, CCTV/data and planned quote work",
+    emergencySignals:
+      "acreage power loss, shed or outbuilding faults, outdoor power hazards, storm-affected electrical equipment, private service equipment concerns and unsafe symptoms that need call-first triage",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and defect notices for acreage properties, sheds and long-driveway sites",
+    plannedWork:
+      "acreage repairs, shed and outbuilding power, outdoor power, private service equipment review, storm fault follow-up, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage properties, long driveways, sheds/outbuildings, private service equipment, outdoor power, storm faults and safety-first call guidance",
+    setting:
+      "The Slopes acreage, long-driveway, shed, outdoor-power and safety-first service area",
+    switchboardDetail:
+      "acreage switchboards, shed and outbuilding loads, outdoor circuits, private service equipment and consumer mains",
+  }),
+  vineyard: makeHawkesburyLocalContext({
+    accessFocus:
+      "growth-area, rural-edge, shed, industrial or commercial access notes, aircon or EV load details and metering photos",
+    commonJobs:
+      "growth-area, rural-edge, new-estate, shed, industrial and commercial electrical work, aircon and EV load checks, consumer mains, metering, CCTV/data and planned quote work",
+    emergencySignals:
+      "growth-area power loss, industrial or commercial outages, rural-edge faults, shed electrical issues, aircon or EV load problems and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for growth-area properties, new estates, sheds, rural-edge and industrial/commercial pockets",
+    plannedWork:
+      "new-estate maintenance, rural-edge repairs, shed power, industrial and commercial electrical work, aircon and EV load checks, consumer mains review, metering support, CCTV/data and planned quote work",
+    propertyMix:
+      "growth/rural-edge work, new estates, acreage edges, industrial/commercial pockets, sheds, aircon/EV load checks, consumer mains and metering",
+    setting:
+      "Vineyard growth-area, rural-edge, new-estate, shed, industrial and metering service area",
+    switchboardDetail:
+      "growth-area and commercial switchboards, shed loads, aircon and EV demand, consumer mains and metering",
+  }),
+  "wheeny-creek": makeHawkesburyLocalContext({
+    accessFocus:
+      "remote access notes, long driveway details, bushland property information and storm fault photos",
+    commonJobs:
+      "remote rural and bushland property electrical work, long-access fault finding, outdoor power, storm fault checks, private service equipment, switchboards, CCTV/data and planned quote work",
+    emergencySignals:
+      "remote property power loss, bushland storm faults, outdoor power hazards, private service equipment concerns, switchboard faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and defect notices for remote rural and bushland properties",
+    plannedWork:
+      "remote property repairs, outdoor power, private service equipment review, storm fault follow-up, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "remote/rural access, bushland properties, long driveways, storm faults, outdoor power, private service equipment and switchboards",
+    setting:
+      "Wheeny Creek remote, rural, bushland, long-driveway and storm-fault service area",
+    switchboardDetail:
+      "remote property switchboards, outdoor circuits, private service equipment, consumer mains and storm-exposed equipment",
+  }),
+  wilberforce: makeHawkesburyLocalContext({
+    accessFocus:
+      "village, acreage or river-area access notes, outdoor power photos and defect notice paperwork",
+    commonJobs:
+      "village home, rural/acreage property and river-area electrical work, outdoor power, switchboards, consumer mains, defect notices, access-sensitive fault finding, CCTV/data and planned quote work",
+    emergencySignals:
+      "village power loss, rural or acreage faults, river-area storm exposure, outdoor power hazards, switchboard concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, private poles, point of attachment questions and defect notices for village homes, acreage properties and river-area sites",
+    plannedWork:
+      "village repairs, acreage electrical work, outdoor power, switchboard upgrades, consumer mains review, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "village homes, rural/acreage properties, outdoor power, switchboards, consumer mains, defect notices, access notes and river/storm exposure",
+    setting:
+      "Wilberforce village, acreage, river-area, outdoor-power and defect-notice service area",
+    switchboardDetail:
+      "village and acreage switchboards, outdoor circuits, consumer mains, defect notices and private service equipment",
+  }),
+  windsor: makeHawkesburyLocalContext({
+    accessFocus:
+      "town-centre, shop, older-building, office or meter-room access notes and flood or storm exposure details",
+    commonJobs:
+      "town-centre shop, home, older building, office and local business electrical work, business outages, switchboards, consumer mains, metering, defect notices, flood and storm fault checks, CCTV/data and planned quote work",
+    emergencySignals:
+      "town-centre power loss, shop or local business outage, older-building electrical faults, flood or storm exposure, switchboard concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for town-centre shops, homes, older buildings, offices and local businesses",
+    plannedWork:
+      "shop and office maintenance, home repairs, older-building electrical work, switchboard upgrades, consumer mains review, metering support, defect notice paperwork, flood or storm follow-up, CCTV/data and planned quote work",
+    propertyMix:
+      "town-centre shops, homes, older buildings, offices/local businesses, business outages, switchboards, consumer mains, metering, defect notices and flood/storm exposure",
+    setting:
+      "Windsor town-centre, shop, older-building, office, local-business and flood-exposure service area",
+    switchboardDetail:
+      "town-centre shop, office and older-building boards, business loads, consumer mains, metering and flood-exposure checks",
+  }),
+  "windsor-downs": makeHawkesburyLocalContext({
+    accessFocus:
+      "larger-home or acreage-style access notes, outdoor lighting photos, aircon or EV load details and driveway information",
+    commonJobs:
+      "larger-home and acreage-style electrical work, outdoor lighting and power, switchboards, aircon and EV load checks, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "larger-home power loss, acreage-style outdoor power hazards, aircon or EV load issues, switchboard faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for larger homes, acreage-style properties and planned load upgrades",
+    plannedWork:
+      "larger-home repairs, outdoor lighting and power, switchboard capacity checks, aircon and EV load review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "larger homes, acreage-style properties, outdoor lighting/power, switchboards, aircon/EV load checks, consumer mains and access notes",
+    setting:
+      "Windsor Downs larger-home, acreage-style, outdoor-lighting and load-check service area",
+    switchboardDetail:
+      "larger-home switchboards, outdoor lighting and power, aircon and EV demand, consumer mains and safety-switch protection",
+  }),
+  yarramundi: makeHawkesburyLocalContext({
+    accessFocus:
+      "river or bushland-edge access notes, long driveway details, outdoor power photos and planned Level 2 information",
+    commonJobs:
+      "river and bushland-edge home electrical work, long-access fault finding, outdoor power, storm fault checks, private service equipment, switchboards, Level 2 support, CCTV/data and planned quote work",
+    emergencySignals:
+      "river or bushland-edge power loss, storm faults, outdoor power hazards, private service equipment concerns, switchboard faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles, point of attachment questions and defect notices for river/bushland-edge homes and long-access properties",
+    plannedWork:
+      "river and bushland-edge repairs, outdoor power, storm fault follow-up, private service equipment review, switchboard upgrades, Level 2 support, CCTV/data and planned quote work",
+    propertyMix:
+      "river/bushland-edge homes, long access, outdoor power, storm faults, private service equipment, switchboards and planned Level 2 support",
+    setting:
+      "Yarramundi river, bushland-edge, long-access, outdoor-power and Level 2 service area",
+    switchboardDetail:
+      "river and bushland-edge switchboards, outdoor circuits, private service equipment, consumer mains and storm-exposed equipment",
+  }),
+};
+
+function getHawkesburyLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "hills-hawkesbury-and-hornsby" ||
+    coverageArea.slug !== "hawkesbury"
+  ) {
+    return null;
+  }
+
+  return hawkesburyLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 const burwoodLocalContexts: Record<string, LocalPageContext> = {
   burwood: {
     accessDetail:
@@ -8992,6 +9718,16 @@ function getLocalPageContext(
 
   if (penrithContext) {
     return penrithContext;
+  }
+
+  const hawkesburyContext = getHawkesburyLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (hawkesburyContext) {
+    return hawkesburyContext;
   }
 
   const burwoodContext = getBurwoodLocalContext(
