@@ -6832,6 +6832,474 @@ function getCumberlandLocalContext(
   return cumberlandLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+function makeParramattaLocalContext({
+  accessFocus,
+  commonJobs,
+  emergencySignals,
+  level2Detail,
+  plannedWork,
+  propertyMix,
+  setting,
+  switchboardDetail,
+}: Omit<LocalPageContext, "accessDetail"> & {
+  accessFocus: string;
+}): LocalPageContext {
+  return {
+    accessDetail: `photos of the switchboard, meter box, affected fitting, ${accessFocus}, access notes, parking/loading details, strata/building-manager notes and any defect notice or paperwork`,
+    commonJobs,
+    emergencySignals,
+    level2Detail,
+    plannedWork,
+    propertyMix,
+    setting,
+    switchboardDetail,
+  };
+}
+
+const parramattaLocalContexts: Record<string, LocalPageContext> = {
+  carlingford: makeParramattaLocalContext({
+    accessFocus:
+      "school or local shop timing, duplex access details, larger-property entry notes and defect notice paperwork",
+    commonJobs:
+      "home, apartment, school, local shop, duplex and larger-property electrical work, older switchboards, hot water electrical, consumer mains, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "home power loss, apartment faults, local shop outages, older switchboard faults, hot water electrical faults, smoke smells, sparking and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, apartments, schools, local shops, duplexes and larger properties",
+    plannedWork:
+      "home repairs, apartment maintenance, school and local shop electrical work, duplex upgrades, hot water electrical, switchboard upgrades, consumer mains checks, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, apartments, schools, local shops, older switchboards, duplexes, larger properties, hot water faults, consumer mains and defect notice support",
+    setting:
+      "Carlingford home, apartment, school, local shop, duplex and larger-property service area",
+    switchboardDetail:
+      "older switchboards, duplex and larger-property loads, apartment boards, local shop circuits, hot water demand, consumer mains and safety switches",
+  }),
+  clyde: makeParramattaLocalContext({
+    accessFocus:
+      "industrial entry notes, rail or warehouse access details, workshop contact information and load-check notes",
+    commonJobs:
+      "industrial, commercial, warehouse, workshop and rail-access electrical work, commercial switchboards, business outages, lighting, power, CCTV/data, load checks and planned quote work",
+    emergencySignals:
+      "warehouse power loss, workshop faults, commercial outages, rail-access site faults, commercial switchboard issues, smoke smells, sparking and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for industrial sites, commercial buildings, warehouses and workshops",
+    plannedWork:
+      "warehouse lighting, workshop power, commercial maintenance, commercial switchboard upgrades, load checks, CCTV/data, service-equipment review and planned quote work",
+    propertyMix:
+      "industrial and commercial sites, warehouses, workshops, rail and industrial access, commercial switchboards, business outages, lighting, power, CCTV/data and load checks",
+    setting: "Clyde industrial, commercial, warehouse and workshop service area",
+    switchboardDetail:
+      "commercial switchboards, warehouse and workshop loads, industrial equipment demand, lighting and power circuits, consumer mains and safety switches",
+  }),
+  "constitution-hill": makeParramattaLocalContext({
+    accessFocus:
+      "villa or duplex access details, hot water system notes, smoke alarm locations and quote photos",
+    commonJobs:
+      "family-home, villa, duplex and older switchboard electrical work, hot water circuits, safety switches, smoke alarms, lighting, power, CCTV/data and planned quote work",
+    emergencySignals:
+      "family-home power loss, villa or duplex faults, older switchboard issues, hot water electrical faults, smoke smells, sparking and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes, villas and duplexes",
+    plannedWork:
+      "family-home repairs, villa and duplex maintenance, hot water electrical, safety switch work, smoke alarms, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, older switchboards, villas, duplexes, hot water circuits, safety switches, smoke alarms and quote-photo guidance",
+    setting: "Constitution Hill family-home, villa, duplex and older-switchboard service area",
+    switchboardDetail:
+      "older switchboards, family-home loads, villa and duplex circuits, hot water demand, consumer mains and safety switches",
+  }),
+  dundas: makeParramattaLocalContext({
+    accessFocus:
+      "villa or apartment entry notes, strata access details, hot water system notes and service-equipment photos",
+    commonJobs:
+      "older-home, villa, apartment and strata electrical work, switchboards, hot water electrical, lighting, power, safety switches, service-equipment support, CCTV/data and planned quote work",
+    emergencySignals:
+      "older-home power loss, villa faults, apartment or strata outages, hot water electrical faults, switchboard issues, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes, villas, apartments and strata buildings",
+    plannedWork:
+      "older-home repairs, villa and apartment maintenance, strata electrical work, hot water electrical, lighting, power, switchboard upgrades, service-equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "older homes, villas, apartments, strata access, switchboards, hot water, lighting, power, safety switches and service-equipment support",
+    setting: "Dundas older-home, villa, apartment and strata service area",
+    switchboardDetail:
+      "older switchboards, villa and apartment boards, strata meter rooms, hot water demand, service equipment, consumer mains and safety switches",
+  }),
+  "dundas-valley": makeParramattaLocalContext({
+    accessFocus:
+      "sloped driveway details, larger-block access notes, outdoor power photos and private service equipment details",
+    commonJobs:
+      "family-home, larger-block and sloped-access electrical work, outdoor power, switchboards, consumer mains, private service equipment, hot water electrical, CCTV/data and planned quote work",
+    emergencySignals:
+      "family-home power loss, outdoor power hazards, larger-block electrical faults, switchboard issues, hot water electrical faults, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes, larger blocks and private service equipment",
+    plannedWork:
+      "family-home repairs, outdoor power, larger-block electrical work, switchboard upgrades, consumer mains review, private service equipment checks, hot water electrical, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, sloped access, larger blocks, outdoor power, switchboards, consumer mains, private service equipment and access notes",
+    setting: "Dundas Valley family-home, larger-block, outdoor-power and private-service-equipment service area",
+    switchboardDetail:
+      "family-home switchboards, outdoor power, larger-block loads, private service equipment, consumer mains and safety switches",
+  }),
+  eastwood: makeParramattaLocalContext({
+    accessFocus:
+      "station-area access notes, restaurant or shop timing, strata entry details and shared meter-room information",
+    commonJobs:
+      "apartment, shop, restaurant, station-area, older-home and strata electrical work, shared meter rooms, business outages, hot water electrical, switchboards, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, shop or restaurant outages, station-area property faults, shared meter-room issues, older-home faults, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, shops, restaurants, station-area properties and older homes",
+    plannedWork:
+      "apartment repairs, shop and restaurant power, station-area maintenance, older-home electrical work, strata access planning, shared meter-room checks, hot water electrical, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, shops, restaurants, station-area properties, older homes, shared meter rooms, strata access, business outages, hot water and switchboards",
+    setting: "Eastwood apartment, shop, restaurant, station-area and strata service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, restaurant and shop loads, older-home switchboards, hot water demand, consumer mains and safety switches",
+  }),
+  epping: makeParramattaLocalContext({
+    accessFocus:
+      "station-area access notes, school or office timing, shared meter-room details and limited parking information",
+    commonJobs:
+      "apartment, high-density housing, station-area shop, office, school and strata electrical work, shared meter rooms, hot water electrical, consumer mains, switchboards, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, station-area shop outages, office faults, strata shared-power issues, hot water electrical faults, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, high-density housing, shops, offices, schools and strata buildings",
+    plannedWork:
+      "apartment repairs, high-density housing maintenance, station-area shop lighting, office electrical work, school electrical support, strata work, shared meter-room checks, hot water electrical, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, high-density housing, station-area shops, offices, schools, strata, shared meter rooms, limited parking, hot water faults and consumer mains",
+    setting: "Epping apartment, high-density housing, station-area shop, office and strata service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, office and shop loads, hot water demand, consumer mains, metering and safety switches",
+  }),
+  ermington: makeParramattaLocalContext({
+    accessFocus:
+      "riverside or industrial-pocket access notes, strata entry details, outdoor power photos and shared access information",
+    commonJobs:
+      "home, apartment, riverside, strata and industrial-pocket electrical work, outdoor power, switchboards, hot water electrical, shared access, service equipment, CCTV/data and planned quote work",
+    emergencySignals:
+      "home power loss, apartment faults, riverside or industrial-pocket outages, outdoor power hazards, shared-access faults, hot water electrical faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, apartments, strata buildings and industrial-pocket sites",
+    plannedWork:
+      "home repairs, apartment maintenance, riverside property work, industrial-pocket electrical work, outdoor power, strata electrical work, hot water electrical, switchboard upgrades, service-equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, apartments, riverside and industrial pockets, outdoor power, switchboards, hot water, strata, shared access and planned Level 2 enquiries",
+    setting: "Ermington home, apartment, riverside, strata and industrial-pocket service area",
+    switchboardDetail:
+      "home and apartment switchboards, shared access areas, outdoor power, hot water demand, service equipment, consumer mains and safety switches",
+  }),
+  granville: makeParramattaLocalContext({
+    accessFocus:
+      "restaurant or shop timing, warehouse or workshop access details, shared meter-room information and defect notice paperwork",
+    commonJobs:
+      "apartment, shop, restaurant, older-home, warehouse, workshop and strata electrical work, commercial faults, shared meter rooms, switchboards, consumer mains, metering, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, shop or restaurant outages, warehouse or workshop faults, older-home electrical issues, shared meter-room concerns, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, shops, restaurants, older homes, warehouses and workshops",
+    plannedWork:
+      "apartment repairs, shop and restaurant power, older-home maintenance, warehouse lighting, workshop power, commercial fault follow-up, shared meter-room checks, switchboard upgrades, consumer mains review, metering support, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, shops, restaurants, older homes, warehouses and workshops, commercial faults, shared meter rooms, switchboards, consumer mains, metering and defect notices",
+    setting: "Granville apartment, shop, restaurant, older-home, warehouse and workshop service area",
+    switchboardDetail:
+      "shared meter rooms, commercial switchboards, warehouse and workshop loads, older-home boards, restaurant and shop circuits, consumer mains, metering and safety switches",
+  }),
+  "harris-park": makeParramattaLocalContext({
+    accessFocus:
+      "restaurant or shop trading hours, strata entry notes, shared meter-room details and parking information",
+    commonJobs:
+      "restaurant, shop, apartment, strata and older-wiring electrical work, shared meter rooms, after-hours business faults, hot water electrical, switchboards, lighting, power, CCTV/data and planned quote work",
+    emergencySignals:
+      "restaurant outages, shop faults, apartment power loss, shared meter-room issues, older wiring concerns, after-hours business faults, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for restaurants, shops, apartments, strata buildings and older properties",
+    plannedWork:
+      "restaurant and shop power, apartment repairs, strata maintenance, older-wiring checks, shared meter-room work, hot water electrical, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "restaurants, shops, apartments, strata, older wiring, shared meter rooms, after-hours business faults, hot water circuits and parking/access notes",
+    setting: "Harris Park restaurant, shop, apartment, strata and older-wiring service area",
+    switchboardDetail:
+      "shared meter rooms, restaurant and shop loads, apartment boards, older-wiring checks, hot water demand, consumer mains and safety switches",
+  }),
+  "mays-hill": makeParramattaLocalContext({
+    accessFocus:
+      "villa or apartment access details, rental access notes, hot water system notes and quote photos",
+    commonJobs:
+      "home, apartment, villa and rental maintenance electrical work, switchboards, safety-switch faults, hot water electrical, lighting, power, CCTV/data and planned quote work",
+    emergencySignals:
+      "home power loss, apartment or villa faults, rental maintenance issues, switchboard faults, hot water electrical faults, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, apartments, villas and rental properties",
+    plannedWork:
+      "home repairs, apartment and villa maintenance, rental electrical work, hot water electrical, safety switch work, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, apartments, villas, rental maintenance, switchboards, safety-switch faults, hot water circuits and quote-photo guidance",
+    setting: "Mays Hill home, apartment, villa, rental and hot-water service area",
+    switchboardDetail:
+      "home, apartment and villa switchboards, rental maintenance loads, hot water demand, consumer mains and safety switches",
+  }),
+  "melrose-park": makeParramattaLocalContext({
+    accessFocus:
+      "new-development access notes, industrial or commercial entry details, shared meter-room information and parking notes",
+    commonJobs:
+      "new-development, apartment, strata, industrial-pocket and commercial electrical work, switchboards, shared meter rooms, hot water electrical, load checks, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, strata shared-power issues, industrial or commercial outages, shared meter-room faults, hot water electrical faults, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for new developments, apartments, strata buildings and industrial or commercial pockets",
+    plannedWork:
+      "new-development electrical work, apartment repairs, strata maintenance, industrial and commercial electrical work, shared meter-room checks, hot water electrical, switchboard upgrades, load checks, CCTV/data and planned quote work",
+    propertyMix:
+      "new developments, apartments, strata, industrial and commercial pockets, switchboards, shared meter rooms, hot water, load checks and access/parking notes",
+    setting: "Melrose Park new-development, apartment, strata, industrial and commercial service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, industrial and commercial loads, hot water demand, load checks, consumer mains and safety switches",
+  }),
+  newington: makeParramattaLocalContext({
+    accessFocus:
+      "estate-style access notes, parking or loading details, shared access information and hot water system notes",
+    commonJobs:
+      "apartment, estate-style strata and shared-access electrical work, hot water faults, switchboards, common-area lighting, service equipment, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, strata shared-power issues, estate-style access faults, hot water electrical faults, common-area lighting faults, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments and estate-style strata buildings",
+    plannedWork:
+      "apartment repairs, estate-style strata maintenance, shared-access work, parking or loading access planning, hot water electrical, common-area lighting, switchboard upgrades, service-equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, estate-style strata, shared access, parking/loading notes, hot water faults, switchboards, common-area lighting and service equipment",
+    setting: "Newington apartment, estate-style strata, shared-access and common-area service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, common-area lighting loads, hot water demand, service equipment, consumer mains and safety switches",
+  }),
+  "north-parramatta": makeParramattaLocalContext({
+    accessFocus:
+      "medical or office suite timing, shared meter-room details, strata entry notes and business-critical access information",
+    commonJobs:
+      "apartment, medical suite, office suite, older-home and strata electrical work, shared meter rooms, switchboard upgrades, business-critical faults, hot water electrical, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, medical or office suite faults, older-home electrical issues, shared meter-room concerns, business-critical faults, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, medical or office suites, older homes and strata buildings",
+    plannedWork:
+      "apartment repairs, medical and office suite electrical work, older-home maintenance, strata electrical work, shared meter-room checks, switchboard upgrades, business-critical follow-up, hot water electrical, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, medical and office suites, older homes, strata, shared meter rooms, switchboard upgrades, business-critical faults, hot water and Level 2 consumer mains",
+    setting: "North Parramatta apartment, medical suite, office suite, older-home and strata service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, medical and office suite circuits, older-home switchboards, hot water demand, consumer mains and safety switches",
+  }),
+  "north-rocks": makeParramattaLocalContext({
+    accessFocus:
+      "shopping or local business timing, family-home entry notes, strata access details and aircon load information",
+    commonJobs:
+      "shopping, local business, family-home and strata electrical work, older switchboards, business outages, hot water electrical, aircon load checks, switchboards, CCTV/data and planned quote work",
+    emergencySignals:
+      "local business outages, shopping-area faults, family-home power loss, strata shared-power issues, older switchboard faults, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for shops, local businesses, family homes and strata buildings",
+    plannedWork:
+      "shopping and local business electrical work, family-home repairs, strata maintenance, switchboard upgrades, hot water electrical, aircon load checks, CCTV/data and planned quote work",
+    propertyMix:
+      "shopping and local business context, family homes, older switchboards, strata, business outages, switchboards, hot water, aircon load checks and access notes",
+    setting: "North Rocks shopping, local business, family-home and strata service area",
+    switchboardDetail:
+      "shop and local business loads, family-home switchboards, strata boards, hot water demand, aircon load checks, consumer mains and safety switches",
+  }),
+  northmead: makeParramattaLocalContext({
+    accessFocus:
+      "medical or local business timing, unit access notes, older-board photos and consumer mains details",
+    commonJobs:
+      "home, unit, shop, medical and local business electrical work, older boards, safety-switch faults, switchboard upgrades, consumer mains, hot water electrical, CCTV/data and planned quote work",
+    emergencySignals:
+      "home power loss, unit faults, shop or medical suite outages, local business faults, older board issues, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, units, shops, medical suites and local businesses",
+    plannedWork:
+      "home repairs, unit maintenance, shop and medical suite electrical work, local business power, older-board upgrades, safety-switch work, consumer mains review, hot water electrical, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, units, shops, medical and local business properties, older boards, safety-switch tripping, switchboard upgrades and consumer mains",
+    setting: "Northmead home, unit, shop, medical suite and local business service area",
+    switchboardDetail:
+      "older boards, home and unit switchboards, shop and medical suite circuits, consumer mains, hot water demand and safety switches",
+  }),
+  oatlands: makeParramattaLocalContext({
+    accessFocus:
+      "driveway access notes, renovation details, outdoor power photos and private service equipment information",
+    commonJobs:
+      "larger-home, premium residential, renovation and outdoor power electrical work, private service equipment, consumer mains, switchboards, hot water electrical, CCTV/data and planned quote work",
+    emergencySignals:
+      "larger-home power loss, renovation electrical faults, outdoor power hazards, private service equipment issues, switchboard faults, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for larger homes, premium residential sites, renovations and private service equipment",
+    plannedWork:
+      "larger-home repairs, premium residential maintenance, renovation electrical work, outdoor power, private service equipment checks, consumer mains review, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "larger homes, premium residential properties, outdoor power, renovations, private service equipment, consumer mains, switchboards and driveway/access notes",
+    setting: "Oatlands larger-home, premium residential, renovation and private-service-equipment service area",
+    switchboardDetail:
+      "residential switchboards, renovation loads, outdoor power, private service equipment, consumer mains and safety switches",
+  }),
+  "old-toongabbie": makeParramattaLocalContext({
+    accessFocus:
+      "villa or rental access details, hot water system notes, smoke alarm locations and defect notice paperwork",
+    commonJobs:
+      "older-home, villa and rental maintenance electrical work, switchboards, hot water electrical, safety switches, smoke alarms, defect notice support, CCTV/data and planned quote work",
+    emergencySignals:
+      "older-home power loss, villa faults, rental maintenance issues, hot water electrical faults, switchboard faults, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes, villas and rental properties",
+    plannedWork:
+      "older-home repairs, villa maintenance, rental electrical work, switchboard upgrades, hot water electrical, safety switch work, smoke alarms, defect notice support, CCTV/data and planned quote work",
+    propertyMix:
+      "older homes, villas, rental maintenance, switchboards, hot water, safety switches, smoke alarms and Level 2 defect notice support",
+    setting: "Old Toongabbie older-home, villa, rental and defect-notice service area",
+    switchboardDetail:
+      "older switchboards, villa and rental-property loads, hot water demand, defect notice follow-up, consumer mains and safety switches",
+  }),
+  parramatta: makeParramattaLocalContext({
+    accessFocus:
+      "CBD loading or parking details, office or restaurant timing, strata tower access notes and shared meter-room information",
+    commonJobs:
+      "CBD apartment, office, restaurant, retail, commercial building and strata tower electrical work, shared meter rooms, business outages, loading and parking access, switchboards, consumer mains, metering, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "CBD apartment power loss, office faults, restaurant or retail outages, commercial building faults, strata tower shared-power issues, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for CBD apartments, offices, restaurants, retail tenancies, commercial buildings and strata towers",
+    plannedWork:
+      "CBD apartment repairs, office and restaurant power, retail electrical work, commercial building maintenance, strata tower work, shared meter-room checks, loading and parking access planning, switchboard upgrades, consumer mains review, metering support, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "CBD apartments, offices, restaurants, retail, commercial buildings, strata towers, shared meter rooms, business outages, loading/parking, switchboards, consumer mains, metering and defect notices",
+    setting: "Parramatta CBD apartment, office, restaurant, retail, commercial and strata tower service area",
+    switchboardDetail:
+      "shared meter rooms, commercial switchboards, office and restaurant loads, retail circuits, apartment boards, consumer mains, metering and safety switches",
+  }),
+  rosehill: makeParramattaLocalContext({
+    accessFocus:
+      "hotel, event-area or warehouse access notes, business timing details and service-equipment photos",
+    commonJobs:
+      "apartment, hotel, event-area, local commercial, warehouse and service-equipment electrical work, business outages, switchboards, hot water electrical, Level 2 support, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, hotel or event-area faults, local commercial outages, warehouse electrical issues, business outages, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, hotels, event-area properties, local commercial sites and warehouses",
+    plannedWork:
+      "apartment repairs, hotel or event-area electrical work, local commercial maintenance, warehouse lighting, switchboard upgrades, hot water electrical, service-equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, hotels, event-area and local commercial properties, warehouses, event-area access where relevant, business outages, switchboards and Level 2 support",
+    setting: "Rosehill apartment, hotel, event-area, local commercial and warehouse service area",
+    switchboardDetail:
+      "hotel and commercial switchboards, apartment boards, warehouse loads, event-area access needs, service equipment, consumer mains and safety switches",
+  }),
+  rydalmere: makeParramattaLocalContext({
+    accessFocus:
+      "industrial estate entry notes, warehouse or workshop access details, office timing and load-check notes",
+    commonJobs:
+      "industrial estate, warehouse, workshop, office and apartment electrical work, business outages, commercial switchboards, three-phase and load checks, CCTV/data, lighting, power and Level 2 supply-side work",
+    emergencySignals:
+      "industrial estate outages, warehouse or workshop faults, office electrical issues, apartment power loss, commercial switchboard faults, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for industrial estates, warehouses, workshops, offices and apartments",
+    plannedWork:
+      "industrial estate maintenance, warehouse lighting, workshop power, office electrical work, apartment repairs, commercial switchboard upgrades, three-phase and load checks, CCTV/data, supply-side review and planned quote work",
+    propertyMix:
+      "industrial estates, warehouses, workshops, offices, apartments, business outages, commercial switchboards, three-phase and load checks, CCTV/data and Level 2 supply-side work",
+    setting: "Rydalmere industrial estate, warehouse, workshop, office and apartment service area",
+    switchboardDetail:
+      "commercial switchboards, warehouse and workshop loads, office circuits, apartment boards, three-phase and load checks, consumer mains and safety switches",
+  }),
+  silverwater: makeParramattaLocalContext({
+    accessFocus:
+      "warehouse, logistics, factory or workshop access details, loading notes and load-check information",
+    commonJobs:
+      "warehouse, logistics, factory, workshop and commercial electrical work, commercial switchboards, business outages, load checks, CCTV/data, lighting, power and emergency make-safe support",
+    emergencySignals:
+      "warehouse power loss, logistics site outages, factory faults, workshop electrical issues, commercial switchboard faults, smoke smells, sparking and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for warehouses, logistics sites, factories, workshops and commercial properties",
+    plannedWork:
+      "warehouse lighting, logistics site power, factory maintenance, workshop electrical work, commercial switchboard upgrades, load checks, CCTV/data, lighting, power and planned quote work",
+    propertyMix:
+      "warehouses, logistics, factories, workshops, commercial switchboards, business outages, load checks, CCTV/data, lighting, power and emergency make-safe wording",
+    setting: "Silverwater warehouse, logistics, factory, workshop and commercial service area",
+    switchboardDetail:
+      "commercial switchboards, warehouse and factory loads, workshop power, logistics site demand, load checks, consumer mains and safety switches",
+  }),
+  "sydney-olympic-park": makeParramattaLocalContext({
+    accessFocus:
+      "event precinct access notes, hotel or office timing, loading access details and strata entry information",
+    commonJobs:
+      "apartment, event precinct, commercial building, hotel, office and strata electrical work, business outages, loading access, switchboards, after-hours faults, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, event precinct faults, hotel or office outages, commercial building faults, strata shared-power issues, business outages and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, event precinct properties, commercial buildings, hotels, offices and strata buildings",
+    plannedWork:
+      "apartment repairs, event precinct electrical work, hotel and office power, commercial building maintenance, strata electrical work, loading access planning, switchboard upgrades, after-hours fault follow-up, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, event precinct, commercial buildings, stadium and event access, hotels and offices, business outages, loading access, strata, switchboards and after-hours faults",
+    setting: "Sydney Olympic Park apartment, event precinct, commercial building, hotel, office and strata service area",
+    switchboardDetail:
+      "commercial switchboards, apartment boards, hotel and office loads, event precinct access needs, strata meter rooms, consumer mains and safety switches",
+  }),
+  telopea: makeParramattaLocalContext({
+    accessFocus:
+      "redevelopment or new-housing access notes, older-home entry details, hot water system notes and consumer mains photos",
+    commonJobs:
+      "apartment, redevelopment, new-housing and older-home electrical work, switchboards, hot water electrical, safety switches, access notes, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, redevelopment or new-housing faults, older-home electrical issues, hot water electrical faults, switchboard faults, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, redevelopment properties, new housing and older homes",
+    plannedWork:
+      "apartment repairs, redevelopment electrical work, new-housing maintenance, older-home repairs, switchboard upgrades, hot water electrical, safety switch work, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, redevelopment and new housing, older homes, switchboards, hot water, safety switches, access notes and consumer mains support",
+    setting: "Telopea apartment, redevelopment, new-housing and older-home service area",
+    switchboardDetail:
+      "apartment boards, redevelopment and new-housing loads, older-home switchboards, hot water demand, consumer mains and safety switches",
+  }),
+  "wentworth-point": makeParramattaLocalContext({
+    accessFocus:
+      "carpark or loading access details, building-manager notes, shared meter-room information and common-area details",
+    commonJobs:
+      "high-rise apartment, strata tower and shared-meter-room electrical work, building-manager access, carpark/loading access, hot water faults, common-area lighting, switchboards, urgent power faults, CCTV/data and planned quote work",
+    emergencySignals:
+      "high-rise apartment power loss, strata tower shared-power issues, hot water electrical faults, common-area lighting faults, switchboard issues, carpark access faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for high-rise apartments, strata towers and shared meter rooms",
+    plannedWork:
+      "high-rise apartment repairs, strata tower maintenance, shared meter-room checks, building-manager coordination, carpark and loading access planning, hot water electrical, common-area lighting, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "high-rise apartments, strata towers, shared meter rooms, building-manager access, carpark/loading access, hot water faults, common-area lighting, switchboards and urgent power faults",
+    setting: "Wentworth Point high-rise apartment, strata tower, shared-meter-room and carpark-access service area",
+    switchboardDetail:
+      "shared meter rooms, high-rise apartment boards, strata tower loads, common-area lighting, hot water demand, consumer mains and safety switches",
+  }),
+};
+
+function getParramattaLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "parramatta-and-cumberland" ||
+    coverageArea.slug !== "parramatta"
+  ) {
+    return null;
+  }
+
+  return parramattaLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 const burwoodLocalContexts: Record<string, LocalPageContext> = {
   burwood: {
     accessDetail:
@@ -7102,6 +7570,16 @@ function getLocalPageContext(
 
   if (cumberlandContext) {
     return cumberlandContext;
+  }
+
+  const parramattaContext = getParramattaLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (parramattaContext) {
+    return parramattaContext;
   }
 
   const burwoodContext = getBurwoodLocalContext(
