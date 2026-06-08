@@ -3250,6 +3250,92 @@ function getCamdenLocalContext(
   return camdenLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+const burwoodLocalContexts: Record<string, LocalPageContext> = {
+  burwood: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, shared meter-room notes, building-manager access details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "apartment and strata electrical work, shopfront and restaurant maintenance, office suite power, older-home repairs, shared meter-room access, business outages, switchboard upgrades, consumer mains, defect notices, metering, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment power loss, shopfront or restaurant outages, shared meter-room issues, burning smells, heat at outlets, sparking and safety-switch faults",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, strata buildings, shops and older homes",
+    plannedWork:
+      "shopfront lighting, restaurant power, office suite electrical work, apartment repairs, strata electrical work, switchboard upgrades, consumer mains review, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "apartments, strata buildings, shops, restaurants, office suites, older homes, shared meter rooms and residential service equipment",
+    setting: "Burwood apartment, strata, shopfront and older-home service area",
+    switchboardDetail:
+      "shared meter rooms, older wiring, strata boards, shop loads, consumer mains, metering, safety switches and clear circuit labelling",
+  },
+  "burwood-heights": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, driveway or villa access notes, hot water details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "family-home electrical work, duplex and villa repairs, older switchboard checks, hot water electrical, lighting and power, safety-switch faults, planned Level 2 enquiries, CCTV/data and general electrical work",
+    emergencySignals:
+      "home power loss, hot water electrical faults, older-board overheating, burning smells, heat at outlets, sparking and safety-switch faults",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and planned supply-side questions for family homes, duplexes and villas",
+    plannedWork:
+      "lighting and power, hot water electrical, switchboard upgrades, safety-switch repairs, smoke alarms, data cabling, CCTV and planned Level 2 quote work",
+    propertyMix:
+      "family homes, duplexes, villas, older switchboards, hot water loads and residential service equipment",
+    setting: "Burwood Heights family-home, duplex and villa service area",
+    switchboardDetail:
+      "older switchboards, hot water loads, lighting and power loads, safety switches, RCBO protection and consumer mains condition",
+  },
+  enfield: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, apartment, villa or rental access notes, parking details and any defect notice or paperwork",
+    commonJobs:
+      "older-home repairs, duplex and villa electrical work, apartment maintenance, rental maintenance, switchboard upgrades, safety-switch faults, hot water electrical, service-equipment support, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "older-home power loss, apartment or rental maintenance hazards, hot water electrical faults, burning smells, heat at outlets, sparking and safety-switch faults",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes, duplexes, villas and apartments",
+    plannedWork:
+      "rental maintenance, switchboard upgrades, safety-switch repairs, hot water electrical, lighting and power, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "older homes, duplexes, villas, apartments, rental properties, shared access sites and residential service equipment",
+    setting: "Enfield older-home, apartment and rental-maintenance service area",
+    switchboardDetail:
+      "older wiring, older switchboards, rental safety needs, hot water loads, safety switches and service equipment condition",
+  },
+  strathfield: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, shared meter-room notes, building-manager access details, school or site contact information, parking details and any defect notice or paperwork",
+    commonJobs:
+      "larger-home electrical work, apartment and strata repairs, school and office suite maintenance, shopfront electrical work, older wiring checks, shared meter-room access, business outages, switchboard upgrades, consumer mains, defect notices, metering, point of attachment support, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "larger-home power loss, apartment or strata shared-power issues, school or shopfront faults, business outages, burning smells, heat at outlets, sparking and safety-switch faults",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for larger homes, strata buildings, schools, shops and office suites",
+    plannedWork:
+      "larger-home upgrades, apartment repairs, strata electrical work, school maintenance, shopfront lighting, office suite power, switchboard upgrades, consumer mains review, point of attachment checks, CCTV/data and planned quote work",
+    propertyMix:
+      "larger homes, apartments, strata buildings, schools, shopfronts, office suites, shared meter rooms and older wiring",
+    setting: "Strathfield larger-home, strata, school and commercial service area",
+    switchboardDetail:
+      "shared meter rooms, older wiring, larger-home loads, school and shop loads, consumer mains, metering, safety switches and point of attachment questions",
+  },
+};
+
+function getBurwoodLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "inner-west-burwood-and-canada-bay" ||
+    coverageArea.slug !== "burwood"
+  ) {
+    return null;
+  }
+
+  return burwoodLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 function getLocalPageContext(
   coverageRegion: CoverageRegion,
   coverageArea: CoverageArea,
@@ -3334,6 +3420,16 @@ function getLocalPageContext(
 
   if (camdenContext) {
     return camdenContext;
+  }
+
+  const burwoodContext = getBurwoodLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (burwoodContext) {
+    return burwoodContext;
   }
 
   if (
