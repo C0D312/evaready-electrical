@@ -12167,6 +12167,365 @@ function getMinnamurraKiamaDownsLocalContext(
   return minnamurraKiamaDownsLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+type ShellharbourContextSeed = {
+  accessFocus: string;
+  emergencyFocus: string;
+  jobFocus: string;
+  level2Focus: string;
+  plannedFocus: string;
+  propertyMix: string;
+  setting: string;
+  switchboardFocus: string;
+};
+
+function makeShellharbourLocalContext({
+  accessFocus,
+  emergencyFocus,
+  jobFocus,
+  level2Focus,
+  plannedFocus,
+  propertyMix,
+  setting,
+  switchboardFocus,
+}: ShellharbourContextSeed): LocalPageContext {
+  return {
+    accessDetail: `photos of the switchboard, meter box, affected fitting, ${accessFocus}, access notes, parking/loading details, gate details and any defect notice or paperwork`,
+    commonJobs: `${jobFocus}, switchboards, fault finding, hot water electrical, air conditioning electrical, CCTV/data, planned quote work and general licensed electrical support`,
+    emergencySignals: `${emergencyFocus}, power loss, storm or water-related electrical faults, weather-exposed outdoor power, heat, smoke, sparking, repeated safety switch trips and call-first safety triage`,
+    level2Detail: `${level2Focus}, consumer mains, private service equipment, point of attachment, metering and defect notices`,
+    plannedWork: `${plannedFocus}, switchboard upgrades, lighting and power, hot water electrical, air conditioning electrical, CCTV/data and planned quote work`,
+    propertyMix,
+    quoteGuidance:
+      "Send photos of the switchboard, meter box, affected fitting, access notes, parking/loading details, gate details and any defect notice or paperwork.",
+    setting,
+    switchboardDetail: `${switchboardFocus}, older switchboards, safety switch protection, coastal or weather-exposed outdoor circuits, private service equipment, consumer mains and metering where relevant`,
+  };
+}
+
+const shellharbourLocalContexts: Record<string, LocalPageContext> = {
+  "albion-park": makeShellharbourLocalContext({
+    accessFocus:
+      "family-home, new-estate, local-shop, outdoor-power and parking/access details",
+    emergencyFocus:
+      "family-home power loss, local-shop outages, outdoor power hazards and hot water electrical faults",
+    jobFocus:
+      "family-home, older-home, new-estate, local-shop, outdoor-power and hot-water electrical work",
+    level2Focus:
+      "supply-side support for homes, local shops, consumer mains and defect notices",
+    plannedFocus:
+      "home repairs, local-shop maintenance, outdoor power, hot water circuits, consumer mains review and defect notice follow-up",
+    propertyMix:
+      "family homes, older homes, new estates, local shops, outdoor power, hot water circuits, switchboards, consumer mains, defect notices and access/parking notes",
+    setting:
+      "Albion Park family-home, new-estate, local-shop, outdoor-power and consumer-mains service area",
+    switchboardFocus:
+      "home and local-shop boards, hot water circuits, outdoor power, consumer mains and future load capacity",
+  }),
+  "albion-park-rail": makeShellharbourLocalContext({
+    accessFocus:
+      "station-area access, industrial or commercial entry notes, workshop, warehouse and operating-hours details",
+    emergencyFocus:
+      "station-area power loss, workshop or warehouse faults, business outages and hot water electrical issues",
+    jobFocus:
+      "station-area, home, workshop, warehouse, commercial, hot-water and CCTV/data electrical work",
+    level2Focus:
+      "supply-side support for homes, workshops, warehouses, business sites and service equipment",
+    plannedFocus:
+      "workshop and warehouse maintenance, CCTV/data, lighting, power, hot water circuits and business electrical planning",
+    propertyMix:
+      "station-area access, industrial/commercial pockets, homes, workshops, warehouses, business outages, switchboards, hot water circuits, CCTV/data and Level 2 support",
+    setting:
+      "Albion Park Rail station-area, workshop, warehouse, business-outage and CCTV/data service area",
+    switchboardFocus:
+      "workshop and warehouse boards, home boards, commercial loads, hot water circuits and CCTV/data capacity",
+  }),
+  "barrack-heights": makeShellharbourLocalContext({
+    accessFocus:
+      "coastal-home, older-home, unit, outdoor-power and storm-exposure notes",
+    emergencyFocus:
+      "coastal-home power loss, unit faults, storm-related fitting issues, hot water electrical faults and safety switch faults",
+    jobFocus:
+      "coastal-home, older-home, family-property, unit, outdoor-power and hot-water electrical work",
+    level2Focus:
+      "supply-side support for coastal homes, older homes, units and consumer mains",
+    plannedFocus:
+      "coastal-home repairs, unit maintenance, outdoor power, hot water circuits and switchboard planning",
+    propertyMix:
+      "coastal homes, older homes, family properties, units, outdoor power, storm-related fittings, hot water faults, switchboards and safety switches",
+    setting:
+      "Barrack Heights coastal-home, older-home, unit, outdoor-power and hot-water service area",
+    switchboardFocus:
+      "older coastal boards, unit loads, hot water circuits, outdoor circuits and safety switch protection",
+  }),
+  "barrack-point": makeShellharbourLocalContext({
+    accessFocus:
+      "coastal/waterfront, apartment/unit, outdoor-power, weather-exposure and point-of-attachment notes",
+    emergencyFocus:
+      "coastal or waterfront power loss, apartment or unit faults, salt/corrosion concerns, storm/water faults and outdoor power hazards",
+    jobFocus:
+      "coastal/waterfront home, apartment/unit, outdoor-power and weather-exposed electrical work",
+    level2Focus:
+      "supply-side support for coastal properties, private service equipment, consumer mains and point-of-attachment concerns",
+    plannedFocus:
+      "coastal repairs, apartment and unit maintenance, outdoor power, private service equipment review and point-of-attachment support",
+    propertyMix:
+      "coastal/waterfront homes, apartments/units, weather-exposed outdoor power, salt/corrosion exposure, storm/water faults, private service equipment, consumer mains and point-of-attachment support",
+    setting:
+      "Barrack Point coastal-waterfront, apartment/unit, weather-exposed and point-of-attachment service area",
+    switchboardFocus:
+      "coastal boards, apartment and unit loads, outdoor circuits, private service equipment and consumer mains",
+  }),
+  blackbutt: makeShellharbourLocalContext({
+    accessFocus:
+      "family-home, townhouse, leafy-street, outdoor-lighting and consumer-mains notes",
+    emergencyFocus:
+      "family-home power loss, townhouse faults, outdoor lighting hazards, hot water electrical issues and safety switch faults",
+    jobFocus:
+      "family-home, townhouse, outdoor-lighting, hot-water and safety-switch electrical work",
+    level2Focus:
+      "supply-side support for homes, townhouses, consumer mains and service equipment",
+    plannedFocus:
+      "home repairs, townhouse maintenance, outdoor lighting, hot water circuits, safety switch work and consumer mains review",
+    propertyMix:
+      "family homes, townhouses, leafy residential streets, older boards, outdoor lighting, hot water, safety switches, switchboards and consumer mains",
+    setting:
+      "Blackbutt family-home, townhouse, outdoor-lighting, hot-water and consumer-mains service area",
+    switchboardFocus:
+      "family-home and townhouse boards, outdoor lighting loads, hot water demand and consumer mains",
+  }),
+  calderwood: makeShellharbourLocalContext({
+    accessFocus:
+      "new-estate, new-home, townhouse, larger-family-home and metering notes",
+    emergencyFocus:
+      "new-home power loss, townhouse faults, aircon or EV load concerns and switchboard capacity issues",
+    jobFocus:
+      "new-estate, new-home, townhouse, aircon/EV load, metering and new-build electrical work",
+    level2Focus:
+      "supply-side support for new homes, townhouses, consumer mains, metering and service equipment",
+    plannedFocus:
+      "new-build support, aircon/EV load checks, switchboard capacity planning, consumer mains and metering enquiries",
+    propertyMix:
+      "new estates, new homes, townhouses, larger family homes, aircon/EV load checks, switchboard capacity, consumer mains, metering and new-build support",
+    setting:
+      "Calderwood new-estate, townhouse, aircon-EV-load, metering and new-build service area",
+    switchboardFocus:
+      "new-home and townhouse boards, switchboard capacity, aircon/EV loads, consumer mains and metering",
+  }),
+  dunmore: makeShellharbourLocalContext({
+    accessFocus:
+      "rural-edge, coastal-access, larger-block, shed/workshop, long-driveway and gate details",
+    emergencyFocus:
+      "larger-block power loss, shed or workshop faults, outdoor power hazards, storm/water faults and long-access issues",
+    jobFocus:
+      "rural-edge, coastal-access, larger-block, shed, workshop, outdoor-power and access-sensitive electrical work",
+    level2Focus:
+      "supply-side support for larger blocks, sheds, workshops, private service equipment and consumer mains",
+    plannedFocus:
+      "shed and workshop power, outdoor circuits, private service equipment review, consumer mains and access/gate planning",
+    propertyMix:
+      "rural-edge/coastal-access properties, larger blocks, sheds/workshops where relevant, outdoor power, long driveways, private service equipment, storm/water faults and access/gate notes",
+    setting:
+      "Dunmore rural-edge, coastal-access, shed/workshop, long-driveway and private-service-equipment service area",
+    switchboardFocus:
+      "larger-block boards, shed and workshop loads, outdoor circuits, private service equipment and consumer mains",
+  }),
+  flinders: makeShellharbourLocalContext({
+    accessFocus:
+      "family-home, townhouse, local-shop, outdoor-power and aircon-circuit notes",
+    emergencyFocus:
+      "family-home power loss, local-shop outages, outdoor power hazards, aircon circuit faults, hot water electrical issues and safety switch faults",
+    jobFocus:
+      "family-home, townhouse, local-shop, outdoor-power, aircon-circuit and hot-water electrical work",
+    level2Focus:
+      "supply-side support for homes, townhouses, local shops, consumer mains and service equipment",
+    plannedFocus:
+      "home repairs, townhouse maintenance, local-shop electrical work, outdoor power, hot water and aircon circuits",
+    propertyMix:
+      "family homes, townhouses, local shops, older switchboards, outdoor power, hot water faults, aircon circuits, safety switches and consumer mains",
+    setting:
+      "Flinders family-home, townhouse, local-shop, outdoor-power and aircon-circuit service area",
+    switchboardFocus:
+      "home and townhouse boards, local-shop loads, outdoor circuits, hot water and aircon circuit capacity",
+  }),
+  "lake-illawarra": makeShellharbourLocalContext({
+    accessFocus:
+      "lake/coastal, home, unit, apartment, strata, outdoor-power and parking notes",
+    emergencyFocus:
+      "lake/coastal power loss, unit or apartment faults, strata issues, storm/water-related electrical hazards and hot water electrical faults",
+    jobFocus:
+      "lake/coastal home, unit, apartment, strata, outdoor-power and hot-water electrical work",
+    level2Focus:
+      "supply-side support for lake-side homes, units, apartments, strata properties and consumer mains",
+    plannedFocus:
+      "lake-side repairs, unit and apartment maintenance, outdoor power, hot water circuits and switchboard planning",
+    propertyMix:
+      "lake/coastal exposure, homes, units, apartments, strata where relevant, storm/water-related electrical, outdoor power, hot water circuits, switchboards and consumer mains",
+    setting:
+      "Lake Illawarra lake-coastal, home, unit, apartment, strata and outdoor-power service area",
+    switchboardFocus:
+      "lake-side home and unit boards, apartment and strata loads, hot water circuits, outdoor power and consumer mains",
+  }),
+  "mount-warrigal": makeShellharbourLocalContext({
+    accessFocus:
+      "hillside/lake-adjacent, older-switchboard, outdoor-power and access notes",
+    emergencyFocus:
+      "hillside or lake-adjacent power loss, older-board concerns, outdoor power hazards, hot water electrical issues and storm faults",
+    jobFocus:
+      "hillside/lake-adjacent home, older-switchboard, outdoor-power, hot-water and safety-switch electrical work",
+    level2Focus:
+      "supply-side support for hillside or lake-adjacent homes, consumer mains and service equipment",
+    plannedFocus:
+      "home repairs, outdoor power, hot water circuits, safety switch work, consumer mains and Level 2 enquiries",
+    propertyMix:
+      "hillside/lake-adjacent homes, older switchboards, outdoor power, hot water, safety switches, storm faults, consumer mains and Level 2 support",
+    setting:
+      "Mount Warrigal hillside, lake-adjacent, older-board, outdoor-power and consumer-mains service area",
+    switchboardFocus:
+      "older home boards, hillside access considerations, outdoor circuits, hot water demand and consumer mains",
+  }),
+  "north-macquarie": makeShellharbourLocalContext({
+    accessFocus:
+      "rural-edge, acreage-style, shed/outbuilding, long-driveway, private-equipment and gate details",
+    emergencyFocus:
+      "larger-property power loss, shed or outbuilding faults, outdoor power hazards, long-access issues and private service equipment concerns",
+    jobFocus:
+      "rural-edge, acreage-style, shed/outbuilding, outdoor-power, long-driveway and private-service-equipment electrical work",
+    level2Focus:
+      "supply-side support for acreage-style properties, private service equipment, consumer mains and access-sensitive sites",
+    plannedFocus:
+      "shed and outbuilding power, outdoor circuits, private service equipment review, consumer mains and gate/access planning",
+    propertyMix:
+      "rural-edge and acreage-style properties, sheds/outbuildings, outdoor power, long driveways, private service equipment, switchboards, consumer mains and gate/access notes",
+    setting:
+      "North Macquarie rural-edge, acreage-style, shed/outbuilding, long-driveway and gate-access service area",
+    switchboardFocus:
+      "acreage-style boards, shed and outbuilding loads, outdoor circuits, private service equipment and consumer mains",
+  }),
+  "oak-flats": makeShellharbourLocalContext({
+    accessFocus:
+      "home, unit, lake-side, local-shop, hot-water and metering notes",
+    emergencyFocus:
+      "home or unit power loss, local-shop outages, hot water electrical issues, safety switch faults and lake-side outdoor power hazards",
+    jobFocus:
+      "home, unit, lake-side, local-shop, hot-water and safety-switch electrical work",
+    level2Focus:
+      "supply-side support for homes, units, local shops, consumer mains and metering",
+    plannedFocus:
+      "home and unit repairs, local-shop maintenance, hot water circuits, safety switch work, consumer mains and metering enquiries",
+    propertyMix:
+      "homes, units, lake-side properties, local shops, older boards, hot water circuits, safety-switch faults, switchboards, consumer mains and metering",
+    setting:
+      "Oak Flats home, unit, lake-side, local-shop, hot-water and metering service area",
+    switchboardFocus:
+      "home, unit and shop boards, hot water circuits, safety switch protection, consumer mains and metering",
+  }),
+  "shell-cove": makeShellharbourLocalContext({
+    accessFocus:
+      "new-home, apartment, marina/coastal, strata, outdoor-power and parking/loading notes",
+    emergencyFocus:
+      "new-home or apartment power loss, marina/coastal weather exposure, salt/corrosion concerns, hot water electrical faults and switchboard capacity issues",
+    jobFocus:
+      "new-home, apartment, marina/coastal, strata, outdoor-power and hot-water electrical work",
+    level2Focus:
+      "supply-side support for new homes, apartments, strata properties, consumer mains and service equipment",
+    plannedFocus:
+      "new-home repairs, apartment and strata maintenance, outdoor power, switchboard capacity checks, hot water and consumer mains review",
+    propertyMix:
+      "new homes, apartments, marina/coastal access, strata where relevant, weather exposure, salt/corrosion, outdoor power, switchboard capacity, hot water faults, consumer mains and Level 2 support",
+    setting:
+      "Shell Cove new-home, apartment, marina-coastal, strata, outdoor-power and capacity-check service area",
+    switchboardFocus:
+      "new-home and apartment boards, marina/coastal exposure, strata loads, hot water demand and consumer mains",
+  }),
+  shellharbour: makeShellharbourLocalContext({
+    accessFocus:
+      "coastal-home, town-centre, restaurant/cafe, apartment/unit and business-hours notes",
+    emergencyFocus:
+      "coastal-home power loss, town-centre shop or restaurant/cafe outages, apartment or unit faults and weather-exposed outdoor power hazards",
+    jobFocus:
+      "coastal-home, town-centre shop, restaurant/cafe, apartment/unit, business-outage and outdoor-power electrical work",
+    level2Focus:
+      "supply-side support for coastal homes, apartments, units, town-centre businesses, consumer mains, metering and defect notices",
+    plannedFocus:
+      "coastal-home repairs, shop and restaurant/cafe maintenance, apartment and unit work, outdoor power, metering and defect notice follow-up",
+    propertyMix:
+      "coastal homes, town-centre shops, restaurants/cafes, apartments/units, weather-exposed outdoor power, business outages, switchboards, consumer mains, metering and defect notices",
+    setting:
+      "Shellharbour coastal-home, town-centre, shop, restaurant-cafe, apartment/unit and business-outage service area",
+    switchboardFocus:
+      "coastal home boards, apartment and unit loads, shop and hospitality circuits, consumer mains and metering",
+  }),
+  "shellharbour-city-centre": makeShellharbourLocalContext({
+    accessFocus:
+      "shopping/retail, office, medical/retail suite, strata/apartment, loading and parking notes",
+    emergencyFocus:
+      "shopping/retail outages, office or medical suite faults, apartment or strata power loss, lighting and power faults and commercial switchboard issues",
+    jobFocus:
+      "shopping/retail, office, medical/retail suite, strata/apartment, CCTV/data and commercial electrical work",
+    level2Focus:
+      "supply-side support for retail, office, medical, apartment, strata and commercial service equipment",
+    plannedFocus:
+      "retail and office maintenance, medical suite electrical work, CCTV/data, lighting and power, commercial switchboards and loading/parking planning",
+    propertyMix:
+      "shopping/retail, offices, medical/retail suites, strata/apartments, business outages, commercial switchboards, lighting and power faults, CCTV/data, loading/parking notes and Level 2 support",
+    setting:
+      "Shellharbour City Centre retail, office, medical-suite, strata/apartment, CCTV/data and commercial-switchboard service area",
+    switchboardFocus:
+      "commercial switchboards, retail and office loads, apartment and strata boards, lighting and power loads and CCTV/data capacity",
+  }),
+  tullimbar: makeShellharbourLocalContext({
+    accessFocus:
+      "new-estate, family-home, townhouse, aircon/EV-load and metering notes",
+    emergencyFocus:
+      "new-estate power loss, townhouse faults, hot water electrical issues, aircon or EV load concerns and outdoor power hazards",
+    jobFocus:
+      "new-estate, family-home, townhouse, aircon/EV-load, hot-water and outdoor-power electrical work",
+    level2Focus:
+      "supply-side support for new estates, homes, townhouses, consumer mains and metering",
+    plannedFocus:
+      "planned upgrades, aircon/EV load checks, switchboard capacity planning, hot water circuits, outdoor power, consumer mains and metering",
+    propertyMix:
+      "new estates, family homes, townhouses, switchboard capacity, aircon/EV load checks, hot water circuits, outdoor power, consumer mains, metering and planned upgrades",
+    setting:
+      "Tullimbar new-estate, family-home, townhouse, aircon-EV-load and planned-upgrade service area",
+    switchboardFocus:
+      "new-estate boards, townhouse loads, aircon/EV demand, hot water circuits, consumer mains and metering",
+  }),
+  warilla: makeShellharbourLocalContext({
+    accessFocus:
+      "coastal-home, apartment/unit, shop, older-switchboard and outdoor-power notes",
+    emergencyFocus:
+      "coastal-home power loss, apartment or unit faults, shop outages, hot water electrical issues, outdoor power hazards and storm/water faults",
+    jobFocus:
+      "coastal-home, apartment/unit, shop, older-switchboard, hot-water and outdoor-power electrical work",
+    level2Focus:
+      "supply-side support for coastal homes, apartments, units, shops and consumer mains",
+    plannedFocus:
+      "coastal-home repairs, apartment and unit maintenance, shop electrical work, outdoor power, hot water circuits and business outage planning",
+    propertyMix:
+      "coastal homes, apartments/units, shops, older switchboards, hot water circuits, outdoor power, storm/water-related faults, consumer mains and business outage wording",
+    setting:
+      "Warilla coastal-home, apartment/unit, shop, older-board, hot-water and business-outage service area",
+    switchboardFocus:
+      "older coastal boards, apartment and unit loads, shop circuits, hot water demand and consumer mains",
+  }),
+};
+
+function getShellharbourLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "wollongong-and-illawarra" ||
+    coverageArea.slug !== "shellharbour"
+  ) {
+    return null;
+  }
+
+  return shellharbourLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 const burwoodLocalContexts: Record<string, LocalPageContext> = {
   burwood: {
     accessDetail:
@@ -12537,6 +12896,16 @@ function getLocalPageContext(
 
   if (minnamurraKiamaDownsContext) {
     return minnamurraKiamaDownsContext;
+  }
+
+  const shellharbourContext = getShellharbourLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (shellharbourContext) {
+    return shellharbourContext;
   }
 
   const burwoodContext = getBurwoodLocalContext(
