@@ -6306,6 +6306,167 @@ function getWaverleyLocalContext(
   return waverleyLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+function makeWoollahraLocalContext({
+  accessFocus,
+  commonJobs,
+  emergencySignals,
+  level2Detail,
+  plannedWork,
+  propertyMix,
+  setting,
+  switchboardDetail,
+}: Omit<LocalPageContext, "accessDetail"> & {
+  accessFocus: string;
+}): LocalPageContext {
+  return {
+    accessDetail: `photos of the switchboard, meter box, affected fitting, ${accessFocus}, access notes, parking/loading details, strata/building-manager notes and any defect notice or paperwork`,
+    commonJobs,
+    emergencySignals,
+    level2Detail,
+    plannedWork,
+    propertyMix,
+    setting,
+    switchboardDetail,
+  };
+}
+
+const woollahraLocalContexts: Record<string, LocalPageContext> = {
+  "bellevue-hill": makeWoollahraLocalContext({
+    accessFocus:
+      "driveway access notes, large-residence entry details, private service equipment photos and outdoor lighting details",
+    commonJobs:
+      "premium home, large residence, apartment and strata electrical work, older switchboards, private service equipment, consumer mains, metering, outdoor lighting, CCTV/data and planned quote work",
+    emergencySignals:
+      "premium-home power loss, apartment faults, strata shared-power issues, outdoor lighting hazards, private service equipment concerns, smoke smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, service equipment, defect notices and supply-side questions for large homes, apartments and strata buildings",
+    plannedWork:
+      "large-residence electrical work, apartment and strata maintenance, outdoor lighting, private service equipment review, consumer mains checks, metering support, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "premium homes, large residences, apartments, strata buildings, older switchboards, private service equipment, consumer mains, metering, access and driveway notes and outdoor lighting",
+    setting: "Bellevue Hill premium home, large residence, apartment and strata service area",
+    switchboardDetail:
+      "older switchboards, large-home loads, apartment boards, outdoor lighting circuits, private service equipment, consumer mains, metering and safety switches",
+  }),
+  "darling-point": makeWoollahraLocalContext({
+    accessFocus:
+      "waterfront entry notes, shared meter-room information, building-manager contacts and limited parking details",
+    commonJobs:
+      "waterfront apartment, premium home, strata and older-wiring electrical work, shared meter rooms, limited parking, building-manager access, private service equipment, switchboard upgrades, CCTV/data and planned quote work",
+    emergencySignals:
+      "waterfront apartment power loss, premium-home faults, strata shared-power issues, shared meter-room concerns, private service equipment faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, service equipment, defect notices and supply-side questions for waterfront apartments, premium homes and strata buildings",
+    plannedWork:
+      "waterfront apartment repairs, premium-home electrical work, strata maintenance, older wiring checks, private service equipment review, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "waterfront apartments, premium homes, older wiring, strata buildings, shared meter rooms, limited parking, building-manager access and private service equipment",
+    setting: "Darling Point waterfront apartment, premium home, strata and private-service-equipment service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, premium-home switchboards, older wiring, private service equipment, consumer mains and safety switches",
+  }),
+  "double-bay": makeWoollahraLocalContext({
+    accessFocus:
+      "restaurant or cafe timing, boutique tenancy contacts, shared meter-room details and loading or parking notes",
+    commonJobs:
+      "restaurant, cafe, boutique, commercial suite, apartment and strata electrical work, business outages, after-hours faults, shared meter rooms, loading and parking access, switchboards, hot water faults, CCTV/data and commercial maintenance",
+    emergencySignals:
+      "restaurant or cafe outages, boutique power loss, apartment faults, shared meter-room concerns, after-hours business faults, hot water electrical faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, strata buildings, restaurants, cafes, boutiques and commercial suites",
+    plannedWork:
+      "restaurant and cafe power, boutique lighting, commercial suite maintenance, apartment and strata repairs, shared meter-room checks, hot water circuits, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "restaurants, cafes, boutiques, commercial suites, apartments, strata buildings, business outages, after-hours faults, shared meter rooms, loading and parking notes and commercial maintenance",
+    setting: "Double Bay hospitality, boutique, commercial suite, apartment and strata service area",
+    switchboardDetail:
+      "shared meter rooms, hospitality loads, boutique circuits, commercial suite loads, apartment boards, hot water demand, consumer mains and safety switches",
+  }),
+  edgecliff: makeWoollahraLocalContext({
+    accessFocus:
+      "station-area entry notes, medical or retail suite timing, shared meter-room details and parking information",
+    commonJobs:
+      "apartment, strata, station-area, commercial suite, medical suite and retail suite electrical work, older wiring, shared meter rooms, switchboards, hot water faults, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, strata shared-power issues, commercial suite faults, medical or retail suite outages, shared meter-room concerns, hot water electrical faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, strata buildings, commercial suites, medical suites and retail suites",
+    plannedWork:
+      "apartment repairs, strata maintenance, commercial suite power, medical or retail suite lighting, older wiring checks, shared meter-room checks, hot water circuits, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, strata buildings, station-area properties, commercial suites, medical and retail suites, older wiring, shared meter rooms, switchboards, hot water faults and parking access",
+    setting: "Edgecliff apartment, strata, station-area, medical-suite and retail-suite service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, older wiring, commercial suite circuits, medical and retail loads, hot water demand, consumer mains and safety switches",
+  }),
+  "point-piper": makeWoollahraLocalContext({
+    accessFocus:
+      "waterfront entry details, access or security notes, private service equipment photos and point-of-attachment photos",
+    commonJobs:
+      "waterfront home, large residence and premium-home electrical work, private service equipment, point of attachment, consumer mains, metering, outdoor lighting, weather-exposed outdoor power, CCTV/data and planned quote work",
+    emergencySignals:
+      "waterfront home power loss, large-residence faults, private service equipment concerns, point-of-attachment issues, weather-exposed outdoor power hazards, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, point of attachment concerns, service equipment, defect notices and supply-side questions for waterfront homes and large residences",
+    plannedWork:
+      "waterfront home electrical work, large-residence repairs, outdoor lighting, weather-rated outdoor power, private service equipment review, point-of-attachment support, consumer mains checks, metering support, CCTV/data and planned quote work",
+    propertyMix:
+      "waterfront homes, large residences, private service equipment, point of attachment concerns, consumer mains, metering, outdoor lighting, weather-exposed outdoor power and access or security notes",
+    setting: "Point Piper waterfront home, large residence, private-service-equipment and point-of-attachment service area",
+    switchboardDetail:
+      "large-residence switchboards, outdoor lighting circuits, private service equipment, point-of-attachment loads, consumer mains, metering and safety switches",
+  }),
+  "watsons-bay": makeWoollahraLocalContext({
+    accessFocus:
+      "coastal access notes, hospitality timing, salt-exposure details and storm or water fault notes",
+    commonJobs:
+      "coastal home, apartment, cafe, hospitality and residential electrical work, weather-exposed outdoor power, salt and corrosion exposure, switchboards, hot water faults, storm or water-affected electrical issues, CCTV/data and planned quote work",
+    emergencySignals:
+      "coastal home power loss, apartment faults, hospitality outages, weather-exposed outdoor power hazards, salt-affected equipment, storm or water-affected electrical issues, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for coastal homes, apartments and hospitality tenancies",
+    plannedWork:
+      "coastal home repairs, apartment maintenance, cafe and hospitality power, weather-rated outdoor power, salt-exposure checks, hot water circuits, switchboard upgrades, storm or water fault checks, CCTV/data and planned quote work",
+    propertyMix:
+      "coastal homes, apartments, cafes, hospitality tenancies, weather-exposed outdoor power, salt and corrosion exposure, switchboards, hot water faults, storm or water-affected electrical issues and access or parking notes",
+    setting: "Watsons Bay coastal home, apartment, hospitality and weather-exposed service area",
+    switchboardDetail:
+      "coastal home switchboards, apartment boards, hospitality loads, outdoor circuits, salt-exposed equipment, hot water demand, consumer mains and safety switches",
+  }),
+  woollahra: makeWoollahraLocalContext({
+    accessFocus:
+      "terrace entry details, boutique or cafe timing, limited parking information and defect notice paperwork",
+    commonJobs:
+      "terrace home, premium house, apartment, strata, boutique, cafe and older-wiring electrical work, switchboard upgrades, consumer mains, defect notices, metering, limited parking, CCTV/data and planned quote work",
+    emergencySignals:
+      "terrace home power loss, premium-house faults, apartment or strata issues, boutique or cafe outages, older wiring concerns, smoke smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for terrace homes, premium houses, apartments, strata buildings, boutiques and cafes",
+    plannedWork:
+      "terrace home repairs, premium-house electrical work, apartment and strata maintenance, boutique and cafe lighting, older wiring checks, switchboard upgrades, consumer mains review, defect notice paperwork, metering support, CCTV/data and planned quote work",
+    propertyMix:
+      "terrace homes, premium houses, apartments, strata buildings, boutiques, cafes, older wiring, switchboard upgrades, consumer mains, defect notices, metering, limited parking and access notes",
+    setting: "Woollahra terrace, premium-house, apartment, strata, boutique and cafe service area",
+    switchboardDetail:
+      "older wiring, terrace switchboards, premium-house loads, apartment boards, boutique and cafe circuits, consumer mains, metering and safety switches",
+  }),
+};
+
+function getWoollahraLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "sydney-city-and-eastern-suburbs" ||
+    coverageArea.slug !== "woollahra"
+  ) {
+    return null;
+  }
+
+  return woollahraLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 const burwoodLocalContexts: Record<string, LocalPageContext> = {
   burwood: {
     accessDetail:
@@ -6556,6 +6717,16 @@ function getLocalPageContext(
 
   if (waverleyContext) {
     return waverleyContext;
+  }
+
+  const woollahraContext = getWoollahraLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (woollahraContext) {
+    return woollahraContext;
   }
 
   const burwoodContext = getBurwoodLocalContext(
