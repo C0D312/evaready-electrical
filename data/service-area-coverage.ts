@@ -150,12 +150,156 @@ function pick<T>(items: T[], seed: number, offset = 0) {
   return items[mixedSeed % items.length];
 }
 
+const canterburyBankstownCommercialSuburbs = new Set([
+  "bankstown",
+  "birrong",
+  "chester-hill",
+  "condell-park",
+  "greenacre",
+  "kingsgrove",
+  "milperra",
+  "padstow",
+  "potts-hill",
+  "revesby",
+  "villawood",
+  "yagoona",
+]);
+
+const canterburyBankstownStrataSuburbs = new Set([
+  "belfield",
+  "belmore",
+  "campsie",
+  "canterbury",
+  "clemton-park",
+  "lakemba",
+  "mount-lewis",
+  "narwee",
+  "punchbowl",
+  "riverwood",
+  "roselands",
+  "wiley-park",
+]);
+
+const canterburyBankstownHomeSuburbs = new Set([
+  "bass-hill",
+  "beverly-hills",
+  "earlwood",
+  "east-hills",
+  "georges-hall",
+  "lansdowne",
+  "padstow-heights",
+  "panania",
+  "picnic-point",
+  "revesby-heights",
+  "sefton",
+]);
+
+function getCanterburyBankstownLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "canterbury-bankstown-and-inner-south-west" ||
+    coverageArea.slug !== "canterbury-bankstown"
+  ) {
+    return null;
+  }
+
+  if (canterburyBankstownCommercialSuburbs.has(coverageSuburb.slug)) {
+    return {
+      accessDetail:
+        "business hours, loading or warehouse access, tenancy contacts, switchboard photos and any equipment affected by the outage",
+      commonJobs:
+        "commercial fault finding, warehouse lighting, shop power, switchboard upgrades, hot water circuits, CCTV/data and Level 2 enquiries",
+      emergencySignals:
+        "business outages, partial power loss, hot outlets, circuit tripping, damaged equipment circuits and storm or water-affected electrical areas",
+      level2Detail:
+        "consumer mains, service equipment, metering, defect notices, point of attachment issues and supply capacity questions",
+      plannedWork:
+        "warehouse lighting, shop maintenance, extra circuits, data cabling, CCTV, switchboard capacity checks and planned quote work",
+      propertyMix:
+        "homes, shopfronts, commercial tenancies, workshops, warehouses and small business sites",
+      setting: "Canterbury-Bankstown commercial and warehouse service area",
+      switchboardDetail:
+        "older protection, business loads, three-phase questions, safety switches, RCBOs and clearer circuit labelling",
+    };
+  }
+
+  if (canterburyBankstownStrataSuburbs.has(coverageSuburb.slug)) {
+    return {
+      accessDetail:
+        "unit number, strata contact, shopfront access, shared switchboard photos, parking notes and preferred entry details",
+      commonJobs:
+        "unit faults, shared-access switchboards, shopfront maintenance, lighting repairs, power points, smoke alarms, CCTV/data and Level 2 enquiries",
+      emergencySignals:
+        "unit power loss, shared circuit tripping, burning smells, hot outlets, shopfront faults and unsafe common-area electrical issues",
+      level2Detail:
+        "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata supply questions",
+      plannedWork:
+        "strata repairs, shopfront lighting, extra outlets, smoke alarms, data points, CCTV and switchboard upgrade planning",
+      propertyMix:
+        "units, strata buildings, older homes, shopfronts, restaurants, small businesses and shared-access sites",
+      setting: "Canterbury-Bankstown strata, unit and shopfront service area",
+      switchboardDetail:
+        "shared boards, older fuses, crowded enclosures, safety switch protection and tenancy labelling",
+    };
+  }
+
+  if (canterburyBankstownHomeSuburbs.has(coverageSuburb.slug)) {
+    return {
+      accessDetail:
+        "driveway or gate access, switchboard photos, outdoor power photos, renovation notes and any hot water or aircon circuit details",
+      commonJobs:
+        "home fault finding, duplex and villa switchboards, outdoor power, renovation wiring, hot water electrical, aircon electrical and CCTV/data",
+      emergencySignals:
+        "home power loss, tripping safety switches, burning smells, hot outlets, storm-damaged outdoor power and water-affected electrical equipment",
+      level2Detail:
+        "consumer mains, point of attachment, metering, defect notices, service equipment and supply upgrade enquiries",
+      plannedWork:
+        "renovation wiring, outdoor power, switchboard upgrades, smoke alarms, hot water circuits, aircon electrical support and planned quote work",
+      propertyMix:
+        "family homes, duplexes, villas, townhouses, renovated properties and small local businesses",
+      setting: "Canterbury-Bankstown homes, duplexes and renovation service area",
+      switchboardDetail:
+        "older fuses, safety switches, RCBO upgrades, outdoor circuits, hot water loads and future renovation capacity",
+    };
+  }
+
+  return {
+    accessDetail:
+      "address details, parking or access notes, switchboard photos and any photos of the affected electrical area",
+    commonJobs:
+      "emergency faults, Level 2 enquiries, switchboards, hot water electrical, aircon electrical, CCTV/data and planned electrical work",
+    emergencySignals:
+      "power loss, burning smells, sparking, safety switch tripping, storm damage and water-affected electrical equipment",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side electrical questions",
+    plannedWork:
+      "lighting, power points, switchboard upgrades, hot water circuits, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, units, strata properties, shopfronts, workshops and small commercial sites",
+    setting: "Canterbury-Bankstown mixed local service area",
+    switchboardDetail:
+      "older boards, safety switches, RCBO protection, circuit capacity and clearer labelling",
+  };
+}
+
 function getLocalPageContext(
   coverageRegion: CoverageRegion,
   coverageArea: CoverageArea,
   coverageSuburb: CoverageSuburb,
 ): LocalPageContext {
   const key = `${coverageRegion.name} ${coverageArea.name} ${coverageArea.description} ${coverageSuburb.name}`.toLowerCase();
+  const canterburyBankstownContext = getCanterburyBankstownLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (canterburyBankstownContext) {
+    return canterburyBankstownContext;
+  }
 
   if (
     key.includes("northern beaches") ||
