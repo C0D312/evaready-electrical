@@ -1,4 +1,4 @@
-﻿export type FaultRelatedLink = {
+export type FaultRelatedLink = {
   href: string;
   label: string;
 };
@@ -628,7 +628,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
     title: "RCD Trips When Raining",
     metaTitle: "RCD Trips When Raining Sydney & Surrounding Regions",
     metaDescription:
-      "RCD trips when raining in Sydney? Evaready Electrical can test outdoor circuits, water-affected fixtures and safety switch faults.",
+      "RCD trips when raining in Sydney? Evaready Electrical can test outdoor circuits, water-damaged fixtures and safety switch faults.",
     intro:
       "An RCD or safety switch that trips when it rains often points to water entering an outdoor light, power point, pump, cable joint or weather-exposed fitting.",
     primaryAdvice:

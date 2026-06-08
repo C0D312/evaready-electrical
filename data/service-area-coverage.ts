@@ -1,4 +1,4 @@
-﻿import { business, getEmergencyResponseForRegion } from "./site";
+import { business, getEmergencyResponseForRegion } from "./site";
 import { generatedCoverageRegions } from "./service-area-region-data";
 
 export type CoverageSuburb = {
@@ -214,7 +214,7 @@ function getCanterburyBankstownLocalContext(
       commonJobs:
         "commercial fault finding, warehouse lighting, shop power, switchboard upgrades, hot water circuits, CCTV/data and Level 2 enquiries",
       emergencySignals:
-        "business outages, partial power loss, hot outlets, circuit tripping, damaged equipment circuits and storm or water-affected electrical areas",
+        "business outages, partial power loss and heat at outlets, circuit tripping, damaged equipment circuits and storm or water-affected electrical areas",
       level2Detail:
         "consumer mains, service equipment, metering, defect notices, point of attachment issues and supply capacity questions",
       plannedWork:
@@ -234,7 +234,7 @@ function getCanterburyBankstownLocalContext(
       commonJobs:
         "unit faults, shared-access switchboards, shopfront maintenance, lighting repairs, power points, smoke alarms, CCTV/data and Level 2 enquiries",
       emergencySignals:
-        "unit power loss, shared circuit tripping, burning smells, hot outlets, shopfront faults and unsafe common-area electrical issues",
+        "unit power loss, shared circuit tripping and burning smells and heat at outlets, shopfront faults and unsafe common-area electrical issues",
       level2Detail:
         "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata supply questions",
       plannedWork:
@@ -254,7 +254,7 @@ function getCanterburyBankstownLocalContext(
       commonJobs:
         "home fault finding, duplex and villa switchboards, outdoor power, renovation wiring, hot water electrical, aircon electrical and CCTV/data",
       emergencySignals:
-        "home power loss, tripping safety switches, burning smells, hot outlets, storm-damaged outdoor power and water-affected electrical equipment",
+        "home power loss, tripping safety switches and burning smells and heat at outlets, storm-damaged outdoor power and water-affected electrical equipment",
       level2Detail:
         "consumer mains, point of attachment, metering, defect notices, service equipment and supply upgrade enquiries",
       plannedWork:
@@ -273,7 +273,7 @@ function getCanterburyBankstownLocalContext(
     commonJobs:
       "emergency faults, Level 2 enquiries, switchboards, hot water electrical, aircon electrical, CCTV/data and planned electrical work",
     emergencySignals:
-      "power loss, burning smells, sparking, safety switch tripping, storm damage and water-affected electrical equipment",
+      "power loss and burning smells, sparking, safety switch tripping, storm damage and water-affected electrical equipment",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side electrical questions",
     plannedWork:
@@ -293,7 +293,7 @@ const baysideAirportLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "warehouse fault finding, logistics-site lighting, workshop power, office circuits, commercial switchboards, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "business outages, warehouse power loss, hot outlets, circuit tripping, damaged workshop circuits and storm or water-affected electrical areas",
+      "business outages, warehouse power loss and heat at outlets, circuit tripping, damaged workshop circuits and storm or water-affected electrical areas",
     level2Detail:
       "consumer mains, service equipment, metering, defect notices, point of attachment issues and supply capacity questions for commercial sites",
     plannedWork:
@@ -310,7 +310,7 @@ const baysideAirportLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "older-home fault finding, shopfront maintenance, warehouse lighting, strata repairs, hot water circuits, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home or shop power loss, burning smells, hot outlets, safety switch tripping, warehouse circuit faults and water-affected electrical equipment",
+      "home or shop power loss and burning smells and heat at outlets, safety switch tripping, warehouse circuit faults and water-affected electrical equipment",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
     plannedWork:
@@ -327,7 +327,7 @@ const baysideAirportLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "home fault finding, unit repairs, villa switchboards, strata maintenance, lighting, power points, smoke alarms, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home power loss, unit circuit tripping, burning smells, hot outlets, unsafe older boards and water-affected electrical equipment",
+      "home power loss, unit circuit tripping and burning smells and heat at outlets, unsafe older boards and water-affected electrical equipment",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata supply questions",
     plannedWork:
@@ -344,7 +344,7 @@ const baysideAirportLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment faults, retail tenancy maintenance, strata repairs, shared-access electrical work, lighting, power, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "apartment power loss, retail tenancy outages, shared circuit tripping, hot outlets, burning smells and unsafe common-area electrical faults",
+      "apartment power loss, retail tenancy outages, shared circuit tripping and heat at outlets and burning smells and unsafe common-area electrical faults",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and retail or strata supply questions",
     plannedWork:
@@ -361,7 +361,7 @@ const baysideAirportLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment repairs, older-board checks, strata access work, rental maintenance, hot water circuits, lighting, power points, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "apartment power loss, older-board faults, shared circuit tripping, hot water electrical faults, burning smells and hot outlets",
+      "apartment power loss, older-board faults, shared circuit tripping, hot water electrical faults and burning smells and heat at outlets",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata supply questions",
     plannedWork:
@@ -378,7 +378,7 @@ const baysideAirportLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "unit faults, shared switchboard checks, strata maintenance, local business repairs, lighting, power points, smoke alarms, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "unit power loss, shared circuit tripping, hot outlets, burning smells, shop power faults and unsafe strata electrical issues",
+      "unit power loss, shared circuit tripping and heat at outlets and burning smells, shop power faults and unsafe strata electrical issues",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and property-manager supply questions",
     plannedWork:
@@ -395,7 +395,7 @@ const baysideAirportLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "airport-precinct faults, apartment repairs, hotel and office maintenance, shop power, warehouse lighting, commercial switchboards, load checks, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "commercial outages, apartment power loss, hotel or shop circuit faults, hot outlets, business-critical tripping and unsafe service equipment",
+      "commercial outages, apartment power loss, hotel or shop circuit faults and heat at outlets, business-critical tripping and unsafe service equipment",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns, load checks and supply capacity questions",
     plannedWork:
@@ -412,7 +412,7 @@ const baysideAirportLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "home fault finding, apartment repairs, retail maintenance, warehouse power, switchboard upgrades, hot water circuits, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home or apartment power loss, retail outages, warehouse circuit faults, burning smells, hot outlets, tripping safety switches and water-affected electrical equipment",
+      "home or apartment power loss, retail outages, warehouse circuit faults and burning smells and heat at outlets, tripping safety switches and water-affected electrical equipment",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
     plannedWork:
@@ -429,7 +429,7 @@ const baysideAirportLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment faults, warehouse-conversion power, office lighting, cafe electrical maintenance, small business repairs, strata work, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "apartment outages, cafe or small business power loss, hot outlets, circuit tripping, burning smells and unsafe shared electrical areas",
+      "apartment outages, cafe or small business power loss and heat at outlets, circuit tripping and burning smells and unsafe shared electrical areas",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata or commercial supply questions",
     plannedWork:
@@ -464,7 +464,7 @@ const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment fault finding, older switchboard checks, hot water circuits, safety-switch faults, strata maintenance, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "apartment power loss, safety-switch tripping, hot water electrical faults, burning smells, hot outlets and unsafe shared electrical areas",
+      "apartment power loss, safety-switch tripping, hot water electrical faults and burning smells and heat at outlets and unsafe shared electrical areas",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata supply questions",
     plannedWork:
@@ -481,7 +481,7 @@ const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "premium residential fault finding, outdoor power, switchboard upgrades, consumer mains, hot water circuits, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home power loss, storm-affected outdoor circuits, hot outlets, burning smells, safety-switch tripping and unsafe service equipment",
+      "home power loss, storm-affected outdoor circuits and heat at outlets and burning smells, safety-switch tripping and unsafe service equipment",
     level2Detail:
       "consumer mains, metering, service equipment, point of attachment concerns, defect notices and supply upgrade questions",
     plannedWork:
@@ -498,7 +498,7 @@ const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "larger-home fault finding, renovation wiring, outdoor power, private service equipment, switchboard upgrades, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "large-home power loss, storm-exposed outdoor faults, hot outlets, burning smells, safety-switch tripping and unsafe service equipment",
+      "large-home power loss, storm-exposed outdoor faults and heat at outlets and burning smells, safety-switch tripping and unsafe service equipment",
     level2Detail:
       "consumer mains, metering, private service equipment, point of attachment concerns, defect notices and supply upgrade questions",
     plannedWork:
@@ -515,7 +515,7 @@ const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "unit repairs, villa switchboards, older-home fault finding, shop maintenance, rental electrical repairs, hot water circuits, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "unit power loss, rental maintenance faults, shop power issues, safety-switch tripping, hot outlets and burning smells",
+      "unit power loss, rental maintenance faults, shop power issues, safety-switch tripping and heat at outlets and burning smells",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
     plannedWork:
@@ -532,7 +532,7 @@ const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "family-home fault finding, renovation wiring, outdoor circuits, hot water electrical, switchboard upgrades, service equipment, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home power loss, outdoor circuit faults, hot water electrical faults, storm damage, hot outlets and safety-switch tripping",
+      "home power loss, outdoor circuit faults, hot water electrical faults, storm damage and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, point of attachment concerns, defect notices and supply-side questions",
     plannedWork:
@@ -549,7 +549,7 @@ const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "waterfront-home fault finding, outdoor power, weather-exposed fixtures, point of attachment checks, private service equipment, switchboards, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "storm-exposed outdoor faults, water-affected outdoor fixtures, home power loss, hot outlets, burning smells and unsafe service equipment",
+      "storm-exposed outdoor faults, water-affected outdoor fixtures, home power loss and heat at outlets and burning smells and unsafe service equipment",
     level2Detail:
       "consumer mains, metering, point of attachment concerns, private service equipment, defect notices and supply-side questions",
     plannedWork:
@@ -566,7 +566,7 @@ const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment faults, strata repairs, office lighting, shop and restaurant power, business outages, shared meter-room access, commercial switchboards, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "apartment power loss, business outages, restaurant or shop circuit faults, hot outlets, burning smells, shared meter-room issues and safety-switch tripping",
+      "apartment power loss, business outages, restaurant or shop circuit faults and heat at outlets and burning smells, shared meter-room issues and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and commercial or strata supply questions",
     plannedWork:
@@ -583,7 +583,7 @@ const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "home fault finding, renovation wiring, outdoor power, switchboard upgrades, hot water circuits, lighting, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home power loss, outdoor circuit faults, hot water electrical faults, burning smells, hot outlets and safety-switch tripping",
+      "home power loss, outdoor circuit faults, hot water electrical faults and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
     plannedWork:
@@ -600,7 +600,7 @@ const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment faults, office lighting, medical and retail suite maintenance, shop power, strata repairs, shared meter-room access, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "apartment outages, medical or retail suite power loss, shop circuit faults, shared meter-room issues, hot outlets, burning smells and safety-switch tripping",
+      "apartment outages, medical or retail suite power loss, shop circuit faults, shared meter-room issues and heat at outlets and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and medical, retail or strata supply questions",
     plannedWork:
@@ -617,7 +617,7 @@ const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "home fault finding, outdoor power, storm-exposed fitting checks, switchboard upgrades, consumer mains, point of attachment support, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "storm-exposed outdoor faults, water-affected outdoor fixtures, home power loss, hot outlets, burning smells and unsafe point of attachment concerns",
+      "storm-exposed outdoor faults, water-affected outdoor fixtures, home power loss and heat at outlets and burning smells and unsafe point of attachment concerns",
     level2Detail:
       "consumer mains, metering, point of attachment support, service equipment, defect notices and supply-side questions",
     plannedWork:
@@ -634,7 +634,7 @@ const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "larger-home fault finding, renovation wiring, outdoor lighting, switchboard upgrades, hot water circuits, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home power loss, outdoor lighting faults, hot water electrical issues, burning smells, hot outlets and safety-switch tripping",
+      "home power loss, outdoor lighting faults, hot water electrical issues and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
     plannedWork:
@@ -651,7 +651,7 @@ const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "larger-block fault finding, outdoor circuits, long-access electrical work, private pole questions, consumer mains, storm-related faults, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "storm-related faults, private pole or overhead concerns, home power loss, outdoor circuit faults, hot outlets and water-affected electrical equipment",
+      "storm-related faults, private pole or overhead concerns, home power loss, outdoor circuit faults and heat at outlets and water-affected electrical equipment",
     level2Detail:
       "consumer mains, metering, private poles, point of attachment concerns, service equipment, defect notices and supply-side questions",
     plannedWork:
@@ -668,7 +668,7 @@ const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "home and unit fault finding, shop maintenance, warehouse circuits, commercial switchboards, hot water circuits, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home or unit power loss, shop or warehouse outages, hot water electrical faults, hot outlets, burning smells and safety-switch tripping",
+      "home or unit power loss, shop or warehouse outages, hot water electrical faults and heat at outlets and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and commercial supply questions",
     plannedWork:
@@ -685,7 +685,7 @@ const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "home and villa fault finding, renovation wiring, switchboard upgrades, outdoor power, consumer mains, hot water circuits, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home power loss, outdoor circuit faults, hot water electrical issues, burning smells, hot outlets and safety-switch tripping",
+      "home power loss, outdoor circuit faults, hot water electrical issues and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
     plannedWork:
@@ -702,7 +702,7 @@ const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "home fault finding, warehouse power, workshop circuits, commercial switchboards, business outages, load checks, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "business outages, warehouse power loss, workshop circuit faults, home power loss, hot outlets, burning smells and safety-switch tripping",
+      "business outages, warehouse power loss, workshop circuit faults, home power loss and heat at outlets and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns, load checks and supply capacity questions",
     plannedWork:
@@ -719,7 +719,7 @@ const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "home fault finding, renovation wiring, outdoor power, switchboard upgrades, service-equipment support, hot water circuits, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home power loss, outdoor circuit faults, storm damage, hot outlets, burning smells, safety-switch tripping and unsafe service equipment",
+      "home power loss, outdoor circuit faults, storm damage and heat at outlets and burning smells, safety-switch tripping and unsafe service equipment",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
     plannedWork:
@@ -736,7 +736,7 @@ const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "unit and villa repairs, older-home fault finding, local shop maintenance, shared-access electrical work, switchboards, safety switches, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "unit power loss, shared circuit tripping, shop power faults, hot outlets, burning smells and safety-switch faults",
+      "unit power loss, shared circuit tripping, shop power faults and heat at outlets and burning smells and safety-switch faults",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata supply questions",
     plannedWork:
@@ -753,7 +753,7 @@ const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "coastal fault finding, unit repairs, shopfront maintenance, outdoor power, switchboard upgrades, water-affected electrical checks, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "water-affected electrical equipment, coastal outdoor faults, unit power loss, shopfront outages, hot outlets, burning smells and safety-switch tripping",
+      "water-affected electrical equipment, coastal outdoor faults, unit power loss, shopfront outages and heat at outlets and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
     plannedWork:
@@ -770,7 +770,7 @@ const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "premium-home fault finding, coastal outdoor power, switchboard upgrades, consumer mains, service equipment, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "coastal outdoor faults, storm or water-affected electrical, home power loss, hot outlets, burning smells and unsafe service equipment",
+      "coastal outdoor faults, storm or water-affected electrical, home power loss and heat at outlets and burning smells and unsafe service equipment",
     level2Detail:
       "consumer mains, metering, service equipment, point of attachment concerns, defect notices and supply-side questions",
     plannedWork:
@@ -787,7 +787,7 @@ const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "home and unit fault finding, local business maintenance, strata repairs, switchboard upgrades, hot water circuits, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home or unit power loss, local business outages, shared circuit tripping, hot water electrical faults, hot outlets and burning smells",
+      "home or unit power loss, local business outages, shared circuit tripping, hot water electrical faults and heat at outlets and burning smells",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata or business supply questions",
     plannedWork:
@@ -822,7 +822,7 @@ const rockdaleBexleyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment fault finding, older-home switchboards, villa repairs, strata access, hot water circuits, airport-adjacent access planning, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "apartment power loss, hot water electrical faults, older-board issues, burning smells, hot outlets, safety-switch tripping and unsafe strata electrical areas",
+      "apartment power loss, hot water electrical faults, older-board issues and burning smells and heat at outlets, safety-switch tripping and unsafe strata electrical areas",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata or airport-adjacent access questions",
     plannedWork:
@@ -839,7 +839,7 @@ const rockdaleBexleyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "older-home fault finding, unit repairs, station-area shop maintenance, rental electrical repairs, switchboards, safety-switch faults, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home or unit power loss, rental maintenance faults, station-area shop outages, hot outlets, burning smells and safety-switch tripping",
+      "home or unit power loss, rental maintenance faults, station-area shop outages and heat at outlets and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and rental or shop supply questions",
     plannedWork:
@@ -856,7 +856,7 @@ const rockdaleBexleyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "leafy-street home fault finding, older-home switchboards, sloped-block access work, renovation wiring, outdoor power, lighting, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home power loss, outdoor circuit faults, storm-related issues, hot outlets, burning smells and safety-switch tripping",
+      "home power loss, outdoor circuit faults, storm-related issues and heat at outlets and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and renovation supply questions",
     plannedWork:
@@ -873,7 +873,7 @@ const rockdaleBexleyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "home and duplex fault finding, renovation wiring, outdoor power, lighting, switchboard upgrades, planned Level 2 support, CCTV/data and planned electrical work",
     emergencySignals:
-      "home power loss, duplex circuit faults, outdoor power faults, hot outlets, burning smells and safety-switch tripping",
+      "home power loss, duplex circuit faults, outdoor power faults and heat at outlets and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and planned supply-side questions",
     plannedWork:
@@ -890,7 +890,7 @@ const rockdaleBexleyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "older-home fault finding, duplex and villa repairs, unit work, shop maintenance, switchboards, consumer mains, defect notices, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home or shop power loss, duplex circuit faults, hot outlets, burning smells, safety-switch tripping and unsafe service equipment",
+      "home or shop power loss, duplex circuit faults and heat at outlets and burning smells, safety-switch tripping and unsafe service equipment",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
     plannedWork:
@@ -907,7 +907,7 @@ const rockdaleBexleyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "older-home repairs, apartment faults near transport, villa switchboards, strata access, hot water electrical, switchboard upgrades, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home or apartment power loss, hot water electrical faults, shared circuit tripping, hot outlets, burning smells and safety-switch faults",
+      "home or apartment power loss, hot water electrical faults, shared circuit tripping and heat at outlets and burning smells and safety-switch faults",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata supply questions",
     plannedWork:
@@ -924,7 +924,7 @@ const rockdaleBexleyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment faults, strata repairs, cafe and restaurant power, shopfront maintenance, outdoor power, coastal electrical checks, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "apartment power loss, cafe or restaurant outages, shopfront circuit faults, coastal outdoor faults, hot outlets, burning smells and safety-switch tripping",
+      "apartment power loss, cafe or restaurant outages, shopfront circuit faults, coastal outdoor faults and heat at outlets and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata or commercial supply questions",
     plannedWork:
@@ -941,7 +941,7 @@ const rockdaleBexleyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "coastal-home fault finding, apartment repairs, strata access work, outdoor power, weather-exposed fixture checks, switchboard upgrades, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "coastal outdoor faults, apartment power loss, storm-related electrical issues, hot outlets, burning smells and safety-switch tripping",
+      "coastal outdoor faults, apartment power loss, storm-related electrical issues and heat at outlets and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
     plannedWork:
@@ -958,7 +958,7 @@ const rockdaleBexleyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "coastal-home fault finding, airport-adjacent access work, outdoor circuits, weather-exposed fixture checks, switchboard upgrades, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "coastal outdoor faults, weather-affected electrical equipment, home power loss, hot outlets, burning smells and safety-switch tripping",
+      "coastal outdoor faults, weather-affected electrical equipment, home power loss and heat at outlets and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and airport-adjacent access questions",
     plannedWork:
@@ -975,7 +975,7 @@ const rockdaleBexleyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment faults, unit repairs, strata maintenance, coastal outdoor power, switchboard upgrades, hot water electrical, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "apartment power loss, hot water electrical faults, coastal outdoor issues, hot outlets, burning smells and safety-switch tripping",
+      "apartment power loss, hot water electrical faults, coastal outdoor issues and heat at outlets and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata supply questions",
     plannedWork:
@@ -992,7 +992,7 @@ const rockdaleBexleyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment faults, cafe and shopfront maintenance, outdoor power, weather-exposed fixture checks, switchboard upgrades, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "power faults after rain, cafe or shopfront outages, apartment power loss, outdoor circuit faults, hot outlets, burning smells and safety-switch tripping",
+      "power faults after rain, cafe or shopfront outages, apartment power loss, outdoor circuit faults and heat at outlets and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and shopfront or strata supply questions",
     plannedWork:
@@ -1009,7 +1009,7 @@ const rockdaleBexleyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment faults, strata repairs, shop power, office lighting, shared meter-room access, commercial switchboards, urgent outages, consumer mains, defect notices, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "urgent outages, apartment power loss, shop or office circuit faults, shared meter-room issues, hot outlets, burning smells and safety-switch tripping",
+      "urgent outages, apartment power loss, shop or office circuit faults, shared meter-room issues and heat at outlets and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and commercial or strata supply questions",
     plannedWork:
@@ -1026,7 +1026,7 @@ const rockdaleBexleyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "premium-home fault finding, coastal apartment repairs, outdoor lighting, outdoor power, weather-exposed fixture checks, service-equipment enquiries, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "coastal outdoor faults, weather-affected electrical equipment, home or apartment power loss, hot outlets, burning smells and safety-switch tripping",
+      "coastal outdoor faults, weather-affected electrical equipment, home or apartment power loss and heat at outlets and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
     plannedWork:
@@ -1043,7 +1043,7 @@ const rockdaleBexleyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment faults, strata repairs, airport or rail-corridor access work, warehouse lighting, workshop power, commercial switchboards, business outages, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "business outages, warehouse power loss, apartment power loss, shared circuit tripping, hot outlets, burning smells and safety-switch faults",
+      "business outages, warehouse power loss, apartment power loss, shared circuit tripping and heat at outlets and burning smells and safety-switch faults",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and commercial or strata supply questions",
     plannedWork:
@@ -1060,7 +1060,7 @@ const rockdaleBexleyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "high-rise apartment faults, strata tower repairs, shared meter-room access, switchboard cupboard checks, common-area lighting, hot water faults, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "high-rise apartment power loss, shared meter-room issues, common-area lighting faults, hot water electrical faults, burning smells, hot outlets and safety-switch tripping",
+      "high-rise apartment power loss, shared meter-room issues, common-area lighting faults, hot water electrical faults and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata tower supply questions",
     plannedWork:
@@ -1861,7 +1861,7 @@ const fairfieldLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "larger-home fault finding, outdoor lighting, aircon electrical support, switchboard upgrades, consumer mains, CCTV/data and planned quote work",
     emergencySignals:
-      "home power loss, outdoor circuit faults, aircon circuit trips, hot outlets, sparking and safety-switch tripping",
+      "home power loss, outdoor circuit faults, aircon circuit trips and heat at outlets, sparking and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply capacity questions for larger homes",
     plannedWork:
@@ -2883,7 +2883,7 @@ const camdenLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "town-centre shop maintenance, cafe and retail suite power, older-home repairs, family-home electrical work, strata repairs, business outages, consumer mains, defect notices, metering, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "shop or cafe outages, home power loss, strata shared-power issues, hot outlets, sparking and safety-switch tripping",
+      "shop or cafe outages, home power loss, strata shared-power issues and heat at outlets, sparking and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, shops, strata sites and retail suites",
     plannedWork:
@@ -2951,7 +2951,7 @@ const camdenLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "premium rural-residential electrical work, new-estate support, acreage-home repairs, outdoor lighting, shed power, consumer mains, switchboard capacity, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "acreage or new-estate power loss, outdoor power hazards, shed power faults, hot outlets, sparking and safety-switch tripping",
+      "acreage or new-estate power loss, outdoor power hazards, shed power faults and heat at outlets, sparking and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and acreage or new-estate supply questions",
     plannedWork:
@@ -3282,7 +3282,7 @@ const campbelltownLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "newer-housing and redevelopment electrical work, older switchboard checks, rental and property-manager maintenance, safety switches, hot water electrical, smoke alarms, lighting, power and Level 2 enquiries",
     emergencySignals:
-      "home power loss, rental maintenance hazards, older-board overheating, hot water electrical faults, burning smells, sparking and repeated safety-switch tripping",
+      "home power loss, rental maintenance hazards, older-board overheating, hot water electrical faults and burning smells, sparking and repeated safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for newer housing, redevelopment sites and older homes",
     plannedWork:
@@ -3299,7 +3299,7 @@ const campbelltownLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "family-home repairs, older switchboard checks, townhouse electrical work, local shop maintenance, power loss fault finding, hot water electrical, outdoor power, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "family-home power loss, local shop faults, hot water circuit trips, outdoor power hazards, burning smells, heat at outlets and safety-switch faults",
+      "family-home power loss, local shop faults, hot water circuit trips, outdoor power hazards and burning smells, heat at outlets and safety-switch faults",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes, townhouses and local shops",
     plannedWork:
@@ -3333,7 +3333,7 @@ const campbelltownLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "residential electrical work, villa repairs, older wiring checks, switchboard upgrades, lighting and power, hot water electrical, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home power loss, older wiring faults, hot water circuit trips, burning smells, heat at outlets, sparking and safety-switch tripping",
+      "home power loss, older wiring faults, hot water circuit trips and burning smells, heat at outlets, sparking and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, villas and older wiring",
     plannedWork:
@@ -3350,7 +3350,7 @@ const campbelltownLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "home electrical work, rental maintenance, switchboard upgrades, safety-switch faults, hot water electrical, smoke alarms, lighting, power, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home power loss, rental maintenance hazards, hot water electrical faults, burning smells, heat at outlets, sparking and safety-switch tripping",
+      "home power loss, rental maintenance hazards, hot water electrical faults and burning smells, heat at outlets, sparking and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for homes and rental maintenance sites",
     plannedWork:
@@ -3367,7 +3367,7 @@ const campbelltownLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "family-home electrical work, older board checks, lighting, power points, hot water electrical, aircon electrical, fault finding, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "family-home power loss, aircon circuit trips, hot water electrical faults, heat at outlets, burning smells, sparking and safety-switch tripping",
+      "family-home power loss, aircon circuit trips, hot water electrical faults, heat at outlets and burning smells, sparking and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes and older boards",
     plannedWork:
@@ -3384,7 +3384,7 @@ const campbelltownLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "older-home repairs, unit maintenance, local shop electrical work, switchboard upgrades, safety switches, hot water electrical, property-manager maintenance, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "older-home power loss, unit faults, shop outages, hot water electrical faults, burning smells, heat at outlets and safety-switch tripping",
+      "older-home power loss, unit faults, shop outages, hot water electrical faults and burning smells, heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes, units and local shops",
     plannedWork:
@@ -3401,7 +3401,7 @@ const campbelltownLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "CBD and local business electrical work, apartment and shop repairs, office suite power, medical and retail suite support, shared access jobs, business outages, switchboard upgrades, consumer mains, metering, defect notices, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "apartment power loss, shop or medical suite outages, business faults, shared access issues, burning smells, heat at outlets, sparking and safety-switch faults",
+      "apartment power loss, shop or medical suite outages, business faults, shared access issues and burning smells, heat at outlets, sparking and safety-switch faults",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, shops, medical suites and local businesses",
     plannedWork:
@@ -3418,7 +3418,7 @@ const campbelltownLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "home and newer-housing electrical work, switchboard upgrades, lighting and power, hot water electrical, safety switches, smoke alarms, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home power loss, newer-housing circuit faults, hot water electrical faults, burning smells, heat at outlets, sparking and safety-switch tripping",
+      "home power loss, newer-housing circuit faults, hot water electrical faults and burning smells, heat at outlets, sparking and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for homes and newer housing",
     plannedWork:
@@ -3469,7 +3469,7 @@ const campbelltownLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "residential electrical work, older switchboard checks, hot water electrical, power and lighting repairs, safety-switch faults, quote-photo planning, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home power loss, hot water electrical faults, power or lighting faults, burning smells, heat at outlets, sparking and safety-switch tripping",
+      "home power loss, hot water electrical faults, power or lighting faults and burning smells, heat at outlets, sparking and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for residential homes and older switchboards",
     plannedWork:
@@ -3520,7 +3520,7 @@ const campbelltownLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "premium-home and renovation electrical work, outdoor lighting, switchboard upgrades, aircon electrical, consumer mains, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "premium-home power loss, renovation electrical faults, outdoor power hazards, aircon circuit trips, burning smells, heat at outlets and safety-switch tripping",
+      "premium-home power loss, renovation electrical faults, outdoor power hazards, aircon circuit trips and burning smells, heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for premium homes and renovations",
     plannedWork:
@@ -3537,7 +3537,7 @@ const campbelltownLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "station-area residential and commercial electrical work, apartment and townhouse repairs, shop maintenance, strata access jobs, switchboard upgrades, hot water electrical, business outages, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "apartment or townhouse power loss, shop outages, strata shared-power issues, hot water electrical faults, burning smells, heat at outlets and safety-switch faults",
+      "apartment or townhouse power loss, shop outages, strata shared-power issues, hot water electrical faults and burning smells, heat at outlets and safety-switch faults",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, townhouses, shops and strata sites",
     plannedWork:
@@ -3554,7 +3554,7 @@ const campbelltownLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "home electrical work, access-sensitive jobs, switchboard upgrades, outdoor power, hot water electrical, safety switches, planned maintenance, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home power loss, outdoor power hazards, hot water electrical faults, burning smells, heat at outlets, sparking and safety-switch tripping",
+      "home power loss, outdoor power hazards, hot water electrical faults and burning smells, heat at outlets, sparking and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for homes and access-sensitive sites",
     plannedWork:
@@ -3588,7 +3588,7 @@ const campbelltownLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "home electrical work, older switchboard checks, safety-switch tripping, hot water electrical, lighting and power repairs, quote-photo planning, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home power loss, safety-switch tripping, hot water electrical faults, lighting or power faults, burning smells, heat at outlets and sparking",
+      "home power loss, safety-switch tripping, hot water electrical faults, lighting or power faults and burning smells, heat at outlets and sparking",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for homes and older switchboards",
     plannedWork:
@@ -3622,7 +3622,7 @@ const campbelltownLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "home and unit electrical work, local shop maintenance, access-sensitive jobs, switchboard upgrades, hot water electrical, lighting and power, safety switches, commercial faults, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home or unit power loss, local shop faults, hot water electrical faults, commercial power issues, burning smells, heat at outlets and safety-switch tripping",
+      "home or unit power loss, local shop faults, hot water electrical faults, commercial power issues and burning smells, heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, units and local shops",
     plannedWork:
@@ -3656,7 +3656,7 @@ const campbelltownLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment and home electrical work, shop maintenance, station-area access jobs, strata and rental maintenance, switchboard upgrades, hot water electrical, power loss fault finding, CCTV/data and Level 2 support",
     emergencySignals:
-      "apartment or home power loss, shop faults, strata shared-power issues, hot water electrical faults, burning smells, heat at outlets and safety-switch tripping",
+      "apartment or home power loss, shop faults, strata shared-power issues, hot water electrical faults and burning smells, heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, homes, shops and strata sites",
     plannedWork:
@@ -3673,7 +3673,7 @@ const campbelltownLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "premium-home electrical work, gated-access jobs, outdoor lighting, switchboard upgrades, aircon electrical, consumer mains, quote-photo planning, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "premium-home power loss, gated-access electrical faults, outdoor power hazards, aircon circuit trips, burning smells, heat at outlets and safety-switch tripping",
+      "premium-home power loss, gated-access electrical faults, outdoor power hazards, aircon circuit trips and burning smells, heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for premium homes and gated-access properties",
     plannedWork:
@@ -3741,7 +3741,7 @@ const campbelltownLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "family-home electrical work, older switchboard checks, safety switches, hot water electrical, aircon electrical, outdoor lighting, planned maintenance, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "family-home power loss, hot water electrical faults, aircon circuit trips, outdoor power hazards, burning smells, heat at outlets and safety-switch tripping",
+      "family-home power loss, hot water electrical faults, aircon circuit trips, outdoor power hazards and burning smells, heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes and older switchboards",
     plannedWork:
@@ -3758,7 +3758,7 @@ const campbelltownLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "home and townhouse electrical work, local shop maintenance, rental maintenance, switchboard upgrades, hot water electrical, power loss fault finding, safety-switch faults, quote guidance, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home or townhouse power loss, local shop faults, rental maintenance hazards, hot water electrical faults, burning smells, heat at outlets and safety-switch tripping",
+      "home or townhouse power loss, local shop faults, rental maintenance hazards, hot water electrical faults and burning smells, heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, townhouses, shops and rental maintenance sites",
     plannedWork:
@@ -3775,7 +3775,7 @@ const campbelltownLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "family-home electrical work, older board checks, lighting and power repairs, hot water electrical, safety switches, outdoor power, emergency fault support, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "family-home power loss, outdoor power hazards, hot water electrical faults, lighting or power faults, burning smells, heat at outlets and safety-switch tripping",
+      "family-home power loss, outdoor power hazards, hot water electrical faults, lighting or power faults and burning smells, heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes and older boards",
     plannedWork:
@@ -3792,7 +3792,7 @@ const campbelltownLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "home and villa electrical work, older switchboard checks, hot water electrical, power points, lighting, safety switches, general maintenance, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home or villa power loss, hot water electrical faults, lighting or power faults, burning smells, heat at outlets, sparking and safety-switch tripping",
+      "home or villa power loss, hot water electrical faults, lighting or power faults and burning smells, heat at outlets, sparking and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, villas and older boards",
     plannedWork:
@@ -3809,7 +3809,7 @@ const campbelltownLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "family-home and larger-lot electrical work, outdoor power, switchboard upgrades, aircon electrical, hot water electrical, Level 2 support, CCTV/data and planned maintenance",
     emergencySignals:
-      "family-home power loss, outdoor power hazards, aircon circuit trips, hot water electrical faults, burning smells, heat at outlets and safety-switch tripping",
+      "family-home power loss, outdoor power hazards, aircon circuit trips, hot water electrical faults and burning smells, heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes and larger residential lots",
     plannedWork:
@@ -3860,7 +3860,7 @@ const campbelltownLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "family-home electrical work, older switchboard checks, hot water electrical, safety switches, lighting and power, smoke alarms, quote-photo planning, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "family-home power loss, hot water electrical faults, safety-switch tripping, lighting or power faults, burning smells, heat at outlets and sparking",
+      "family-home power loss, hot water electrical faults, safety-switch tripping, lighting or power faults and burning smells, heat at outlets and sparking",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes and older boards",
     plannedWork:
@@ -3936,7 +3936,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "rural-edge and new-estate electrical work, larger-block repairs, shed power, outdoor power, private service equipment, consumer mains, defect notices, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "rural-edge power loss, new-estate faults, shed or outdoor power hazards, storm faults, burning smells, sparking and safety-switch tripping",
+      "rural-edge power loss, new-estate faults, shed or outdoor power hazards, storm faults and burning smells, sparking and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and rural-edge supply questions",
     plannedWork:
@@ -3953,7 +3953,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "acreage-home electrical work, bushland-edge repairs, outdoor power, switchboard upgrades, private service equipment, storm fault checks, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "acreage power loss, bushland-edge storm faults, outdoor power hazards, unsafe service equipment, burning smells, sparking and safety-switch tripping",
+      "acreage power loss, bushland-edge storm faults, outdoor power hazards, unsafe service equipment and burning smells, sparking and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
     plannedWork:
@@ -3970,7 +3970,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "rural-property electrical work, long-driveway access jobs, shed power, outdoor lighting, private service equipment, switchboard upgrades, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "rural property power loss, shed or outdoor power faults, storm exposure, unsafe service equipment, burning smells and safety-switch tripping",
+      "rural property power loss, shed or outdoor power faults, storm exposure, unsafe service equipment and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and long-access supply questions",
     plannedWork:
@@ -3987,7 +3987,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "larger residential and acreage electrical work, outdoor power, switchboard upgrades, consumer mains, metering, CCTV/data and Level 2 support",
     emergencySignals:
-      "larger-property power loss, acreage faults, outdoor power hazards, hot outlets, burning smells, sparking and safety-switch tripping",
+      "larger-property power loss, acreage faults, outdoor power hazards and heat at outlets and burning smells, sparking and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and acreage supply questions",
     plannedWork:
@@ -4004,7 +4004,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "remote and bushland electrical work, storm fault checks, outdoor power, switchboard upgrades, safety-first triage, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "remote property power loss, bushland storm faults, outdoor power hazards, unsafe switchboards, burning smells, sparking and safety-switch tripping",
+      "remote property power loss, bushland storm faults, outdoor power hazards, unsafe switchboards and burning smells, sparking and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and remote-site supply questions",
     plannedWork:
@@ -4021,7 +4021,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "rural-home and small-acreage electrical work, shed power, outdoor power, consumer mains, private service equipment, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "rural-home power loss, shed or outdoor power faults, storm exposure, unsafe service equipment, burning smells and safety-switch tripping",
+      "rural-home power loss, shed or outdoor power faults, storm exposure, unsafe service equipment and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and small-acreage supply questions",
     plannedWork:
@@ -4038,7 +4038,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "country and rural-edge electrical work, long-driveway access jobs, shed power, outdoor power, private service equipment, storm fault checks, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "country-property power loss, shed or outdoor power hazards, storm faults, unsafe service equipment, burning smells and safety-switch tripping",
+      "country-property power loss, shed or outdoor power hazards, storm faults, unsafe service equipment and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and rural-edge supply questions",
     plannedWork:
@@ -4055,7 +4055,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "acreage-home electrical work, older switchboard checks, shed power, outdoor power, switchboard upgrades, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "acreage power loss, older-board overheating, shed or outdoor power hazards, burning smells, sparking and safety-switch tripping",
+      "acreage power loss, older-board overheating, shed or outdoor power hazards and burning smells, sparking and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
     plannedWork:
@@ -4072,7 +4072,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "rural-home and bushland electrical work, storm fault checks, outdoor power, switchboard upgrades, private service equipment, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "rural-home power loss, bushland storm faults, outdoor power hazards, unsafe service equipment, burning smells and safety-switch tripping",
+      "rural-home power loss, bushland storm faults, outdoor power hazards, unsafe service equipment and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and bushland supply questions",
     plannedWork:
@@ -4089,7 +4089,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "rural-edge and workshop electrical work, outdoor power, switchboard upgrades, planned Level 2 work, private service equipment, CCTV/data and planned quote work",
     emergencySignals:
-      "rural-edge power loss, workshop faults, outdoor power hazards, hot outlets, burning smells and safety-switch tripping",
+      "rural-edge power loss, workshop faults, outdoor power hazards and heat at outlets and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and planned supply-side work",
     plannedWork:
@@ -4106,7 +4106,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "acreage-home electrical work, older switchboard checks, shed power, outdoor power, consumer mains, private service equipment, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "acreage power loss, older-board faults, shed or outdoor power hazards, storm exposure, burning smells and safety-switch tripping",
+      "acreage power loss, older-board faults, shed or outdoor power hazards, storm exposure and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
     plannedWork:
@@ -4123,7 +4123,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "acreage-property electrical work, shed power, outdoor power, private service equipment, switchboard upgrades, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "acreage property power loss, shed or outdoor power hazards, storm faults, unsafe service equipment, burning smells and safety-switch tripping",
+      "acreage property power loss, shed or outdoor power hazards, storm faults, unsafe service equipment and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
     plannedWork:
@@ -4140,7 +4140,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "rural-home electrical work, shed power, outdoor lighting, private service equipment, consumer mains, emergency triage, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "rural-home power loss, shed or outdoor power hazards, storm exposure, unsafe service equipment, burning smells and safety-switch tripping",
+      "rural-home power loss, shed or outdoor power hazards, storm exposure, unsafe service equipment and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and rural-home supply questions",
     plannedWork:
@@ -4157,7 +4157,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "remote-access and bushland-edge electrical work, outdoor power, switchboard upgrades, private service equipment, safety-first emergency triage, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "remote property power loss, bushland-edge storm faults, outdoor power hazards, unsafe service equipment, burning smells and safety-switch tripping",
+      "remote property power loss, bushland-edge storm faults, outdoor power hazards, unsafe service equipment and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and remote-access supply questions",
     plannedWork:
@@ -4174,7 +4174,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "rural-home electrical work, shed power, outdoor power, switchboard upgrades, consumer mains, access-sensitive repairs, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "rural-home power loss, shed or outdoor power hazards, storm faults, hot outlets, burning smells and safety-switch tripping",
+      "rural-home power loss, shed or outdoor power hazards, storm faults and heat at outlets and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and rural-home supply questions",
     plannedWork:
@@ -4191,7 +4191,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "acreage-property electrical work, shed and outbuilding power, outdoor power, private service equipment, storm fault checks, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "acreage property power loss, shed or outbuilding faults, storm exposure, outdoor power hazards, burning smells and safety-switch tripping",
+      "acreage property power loss, shed or outbuilding faults, storm exposure, outdoor power hazards and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
     plannedWork:
@@ -4208,7 +4208,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "rural-home and roadside-business electrical work, shed and workshop power, outdoor power, switchboard upgrades, private service equipment, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "rural-home power loss, roadside business outages, shed or workshop faults, outdoor power hazards, burning smells and safety-switch tripping",
+      "rural-home power loss, roadside business outages, shed or workshop faults, outdoor power hazards and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and roadside supply questions",
     plannedWork:
@@ -4225,7 +4225,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "town-centre shop, cafe and office electrical work, older-home repairs, family-home maintenance, acreage-edge support, business outages, switchboard upgrades, consumer mains, metering, defect notices, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "town-centre business outages, older-home power loss, shop faults, acreage-edge storm issues, burning smells, hot outlets and safety-switch tripping",
+      "town-centre business outages, older-home power loss, shop faults, acreage-edge storm issues and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and town-centre or acreage-edge supply questions",
     plannedWork:
@@ -4242,7 +4242,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "acreage-property electrical work, long or steep access jobs, outdoor power, switchboard upgrades, private service equipment, storm fault checks, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "acreage property power loss, storm faults, outdoor power hazards, unsafe service equipment, burning smells and safety-switch tripping",
+      "acreage property power loss, storm faults, outdoor power hazards, unsafe service equipment and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
     plannedWork:
@@ -4259,7 +4259,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "acreage-home electrical work, shed power, outdoor power, long-driveway access jobs, switchboard upgrades, consumer mains, private service equipment, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "acreage home power loss, shed or outdoor power hazards, storm faults, unsafe service equipment, burning smells and safety-switch tripping",
+      "acreage home power loss, shed or outdoor power hazards, storm faults, unsafe service equipment and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
     plannedWork:
@@ -4276,7 +4276,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "home, townhouse, shop and local-business electrical work, older switchboard checks, hot water electrical, lighting and power, Level 2 support, CCTV/data and planned quote work",
     emergencySignals:
-      "home power loss, townhouse faults, shop outages, hot water electrical faults, burning smells, hot outlets and safety-switch tripping",
+      "home power loss, townhouse faults, shop outages, hot water electrical faults and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, townhouses, shops and local businesses",
     plannedWork:
@@ -4293,7 +4293,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "rural-home and larger-block electrical work, shed power, outdoor power, switchboard upgrades, consumer mains, private service equipment, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "rural-home power loss, shed or outdoor power hazards, storm faults, unsafe service equipment, burning smells and safety-switch tripping",
+      "rural-home power loss, shed or outdoor power hazards, storm faults, unsafe service equipment and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and larger-block supply questions",
     plannedWork:
@@ -4310,7 +4310,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "acreage-home electrical work, outdoor power, shed power, private service equipment, switchboard upgrades, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "acreage home power loss, shed or outdoor power hazards, storm exposure, unsafe service equipment, burning smells and safety-switch tripping",
+      "acreage home power loss, shed or outdoor power hazards, storm exposure, unsafe service equipment and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
     plannedWork:
@@ -4327,7 +4327,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "home, local-business and acreage-edge electrical work, switchboard upgrades, hot water electrical, outdoor power, Level 2 enquiries, CCTV/data and planned quote work",
     emergencySignals:
-      "home power loss, local business faults, acreage-edge storm issues, hot water electrical faults, burning smells and safety-switch tripping",
+      "home power loss, local business faults, acreage-edge storm issues, hot water electrical faults and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and acreage-edge supply questions",
     plannedWork:
@@ -4344,7 +4344,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "village-home and rural-edge electrical work, outdoor power, switchboard upgrades, hot water electrical, consumer mains, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "village-home power loss, rural-edge storm faults, outdoor power hazards, hot water electrical faults, burning smells and safety-switch tripping",
+      "village-home power loss, rural-edge storm faults, outdoor power hazards, hot water electrical faults and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and village or rural-edge supply questions",
     plannedWork:
@@ -4361,7 +4361,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "acreage-home electrical work, shed power, outdoor power, long-access jobs, switchboard upgrades, consumer mains, private service equipment, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "acreage home power loss, shed or outdoor power hazards, storm faults, unsafe service equipment, burning smells and safety-switch tripping",
+      "acreage home power loss, shed or outdoor power hazards, storm faults, unsafe service equipment and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
     plannedWork:
@@ -4378,7 +4378,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "new-home and growth-corridor electrical work, larger-block repairs, switchboard capacity checks, aircon and EV load checks, consumer mains, metering, planned upgrades, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "new-home power loss, growth-corridor faults, aircon circuit trips, hot water electrical faults, burning smells, hot outlets and safety-switch tripping",
+      "new-home power loss, growth-corridor faults, aircon circuit trips, hot water electrical faults and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, load capacity checks and new-estate supply questions",
     plannedWork:
@@ -4395,7 +4395,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "rural-home and acreage electrical work, outdoor power, switchboard upgrades, hot water electrical, private service equipment, quote-photo planning, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "rural-home power loss, acreage faults, outdoor power hazards, hot water electrical faults, burning smells and safety-switch tripping",
+      "rural-home power loss, acreage faults, outdoor power hazards, hot water electrical faults and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and rural or acreage supply questions",
     plannedWork:
@@ -4454,7 +4454,7 @@ const canadaBayLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "waterfront-home electrical work, apartment and strata repairs, older switchboard checks, outdoor power, shared access jobs, consumer mains, CCTV/data and Level 2 support",
     emergencySignals:
-      "waterfront home power loss, apartment or strata faults, outdoor power hazards, older-board overheating, burning smells, hot outlets and safety-switch tripping",
+      "waterfront home power loss, apartment or strata faults, outdoor power hazards, older-board overheating and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for waterfront homes and strata buildings",
     plannedWork:
@@ -4471,7 +4471,7 @@ const canadaBayLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment and strata tower electrical work, estate-style access jobs, shared meter-room support, building-manager maintenance, hot water electrical, safety switches, CCTV/data and planned maintenance",
     emergencySignals:
-      "apartment power loss, shared meter-room issues, hot water electrical faults, common-area lighting faults, burning smells, hot outlets and safety-switch tripping",
+      "apartment power loss, shared meter-room issues, hot water electrical faults, common-area lighting faults and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for strata towers and estate-style apartment complexes",
     plannedWork:
@@ -4488,7 +4488,7 @@ const canadaBayLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "waterfront apartment and home electrical work, strata access jobs, outdoor power, switchboard upgrades, private service equipment, shared meter-area support, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "waterfront apartment power loss, strata shared-power issues, outdoor power hazards, storm or water-affected fixtures, burning smells and safety-switch tripping",
+      "waterfront apartment power loss, strata shared-power issues, outdoor power hazards, storm or water-damaged fixtures and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and supply-side questions for waterfront homes and apartments",
     plannedWork:
@@ -4505,7 +4505,7 @@ const canadaBayLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment, waterfront-home and shopfront electrical work, strata repairs, older wiring checks, switchboard upgrades, business outages, consumer mains, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "apartment power loss, shop faults, business outages, older wiring faults, burning smells, hot outlets, sparking and safety-switch tripping",
+      "apartment power loss, shop faults, business outages, older wiring faults and burning smells and heat at outlets, sparking and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for apartments, shops and waterfront homes",
     plannedWork:
@@ -4522,7 +4522,7 @@ const canadaBayLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "waterfront apartment and older-home electrical work, strata repairs, shared meter-room access, outdoor power, hot water electrical, switchboard upgrades, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "waterfront apartment power loss, hot water electrical faults, outdoor power hazards, shared meter-room issues, burning smells, hot outlets and safety-switch tripping",
+      "waterfront apartment power loss, hot water electrical faults, outdoor power hazards, shared meter-room issues and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for waterfront apartments and older homes",
     plannedWork:
@@ -4539,7 +4539,7 @@ const canadaBayLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "large-home, older-home, apartment, shop, cafe, medical suite, school and office suite electrical work, strata access jobs, switchboard upgrades, consumer mains, defect notices, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "large-home power loss, shop or cafe outages, medical or commercial suite faults, school electrical issues, burning smells, hot outlets and safety-switch tripping",
+      "large-home power loss, shop or cafe outages, medical or commercial suite faults, school electrical issues and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for large homes, strata sites, schools, shops and suites",
     plannedWork:
@@ -4556,7 +4556,7 @@ const canadaBayLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "family-home, station-area, apartment, commercial pocket and industrial pocket electrical work, older wiring checks, switchboard upgrades, hot water electrical, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "family-home power loss, station-area shop faults, commercial or industrial pocket outages, hot water electrical faults, burning smells and safety-switch tripping",
+      "family-home power loss, station-area shop faults, commercial or industrial pocket outages, hot water electrical faults and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes, apartments and commercial or industrial pockets",
     plannedWork:
@@ -4573,7 +4573,7 @@ const canadaBayLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment, restaurant, shop, office suite and strata electrical work, older wiring checks, shared meter-room access, business outages, switchboard upgrades, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "apartment power loss, restaurant or shop outages, business faults, shared meter-room issues, burning smells, hot outlets, sparking and safety-switch tripping",
+      "apartment power loss, restaurant or shop outages, business faults, shared meter-room issues and burning smells and heat at outlets, sparking and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for apartments, shops, restaurants and strata buildings",
     plannedWork:
@@ -4590,7 +4590,7 @@ const canadaBayLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "shopfront, restaurant, office suite, apartment and older-home electrical work, strata repairs, commercial faults, switchboard upgrades, hot water electrical, CCTV/data and Level 2 support",
     emergencySignals:
-      "shopfront outages, restaurant faults, apartment power loss, commercial faults, hot water electrical issues, burning smells, hot outlets and safety-switch tripping",
+      "shopfront outages, restaurant faults, apartment power loss, commercial faults, hot water electrical issues and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for shops, apartments and older homes",
     plannedWork:
@@ -4607,7 +4607,7 @@ const canadaBayLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "estate-style apartment and strata electrical work, shared meter-room access, building-manager maintenance, carpark and loading access jobs, safety switches, hot water electrical, CCTV/data and planned maintenance",
     emergencySignals:
-      "estate-style apartment power loss, shared meter-room issues, carpark lighting faults, hot water electrical faults, burning smells and safety-switch tripping",
+      "estate-style apartment power loss, shared meter-room issues, carpark lighting faults, hot water electrical faults and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for estate-style apartments and shared meter rooms",
     plannedWork:
@@ -4641,7 +4641,7 @@ const canadaBayLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment, station-area shop, office suite, restaurant and strata electrical work, shared meter-room access, business outages, older wiring checks, consumer mains, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "apartment power loss, station-area shop or restaurant outages, business faults, shared meter-room issues, burning smells, hot outlets and safety-switch tripping",
+      "apartment power loss, station-area shop or restaurant outages, business faults, shared meter-room issues and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, shops, restaurants, office suites and strata buildings",
     plannedWork:
@@ -4658,7 +4658,7 @@ const canadaBayLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "high-rise apartment, strata tower, shopping, retail, office suite and common-area electrical work, shared meter-room access, hot water electrical, common-area lighting, business outages, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "high-rise apartment power loss, retail or office outages, shared meter-room issues, common-area lighting faults, hot water electrical faults, burning smells and safety-switch tripping",
+      "high-rise apartment power loss, retail or office outages, shared meter-room issues, common-area lighting faults, hot water electrical faults and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for strata towers, retail tenancies, office suites and shared meter rooms",
     plannedWork:
@@ -4675,7 +4675,7 @@ const canadaBayLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "waterfront-home and residential electrical work, outdoor lighting, weather-exposed power, private service equipment, switchboard upgrades, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "waterfront home power loss, weather-exposed power faults, outdoor lighting hazards, storm or water-affected fixtures, burning smells and safety-switch tripping",
+      "waterfront home power loss, weather-exposed power faults, outdoor lighting hazards, storm or water-damaged fixtures and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and waterfront-home supply questions",
     plannedWork:
@@ -4692,7 +4692,7 @@ const canadaBayLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "home, duplex, apartment and older switchboard electrical work, outdoor power, hot water electrical, safety switches, renovations, consumer mains, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home or duplex power loss, apartment faults, hot water electrical issues, outdoor power hazards, burning smells, hot outlets and safety-switch tripping",
+      "home or duplex power loss, apartment faults, hot water electrical issues, outdoor power hazards and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for homes, duplexes and apartments",
     plannedWork:
@@ -4709,7 +4709,7 @@ const canadaBayLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "local shop, cafe, older-home and apartment electrical work, tight-street access jobs, switchboard upgrades, lighting and power, hot water electrical, CCTV/data and general maintenance",
     emergencySignals:
-      "local shop or cafe outages, older-home power loss, apartment faults, hot water electrical issues, burning smells, hot outlets and safety-switch tripping",
+      "local shop or cafe outages, older-home power loss, apartment faults, hot water electrical issues and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for shops, apartments and older homes",
     plannedWork:
@@ -4768,7 +4768,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "terrace electrical work, older wiring checks, strata apartment repairs, cafe and local shop maintenance, switchboard upgrades, defect notices, consumer mains, CCTV/data and planned quote work",
     emergencySignals:
-      "terrace power loss, strata apartment faults, cafe or local shop outages, older wiring faults, burning smells, hot outlets, sparking and safety-switch tripping",
+      "terrace power loss, strata apartment faults, cafe or local shop outages, older wiring faults and burning smells and heat at outlets, sparking and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for terraces, older homes, strata apartments and local shops",
     plannedWork:
@@ -4785,7 +4785,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "older-home electrical work, duplex repairs, federation-style residential wiring checks, switchboard upgrades, hot water electrical, safety-switch tripping, CCTV/data and planned quote work",
     emergencySignals:
-      "older-home power loss, hot water electrical faults, older-board overheating, burning smells, hot outlets, sparking and safety-switch tripping",
+      "older-home power loss, hot water electrical faults, older-board overheating and burning smells and heat at outlets, sparking and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes and duplexes",
     plannedWork:
@@ -4802,7 +4802,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment, strata, older-home, shop and restaurant electrical work, shared meter-room access, business outages, switchboard upgrades, consumer mains, defect notices, metering, CCTV/data and planned quote work",
     emergencySignals:
-      "apartment power loss, shop or restaurant outages, shared meter-room issues, business faults, burning smells, hot outlets and safety-switch tripping",
+      "apartment power loss, shop or restaurant outages, shared meter-room issues, business faults and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for apartments, strata buildings, shops and older homes",
     plannedWork:
@@ -4819,7 +4819,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "heritage terrace electrical work, older wiring checks, waterfront-home repairs, apartment and cafe maintenance, shopfront power, switchboard upgrades, consumer mains, service equipment, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "heritage terrace power loss, waterfront-home faults, cafe or shopfront outages, older wiring faults, burning smells, hot outlets, sparking and safety-switch tripping",
+      "heritage terrace power loss, waterfront-home faults, cafe or shopfront outages, older wiring faults and burning smells and heat at outlets, sparking and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for heritage terraces, waterfront homes, apartments and shopfronts",
     plannedWork:
@@ -4836,7 +4836,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "waterfront apartment and home electrical work, heritage wiring checks, outdoor power, switchboard upgrades, consumer mains, point of attachment enquiries, CCTV/data and planned quote work",
     emergencySignals:
-      "waterfront apartment power loss, heritage wiring faults, outdoor power hazards, storm or water-affected fixtures, burning smells and safety-switch tripping",
+      "waterfront apartment power loss, heritage wiring faults, outdoor power hazards, storm or water-damaged fixtures and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for waterfront apartments, waterfront homes and heritage properties",
     plannedWork:
@@ -4853,7 +4853,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "waterfront-home electrical work, heritage property wiring checks, older switchboard upgrades, weather-exposed outdoor power, private service equipment, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "waterfront home power loss, weather-exposed power faults, outdoor power hazards, storm or water-affected fixtures, burning smells and safety-switch tripping",
+      "waterfront home power loss, weather-exposed power faults, outdoor power hazards, storm or water-damaged fixtures and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and supply-side questions for waterfront and heritage properties",
     plannedWork:
@@ -4870,7 +4870,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment, terrace, medical precinct, education precinct and commercial tenancy electrical work, strata access jobs, shared meter-room support, switchboard upgrades, urgent faults, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "apartment power loss, medical or education site faults, commercial tenancy outages, shared meter-room issues, burning smells, hot outlets and safety-switch tripping",
+      "apartment power loss, medical or education site faults, commercial tenancy outages, shared meter-room issues and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, terraces, strata buildings and commercial tenancies",
     plannedWork:
@@ -4887,7 +4887,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "older-home, apartment, villa and shopfront electrical work, switchboard upgrades, hot water electrical, safety switches, defect notices, CCTV/data and planned quote work",
     emergencySignals:
-      "older-home power loss, apartment or villa faults, shopfront outages, hot water electrical issues, burning smells, hot outlets and safety-switch tripping",
+      "older-home power loss, apartment or villa faults, shopfront outages, hot water electrical issues and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes, apartments, villas and shopfronts",
     plannedWork:
@@ -4904,7 +4904,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "older-home, duplex, villa, apartment and local shop electrical work, rental maintenance, switchboard upgrades, general electrical repairs, hot water electrical, CCTV/data and planned quote work",
     emergencySignals:
-      "older-home power loss, rental maintenance hazards, apartment faults, local shop outages, hot water electrical issues, burning smells and safety-switch tripping",
+      "older-home power loss, rental maintenance hazards, apartment faults, local shop outages, hot water electrical issues and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment and defect notice questions for older homes, duplexes, villas, apartments and local shops",
     plannedWork:
@@ -4921,7 +4921,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment, terrace, older-home, cafe and shop electrical work, strata access jobs, older wiring checks, switchboard upgrades, hot water faults, urgent power loss, CCTV/data and planned quote work",
     emergencySignals:
-      "urgent power loss, apartment faults, cafe or shop outages, older wiring faults, hot water electrical issues, burning smells and safety-switch tripping",
+      "urgent power loss, apartment faults, cafe or shop outages, older wiring faults, hot water electrical issues and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, terraces, older homes, cafes and shops",
     plannedWork:
@@ -4938,7 +4938,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "terrace, music venue, entertainment venue, restaurant, cafe, shopfront and apartment electrical work, older wiring checks, after-hours faults, business outages, switchboard upgrades, CCTV/data and planned quote work",
     emergencySignals:
-      "after-hours venue faults, restaurant or cafe outages, shopfront power loss, terrace wiring faults, apartment faults, burning smells and safety-switch tripping",
+      "after-hours venue faults, restaurant or cafe outages, shopfront power loss, terrace wiring faults, apartment faults and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for terraces, apartments, venues, restaurants, cafes and shopfronts",
     plannedWork:
@@ -4955,7 +4955,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "heritage-home electrical work, older wiring checks, larger residential property repairs, shopfront maintenance, outdoor power, switchboard upgrades, consumer mains, CCTV/data and planned quote work",
     emergencySignals:
-      "heritage-home power loss, older wiring faults, shopfront outages, outdoor power hazards, burning smells, hot outlets and safety-switch tripping",
+      "heritage-home power loss, older wiring faults, shopfront outages, outdoor power hazards and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for heritage homes, larger residential properties and shopfronts",
     plannedWork:
@@ -4972,7 +4972,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "older-home, apartment, station-area and strata electrical work, switchboard upgrades, hot water electrical, safety switches, CCTV/data and planned quote work",
     emergencySignals:
-      "older-home power loss, apartment faults, station-area property outages, hot water electrical issues, burning smells and safety-switch tripping",
+      "older-home power loss, apartment faults, station-area property outages, hot water electrical issues and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment and defect notice questions for older homes, apartments, station-area properties and strata buildings",
     plannedWork:
@@ -4989,7 +4989,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "restaurant, shop, office, terrace and apartment electrical work, older wiring checks, business outages, switchboard upgrades, consumer mains, defect notices, CCTV/data and planned quote work",
     emergencySignals:
-      "restaurant or shop outages, office faults, terrace power loss, apartment faults, older wiring hazards, burning smells and safety-switch tripping",
+      "restaurant or shop outages, office faults, terrace power loss, apartment faults, older wiring hazards and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for restaurants, shops, terraces, apartments and offices",
     plannedWork:
@@ -5006,7 +5006,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment, older-home, station-area and strata electrical work, shared access jobs, hot water electrical, switchboard upgrades, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "apartment power loss, station-area property faults, shared access electrical issues, hot water electrical faults, burning smells and safety-switch tripping",
+      "apartment power loss, station-area property faults, shared access electrical issues, hot water electrical faults and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, older homes, station-area properties and strata buildings",
     plannedWork:
@@ -5023,7 +5023,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "terrace-home, apartment and older wiring electrical work, outdoor power, tight-street access jobs, switchboard upgrades, consumer mains, CCTV/data and planned quote work",
     emergencySignals:
-      "terrace power loss, apartment faults, outdoor power hazards, older wiring faults, burning smells, hot outlets and safety-switch tripping",
+      "terrace power loss, apartment faults, outdoor power hazards, older wiring faults and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for terrace homes, apartments and older homes",
     plannedWork:
@@ -5040,7 +5040,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "warehouse, creative-space, commercial, cafe, apartment and older-home electrical work, business outages, switchboard upgrades, three-phase and load checks, consumer mains, defect notices, CCTV/data and planned quote work",
     emergencySignals:
-      "warehouse or creative-space outages, cafe faults, apartment power loss, older-home wiring faults, business outages, burning smells and safety-switch tripping",
+      "warehouse or creative-space outages, cafe faults, apartment power loss, older-home wiring faults, business outages and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for warehouses, creative spaces, commercial sites, apartments and older homes",
     plannedWork:
@@ -5057,7 +5057,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "restaurant, shop, terrace, apartment and older wiring electrical work, after-hours faults, business outages, switchboard upgrades, shared access jobs, CCTV/data and planned quote work",
     emergencySignals:
-      "restaurant or shop outages, after-hours business faults, terrace power loss, apartment faults, older wiring hazards, burning smells and safety-switch tripping",
+      "restaurant or shop outages, after-hours business faults, terrace power loss, apartment faults, older wiring hazards and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for restaurants, shops, terraces, apartments and older wiring sites",
     plannedWork:
@@ -5074,7 +5074,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "older-home, apartment, restaurant, shopfront and strata electrical work, switchboard upgrades, hot water electrical, lighting and power, CCTV/data and Level 2 support",
     emergencySignals:
-      "older-home power loss, apartment faults, restaurant or shopfront outages, hot water electrical issues, burning smells and safety-switch tripping",
+      "older-home power loss, apartment faults, restaurant or shopfront outages, hot water electrical issues and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes, apartments, restaurants and shopfronts",
     plannedWork:
@@ -5091,7 +5091,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "terrace, harbour-side home, apartment and older wiring electrical work, outdoor power, limited-parking access jobs, switchboard upgrades, private service equipment, CCTV/data and planned quote work",
     emergencySignals:
-      "terrace power loss, harbour-side home faults, apartment faults, outdoor power hazards, older wiring faults, burning smells and safety-switch tripping",
+      "terrace power loss, harbour-side home faults, apartment faults, outdoor power hazards, older wiring faults and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and supply-side questions for terraces, harbour-side homes and apartments",
     plannedWork:
@@ -5108,7 +5108,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "warehouse, workshop, apartment and creative-space electrical work, business outages, switchboard upgrades, three-phase and load checks, lighting and power, CCTV/data and planned quote work",
     emergencySignals:
-      "warehouse or workshop outages, creative-space faults, apartment power loss, business outages, burning smells, hot outlets and safety-switch tripping",
+      "warehouse or workshop outages, creative-space faults, apartment power loss, business outages and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for warehouses, workshops, apartments and creative or commercial spaces",
     plannedWork:
@@ -5125,7 +5125,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "older-home, terrace, apartment and local shop electrical work, older switchboard upgrades, hot water electrical, safety-switch tripping, strata access jobs, CCTV/data and planned quote work",
     emergencySignals:
-      "older-home power loss, terrace faults, apartment faults, local shop outages, hot water electrical issues, burning smells and safety-switch tripping",
+      "older-home power loss, terrace faults, apartment faults, local shop outages, hot water electrical issues and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment and defect notice questions for older homes, terraces, apartments and local shops",
     plannedWork:
@@ -5142,7 +5142,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment, older-home, villa, shop and cafe electrical work, strata access jobs, switchboard upgrades, hot water electrical, safety switches, CCTV/data and quote-photo guided planned work",
     emergencySignals:
-      "apartment power loss, older-home faults, shop or cafe outages, hot water electrical issues, burning smells, hot outlets and safety-switch tripping",
+      "apartment power loss, older-home faults, shop or cafe outages, hot water electrical issues and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment and defect notice questions for apartments, older homes, villas, shops and cafes",
     plannedWork:
@@ -5159,7 +5159,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "railway-adjacent, industrial, warehouse, workshop, apartment and commercial electrical work, business outages, switchboard upgrades, three-phase and load checks, CCTV/data and planned quote work",
     emergencySignals:
-      "warehouse or workshop outages, industrial site faults, apartment power loss, railway-adjacent access issues, business outages, burning smells and safety-switch tripping",
+      "warehouse or workshop outages, industrial site faults, apartment power loss, railway-adjacent access issues, business outages and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for warehouses, workshops, apartments and industrial or commercial sites",
     plannedWork:
@@ -5176,7 +5176,7 @@ const innerWestLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "older-home, apartment, industrial pocket, railway-adjacent and airport-adjacent electrical work, switchboard upgrades, hot water electrical, lighting and power, business faults, CCTV/data and planned quote work",
     emergencySignals:
-      "older-home power loss, apartment faults, industrial pocket outages, business faults, hot water electrical issues, burning smells and safety-switch tripping",
+      "older-home power loss, apartment faults, industrial pocket outages, business faults, hot water electrical issues and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment and defect notice questions for older homes, apartments and industrial pockets",
     plannedWork:
@@ -5235,7 +5235,7 @@ const strathfieldAreaLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment, strata, older-home, local shop and office electrical work, shared meter-room access, rail or station-area jobs, switchboard upgrades, consumer mains, defect notices, urgent power faults, CCTV/data and planned quote work",
     emergencySignals:
-      "apartment power loss, strata shared-power issues, local shop or office faults, shared meter-room issues, older wiring faults, burning smells, hot outlets and safety-switch tripping",
+      "apartment power loss, strata shared-power issues, local shop or office faults, shared meter-room issues, older wiring faults and burning smells and heat at outlets and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for apartments, strata buildings, older homes, shops and offices",
     plannedWork:
@@ -5252,7 +5252,7 @@ const strathfieldAreaLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment, unit, strata, retail and warehouse-style premises electrical work, shared meter-room access, business outages, lighting, power, hot water circuits, CCTV/data, metering, load checks and planned quote work",
     emergencySignals:
-      "apartment or unit power loss, retail outages, warehouse-style premises faults, shared meter-room issues, hot water electrical faults, burning smells and safety-switch tripping",
+      "apartment or unit power loss, retail outages, warehouse-style premises faults, shared meter-room issues, hot water electrical faults and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, units, retail spaces and warehouse-style premises",
     plannedWork:
@@ -5269,7 +5269,7 @@ const strathfieldAreaLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "older-home, unit, local business, warehouse and workshop electrical work, commercial switchboards, lighting, power, hot water circuits, business outages, consumer mains, defect notices, service equipment, CCTV/data and planned quote work",
     emergencySignals:
-      "older-home power loss, unit faults, local business outages, warehouse or workshop faults, commercial switchboard issues, hot water electrical faults, burning smells and safety-switch tripping",
+      "older-home power loss, unit faults, local business outages, warehouse or workshop faults, commercial switchboard issues, hot water electrical faults and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for older homes, units, local businesses, warehouses and workshops",
     plannedWork:
@@ -10653,7 +10653,7 @@ const northernBeachesLocalContexts: Record<string, LocalPageContext> = {
     accessFocus:
       "beachside access notes, outdoor power photos, coastal exposure details and parking information",
     emergencyFocus:
-      "beachside power loss, coastal corrosion concerns, outdoor power hazards and storm or water-affected fittings",
+      "beachside power loss, coastal corrosion concerns, outdoor power hazards and storm or water-damaged fittings",
     jobFocus:
       "beachside home, apartment, cafe and coastal electrical work",
     level2Focus:
@@ -14098,7 +14098,7 @@ const burwoodLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "apartment and strata electrical work, shopfront and restaurant maintenance, office suite power, older-home repairs, shared meter-room access, business outages, switchboard upgrades, consumer mains, defect notices, metering, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "apartment power loss, shopfront or restaurant outages, shared meter-room issues, burning smells, heat at outlets, sparking and safety-switch faults",
+      "apartment power loss, shopfront or restaurant outages, shared meter-room issues and burning smells, heat at outlets, sparking and safety-switch faults",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, strata buildings, shops and older homes",
     plannedWork:
@@ -14115,7 +14115,7 @@ const burwoodLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "family-home electrical work, duplex and villa repairs, older switchboard checks, hot water electrical, lighting and power, safety-switch faults, planned Level 2 enquiries, CCTV/data and general electrical work",
     emergencySignals:
-      "home power loss, hot water electrical faults, older-board overheating, burning smells, heat at outlets, sparking and safety-switch faults",
+      "home power loss, hot water electrical faults, older-board overheating and burning smells, heat at outlets, sparking and safety-switch faults",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and planned supply-side questions for family homes, duplexes and villas",
     plannedWork:
@@ -14132,7 +14132,7 @@ const burwoodLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "older-home repairs, duplex and villa electrical work, apartment maintenance, rental maintenance, switchboard upgrades, safety-switch faults, hot water electrical, service-equipment support, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "older-home power loss, apartment or rental maintenance hazards, hot water electrical faults, burning smells, heat at outlets, sparking and safety-switch faults",
+      "older-home power loss, apartment or rental maintenance hazards, hot water electrical faults and burning smells, heat at outlets, sparking and safety-switch faults",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes, duplexes, villas and apartments",
     plannedWork:
@@ -14149,7 +14149,7 @@ const burwoodLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "larger-home electrical work, apartment and strata repairs, school and office suite maintenance, shopfront electrical work, older wiring checks, shared meter-room access, business outages, switchboard upgrades, consumer mains, defect notices, metering, point of attachment support, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "larger-home power loss, apartment or strata shared-power issues, school or shopfront faults, business outages, burning smells, heat at outlets, sparking and safety-switch faults",
+      "larger-home power loss, apartment or strata shared-power issues, school or shopfront faults, business outages and burning smells, heat at outlets, sparking and safety-switch faults",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for larger homes, strata buildings, schools, shops and office suites",
     plannedWork:
@@ -14531,7 +14531,7 @@ function getLocalPageContext(
       commonJobs:
         "apartment faults, outdoor lighting, CCTV cabling, safety switch trips and coastal switchboard checks",
       emergencySignals:
-        "storm faults, water-affected fixtures and circuit tripping and overheating power points and unsafe outdoor power",
+        "storm faults, water-damaged fixtures and circuit tripping and overheating power points and unsafe outdoor power",
       level2Detail:
         "consumer mains, point of attachment, service equipment and defect notice enquiries",
       plannedWork:
@@ -14585,7 +14585,7 @@ function getLocalPageContext(
       commonJobs:
         "hot water electrical faults, switchboards, outdoor lighting, apartment repairs and commercial maintenance",
       emergencySignals:
-        "coastal storm faults, power loss and circuit tripping, hot isolators and water-affected fixtures",
+        "coastal storm faults, power loss and circuit tripping, isolators that feel hot and water-damaged fixtures",
       level2Detail:
         "consumer mains, metering, service equipment and defect notice enquiries",
       plannedWork:
@@ -14613,7 +14613,7 @@ function getLocalPageContext(
       commonJobs:
         "outdoor lighting, hot water electrical checks, safety switch faults, CCTV and switchboard upgrades",
       emergencySignals:
-        "storm faults, water-affected fixtures, loss of power and overheating power points and repeated safety switch tripping",
+        "storm faults, water-damaged fixtures, loss of power and overheating power points and repeated safety switch tripping",
       level2Detail:
         "consumer mains, point of attachment, metering and supply-side upgrade enquiries",
       plannedWork:
@@ -14746,7 +14746,7 @@ function getLocalPageContext(
       commonJobs:
         "outdoor lighting, safety switch faults, corrosion checks, smoke alarms and power repairs",
       emergencySignals:
-        "storm-related faults, water-affected fixtures, tripping safety switches and unsafe outdoor power",
+        "storm-related faults, water-damaged fixtures, tripping safety switches and unsafe outdoor power",
       level2Detail:
         "consumer mains, overhead service points and supply-side upgrade enquiries",
       plannedWork:
@@ -14815,7 +14815,7 @@ function getLocalPageContext(
       commonJobs:
         "three-phase enquiries, fault finding, lighting, switchboards and maintenance work",
       emergencySignals:
-        "loss of power to equipment and circuit tripping, hot isolators and damaged outlets",
+        "loss of power to equipment and circuit tripping, isolators that feel hot and damaged outlets",
       level2Detail:
         "consumer mains, supply capacity, metering and service equipment questions",
       plannedWork:
@@ -15111,7 +15111,7 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
       "Coogee customers often ask for outdoor lighting, safety switch fault finding, apartment electrical repairs, smoke alarms, switchboard upgrades, CCTV cabling and weather-rated power.",
     serviceSummaryText: {
       emergency:
-        "Coogee urgent calls often involve water-affected fixtures, storm faults, tripping safety switches and overheating power points and unsafe outdoor power.",
+        "Coogee urgent calls often involve water-damaged fixtures, storm faults, tripping safety switches and overheating power points and unsafe outdoor power.",
       switchboard:
         "Switchboard work in Coogee can involve older apartment boards, corrosion concerns, safety switch upgrades and clearer circuit protection.",
       level2:
@@ -15795,7 +15795,7 @@ export function getSuburbPageCopy(
       ),
       text: pick(
         [
-          `Call first in ${coverageSuburb.name} for power outages and burning smells, sparking, safety switch tripping, storm damage, water-affected fixtures or anything electrical that feels unsafe. Evaready provides ${response.shortDisplay} for emergency call-outs in this region.`,
+          `Call first in ${coverageSuburb.name} for power outages and burning smells, sparking, safety switch tripping, storm damage, water-damaged fixtures or anything electrical that feels unsafe. Evaready provides ${response.shortDisplay} for emergency call-outs in this region.`,
           `Emergency enquiries in ${suburbLabel} often involve ${context.emergencySignals}. Stop using the affected circuit where safe and call before touching the area again.`,
           `When ${coverageSuburb.name} homes, shops or strata properties have power loss, smoke, heat, sparking or repeated tripping, the first step is a direct phone call so the risk and response time can be triaged.`,
         ],

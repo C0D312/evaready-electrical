@@ -1,9 +1,15 @@
-import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import {
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  writeFileSync,
+} from "node:fs";
 import path from "node:path";
 import {
-  coverageRegions,
   coverageSearchItems,
   getSuburbPageCopy,
+  coverageRegions,
 } from "../data/service-area-coverage";
 import { electricalFaultPages } from "../data/electrical-faults";
 import {
@@ -13,6 +19,16 @@ import {
   serviceClusterLinksBySlug,
 } from "../data/internal-links";
 import { serviceLandingPages } from "../data/service-pages";
+import { business } from "../data/site";
+import {
+  basePath,
+  createKnownRouteSet,
+  filePathForRoute,
+  normalizeRoute,
+  outDir,
+  pageTypeForRoute,
+  routeInventoryStats,
+} from "./route-inventory";
 
 type LinkSource = {
   href: string;
@@ -21,6 +37,12 @@ type LinkSource = {
 
 type BrokenLink = {
   href: string;
+  source: string;
+};
+
+type GeneratedHtmlIssue = {
+  href: string;
+  issue: string;
   source: string;
 };
 
@@ -47,14 +69,6 @@ const specialServiceRoutes: Record<string, string> = {
   "switchboard-upgrades-sydney": "/services/switchboard-upgrades-sydney",
 };
 
-function normalizeRoute(route: string) {
-  if (route === "/") {
-    return "/";
-  }
-
-  return route.replace(/\/+$/, "");
-}
-
 function isInternalRoute(href: string) {
   if (!href.startsWith("/")) {
     return false;
@@ -80,33 +94,7 @@ function serviceRouteForSlug(slug: string) {
 }
 
 function createKnownRoutes() {
-  const routes = new Set(staticRoutes.map(normalizeRoute));
-
-  for (const service of serviceLandingPages) {
-    routes.add(normalizeRoute(`/services/${service.slug}`));
-  }
-
-  for (const fault of electricalFaultPages) {
-    routes.add(normalizeRoute(`/electrical-faults/${fault.slug}`));
-  }
-
-  for (const region of coverageRegions) {
-    routes.add(normalizeRoute(`/service-areas/${region.slug}`));
-
-    for (const area of region.areas) {
-      routes.add(normalizeRoute(`/service-areas/${region.slug}/${area.slug}`));
-
-      for (const suburb of area.suburbs) {
-        routes.add(
-          normalizeRoute(
-            `/service-areas/${region.slug}/${area.slug}/${suburb.slug}`,
-          ),
-        );
-      }
-    }
-  }
-
-  return routes;
+  return createKnownRouteSet();
 }
 
 function walkFiles(directory: string): string[] {
@@ -270,6 +258,297 @@ function uniqueLinks(links: LinkSource[]) {
   });
 }
 
+function walkGeneratedHtmlFiles(directory: string): string[] {
+  if (!existsSync(directory)) {
+    return [];
+  }
+
+  const entries = readdirSync(directory, { withFileTypes: true });
+
+  return entries.flatMap((entry) => {
+    const fullPath = path.join(directory, entry.name);
+
+    if (entry.isDirectory()) {
+      if (entry.name === "_next") {
+        return [];
+      }
+
+      return walkGeneratedHtmlFiles(fullPath);
+    }
+
+    return entry.name.endsWith(".html") ? [fullPath] : [];
+  });
+}
+
+function routeFromHtmlFile(filePath: string) {
+  const relativePath = path.relative(outDir, filePath).replace(/\\/g, "/");
+
+  if (relativePath === "index.html") {
+    return "/";
+  }
+
+  if (!relativePath.endsWith("/index.html")) {
+    return null;
+  }
+
+  return normalizeRoute(relativePath.replace(/\/index\.html$/, ""));
+}
+
+function decodeAttribute(value: string) {
+  return value
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#x27;/g, "'")
+    .replace(/&#39;/g, "'");
+}
+
+function getAttribute(tag: string, name: string) {
+  const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const match = tag.match(
+    new RegExp(`\\b${escapedName}\\s*=\\s*(["'])([\\s\\S]*?)\\1`, "i"),
+  );
+
+  return match ? decodeAttribute(match[2]) : "";
+}
+
+function collectAnchors(html: string) {
+  return Array.from(html.matchAll(/<a\b[\s\S]*?<\/a>/gi)).map((match) => ({
+    href: getAttribute(match[0], "href"),
+    rel: getAttribute(match[0], "rel"),
+    tag: match[0],
+    target: getAttribute(match[0], "target"),
+  }));
+}
+
+function collectIdsAndNames(html: string) {
+  const ids = new Set<string>();
+
+  for (const match of html.matchAll(/\b(?:id|name)=["']([^"']+)["']/gi)) {
+    ids.add(decodeAttribute(match[1]));
+  }
+
+  return ids;
+}
+
+function generatedRouteForHref(href: string, sourceRoute: string) {
+  if (!href || href.startsWith("#")) {
+    return {
+      hash: href.startsWith("#") ? href.slice(1) : "",
+      route: sourceRoute,
+    };
+  }
+
+  if (
+    href.startsWith("mailto:") ||
+    href.startsWith("tel:") ||
+    href.startsWith("sms:") ||
+    href.startsWith("data:") ||
+    href.startsWith("javascript:")
+  ) {
+    return null;
+  }
+
+  try {
+    if (/^https?:\/\//i.test(href)) {
+      const url = new URL(href);
+
+      if (url.hostname !== "c0d312.github.io") {
+        return null;
+      }
+
+      if (!url.pathname.startsWith(basePath)) {
+        return null;
+      }
+
+      return {
+        hash: url.hash.replace(/^#/, ""),
+        route: normalizeRoute(url.pathname.slice(basePath.length)),
+      };
+    }
+
+    if (href.startsWith(basePath)) {
+      const [pathPart, hashPart = ""] = href.split("#");
+      return {
+        hash: hashPart,
+        route: normalizeRoute(pathPart.slice(basePath.length).split("?")[0]),
+      };
+    }
+
+    if (href.startsWith("/")) {
+      if (
+        /^\/(?:_next|images|favicon|apple-icon|icon|robots\.txt|sitemap\.xml)/i.test(
+          href,
+        )
+      ) {
+        return href.startsWith("/robots.txt") || href.startsWith("/sitemap.xml")
+          ? {
+              hash: "",
+              route: normalizeRoute(href.split(/[?#]/)[0]),
+            }
+          : null;
+      }
+
+      const [pathPart, hashPart = ""] = href.split("#");
+      return {
+        hash: hashPart,
+        route: normalizeRoute(pathPart.split("?")[0]),
+      };
+    }
+  } catch {
+    return null;
+  }
+
+  return null;
+}
+
+function isCommercialPage(route: string) {
+  return new Set([
+    "homepage",
+    "services index",
+    "service page",
+    "fault index",
+    "fault guide",
+    "service-area index",
+    "region page",
+    "area page",
+    "suburb page",
+    "emergency page",
+    "level 2 page",
+  ]).has(pageTypeForRoute(route));
+}
+
+function auditGeneratedHtmlLinks(knownRoutes: Set<string>) {
+  const issues: GeneratedHtmlIssue[] = [];
+  const htmlFiles = walkGeneratedHtmlFiles(outDir);
+  const idCache = new Map<string, Set<string>>();
+  let anchorsChecked = 0;
+  let htmlRoutesChecked = 0;
+
+  if (htmlFiles.length === 0) {
+    return {
+      anchorsChecked,
+      htmlRoutesChecked,
+      issues,
+      skippedReason: "Generated output folder not present; source/data links checked only.",
+    };
+  }
+
+  for (const filePath of htmlFiles) {
+    const sourceRoute = routeFromHtmlFile(filePath);
+
+    if (!sourceRoute) {
+      continue;
+    }
+
+    htmlRoutesChecked += 1;
+    const html = readFileSync(filePath, "utf8");
+    const anchors = collectAnchors(html);
+
+    if (isCommercialPage(sourceRoute)) {
+      if (!html.includes("tel:+61461247247")) {
+        issues.push({
+          href: "",
+          issue: "commercial page missing phone CTA link",
+          source: sourceRoute,
+        });
+      }
+
+      if (!html.includes('data-conversion-action="quote-click"')) {
+        issues.push({
+          href: "",
+          issue: "commercial page missing quote conversion CTA",
+          source: sourceRoute,
+        });
+      }
+    }
+
+    for (const anchor of anchors) {
+      anchorsChecked += 1;
+
+      if (!anchor.href) {
+        continue;
+      }
+
+      if (anchor.href.startsWith("tel:") && anchor.href !== business.phoneHref) {
+        issues.push({
+          href: anchor.href,
+          issue: "phone link does not use approved number",
+          source: sourceRoute,
+        });
+      }
+
+      if (
+        anchor.tag.includes('data-conversion-action="quote-click"') &&
+        anchor.href !== business.bookingUrl
+      ) {
+        issues.push({
+          href: anchor.href,
+          issue: "quote conversion link does not use central booking URL",
+          source: sourceRoute,
+        });
+      }
+
+      if (/^https?:\/\//i.test(anchor.href) && anchor.target === "_blank") {
+        const relTokens = new Set(anchor.rel.toLowerCase().split(/\s+/));
+
+        if (!relTokens.has("noopener") || !relTokens.has("noreferrer")) {
+          issues.push({
+            href: anchor.href,
+            issue: "external target blank link missing noopener noreferrer",
+            source: sourceRoute,
+          });
+        }
+      }
+
+      const internalTarget = generatedRouteForHref(anchor.href, sourceRoute);
+
+      if (!internalTarget) {
+        continue;
+      }
+
+      if (!knownRoutes.has(internalTarget.route)) {
+        issues.push({
+          href: anchor.href,
+          issue: "generated internal href does not resolve",
+          source: sourceRoute,
+        });
+        continue;
+      }
+
+      if (
+        internalTarget.hash &&
+        internalTarget.hash !== ":~:text" &&
+        !internalTarget.hash.startsWith(":~:text=")
+      ) {
+        if (!idCache.has(internalTarget.route)) {
+          const targetPath = filePathForRoute(internalTarget.route);
+          idCache.set(
+            internalTarget.route,
+            existsSync(targetPath)
+              ? collectIdsAndNames(readFileSync(targetPath, "utf8"))
+              : new Set(),
+          );
+        }
+
+        if (!idCache.get(internalTarget.route)?.has(internalTarget.hash)) {
+          issues.push({
+            href: anchor.href,
+            issue: "internal anchor target not found",
+            source: sourceRoute,
+          });
+        }
+      }
+    }
+  }
+
+  return {
+    anchorsChecked,
+    htmlRoutesChecked,
+    issues,
+    skippedReason: "",
+  };
+}
+
 function formatBrokenLinks(brokenLinks: BrokenLink[]) {
   if (brokenLinks.length === 0) {
     return "No broken internal links found.";
@@ -289,16 +568,18 @@ function main() {
     ...collectDataDrivenLinks(),
   ]);
   const brokenLinks = findBrokenLinks(links, knownRoutes);
-  const generatedCounts = {
-    areaRoutes: coverageRegions.reduce(
-      (total, region) => total + region.areas.length,
-      0,
-    ),
-    faultRoutes: electricalFaultPages.length,
-    regionRoutes: coverageRegions.length,
-    serviceRoutes: serviceLandingPages.length + 1,
-    suburbRoutes: coverageSearchItems.length,
-  };
+  const generatedHtmlAudit = auditGeneratedHtmlLinks(knownRoutes);
+  const generatedCounts = routeInventoryStats();
+  const generatedIssueRows =
+    generatedHtmlAudit.issues.length === 0
+      ? "No broken generated HTML links found."
+      : [
+          "| Source route | Issue | Href |",
+          "| --- | --- | --- |",
+          ...generatedHtmlAudit.issues.map(
+            (issue) => `| \`${issue.source}\` | ${issue.issue} | \`${issue.href}\` |`,
+          ),
+        ].join("\n");
   const report = `# Internal Link Audit
 
 Generated: ${new Date().toISOString()}
@@ -327,6 +608,15 @@ Internal links checked: ${links.length}
 ## Broken Links
 
 ${formatBrokenLinks(brokenLinks)}
+
+## Generated HTML Crawl
+
+- HTML routes checked: ${generatedHtmlAudit.htmlRoutesChecked}
+- Anchors checked: ${generatedHtmlAudit.anchorsChecked}
+- Generated HTML link issues: ${generatedHtmlAudit.issues.length}
+${generatedHtmlAudit.skippedReason ? `- Note: ${generatedHtmlAudit.skippedReason}` : ""}
+
+${generatedIssueRows}
 `;
 
   mkdirSync(path.dirname(reportPath), { recursive: true });
@@ -336,6 +626,8 @@ ${formatBrokenLinks(brokenLinks)}
     JSON.stringify(
       {
         brokenLinks: brokenLinks.length,
+        generatedHtmlIssues: generatedHtmlAudit.issues.length,
+        generatedHtmlRoutesChecked: generatedHtmlAudit.htmlRoutesChecked,
         internalLinksChecked: links.length,
         knownRoutes: knownRoutes.size,
         reportPath,
@@ -345,7 +637,7 @@ ${formatBrokenLinks(brokenLinks)}
     ),
   );
 
-  if (brokenLinks.length > 0) {
+  if (brokenLinks.length > 0 || generatedHtmlAudit.issues.length > 0) {
     process.exitCode = 1;
   }
 }

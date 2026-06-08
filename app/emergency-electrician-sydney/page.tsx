@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   AlertTriangle,
@@ -124,8 +124,7 @@ const safetySteps = [
   {
     title: "For life-threatening danger, call emergency services first.",
     text: "For fallen powerlines, fire, electric shock or immediate danger, keep clear and call 000 or the relevant distributor.",
-    href: "tel:000",
-    external: true,
+    href: "/electrical-faults/electric-shock-from-outlet",
   },
   {
     title: "Call Evaready Electrical for urgent fault guidance.",
@@ -395,7 +394,7 @@ export default function EmergencyElectricianSydneyPage() {
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">
               Call now for no power and burning smells, smoke, sparking power
               points and overheating power points, tripping safety switches, storm damage,
-              water-affected fixtures or after-hours electrical hazards.
+              water-damaged fixtures or after-hours electrical hazards.
             </p>
 
             <p className="mt-4 max-w-2xl rounded-2xl border border-red-300/25 bg-red-500/10 p-4 text-sm font-bold leading-6 text-slate-100">

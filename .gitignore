@@ -13,6 +13,7 @@
 # testing
 /coverage
 /reports/cross-browser-screenshots/
+/reports/full-site-visibility-screenshots/
 /reports/playwright-html-report/
 /reports/playwright-test-results/
 /reports/site-smoke-screenshots/

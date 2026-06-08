@@ -1,4 +1,4 @@
-﻿export type ServiceFaq = {
+export type ServiceFaq = {
   answer: string;
   question: string;
 };
@@ -2039,7 +2039,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Should I use power points after water damage?",
         answer:
-          "No. Do not use water-affected fixtures or outlets until they have been checked safely.",
+          "No. Do not use water-damaged fixtures or outlets until they have been checked safely.",
       },
       {
         question: "Can storm damage cause safety switches to trip?",
