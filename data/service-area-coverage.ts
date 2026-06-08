@@ -285,6 +285,177 @@ function getCanterburyBankstownLocalContext(
   };
 }
 
+const baysideAirportLocalContexts: Record<string, LocalPageContext> = {
+  banksmeadow: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, loading dock notes, parking details, site contact details and any defect notice or paperwork",
+    commonJobs:
+      "warehouse fault finding, logistics-site lighting, workshop power, office circuits, commercial switchboards, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "business outages, warehouse power loss, hot outlets, circuit tripping, damaged workshop circuits and storm or water-affected electrical areas",
+    level2Detail:
+      "consumer mains, service equipment, metering, defect notices, point of attachment issues and supply capacity questions for commercial sites",
+    plannedWork:
+      "warehouse lighting, workshop circuits, office power, data cabling, CCTV, switchboard load checks and planned commercial quote work",
+    propertyMix:
+      "warehouses, logistics sites, workshops, offices, commercial tenancies and small business sites",
+    setting: "Bayside & Airport warehouse and commercial service area",
+    switchboardDetail:
+      "commercial switchboards, business loads, three-phase questions, safety switches, RCBOs and clearer circuit labelling",
+  },
+  botany: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, shopfront access notes, warehouse entry details, parking notes and any defect notice or paperwork",
+    commonJobs:
+      "older-home fault finding, shopfront maintenance, warehouse lighting, strata repairs, hot water circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home or shop power loss, burning smells, hot outlets, safety switch tripping, warehouse circuit faults and water-affected electrical equipment",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
+    plannedWork:
+      "shop lighting, older-home switchboards, warehouse circuits, extra power points, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "older homes, shopfronts, warehouses, strata buildings, light industrial sites and small businesses",
+    setting: "Bayside & Airport mixed home, shopfront and light-industrial service area",
+    switchboardDetail:
+      "older boards, shop loads, warehouse circuits, safety switch protection and clearer labelling",
+  },
+  daceyville: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, unit or villa access notes, parking details, strata contact details and any defect notice or paperwork",
+    commonJobs:
+      "home fault finding, unit repairs, villa switchboards, strata maintenance, lighting, power points, smoke alarms, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, unit circuit tripping, burning smells, hot outlets, unsafe older boards and water-affected electrical equipment",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata supply questions",
+    plannedWork:
+      "older-board checks, villa switchboards, extra outlets, lighting, smoke alarms, data points, CCTV and planned home quote work",
+    propertyMix:
+      "homes, units, villas, strata buildings, older boards and small local properties",
+    setting: "Bayside & Airport homes, units and villa service area",
+    switchboardDetail:
+      "older boards, safety switches, RCBO protection, strata access and clearer circuit labelling",
+  },
+  eastgardens: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, apartment or retail tenancy access notes, parking details, building manager contact details and any defect notice or paperwork",
+    commonJobs:
+      "apartment faults, retail tenancy maintenance, strata repairs, shared-access electrical work, lighting, power, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment power loss, retail tenancy outages, shared circuit tripping, hot outlets, burning smells and unsafe common-area electrical faults",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and retail or strata supply questions",
+    plannedWork:
+      "retail lighting, tenancy power, apartment repairs, strata maintenance, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "apartments, shopping centre and retail tenancies, strata buildings, shared access areas and local businesses",
+    setting: "Bayside & Airport apartment, strata and retail service area",
+    switchboardDetail:
+      "shared boards, tenancy loads, safety switch protection, crowded enclosures and clear tenancy labelling",
+  },
+  eastlakes: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, apartment access notes, strata contact details, parking details and any defect notice or paperwork",
+    commonJobs:
+      "apartment repairs, older-board checks, strata access work, rental maintenance, hot water circuits, lighting, power points, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment power loss, older-board faults, shared circuit tripping, hot water electrical faults, burning smells and hot outlets",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata supply questions",
+    plannedWork:
+      "rental maintenance, hot water electrical checks, apartment power, smoke alarms, lighting, data points, CCTV and switchboard planning",
+    propertyMix:
+      "apartments, older boards, strata buildings, rental properties and small local businesses",
+    setting: "Bayside & Airport apartment, strata and rental-maintenance service area",
+    switchboardDetail:
+      "older boards, shared switchboard areas, safety switches, RCBO protection and tenancy labelling",
+  },
+  hillsdale: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, unit access notes, strata or property-manager contact details, parking details and any defect notice or paperwork",
+    commonJobs:
+      "unit faults, shared switchboard checks, strata maintenance, local business repairs, lighting, power points, smoke alarms, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "unit power loss, shared circuit tripping, hot outlets, burning smells, shop power faults and unsafe strata electrical issues",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and property-manager supply questions",
+    plannedWork:
+      "unit repairs, strata maintenance, local business lighting, smoke alarms, data points, CCTV and planned property-manager quote work",
+    propertyMix:
+      "units, shared switchboard areas, strata buildings, local businesses and property-managed sites",
+    setting: "Bayside & Airport unit, strata and local business service area",
+    switchboardDetail:
+      "shared boards, older protection, strata access, safety switches and clearer tenancy labelling",
+  },
+  mascot: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, airport-precinct access notes, loading dock details, parking rules, building manager contacts and any defect notice or paperwork",
+    commonJobs:
+      "airport-precinct faults, apartment repairs, hotel and office maintenance, shop power, warehouse lighting, commercial switchboards, load checks, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "commercial outages, apartment power loss, hotel or shop circuit faults, hot outlets, business-critical tripping and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns, load checks and supply capacity questions",
+    plannedWork:
+      "commercial switchboards, load capacity checks, office lighting, shop power, warehouse circuits, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "airport precinct sites, apartments, hotels, offices, shops, warehouses, commercial tenancies and homes",
+    setting: "Bayside & Airport airport-precinct, apartment and commercial service area",
+    switchboardDetail:
+      "commercial switchboards, apartment boards, tenancy loads, load capacity checks, safety switches and clear circuit labelling",
+  },
+  pagewood: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, home or apartment access notes, retail or warehouse entry details, parking details and any defect notice or paperwork",
+    commonJobs:
+      "home fault finding, apartment repairs, retail maintenance, warehouse power, switchboard upgrades, hot water circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home or apartment power loss, retail outages, warehouse circuit faults, burning smells, hot outlets, tripping safety switches and water-affected electrical equipment",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
+    plannedWork:
+      "home lighting, apartment maintenance, retail power, warehouse circuits, switchboard planning, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, apartments, retail sites, warehouses, commercial tenancies and small businesses",
+    setting: "Bayside & Airport home, apartment, retail and warehouse service area",
+    switchboardDetail:
+      "older boards, apartment protection, retail loads, warehouse circuits, safety switches and RCBO upgrades",
+  },
+  rosebery: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, apartment or warehouse-conversion access notes, cafe or office timing, parking details, building manager contacts and any defect notice or paperwork",
+    commonJobs:
+      "apartment faults, warehouse-conversion power, office lighting, cafe electrical maintenance, small business repairs, strata work, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment outages, cafe or small business power loss, hot outlets, circuit tripping, burning smells and unsafe shared electrical areas",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata or commercial supply questions",
+    plannedWork:
+      "apartment repairs, warehouse-conversion lighting, office power, cafe circuits, data cabling, CCTV, strata maintenance and planned quote work",
+    propertyMix:
+      "apartments, warehouse conversions, offices, cafes, small businesses and strata buildings",
+    setting: "Bayside & Airport apartment, warehouse-conversion and small business service area",
+    switchboardDetail:
+      "apartment boards, converted-site loads, tenancy circuits, safety switches, RCBOs and clearer circuit labelling",
+  },
+};
+
+function getBaysideAirportLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "st-george-and-bayside" ||
+    coverageArea.slug !== "bayside-and-airport"
+  ) {
+    return null;
+  }
+
+  return baysideAirportLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 function getLocalPageContext(
   coverageRegion: CoverageRegion,
   coverageArea: CoverageArea,
@@ -299,6 +470,16 @@ function getLocalPageContext(
 
   if (canterburyBankstownContext) {
     return canterburyBankstownContext;
+  }
+
+  const baysideAirportContext = getBaysideAirportLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (baysideAirportContext) {
+    return baysideAirportContext;
   }
 
   if (
