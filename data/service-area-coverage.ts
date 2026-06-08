@@ -10438,6 +10438,156 @@ function getHornsbyLocalContext(
   return hornsbyLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+function makeHuntersHillLocalContext({
+  accessFocus,
+  commonJobs,
+  emergencySignals,
+  level2Detail,
+  plannedWork,
+  propertyMix,
+  setting,
+  switchboardDetail,
+}: Omit<LocalPageContext, "accessDetail"> & {
+  accessFocus: string;
+}): LocalPageContext {
+  return {
+    accessDetail: `photos of the switchboard, meter box, affected fitting, ${accessFocus}, access notes, parking/loading details, strata/building-manager notes and any defect notice or paperwork`,
+    commonJobs,
+    emergencySignals,
+    level2Detail,
+    plannedWork,
+    propertyMix,
+    setting,
+    switchboardDetail,
+  };
+}
+
+const huntersHillLocalContexts: Record<string, LocalPageContext> = {
+  gladesville: makeHuntersHillLocalContext({
+    accessFocus:
+      "Victoria Road business details, shared meter-room photos, shopfront entry notes and parking information",
+    commonJobs:
+      "apartment and strata electrical work, shopfront maintenance, older-home repairs, Victoria Road business outages, shared meter-room access, switchboard upgrades, consumer mains, defect notices, hot water electrical, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, shopfront or Victoria Road business outages, shared meter-room concerns, hot water electrical faults, older-board issues and repeated safety switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and point of attachment support for apartments, strata buildings, shopfronts, older homes and local businesses",
+    plannedWork:
+      "apartment repairs, strata maintenance, shopfront lighting, Victoria Road business electrical work, older-home repairs, switchboard upgrades, consumer mains review, defect notice paperwork, hot water electrical, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, strata buildings, shopfronts, older homes, Victoria Road businesses, shared meter rooms, limited parking and mixed residential or business access",
+    setting:
+      "Gladesville apartment, strata, shopfront, older-home and Victoria Road business service area",
+    switchboardDetail:
+      "shared meter rooms, apartment and shopfront loads, older wiring, consumer mains, defect notices and safety switch protection",
+  }),
+  henley: makeHuntersHillLocalContext({
+    accessFocus:
+      "river-side access notes, driveway details, outdoor power photos and private service equipment information",
+    commonJobs:
+      "premium-home electrical work, river-side property maintenance, older switchboard checks, outdoor power, private service equipment, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "premium-home power loss, river-side outdoor power hazards, older-board concerns, private service equipment issues, hot water electrical faults and repeated safety switch trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, service equipment and point of attachment support for premium homes, river-side properties and access-sensitive sites",
+    plannedWork:
+      "premium-home repairs, river-side property electrical work, older-board upgrades, outdoor power, private service equipment review, consumer mains checks, CCTV/data and planned quote-photo work",
+    propertyMix:
+      "premium residential homes, river-side properties, older switchboards, outdoor power, private service equipment, consumer mains, access notes and planned quote-photo guidance",
+    setting:
+      "Henley premium-home, river-side, outdoor-power and private-service-equipment service area",
+    switchboardDetail:
+      "premium-home boards, outdoor circuits, private service equipment, consumer mains, hot water loads and safety switch protection",
+  }),
+  "hunters-hill": makeHuntersHillLocalContext({
+    accessFocus:
+      "heritage-home, apartment, school, shop, narrow-street or limited-parking details",
+    commonJobs:
+      "premium-home, heritage-home, apartment, strata, school and local-shop electrical work, older wiring checks, narrow-street access planning, private service equipment, consumer mains, metering, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "premium-home power loss, apartment or strata faults, school or local-shop outages, older-wiring concerns, private service equipment issues and repeated safety switch trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, service equipment, point of attachment questions and defect notices for premium homes, heritage homes, apartments, strata sites, schools and local shops",
+    plannedWork:
+      "premium-home repairs, heritage and older wiring checks, apartment and strata maintenance, school and local-shop electrical work, switchboard upgrades, consumer mains review, metering support, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "premium homes, heritage and older wiring, apartments, strata, schools/local shops, narrow streets, limited parking, private service equipment, consumer mains, metering and defect notices",
+    setting:
+      "Hunters Hill premium-home, heritage-home, apartment, strata, school, shop and narrow-street service area",
+    switchboardDetail:
+      "premium-home and heritage-property boards, apartment and strata loads, private service equipment, consumer mains, metering and older wiring",
+  }),
+  "huntleys-cove": makeHuntersHillLocalContext({
+    accessFocus:
+      "waterfront apartment, shared meter-room, building-manager, carpark or loading access notes",
+    commonJobs:
+      "waterfront apartment and strata electrical work, shared meter-room access, building-manager coordination, carpark and loading access planning, hot water electrical, safety switch repairs, switchboards, Level 2 support, CCTV/data and planned quote work",
+    emergencySignals:
+      "waterfront apartment power loss, strata shared-power issues, shared meter-room concerns, hot water electrical faults, safety switch trips and switchboard faults",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for waterfront apartments, strata complexes, shared meter rooms and managed-building access",
+    plannedWork:
+      "waterfront apartment repairs, strata maintenance, shared meter-room checks, hot water electrical, safety switch repairs, switchboard upgrades, Level 2 service-equipment support, CCTV/data and planned quote work",
+    propertyMix:
+      "waterfront apartments, strata complexes, shared meter rooms, building-manager access, carpark/loading notes, hot water faults, safety switches, switchboards and Level 2 support",
+    setting:
+      "Huntleys Cove waterfront-apartment, strata, shared-meter-room and managed-building service area",
+    switchboardDetail:
+      "waterfront apartment and strata boards, shared meter rooms, hot water circuits, safety switch protection, service equipment and managed-building access",
+  }),
+  "huntleys-point": makeHuntersHillLocalContext({
+    accessFocus:
+      "waterfront, river-side, strata or private service equipment notes and outdoor power photos",
+    commonJobs:
+      "waterfront home and apartment electrical work, river-side access planning, strata maintenance, private service equipment, outdoor power, consumer mains, point of attachment support, CCTV/data and planned quote work",
+    emergencySignals:
+      "waterfront power loss, river-side access-sensitive faults, outdoor power hazards, weather-exposed electrical issues, private service equipment concerns and repeated safety switch trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, service equipment and point of attachment support for waterfront homes, apartments, strata sites and river-side access-sensitive properties",
+    plannedWork:
+      "waterfront home and apartment repairs, strata maintenance, outdoor power, private service equipment review, consumer mains checks, point of attachment support, CCTV/data and planned quote work",
+    propertyMix:
+      "waterfront homes and apartments, river-side access constraints, strata access, private service equipment, outdoor power, weather exposure, consumer mains and point-of-attachment support",
+    setting:
+      "Huntleys Point waterfront-home, apartment, strata, outdoor-power and private-service-equipment service area",
+    switchboardDetail:
+      "waterfront home and apartment boards, outdoor circuits, private service equipment, consumer mains, point of attachment support and safety switch protection",
+  }),
+  woolwich: makeHuntersHillLocalContext({
+    accessFocus:
+      "waterfront, heritage-property, apartment, strata or limited-parking notes and outdoor lighting photos",
+    commonJobs:
+      "premium waterfront-home electrical work, heritage and older-property repairs, apartment and strata maintenance, outdoor lighting, private service equipment, switchboards, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "premium waterfront-home power loss, heritage-property wiring concerns, apartment or strata faults, outdoor lighting hazards, private service equipment issues and repeated safety switch trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, service equipment and defect notices for premium waterfront homes, heritage properties, apartments and strata sites",
+    plannedWork:
+      "premium waterfront-home repairs, heritage and older-property electrical work, apartment and strata maintenance, outdoor lighting, switchboard upgrades, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "premium waterfront homes, heritage/older properties, apartments/strata, limited parking, private service equipment, outdoor lighting, switchboards, consumer mains and access notes",
+    setting:
+      "Woolwich premium-waterfront-home, heritage-property, apartment, strata and outdoor-lighting service area",
+    switchboardDetail:
+      "premium waterfront-home and heritage-property boards, apartment and strata loads, outdoor lighting circuits, private service equipment and consumer mains",
+  }),
+};
+
+function getHuntersHillLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "northern-sydney-and-ryde" ||
+    coverageArea.slug !== "hunters-hill"
+  ) {
+    return null;
+  }
+
+  return huntersHillLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 const burwoodLocalContexts: Record<string, LocalPageContext> = {
   burwood: {
     accessDetail:
@@ -10768,6 +10918,16 @@ function getLocalPageContext(
 
   if (hornsbyContext) {
     return hornsbyContext;
+  }
+
+  const huntersHillContext = getHuntersHillLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (huntersHillContext) {
+    return huntersHillContext;
   }
 
   const burwoodContext = getBurwoodLocalContext(
