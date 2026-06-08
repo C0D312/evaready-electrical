@@ -1087,6 +1087,738 @@ function getRockdaleBexleyLocalContext(
   return rockdaleBexleyLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+const sutherlandShireLocalContexts: Record<string, LocalPageContext> = {
+  "alfords-point": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, long-driveway or gate access notes, parking details, private service equipment photos and any defect notice or paperwork",
+    commonJobs:
+      "larger-home fault finding, bushland-edge outdoor power, private service equipment checks, switchboard upgrades, consumer mains, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "power loss, storm-affected outdoor circuits, heat at outlets, sparking, safety-switch tripping and unsafe private service equipment",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and supply-side questions",
+    plannedWork:
+      "outdoor power, switchboard capacity checks, driveway lighting, private service equipment review, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "larger homes, bushland-edge properties, long driveways, outdoor areas and private service equipment",
+    setting: "Sutherland Shire larger-home and bushland-edge service area",
+    switchboardDetail:
+      "home loads, outdoor circuits, private service equipment, safety switches, RCBOs and consumer mains capacity",
+  },
+  bangor: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, driveway or parking notes, hot water circuit details and any defect notice or paperwork",
+    commonJobs:
+      "family-home repairs, duplex electrical work, older-board checks, safety-switch tripping, hot water circuits, outdoor lighting, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, hot water electrical faults, sparking, heat at outlets, safety-switch tripping and storm-affected outdoor power",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes and duplexes",
+    plannedWork:
+      "lighting, outdoor power, hot water circuits, smoke alarms, switchboard upgrades, data cabling, CCTV and planned home quote work",
+    propertyMix:
+      "family homes, duplexes, older boards, outdoor areas and residential service equipment",
+    setting: "Sutherland Shire family-home and duplex service area",
+    switchboardDetail:
+      "older boards, hot water loads, safety switches, RCBO protection, outdoor circuits and clear circuit labelling",
+  },
+  "barden-ridge": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, renovation notes, bushland access details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "larger-home fault finding, renovation electrical work, bushland-access jobs, outdoor power, switchboard capacity checks, consumer mains, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, storm-affected outdoor circuits, heat at outlets, sparking, tripping safety switches and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply upgrade questions",
+    plannedWork:
+      "renovation wiring, outdoor power, switchboard capacity checks, lighting, hot water circuits, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "larger homes, renovated properties, bushland-edge blocks, outdoor areas and residential service equipment",
+    setting: "Sutherland Shire renovation and bushland-edge service area",
+    switchboardDetail:
+      "renovation capacity, consumer mains, home loads, safety switches, RCBOs and outdoor circuit protection",
+  },
+  "bonnet-bay": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, riverside access notes, outdoor circuit photos, parking details and any defect notice or paperwork",
+    commonJobs:
+      "riverside-home fault finding, weather-exposed outdoor power, storm and water-related faults, switchboard upgrades, hot water circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "storm-related faults, water-affected electrical equipment, outdoor circuit trips, heat at outlets, sparking and home power loss",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and riverside access questions",
+    plannedWork:
+      "outdoor power, weather-rated lighting, switchboard upgrades, hot water circuits, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "riverside homes, weather-exposed properties, sloped streets, outdoor areas and residential service equipment",
+    setting: "Sutherland Shire riverside and weather-exposed service area",
+    switchboardDetail:
+      "weather exposure, outdoor circuits, older boards, safety switches, RCBOs and service equipment",
+  },
+  bundeena: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, ferry or road access notes, outdoor power photos, parking details and any defect notice or paperwork",
+    commonJobs:
+      "coastal-home repairs, beachside outdoor power, storm fault checks, planned photo-based quotes, switchboards, hot water circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "coastal outdoor faults, storm-affected electrical equipment, home power loss, sparking, heat at outlets and tripping safety switches",
+    level2Detail:
+      "consumer mains, metering, service equipment, point of attachment concerns, defect notices and coastal access questions",
+    plannedWork:
+      "weather-rated lighting, outdoor power, switchboard planning, hot water circuits, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "coastal homes, beachside properties, access-sensitive sites, outdoor areas and residential service equipment",
+    setting: "Sutherland Shire coastal and access-sensitive service area",
+    switchboardDetail:
+      "coastal exposure, outdoor circuits, safety switches, RCBO protection, hot water loads and service equipment",
+  },
+  burraneer: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, waterfront access notes, renovation details, service equipment photos and any defect notice or paperwork",
+    commonJobs:
+      "premium waterfront fault finding, renovation electrical work, outdoor power, consumer mains, metering, switchboard upgrades, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "waterfront outdoor faults, home power loss, heat at outlets, sparking, safety-switch tripping and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply upgrade questions",
+    plannedWork:
+      "renovation wiring, outdoor power, metering support, switchboard capacity checks, data cabling, CCTV and planned premium-home quote work",
+    propertyMix:
+      "premium waterfront homes, renovated properties, outdoor areas, service equipment and larger residential loads",
+    setting: "Sutherland Shire premium waterfront and renovation service area",
+    switchboardDetail:
+      "home loads, consumer mains, metering, outdoor circuits, safety switches, RCBOs and service equipment",
+  },
+  caringbah: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, tenancy or suite access notes, loading or parking details, site contact information and any defect notice or paperwork",
+    commonJobs:
+      "commercial-site faults, medical suite and office lighting, warehouse power, strata repairs, business outages, load checks, switchboards, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "business outages, medical or office circuit faults, warehouse power loss, strata power issues, heat at outlets, sparking and tripping safety switches",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns, load checks and supply capacity questions",
+    plannedWork:
+      "commercial switchboards, medical suite power, office lighting, warehouse circuits, strata repairs, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "commercial sites, medical suites, offices, warehouses, strata buildings, homes and mixed-use properties",
+    setting: "Sutherland Shire commercial, strata and medical-suite service area",
+    switchboardDetail:
+      "commercial switchboards, tenancy loads, strata boards, load checks, safety switches and clear circuit labelling",
+  },
+  "caringbah-south": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, renovation or driveway access notes, private service equipment photos and any defect notice or paperwork",
+    commonJobs:
+      "premium-home fault finding, renovation wiring, outdoor circuits, switchboard upgrades, consumer mains, private service equipment, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, outdoor circuit faults, heat at outlets, sparking, tripping safety switches and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and supply-side questions",
+    plannedWork:
+      "renovation wiring, outdoor power, switchboard capacity checks, consumer mains review, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "premium homes, renovated properties, larger blocks, outdoor areas and private service equipment",
+    setting: "Sutherland Shire premium-home and private service equipment area",
+    switchboardDetail:
+      "home loads, consumer mains, private service equipment, outdoor circuits, safety switches and RCBO protection",
+  },
+  como: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, sloped-block or driveway notes, hot water circuit details and any defect notice or paperwork",
+    commonJobs:
+      "older-home repairs, sloped-block access work, river and weather-exposed outdoor power, hot water electrical, switchboards, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, storm or river-weather exposure faults, hot water electrical faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and point of attachment concerns for older homes",
+    plannedWork:
+      "older switchboards, hot water circuits, outdoor lighting, power points, smoke alarms, data cabling, CCTV and planned home quote work",
+    propertyMix:
+      "older homes, sloped blocks, river-adjacent properties, outdoor areas and residential service equipment",
+    setting: "Sutherland Shire older-home and river-adjacent service area",
+    switchboardDetail:
+      "older boards, hot water loads, outdoor circuits, safety switches, RCBOs and clearer labelling",
+  },
+  cronulla: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, strata or shop access notes, coastal parking details, outdoor power photos and any defect notice or paperwork",
+    commonJobs:
+      "apartment faults, strata repairs, beachside home work, cafe and restaurant power, shop maintenance, coastal outdoor power, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment power loss, shop or hospitality outages, coastal outdoor faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata or commercial supply questions",
+    plannedWork:
+      "apartment repairs, strata maintenance, cafe lighting, shop power, outdoor power, weather-rated lighting, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "apartments, strata buildings, beachside homes, cafes, restaurants, shops and coastal outdoor areas",
+    setting: "Sutherland Shire beachside apartment, hospitality and shopfront service area",
+    switchboardDetail:
+      "strata boards, hospitality loads, coastal exposure, outdoor circuits, safety switches and RCBO protection",
+  },
+  "dolans-bay": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, waterfront access notes, renovation details, outdoor circuit photos and any defect notice or paperwork",
+    commonJobs:
+      "waterfront-home fault finding, premium renovation wiring, outdoor circuits, weather exposure checks, switchboards, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "waterfront outdoor faults, weather-affected electrical equipment, home power loss, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, point of attachment concerns, defect notices and waterfront supply questions",
+    plannedWork:
+      "renovation wiring, outdoor lighting, outdoor power, switchboard planning, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "waterfront homes, premium renovated properties, outdoor areas and residential service equipment",
+    setting: "Sutherland Shire waterfront renovation service area",
+    switchboardDetail:
+      "home loads, outdoor circuits, weather exposure, safety switches, RCBOs and service equipment",
+  },
+  engadine: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, bushland access notes, outdoor power photos, hot water circuit details and any defect notice or paperwork",
+    commonJobs:
+      "family-home repairs, bushland-edge storm faults, older switchboards, outdoor power, hot water circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "storm-related faults, home power loss, outdoor circuit trips, hot water electrical faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
+    plannedWork:
+      "older switchboards, outdoor power, hot water circuits, lighting, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "family homes, bushland-edge streets, older switchboards, outdoor areas and residential service equipment",
+    setting: "Sutherland Shire family-home and bushland-edge service area",
+    switchboardDetail:
+      "older boards, outdoor circuits, hot water loads, safety switches, RCBOs and service equipment",
+  },
+  "grays-point": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, sloped-block or waterfront access notes, outdoor power photos and any defect notice or paperwork",
+    commonJobs:
+      "bushland and waterfront fault finding, sloped-block access work, outdoor power, storm faults, private service equipment, switchboards, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "storm-affected outdoor power, water-adjacent faults, home power loss, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and access-sensitive supply questions",
+    plannedWork:
+      "outdoor power, weather-rated lighting, switchboard upgrades, private service equipment review, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "bushland-edge homes, waterfront properties, sloped blocks, outdoor areas and private service equipment",
+    setting: "Sutherland Shire bushland and waterfront service area",
+    switchboardDetail:
+      "outdoor circuits, private service equipment, home loads, safety switches, RCBO protection and consumer mains",
+  },
+  "greenhills-beach": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, coastal access notes, outdoor power photos, load-check details and any defect notice or paperwork",
+    commonJobs:
+      "coastal-home fault finding, beachside outdoor power, weather-affected fixture checks, load checks, switchboards, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "coastal outdoor faults, storm-affected electrical equipment, home power loss, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and load or supply questions",
+    plannedWork:
+      "weather-rated lighting, outdoor power, switchboard load checks, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "coastal homes, beachside properties, outdoor areas, newer residential loads and service equipment",
+    setting: "Sutherland Shire coastal home and load-check service area",
+    switchboardDetail:
+      "coastal exposure, load checks, outdoor circuits, safety switches, RCBOs and service equipment",
+  },
+  gymea: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, shop or strata access notes, parking details, hot water circuit information and any defect notice or paperwork",
+    commonJobs:
+      "home and villa repairs, shop maintenance, strata electrical work, older switchboards, hot water circuits, safety-switch faults, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home or shop power loss, hot water electrical faults, heat at outlets, sparking, strata circuit trips and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and shop or strata supply questions",
+    plannedWork:
+      "older switchboards, shop lighting, hot water circuits, safety switches, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, villas, shops, strata buildings, older switchboards and local businesses",
+    setting: "Sutherland Shire home, villa, shop and strata service area",
+    switchboardDetail:
+      "older boards, shop loads, hot water circuits, safety switches, RCBOs and strata access",
+  },
+  "gymea-bay": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, waterfront or driveway access notes, outdoor circuit photos and any defect notice or paperwork",
+    commonJobs:
+      "waterfront-home fault finding, larger-block outdoor power, switchboard upgrades, private service equipment, hot water circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "waterfront outdoor faults, home power loss, storm-affected circuits, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and waterfront supply questions",
+    plannedWork:
+      "outdoor power, switchboard upgrades, hot water circuits, private service equipment review, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "waterfront homes, larger blocks, outdoor areas, private service equipment and residential service equipment",
+    setting: "Sutherland Shire waterfront home and larger-block service area",
+    switchboardDetail:
+      "home loads, outdoor circuits, private service equipment, hot water loads, safety switches and RCBO protection",
+  },
+  heathcote: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, bushland access notes, private pole or service equipment photos and any defect notice or paperwork",
+    commonJobs:
+      "bushland-edge fault finding, storm faults, outdoor power, older-board checks, private pole questions, switchboards, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "storm-related faults, home power loss, outdoor circuit trips, heat at outlets, sparking, safety-switch tripping and unsafe private service equipment",
+    level2Detail:
+      "consumer mains, metering, private poles, service equipment, defect notices, point of attachment concerns and supply-side questions",
+    plannedWork:
+      "outdoor power, older switchboards, private pole review, weather-rated lighting, hot water circuits, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "bushland-edge homes, older boards, private poles, outdoor areas and residential service equipment",
+    setting: "Sutherland Shire bushland-edge and private-pole service area",
+    switchboardDetail:
+      "older boards, private pole supply, outdoor circuits, safety switches, RCBOs and service equipment",
+  },
+  illawong: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, long-driveway or sloped-block notes, outdoor power photos and any defect notice or paperwork",
+    commonJobs:
+      "larger-home fault finding, sloped-block access work, long-driveway lighting, outdoor circuits, private service equipment, switchboards, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, outdoor circuit faults, heat at outlets, sparking, safety-switch tripping and unsafe private service equipment",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and supply-side questions",
+    plannedWork:
+      "outdoor circuits, driveway lighting, switchboard capacity checks, hot water circuits, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "larger homes, sloped blocks, long driveways, outdoor areas and private service equipment",
+    setting: "Sutherland Shire larger-home and long-driveway service area",
+    switchboardDetail:
+      "home loads, outdoor circuits, private service equipment, safety switches, RCBOs and consumer mains",
+  },
+  jannali: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, unit or shop access notes, strata contact details, parking notes and any defect notice or paperwork",
+    commonJobs:
+      "unit faults, villa repairs, older-home electrical work, shopfront maintenance, strata access, switchboards, rental maintenance, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "unit power loss, shopfront circuit faults, older-board heat, sparking, hot water faults and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata or shopfront supply questions",
+    plannedWork:
+      "unit repairs, villa switchboards, shopfront lighting, rental maintenance, hot water circuits, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "units, villas, older homes, shopfronts, strata buildings and rental properties",
+    setting: "Sutherland Shire unit, villa and shopfront service area",
+    switchboardDetail:
+      "older boards, villa loads, strata access, hot water circuits, safety switches and clear circuit labelling",
+  },
+  "kangaroo-point": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, waterfront access notes, outdoor power photos, service equipment details and any defect notice or paperwork",
+    commonJobs:
+      "waterfront-home fault finding, outdoor power, weather exposure checks, consumer mains, private service equipment, switchboards, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "waterfront outdoor faults, home power loss, storm-affected electrical equipment, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and waterfront supply questions",
+    plannedWork:
+      "outdoor power, weather-rated lighting, consumer mains checks, private service equipment review, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "waterfront homes, outdoor areas, private service equipment and residential service equipment",
+    setting: "Sutherland Shire waterfront home and private service equipment area",
+    switchboardDetail:
+      "home loads, outdoor circuits, private service equipment, consumer mains, safety switches and RCBO protection",
+  },
+  kareela: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, townhouse or driveway access notes, hot water circuit details and any defect notice or paperwork",
+    commonJobs:
+      "family-home repairs, townhouse electrical work, older-board checks, lighting and power, hot water circuits, local maintenance, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, hot water electrical faults, heat at outlets, sparking, townhouse circuit trips and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes and townhouses",
+    plannedWork:
+      "lighting, power points, hot water circuits, switchboard upgrades, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "family homes, townhouses, older boards, local maintenance properties and residential service equipment",
+    setting: "Sutherland Shire family-home and townhouse service area",
+    switchboardDetail:
+      "older boards, hot water loads, townhouse circuits, safety switches and RCBO protection",
+  },
+  kirrawee: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, warehouse or apartment access notes, loading and parking details, site contact information and any defect notice or paperwork",
+    commonJobs:
+      "warehouse and workshop faults, retail maintenance, apartment repairs, industrial unit power, commercial switchboards, business outages, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "business outages, warehouse power loss, workshop circuit faults, apartment power loss, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and commercial or strata supply questions",
+    plannedWork:
+      "warehouse lighting, workshop power, retail maintenance, apartment repairs, commercial switchboards, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "warehouses, workshops, retail sites, apartments, industrial units, commercial tenancies and homes",
+    setting: "Sutherland Shire warehouse, workshop, retail and apartment service area",
+    switchboardDetail:
+      "commercial switchboards, workshop loads, apartment boards, tenancy circuits, safety switches and clear circuit labelling",
+  },
+  kurnell: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, coastal or industrial access notes, workshop details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "coastal and industrial fault finding, exposed electrical equipment checks, storm faults, workshop power, commercial-site electrical work, switchboards, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "storm-related faults, exposed electrical equipment issues, workshop circuit faults, commercial power loss, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and coastal or industrial supply questions",
+    plannedWork:
+      "workshop circuits, commercial switchboards, exposed-equipment checks, weather-rated lighting, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "coastal properties, industrial sites, workshops, commercial sites, outdoor areas and service equipment",
+    setting: "Sutherland Shire coastal and industrial service area",
+    switchboardDetail:
+      "commercial switchboards, coastal exposure, workshop loads, outdoor circuits, safety switches and service equipment",
+  },
+  "lilli-pilli": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, waterfront or renovation access notes, outdoor power photos and any defect notice or paperwork",
+    commonJobs:
+      "premium-home fault finding, waterfront exposure checks, renovation wiring, outdoor power, consumer mains, switchboards, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "waterfront outdoor faults, home power loss, storm-affected circuits, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and waterfront supply questions",
+    plannedWork:
+      "renovation wiring, outdoor power, consumer mains review, switchboard capacity checks, data cabling, CCTV and planned premium-home quote work",
+    propertyMix:
+      "premium homes, waterfront properties, renovated homes, outdoor areas and residential service equipment",
+    setting: "Sutherland Shire premium waterfront and renovation service area",
+    switchboardDetail:
+      "home loads, consumer mains, outdoor circuits, safety switches, RCBOs and service equipment",
+  },
+  loftus: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, bushland street access notes, outdoor power photos and any defect notice or paperwork",
+    commonJobs:
+      "family-home repairs, bushland-edge storm faults, switchboards, outdoor power, hot water circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "storm-related faults, outdoor circuit trips, home power loss, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
+    plannedWork:
+      "outdoor power, switchboard upgrades, hot water circuits, lighting, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "family homes, bushland-edge streets, outdoor areas, older boards and residential service equipment",
+    setting: "Sutherland Shire family-home and bushland-edge service area",
+    switchboardDetail:
+      "older boards, outdoor circuits, hot water loads, safety switches and RCBO protection",
+  },
+  maianbar: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, coastal access notes, limited-access timing, outdoor power photos and any defect notice or paperwork",
+    commonJobs:
+      "remote coastal fault finding, weather exposure checks, limited-access planning, outdoor power, storm faults, switchboards, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "coastal outdoor faults, storm-affected electrical equipment, home power loss, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, point of attachment concerns, defect notices and access-sensitive supply questions",
+    plannedWork:
+      "outdoor power, weather-rated lighting, switchboard planning, hot water circuits, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "remote coastal homes, access-sensitive sites, weather-exposed properties and outdoor areas",
+    setting: "Sutherland Shire remote coastal and access-sensitive service area",
+    switchboardDetail:
+      "coastal exposure, outdoor circuits, service equipment, safety switches and RCBO protection",
+  },
+  menai: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, shop or driveway access notes, commercial timing, parking details and any defect notice or paperwork",
+    commonJobs:
+      "family-home repairs, larger-property electrical work, local shop maintenance, commercial maintenance, consumer mains, switchboards, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, shop circuit faults, heat at outlets, sparking, tripping safety switches and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
+    plannedWork:
+      "home lighting, local shop power, commercial maintenance, switchboard capacity checks, consumer mains review, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "family homes, larger properties, local shops, small commercial sites and residential service equipment",
+    setting: "Sutherland Shire family-home, larger-property and local-shop service area",
+    switchboardDetail:
+      "home loads, consumer mains, local shop circuits, safety switches, RCBO protection and service equipment",
+  },
+  miranda: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, shared meter-room notes, shop or suite access details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "apartment faults, shop maintenance, office and medical suite power, retail lighting, shared meter-room access, strata repairs, commercial switchboards, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment power loss, retail or medical suite outages, shared meter-room issues, shop circuit faults, heat at outlets, sparking and tripping safety switches",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and commercial or strata supply questions",
+    plannedWork:
+      "retail lighting, office power, medical suite maintenance, apartment repairs, strata electrical work, commercial switchboards, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "apartments, shops, offices, medical suites, retail sites, strata buildings and shared meter rooms",
+    setting: "Sutherland Shire apartment, retail, medical-suite and strata service area",
+    switchboardDetail:
+      "commercial switchboards, shared meter rooms, strata boards, tenancy loads, safety switches and clear circuit labelling",
+  },
+  "oyster-bay": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, water-adjacent access notes, outdoor power photos, service equipment details and any defect notice or paperwork",
+    commonJobs:
+      "water-adjacent home repairs, outdoor power, storm exposure checks, private service equipment, switchboards, hot water circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "storm-affected outdoor circuits, home power loss, water-adjacent electrical faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and supply-side questions",
+    plannedWork:
+      "outdoor power, weather-rated lighting, private service equipment review, switchboard upgrades, hot water circuits, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes near water, outdoor areas, private service equipment and residential service equipment",
+    setting: "Sutherland Shire water-adjacent home and outdoor power service area",
+    switchboardDetail:
+      "outdoor circuits, private service equipment, home loads, safety switches and RCBO protection",
+  },
+  "port-hacking": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, waterfront access notes, outdoor lighting photos, private service equipment details and any defect notice or paperwork",
+    commonJobs:
+      "waterfront-home repairs, outdoor lighting, private service equipment checks, switchboard upgrades, consumer mains, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "waterfront outdoor faults, home power loss, storm-affected circuits, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and waterfront supply questions",
+    plannedWork:
+      "outdoor lighting, outdoor power, private service equipment review, switchboard upgrades, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "waterfront homes, outdoor areas, private service equipment and larger residential loads",
+    setting: "Sutherland Shire waterfront home and private service equipment service area",
+    switchboardDetail:
+      "home loads, private service equipment, consumer mains, outdoor circuits, safety switches and RCBO protection",
+  },
+  "royal-national-park": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, precise access directions, gate or parking notes, safety conditions and any defect notice or paperwork",
+    commonJobs:
+      "remote-access triage, bushland electrical faults, safety-first emergency assessment, outdoor power, switchboards, service equipment, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "bushland storm faults, power loss, unsafe outdoor electrical equipment, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and access-sensitive supply questions",
+    plannedWork:
+      "safety-first assessment, outdoor power, switchboard checks, service equipment review, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "remote-access properties, bushland-edge sites, outdoor electrical areas and access-sensitive service equipment",
+    setting: "Sutherland Shire remote-access and bushland service area",
+    switchboardDetail:
+      "access-sensitive service equipment, outdoor circuits, safety switches, RCBO protection and supply-side documentation",
+  },
+  "sandy-point": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, riverside access notes, limited-access timing, private service equipment details and any defect notice or paperwork",
+    commonJobs:
+      "riverside and remote-edge fault finding, outdoor power, weather exposure checks, private service equipment, emergency call-first triage, switchboards, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "riverside outdoor faults, weather-affected electrical equipment, power loss, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and access-sensitive supply questions",
+    plannedWork:
+      "outdoor power, weather-rated lighting, private service equipment review, switchboard checks, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "riverside homes, remote-edge properties, outdoor areas and private service equipment",
+    setting: "Sutherland Shire riverside and remote-edge service area",
+    switchboardDetail:
+      "private service equipment, outdoor circuits, weather exposure, safety switches and RCBO protection",
+  },
+  sutherland: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, apartment or commercial access notes, shared meter-room details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "apartment faults, office and shop maintenance, civic and commercial building work, strata repairs, business outages, metering, defect notices, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment power loss, shop or office outages, shared meter-room issues, heat at outlets, sparking, tripping safety switches and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and commercial or strata supply questions",
+    plannedWork:
+      "office lighting, shop power, apartment repairs, strata electrical work, metering support, defect notice review, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "apartments, offices, shops, civic and commercial buildings, strata sites, homes and shared meter rooms",
+    setting: "Sutherland Shire apartment, commercial, strata and civic-building service area",
+    switchboardDetail:
+      "commercial switchboards, shared meter rooms, metering, strata boards, tenancy loads and safety switch protection",
+  },
+  sylvania: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, home or apartment access notes, waterfront exposure details, point-of-attachment photos and any defect notice or paperwork",
+    commonJobs:
+      "home and apartment repairs, shop maintenance, waterfront exposure checks, switchboards, point-of-attachment support, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home or apartment power loss, shop circuit faults, storm-affected outdoor circuits, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and waterfront supply questions",
+    plannedWork:
+      "home lighting, apartment repairs, shop maintenance, waterfront outdoor power, switchboard upgrades, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, apartments, shops, waterfront properties, strata buildings and residential service equipment",
+    setting: "Sutherland Shire home, apartment, shop and waterfront service area",
+    switchboardDetail:
+      "home loads, apartment boards, waterfront exposure, point-of-attachment concerns, safety switches and RCBO protection",
+  },
+  "sylvania-waters": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, waterfront access notes, larger-property details, outdoor power photos and any defect notice or paperwork",
+    commonJobs:
+      "premium waterfront fault finding, larger-property outdoor power, switchboard upgrades, Level 2 support, consumer mains, CCTV/data and planned electrical work",
+    emergencySignals:
+      "waterfront outdoor faults, home power loss, storm-affected circuits, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and waterfront supply questions",
+    plannedWork:
+      "outdoor power, switchboard capacity checks, consumer mains review, premium-home lighting, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "premium waterfront homes, larger properties, outdoor areas and residential service equipment",
+    setting: "Sutherland Shire premium waterfront and larger-property service area",
+    switchboardDetail:
+      "home loads, consumer mains, outdoor circuits, safety switches, RCBOs and service equipment",
+  },
+  "taren-point": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, warehouse or showroom access notes, loading details, parking information, site contacts and any defect notice or paperwork",
+    commonJobs:
+      "warehouse and workshop faults, showroom power, commercial switchboards, business outages, load checks, CCTV/data, service equipment and Level 2 enquiries",
+    emergencySignals:
+      "business outages, warehouse power loss, workshop circuit faults, showroom power issues, heat at outlets, sparking and tripping safety switches",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns, load checks and commercial supply questions",
+    plannedWork:
+      "warehouse lighting, workshop circuits, showroom power, commercial switchboards, load checks, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "warehouses, workshops, showrooms, commercial sites, small businesses and service equipment",
+    setting: "Sutherland Shire warehouse, workshop and showroom service area",
+    switchboardDetail:
+      "commercial switchboards, workshop loads, showroom circuits, load checks, safety switches and clear circuit labelling",
+  },
+  waterfall: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, southern-edge access notes, weather or bushland conditions, parking details and any defect notice or paperwork",
+    commonJobs:
+      "remote southern-edge fault finding, bushland and storm faults, outdoor power, switchboards, honest access planning, hot water circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "storm-related faults, bushland outdoor power issues, home power loss, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and access-sensitive supply questions",
+    plannedWork:
+      "outdoor power, weather-rated lighting, switchboard checks, hot water circuits, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "southern-edge homes, bushland properties, access-sensitive sites, outdoor areas and residential service equipment",
+    setting: "Sutherland Shire southern-edge and bushland access service area",
+    switchboardDetail:
+      "outdoor circuits, bushland exposure, older boards, safety switches and service equipment",
+  },
+  woolooware: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, apartment or shop access notes, strata contact details, outdoor power photos and any defect notice or paperwork",
+    commonJobs:
+      "apartment repairs, home electrical work, strata access, shop maintenance, switchboards, hot water circuits, outdoor power, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment power loss, shop circuit faults, hot water electrical issues, coastal outdoor faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata or shopfront supply questions",
+    plannedWork:
+      "apartment repairs, shop lighting, hot water circuits, outdoor power, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "apartments, homes, strata buildings, shops, coastal properties and shared meter rooms",
+    setting: "Sutherland Shire apartment, shop and coastal home service area",
+    switchboardDetail:
+      "apartment boards, shared meter rooms, hot water loads, coastal exposure, safety switches and RCBO protection",
+  },
+  woronora: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, river or sloped access notes, private service equipment photos and any defect notice or paperwork",
+    commonJobs:
+      "river and bushland home repairs, sloped-access electrical work, outdoor power, storm faults, private service equipment, switchboards, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "storm-affected outdoor circuits, river-adjacent faults, home power loss, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and access-sensitive supply questions",
+    plannedWork:
+      "outdoor power, switchboard upgrades, private service equipment review, weather-rated lighting, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "river and bushland homes, sloped access sites, outdoor areas and private service equipment",
+    setting: "Sutherland Shire river, bushland and sloped-access service area",
+    switchboardDetail:
+      "private service equipment, outdoor circuits, home loads, safety switches, RCBOs and consumer mains",
+  },
+  "woronora-heights": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, bushland access notes, outdoor circuit photos, hot water details and any defect notice or paperwork",
+    commonJobs:
+      "larger-home repairs, bushland-edge outdoor circuits, switchboards, hot water electrical, consumer mains, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "bushland storm faults, outdoor circuit trips, home power loss, hot water electrical faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
+    plannedWork:
+      "outdoor circuits, switchboard upgrades, hot water circuits, consumer mains checks, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "larger homes, bushland-edge properties, outdoor areas, hot water loads and residential service equipment",
+    setting: "Sutherland Shire larger-home and bushland-edge service area",
+    switchboardDetail:
+      "home loads, outdoor circuits, hot water loads, consumer mains, safety switches and RCBO protection",
+  },
+  yarrawarrah: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, bushland street access notes, hot water circuit details, parking notes and any defect notice or paperwork",
+    commonJobs:
+      "home repairs, bushland-edge fault finding, outdoor power, switchboards, hot water circuits, safety-switch faults, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "bushland-edge faults, outdoor circuit trips, hot water electrical issues, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for residential properties",
+    plannedWork:
+      "outdoor power, switchboard upgrades, hot water circuits, safety switch checks, lighting, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, bushland-edge streets, outdoor areas, hot water loads and residential service equipment",
+    setting: "Sutherland Shire home and bushland-edge service area",
+    switchboardDetail:
+      "older boards, outdoor circuits, hot water loads, safety switches and RCBO protection",
+  },
+  "yowie-bay": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, waterfront or renovation access notes, outdoor circuit photos and any defect notice or paperwork",
+    commonJobs:
+      "waterfront-home fault finding, outdoor circuits, renovation wiring, weather exposure checks, private service equipment, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "waterfront outdoor faults, home power loss, weather-affected electrical equipment, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and waterfront supply questions",
+    plannedWork:
+      "renovation wiring, outdoor circuits, private service equipment review, switchboard upgrades, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "waterfront homes, renovated properties, outdoor areas and private service equipment",
+    setting: "Sutherland Shire waterfront and renovation service area",
+    switchboardDetail:
+      "outdoor circuits, private service equipment, home loads, safety switches and RCBO protection",
+  },
+};
+
+function getSutherlandShireLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "sutherland-shire" ||
+    coverageArea.slug !== "sutherland-shire"
+  ) {
+    return null;
+  }
+
+  return sutherlandShireLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 function getLocalPageContext(
   coverageRegion: CoverageRegion,
   coverageArea: CoverageArea,
@@ -1131,6 +1863,16 @@ function getLocalPageContext(
 
   if (rockdaleBexleyContext) {
     return rockdaleBexleyContext;
+  }
+
+  const sutherlandShireContext = getSutherlandShireLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (sutherlandShireContext) {
+    return sutherlandShireContext;
   }
 
   if (
