@@ -60,6 +60,15 @@ export default async function AreaPage({ params }: AreaPageProps) {
   const localContext = getAreaLocalContext(region, area);
   const emergencyResponse = getEmergencyResponseForRegion(region.name);
   const sortedSuburbs = rankSuburbsForInternalLinks(area.suburbs);
+  const strathfieldSuburbCrossLink =
+    region.slug === "inner-west-burwood-and-canada-bay" &&
+    area.slug === "strathfield"
+      ? {
+          href: "/service-areas/inner-west-burwood-and-canada-bay/burwood/strathfield",
+          title: "Looking for Strathfield 2135?",
+          text: "The main Strathfield suburb page sits in the Burwood area group and covers emergency, Level 2 and general electrical work for Strathfield 2135.",
+        }
+      : null;
   const localServiceCards = [
     {
       title: `Emergency electrician in ${area.name}`,
@@ -288,6 +297,29 @@ export default async function AreaPage({ params }: AreaPageProps) {
               {region.name}
             </Link>
           </div>
+
+          {strathfieldSuburbCrossLink ? (
+            <Link
+              href={strathfieldSuburbCrossLink.href}
+              className="group mt-8 flex flex-col gap-4 rounded-lg border border-blue-200 bg-white p-6 shadow-sm transition hover:border-blue-600 hover:bg-blue-50 hover:shadow-lg sm:flex-row sm:items-center sm:justify-between"
+            >
+              <span>
+                <span className="block text-sm font-black uppercase tracking-[0.24em] text-blue-700">
+                  Nearby high-value page
+                </span>
+                <span className="mt-2 block text-2xl font-black text-slate-950">
+                  {strathfieldSuburbCrossLink.title}
+                </span>
+                <span className="mt-2 block max-w-3xl leading-7 text-slate-600">
+                  {strathfieldSuburbCrossLink.text}
+                </span>
+              </span>
+              <span className="inline-flex items-center gap-2 font-black text-blue-700">
+                View Strathfield page
+                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+              </span>
+            </Link>
+          ) : null}
 
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {sortedSuburbs.map((suburb) => (

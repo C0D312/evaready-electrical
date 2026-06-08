@@ -5203,6 +5203,99 @@ function getInnerWestLocalContext(
   return innerWestLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+function makeStrathfieldAreaLocalContext({
+  accessFocus,
+  commonJobs,
+  emergencySignals,
+  level2Detail,
+  plannedWork,
+  propertyMix,
+  setting,
+  switchboardDetail,
+}: Omit<LocalPageContext, "accessDetail"> & {
+  accessFocus: string;
+}): LocalPageContext {
+  return {
+    accessDetail: `photos of the switchboard, meter box, affected fitting, ${accessFocus}, access notes, parking details and any defect notice or paperwork`,
+    commonJobs,
+    emergencySignals,
+    level2Detail,
+    plannedWork,
+    propertyMix,
+    setting,
+    switchboardDetail,
+  };
+}
+
+const strathfieldAreaLocalContexts: Record<string, LocalPageContext> = {
+  homebush: makeStrathfieldAreaLocalContext({
+    accessFocus:
+      "shared meter-room notes, building-manager details, rail or station-area access notes and limited parking information",
+    commonJobs:
+      "apartment, strata, older-home, local shop and office electrical work, shared meter-room access, rail or station-area jobs, switchboard upgrades, consumer mains, defect notices, urgent power faults, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, strata shared-power issues, local shop or office faults, shared meter-room issues, older wiring faults, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for apartments, strata buildings, older homes, shops and offices",
+    plannedWork:
+      "apartment repairs, strata maintenance, older-home electrical work, local shop lighting, office power, switchboard upgrades, consumer mains review, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, strata buildings, older homes, local shops, offices, shared meter rooms, rail or station-area properties and limited parking sites",
+    setting: "Homebush apartment, strata, station-area and local business service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, older wiring, shop and office loads, consumer mains, defect notices and safety switches",
+  }),
+  "homebush-west": makeStrathfieldAreaLocalContext({
+    accessFocus:
+      "strata entry notes, retail or warehouse-style premises access details, shared meter-room information and load check notes",
+    commonJobs:
+      "apartment, unit, strata, retail and warehouse-style premises electrical work, shared meter-room access, business outages, lighting, power, hot water circuits, CCTV/data, metering, load checks and planned quote work",
+    emergencySignals:
+      "apartment or unit power loss, retail outages, warehouse-style premises faults, shared meter-room issues, hot water electrical faults, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, units, retail spaces and warehouse-style premises",
+    plannedWork:
+      "apartment and unit repairs, strata maintenance, retail lighting, warehouse-style premises power, hot water electrical, CCTV/data, metering, load checks and planned quote work",
+    propertyMix:
+      "apartments, units, strata buildings, retail premises, warehouse-style premises, shared meter rooms, business sites and hot water loads",
+    setting: "Homebush West apartment, unit, retail and warehouse-style premises service area",
+    switchboardDetail:
+      "shared meter rooms, apartment and unit boards, retail loads, warehouse-style premises loads, hot water demand, metering, load checks and safety switches",
+  }),
+  "strathfield-south": makeStrathfieldAreaLocalContext({
+    accessFocus:
+      "local business or warehouse access notes, workshop entry details, commercial switchboard photos and Level 2 paperwork",
+    commonJobs:
+      "older-home, unit, local business, warehouse and workshop electrical work, commercial switchboards, lighting, power, hot water circuits, business outages, consumer mains, defect notices, service equipment, CCTV/data and planned quote work",
+    emergencySignals:
+      "older-home power loss, unit faults, local business outages, warehouse or workshop faults, commercial switchboard issues, hot water electrical faults, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for older homes, units, local businesses, warehouses and workshops",
+    plannedWork:
+      "older-home repairs, unit maintenance, local business electrical work, warehouse and workshop power, commercial switchboard upgrades, lighting, hot water circuits, consumer mains review, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "older homes, units, local businesses, warehouses, workshops, commercial switchboards, hot water loads and Level 2 service equipment",
+    setting: "Strathfield South older-home, unit, warehouse, workshop and local business service area",
+    switchboardDetail:
+      "older wiring, unit boards, local business loads, warehouse and workshop loads, commercial switchboards, consumer mains, service equipment and safety switches",
+  }),
+};
+
+function getStrathfieldAreaLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "inner-west-burwood-and-canada-bay" ||
+    coverageArea.slug !== "strathfield"
+  ) {
+    return null;
+  }
+
+  return strathfieldAreaLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 const burwoodLocalContexts: Record<string, LocalPageContext> = {
   burwood: {
     accessDetail:
@@ -5413,6 +5506,16 @@ function getLocalPageContext(
 
   if (innerWestContext) {
     return innerWestContext;
+  }
+
+  const strathfieldAreaContext = getStrathfieldAreaLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (strathfieldAreaContext) {
+    return strathfieldAreaContext;
   }
 
   const burwoodContext = getBurwoodLocalContext(
