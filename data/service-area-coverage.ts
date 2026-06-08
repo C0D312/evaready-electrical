@@ -3250,6 +3250,660 @@ function getCamdenLocalContext(
   return camdenLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+function makeCampbelltownLocalContext({
+  accessFocus,
+  commonJobs,
+  emergencySignals,
+  level2Detail,
+  plannedWork,
+  propertyMix,
+  setting,
+  switchboardDetail,
+}: Omit<LocalPageContext, "accessDetail"> & {
+  accessFocus: string;
+}): LocalPageContext {
+  return {
+    accessDetail: `photos of the switchboard, meter box, affected fitting, ${accessFocus}, access notes, parking details and any defect notice or paperwork`,
+    commonJobs,
+    emergencySignals,
+    level2Detail,
+    plannedWork,
+    propertyMix,
+    setting,
+    switchboardDetail,
+  };
+}
+
+const campbelltownLocalContexts: Record<string, LocalPageContext> = {
+  airds: makeCampbelltownLocalContext({
+    accessFocus:
+      "property-manager or redevelopment access details, safety switch notes and hot water circuit information",
+    commonJobs:
+      "newer-housing and redevelopment electrical work, older switchboard checks, rental and property-manager maintenance, safety switches, hot water electrical, smoke alarms, lighting, power and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, rental maintenance hazards, older-board overheating, hot water electrical faults, burning smells, sparking and repeated safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for newer housing, redevelopment sites and older homes",
+    plannedWork:
+      "switchboard upgrades, rental maintenance, lighting and power, hot water electrical, safety switches, smoke alarms, CCTV/data and planned quote work",
+    propertyMix:
+      "newer housing, redevelopment homes, older homes, rental properties, townhouses and residential service equipment",
+    setting: "Airds redevelopment, rental and residential service area",
+    switchboardDetail:
+      "older boards, safety switches, hot water loads, smoke alarm circuits, consumer mains condition and clear circuit labelling",
+  }),
+  ambarvale: makeCampbelltownLocalContext({
+    accessFocus:
+      "townhouse or shop access details, outdoor power photos and hot water circuit information",
+    commonJobs:
+      "family-home repairs, older switchboard checks, townhouse electrical work, local shop maintenance, power loss fault finding, hot water electrical, outdoor power, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "family-home power loss, local shop faults, hot water circuit trips, outdoor power hazards, burning smells, heat at outlets and safety-switch faults",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes, townhouses and local shops",
+    plannedWork:
+      "lighting and power, hot water electrical, outdoor power, switchboard upgrades, local shop maintenance, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "family homes, townhouses, older switchboards, local shops, outdoor areas and residential service equipment",
+    setting: "Ambarvale family-home, townhouse and local-shop service area",
+    switchboardDetail:
+      "older boards, hot water loads, outdoor circuits, shop loads, safety switches and consumer mains condition",
+  }),
+  bardia: makeCampbelltownLocalContext({
+    accessFocus:
+      "builder or site contact details, aircon or EV load notes and metering paperwork",
+    commonJobs:
+      "new-home, townhouse and duplex electrical work, builder support, aircon and EV load checks, switchboard capacity, consumer mains, metering, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "new-home power loss, townhouse or duplex circuit faults, aircon circuit trips, hot water electrical faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, load capacity checks and new-build supply questions",
+    plannedWork:
+      "new-build issue review, aircon circuits, EV-ready load checks, switchboard capacity checks, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "new homes, townhouses, duplexes, builder sites, growth-corridor homes, aircon loads and EV-ready loads",
+    setting: "Bardia new-home, townhouse and growth-corridor service area",
+    switchboardDetail:
+      "new-home loads, aircon and EV-ready capacity, consumer mains, metering, safety switches and future capacity",
+  }),
+  "blair-athol": makeCampbelltownLocalContext({
+    accessFocus:
+      "villa or driveway details, older wiring notes and hot water circuit information",
+    commonJobs:
+      "residential electrical work, villa repairs, older wiring checks, switchboard upgrades, lighting and power, hot water electrical, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, older wiring faults, hot water circuit trips, burning smells, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, villas and older wiring",
+    plannedWork:
+      "lighting and power, hot water electrical, switchboard upgrades, older wiring checks, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "residential homes, villas, older wiring, older switchboards, hot water loads and service equipment",
+    setting: "Blair Athol residential, villa and older-wiring service area",
+    switchboardDetail:
+      "older wiring, older switchboards, hot water loads, safety switches, RCBO protection and consumer mains condition",
+  }),
+  blairmount: makeCampbelltownLocalContext({
+    accessFocus:
+      "rental access details, smoke alarm notes and hot water circuit information",
+    commonJobs:
+      "home electrical work, rental maintenance, switchboard upgrades, safety-switch faults, hot water electrical, smoke alarms, lighting, power, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, rental maintenance hazards, hot water electrical faults, burning smells, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes and rental maintenance sites",
+    plannedWork:
+      "rental maintenance, switchboard upgrades, safety-switch repairs, hot water electrical, smoke alarms, lighting, power and planned quote work",
+    propertyMix:
+      "homes, rental properties, older switchboards, hot water loads, smoke alarm circuits and residential service equipment",
+    setting: "Blairmount home and rental-maintenance service area",
+    switchboardDetail:
+      "older boards, rental safety needs, hot water loads, smoke alarm circuits, safety switches and consumer mains condition",
+  }),
+  "bow-bowing": makeCampbelltownLocalContext({
+    accessFocus:
+      "aircon circuit details, hot water notes and outdoor fitting photos",
+    commonJobs:
+      "family-home electrical work, older board checks, lighting, power points, hot water electrical, aircon electrical, fault finding, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "family-home power loss, aircon circuit trips, hot water electrical faults, heat at outlets, burning smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes and older boards",
+    plannedWork:
+      "lighting and power points, hot water electrical, aircon circuits, switchboard upgrades, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "family homes, older boards, outdoor areas, hot water loads, aircon loads and residential service equipment",
+    setting: "Bow Bowing family-home and older-board service area",
+    switchboardDetail:
+      "older boards, lighting and power loads, hot water demand, aircon demand, safety switches and consumer mains condition",
+  }),
+  bradbury: makeCampbelltownLocalContext({
+    accessFocus:
+      "unit, shop or property-manager access details and hot water circuit information",
+    commonJobs:
+      "older-home repairs, unit maintenance, local shop electrical work, switchboard upgrades, safety switches, hot water electrical, property-manager maintenance, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "older-home power loss, unit faults, shop outages, hot water electrical faults, burning smells, heat at outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes, units and local shops",
+    plannedWork:
+      "property-manager maintenance, switchboard upgrades, safety-switch repairs, hot water electrical, shop lighting, smoke alarms, data cabling and planned quote work",
+    propertyMix:
+      "older homes, units, local shops, rental properties, hot water loads and service equipment",
+    setting: "Bradbury older-home, unit and local-shop service area",
+    switchboardDetail:
+      "older boards, unit boards, shop loads, hot water demand, safety switches and consumer mains condition",
+  }),
+  campbelltown: makeCampbelltownLocalContext({
+    accessFocus:
+      "shared access notes, medical or retail suite details, business hours and metering paperwork",
+    commonJobs:
+      "CBD and local business electrical work, apartment and shop repairs, office suite power, medical and retail suite support, shared access jobs, business outages, switchboard upgrades, consumer mains, metering, defect notices, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment power loss, shop or medical suite outages, business faults, shared access issues, burning smells, heat at outlets, sparking and safety-switch faults",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, shops, medical suites and local businesses",
+    plannedWork:
+      "shop lighting, medical suite power, office suite electrical work, apartment repairs, switchboard upgrades, consumer mains review, metering, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, shops, office suites, medical and retail suites, local businesses, homes, shared access sites and service equipment",
+    setting: "Campbelltown CBD, apartment and local-business service area",
+    switchboardDetail:
+      "commercial switchboards, tenancy loads, shared boards, consumer mains, metering, safety switches and clear circuit labelling",
+  }),
+  claymore: makeCampbelltownLocalContext({
+    accessFocus:
+      "newer housing access details, smoke alarm notes and hot water circuit information",
+    commonJobs:
+      "home and newer-housing electrical work, switchboard upgrades, lighting and power, hot water electrical, safety switches, smoke alarms, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, newer-housing circuit faults, hot water electrical faults, burning smells, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes and newer housing",
+    plannedWork:
+      "lighting and power, hot water electrical, switchboard upgrades, safety-switch repairs, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, newer housing, older boards, hot water loads, smoke alarm circuits and residential service equipment",
+    setting: "Claymore home and newer-housing service area",
+    switchboardDetail:
+      "home loads, older and newer boards, hot water demand, smoke alarm circuits, safety switches and consumer mains condition",
+  }),
+  "denham-court": makeCampbelltownLocalContext({
+    accessFocus:
+      "builder or new-build details, aircon or EV load notes and metering paperwork",
+    commonJobs:
+      "new-home and larger-home electrical work, duplex support, builder and new-build issue review, aircon and EV load checks, switchboard capacity, consumer mains, metering and Level 2 enquiries",
+    emergencySignals:
+      "new-home power loss, larger-home circuit faults, aircon circuit trips, hot water electrical faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, load capacity checks and new-build supply questions",
+    plannedWork:
+      "new-build issue review, aircon circuits, EV-ready load checks, switchboard capacity checks, consumer mains review, metering, CCTV/data and planned quote work",
+    propertyMix:
+      "new homes, larger homes, duplexes, builder sites, growth-corridor properties, aircon loads and EV-ready loads",
+    setting: "Denham Court new-home, larger-home and builder service area",
+    switchboardDetail:
+      "new-home loads, aircon and EV-ready capacity, consumer mains, metering, safety switches and future capacity",
+  }),
+  "eagle-vale": makeCampbelltownLocalContext({
+    accessFocus:
+      "local shop details, hot water notes and aircon circuit information",
+    commonJobs:
+      "family-home electrical work, local shop maintenance, older switchboard checks, safety switches, hot water electrical, aircon electrical, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "family-home power loss, local shop outages, hot water electrical faults, aircon circuit trips, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes and local shops",
+    plannedWork:
+      "switchboard upgrades, safety-switch repairs, hot water electrical, aircon circuits, local shop lighting, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, local shops, older switchboards, hot water loads, aircon loads and residential service equipment",
+    setting: "Eagle Vale family-home and local-shop service area",
+    switchboardDetail:
+      "older switchboards, hot water and aircon demand, shop loads, safety switches and consumer mains condition",
+  }),
+  "englorie-park": makeCampbelltownLocalContext({
+    accessFocus:
+      "hot water notes, lighting or power details and quote-photo guidance",
+    commonJobs:
+      "residential electrical work, older switchboard checks, hot water electrical, power and lighting repairs, safety-switch faults, quote-photo planning, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, hot water electrical faults, power or lighting faults, burning smells, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for residential homes and older switchboards",
+    plannedWork:
+      "hot water electrical, lighting and power repairs, switchboard upgrades, safety-switch repairs, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "residential homes, older switchboards, hot water loads, lighting and power circuits and service equipment",
+    setting: "Englorie Park residential and quote-photo service area",
+    switchboardDetail:
+      "older switchboards, hot water demand, lighting and power loads, safety switches and consumer mains condition",
+  }),
+  "eschol-park": makeCampbelltownLocalContext({
+    accessFocus:
+      "outdoor power photos, aircon circuit details and hot water notes",
+    commonJobs:
+      "family-home electrical work, older board checks, outdoor power, hot water electrical, aircon electrical, switchboard upgrades, Level 2 support, CCTV/data and planned work",
+    emergencySignals:
+      "family-home power loss, outdoor power hazards, hot water electrical faults, aircon circuit trips, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes and older boards",
+    plannedWork:
+      "outdoor power, hot water electrical, aircon circuits, switchboard upgrades, safety-switch repairs, smoke alarms, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, older boards, outdoor areas, hot water loads, aircon loads and residential service equipment",
+    setting: "Eschol Park family-home, outdoor-power and Level 2 service area",
+    switchboardDetail:
+      "older boards, outdoor power, aircon demand, hot water demand, safety switches and consumer mains condition",
+  }),
+  gilead: makeCampbelltownLocalContext({
+    accessFocus:
+      "gate or long-driveway details, shed or outbuilding notes and private service equipment photos",
+    commonJobs:
+      "rural-edge and growth-corridor electrical work, rural-block repairs, shed power, outdoor power, private service equipment, long-access jobs, consumer mains, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "rural-edge power loss, shed or outdoor power faults, storm-related issues, unsafe service equipment, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and rural-block supply questions",
+    plannedWork:
+      "shed power, outdoor power, driveway lighting, switchboard upgrades, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "rural-edge homes, growth-corridor properties, broad blocks, sheds, outdoor areas, long driveways and private service equipment",
+    setting: "Gilead rural-edge, growth-corridor and rural-block service area",
+    switchboardDetail:
+      "rural-block loads, shed demand, outdoor power, private service equipment, safety switches and consumer mains condition",
+  }),
+  "glen-alpine": makeCampbelltownLocalContext({
+    accessFocus:
+      "renovation or outdoor-area notes, driveway details and aircon load information",
+    commonJobs:
+      "premium-home and renovation electrical work, outdoor lighting, switchboard upgrades, aircon electrical, consumer mains, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "premium-home power loss, renovation electrical faults, outdoor power hazards, aircon circuit trips, burning smells, heat at outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for premium homes and renovations",
+    plannedWork:
+      "renovation wiring, outdoor lighting, aircon circuits, switchboard upgrades, consumer mains review, smoke alarms, CCTV/data and planned quote work",
+    propertyMix:
+      "premium homes, established blocks, renovation sites, outdoor areas, aircon loads and residential service equipment",
+    setting: "Glen Alpine premium-home, renovation and premium-residential service area",
+    switchboardDetail:
+      "premium-home loads, renovation capacity, aircon demand, consumer mains, safety switches and RCBO protection",
+  }),
+  glenfield: makeCampbelltownLocalContext({
+    accessFocus:
+      "station-area access notes, shop or strata contacts and hot water circuit information",
+    commonJobs:
+      "station-area residential and commercial electrical work, apartment and townhouse repairs, shop maintenance, strata access jobs, switchboard upgrades, hot water electrical, business outages, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment or townhouse power loss, shop outages, strata shared-power issues, hot water electrical faults, burning smells, heat at outlets and safety-switch faults",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, townhouses, shops and strata sites",
+    plannedWork:
+      "apartment repairs, townhouse electrical work, shop lighting, hot water electrical, switchboard upgrades, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, townhouses, station-area homes, shops, strata buildings, local businesses and service equipment",
+    setting: "Glenfield station-area, residential and commercial service area",
+    switchboardDetail:
+      "apartment boards, townhouse loads, shop loads, shared boards, hot water demand, safety switches and consumer mains condition",
+  }),
+  holsworthy: makeCampbelltownLocalContext({
+    accessFocus:
+      "site access notes, outdoor power photos and planned maintenance details",
+    commonJobs:
+      "home electrical work, access-sensitive jobs, switchboard upgrades, outdoor power, hot water electrical, safety switches, planned maintenance, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, outdoor power hazards, hot water electrical faults, burning smells, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes and access-sensitive sites",
+    plannedWork:
+      "outdoor power, hot water electrical, switchboard upgrades, safety-switch repairs, smoke alarms, CCTV/data and planned maintenance",
+    propertyMix:
+      "homes, outdoor areas, access-sensitive sites, hot water loads and residential service equipment",
+    setting: "Holsworthy home, access-note and planned-maintenance service area",
+    switchboardDetail:
+      "home loads, outdoor power, hot water demand, safety switches, RCBO protection and consumer mains condition",
+  }),
+  ingleburn: makeCampbelltownLocalContext({
+    accessFocus:
+      "warehouse or factory access notes, operating hours, equipment details and load-check notes",
+    commonJobs:
+      "industrial estate electrical work, warehouse and workshop power, factory maintenance, business outages, commercial switchboards, three-phase and load checks, CCTV/data, emergency make-safe support and Level 2 enquiries",
+    emergencySignals:
+      "business outages, warehouse or factory power loss, workshop equipment trips, commercial switchboard faults, heat at outlets, sparking and unsafe equipment circuits",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, load checks and commercial supply-side questions",
+    plannedWork:
+      "warehouse lighting, workshop power, factory power, commercial switchboards, three-phase and load checks, CCTV/data and planned maintenance",
+    propertyMix:
+      "industrial estates, warehouses, workshops, factories, commercial switchboards, local shops and homes",
+    setting: "Ingleburn industrial-estate, warehouse and workshop service area",
+    switchboardDetail:
+      "commercial switchboards, warehouse and factory loads, three-phase and load checks, safety switches and clear circuit labelling",
+  }),
+  kearns: makeCampbelltownLocalContext({
+    accessFocus:
+      "safety-switch trip notes, hot water details and quote-photo guidance",
+    commonJobs:
+      "home electrical work, older switchboard checks, safety-switch tripping, hot water electrical, lighting and power repairs, quote-photo planning, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, safety-switch tripping, hot water electrical faults, lighting or power faults, burning smells, heat at outlets and sparking",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes and older switchboards",
+    plannedWork:
+      "lighting and power repairs, hot water electrical, switchboard upgrades, safety-switch repairs, smoke alarms, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, older switchboards, hot water loads, safety switch circuits, lighting and power circuits and service equipment",
+    setting: "Kearns home, safety-switch and quote-photo service area",
+    switchboardDetail:
+      "older switchboards, safety-switch tripping, hot water demand, lighting and power loads and consumer mains condition",
+  }),
+  kentlyn: makeCampbelltownLocalContext({
+    accessFocus:
+      "long-driveway or gate details, outdoor power photos and private service equipment notes",
+    commonJobs:
+      "bushland and rural-edge electrical work, bushland-property repairs, long-driveway access jobs, outdoor power, private service equipment, switchboard upgrades, storm-related faults, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "bushland home power loss, storm-related faults, outdoor power hazards, private service equipment concerns, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and bushland-property supply questions",
+    plannedWork:
+      "outdoor power, driveway lighting, switchboard upgrades, private service equipment review, consumer mains checks, storm-related repairs, CCTV/data and planned quote work",
+    propertyMix:
+      "bushland homes, rural-edge properties, bushland properties, long driveways, outdoor areas and private service equipment",
+    setting: "Kentlyn bushland, rural-edge and long-driveway service area",
+    switchboardDetail:
+      "bushland-property loads, outdoor power, private service equipment, safety switches, storm exposure and consumer mains condition",
+  }),
+  leumeah: makeCampbelltownLocalContext({
+    accessFocus:
+      "unit or local shop access details, hot water notes and commercial fault information",
+    commonJobs:
+      "home and unit electrical work, local shop maintenance, access-sensitive jobs, switchboard upgrades, hot water electrical, lighting and power, safety switches, commercial faults, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home or unit power loss, local shop faults, hot water electrical faults, commercial power issues, burning smells, heat at outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, units and local shops",
+    plannedWork:
+      "lighting and power, hot water electrical, switchboard upgrades, local shop maintenance, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, units, local shops, access-sensitive sites, hot water loads and residential service equipment",
+    setting: "Leumeah home, unit and local-shop service area",
+    switchboardDetail:
+      "home and unit boards, shop loads, hot water demand, safety switches, RCBO protection and consumer mains condition",
+  }),
+  "long-point": makeCampbelltownLocalContext({
+    accessFocus:
+      "long-driveway or rural access details, outdoor power photos and private service equipment notes",
+    commonJobs:
+      "rural and residential electrical work, larger-block repairs, outdoor power, private service equipment, storm fault checks, long-access jobs, switchboard upgrades, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "rural property power loss, storm faults, outdoor power hazards, unsafe service equipment, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and larger-block supply questions",
+    plannedWork:
+      "outdoor power, driveway lighting, switchboard upgrades, private service equipment review, consumer mains checks, storm-related repairs, CCTV/data and planned quote work",
+    propertyMix:
+      "rural homes, residential properties, larger blocks, long access points, outdoor areas and private service equipment",
+    setting: "Long Point rural, residential and larger-block service area",
+    switchboardDetail:
+      "larger-property loads, outdoor power, private service equipment, storm exposure, safety switches and consumer mains condition",
+  }),
+  "macquarie-fields": makeCampbelltownLocalContext({
+    accessFocus:
+      "station-area access notes, strata or rental contacts and hot water circuit information",
+    commonJobs:
+      "apartment and home electrical work, shop maintenance, station-area access jobs, strata and rental maintenance, switchboard upgrades, hot water electrical, power loss fault finding, CCTV/data and Level 2 support",
+    emergencySignals:
+      "apartment or home power loss, shop faults, strata shared-power issues, hot water electrical faults, burning smells, heat at outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, homes, shops and strata sites",
+    plannedWork:
+      "apartment repairs, rental maintenance, shop lighting, hot water electrical, switchboard upgrades, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, homes, station-area shops, strata buildings, rental properties, hot water loads and service equipment",
+    setting: "Macquarie Fields apartment, home and station-area service area",
+    switchboardDetail:
+      "apartment boards, home loads, shop loads, hot water demand, safety switches and consumer mains condition",
+  }),
+  "macquarie-links": makeCampbelltownLocalContext({
+    accessFocus:
+      "gated or visitor access details, outdoor lighting notes and aircon circuit information",
+    commonJobs:
+      "premium-home electrical work, gated-access jobs, outdoor lighting, switchboard upgrades, aircon electrical, consumer mains, quote-photo planning, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "premium-home power loss, gated-access electrical faults, outdoor power hazards, aircon circuit trips, burning smells, heat at outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for premium homes and gated-access properties",
+    plannedWork:
+      "outdoor lighting, aircon circuits, switchboard upgrades, consumer mains review, smoke alarms, CCTV/data and planned quote work",
+    propertyMix:
+      "premium homes, gated-access properties, outdoor areas, aircon loads, larger homes and residential service equipment",
+    setting: "Macquarie Links premium-home and gated-access service area",
+    switchboardDetail:
+      "premium-home loads, aircon demand, outdoor lighting, consumer mains, safety switches and future capacity",
+  }),
+  "menangle-park": makeCampbelltownLocalContext({
+    accessFocus:
+      "builder or estate access notes, acreage-edge details, aircon or EV load notes and metering paperwork",
+    commonJobs:
+      "new-estate and acreage-edge electrical work, builder support, switchboard capacity checks, aircon and EV load checks, consumer mains, metering, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "new-estate power loss, acreage-edge faults, aircon circuit trips, hot water electrical faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, load capacity checks and new-estate supply questions",
+    plannedWork:
+      "new-build issue review, aircon circuits, EV-ready load checks, switchboard capacity checks, consumer mains review, metering, CCTV/data and planned quote work",
+    propertyMix:
+      "new estates, acreage-edge homes, builder sites, growth-corridor properties, aircon loads and EV-ready loads",
+    setting: "Menangle Park new-estate, acreage-edge and builder service area",
+    switchboardDetail:
+      "new-estate loads, aircon and EV-ready capacity, consumer mains, metering, safety switches and future capacity",
+  }),
+  minto: makeCampbelltownLocalContext({
+    accessFocus:
+      "warehouse, workshop or factory access notes, operating hours, equipment details and load-check notes",
+    commonJobs:
+      "warehouse, workshop, factory, shop and home electrical work, business outages, commercial switchboards, three-phase and load checks, CCTV/data, industrial maintenance and Level 2 enquiries",
+    emergencySignals:
+      "business outages, warehouse or factory power loss, workshop equipment trips, shop faults, heat at outlets, sparking and unsafe commercial switchboards",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, load checks and commercial supply-side questions",
+    plannedWork:
+      "warehouse lighting, workshop power, factory power, shop lighting, commercial switchboards, three-phase and load checks, CCTV/data and planned maintenance",
+    propertyMix:
+      "warehouses, workshops, factories, shops, homes, commercial switchboards and service equipment",
+    setting: "Minto warehouse, workshop, factory and shop service area",
+    switchboardDetail:
+      "commercial switchboards, warehouse and factory loads, three-phase and load checks, safety switches and clear circuit labelling",
+  }),
+  "minto-heights": makeCampbelltownLocalContext({
+    accessFocus:
+      "larger-block or rural-edge access details, outdoor power photos and private service equipment notes",
+    commonJobs:
+      "residential and rural-edge electrical work, larger-block repairs, outdoor power, switchboard upgrades, private service equipment, long-access jobs, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "rural-edge power loss, outdoor power hazards, storm faults, unsafe service equipment, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and larger-block supply questions",
+    plannedWork:
+      "outdoor power, driveway lighting, switchboard upgrades, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "residential homes, rural-edge properties, larger blocks, outdoor areas, long access points and private service equipment",
+    setting: "Minto Heights residential, rural-edge and larger-block service area",
+    switchboardDetail:
+      "larger-block loads, outdoor power, private service equipment, safety switches and consumer mains condition",
+  }),
+  raby: makeCampbelltownLocalContext({
+    accessFocus:
+      "outdoor lighting photos, hot water notes and aircon circuit information",
+    commonJobs:
+      "family-home electrical work, older switchboard checks, safety switches, hot water electrical, aircon electrical, outdoor lighting, planned maintenance, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "family-home power loss, hot water electrical faults, aircon circuit trips, outdoor power hazards, burning smells, heat at outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes and older switchboards",
+    plannedWork:
+      "outdoor lighting, hot water electrical, aircon circuits, switchboard upgrades, safety-switch repairs, smoke alarms, CCTV/data and planned maintenance",
+    propertyMix:
+      "family homes, older switchboards, outdoor areas, hot water loads, aircon loads and residential service equipment",
+    setting: "Raby family-home, outdoor-lighting and planned-maintenance service area",
+    switchboardDetail:
+      "older switchboards, hot water and aircon demand, outdoor lighting, safety switches and consumer mains condition",
+  }),
+  rosemeadow: makeCampbelltownLocalContext({
+    accessFocus:
+      "townhouse, shop or rental access details and hot water circuit information",
+    commonJobs:
+      "home and townhouse electrical work, local shop maintenance, rental maintenance, switchboard upgrades, hot water electrical, power loss fault finding, safety-switch faults, quote guidance, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home or townhouse power loss, local shop faults, rental maintenance hazards, hot water electrical faults, burning smells, heat at outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, townhouses, shops and rental maintenance sites",
+    plannedWork:
+      "rental maintenance, shop lighting, hot water electrical, switchboard upgrades, safety-switch repairs, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, townhouses, local shops, rental properties, hot water loads and residential service equipment",
+    setting: "Rosemeadow home, townhouse, shop and rental-maintenance service area",
+    switchboardDetail:
+      "home and townhouse boards, shop loads, hot water demand, safety switches and consumer mains condition",
+  }),
+  ruse: makeCampbelltownLocalContext({
+    accessFocus:
+      "outdoor power photos, hot water notes and emergency fault details",
+    commonJobs:
+      "family-home electrical work, older board checks, lighting and power repairs, hot water electrical, safety switches, outdoor power, emergency fault support, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "family-home power loss, outdoor power hazards, hot water electrical faults, lighting or power faults, burning smells, heat at outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes and older boards",
+    plannedWork:
+      "lighting and power repairs, hot water electrical, outdoor power, switchboard upgrades, safety-switch repairs, smoke alarms, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, older boards, outdoor areas, hot water loads, lighting and power circuits and residential service equipment",
+    setting: "Ruse family-home, older-board and emergency-fault service area",
+    switchboardDetail:
+      "older boards, lighting and power loads, outdoor power, hot water demand, safety switches and consumer mains condition",
+  }),
+  "st-andrews": makeCampbelltownLocalContext({
+    accessFocus:
+      "villa access details, hot water notes and general maintenance details",
+    commonJobs:
+      "home and villa electrical work, older switchboard checks, hot water electrical, power points, lighting, safety switches, general maintenance, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home or villa power loss, hot water electrical faults, lighting or power faults, burning smells, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, villas and older boards",
+    plannedWork:
+      "power points, lighting, hot water electrical, switchboard upgrades, safety-switch repairs, smoke alarms, data cabling, CCTV and general maintenance",
+    propertyMix:
+      "homes, villas, older switchboards, hot water loads, lighting and power circuits and residential service equipment",
+    setting: "St Andrews home, villa and general-maintenance service area",
+    switchboardDetail:
+      "older switchboards, hot water demand, lighting and power loads, safety switches and consumer mains condition",
+  }),
+  "st-helens-park": makeCampbelltownLocalContext({
+    accessFocus:
+      "larger-lot or outdoor power details, aircon circuit notes and hot water information",
+    commonJobs:
+      "family-home and larger-lot electrical work, outdoor power, switchboard upgrades, aircon electrical, hot water electrical, Level 2 support, CCTV/data and planned maintenance",
+    emergencySignals:
+      "family-home power loss, outdoor power hazards, aircon circuit trips, hot water electrical faults, burning smells, heat at outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes and larger residential lots",
+    plannedWork:
+      "outdoor power, aircon circuits, hot water electrical, switchboard upgrades, safety-switch repairs, smoke alarms, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, larger residential lots, outdoor areas, aircon loads, hot water loads and residential service equipment",
+    setting: "St Helens Park family-home and larger-residential-lot service area",
+    switchboardDetail:
+      "family-home loads, outdoor power, aircon and hot water demand, safety switches and consumer mains condition",
+  }),
+  varroville: makeCampbelltownLocalContext({
+    accessFocus:
+      "long-driveway or acreage access details, shed or outbuilding notes and private service equipment photos",
+    commonJobs:
+      "acreage and rural-edge electrical work, long-driveway access jobs, shed and outbuilding power, outdoor power, private service equipment, consumer mains, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "acreage power loss, shed or outbuilding faults, outdoor power hazards, storm faults, unsafe service equipment, heat at outlets and sparking",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
+    plannedWork:
+      "shed power, outbuilding power, outdoor lighting, driveway lighting, switchboard upgrades, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage homes, rural-edge properties, long driveways, sheds, outbuildings, outdoor areas and private service equipment",
+    setting: "Varroville acreage, rural-edge and outbuilding service area",
+    switchboardDetail:
+      "long-driveway loads, shed and outbuilding demand, private service equipment, safety switches and consumer mains capacity",
+  }),
+  wedderburn: makeCampbelltownLocalContext({
+    accessFocus:
+      "bushland or acreage access details, storm fault notes, outdoor power photos and private service equipment information",
+    commonJobs:
+      "bushland and acreage electrical work, outdoor power, storm fault checks, private service equipment, switchboard upgrades, long-driveway access jobs, safety-first triage, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "bushland property power loss, storm faults, outdoor power hazards, private service equipment concerns, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
+    plannedWork:
+      "outdoor power, storm-related repairs, driveway lighting, switchboard upgrades, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "bushland homes, acreage properties, long driveways, outdoor areas, storm-exposed sites and private service equipment",
+    setting: "Wedderburn bushland, acreage and storm-fault service area",
+    switchboardDetail:
+      "acreage loads, outdoor power, storm exposure, private service equipment, safety switches and consumer mains condition",
+  }),
+  woodbine: makeCampbelltownLocalContext({
+    accessFocus:
+      "hot water notes, smoke alarm details and quote-photo guidance",
+    commonJobs:
+      "family-home electrical work, older switchboard checks, hot water electrical, safety switches, lighting and power, smoke alarms, quote-photo planning, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "family-home power loss, hot water electrical faults, safety-switch tripping, lighting or power faults, burning smells, heat at outlets and sparking",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes and older boards",
+    plannedWork:
+      "hot water electrical, lighting and power, switchboard upgrades, safety-switch repairs, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "family homes, older switchboards, hot water loads, smoke alarm circuits, lighting and power circuits and residential service equipment",
+    setting: "Woodbine family-home, hot-water and smoke-alarm service area",
+    switchboardDetail:
+      "older switchboards, hot water demand, smoke alarm circuits, lighting and power loads, safety switches and consumer mains condition",
+  }),
+  "woronora-dam": makeCampbelltownLocalContext({
+    accessFocus:
+      "remote or bushland access details, outdoor power photos and private service equipment notes",
+    commonJobs:
+      "remote and bushland electrical work, careful attendance planning, outdoor power, private service equipment, switchboard upgrades, storm fault checks, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "remote property power loss, storm faults, outdoor power hazards, private service equipment concerns, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and remote-site supply questions",
+    plannedWork:
+      "outdoor power, storm-related repairs, switchboard upgrades, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "remote and bushland properties, outdoor areas, access-sensitive sites, storm-exposed areas and private service equipment",
+    setting: "Woronora Dam remote, bushland and owner-review coverage service area",
+    switchboardDetail:
+      "remote-site loads, outdoor power, storm exposure, private service equipment, safety switches and consumer mains condition",
+  }),
+};
+
+function getCampbelltownLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "macarthur-camden-and-wollondilly" ||
+    coverageArea.slug !== "campbelltown"
+  ) {
+    return null;
+  }
+
+  return campbelltownLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 const burwoodLocalContexts: Record<string, LocalPageContext> = {
   burwood: {
     accessDetail:
@@ -3420,6 +4074,16 @@ function getLocalPageContext(
 
   if (camdenContext) {
     return camdenContext;
+  }
+
+  const campbelltownContext = getCampbelltownLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (campbelltownContext) {
+    return campbelltownContext;
   }
 
   const burwoodContext = getBurwoodLocalContext(
