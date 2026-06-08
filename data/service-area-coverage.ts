@@ -9418,6 +9418,462 @@ function getHawkesburyLocalContext(
   return hawkesburyLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+function makeHillsDistrictLocalContext({
+  accessFocus,
+  commonJobs,
+  emergencySignals,
+  level2Detail,
+  plannedWork,
+  propertyMix,
+  setting,
+  switchboardDetail,
+}: Omit<LocalPageContext, "accessDetail"> & {
+  accessFocus: string;
+}): LocalPageContext {
+  return {
+    accessDetail: `photos of the switchboard, meter box, affected fitting, ${accessFocus}, access notes, gate details, parking/loading details and any defect notice or paperwork`,
+    commonJobs,
+    emergencySignals,
+    level2Detail,
+    plannedWork,
+    propertyMix,
+    setting,
+    switchboardDetail,
+  };
+}
+
+const hillsDistrictLocalContexts: Record<string, LocalPageContext> = {
+  annangrove: makeHillsDistrictLocalContext({
+    accessFocus:
+      "long driveway notes, gate details, shed or outbuilding photos and outdoor power locations",
+    commonJobs:
+      "acreage-home electrical work, larger-block maintenance, shed power, outdoor power, private service equipment, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "acreage power loss, shed or outbuilding faults, outdoor power hazards, storm-affected electrical equipment, private service equipment concerns and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, private poles, point of attachment questions and defect notices for acreage homes, sheds and long-driveway properties",
+    plannedWork:
+      "acreage repairs, shed and outbuilding power, outdoor power, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage homes, larger blocks, long driveways, sheds, outdoor power, private service equipment, consumer mains and access/gate notes",
+    setting:
+      "Annangrove acreage, larger-block, shed, outdoor-power and long-driveway service area",
+    switchboardDetail:
+      "acreage switchboards, shed loads, outdoor circuits, private service equipment, consumer mains and RCD protection",
+  }),
+  "baulkham-hills": makeHillsDistrictLocalContext({
+    accessFocus:
+      "apartment, strata, shop, commercial or family-property access notes and parking information",
+    commonJobs:
+      "family-home, duplex, apartment, strata, shop and commercial electrical work, older-board upgrades, office suite power, commercial faults, consumer mains, defect notices, aircon and EV load checks, CCTV/data and planned quote work",
+    emergencySignals:
+      "home or apartment power loss, shop or commercial outages, older-board concerns, hot water electrical faults, outdoor power hazards and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for family homes, duplexes, apartments, strata buildings, shops and commercial properties",
+    plannedWork:
+      "family-home repairs, duplex and apartment maintenance, shop and commercial electrical work, aircon and EV load review, switchboard capacity checks, consumer mains, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, duplexes, apartments, strata buildings, older switchboards, local shops, offices, commercial faults, consumer mains, defect notices, aircon/EV load checks and access notes",
+    setting:
+      "Baulkham Hills family-home, apartment, strata, shop, office and commercial service area",
+    switchboardDetail:
+      "older residential boards, strata and apartment loads, shop and office demand, aircon and EV capacity, consumer mains and metering",
+  }),
+  "beaumont-hills": makeHillsDistrictLocalContext({
+    accessFocus:
+      "newer-home, townhouse or family-property access notes, outdoor lighting photos and aircon or EV load information",
+    commonJobs:
+      "newer-home, townhouse and family-property electrical work, switchboard capacity checks, aircon and EV load checks, outdoor lighting, hot water electrical, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "newer-home power loss, townhouse faults, outdoor lighting hazards, hot water electrical issues, aircon or EV load concerns and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for newer homes, townhouses and family-property upgrades",
+    plannedWork:
+      "newer-home repairs, townhouse maintenance, outdoor lighting, hot water electrical, aircon and EV load review, switchboard capacity checks, consumer mains, CCTV/data and planned quote work",
+    propertyMix:
+      "newer homes, townhouses, family properties, switchboard capacity, aircon/EV loads, outdoor lighting, hot water circuits and consumer mains",
+    setting:
+      "Beaumont Hills newer-home, townhouse, family-property, load-check and outdoor-lighting service area",
+    switchboardDetail:
+      "newer-home and townhouse boards, aircon and EV demand, hot water loads, consumer mains and RCD protection",
+  }),
+  "bella-vista": makeHillsDistrictLocalContext({
+    accessFocus:
+      "business park, office suite, medical suite, apartment or loading access notes and shared meter-room details",
+    commonJobs:
+      "office, business park, apartment, medical suite, strata and commercial electrical work, commercial switchboards, business outages, load checks, CCTV/data, metering and planned quote work",
+    emergencySignals:
+      "business park outages, office or medical suite faults, apartment power loss, shared meter-room concerns, commercial switchboard issues and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for offices, business parks, apartments, medical suites and commercial properties",
+    plannedWork:
+      "office suite power, business park maintenance, apartment and strata repairs, commercial switchboard checks, load checks, CCTV/data, metering support and planned quote work",
+    propertyMix:
+      "offices, business parks, apartments, medical/office suites, strata, commercial switchboards, business outages, load checks, CCTV/data and loading/parking notes",
+    setting:
+      "Bella Vista office, business-park, apartment, medical-suite, strata and commercial service area",
+    switchboardDetail:
+      "commercial switchboards, office and business park loads, apartment and strata boards, load checks, consumer mains and metering",
+  }),
+  "box-hill": makeHillsDistrictLocalContext({
+    accessFocus:
+      "new-estate, townhouse, new-build or larger-home access notes and aircon or EV load details",
+    commonJobs:
+      "new-estate, townhouse, larger-home and new-build electrical work, switchboard capacity checks, aircon and EV load checks, consumer mains, metering, CCTV/data and planned quote work",
+    emergencySignals:
+      "new-estate power loss, townhouse or larger-home faults, new-build electrical issues, aircon or EV load concerns and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for new estates, townhouses, larger homes and new-build support",
+    plannedWork:
+      "new-estate repairs, townhouse maintenance, new-build support, aircon and EV load review, switchboard capacity checks, consumer mains, metering, CCTV/data and planned quote work",
+    propertyMix:
+      "new estates, townhouses, larger homes, construction/new-build issues, aircon/EV load checks, switchboard capacity, consumer mains and metering",
+    setting:
+      "Box Hill new-estate, townhouse, larger-home, new-build and load-check service area",
+    switchboardDetail:
+      "new-estate boards, townhouse and larger-home loads, aircon and EV demand, consumer mains and metering",
+  }),
+  "castle-hill": makeHillsDistrictLocalContext({
+    accessFocus:
+      "apartment, shopping centre, retail, office, medical suite or strata access notes and parking details",
+    commonJobs:
+      "home, apartment, shopping/retail, office, medical suite and strata electrical work, older switchboards, business outages, consumer mains, defect notices, metering, CCTV/data and planned quote work",
+    emergencySignals:
+      "home or apartment power loss, retail or office outages, medical suite faults, shared meter-room concerns, older-board issues and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for homes, apartments, retail sites, offices, medical suites and strata buildings",
+    plannedWork:
+      "home repairs, apartment maintenance, retail and office electrical work, medical suite power, older-board upgrades, consumer mains review, metering support, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, apartments, shopping/retail, offices, medical suites, strata, older switchboards, business outages, consumer mains, defect notices, metering and access/parking notes",
+    setting:
+      "Castle Hill home, apartment, retail, office, medical-suite, strata and metering service area",
+    switchboardDetail:
+      "older residential boards, apartment and strata loads, retail and office demand, commercial switchboards, consumer mains and metering",
+  }),
+  cattai: makeHillsDistrictLocalContext({
+    accessFocus:
+      "rural or river-edge access notes, long driveway details, shed photos and storm or water-affected equipment information",
+    commonJobs:
+      "rural and river-edge property electrical work, acreage maintenance, shed power, outdoor power, private service equipment, storm and water-affected fault checks, CCTV/data and planned quote work",
+    emergencySignals:
+      "rural or river-edge power loss, storm or water-affected electrical equipment, shed faults, outdoor power hazards, private service equipment concerns and unsafe symptoms that need call-first triage",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles, point of attachment questions and defect notices for rural/river-edge properties and sheds",
+    plannedWork:
+      "rural repairs, shed and outdoor power, private service equipment review, storm or water-fault follow-up, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "rural/river-edge properties, acreage, sheds, outdoor power, private service equipment, long driveways, storm/water-affected faults and safety-first call guidance",
+    setting:
+      "Cattai rural, river-edge, acreage, shed, outdoor-power and water-exposure service area",
+    switchboardDetail:
+      "rural switchboards, shed loads, outdoor circuits, water-exposure checks, private service equipment and consumer mains",
+  }),
+  dural: makeHillsDistrictLocalContext({
+    accessFocus:
+      "acreage, long driveway, gate, shed or private pole/service equipment notes",
+    commonJobs:
+      "larger-home and acreage electrical work, shed power, outdoor power, private pole and service equipment review, switchboards, consumer mains, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "larger-home power loss, acreage outdoor power hazards, shed faults, storm-affected electrical equipment, private pole or service equipment concerns and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, private poles, service equipment, point of attachment questions and defect notices for larger homes, acreage properties and long driveways",
+    plannedWork:
+      "larger-home repairs, acreage maintenance, shed and outdoor power, private pole and service equipment review, switchboard upgrades, consumer mains, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "larger homes, acreage properties, long driveways, private poles/service equipment, outdoor power, sheds, switchboards, consumer mains and defect notices",
+    setting:
+      "Dural larger-home, acreage, private-pole, shed and defect-notice service area",
+    switchboardDetail:
+      "larger-home and acreage switchboards, shed loads, outdoor circuits, private service equipment, consumer mains and RCD protection",
+  }),
+  glenhaven: makeHillsDistrictLocalContext({
+    accessFocus:
+      "family-property, acreage-style, long driveway or outdoor power access notes and aircon or EV load details",
+    commonJobs:
+      "family-home, acreage-style and larger-block electrical work, outdoor power, switchboards, aircon and EV load checks, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "family-home power loss, acreage-style faults, outdoor power hazards, aircon or EV load concerns, switchboard faults and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for family homes, acreage-style properties, larger blocks and planned load upgrades",
+    plannedWork:
+      "family-home repairs, acreage-style maintenance, outdoor power, switchboard capacity checks, aircon and EV load review, consumer mains, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, acreage-style properties, larger blocks, outdoor power, switchboards, aircon/EV load checks, consumer mains and long driveway/access notes",
+    setting:
+      "Glenhaven family-home, acreage-style, larger-block, outdoor-power and load-check service area",
+    switchboardDetail:
+      "family-home and larger-block boards, outdoor circuits, aircon and EV demand, consumer mains and RCD protection",
+  }),
+  glenorie: makeHillsDistrictLocalContext({
+    accessFocus:
+      "rural access notes, gate details, shed photos, outdoor power locations and storm fault information",
+    commonJobs:
+      "rural home and acreage electrical work, shed power, outdoor power, storm fault checks, private service equipment, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "rural power loss, storm-affected electrical equipment, shed faults, outdoor power hazards, private service equipment concerns and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and defect notices for rural homes, acreage, sheds and gate-access properties",
+    plannedWork:
+      "rural repairs, acreage maintenance, shed and outdoor power, storm fault follow-up, private service equipment review, consumer mains, CCTV/data and planned quote work",
+    propertyMix:
+      "rural homes, acreage, sheds, private service equipment, outdoor power, storm faults, consumer mains and gate/access notes",
+    setting:
+      "Glenorie rural, acreage, shed, private-service-equipment and storm-fault service area",
+    switchboardDetail:
+      "rural switchboards, shed loads, outdoor circuits, private service equipment and consumer mains",
+  }),
+  kellyville: makeHillsDistrictLocalContext({
+    accessFocus:
+      "newer-home, apartment, townhouse, shop or strata access notes and aircon or EV load details",
+    commonJobs:
+      "newer-home, apartment, townhouse, local-shop and strata electrical work, aircon and EV load checks, switchboard capacity checks, consumer mains, metering, CCTV/data and planned upgrades",
+    emergencySignals:
+      "newer-home power loss, apartment or townhouse faults, local-shop outages, hot water electrical issues, aircon or EV load concerns and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for newer homes, apartments, townhouses, local shops and strata sites",
+    plannedWork:
+      "newer-home repairs, apartment and townhouse maintenance, local-shop electrical work, aircon and EV load review, switchboard capacity checks, consumer mains, metering, CCTV/data and planned upgrades",
+    propertyMix:
+      "newer homes, apartments, townhouses, local shops, strata, aircon/EV load checks, switchboard capacity, consumer mains, metering and planned upgrades",
+    setting:
+      "Kellyville newer-home, apartment, townhouse, local-shop, strata and load-check service area",
+    switchboardDetail:
+      "newer-home, apartment and townhouse boards, aircon and EV demand, shop loads, consumer mains and metering",
+  }),
+  kenthurst: makeHillsDistrictLocalContext({
+    accessFocus:
+      "acreage access notes, long driveway details, shed photos, outdoor lighting information and private service equipment details",
+    commonJobs:
+      "acreage and premium rural-residential electrical work, outdoor lighting, shed power, private service equipment, consumer mains, switchboards, CCTV/data and planned quote work",
+    emergencySignals:
+      "acreage power loss, shed faults, outdoor lighting or power hazards, private service equipment concerns, storm faults and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and defect notices for acreage homes, sheds and long-driveway properties",
+    plannedWork:
+      "acreage repairs, outdoor lighting, shed power, private service equipment review, switchboard upgrades, consumer mains, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage homes, premium rural-residential properties, long driveways, outdoor lighting, sheds, private service equipment, consumer mains and switchboards",
+    setting:
+      "Kenthurst acreage, premium rural-residential, outdoor-lighting, shed and private-service-equipment service area",
+    switchboardDetail:
+      "acreage switchboards, shed loads, outdoor lighting and power, private service equipment and consumer mains",
+  }),
+  "lower-portland": makeHillsDistrictLocalContext({
+    accessFocus:
+      "remote or riverfront access notes, flood or storm exposure details and private service equipment photos",
+    commonJobs:
+      "remote and riverfront property electrical work, access-sensitive fault finding, outdoor power, storm and flood exposure checks, private service equipment, CCTV/data and planned quote work",
+    emergencySignals:
+      "remote property power loss, storm or flood-affected electrical equipment, outdoor power hazards, private service equipment concerns and unsafe symptoms that need call-first triage",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and point of attachment questions for remote and riverfront properties",
+    plannedWork:
+      "remote property repairs, outdoor power, private service equipment review, storm or flood follow-up, CCTV/data and planned quote work",
+    propertyMix:
+      "remote/riverfront properties, access constraints, storm/flood/water exposure, outdoor power, private service equipment and honest call-first triage",
+    setting:
+      "Lower Portland remote, riverfront, flood-exposure, outdoor-power and access-sensitive service area",
+    switchboardDetail:
+      "remote property switchboards, outdoor circuits, water-exposure concerns, private service equipment and consumer mains",
+  }),
+  maraylya: makeHillsDistrictLocalContext({
+    accessFocus:
+      "rural-edge access notes, long driveway details, shed or workshop photos and private service equipment information",
+    commonJobs:
+      "rural-edge and acreage electrical work, shed and workshop power, outdoor power, long-driveway access, private service equipment, switchboards, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "rural-edge power loss, shed or workshop faults, outdoor power hazards, storm faults, private service equipment concerns and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and defect notices for rural-edge homes, sheds, workshops and long-driveway properties",
+    plannedWork:
+      "rural-edge repairs, shed and workshop power, outdoor power, private service equipment review, switchboard upgrades, consumer mains, CCTV/data and planned quote work",
+    propertyMix:
+      "rural-edge homes, acreage, sheds, workshops, outdoor power, long driveways, private service equipment, switchboards and consumer mains",
+    setting:
+      "Maraylya rural-edge, acreage, shed, workshop and long-driveway service area",
+    switchboardDetail:
+      "rural-edge switchboards, shed and workshop loads, outdoor circuits, private service equipment and consumer mains",
+  }),
+  maroota: makeHillsDistrictLocalContext({
+    accessFocus:
+      "rural access notes, long driveway details, shed photos and storm fault information",
+    commonJobs:
+      "rural home and acreage electrical work, shed power, outdoor circuits, storm fault checks, private service equipment, CCTV/data and planned quote work",
+    emergencySignals:
+      "rural power loss, storm-affected electrical equipment, shed faults, outdoor circuit hazards, private service equipment concerns and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and defect notices for rural homes, acreage, sheds and long-access properties",
+    plannedWork:
+      "rural repairs, shed and outdoor circuit work, storm fault follow-up, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "rural homes, acreage, long access, sheds, outdoor circuits, storm faults, private service equipment and access/gate notes",
+    setting:
+      "Maroota rural, acreage, shed, long-access and storm-fault service area",
+    switchboardDetail:
+      "rural switchboards, shed loads, outdoor circuits, storm-exposed equipment and private service equipment",
+  }),
+  "middle-dural": makeHillsDistrictLocalContext({
+    accessFocus:
+      "acreage or larger-home access notes, long driveway details, shed photos and defect notice paperwork",
+    commonJobs:
+      "acreage and larger-home electrical work, shed power, outdoor power, private service equipment, switchboards, consumer mains, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "acreage or larger-home power loss, shed faults, outdoor power hazards, private service equipment concerns, storm faults and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles, point of attachment questions and defect notices for acreage/larger homes and sheds",
+    plannedWork:
+      "acreage and larger-home repairs, shed power, outdoor power, private service equipment review, switchboard upgrades, consumer mains, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage/larger homes, long driveways, private service equipment, outdoor power, sheds, switchboards, consumer mains and defect notices",
+    setting:
+      "Middle Dural acreage, larger-home, shed, private-service-equipment and defect-notice service area",
+    switchboardDetail:
+      "acreage and larger-home switchboards, shed loads, outdoor circuits, private service equipment and consumer mains",
+  }),
+  nelson: makeHillsDistrictLocalContext({
+    accessFocus:
+      "rural-edge or acreage access notes, long driveway details, shed photos and quote-photo guidance",
+    commonJobs:
+      "rural-edge and acreage home electrical work, shed power, outdoor power, storm fault checks, private service equipment, switchboards, CCTV/data and planned quote work",
+    emergencySignals:
+      "rural-edge power loss, acreage faults, shed electrical issues, outdoor power hazards, storm faults and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and defect notices for rural-edge and acreage homes",
+    plannedWork:
+      "rural-edge repairs, acreage maintenance, shed and outdoor power, private service equipment review, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "rural-edge and acreage homes, long driveways, sheds, outdoor power, private service equipment, storm faults and quote-photo guidance",
+    setting:
+      "Nelson rural-edge, acreage, shed, outdoor-power and quote-photo service area",
+    switchboardDetail:
+      "acreage switchboards, shed loads, outdoor circuits, private service equipment and consumer mains",
+  }),
+  "rouse-hill": makeHillsDistrictLocalContext({
+    accessFocus:
+      "new-home, townhouse, apartment, retail, strata or loading access notes and aircon or EV load details",
+    commonJobs:
+      "new-home, townhouse, apartment, retail/local business and strata electrical work, aircon and EV load checks, switchboard capacity checks, metering, consumer mains, CCTV/data and planned upgrades",
+    emergencySignals:
+      "new-home power loss, apartment or townhouse faults, retail or local business outages, hot water electrical issues, aircon or EV load concerns and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for new homes, townhouses, apartments, retail sites and strata buildings",
+    plannedWork:
+      "new-home repairs, townhouse and apartment maintenance, retail electrical work, aircon and EV load review, switchboard capacity checks, metering support, consumer mains, CCTV/data and planned upgrades",
+    propertyMix:
+      "new homes, townhouses, apartments, retail/local business, strata, aircon/EV loads, switchboard capacity, metering, consumer mains and planned upgrades",
+    setting:
+      "Rouse Hill new-home, townhouse, apartment, retail, strata and load-check service area",
+    switchboardDetail:
+      "new-home, townhouse and apartment boards, retail loads, aircon and EV demand, consumer mains and metering",
+  }),
+  "sackville-north": makeHillsDistrictLocalContext({
+    accessFocus:
+      "remote, river or rural access notes, long driveway details, shed photos and storm or water-affected equipment information",
+    commonJobs:
+      "remote river and rural property electrical work, shed power, outdoor power, storm and water-affected fault checks, private service equipment, CCTV/data and planned quote work",
+    emergencySignals:
+      "remote or river property power loss, storm or water-affected electrical equipment, shed faults, outdoor power hazards, private service equipment concerns and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and point of attachment questions for remote river and rural properties",
+    plannedWork:
+      "remote and river property repairs, shed and outdoor power, storm or water-fault follow-up, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "remote/river/rural properties, storm/water-affected faults, outdoor power, sheds, private service equipment, long driveways and access notes",
+    setting:
+      "Sackville North remote, river, rural, shed and water-exposure service area",
+    switchboardDetail:
+      "remote property switchboards, shed loads, outdoor circuits, water-exposure concerns and private service equipment",
+  }),
+  "south-maroota": makeHillsDistrictLocalContext({
+    accessFocus:
+      "rural road access notes, long driveway details, shed photos and storm fault information",
+    commonJobs:
+      "acreage and rural-road electrical work, shed power, outdoor power, storm fault checks, private service equipment, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "acreage power loss, rural road access faults, shed electrical issues, outdoor power hazards, storm faults and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and defect notices for acreage homes, sheds and rural-road properties",
+    plannedWork:
+      "acreage repairs, shed and outdoor power, storm fault follow-up, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage homes, rural roads, outdoor power, sheds, long driveways, storm faults, private service equipment and consumer mains",
+    setting:
+      "South Maroota acreage, rural-road, shed, storm-fault and consumer-mains service area",
+    switchboardDetail:
+      "acreage switchboards, shed loads, outdoor circuits, storm-exposed equipment, private service equipment and consumer mains",
+  }),
+  "west-pennant-hills": makeHillsDistrictLocalContext({
+    accessFocus:
+      "premium-home, renovation, townhouse, strata or outdoor lighting access notes and parking details",
+    commonJobs:
+      "premium-home, renovation, townhouse and strata electrical work, older-board upgrades, outdoor lighting, private service equipment, consumer mains, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "premium-home power loss, older-board concerns, outdoor lighting or power hazards, renovation faults, strata electrical issues and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, service equipment and defect notices for premium homes, older boards, renovations and strata properties",
+    plannedWork:
+      "premium-home repairs, renovation wiring, townhouse and strata maintenance, outdoor lighting, private service equipment review, consumer mains, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "premium homes, older switchboards, renovations, townhouses/strata where relevant, outdoor lighting, private service equipment, consumer mains, defect notices and access/parking notes",
+    setting:
+      "West Pennant Hills premium-home, renovation, townhouse, strata and defect-notice service area",
+    switchboardDetail:
+      "premium-home and older boards, renovation loads, outdoor lighting, private service equipment, consumer mains and RCD protection",
+  }),
+  "winston-hills": makeHillsDistrictLocalContext({
+    accessFocus:
+      "family-home, shop, duplex or villa access notes, outdoor power photos and hot water information",
+    commonJobs:
+      "family-home, local-shop, duplex and villa electrical work, older switchboards, outdoor power, RCD faults, hot water electrical, consumer mains, Level 2 support, CCTV/data and planned quote work",
+    emergencySignals:
+      "family-home power loss, local-shop outages, outdoor power hazards, hot water electrical faults, older-board concerns and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for family homes, shops, duplexes, villas and planned upgrades",
+    plannedWork:
+      "family-home repairs, local-shop maintenance, duplex and villa electrical work, outdoor power, hot water electrical, older-board upgrades, consumer mains, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, older switchboards, local shops, duplexes, villas, outdoor power, RCD faults, hot water faults, consumer mains and Level 2 support",
+    setting:
+      "Winston Hills family-home, local-shop, duplex, villa, outdoor-power and hot-water service area",
+    switchboardDetail:
+      "older home boards, shop and villa loads, outdoor power, hot water demand, consumer mains and RCD protection",
+  }),
+  "wisemans-ferry": makeHillsDistrictLocalContext({
+    accessFocus:
+      "remote or river-access notes, long driveway details, shed photos and storm or flood exposure information",
+    commonJobs:
+      "remote river-access electrical work, outdoor power, shed circuits, storm and flood exposure checks, private service equipment, switchboards, CCTV/data and planned quote work",
+    emergencySignals:
+      "remote river-access power loss, storm or flood-affected electrical equipment, outdoor power hazards, shed faults, private service equipment concerns and unsafe symptoms that need call-first triage",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and point of attachment questions for remote river-access properties",
+    plannedWork:
+      "remote river-access repairs, shed and outdoor power, storm or flood follow-up, private service equipment review, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "remote/river-access properties, storm/flood exposure, outdoor power, private service equipment, long access, sheds, switchboards and safety-first triage",
+    setting:
+      "Wisemans Ferry remote, river-access, flood-exposure, shed and safety-first service area",
+    switchboardDetail:
+      "remote property switchboards, shed loads, outdoor circuits, flood-exposure concerns, private service equipment and consumer mains",
+  }),
+};
+
+function getHillsDistrictLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "hills-hawkesbury-and-hornsby" ||
+    coverageArea.slug !== "hills-district"
+  ) {
+    return null;
+  }
+
+  return hillsDistrictLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 const burwoodLocalContexts: Record<string, LocalPageContext> = {
   burwood: {
     accessDetail:
@@ -9728,6 +10184,16 @@ function getLocalPageContext(
 
   if (hawkesburyContext) {
     return hawkesburyContext;
+  }
+
+  const hillsDistrictContext = getHillsDistrictLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (hillsDistrictContext) {
+    return hillsDistrictContext;
   }
 
   const burwoodContext = getBurwoodLocalContext(
