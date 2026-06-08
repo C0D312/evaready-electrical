@@ -3904,6 +3904,524 @@ function getCampbelltownLocalContext(
   return campbelltownLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+function makeWollondillyLocalContext({
+  accessFocus,
+  commonJobs,
+  emergencySignals,
+  level2Detail,
+  plannedWork,
+  propertyMix,
+  setting,
+  switchboardDetail,
+}: Omit<LocalPageContext, "accessDetail"> & {
+  accessFocus: string;
+}): LocalPageContext {
+  return {
+    accessDetail: `photos of the switchboard, meter box, affected fitting, ${accessFocus}, access notes, gate details, parking details and any defect notice or paperwork`,
+    commonJobs,
+    emergencySignals,
+    level2Detail,
+    plannedWork,
+    propertyMix,
+    setting,
+    switchboardDetail,
+  };
+}
+
+const wollondillyLocalContexts: Record<string, LocalPageContext> = {
+  appin: makeWollondillyLocalContext({
+    accessFocus:
+      "new-estate or rural-edge access details, shed notes, outdoor power photos and private service equipment information",
+    commonJobs:
+      "rural-edge and new-estate electrical work, larger-block repairs, shed power, outdoor power, private service equipment, consumer mains, defect notices, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "rural-edge power loss, new-estate faults, shed or outdoor power hazards, storm faults, burning smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and rural-edge supply questions",
+    plannedWork:
+      "shed power, outdoor power, switchboard upgrades, consumer mains review, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "rural-edge homes, new estates, larger blocks, sheds, outdoor areas, private service equipment and residential service equipment",
+    setting: "Appin rural-edge, new-estate and larger-block service area",
+    switchboardDetail:
+      "larger-block loads, shed demand, outdoor power, private service equipment, consumer mains condition and future capacity",
+  }),
+  "belimbla-park": makeWollondillyLocalContext({
+    accessFocus:
+      "bushland-edge access details, outdoor power photos, storm fault notes and private service equipment information",
+    commonJobs:
+      "acreage-home electrical work, bushland-edge repairs, outdoor power, switchboard upgrades, private service equipment, storm fault checks, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "acreage power loss, bushland-edge storm faults, outdoor power hazards, unsafe service equipment, burning smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
+    plannedWork:
+      "outdoor power, switchboard upgrades, private service equipment review, storm-related repair planning, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage homes, bushland-edge properties, outdoor areas, storm-exposed sites, long driveways and private service equipment",
+    setting: "Belimbla Park acreage, bushland-edge and storm-fault service area",
+    switchboardDetail:
+      "acreage loads, outdoor power, storm exposure, private service equipment, safety switches and consumer mains condition",
+  }),
+  "brownlow-hill": makeWollondillyLocalContext({
+    accessFocus:
+      "long-driveway details, shed or outdoor lighting notes and private service equipment photos",
+    commonJobs:
+      "rural-property electrical work, long-driveway access jobs, shed power, outdoor lighting, private service equipment, switchboard upgrades, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "rural property power loss, shed or outdoor power faults, storm exposure, unsafe service equipment, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and long-access supply questions",
+    plannedWork:
+      "shed power, outdoor lighting, driveway lighting, switchboard upgrades, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "rural properties, long driveways, sheds, outdoor areas, acreage homes and private service equipment",
+    setting: "Brownlow Hill rural-property, shed and long-driveway service area",
+    switchboardDetail:
+      "rural-property loads, shed demand, outdoor lighting, private service equipment, safety switches and consumer mains condition",
+  }),
+  "camden-park": makeWollondillyLocalContext({
+    accessFocus:
+      "acreage access details, outdoor power photos and consumer mains or Level 2 paperwork",
+    commonJobs:
+      "larger residential and acreage electrical work, outdoor power, switchboard upgrades, consumer mains, metering, CCTV/data and Level 2 support",
+    emergencySignals:
+      "larger-property power loss, acreage faults, outdoor power hazards, hot outlets, burning smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and acreage supply questions",
+    plannedWork:
+      "outdoor power, switchboard upgrades, consumer mains review, Level 2 support, CCTV/data and planned quote work",
+    propertyMix:
+      "larger residential properties, acreage homes, outdoor areas, switchboards, consumer mains and service equipment",
+    setting: "Camden Park larger-property, acreage and Level 2 service area",
+    switchboardDetail:
+      "larger-property loads, outdoor power, consumer mains condition, safety switches and future capacity",
+  }),
+  cataract: makeWollondillyLocalContext({
+    accessFocus:
+      "remote or bushland access details, storm fault notes, outdoor power photos and safety triage information",
+    commonJobs:
+      "remote and bushland electrical work, storm fault checks, outdoor power, switchboard upgrades, safety-first triage, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "remote property power loss, bushland storm faults, outdoor power hazards, unsafe switchboards, burning smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and remote-site supply questions",
+    plannedWork:
+      "outdoor power, storm-related repairs, switchboard upgrades, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "remote properties, bushland-edge homes, outdoor areas, storm-exposed sites and private service equipment",
+    setting: "Cataract remote, bushland and safety-first triage service area",
+    switchboardDetail:
+      "remote-site loads, outdoor power, storm exposure, private service equipment, safety switches and consumer mains condition",
+  }),
+  couridjah: makeWollondillyLocalContext({
+    accessFocus:
+      "small-acreage access details, shed notes, outdoor power photos and consumer mains information",
+    commonJobs:
+      "rural-home and small-acreage electrical work, shed power, outdoor power, consumer mains, private service equipment, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "rural-home power loss, shed or outdoor power faults, storm exposure, unsafe service equipment, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and small-acreage supply questions",
+    plannedWork:
+      "shed power, outdoor power, switchboard upgrades, consumer mains review, private service equipment checks, CCTV/data and planned quote work",
+    propertyMix:
+      "rural homes, small acreage, sheds, outdoor areas, consumer mains and private service equipment",
+    setting: "Couridjah rural-home, small-acreage and shed-power service area",
+    switchboardDetail:
+      "small-acreage loads, shed demand, outdoor power, consumer mains condition, safety switches and private service equipment",
+  }),
+  "douglas-park": makeWollondillyLocalContext({
+    accessFocus:
+      "country-property or long-driveway details, shed notes, outdoor power photos and storm fault information",
+    commonJobs:
+      "country and rural-edge electrical work, long-driveway access jobs, shed power, outdoor power, private service equipment, storm fault checks, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "country-property power loss, shed or outdoor power hazards, storm faults, unsafe service equipment, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and rural-edge supply questions",
+    plannedWork:
+      "shed power, outdoor power, driveway lighting, switchboard upgrades, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "country homes, rural-edge properties, long driveways, sheds, outdoor areas and private service equipment",
+    setting: "Douglas Park country-home, rural-edge and storm-fault service area",
+    switchboardDetail:
+      "country-property loads, shed demand, outdoor power, private service equipment, safety switches and consumer mains condition",
+  }),
+  glenmore: makeWollondillyLocalContext({
+    accessFocus:
+      "acreage access details, older-board notes, shed photos and outdoor power information",
+    commonJobs:
+      "acreage-home electrical work, older switchboard checks, shed power, outdoor power, switchboard upgrades, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "acreage power loss, older-board overheating, shed or outdoor power hazards, burning smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
+    plannedWork:
+      "shed power, outdoor power, switchboard upgrades, older-board checks, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage homes, older boards, sheds, outdoor areas, access-sensitive sites and private service equipment",
+    setting: "Glenmore acreage, older-board and shed-power service area",
+    switchboardDetail:
+      "older boards, acreage loads, shed demand, outdoor power, safety switches and consumer mains condition",
+  }),
+  lakesland: makeWollondillyLocalContext({
+    accessFocus:
+      "bushland access details, storm fault notes, outdoor power photos and private service equipment information",
+    commonJobs:
+      "rural-home and bushland electrical work, storm fault checks, outdoor power, switchboard upgrades, private service equipment, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "rural-home power loss, bushland storm faults, outdoor power hazards, unsafe service equipment, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and bushland supply questions",
+    plannedWork:
+      "storm-related repairs, outdoor power, switchboard upgrades, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "rural homes, bushland access properties, outdoor areas, storm-exposed sites and private service equipment",
+    setting: "Lakesland rural-home, bushland-access and storm-fault service area",
+    switchboardDetail:
+      "rural-home loads, storm exposure, outdoor power, private service equipment, safety switches and consumer mains condition",
+  }),
+  maldon: makeWollondillyLocalContext({
+    accessFocus:
+      "workshop or rural-edge access details, outdoor power photos and planned Level 2 paperwork",
+    commonJobs:
+      "rural-edge and workshop electrical work, outdoor power, switchboard upgrades, planned Level 2 work, private service equipment, CCTV/data and planned quote work",
+    emergencySignals:
+      "rural-edge power loss, workshop faults, outdoor power hazards, hot outlets, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and planned supply-side work",
+    plannedWork:
+      "workshop power, outdoor power, switchboard upgrades, private service equipment review, planned Level 2 work, CCTV/data and quote planning",
+    propertyMix:
+      "rural-edge properties, workshops, outdoor areas, private service equipment and planned Level 2 sites",
+    setting: "Maldon rural-edge, workshop and planned Level 2 service area",
+    switchboardDetail:
+      "workshop loads, outdoor power, private service equipment, safety switches, load checks and consumer mains condition",
+  }),
+  menangle: makeWollondillyLocalContext({
+    accessFocus:
+      "acreage access details, shed notes, older-board photos and consumer mains information",
+    commonJobs:
+      "acreage-home electrical work, older switchboard checks, shed power, outdoor power, consumer mains, private service equipment, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "acreage power loss, older-board faults, shed or outdoor power hazards, storm exposure, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
+    plannedWork:
+      "shed power, outdoor power, switchboard upgrades, consumer mains review, private service equipment checks, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage homes, older switchboards, sheds, outdoor areas, consumer mains and private service equipment",
+    setting: "Menangle acreage-home, older-board and consumer-mains service area",
+    switchboardDetail:
+      "older boards, acreage loads, shed demand, outdoor power, consumer mains condition and safety switches",
+  }),
+  "mount-hunter": makeWollondillyLocalContext({
+    accessFocus:
+      "acreage access details, shed photos, outdoor power notes and private service equipment information",
+    commonJobs:
+      "acreage-property electrical work, shed power, outdoor power, private service equipment, switchboard upgrades, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "acreage property power loss, shed or outdoor power hazards, storm faults, unsafe service equipment, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
+    plannedWork:
+      "shed power, outdoor power, switchboard upgrades, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage properties, sheds, outdoor areas, long access points, private service equipment and switchboards",
+    setting: "Mount Hunter acreage, shed-power and private-service-equipment area",
+    switchboardDetail:
+      "acreage loads, shed demand, outdoor power, private service equipment, safety switches and consumer mains condition",
+  }),
+  "mowbray-park": makeWollondillyLocalContext({
+    accessFocus:
+      "rural-home access details, shed notes, outdoor lighting photos and private service equipment information",
+    commonJobs:
+      "rural-home electrical work, shed power, outdoor lighting, private service equipment, consumer mains, emergency triage, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "rural-home power loss, shed or outdoor power hazards, storm exposure, unsafe service equipment, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and rural-home supply questions",
+    plannedWork:
+      "shed power, outdoor lighting, switchboard upgrades, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "rural homes, sheds, outdoor areas, long access points, consumer mains and private service equipment",
+    setting: "Mowbray Park rural-home, shed and emergency-triage service area",
+    switchboardDetail:
+      "rural-home loads, shed demand, outdoor lighting, private service equipment, safety switches and consumer mains condition",
+  }),
+  nattai: makeWollondillyLocalContext({
+    accessFocus:
+      "remote access details, bushland-edge notes, outdoor power photos and safety triage information",
+    commonJobs:
+      "remote-access and bushland-edge electrical work, outdoor power, switchboard upgrades, private service equipment, safety-first emergency triage, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "remote property power loss, bushland-edge storm faults, outdoor power hazards, unsafe service equipment, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and remote-access supply questions",
+    plannedWork:
+      "outdoor power, switchboard upgrades, private service equipment review, storm-related repairs, CCTV/data and planned quote work",
+    propertyMix:
+      "remote-access properties, bushland-edge homes, outdoor areas, safety-sensitive sites and private service equipment",
+    setting: "Nattai remote-access, bushland-edge and safety-triage service area",
+    switchboardDetail:
+      "remote-site loads, outdoor power, storm exposure, private service equipment, safety switches and consumer mains condition",
+  }),
+  oakdale: makeWollondillyLocalContext({
+    accessFocus:
+      "rural-home access details, shed notes, outdoor power photos and consumer mains information",
+    commonJobs:
+      "rural-home electrical work, shed power, outdoor power, switchboard upgrades, consumer mains, access-sensitive repairs, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "rural-home power loss, shed or outdoor power hazards, storm faults, hot outlets, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and rural-home supply questions",
+    plannedWork:
+      "shed power, outdoor power, switchboard upgrades, consumer mains review, private service equipment checks, CCTV/data and planned quote work",
+    propertyMix:
+      "rural homes, sheds, outdoor areas, consumer mains, access-sensitive properties and private service equipment",
+    setting: "Oakdale rural-home, shed-power and access-sensitive service area",
+    switchboardDetail:
+      "rural-home loads, shed demand, outdoor power, consumer mains condition, safety switches and private service equipment",
+  }),
+  orangeville: makeWollondillyLocalContext({
+    accessFocus:
+      "acreage access details, shed or outbuilding notes, outdoor power photos and storm fault information",
+    commonJobs:
+      "acreage-property electrical work, shed and outbuilding power, outdoor power, private service equipment, storm fault checks, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "acreage property power loss, shed or outbuilding faults, storm exposure, outdoor power hazards, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
+    plannedWork:
+      "shed power, outbuilding power, outdoor power, switchboard upgrades, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage properties, sheds, outbuildings, outdoor areas, storm-exposed sites and private service equipment",
+    setting: "Orangeville acreage, outbuilding and storm-fault service area",
+    switchboardDetail:
+      "acreage loads, shed and outbuilding demand, outdoor power, private service equipment, safety switches and consumer mains condition",
+  }),
+  "pheasants-nest": makeWollondillyLocalContext({
+    accessFocus:
+      "roadside business or rural-home access details, shed or workshop notes and private service equipment photos",
+    commonJobs:
+      "rural-home and roadside-business electrical work, shed and workshop power, outdoor power, switchboard upgrades, private service equipment, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "rural-home power loss, roadside business outages, shed or workshop faults, outdoor power hazards, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and roadside supply questions",
+    plannedWork:
+      "shed power, workshop power, outdoor power, business maintenance, switchboard upgrades, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "rural homes, roadside businesses, sheds, workshops, outdoor areas, switchboards and private service equipment",
+    setting: "Pheasants Nest rural-home, roadside-business and workshop service area",
+    switchboardDetail:
+      "rural-home and roadside-business loads, workshop demand, outdoor power, private service equipment and safety switches",
+  }),
+  picton: makeWollondillyLocalContext({
+    accessFocus:
+      "town-centre access notes, business hours, acreage-edge details and metering paperwork",
+    commonJobs:
+      "town-centre shop, cafe and office electrical work, older-home repairs, family-home maintenance, acreage-edge support, business outages, switchboard upgrades, consumer mains, metering, defect notices, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "town-centre business outages, older-home power loss, shop faults, acreage-edge storm issues, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and town-centre or acreage-edge supply questions",
+    plannedWork:
+      "shop lighting, cafe power, family-home repairs, switchboard upgrades, consumer mains review, metering, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "town-centre shops, cafes, small offices, older homes, family homes, acreage-edge properties and service equipment",
+    setting: "Picton town-centre, older-home and acreage-edge service area",
+    switchboardDetail:
+      "town-centre business loads, older boards, hot water loads, consumer mains, metering, safety switches and clear circuit labelling",
+  }),
+  razorback: makeWollondillyLocalContext({
+    accessFocus:
+      "long or steep access details, acreage notes, outdoor power photos and storm fault information",
+    commonJobs:
+      "acreage-property electrical work, long or steep access jobs, outdoor power, switchboard upgrades, private service equipment, storm fault checks, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "acreage property power loss, storm faults, outdoor power hazards, unsafe service equipment, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
+    plannedWork:
+      "outdoor power, driveway lighting, switchboard upgrades, private service equipment review, storm-related repair planning, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage properties, long or steep access sites, outdoor areas, storm-exposed homes and private service equipment",
+    setting: "Razorback acreage, steep-access and storm-fault service area",
+    switchboardDetail:
+      "acreage loads, outdoor power, storm exposure, private service equipment, safety switches and consumer mains condition",
+  }),
+  silverdale: makeWollondillyLocalContext({
+    accessFocus:
+      "long-driveway details, shed notes, outdoor power photos and consumer mains information",
+    commonJobs:
+      "acreage-home electrical work, shed power, outdoor power, long-driveway access jobs, switchboard upgrades, consumer mains, private service equipment, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "acreage home power loss, shed or outdoor power hazards, storm faults, unsafe service equipment, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
+    plannedWork:
+      "shed power, outdoor power, driveway lighting, switchboard upgrades, consumer mains review, private service equipment checks, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage homes, sheds, outdoor areas, long driveways, consumer mains and private service equipment",
+    setting: "Silverdale acreage-home, long-driveway and consumer-mains service area",
+    switchboardDetail:
+      "acreage-home loads, shed demand, outdoor power, consumer mains condition, private service equipment and safety switches",
+  }),
+  tahmoor: makeWollondillyLocalContext({
+    accessFocus:
+      "townhouse or shop access details, older-board photos and hot water circuit information",
+    commonJobs:
+      "home, townhouse, shop and local-business electrical work, older switchboard checks, hot water electrical, lighting and power, Level 2 support, CCTV/data and planned quote work",
+    emergencySignals:
+      "home power loss, townhouse faults, shop outages, hot water electrical faults, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, townhouses, shops and local businesses",
+    plannedWork:
+      "lighting and power, hot water electrical, switchboard upgrades, shop maintenance, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, townhouses, shops, local businesses, older switchboards, hot water loads and service equipment",
+    setting: "Tahmoor home, townhouse, shop and local-business service area",
+    switchboardDetail:
+      "older boards, shop loads, hot water demand, consumer mains, safety switches and future capacity",
+  }),
+  "the-oaks": makeWollondillyLocalContext({
+    accessFocus:
+      "rural-home or larger-block access details, shed notes, outdoor power photos and consumer mains information",
+    commonJobs:
+      "rural-home and larger-block electrical work, shed power, outdoor power, switchboard upgrades, consumer mains, private service equipment, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "rural-home power loss, shed or outdoor power hazards, storm faults, unsafe service equipment, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and larger-block supply questions",
+    plannedWork:
+      "shed power, outdoor power, switchboard upgrades, consumer mains review, private service equipment checks, CCTV/data and planned quote work",
+    propertyMix:
+      "rural homes, larger blocks, sheds, outdoor areas, consumer mains and private service equipment",
+    setting: "The Oaks rural-home, larger-block and private-service-equipment area",
+    switchboardDetail:
+      "rural-home loads, shed demand, outdoor power, consumer mains condition, private service equipment and safety switches",
+  }),
+  "theresa-park": makeWollondillyLocalContext({
+    accessFocus:
+      "acreage access details, shed notes, outdoor power photos and private service equipment information",
+    commonJobs:
+      "acreage-home electrical work, outdoor power, shed power, private service equipment, switchboard upgrades, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "acreage home power loss, shed or outdoor power hazards, storm exposure, unsafe service equipment, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
+    plannedWork:
+      "outdoor power, shed power, switchboard upgrades, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage homes, sheds, outdoor areas, long access points, private service equipment and switchboards",
+    setting: "Theresa Park acreage-home, outdoor-power and shed service area",
+    switchboardDetail:
+      "acreage loads, shed demand, outdoor power, private service equipment, safety switches and consumer mains condition",
+  }),
+  thirlmere: makeWollondillyLocalContext({
+    accessFocus:
+      "local-business or acreage-edge access details, outdoor power photos and hot water circuit information",
+    commonJobs:
+      "home, local-business and acreage-edge electrical work, switchboard upgrades, hot water electrical, outdoor power, Level 2 enquiries, CCTV/data and planned quote work",
+    emergencySignals:
+      "home power loss, local business faults, acreage-edge storm issues, hot water electrical faults, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and acreage-edge supply questions",
+    plannedWork:
+      "local business maintenance, hot water electrical, outdoor power, switchboard upgrades, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, local businesses, acreage-edge properties, older switchboards, hot water loads and service equipment",
+    setting: "Thirlmere home, local-business and acreage-edge service area",
+    switchboardDetail:
+      "home and business loads, hot water demand, outdoor power, consumer mains, safety switches and future capacity",
+  }),
+  warragamba: makeWollondillyLocalContext({
+    accessFocus:
+      "village-home or rural-edge access details, outdoor power photos and hot water circuit information",
+    commonJobs:
+      "village-home and rural-edge electrical work, outdoor power, switchboard upgrades, hot water electrical, consumer mains, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "village-home power loss, rural-edge storm faults, outdoor power hazards, hot water electrical faults, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and village or rural-edge supply questions",
+    plannedWork:
+      "outdoor power, hot water electrical, switchboard upgrades, consumer mains review, smoke alarms, CCTV/data and planned quote work",
+    propertyMix:
+      "village homes, rural-edge properties, outdoor areas, hot water loads, consumer mains and service equipment",
+    setting: "Warragamba village-home, rural-edge and hot-water service area",
+    switchboardDetail:
+      "village-home loads, outdoor power, hot water demand, consumer mains, safety switches and future capacity",
+  }),
+  werombi: makeWollondillyLocalContext({
+    accessFocus:
+      "long-access details, shed notes, outdoor power photos and consumer mains information",
+    commonJobs:
+      "acreage-home electrical work, shed power, outdoor power, long-access jobs, switchboard upgrades, consumer mains, private service equipment, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "acreage home power loss, shed or outdoor power hazards, storm faults, unsafe service equipment, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
+    plannedWork:
+      "shed power, outdoor power, driveway lighting, switchboard upgrades, consumer mains review, private service equipment checks, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage homes, sheds, outdoor areas, long access points, consumer mains and private service equipment",
+    setting: "Werombi acreage-home, shed-power and long-access service area",
+    switchboardDetail:
+      "acreage-home loads, shed demand, outdoor power, consumer mains condition, private service equipment and safety switches",
+  }),
+  wilton: makeWollondillyLocalContext({
+    accessFocus:
+      "new-estate access details, aircon or EV load notes, metering paperwork and planned upgrade information",
+    commonJobs:
+      "new-home and growth-corridor electrical work, larger-block repairs, switchboard capacity checks, aircon and EV load checks, consumer mains, metering, planned upgrades, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "new-home power loss, growth-corridor faults, aircon circuit trips, hot water electrical faults, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, load capacity checks and new-estate supply questions",
+    plannedWork:
+      "switchboard capacity checks, aircon circuits, EV-ready load checks, consumer mains review, metering, planned upgrades, CCTV/data and quote work",
+    propertyMix:
+      "new homes, growth-corridor estates, larger blocks, aircon loads, EV-ready loads, consumer mains and metering equipment",
+    setting: "Wilton new-home, growth-corridor and planned-upgrade service area",
+    switchboardDetail:
+      "new-home loads, aircon and EV-ready capacity, consumer mains, metering, safety switches and future capacity",
+  }),
+  yanderra: makeWollondillyLocalContext({
+    accessFocus:
+      "acreage access details, outdoor power photos, hot water circuit information and private service equipment notes",
+    commonJobs:
+      "rural-home and acreage electrical work, outdoor power, switchboard upgrades, hot water electrical, private service equipment, quote-photo planning, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "rural-home power loss, acreage faults, outdoor power hazards, hot water electrical faults, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and rural or acreage supply questions",
+    plannedWork:
+      "outdoor power, hot water electrical, switchboard upgrades, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "rural homes, acreage properties, outdoor areas, hot water loads, private service equipment and switchboards",
+    setting: "Yanderra rural-home, acreage and quote-guidance service area",
+    switchboardDetail:
+      "rural-home loads, outdoor power, hot water demand, private service equipment, safety switches and consumer mains condition",
+  }),
+};
+
+function getWollondillyLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "macarthur-camden-and-wollondilly" ||
+    coverageArea.slug !== "wollondilly"
+  ) {
+    return null;
+  }
+
+  return wollondillyLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 const burwoodLocalContexts: Record<string, LocalPageContext> = {
   burwood: {
     accessDetail:
@@ -4084,6 +4602,16 @@ function getLocalPageContext(
 
   if (campbelltownContext) {
     return campbelltownContext;
+  }
+
+  const wollondillyContext = getWollondillyLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (wollondillyContext) {
+    return wollondillyContext;
   }
 
   const burwoodContext = getBurwoodLocalContext(
