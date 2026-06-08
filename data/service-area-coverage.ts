@@ -12042,6 +12042,131 @@ function getBlueMountainsLocalContext(
   return blueMountainsLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+type MinnamurraKiamaDownsContextSeed = {
+  accessFocus: string;
+  emergencyFocus: string;
+  jobFocus: string;
+  level2Focus: string;
+  plannedFocus: string;
+  propertyMix: string;
+  setting: string;
+  switchboardFocus: string;
+};
+
+function makeMinnamurraKiamaDownsLocalContext({
+  accessFocus,
+  emergencyFocus,
+  jobFocus,
+  level2Focus,
+  plannedFocus,
+  propertyMix,
+  setting,
+  switchboardFocus,
+}: MinnamurraKiamaDownsContextSeed): LocalPageContext {
+  return {
+    accessDetail: `photos of the switchboard, meter box, affected fitting, ${accessFocus}, access notes, parking/gate details and any defect notice or paperwork`,
+    commonJobs: `${jobFocus}, switchboards, fault finding, hot water electrical, air conditioning electrical, CCTV/data, planned quote work and general licensed electrical support`,
+    emergencySignals: `${emergencyFocus}, power loss, storm or water-related electrical faults, weather-exposed outdoor power, heat, smoke, sparking, repeated safety switch trips and call-first safety triage`,
+    level2Detail: `${level2Focus}, consumer mains, private service equipment, point of attachment, metering and defect notices`,
+    plannedWork: `${plannedFocus}, switchboard upgrades, lighting and power, hot water electrical, air conditioning electrical, CCTV/data and planned quote work`,
+    propertyMix,
+    quoteGuidance:
+      "Send photos of the switchboard, meter box, affected fitting, access notes, parking/gate details and any defect notice or paperwork.",
+    setting,
+    switchboardDetail: `${switchboardFocus}, older switchboards, safety switch protection, weather-exposed outdoor circuits, private service equipment, consumer mains and metering where relevant`,
+  };
+}
+
+const minnamurraKiamaDownsLocalContexts: Record<string, LocalPageContext> = {
+  bombo: makeMinnamurraKiamaDownsLocalContext({
+    accessFocus:
+      "coastal access, holiday/rental entry notes, small-business timing, outdoor power photos and storm exposure details",
+    emergencyFocus:
+      "coastal-home power loss, small-business outages, storm-affected outdoor fittings and hot water electrical faults",
+    jobFocus:
+      "coastal home, holiday/rental, small-business, outdoor-power and hot-water electrical work",
+    level2Focus:
+      "supply-side support for coastal homes, small businesses, consumer mains and access-sensitive properties",
+    plannedFocus:
+      "holiday/rental maintenance, small-business electrical work, outdoor power, hot water circuits and storm exposure follow-up",
+    propertyMix:
+      "coastal homes, older switchboards, holiday/rental properties, small businesses, outdoor power, hot water circuits, storm-affected fittings, consumer mains and access notes",
+    setting:
+      "Bombo coastal-home, holiday/rental, small-business, outdoor-power and storm-exposure service area",
+    switchboardFocus:
+      "older coastal switchboards, small-business loads, hot water circuits, outdoor power and consumer mains",
+  }),
+  croom: makeMinnamurraKiamaDownsLocalContext({
+    accessFocus:
+      "larger-property details, rural-edge access, shed or workshop entry notes, long driveway details and gate information",
+    emergencyFocus:
+      "larger-property power loss, shed or workshop faults, long-access storm issues and outdoor power hazards",
+    jobFocus:
+      "larger-property, rural-edge, shed, workshop, long-driveway and outdoor-power electrical work",
+    level2Focus:
+      "supply-side support for larger properties, rural-edge homes, private service equipment and consumer mains",
+    plannedFocus:
+      "shed and workshop power, outdoor power, private service equipment review and long-access quote planning",
+    propertyMix:
+      "larger properties, rural-edge homes, sheds, workshops, outdoor power, long driveways, switchboards, private service equipment, consumer mains and gate/access notes",
+    setting:
+      "Croom larger-property, rural-edge, shed, workshop and long-driveway service area",
+    switchboardFocus:
+      "larger-property boards, shed and workshop loads, outdoor circuits, private service equipment and consumer mains",
+  }),
+  "kiama-downs": makeMinnamurraKiamaDownsLocalContext({
+    accessFocus:
+      "coastal, apartment/unit, strata, family-home, outdoor power and parking notes",
+    emergencyFocus:
+      "coastal-home or unit power loss, strata electrical issues, salt/corrosion concerns and storm-related outdoor electrical faults",
+    jobFocus:
+      "coastal home, apartment/unit, strata, family-home, outdoor-power and hot-water electrical work",
+    level2Focus:
+      "supply-side support for coastal homes, units, strata properties, consumer mains, metering and service equipment",
+    plannedFocus:
+      "coastal-home repairs, unit and strata maintenance, hot water circuits, outdoor power, metering and service-equipment enquiries",
+    propertyMix:
+      "coastal homes, apartments/units, strata where relevant, family homes, salt/corrosion exposure, storm-related electrical faults, hot water circuits, outdoor power, switchboards, consumer mains, metering and Level 2 service-equipment enquiries",
+    setting:
+      "Kiama Downs coastal-home, apartment/unit, strata, family-home and service-equipment service area",
+    switchboardFocus:
+      "coastal boards, unit and strata loads, hot water circuits, outdoor power, consumer mains and metering",
+  }),
+  minnamurra: makeMinnamurraKiamaDownsLocalContext({
+    accessFocus:
+      "coastal and river-side access, apartment/unit entry notes, holiday/rental details, outdoor power photos and point-of-attachment paperwork",
+    emergencyFocus:
+      "coastal or river-side power loss, holiday/rental faults, weather-exposed outdoor power and hot water electrical issues",
+    jobFocus:
+      "coastal, river-side, apartment/unit, holiday/rental, outdoor-power and hot-water electrical work",
+    level2Focus:
+      "supply-side support for coastal and river-side homes, consumer mains, metering and point-of-attachment concerns",
+    plannedFocus:
+      "holiday/rental maintenance, outdoor power, hot water circuits, metering, consumer mains and point-of-attachment support",
+    propertyMix:
+      "coastal and river-side homes, apartments/units where relevant, holiday/rental properties, outdoor power, hot water circuits, weather-affected fittings, switchboards, consumer mains, metering and point-of-attachment support",
+    setting:
+      "Minnamurra coastal, river-side, apartment/unit, holiday/rental and point-of-attachment service area",
+    switchboardFocus:
+      "coastal and river-side boards, holiday/rental loads, hot water circuits, outdoor power, consumer mains and metering",
+  }),
+};
+
+function getMinnamurraKiamaDownsLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "wollongong-and-illawarra" ||
+    coverageArea.slug !== "minnamurra-and-kiama-downs"
+  ) {
+    return null;
+  }
+
+  return minnamurraKiamaDownsLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 const burwoodLocalContexts: Record<string, LocalPageContext> = {
   burwood: {
     accessDetail:
@@ -12402,6 +12527,16 @@ function getLocalPageContext(
 
   if (blueMountainsContext) {
     return blueMountainsContext;
+  }
+
+  const minnamurraKiamaDownsContext = getMinnamurraKiamaDownsLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (minnamurraKiamaDownsContext) {
+    return minnamurraKiamaDownsContext;
   }
 
   const burwoodContext = getBurwoodLocalContext(
