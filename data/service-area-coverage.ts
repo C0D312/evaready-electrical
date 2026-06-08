@@ -130,6 +130,7 @@ type LocalPageContext = {
   level2Detail: string;
   plannedWork: string;
   propertyMix: string;
+  quoteGuidance?: string;
   setting: string;
   switchboardDetail: string;
 };
@@ -10465,7 +10466,7 @@ function makeHuntersHillLocalContext({
 const huntersHillLocalContexts: Record<string, LocalPageContext> = {
   gladesville: makeHuntersHillLocalContext({
     accessFocus:
-      "Victoria Road business details, shared meter-room photos, shopfront entry notes and parking information",
+      "Victoria Road business access notes, shared meter-room photos, shopfront entry notes and parking information",
     commonJobs:
       "apartment and strata electrical work, shopfront maintenance, older-home repairs, Victoria Road business outages, shared meter-room access, switchboard upgrades, consumer mains, defect notices, hot water electrical, CCTV/data and planned quote work",
     emergencySignals:
@@ -10586,6 +10587,1028 @@ function getHuntersHillLocalContext(
   }
 
   return huntersHillLocalContexts[coverageSuburb.slug] ?? null;
+}
+
+type NorthernBeachesContextSeed = {
+  accessFocus: string;
+  emergencyFocus: string;
+  jobFocus: string;
+  level2Focus: string;
+  plannedFocus: string;
+  propertyMix: string;
+  remoteAccess?: boolean;
+  setting: string;
+  switchboardFocus: string;
+};
+
+function makeNorthernBeachesLocalContext({
+  accessFocus,
+  emergencyFocus,
+  jobFocus,
+  level2Focus,
+  plannedFocus,
+  propertyMix,
+  remoteAccess = false,
+  setting,
+  switchboardFocus,
+}: NorthernBeachesContextSeed): LocalPageContext {
+  const safetyDetail = remoteAccess
+    ? "access limitations, planned photo-first quoting and careful attendance wording"
+    : "call-first safety triage and clear access planning";
+
+  return {
+    accessDetail: `photos of the switchboard, meter box, affected fitting, ${accessFocus}, access notes, parking/loading details, gate/access details, strata/building-manager notes and any defect notice or paperwork`,
+    commonJobs: `${jobFocus}, switchboards, fault finding, hot water electrical, air conditioning electrical, CCTV/data, planned quote work and general licensed electrical support`,
+    emergencySignals: `${emergencyFocus}, power loss, storm or water-affected electrical equipment, outdoor power hazards, heat, smoke, sparking, repeated safety switch trips and ${safetyDetail}`,
+    level2Detail: `${level2Focus}, consumer mains, private service equipment, service equipment, point of attachment, metering and defect notices`,
+    plannedWork: `${plannedFocus}, switchboard upgrades, lighting and power, hot water electrical, air conditioning electrical, CCTV/data and planned quote work`,
+    propertyMix,
+    quoteGuidance:
+      "Send photos of the switchboard, meter box, affected fitting, access notes, parking/loading details, gate/access details, strata/building-manager notes and any defect notice or paperwork.",
+    setting,
+    switchboardDetail: `${switchboardFocus}, older switchboards, safety switch protection, outdoor circuits, consumer mains, metering and added aircon or EV load checks where relevant`,
+  };
+}
+
+const northernBeachesLocalContexts: Record<string, LocalPageContext> = {
+  "allambie-heights": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "bushland-edge access notes, sloped driveway details, outdoor power photos and storm fault information",
+    emergencyFocus:
+      "family-home or bushland-edge power loss, outdoor circuit hazards and storm-affected electrical equipment",
+    jobFocus:
+      "family-home and bushland-edge electrical work, outdoor power, storm fault checks and Level 2 support",
+    level2Focus:
+      "supply-side support for family homes, bushland-edge properties and sloped-access sites",
+    plannedFocus:
+      "family-home maintenance, bushland-edge repairs, outdoor power and storm fault follow-up",
+    propertyMix:
+      "family homes, bushland-edge homes, sloped access, outdoor power, storm faults, switchboards, consumer mains and Level 2 support",
+    setting:
+      "Allambie Heights family-home, bushland-edge, sloped-access and outdoor-power service area",
+    switchboardFocus:
+      "family-home boards, bushland-edge loads and storm-exposed outdoor circuits",
+  }),
+  "avalon-beach": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "beachside access notes, outdoor power photos, coastal exposure details and parking information",
+    emergencyFocus:
+      "beachside power loss, coastal corrosion concerns, outdoor power hazards and storm or water-affected fittings",
+    jobFocus:
+      "beachside home, apartment, cafe and coastal electrical work",
+    level2Focus:
+      "supply-side support for beachside homes, apartments and coastal properties",
+    plannedFocus:
+      "beachside repairs, cafe maintenance, outdoor power, corrosion follow-up and coastal switchboard planning",
+    propertyMix:
+      "beachside homes, apartments, cafes, coastal corrosion, outdoor power, storm/water-affected faults, limited parking and emergency call-first wording",
+    setting:
+      "Avalon Beach beachside, apartment, cafe, coastal-corrosion and outdoor-power service area",
+    switchboardFocus:
+      "coastal switchboards, apartment loads, cafe circuits and weather-exposed outdoor equipment",
+  }),
+  balgowlah: makeNorthernBeachesLocalContext({
+    accessFocus:
+      "apartment, strata, shop, shared meter-room and parking/access notes",
+    emergencyFocus:
+      "apartment power loss, shop outages, shared meter-room concerns and hot water electrical faults",
+    jobFocus:
+      "apartment, strata, shop and older-home electrical work",
+    level2Focus:
+      "supply-side support for apartments, strata buildings, shops, older homes and shared meter rooms",
+    plannedFocus:
+      "apartment repairs, strata maintenance, shop lighting, older-home electrical work and defect notice paperwork",
+    propertyMix:
+      "apartments, strata buildings, shops, older homes, shared meter rooms, parking/access notes, switchboards, hot water faults, consumer mains and defect notices",
+    setting:
+      "Balgowlah apartment, strata, shop, older-home and shared-meter-room service area",
+    switchboardFocus:
+      "apartment boards, shared meter rooms, shop loads, older wiring and hot water circuits",
+  }),
+  "balgowlah-heights": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "premium-home, harbour/coastal exposure, driveway and outdoor lighting access notes",
+    emergencyFocus:
+      "premium-home power loss, harbour-side outdoor power hazards and weather-exposed electrical faults",
+    jobFocus:
+      "premium-home, harbour-side and coastal electrical work",
+    level2Focus:
+      "supply-side support for premium homes, harbour-side properties and private service equipment",
+    plannedFocus:
+      "premium-home repairs, outdoor lighting, private service equipment review and coastal switchboard planning",
+    propertyMix:
+      "premium homes, harbour/coastal exposure, outdoor lighting, private service equipment, switchboards and access notes",
+    setting:
+      "Balgowlah Heights premium-home, harbour-side, outdoor-lighting and private-service-equipment service area",
+    switchboardFocus:
+      "premium-home boards, outdoor lighting circuits and private service equipment",
+  }),
+  bayview: makeNorthernBeachesLocalContext({
+    accessFocus:
+      "waterfront access notes, larger-property details, outdoor power photos and weather-exposure information",
+    emergencyFocus:
+      "waterfront power loss, outdoor power hazards, weather-exposed faults and private service equipment concerns",
+    jobFocus:
+      "waterfront home and larger-property electrical work",
+    level2Focus:
+      "supply-side support for waterfront homes, larger properties and private service equipment",
+    plannedFocus:
+      "waterfront-home repairs, outdoor power, private service equipment review and larger-property electrical planning",
+    propertyMix:
+      "waterfront homes, larger properties, private service equipment, outdoor power, weather exposure, consumer mains and switchboards",
+    setting:
+      "Bayview waterfront-home, larger-property, outdoor-power and private-service-equipment service area",
+    switchboardFocus:
+      "waterfront-home boards, outdoor circuits, private service equipment and larger-property loads",
+  }),
+  "beacon-hill": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "family-home, larger-block, outdoor power and storm fault access notes",
+    emergencyFocus:
+      "family-home power loss, storm faults, outdoor power hazards and hot water electrical issues",
+    jobFocus:
+      "family-home and larger-block electrical work, outdoor power and hot water electrical",
+    level2Focus:
+      "supply-side support for family homes, larger blocks and older switchboards",
+    plannedFocus:
+      "family-home repairs, outdoor power, hot water circuits, safety switch work and storm fault follow-up",
+    propertyMix:
+      "family homes, larger blocks, older switchboards, outdoor power, storm faults, hot water, safety switches and Level 2 support",
+    setting:
+      "Beacon Hill family-home, larger-block, older-board and storm-fault service area",
+    switchboardFocus:
+      "older home boards, larger-block loads, hot water circuits and outdoor power",
+  }),
+  belrose: makeNorthernBeachesLocalContext({
+    accessFocus:
+      "home, local-shop, bushland-edge, business-premises and outdoor power notes",
+    emergencyFocus:
+      "home power loss, local-shop or business outages, bushland-edge storm faults and outdoor power hazards",
+    jobFocus:
+      "home, local-shop, business-premises and bushland-edge electrical work",
+    level2Focus:
+      "supply-side support for homes, local shops, business premises and private service equipment",
+    plannedFocus:
+      "home repairs, local-shop maintenance, business electrical work, outdoor power and defect notice paperwork",
+    propertyMix:
+      "homes, local shops, semi-rural/bushland edge, business premises, switchboards, outdoor power, private service equipment and defect notice support",
+    setting:
+      "Belrose home, local-shop, bushland-edge, business-premises and outdoor-power service area",
+    switchboardFocus:
+      "home and business boards, outdoor circuits, bushland-edge equipment and private service equipment",
+  }),
+  "bilgola-beach": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "beachside access notes, coastal exposure details and weather-affected outdoor fitting photos",
+    emergencyFocus:
+      "coastal power loss, salt/corrosion concerns, weather-affected fittings and outdoor power hazards",
+    jobFocus:
+      "coastal-home and beachside electrical work",
+    level2Focus:
+      "supply-side support for coastal homes, beachside access and private service equipment",
+    plannedFocus:
+      "coastal-home repairs, weather-affected outdoor power, corrosion follow-up and switchboard planning",
+    propertyMix:
+      "coastal homes, beachside access, salt/corrosion exposure, outdoor power, weather-affected fittings and switchboards",
+    setting:
+      "Bilgola Beach coastal-home, beachside-access and weather-exposed service area",
+    switchboardFocus:
+      "coastal switchboards, outdoor circuits and weather-exposed equipment",
+  }),
+  "bilgola-plateau": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "elevated-home, steep driveway, outdoor circuit and storm fault notes",
+    emergencyFocus:
+      "elevated-home power loss, storm faults, outdoor circuit hazards and hot water electrical issues",
+    jobFocus:
+      "elevated-home electrical work, outdoor circuits and hot water electrical",
+    level2Focus:
+      "supply-side support for elevated homes, steep-driveway access and consumer mains",
+    plannedFocus:
+      "elevated-home repairs, outdoor circuits, hot water electrical, consumer mains review and storm fault follow-up",
+    propertyMix:
+      "elevated homes, steep/driveway access, outdoor circuits, switchboards, consumer mains, hot water and storm faults",
+    setting:
+      "Bilgola Plateau elevated-home, steep-access, outdoor-circuit and storm-fault service area",
+    switchboardFocus:
+      "elevated-home boards, outdoor circuits, hot water loads and consumer mains",
+  }),
+  brookvale: makeNorthernBeachesLocalContext({
+    accessFocus:
+      "warehouse, workshop, shop, office, loading and business-hours access notes",
+    emergencyFocus:
+      "warehouse outages, workshop faults, shop or office power loss and commercial switchboard concerns",
+    jobFocus:
+      "warehouse, workshop, shop, office and industrial/commercial electrical work",
+    level2Focus:
+      "supply-side support for warehouses, workshops, shops, offices and commercial switchboards",
+    plannedFocus:
+      "warehouse lighting, workshop power, shop and office maintenance, load checks and loading-access planning",
+    propertyMix:
+      "warehouses, workshops, shops, offices, industrial/commercial switchboards, business outages, load checks, CCTV/data and loading access",
+    setting:
+      "Brookvale warehouse, workshop, shop, office and commercial-switchboard service area",
+    switchboardFocus:
+      "commercial switchboards, workshop and warehouse loads, shop and office circuits and load checks",
+  }),
+  "church-point": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "waterfront or river access notes, steep/tight access details, parking limits and weather-exposed power photos",
+    emergencyFocus:
+      "waterfront power loss, weather-exposed faults, outdoor power hazards and private service equipment concerns",
+    jobFocus:
+      "waterfront, steep-access and weather-exposed electrical work",
+    level2Focus:
+      "supply-side support for waterfront properties, private service equipment and access-sensitive sites",
+    plannedFocus:
+      "waterfront repairs, outdoor power, private service equipment review and weather-exposure follow-up",
+    propertyMix:
+      "waterfront/river access, steep/tight access, limited parking, weather-exposed power, private service equipment and consumer mains",
+    setting:
+      "Church Point waterfront, steep-access, limited-parking and weather-exposed service area",
+    switchboardFocus:
+      "waterfront boards, outdoor circuits, private service equipment and consumer mains",
+  }),
+  clareville: makeNorthernBeachesLocalContext({
+    accessFocus:
+      "premium coastal-home, waterfront, steep-access and outdoor lighting notes",
+    emergencyFocus:
+      "premium coastal-home power loss, waterfront outdoor power hazards and storm-exposed electrical faults",
+    jobFocus:
+      "premium coastal-home and waterfront electrical work",
+    level2Focus:
+      "supply-side support for premium coastal homes, waterfront properties and private service equipment",
+    plannedFocus:
+      "premium coastal-home repairs, outdoor lighting, private service equipment review and storm-exposure follow-up",
+    propertyMix:
+      "premium coastal homes, waterfront/steep access, outdoor lighting, private service equipment, switchboards and storm exposure",
+    setting:
+      "Clareville premium-coastal-home, waterfront, steep-access and outdoor-lighting service area",
+    switchboardFocus:
+      "premium coastal-home boards, outdoor lighting circuits and private service equipment",
+  }),
+  clontarf: makeNorthernBeachesLocalContext({
+    accessFocus:
+      "premium-home, waterfront, apartment, strata and parking/access notes",
+    emergencyFocus:
+      "premium-home power loss, waterfront faults, apartment or strata outages and outdoor power hazards",
+    jobFocus:
+      "premium-home, waterfront, apartment and strata electrical work",
+    level2Focus:
+      "supply-side support for premium homes, waterfront properties, apartments and private service equipment",
+    plannedFocus:
+      "premium-home repairs, waterfront electrical work, apartment and strata maintenance and private service equipment review",
+    propertyMix:
+      "premium homes, waterfront exposure, strata/apartments where relevant, private service equipment, parking/access notes and Level 2 support",
+    setting:
+      "Clontarf premium-home, waterfront, apartment, strata and private-service-equipment service area",
+    switchboardFocus:
+      "premium-home and apartment boards, waterfront outdoor circuits and private service equipment",
+  }),
+  "coasters-retreat": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "remote/water-access notes, access limitations, planned photo-first quoting details and private service equipment photos",
+    emergencyFocus:
+      "remote or water-access power loss, outdoor power hazards and private service equipment concerns",
+    jobFocus:
+      "remote/water-access electrical work and photo-guided planned quoting",
+    level2Focus:
+      "supply-side support for remote/water-access properties and private service equipment",
+    plannedFocus:
+      "photo-first planned quoting, outdoor power, private service equipment review and access-sensitive repairs",
+    propertyMix:
+      "remote/water-access work, access limitations, planned photo-first quoting, private service equipment, outdoor power and careful attendance wording",
+    remoteAccess: true,
+    setting:
+      "Coasters Retreat remote-water-access, photo-guided and careful-attendance service area",
+    switchboardFocus:
+      "remote-access switchboards, outdoor circuits and private service equipment",
+  }),
+  collaroy: makeNorthernBeachesLocalContext({
+    accessFocus:
+      "beachside apartment, strata, cafe, shop, shared meter-room and outdoor power notes",
+    emergencyFocus:
+      "beachside apartment power loss, cafe or shop outages, coastal outdoor power hazards and hot water electrical faults",
+    jobFocus:
+      "beachside apartment, strata, cafe and shop electrical work",
+    level2Focus:
+      "supply-side support for beachside apartments, strata buildings, shops and shared meter rooms",
+    plannedFocus:
+      "apartment repairs, strata maintenance, cafe and shop electrical work, outdoor power and hot water circuits",
+    propertyMix:
+      "beachside apartments, strata, cafes/shops, coastal exposure, outdoor power, hot water faults, shared meter rooms and switchboards",
+    setting:
+      "Collaroy beachside-apartment, strata, cafe, shop and shared-meter-room service area",
+    switchboardFocus:
+      "apartment and strata boards, shared meter rooms, cafe and shop circuits and coastal outdoor equipment",
+  }),
+  "collaroy-plateau": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "family-home, elevated-block, outdoor power and storm fault access notes",
+    emergencyFocus:
+      "family-home power loss, storm faults, outdoor power hazards and hot water electrical issues",
+    jobFocus:
+      "family-home and elevated-block electrical work",
+    level2Focus:
+      "supply-side support for family homes, elevated blocks and consumer mains",
+    plannedFocus:
+      "family-home repairs, outdoor power, hot water electrical, safety switch work and storm fault follow-up",
+    propertyMix:
+      "family homes, elevated blocks, outdoor power, storm faults, switchboards, hot water and safety switches",
+    setting:
+      "Collaroy Plateau family-home, elevated-block, outdoor-power and storm-fault service area",
+    switchboardFocus:
+      "family-home boards, elevated-block loads, outdoor circuits and hot water demand",
+  }),
+  "cottage-point": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "remote/water-access notes, limited-access details, private service equipment photos and outdoor power information",
+    emergencyFocus:
+      "remote or water-access power loss, storm-exposed faults, outdoor power hazards and private service equipment concerns",
+    jobFocus:
+      "remote/water-access electrical work and careful planned attendance",
+    level2Focus:
+      "supply-side support for remote/water-access properties and private service equipment",
+    plannedFocus:
+      "remote-access repairs, outdoor power, private service equipment review and photo-first quoting",
+    propertyMix:
+      "remote/water-access work, limited access, private service equipment, storm exposure, outdoor power and careful attendance wording",
+    remoteAccess: true,
+    setting:
+      "Cottage Point remote-water-access, limited-access, outdoor-power and careful-attendance service area",
+    switchboardFocus:
+      "remote-access switchboards, outdoor circuits and private service equipment",
+  }),
+  cromer: makeNorthernBeachesLocalContext({
+    accessFocus:
+      "home, industrial-pocket, workshop, small-business and outdoor power notes",
+    emergencyFocus:
+      "home power loss, workshop or small-business outages, outdoor power hazards and hot water electrical faults",
+    jobFocus:
+      "home, industrial-pocket, workshop and small-business electrical work",
+    level2Focus:
+      "supply-side support for homes, workshops, small businesses and consumer mains",
+    plannedFocus:
+      "home repairs, workshop and small-business maintenance, outdoor power, hot water circuits and consumer mains review",
+    propertyMix:
+      "homes, industrial pockets, workshops, small businesses, switchboards, business outages, hot water, outdoor power and consumer mains",
+    setting:
+      "Cromer home, workshop, small-business, outdoor-power and consumer-mains service area",
+    switchboardFocus:
+      "home and workshop boards, small-business loads, outdoor circuits and consumer mains",
+  }),
+  "curl-curl": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "beachside home, apartment, strata, shared access and weather-exposed outdoor power notes",
+    emergencyFocus:
+      "beachside power loss, apartment or strata faults, weather-exposed power hazards and hot water electrical issues",
+    jobFocus:
+      "beachside home, apartment and strata electrical work",
+    level2Focus:
+      "supply-side support for beachside homes, apartments, strata sites and shared access",
+    plannedFocus:
+      "beachside repairs, apartment and strata maintenance, outdoor power, corrosion follow-up and hot water circuits",
+    propertyMix:
+      "beachside homes, apartments, strata, outdoor power, corrosion/weather exposure, shared access, switchboards and hot water faults",
+    setting:
+      "Curl Curl beachside-home, apartment, strata, shared-access and weather-exposed service area",
+    switchboardFocus:
+      "beachside home and apartment boards, strata loads, outdoor circuits and hot water demand",
+  }),
+  davidson: makeNorthernBeachesLocalContext({
+    accessFocus:
+      "bushland-edge, family-property, outdoor circuit and storm fault notes",
+    emergencyFocus:
+      "bushland-edge power loss, storm faults, outdoor circuit hazards and switchboard concerns",
+    jobFocus:
+      "bushland-edge and family-property electrical work",
+    level2Focus:
+      "supply-side support for bushland-edge homes, family properties and consumer mains",
+    plannedFocus:
+      "family-property repairs, outdoor circuits, storm fault follow-up and consumer mains review",
+    propertyMix:
+      "bushland-edge homes, family properties, outdoor circuits, storm faults, switchboards, consumer mains and access notes",
+    setting:
+      "Davidson bushland-edge, family-property, outdoor-circuit and storm-fault service area",
+    switchboardFocus:
+      "bushland-edge home boards, outdoor circuits and consumer mains",
+  }),
+  "dee-why": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "apartment, strata tower, shop, restaurant, cafe, office and shared meter-room notes",
+    emergencyFocus:
+      "apartment power loss, shop, restaurant, cafe or business outages, shared meter-room concerns and hot water electrical faults",
+    jobFocus:
+      "apartment, strata tower, shop, restaurant, cafe, office and local-business electrical work",
+    level2Focus:
+      "supply-side support for apartments, strata towers, businesses, shared meter rooms and service equipment",
+    plannedFocus:
+      "apartment repairs, strata maintenance, shop and restaurant electrical work, office maintenance and hot water circuits",
+    propertyMix:
+      "apartments, strata towers, shops, restaurants, cafes, offices, shared meter rooms, business outages, hot water faults, switchboards and Level 2 support",
+    setting:
+      "Dee Why apartment, strata-tower, shop, restaurant, office and shared-meter-room service area",
+    switchboardFocus:
+      "apartment and strata tower boards, shared meter rooms, business loads and hot water circuits",
+  }),
+  "duffys-forest": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "acreage, rural-edge, shed, long-driveway, gate/access and storm fault notes",
+    emergencyFocus:
+      "acreage power loss, storm faults, shed electrical hazards, outdoor power hazards and private service equipment concerns",
+    jobFocus:
+      "acreage, rural-edge, shed and long-driveway electrical work",
+    level2Focus:
+      "supply-side support for acreage properties, sheds, long-driveway sites and private service equipment",
+    plannedFocus:
+      "acreage repairs, shed power, outdoor power, private service equipment review and storm fault follow-up",
+    propertyMix:
+      "acreage/rural-edge properties, sheds, long driveways, private service equipment, outdoor power, storm faults and gate/access notes",
+    setting:
+      "Duffys Forest acreage, rural-edge, shed, long-driveway and gate-access service area",
+    switchboardFocus:
+      "acreage boards, shed loads, outdoor circuits and private service equipment",
+  }),
+  "elanora-heights": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "family-home, larger-block, outdoor power and storm fault access notes",
+    emergencyFocus:
+      "family-home power loss, storm faults, outdoor power hazards and hot water electrical issues",
+    jobFocus:
+      "family-home and larger-block electrical work",
+    level2Focus:
+      "supply-side support for family homes, larger blocks and consumer mains",
+    plannedFocus:
+      "family-home repairs, outdoor power, hot water electrical, consumer mains review and storm fault follow-up",
+    propertyMix:
+      "family homes, larger blocks, outdoor power, storm faults, switchboards, hot water, consumer mains and access notes",
+    setting:
+      "Elanora Heights family-home, larger-block, outdoor-power and storm-fault service area",
+    switchboardFocus:
+      "family-home boards, larger-block loads, outdoor circuits and hot water demand",
+  }),
+  "elvina-bay": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "water-access/remote notes, planned photo guidance, private service equipment photos and outdoor power information",
+    emergencyFocus:
+      "water-access power loss, storm-exposed faults, outdoor power hazards and private service equipment concerns",
+    jobFocus:
+      "water-access and remote electrical work with planned photo guidance",
+    level2Focus:
+      "supply-side support for water-access properties and private service equipment",
+    plannedFocus:
+      "photo-guided planned work, outdoor power, private service equipment review and access-sensitive repairs",
+    propertyMix:
+      "water-access/remote work, planned photo guidance, private service equipment, outdoor power, storm exposure and careful attendance wording",
+    remoteAccess: true,
+    setting:
+      "Elvina Bay water-access, remote, photo-guided and careful-attendance service area",
+    switchboardFocus:
+      "water-access switchboards, outdoor circuits and private service equipment",
+  }),
+  fairlight: makeNorthernBeachesLocalContext({
+    accessFocus:
+      "apartment, strata, harbour-side, shop, shared meter-room and limited-parking notes",
+    emergencyFocus:
+      "apartment power loss, strata faults, harbour-side outdoor power hazards and hot water electrical faults",
+    jobFocus:
+      "apartment, strata, harbour-side home and shop electrical work",
+    level2Focus:
+      "supply-side support for apartments, strata buildings, harbour-side homes and shared meter rooms",
+    plannedFocus:
+      "apartment repairs, strata maintenance, shop electrical work, older wiring checks and hot water circuits",
+    propertyMix:
+      "apartments, strata, harbour-side homes, shops, shared meter rooms, limited parking, older wiring, hot water faults and switchboards",
+    setting:
+      "Fairlight apartment, strata, harbour-side, shop and shared-meter-room service area",
+    switchboardFocus:
+      "apartment and strata boards, shared meter rooms, older wiring and hot water loads",
+  }),
+  forestville: makeNorthernBeachesLocalContext({
+    accessFocus:
+      "family-home, bushland-edge, local-shop and outdoor power notes",
+    emergencyFocus:
+      "family-home power loss, bushland-edge storm faults, local-shop outages and outdoor power hazards",
+    jobFocus:
+      "family-home, bushland-edge and local-shop electrical work",
+    level2Focus:
+      "supply-side support for family homes, local shops and bushland-edge properties",
+    plannedFocus:
+      "family-home repairs, local-shop maintenance, outdoor power, hot water electrical and safety switch work",
+    propertyMix:
+      "family homes, bushland edge, local shops, switchboards, outdoor power, safety switches, hot water and Level 2 support",
+    setting:
+      "Forestville family-home, bushland-edge, local-shop and outdoor-power service area",
+    switchboardFocus:
+      "family-home boards, local-shop loads, outdoor circuits and hot water demand",
+  }),
+  "frenchs-forest": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "medical, local-business, home, apartment, shop and commercial switchboard notes",
+    emergencyFocus:
+      "medical or local-business outages, home or apartment power loss and commercial switchboard concerns",
+    jobFocus:
+      "medical, local-business, home, apartment, shop and commercial electrical work",
+    level2Focus:
+      "supply-side support for medical premises, local businesses, homes, apartments and commercial switchboards",
+    plannedFocus:
+      "medical and local-business electrical work, home repairs, shop maintenance, consumer mains review and defect notice paperwork",
+    propertyMix:
+      "medical/office/local business context, homes, apartments, shops, commercial switchboards, business outages, access notes, consumer mains and defect notices",
+    setting:
+      "Frenchs Forest medical, local-business, home, apartment and commercial-switchboard service area",
+    switchboardFocus:
+      "commercial switchboards, medical and shop loads, apartment boards and consumer mains",
+  }),
+  freshwater: makeNorthernBeachesLocalContext({
+    accessFocus:
+      "apartment, beachside home, cafe, strata, shared meter-room and coastal exposure notes",
+    emergencyFocus:
+      "apartment power loss, cafe outages, beachside outdoor power hazards and hot water electrical faults",
+    jobFocus:
+      "apartment, beachside home, cafe and strata electrical work",
+    level2Focus:
+      "supply-side support for apartments, beachside homes, strata sites and shared meter rooms",
+    plannedFocus:
+      "apartment repairs, cafe maintenance, outdoor power, corrosion follow-up and hot water circuits",
+    propertyMix:
+      "apartments, beachside homes, cafes, strata, coastal corrosion, outdoor power, hot water, switchboards and shared meter rooms",
+    setting:
+      "Freshwater apartment, beachside-home, cafe, strata and coastal-corrosion service area",
+    switchboardFocus:
+      "apartment and strata boards, cafe circuits, shared meter rooms and coastal outdoor equipment",
+  }),
+  "great-mackerel-beach": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "water-access limitations, planned photos, weather-exposure notes and private service equipment information",
+    emergencyFocus:
+      "water-access power loss, weather-exposed faults, outdoor power hazards and private service equipment concerns",
+    jobFocus:
+      "water-access electrical work with planned photos and no overpromise language",
+    level2Focus:
+      "supply-side support for water-access properties and private service equipment",
+    plannedFocus:
+      "planned photos, private service equipment review, weather-exposure follow-up and access-sensitive repairs",
+    propertyMix:
+      "water-access limitations, planned photos, private service equipment, weather exposure and no overpromise language",
+    remoteAccess: true,
+    setting:
+      "Great Mackerel Beach water-access, photo-guided, weather-exposed and conservative-attendance service area",
+    switchboardFocus:
+      "water-access switchboards, weather-exposed outdoor circuits and private service equipment",
+  }),
+  ingleside: makeNorthernBeachesLocalContext({
+    accessFocus:
+      "acreage, rural-edge, shed, long-driveway and gate/access notes",
+    emergencyFocus:
+      "acreage power loss, shed faults, outdoor power hazards and private service equipment concerns",
+    jobFocus:
+      "acreage, rural-edge, shed and long-driveway electrical work",
+    level2Focus:
+      "supply-side support for acreage homes, sheds, long-driveway sites and private service equipment",
+    plannedFocus:
+      "acreage repairs, shed power, outdoor power, private service equipment review and consumer mains planning",
+    propertyMix:
+      "acreage/rural-edge homes, long driveways, sheds, outdoor power, private service equipment, consumer mains and gate/access notes",
+    setting:
+      "Ingleside acreage, rural-edge, shed, long-driveway and private-service-equipment service area",
+    switchboardFocus:
+      "acreage boards, shed loads, outdoor circuits and private service equipment",
+  }),
+  "killarney-heights": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "family-home, bushland-edge, older switchboard and outdoor power notes",
+    emergencyFocus:
+      "family-home power loss, bushland-edge storm faults, outdoor power hazards and hot water electrical issues",
+    jobFocus:
+      "family-home and bushland-edge electrical work",
+    level2Focus:
+      "supply-side support for family homes, bushland-edge properties and older switchboards",
+    plannedFocus:
+      "family-home repairs, outdoor power, storm fault follow-up, hot water circuits and safety switch work",
+    propertyMix:
+      "family homes, bushland-edge properties, older switchboards, outdoor power, storm faults, hot water and safety switches",
+    setting:
+      "Killarney Heights family-home, bushland-edge, older-board and outdoor-power service area",
+    switchboardFocus:
+      "older family-home boards, bushland-edge loads, outdoor circuits and hot water demand",
+  }),
+  "ku-ring-gai-chase": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "remote/bushland access notes, outdoor power photos, private service equipment information and storm damage details",
+    emergencyFocus:
+      "remote or bushland power loss, storm damage, outdoor power hazards and private service equipment concerns",
+    jobFocus:
+      "remote/bushland electrical work and safety-first triage",
+    level2Focus:
+      "supply-side support for remote/bushland properties and private service equipment",
+    plannedFocus:
+      "remote/bushland repairs, outdoor power, private service equipment review and storm damage follow-up",
+    propertyMix:
+      "remote/bushland access, outdoor power, private service equipment, storm damage and safety-first triage",
+    remoteAccess: true,
+    setting:
+      "Ku-Ring-Gai Chase remote-bushland, outdoor-power, private-service-equipment and safety-first service area",
+    switchboardFocus:
+      "remote/bushland switchboards, outdoor circuits and private service equipment",
+  }),
+  "lovett-bay": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "water-access limitations, planned quote photos, private service equipment details and weather-exposure notes",
+    emergencyFocus:
+      "water-access power loss, weather-exposed faults, outdoor circuit hazards and private service equipment concerns",
+    jobFocus:
+      "water-access electrical work with planned quote photos and call-first safety wording",
+    level2Focus:
+      "supply-side support for water-access properties and private service equipment",
+    plannedFocus:
+      "planned quote photos, outdoor circuits, private service equipment review and weather-exposure follow-up",
+    propertyMix:
+      "water-access limitations, planned quote photos, private service equipment, outdoor circuits, weather exposure and call-first safety wording",
+    remoteAccess: true,
+    setting:
+      "Lovett Bay water-access, planned-photo, private-service-equipment and safety-first service area",
+    switchboardFocus:
+      "water-access switchboards, outdoor circuits and private service equipment",
+  }),
+  manly: makeNorthernBeachesLocalContext({
+    accessFocus:
+      "apartment, strata, cafe, restaurant, shop, hotel or short-stay access notes and shared meter-room details",
+    emergencyFocus:
+      "apartment power loss, hospitality or shop outages, hotel or short-stay faults and shared meter-room concerns",
+    jobFocus:
+      "apartment, strata, cafe, restaurant, shop, hotel and short-stay electrical work",
+    level2Focus:
+      "supply-side support for apartments, strata buildings, hospitality sites, shops and shared meter rooms",
+    plannedFocus:
+      "apartment repairs, strata maintenance, hospitality electrical work, shop maintenance and short-stay property support",
+    propertyMix:
+      "apartments, strata, cafes, restaurants, shops, hotels/short-stay maintenance, beachside access, shared meter rooms, business outages and switchboards",
+    setting:
+      "Manly apartment, strata, hospitality, shop, hotel and shared-meter-room service area",
+    switchboardFocus:
+      "apartment and strata boards, shared meter rooms, hospitality loads and shop circuits",
+  }),
+  "manly-vale": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "apartment, shop, older-home, commercial-pocket and strata access notes",
+    emergencyFocus:
+      "apartment power loss, shop outages, commercial pocket faults, hot water electrical issues and older-board concerns",
+    jobFocus:
+      "apartment, shop, older-home, commercial-pocket and strata electrical work",
+    level2Focus:
+      "supply-side support for apartments, shops, older homes, commercial pockets and strata access",
+    plannedFocus:
+      "apartment repairs, shop maintenance, older-home electrical work, strata maintenance and hot water circuits",
+    propertyMix:
+      "apartments, shops, older homes, commercial pockets, strata access, switchboards, hot water and safety switches",
+    setting:
+      "Manly Vale apartment, shop, older-home, commercial-pocket and strata service area",
+    switchboardFocus:
+      "apartment and shop boards, older wiring, hot water circuits and strata loads",
+  }),
+  "mona-vale": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "shop, medical, local-business, apartment, home, strata and parking/access notes",
+    emergencyFocus:
+      "shop, medical or local-business outages, apartment or home power loss and hot water electrical faults",
+    jobFocus:
+      "shop, medical, local-business, apartment, home and strata electrical work",
+    level2Focus:
+      "supply-side support for shops, medical premises, local businesses, apartments, homes and strata sites",
+    plannedFocus:
+      "shop and medical maintenance, local-business electrical work, apartment repairs, home maintenance and consumer mains review",
+    propertyMix:
+      "shops, medical/local businesses, apartments, homes, strata, business outages, switchboards, hot water, consumer mains and parking/access notes",
+    setting:
+      "Mona Vale shop, medical, local-business, apartment, home and strata service area",
+    switchboardFocus:
+      "business switchboards, apartment and home boards, hot water circuits and consumer mains",
+  }),
+  "morning-bay": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "remote/water-access notes, access limitations, weather-exposure details and private service equipment photos",
+    emergencyFocus:
+      "remote or water-access power loss, weather-exposed faults and private service equipment concerns",
+    jobFocus:
+      "remote/water-access electrical work and planned photo-first quoting",
+    level2Focus:
+      "supply-side support for remote/water-access properties and private service equipment",
+    plannedFocus:
+      "planned photo-first quoting, private service equipment review, weather-exposure follow-up and access-sensitive repairs",
+    propertyMix:
+      "remote/water-access work, access limitations, weather exposure, private service equipment and planned photo-first quoting",
+    remoteAccess: true,
+    setting:
+      "Morning Bay remote-water-access, weather-exposed and photo-first service area",
+    switchboardFocus:
+      "remote/water-access switchboards, weather-exposed outdoor circuits and private service equipment",
+  }),
+  narrabeen: makeNorthernBeachesLocalContext({
+    accessFocus:
+      "beachside, lagoon-side, apartment, shop/cafe and shared meter-room notes",
+    emergencyFocus:
+      "beachside or lagoon-side power loss, shop or cafe outages, storm/water faults and outdoor power hazards",
+    jobFocus:
+      "beachside home, apartment, shop and cafe electrical work",
+    level2Focus:
+      "supply-side support for beachside homes, apartments, shops, cafes and shared meter rooms",
+    plannedFocus:
+      "beachside repairs, apartment maintenance, shop and cafe electrical work, outdoor power and storm/water follow-up",
+    propertyMix:
+      "beachside homes, apartments, shops/cafes, lagoon/coastal exposure, outdoor power, storm/water faults, shared meter rooms and switchboards",
+    setting:
+      "Narrabeen beachside, lagoon-side, apartment, shop, cafe and shared-meter-room service area",
+    switchboardFocus:
+      "beachside home and apartment boards, shared meter rooms, shop and cafe loads and outdoor circuits",
+  }),
+  narraweena: makeNorthernBeachesLocalContext({
+    accessFocus:
+      "family-home, duplex, villa, older switchboard and outdoor power notes",
+    emergencyFocus:
+      "family-home power loss, older-board concerns, outdoor power hazards, hot water electrical issues and safety switch faults",
+    jobFocus:
+      "family-home, duplex, villa and older-switchboard electrical work",
+    level2Focus:
+      "supply-side support for family homes, duplexes, villas and older switchboards",
+    plannedFocus:
+      "family-home repairs, duplex and villa maintenance, outdoor power, hot water circuits and safety switch work",
+    propertyMix:
+      "family homes, older switchboards, duplexes, villas, outdoor power, hot water, safety-switch faults and Level 2 support",
+    setting:
+      "Narraweena family-home, duplex, villa, older-board and outdoor-power service area",
+    switchboardFocus:
+      "older home boards, duplex and villa loads, outdoor circuits and hot water demand",
+  }),
+  newport: makeNorthernBeachesLocalContext({
+    accessFocus:
+      "beachside home, cafe, shop, apartment, premium-home and coastal exposure notes",
+    emergencyFocus:
+      "beachside power loss, cafe or shop outages, corrosion/weather faults and outdoor power hazards",
+    jobFocus:
+      "beachside home, cafe, shop, apartment and premium-home electrical work",
+    level2Focus:
+      "supply-side support for beachside homes, apartments, premium homes and private service equipment",
+    plannedFocus:
+      "beachside repairs, cafe and shop maintenance, outdoor power, corrosion follow-up and switchboard planning",
+    propertyMix:
+      "beachside homes, cafes/shops, apartments, premium homes, corrosion/weather exposure, outdoor power, switchboards and urgent fault wording",
+    setting:
+      "Newport beachside-home, cafe, shop, apartment, premium-home and coastal-exposure service area",
+    switchboardFocus:
+      "beachside home and apartment boards, cafe and shop circuits, premium-home loads and outdoor equipment",
+  }),
+  "north-balgowlah": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "family-home, renovation, outdoor power, older switchboard and access notes",
+    emergencyFocus:
+      "family-home power loss, older-board concerns, outdoor power hazards and hot water electrical issues",
+    jobFocus:
+      "family-home, renovation and older-switchboard electrical work",
+    level2Focus:
+      "supply-side support for family homes, renovations and older switchboards",
+    plannedFocus:
+      "family-home repairs, renovation electrical work, outdoor power, hot water circuits and safety switch work",
+    propertyMix:
+      "family homes, renovations, outdoor power, older switchboards, hot water, safety switches and access notes",
+    setting:
+      "North Balgowlah family-home, renovation, outdoor-power and older-board service area",
+    switchboardFocus:
+      "older home boards, renovation loads, outdoor circuits and hot water demand",
+  }),
+  "north-curl-curl": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "coastal home, apartment, weather-exposed power, outdoor lighting and storm/water fault notes",
+    emergencyFocus:
+      "coastal power loss, apartment faults, weather-exposed power hazards and storm/water faults",
+    jobFocus:
+      "coastal home, apartment, outdoor lighting and weather-exposed electrical work",
+    level2Focus:
+      "supply-side support for coastal homes, apartments and weather-exposed service equipment",
+    plannedFocus:
+      "coastal-home repairs, apartment maintenance, outdoor lighting, weather-exposure follow-up and storm/water fault repairs",
+    propertyMix:
+      "coastal homes, apartments, weather-exposed power, outdoor lighting, switchboards and storm/water faults",
+    setting:
+      "North Curl Curl coastal-home, apartment, outdoor-lighting and storm-fault service area",
+    switchboardFocus:
+      "coastal home and apartment boards, outdoor lighting circuits and weather-exposed equipment",
+  }),
+  "north-manly": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "home, unit, local-business, parking/access and consumer mains notes",
+    emergencyFocus:
+      "home or unit power loss, local-business outages, hot water electrical issues and safety switch faults",
+    jobFocus:
+      "home, unit and local-business electrical work",
+    level2Focus:
+      "supply-side support for homes, units, local businesses and consumer mains",
+    plannedFocus:
+      "home repairs, unit maintenance, local-business electrical work, hot water circuits and consumer mains review",
+    propertyMix:
+      "homes, units, local businesses, parking/access notes, switchboards, hot water, safety-switch tripping and consumer mains",
+    setting:
+      "North Manly home, unit, local-business, parking-access and consumer-mains service area",
+    switchboardFocus:
+      "home and unit boards, local-business loads, hot water circuits and consumer mains",
+  }),
+  "north-narrabeen": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "coastal home, lagoon-side, apartment, outdoor power and storm fault notes",
+    emergencyFocus:
+      "coastal or lagoon-side power loss, apartment faults, outdoor power hazards and storm faults",
+    jobFocus:
+      "coastal home, lagoon-side, apartment and outdoor power electrical work",
+    level2Focus:
+      "supply-side support for coastal homes, apartments and lagoon-side properties",
+    plannedFocus:
+      "coastal-home repairs, apartment maintenance, outdoor power and storm fault follow-up",
+    propertyMix:
+      "coastal homes, lagoon-side weather exposure, apartments, outdoor power, switchboards and storm faults",
+    setting:
+      "North Narrabeen coastal-home, lagoon-side, apartment and outdoor-power service area",
+    switchboardFocus:
+      "coastal home and apartment boards, outdoor circuits and storm-exposed equipment",
+  }),
+  "oxford-falls": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "acreage, bushland-edge, long-driveway, shed, gate/access and storm fault notes",
+    emergencyFocus:
+      "acreage power loss, bushland-edge storm faults, shed electrical hazards and private service equipment concerns",
+    jobFocus:
+      "acreage, bushland-edge, shed and long-driveway electrical work",
+    level2Focus:
+      "supply-side support for acreage properties, sheds, long-driveway sites and private service equipment",
+    plannedFocus:
+      "acreage repairs, shed power, outdoor power, private service equipment review and storm fault follow-up",
+    propertyMix:
+      "acreage/bushland-edge homes, long driveways, private service equipment, sheds, outdoor power, storm faults and gate/access notes",
+    setting:
+      "Oxford Falls acreage, bushland-edge, long-driveway, shed and private-service-equipment service area",
+    switchboardFocus:
+      "acreage boards, shed loads, outdoor circuits and private service equipment",
+  }),
+  "palm-beach": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "beachside home, holiday/short-stay, steep-access, parking-limit and private service equipment notes",
+    emergencyFocus:
+      "beachside power loss, holiday or short-stay faults, corrosion/weather faults and outdoor lighting hazards",
+    jobFocus:
+      "beachside home, holiday/short-stay and access-sensitive electrical work",
+    level2Focus:
+      "supply-side support for beachside homes, holiday properties and private service equipment",
+    plannedFocus:
+      "beachside repairs, short-stay property maintenance, outdoor lighting, private service equipment review and corrosion follow-up",
+    propertyMix:
+      "beachside homes, holiday/short-stay maintenance, steep access, parking limits, private service equipment, outdoor lighting, corrosion/weather exposure and careful 90-minute wording",
+    remoteAccess: true,
+    setting:
+      "Palm Beach beachside-home, short-stay, steep-access, private-service-equipment and careful-response service area",
+    switchboardFocus:
+      "beachside home boards, outdoor lighting circuits, private service equipment and corrosion-exposed equipment",
+  }),
+  queenscliff: makeNorthernBeachesLocalContext({
+    accessFocus:
+      "apartment, strata, beachside home, shared meter-room and steep/tight access notes",
+    emergencyFocus:
+      "apartment power loss, strata faults, beachside outdoor power hazards and hot water electrical issues",
+    jobFocus:
+      "apartment, strata and beachside-home electrical work",
+    level2Focus:
+      "supply-side support for apartments, strata buildings, beachside homes and shared meter rooms",
+    plannedFocus:
+      "apartment repairs, strata maintenance, beachside-home electrical work, outdoor power and hot water circuits",
+    propertyMix:
+      "apartments, strata, beachside homes, shared meter rooms, steep/tight access, outdoor power, hot water faults and switchboards",
+    setting:
+      "Queenscliff apartment, strata, beachside-home, shared-meter-room and steep-access service area",
+    switchboardFocus:
+      "apartment and strata boards, shared meter rooms, beachside outdoor circuits and hot water demand",
+  }),
+  "scotland-island": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "island/water-access limitations, planned work photos, access notes, private service equipment details and weather-exposure information",
+    emergencyFocus:
+      "island or water-access power loss, weather-exposed faults, outdoor power hazards and private service equipment concerns",
+    jobFocus:
+      "island/water-access electrical work with planned work photos and safety-first triage",
+    level2Focus:
+      "supply-side support for island/water-access properties and private service equipment",
+    plannedFocus:
+      "planned work photos, access-sensitive repairs, private service equipment review and weather-exposure follow-up",
+    propertyMix:
+      "island/water-access limitations, planned work photos, access notes, private service equipment, weather exposure and safety-first triage",
+    remoteAccess: true,
+    setting:
+      "Scotland Island water-access, planned-photo, private-service-equipment and safety-first service area",
+    switchboardFocus:
+      "island/water-access switchboards, weather-exposed outdoor circuits and private service equipment",
+  }),
+  seaforth: makeNorthernBeachesLocalContext({
+    accessFocus:
+      "harbour-side home, apartment, steep-access, outdoor lighting and defect notice notes",
+    emergencyFocus:
+      "harbour-side power loss, apartment faults, outdoor lighting hazards and private service equipment concerns",
+    jobFocus:
+      "harbour-side home, apartment and steep-access electrical work",
+    level2Focus:
+      "supply-side support for harbour-side homes, apartments, private service equipment and defect notices",
+    plannedFocus:
+      "harbour-side repairs, apartment maintenance, outdoor lighting, consumer mains review and defect notice paperwork",
+    propertyMix:
+      "harbour-side homes, apartments, steep access, private service equipment, consumer mains, outdoor lighting, switchboards and defect notices",
+    setting:
+      "Seaforth harbour-side-home, apartment, steep-access and private-service-equipment service area",
+    switchboardFocus:
+      "harbour-side home and apartment boards, outdoor lighting circuits and private service equipment",
+  }),
+  "terrey-hills": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "acreage, larger-home, shed, workshop, gate/access and outdoor power notes",
+    emergencyFocus:
+      "acreage power loss, shed or workshop faults, outdoor power hazards and private service equipment concerns",
+    jobFocus:
+      "acreage, larger-home, shed, workshop and access-sensitive electrical work",
+    level2Focus:
+      "supply-side support for acreage properties, larger homes, sheds, workshops and private service equipment",
+    plannedFocus:
+      "acreage repairs, shed and workshop power, outdoor power, private service equipment review and gate/access planning",
+    propertyMix:
+      "acreage, larger homes, sheds, workshops, rural-style access where phrased generally, private service equipment, outdoor power and gate/access notes",
+    setting:
+      "Terrey Hills acreage, larger-home, shed, workshop and gate-access service area",
+    switchboardFocus:
+      "acreage boards, shed and workshop loads, outdoor circuits and private service equipment",
+  }),
+  warriewood: makeNorthernBeachesLocalContext({
+    accessFocus:
+      "new-development, apartment, business-park, warehouse, shop and parking/access notes",
+    emergencyFocus:
+      "apartment power loss, business-park or warehouse outages, shop faults and hot water electrical issues",
+    jobFocus:
+      "new-development, apartment, business-park, warehouse and shop electrical work",
+    level2Focus:
+      "supply-side support for new developments, apartments, business parks, warehouses and consumer mains",
+    plannedFocus:
+      "new-development electrical work, apartment repairs, warehouse and shop maintenance, aircon/EV load checks and consumer mains planning",
+    propertyMix:
+      "new developments, apartments, business parks, warehouses, shops, aircon/EV load checks, switchboard capacity, hot water, consumer mains and access/parking notes",
+    setting:
+      "Warriewood new-development, apartment, business-park, warehouse and shop service area",
+    switchboardFocus:
+      "new-development and apartment boards, warehouse and shop loads, hot water circuits and switchboard capacity",
+  }),
+  "whale-beach": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "beachside home, steep/tight access, corrosion/weather exposure and outdoor lighting notes",
+    emergencyFocus:
+      "beachside power loss, corrosion/weather faults, outdoor lighting hazards and storm/water faults",
+    jobFocus:
+      "beachside home and steep-access electrical work",
+    level2Focus:
+      "supply-side support for beachside homes and private service equipment",
+    plannedFocus:
+      "beachside-home repairs, outdoor lighting, private service equipment review and storm/water follow-up",
+    propertyMix:
+      "beachside homes, steep/tight access, corrosion/weather exposure, private service equipment, outdoor lighting and storm/water faults",
+    setting:
+      "Whale Beach beachside-home, steep-access, outdoor-lighting and weather-exposed service area",
+    switchboardFocus:
+      "beachside home boards, outdoor lighting circuits and corrosion-exposed equipment",
+  }),
+  "wheeler-heights": makeNorthernBeachesLocalContext({
+    accessFocus:
+      "family-home, elevated-block, older-board, outdoor power and storm fault notes",
+    emergencyFocus:
+      "family-home power loss, storm faults, outdoor power hazards and hot water electrical issues",
+    jobFocus:
+      "family-home, elevated-block and older-board electrical work",
+    level2Focus:
+      "supply-side support for family homes, elevated blocks and older boards",
+    plannedFocus:
+      "family-home repairs, outdoor power, hot water electrical, safety switch work and storm fault follow-up",
+    propertyMix:
+      "family homes, elevated blocks, older boards, outdoor power, storm faults, hot water, safety switches and Level 2 support",
+    setting:
+      "Wheeler Heights family-home, elevated-block, older-board and storm-fault service area",
+    switchboardFocus:
+      "older family-home boards, elevated-block loads, outdoor circuits and hot water demand",
+  }),
+};
+
+function getNorthernBeachesLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "northern-beaches" ||
+    coverageArea.slug !== "northern-beaches"
+  ) {
+    return null;
+  }
+
+  return northernBeachesLocalContexts[coverageSuburb.slug] ?? null;
 }
 
 const burwoodLocalContexts: Record<string, LocalPageContext> = {
@@ -10928,6 +11951,16 @@ function getLocalPageContext(
 
   if (huntersHillContext) {
     return huntersHillContext;
+  }
+
+  const northernBeachesContext = getNorthernBeachesLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (northernBeachesContext) {
+    return northernBeachesContext;
   }
 
   const burwoodContext = getBurwoodLocalContext(
@@ -12394,7 +13427,9 @@ export function getSuburbPageCopy(
     },
     {
       title: "Access and quote details",
-      text: `For planned work, send ${context.accessDetail}, plus photos, job notes and the address through the secure booking form so the next step can be reviewed.`,
+      text:
+        context.quoteGuidance ??
+        `For planned work, send ${context.accessDetail}, plus photos, job notes and the address through the secure booking form so the next step can be reviewed.`,
     },
     {
       title: "Typical local examples",
