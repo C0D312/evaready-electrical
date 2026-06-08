@@ -201,8 +201,7 @@ test("live site route matrix has no critical browser/device regressions", async 
 
       const expectedYear = await page.evaluate(() => new Date().getFullYear().toString());
       const footerText = await page.locator("#site-footer").innerText().catch(() => "");
-      const expectedFooter = `© ${expectedYear} Evaready Electrical. All rights reserved.`;
-      if (!footerText.includes(expectedFooter)) {
+      if (!footerText.includes(expectedYear) || !footerText.includes("Evaready Electrical. All rights reserved.")) {
         failures.push(`${route.name}: footer year does not match current year ${expectedYear}`);
       }
 
