@@ -2279,6 +2279,585 @@ function getFairfieldLocalContext(
   return fairfieldLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+const liverpoolLocalContexts: Record<string, LocalPageContext> = {
+  ashcroft: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, rental access notes, hot water circuit details, parking details and any defect notice or paperwork",
+    commonJobs:
+      "older-home repairs, rental maintenance, safety-switch faults, switchboard upgrades, hot water circuits, lighting and power repairs, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "older-home power loss, rental maintenance hazards, hot water electrical faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes and rentals",
+    plannedWork:
+      "switchboard upgrades, hot water circuits, safety-switch repairs, smoke alarms, lighting, power points, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "older homes, rental properties, family houses, hot water circuits and residential service equipment",
+    setting: "Liverpool older-home and rental-maintenance service area",
+    switchboardDetail:
+      "older protection, hot water loads, rental safety needs, safety switches, RCBOs and clear circuit labelling",
+  },
+  austral: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, builder or site access notes, aircon or EV load details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "new-home and duplex electrical work, construction and new-build electrical, switchboard capacity checks, aircon circuits, EV-ready loads, consumer mains, metering, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "new-estate power loss, aircon circuit trips, hot water electrical faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, new-build supply questions and load capacity checks",
+    plannedWork:
+      "new circuits, aircon electrical support, EV-ready load checks, switchboard upgrades, consumer mains review, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "new homes, duplexes, growth-corridor properties, construction sites and residential service equipment",
+    setting: "Liverpool new-estate and construction-growth service area",
+    switchboardDetail:
+      "new-home loads, aircon circuits, EV-ready capacity, consumer mains, safety switches and RCBO protection",
+  },
+  "badgerys-creek": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, gate or long-driveway access notes, shed or warehouse details, site contacts and any defect notice or paperwork",
+    commonJobs:
+      "airport-precinct fault finding, rural property electrical work, shed power, warehouse and workshop circuits, private service equipment, three-phase and load checks, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "property power loss, warehouse or shed outages, outdoor power hazards, equipment circuit trips, heat at outlets, sparking and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns, load checks and airport-edge supply questions",
+    plannedWork:
+      "shed circuits, warehouse lighting, workshop power, long-driveway lighting, load capacity checks, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "airport-growth precincts, rural properties, sheds, warehouses, workshops, long driveways and private service equipment",
+    setting: "Liverpool airport-edge, rural and warehouse service area",
+    switchboardDetail:
+      "commercial switchboards, shed loads, long circuit runs, three-phase and load checks, private service equipment and safety switches",
+  },
+  busby: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, rental access notes, hot water circuit details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "older-home repairs, rental maintenance, power loss fault finding, safety switches, lighting and power repairs, switchboards, hot water circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "power loss, older-board overheating, hot water electrical faults, heat at outlets, sparking and repeated safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes and rentals",
+    plannedWork:
+      "lighting repairs, power points, hot water circuits, switchboard upgrades, safety-switch repairs, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "older homes, rental properties, family houses, hot water circuits and residential service equipment",
+    setting: "Liverpool older-home and rental-maintenance service area",
+    switchboardDetail:
+      "older boards, hot water loads, rental safety needs, safety switches, RCBO protection and clear labelling",
+  },
+  "carnes-hill": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, local shop access notes, aircon or EV load details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "newer-home repairs, local shop maintenance, family-home electrical work, aircon load checks, EV-ready circuits, switchboard capacity checks, hot water faults, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home or local shop power loss, aircon circuit trips, hot water electrical issues, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and load capacity questions for homes and local shops",
+    plannedWork:
+      "aircon circuits, EV-ready load checks, switchboard upgrades, hot water circuits, local shop lighting, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "newer homes, family properties, local shops, aircon loads, EV-ready circuits and residential service equipment",
+    setting: "Liverpool newer-home and local-shop service area",
+    switchboardDetail:
+      "newer home loads, aircon circuits, EV-ready capacity, hot water loads, safety switches and RCBO protection",
+  },
+  cartwright: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, unit or rental access notes, hot water circuit details, parking details and any defect notice or paperwork",
+    commonJobs:
+      "older-home and unit repairs, rental maintenance, switchboard upgrades, safety-switch faults, hot water circuits, lighting and power repairs, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "older-home or unit power loss, hot water electrical faults, heat at outlets, sparking and repeated safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes and units",
+    plannedWork:
+      "rental maintenance, switchboard upgrades, safety-switch repairs, hot water circuits, power points, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "older homes, units, rental properties, switchboards, hot water circuits and residential service equipment",
+    setting: "Liverpool older-home, unit and rental-maintenance service area",
+    switchboardDetail:
+      "older boards, rental safety needs, hot water loads, safety switches, RCBOs and clear labelling",
+  },
+  casula: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, apartment or warehouse access notes, tenant or site contact details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "home, duplex and apartment repairs, shop and warehouse maintenance, commercial tenancy work, business outages, switchboards, defect notices, consumer mains, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home or apartment power loss, shop or warehouse outages, commercial circuit faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, commercial supply questions and strata or tenancy supply issues",
+    plannedWork:
+      "apartment repairs, shop lighting, warehouse circuits, commercial tenancy changes, switchboard upgrades, consumer mains review, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, duplexes, apartments, shops, warehouses, commercial tenancies and strata properties",
+    setting: "Liverpool home, apartment, warehouse and commercial-tenancy service area",
+    switchboardDetail:
+      "commercial switchboards, apartment boards, tenancy loads, consumer mains, safety switches and clear circuit labelling",
+  },
+  "cecil-hills": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, driveway or outdoor-area notes, aircon circuit details and any defect notice or paperwork",
+    commonJobs:
+      "larger-home repairs, family-property electrical work, outdoor lighting, switchboard upgrades, aircon circuits, consumer mains, defect notice support, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, aircon circuit trips, outdoor power faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for larger homes",
+    plannedWork:
+      "outdoor lighting, aircon circuits, switchboard capacity checks, hot water circuits, consumer mains review, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "larger homes, family properties, outdoor areas, aircon circuits and residential service equipment",
+    setting: "Liverpool larger-home and family-property service area",
+    switchboardDetail:
+      "larger home loads, aircon circuits, outdoor circuits, consumer mains, safety switches and RCBO protection",
+  },
+  "chipping-norton": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, warehouse or strata access notes, outdoor power photos, parking details and any defect notice or paperwork",
+    commonJobs:
+      "lakeside home repairs, warehouse and workshop faults, commercial switchboards, business outages, strata and unit electrical work, outdoor power, storm and water-affected faults, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "business outages, warehouse power loss, unit power loss, storm or water-affected electrical areas, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, load checks and commercial or strata supply questions",
+    plannedWork:
+      "warehouse lighting, workshop circuits, strata electrical work, outdoor power, commercial switchboards, load checks, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "lakeside homes, industrial sites, warehouses, workshops, strata buildings, units and outdoor electrical areas",
+    setting: "Liverpool lakeside, industrial and strata service area",
+    switchboardDetail:
+      "commercial switchboards, strata boards, workshop loads, weather exposure, safety switches and clear labelling",
+  },
+  "edmondson-park": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, strata or property-manager access notes, aircon or EV load details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "new-estate and townhouse electrical work, apartment repairs, switchboard capacity checks, aircon and EV-ready loads, new-build defect questions, consumer mains, metering, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "new-estate power loss, apartment circuit faults, aircon circuit trips, hot water electrical issues, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, new-build supply questions and load capacity checks",
+    plannedWork:
+      "aircon circuits, EV-ready load checks, new-build defect review, switchboard upgrades, consumer mains review, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "new estates, townhouses, apartments, property-manager access sites, aircon loads and residential service equipment",
+    setting: "Liverpool new-estate, townhouse and apartment service area",
+    switchboardDetail:
+      "newer loads, aircon and EV-ready capacity, consumer mains, apartment boards, safety switches and RCBO protection",
+  },
+  "elizabeth-hills": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, duplex or outdoor-area notes, aircon circuit details and any defect notice or paperwork",
+    commonJobs:
+      "newer family-home repairs, duplex electrical work, switchboard upgrades, aircon circuits, hot water faults, safety switches, outdoor lighting, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, aircon circuit trips, hot water electrical faults, outdoor power issues, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for newer homes and duplexes",
+    plannedWork:
+      "aircon circuits, outdoor lighting, hot water circuits, switchboard upgrades, safety-switch repairs, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "newer family homes, duplexes, outdoor areas, aircon circuits and residential service equipment",
+    setting: "Liverpool newer-family-home and duplex service area",
+    switchboardDetail:
+      "newer home loads, aircon circuits, hot water loads, outdoor circuits, safety switches and RCBO protection",
+  },
+  "green-valley": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, outdoor-area notes, hot water circuit details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "family-home repairs, older switchboard checks, hot water circuits, safety-switch tripping, outdoor power, smoke alarms, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, hot water electrical faults, outdoor power issues, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes",
+    plannedWork:
+      "older switchboard upgrades, hot water circuits, outdoor power, smoke alarms, safety-switch repairs, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "family homes, older switchboards, outdoor areas, hot water circuits and residential service equipment",
+    setting: "Liverpool family-home and older-switchboard service area",
+    switchboardDetail:
+      "older boards, hot water loads, outdoor circuits, safety switches, RCBOs and consumer mains condition",
+  },
+  greendale: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, gate or long-driveway access notes, shed and outdoor power photos and any defect notice or paperwork",
+    commonJobs:
+      "rural and acreage home fault finding, shed power, outdoor circuits, long-driveway access work, private service equipment, switchboards, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "rural property power loss, shed circuit faults, outdoor power hazards, storm damage, heat at outlets, sparking and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
+    plannedWork:
+      "shed circuits, outdoor power, driveway lighting, switchboard capacity checks, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "rural and acreage homes, long driveways, sheds, outdoor areas and private service equipment",
+    setting: "Liverpool rural and acreage service area",
+    switchboardDetail:
+      "long circuit runs, shed loads, outdoor circuits, private service equipment, safety switches and consumer mains capacity",
+  },
+  hammondville: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, renovation notes, hot water circuit details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "family-home repairs, older-board checks, renovation electrical work, hot water circuits, safety switches, switchboard upgrades, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, hot water electrical faults, renovation circuit issues, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes",
+    plannedWork:
+      "renovation wiring, older switchboard upgrades, hot water circuits, safety-switch repairs, lighting, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "family homes, older boards, renovated properties, hot water circuits and residential service equipment",
+    setting: "Liverpool family-home, renovation and older-board service area",
+    switchboardDetail:
+      "older boards, renovation capacity, hot water loads, safety switches, RCBOs and consumer mains condition",
+  },
+  heckenberg: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, rental access notes, hot water circuit details, parking details and any defect notice or paperwork",
+    commonJobs:
+      "older-home repairs, rental maintenance, lighting and power repairs, safety-switch faults, hot water circuits, switchboards, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "older-home power loss, rental maintenance hazards, hot water electrical faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes and rentals",
+    plannedWork:
+      "lighting repairs, power points, rental maintenance, hot water circuits, switchboard upgrades, safety-switch repairs, CCTV/data and planned quote work",
+    propertyMix:
+      "older homes, rental properties, lighting and power circuits, hot water circuits and residential service equipment",
+    setting: "Liverpool older-home and rental-maintenance service area",
+    switchboardDetail:
+      "older protection, hot water loads, rental safety needs, safety switches and RCBO protection",
+  },
+  hinchinbrook: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, villa or outdoor-area notes, aircon circuit details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "family-home, duplex and villa repairs, switchboard upgrades, hot water circuits, outdoor power, safety switches, aircon circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, villa circuit faults, aircon circuit trips, hot water electrical issues, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes, duplexes and villas",
+    plannedWork:
+      "switchboard upgrades, hot water circuits, outdoor power, aircon circuits, safety-switch repairs, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "family homes, duplexes, villas, outdoor areas, aircon circuits and residential service equipment",
+    setting: "Liverpool family-home, duplex and villa service area",
+    switchboardDetail:
+      "home loads, aircon circuits, outdoor circuits, hot water loads, safety switches and RCBO protection",
+  },
+  "horningsea-park": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, outdoor-area notes, aircon or EV load details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "family-home and newer-estate electrical work, outdoor lighting, aircon circuits, EV-ready load checks, switchboard upgrades, consumer mains, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, aircon circuit trips, outdoor power issues, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and load capacity questions for newer estates",
+    plannedWork:
+      "outdoor lighting, aircon circuits, EV-ready load checks, switchboard upgrades, consumer mains review, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "family homes, newer estates, outdoor areas, aircon circuits and residential service equipment",
+    setting: "Liverpool family-home and newer-estate service area",
+    switchboardDetail:
+      "newer home loads, aircon circuits, EV-ready capacity, outdoor circuits, safety switches and consumer mains capacity",
+  },
+  "hoxton-park": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, local shop access notes, aircon circuit details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "home repairs, local shop maintenance, commercial pocket electrical work, switchboards, hot water circuits, aircon circuits, safety switches, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, local shop circuit faults, aircon circuit trips, hot water electrical issues, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes and local businesses",
+    plannedWork:
+      "local shop lighting, switchboard upgrades, hot water circuits, aircon circuits, safety-switch repairs, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, local shops, commercial pockets, hot water circuits, aircon loads and residential service equipment",
+    setting: "Liverpool home, local-shop and commercial-pocket service area",
+    switchboardDetail:
+      "home loads, local business circuits, aircon and hot water loads, safety switches and RCBO protection",
+  },
+  "kemps-creek": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, warehouse or logistics access notes, gate or long-driveway details, equipment information and any defect notice or paperwork",
+    commonJobs:
+      "airport-growth and industrial fault finding, warehouse and logistics power, shed and workshop circuits, rural-edge property work, business outages, three-phase and load checks, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "business outages, warehouse or logistics power loss, shed circuit faults, equipment trips, heat at outlets, sparking and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, load checks and airport-growth supply questions",
+    plannedWork:
+      "warehouse lighting, logistics site power, shed circuits, workshop circuits, load capacity checks, private service equipment review, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "airport-growth precincts, industrial sites, warehouses, logistics sites, sheds, workshops, rural-edge properties and long access points",
+    setting: "Liverpool airport-growth, industrial and rural-edge service area",
+    switchboardDetail:
+      "commercial switchboards, three-phase and load checks, warehouse loads, shed circuits, private service equipment and safety switches",
+  },
+  liverpool: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, shared meter-room notes, suite or tenancy access details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "apartment and strata repairs, shop and restaurant maintenance, medical and retail suite power, shared meter-room access, business outages, commercial switchboards, consumer mains, defect notices, metering, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment power loss, shop or restaurant outages, shared meter-room issues, medical or retail suite circuit faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, shared supply concerns and commercial or strata supply questions",
+    plannedWork:
+      "retail lighting, restaurant circuits, medical suite power, apartment repairs, strata electrical work, commercial switchboards, consumer mains review, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "apartments, strata buildings, shops, restaurants, medical and retail suites, shared meter rooms, homes and commercial sites",
+    setting: "Liverpool apartment, strata, retail and commercial service area",
+    switchboardDetail:
+      "shared meter rooms, commercial switchboards, strata boards, tenancy loads, metering, safety switches and clear circuit labelling",
+  },
+  luddenham: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, gate or long-driveway access notes, shed or new-development details and any defect notice or paperwork",
+    commonJobs:
+      "airport-growth and rural-edge electrical work, acreage repairs, shed power, new development support, long-driveway access work, private service equipment, consumer mains, metering, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "property power loss, shed circuit faults, outdoor power hazards, new development supply issues, heat at outlets, sparking and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and airport-growth supply questions",
+    plannedWork:
+      "shed circuits, new development support, outdoor power, driveway lighting, switchboard capacity checks, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "airport-growth sites, rural-edge properties, acreage blocks, sheds, new development areas, long driveways and private service equipment",
+    setting: "Liverpool airport-growth and rural-edge service area",
+    switchboardDetail:
+      "private service equipment, long circuit runs, shed loads, consumer mains, safety switches and load capacity",
+  },
+  lurnea: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, villa or rental access notes, hot water circuit details and any defect notice or paperwork",
+    commonJobs:
+      "older-home repairs, villa electrical work, rental maintenance, switchboard upgrades, hot water circuits, safety switches, power faults, smoke alarms, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, villa circuit faults, hot water electrical issues, heat at outlets, sparking and repeated safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes and villas",
+    plannedWork:
+      "switchboard upgrades, hot water circuits, rental maintenance, safety-switch repairs, smoke alarms, lighting, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "older homes, villas, rental properties, hot water circuits, safety switches and residential service equipment",
+    setting: "Liverpool older-home, villa and rental-maintenance service area",
+    switchboardDetail:
+      "older boards, hot water loads, rental safety needs, safety switches, RCBOs and clear labelling",
+  },
+  "middleton-grange": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, outdoor-area notes, aircon or EV load details and any defect notice or paperwork",
+    commonJobs:
+      "newer-home repairs, family-property electrical work, aircon and EV-ready load checks, switchboard capacity planning, outdoor lighting, consumer mains, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, aircon circuit trips, outdoor power faults, hot water electrical issues, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and load capacity questions for newer homes",
+    plannedWork:
+      "aircon circuits, EV-ready load checks, outdoor lighting, switchboard upgrades, consumer mains review, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "newer homes, family properties, outdoor areas, aircon and EV-ready loads and residential service equipment",
+    setting: "Liverpool newer-home and family-property service area",
+    switchboardDetail:
+      "newer home loads, aircon and EV-ready capacity, outdoor circuits, consumer mains, safety switches and RCBO protection",
+  },
+  miller: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, rental access notes, hot water circuit details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "older-home repairs, rental maintenance, safety-switch tripping, hot water circuits, switchboards, lighting and power repairs, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "older-home power loss, rental maintenance hazards, hot water electrical faults, heat at outlets, sparking and repeated safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes and rentals",
+    plannedWork:
+      "rental maintenance, hot water circuits, switchboard upgrades, safety-switch repairs, lighting repairs, power points, CCTV/data and planned quote work",
+    propertyMix:
+      "older homes, rental properties, hot water circuits, safety switches and residential service equipment",
+    setting: "Liverpool older-home and rental-maintenance service area",
+    switchboardDetail:
+      "older protection, rental safety needs, hot water loads, safety switches and RCBO protection",
+  },
+  moorebank: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, warehouse or logistics access notes, equipment details, operating hours and any defect notice or paperwork",
+    commonJobs:
+      "warehouse and logistics site fault finding, factory and workshop circuits, commercial suite power, business outages, commercial switchboards, three-phase and load checks, CCTV/data and Level 2 supply-side enquiries",
+    emergencySignals:
+      "business outages, warehouse or factory power loss, workshop circuit faults, equipment trips, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, load checks and commercial supply-side questions",
+    plannedWork:
+      "warehouse lighting, logistics site power, factory circuits, workshop circuits, commercial switchboards, load capacity checks, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "warehouses, logistics sites, factories, commercial suites, workshops, homes and service equipment",
+    setting: "Liverpool warehouse, logistics and factory service area",
+    switchboardDetail:
+      "commercial switchboards, three-phase and load checks, warehouse loads, workshop circuits, safety switches and clear circuit labelling",
+  },
+  "pleasure-point": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, riverside or outdoor access notes, private service equipment photos and any defect notice or paperwork",
+    commonJobs:
+      "riverside-home repairs, larger-block electrical work, outdoor power, weather exposure checks, private service equipment, point of attachment and consumer mains support, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "riverside outdoor faults, storm or water-affected electrical areas, home power loss, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and riverside supply questions",
+    plannedWork:
+      "outdoor power, weather-rated lighting, switchboard upgrades, point of attachment review, consumer mains checks, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "riverside homes, larger blocks, outdoor areas, weather-exposed circuits and private service equipment",
+    setting: "Liverpool riverside and larger-block service area",
+    switchboardDetail:
+      "outdoor circuits, private service equipment, consumer mains, weather exposure, safety switches and RCBO protection",
+  },
+  prestons: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, warehouse or logistics access notes, equipment details, residential access notes and any defect notice or paperwork",
+    commonJobs:
+      "warehouse and logistics site fault finding, workshop circuits, business outages, commercial switchboards, load checks, residential switchboards, hot water circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "business outages, warehouse power loss, workshop circuit faults, home power loss, hot water electrical issues, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, load checks and residential or commercial supply questions",
+    plannedWork:
+      "warehouse lighting, logistics site power, workshop circuits, residential switchboard upgrades, hot water circuits, load capacity checks, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "warehouses, logistics sites, workshops, homes, newer estates, commercial switchboards and residential service equipment",
+    setting: "Liverpool warehouse, logistics and residential service area",
+    switchboardDetail:
+      "commercial switchboards, warehouse loads, residential loads, hot water circuits, safety switches and load capacity",
+  },
+  sadleir: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, rental access notes, hot water circuit details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "older-home repairs, rental maintenance, switchboard upgrades, power faults, safety switches, hot water circuits, general repairs, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "older-home power loss, rental maintenance hazards, hot water electrical faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes and rentals",
+    plannedWork:
+      "switchboard upgrades, hot water circuits, safety-switch repairs, lighting repairs, power points, smoke alarms, CCTV/data and planned quote work",
+    propertyMix:
+      "older homes, rental properties, hot water circuits, switchboards and residential service equipment",
+    setting: "Liverpool older-home and rental-maintenance service area",
+    switchboardDetail:
+      "older boards, rental safety needs, hot water loads, safety switches and RCBO protection",
+  },
+  "voyager-point": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, riverside or bushland access notes, outdoor power photos and any defect notice or paperwork",
+    commonJobs:
+      "riverside and bushland-edge home repairs, outdoor power, storm exposure checks, private service equipment, access-sensitive work, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "storm-exposed outdoor faults, riverside or bushland-edge power issues, home power loss, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and access-sensitive supply questions",
+    plannedWork:
+      "outdoor power, weather-rated lighting, switchboard upgrades, private service equipment review, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "riverside homes, bushland-edge properties, outdoor areas, access-sensitive sites and private service equipment",
+    setting: "Liverpool riverside and bushland-edge service area",
+    switchboardDetail:
+      "outdoor circuits, weather exposure, private service equipment, consumer mains, safety switches and RCBO protection",
+  },
+  wallacia: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, gate or long-driveway access notes, shed or outdoor power photos and any defect notice or paperwork",
+    commonJobs:
+      "rural and acreage home repairs, shed power, outdoor circuits, long-driveway access work, private service equipment, switchboards, consumer mains, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "rural property power loss, shed circuit faults, outdoor power hazards, storm damage, heat at outlets, sparking and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
+    plannedWork:
+      "shed circuits, outdoor power, driveway lighting, switchboard upgrades, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "rural and acreage homes, long driveways, sheds, outdoor areas and private service equipment",
+    setting: "Liverpool rural and acreage service area",
+    switchboardDetail:
+      "long circuit runs, shed loads, outdoor circuits, consumer mains, private service equipment and safety switches",
+  },
+  "warwick-farm": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, apartment or workshop access notes, warehouse entry details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "commercial, industrial and residential fault finding, apartment repairs, workshop and warehouse circuits, business outages, commercial switchboards, lighting and power, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "business outages, apartment power loss, workshop or warehouse circuit faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, load checks and commercial or strata supply questions",
+    plannedWork:
+      "warehouse lighting, workshop circuits, apartment repairs, commercial switchboards, lighting, power points, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "commercial sites, industrial sites, apartments, workshops, warehouses, homes and service equipment",
+    setting: "Liverpool commercial, industrial and apartment service area",
+    switchboardDetail:
+      "commercial switchboards, apartment boards, workshop loads, warehouse circuits, safety switches and clear circuit labelling",
+  },
+  "wattle-grove": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, driveway or outdoor-area notes, aircon or hot water details and any defect notice or paperwork",
+    commonJobs:
+      "family-home repairs, switchboard upgrades, outdoor lighting, hot water circuits, safety switches, aircon circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, aircon circuit trips, hot water electrical faults, outdoor power issues, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes",
+    plannedWork:
+      "outdoor lighting, hot water circuits, aircon circuits, switchboard upgrades, safety-switch repairs, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "family homes, outdoor areas, hot water circuits, aircon loads and residential service equipment",
+    setting: "Liverpool family-home and outdoor-lighting service area",
+    switchboardDetail:
+      "home loads, aircon circuits, hot water loads, outdoor circuits, safety switches and RCBO protection",
+  },
+  "west-hoxton": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, outdoor-area notes, aircon or EV load details and any defect notice or paperwork",
+    commonJobs:
+      "larger-home and newer-estate electrical work, outdoor power, aircon and EV-ready load checks, switchboards, consumer mains, hot water circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, aircon circuit trips, outdoor power faults, hot water electrical issues, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and load capacity questions for larger homes and newer estates",
+    plannedWork:
+      "outdoor power, aircon circuits, EV-ready load checks, switchboard upgrades, consumer mains review, hot water circuits, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "larger homes, newer estates, outdoor areas, aircon and EV-ready loads and residential service equipment",
+    setting: "Liverpool larger-home and newer-estate service area",
+    switchboardDetail:
+      "newer home loads, aircon and EV-ready capacity, outdoor circuits, hot water loads, consumer mains and safety switches",
+  },
+};
+
+function getLiverpoolLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "liverpool-and-fairfield" ||
+    coverageArea.slug !== "liverpool"
+  ) {
+    return null;
+  }
+
+  return liverpoolLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 function getLocalPageContext(
   coverageRegion: CoverageRegion,
   coverageArea: CoverageArea,
@@ -2343,6 +2922,16 @@ function getLocalPageContext(
 
   if (fairfieldContext) {
     return fairfieldContext;
+  }
+
+  const liverpoolContext = getLiverpoolLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (liverpoolContext) {
+    return liverpoolContext;
   }
 
   if (
