@@ -11611,6 +11611,437 @@ function getNorthernBeachesLocalContext(
   return northernBeachesLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+type BlueMountainsContextSeed = {
+  accessFocus: string;
+  emergencyFocus: string;
+  jobFocus: string;
+  level2Focus: string;
+  plannedFocus: string;
+  propertyMix: string;
+  setting: string;
+  switchboardFocus: string;
+};
+
+function makeBlueMountainsLocalContext({
+  accessFocus,
+  emergencyFocus,
+  jobFocus,
+  level2Focus,
+  plannedFocus,
+  propertyMix,
+  setting,
+  switchboardFocus,
+}: BlueMountainsContextSeed): LocalPageContext {
+  return {
+    accessDetail: `photos of the switchboard, meter box, affected fitting, ${accessFocus}, access notes, gate details, parking/loading details and any defect notice or paperwork`,
+    commonJobs: `${jobFocus}, switchboards, fault finding, hot water electrical, air conditioning electrical, CCTV/data, planned quote work and general licensed electrical support`,
+    emergencySignals: `${emergencyFocus}, power loss, storm or water-affected electrical equipment, outdoor power hazards, heat, smoke, sparking, repeated safety switch trips and call-first safety triage`,
+    level2Detail: `${level2Focus}, consumer mains, private service equipment, point of attachment, metering and defect notices`,
+    plannedWork: `${plannedFocus}, switchboard upgrades, lighting and power, hot water electrical, air conditioning electrical, CCTV/data and planned quote work`,
+    propertyMix,
+    quoteGuidance:
+      "Send photos of the switchboard, meter box, affected fitting, access notes, gate details, parking/loading details and any defect notice or paperwork.",
+    setting,
+    switchboardDetail: `${switchboardFocus}, older switchboards, safety switch protection, outdoor circuits, private service equipment, consumer mains and metering where relevant`,
+  };
+}
+
+const blueMountainsLocalContexts: Record<string, LocalPageContext> = {
+  berambing: makeBlueMountainsLocalContext({
+    accessFocus:
+      "mountain/rural access, long driveway details, weather-exposed outdoor power photos and gate information",
+    emergencyFocus:
+      "storm faults, weather-exposed outdoor power hazards and long-access mountain property faults",
+    jobFocus:
+      "mountain/rural access, long-driveway, weather-exposed outdoor power and storm-fault electrical work",
+    level2Focus:
+      "supply-side support for long driveways, private service equipment and mountain/rural access",
+    plannedFocus:
+      "weather-exposed outdoor power, switchboard checks, storm fault follow-up and access-sensitive quote work",
+    propertyMix:
+      "mountain/rural access, long driveways, weather-exposed outdoor power, private service equipment, switchboards, storm faults and access/gate notes",
+    setting:
+      "Berambing mountain-access, long-driveway, outdoor-power and storm-fault service area",
+    switchboardFocus:
+      "mountain property boards, long outdoor circuit runs and weather-exposed equipment",
+  }),
+  blaxland: makeBlueMountainsLocalContext({
+    accessFocus:
+      "family-home, local-shop, bushland-edge and outdoor power access notes",
+    emergencyFocus:
+      "family-home power loss, bushland-edge faults, local-shop outages and outdoor power hazards",
+    jobFocus:
+      "family-home, local-shop, bushland-edge and outdoor-power electrical work",
+    level2Focus:
+      "supply-side support for family homes, local shops, consumer mains and defect notices",
+    plannedFocus:
+      "family-home repairs, local-shop maintenance, outdoor power and defect notice paperwork",
+    propertyMix:
+      "family homes, older switchboards, bushland-edge faults, outdoor power, safety switches, consumer mains, defect notices and local-shop context",
+    setting:
+      "Blaxland family-home, local-shop, bushland-edge and older-switchboard service area",
+    switchboardFocus:
+      "older boards, family-home loads, local-shop circuits and bushland-edge outdoor power",
+  }),
+  bullaburra: makeBlueMountainsLocalContext({
+    accessFocus:
+      "mountain-home, long-access, outdoor circuit and storm/water exposure notes",
+    emergencyFocus:
+      "storm and water exposure, outdoor circuit hazards, mountain-home power loss and hot water electrical faults",
+    jobFocus:
+      "mountain-home, older-board, outdoor-circuit and storm/water-exposure electrical work",
+    level2Focus:
+      "supply-side support for mountain homes, private service equipment and long access",
+    plannedFocus:
+      "older-board checks, outdoor circuits, hot water electrical and storm/water exposure follow-up",
+    propertyMix:
+      "mountain homes, older boards, outdoor circuits, storm/water exposure, long access, hot water circuits and private service equipment",
+    setting:
+      "Bullaburra mountain-home, older-board, outdoor-circuit and storm-exposure service area",
+    switchboardFocus:
+      "older boards, outdoor circuits, hot water loads and private service equipment",
+  }),
+  faulconbridge: makeBlueMountainsLocalContext({
+    accessFocus:
+      "family-home, bushland-edge, outdoor lighting and storm fault access notes",
+    emergencyFocus:
+      "family-home power loss, bushland-edge storm faults and outdoor lighting or power hazards",
+    jobFocus:
+      "family-home, bushland-edge, outdoor lighting and storm-fault electrical work",
+    level2Focus:
+      "supply-side support for family homes, consumer mains and bushland-edge properties",
+    plannedFocus:
+      "family-home repairs, outdoor lighting, storm fault follow-up and consumer mains enquiries",
+    propertyMix:
+      "family homes, bushland-edge properties, older switchboards, storm faults, outdoor lighting/power, consumer mains and Level 2 support",
+    setting:
+      "Faulconbridge family-home, bushland-edge, storm-fault and outdoor-lighting service area",
+    switchboardFocus:
+      "older family-home boards, outdoor lighting circuits and consumer mains",
+  }),
+  glenbrook: makeBlueMountainsLocalContext({
+    accessFocus:
+      "family-home, cafe, local-shop, bushland-edge and parking notes",
+    emergencyFocus:
+      "family-home power loss, cafe or local-shop outages, bushland-edge faults and outdoor power hazards",
+    jobFocus:
+      "family-home, cafe, local-shop, bushland-edge and outdoor-power electrical work",
+    level2Focus:
+      "supply-side support for family homes, cafes, local shops, consumer mains and defect notices",
+    plannedFocus:
+      "family-home repairs, cafe and local-shop maintenance, outdoor power and defect notice paperwork",
+    propertyMix:
+      "family homes, cafes/local shops, older homes, bushland-edge access, outdoor power, switchboards, consumer mains and defect notices",
+    setting:
+      "Glenbrook family-home, cafe, local-shop, bushland-edge and consumer-mains service area",
+    switchboardFocus:
+      "older home boards, cafe and shop loads, outdoor circuits and consumer mains",
+  }),
+  "hawkesbury-heights": makeBlueMountainsLocalContext({
+    accessFocus:
+      "ridge/elevated access, bushland-edge, long driveway and private service equipment notes",
+    emergencyFocus:
+      "ridge or elevated property power loss, bushland-edge storm faults and outdoor power hazards",
+    jobFocus:
+      "ridge/elevated access, bushland-edge, long-driveway and private-service-equipment electrical work",
+    level2Focus:
+      "supply-side support for ridge access, long driveways and private service equipment",
+    plannedFocus:
+      "private service equipment review, outdoor power, storm fault follow-up and access-sensitive quote work",
+    propertyMix:
+      "ridge/elevated access, bushland-edge homes, long driveways, storm faults, private service equipment and outdoor power",
+    setting:
+      "Hawkesbury Heights ridge-access, bushland-edge, long-driveway and private-service-equipment service area",
+    switchboardFocus:
+      "ridge property boards, outdoor circuits, private service equipment and storm-exposed loads",
+  }),
+  hazelbrook: makeBlueMountainsLocalContext({
+    accessFocus:
+      "family-home, outdoor power, storm fault and hot water circuit access notes",
+    emergencyFocus:
+      "family-home power loss, outdoor power hazards, storm faults and hot water electrical issues",
+    jobFocus:
+      "family-home, older-switchboard, outdoor-power and hot-water electrical work",
+    level2Focus:
+      "supply-side support for family homes, service equipment and older switchboards",
+    plannedFocus:
+      "family-home repairs, outdoor power, hot water circuits and storm fault follow-up",
+    propertyMix:
+      "family homes, older switchboards, outdoor power, storm faults, hot water, safety switches and Level 2 service-equipment support",
+    setting:
+      "Hazelbrook family-home, older-switchboard, outdoor-power and hot-water service area",
+    switchboardFocus:
+      "older family-home boards, hot water loads, outdoor circuits and service equipment",
+  }),
+  katoomba: makeBlueMountainsLocalContext({
+    accessFocus:
+      "town-centre shop, cafe, accommodation, unit, driveway and storm exposure notes",
+    emergencyFocus:
+      "town-centre business outages, accommodation maintenance faults, storm-related power loss and outdoor circuit hazards",
+    jobFocus:
+      "town-centre shop, cafe, accommodation, older-home, unit and storm-fault electrical work",
+    level2Focus:
+      "supply-side support for shops, accommodation, older homes, units, consumer mains and metering",
+    plannedFocus:
+      "shop and cafe maintenance, accommodation electrical work, older-home repairs, metering and storm fault follow-up",
+    propertyMix:
+      "town-centre shops, cafes, accommodation/short-stay maintenance where accurate, older homes, units, switchboards, business outages, consumer mains, metering and storm faults",
+    setting:
+      "Katoomba town-centre, cafe, accommodation, older-home, unit and storm-fault service area",
+    switchboardFocus:
+      "older boards, shop and cafe loads, accommodation circuits, unit boards and metering",
+  }),
+  lapstone: makeBlueMountainsLocalContext({
+    accessFocus:
+      "lower-mountains, bushland-access, older-board and outdoor power notes",
+    emergencyFocus:
+      "lower-mountains power loss, bushland-access storm faults, outdoor power hazards and hot water electrical issues",
+    jobFocus:
+      "lower-mountains home, bushland-access, older-board and outdoor-power electrical work",
+    level2Focus:
+      "supply-side support for lower-mountains homes, older boards and service equipment",
+    plannedFocus:
+      "older-board checks, outdoor power, hot water circuits and storm fault follow-up",
+    propertyMix:
+      "lower-mountains homes, bushland access, older boards, outdoor power, storm faults, hot water circuits and switchboards",
+    setting:
+      "Lapstone lower-mountains, bushland-access, older-board and outdoor-power service area",
+    switchboardFocus:
+      "older boards, hot water loads, outdoor circuits and lower-mountains access",
+  }),
+  lawson: makeBlueMountainsLocalContext({
+    accessFocus:
+      "village-home, local-shop, outdoor power and storm/water fault notes",
+    emergencyFocus:
+      "village-home power loss, local-shop outages, storm or water-affected faults and outdoor power hazards",
+    jobFocus:
+      "village-home, local-shop, older-switchboard and storm/water-fault electrical work",
+    level2Focus:
+      "supply-side support for village homes, local shops and service equipment",
+    plannedFocus:
+      "village-home repairs, local-shop maintenance, hot water electrical and storm/water exposure follow-up",
+    propertyMix:
+      "village homes, local shops, older switchboards, storm/water faults, outdoor power, hot water, safety switches and Level 2 support",
+    setting:
+      "Lawson village-home, local-shop, storm/water-fault and hot-water service area",
+    switchboardFocus:
+      "older boards, local-shop loads, hot water circuits and outdoor power",
+  }),
+  leura: makeBlueMountainsLocalContext({
+    accessFocus:
+      "heritage-home, guest accommodation, cafe/shop, older-wiring and parking notes",
+    emergencyFocus:
+      "heritage-home power loss, cafe or shop outages, accommodation maintenance faults and older-wiring hazards",
+    jobFocus:
+      "heritage-home, guest-accommodation, cafe, shop, older-wiring and business-outage electrical work",
+    level2Focus:
+      "supply-side support for heritage homes, guest accommodation, cafes, shops and consumer mains",
+    plannedFocus:
+      "heritage-home repairs, guest-accommodation maintenance, cafe and shop electrical work and outdoor power",
+    propertyMix:
+      "heritage homes, guest accommodation where phrased generally, cafes/shops, older wiring, switchboards, outdoor power, business outages and consumer mains",
+    setting:
+      "Leura heritage-home, guest-accommodation, cafe, shop and older-wiring service area",
+    switchboardFocus:
+      "older wiring, heritage-home boards, cafe and shop loads, accommodation circuits and consumer mains",
+  }),
+  linden: makeBlueMountainsLocalContext({
+    accessFocus:
+      "bushland-edge, long-access, outdoor circuit and private service equipment notes",
+    emergencyFocus:
+      "bushland-edge power loss, long-access storm faults, outdoor circuit hazards and private service equipment concerns",
+    jobFocus:
+      "bushland-edge, long-access, outdoor-circuit and private-service-equipment electrical work",
+    level2Focus:
+      "supply-side support for bushland-edge homes, long access and private service equipment",
+    plannedFocus:
+      "outdoor circuits, storm fault follow-up, private service equipment review and quote-photo planning",
+    propertyMix:
+      "bushland-edge homes, long access, outdoor circuits, storm faults, private service equipment, switchboards and planned quote-photo guidance",
+    setting:
+      "Linden bushland-edge, long-access, outdoor-circuit and private-service-equipment service area",
+    switchboardFocus:
+      "bushland-edge boards, outdoor circuits, private service equipment and storm-exposed loads",
+  }),
+  "mount-riverview": makeBlueMountainsLocalContext({
+    accessFocus:
+      "family-home, sloped driveway, outdoor lighting and storm fault notes",
+    emergencyFocus:
+      "family-home power loss, sloped-access storm faults and outdoor lighting or power hazards",
+    jobFocus:
+      "family-home, sloped-driveway, outdoor-lighting and storm-fault electrical work",
+    level2Focus:
+      "supply-side support for family homes, consumer mains and sloped-access sites",
+    plannedFocus:
+      "family-home repairs, outdoor lighting, storm fault follow-up and consumer mains enquiries",
+    propertyMix:
+      "family homes, sloped/driveway access, outdoor lighting, storm faults, older switchboards, consumer mains and Level 2 enquiries",
+    setting:
+      "Mount Riverview family-home, sloped-access, outdoor-lighting and consumer-mains service area",
+    switchboardFocus:
+      "older family-home boards, outdoor lighting circuits and consumer mains",
+  }),
+  springwood: makeBlueMountainsLocalContext({
+    accessFocus:
+      "home, local-shop, small-business, outdoor power and storm fault access notes",
+    emergencyFocus:
+      "home power loss, local-shop or small-business outages, storm faults and outdoor power hazards",
+    jobFocus:
+      "home, local-shop, small-business, older-switchboard and storm-fault electrical work",
+    level2Focus:
+      "supply-side support for homes, local shops, small businesses, consumer mains and defect notices",
+    plannedFocus:
+      "home repairs, local-shop maintenance, small-business electrical work, outdoor power and defect notice paperwork",
+    propertyMix:
+      "homes, local shops, small businesses, older switchboards, storm faults, outdoor power, hot water, safety switches, consumer mains and defect notices",
+    setting:
+      "Springwood home, local-shop, small-business, older-switchboard and storm-fault service area",
+    switchboardFocus:
+      "older boards, local-shop and small-business loads, hot water circuits, outdoor power and consumer mains",
+  }),
+  "sun-valley": makeBlueMountainsLocalContext({
+    accessFocus:
+      "residential/rural-edge, larger-block, outdoor power and private service equipment notes",
+    emergencyFocus:
+      "residential or rural-edge power loss, storm faults, outdoor power hazards and private service equipment concerns",
+    jobFocus:
+      "residential/rural-edge, larger-block, outdoor-power and private-service-equipment electrical work",
+    level2Focus:
+      "supply-side support for larger blocks, private service equipment and access-sensitive homes",
+    plannedFocus:
+      "outdoor power, hot water circuits, switchboard checks and access-sensitive quote work",
+    propertyMix:
+      "residential/rural-edge properties, larger blocks, outdoor power, storm faults, switchboards, hot water, access notes and private service equipment",
+    setting:
+      "Sun Valley residential/rural-edge, larger-block, outdoor-power and private-service-equipment service area",
+    switchboardFocus:
+      "larger-block boards, outdoor circuits, hot water loads and private service equipment",
+  }),
+  "valley-heights": makeBlueMountainsLocalContext({
+    accessFocus:
+      "station-area, local-home, older-board, outdoor circuit and parking/access notes",
+    emergencyFocus:
+      "station-area or local-home power loss, storm faults, outdoor circuit hazards and hot water electrical issues",
+    jobFocus:
+      "station-area, local-home, older-board, outdoor-circuit and hot-water electrical work",
+    level2Focus:
+      "supply-side support for station-area homes, older boards and service equipment",
+    plannedFocus:
+      "older-board checks, outdoor circuits, hot water electrical and access-sensitive quote work",
+    propertyMix:
+      "station-area/local homes, older switchboards, storm faults, outdoor circuits, hot water, safety switches and access notes",
+    setting:
+      "Valley Heights station-area, local-home, older-board and outdoor-circuit service area",
+    switchboardFocus:
+      "older boards, hot water loads, outdoor circuits and access-sensitive homes",
+  }),
+  warrimoo: makeBlueMountainsLocalContext({
+    accessFocus:
+      "bushland-edge, older-board, outdoor power and storm/water exposure notes",
+    emergencyFocus:
+      "bushland-edge power loss, storm or water exposure, outdoor power hazards and older-board concerns",
+    jobFocus:
+      "bushland-edge, older-board, outdoor-power and storm/water-exposure electrical work",
+    level2Focus:
+      "supply-side support for bushland-edge homes, consumer mains and older switchboards",
+    plannedFocus:
+      "older-board checks, outdoor power, consumer mains review and quote-photo planning",
+    propertyMix:
+      "bushland-edge homes, older boards, outdoor power, storm/water exposure, switchboards, consumer mains and quote-photo guidance",
+    setting:
+      "Warrimoo bushland-edge, older-board, outdoor-power and consumer-mains service area",
+    switchboardFocus:
+      "older boards, outdoor circuits, storm-exposed loads and consumer mains",
+  }),
+  "wentworth-falls": makeBlueMountainsLocalContext({
+    accessFocus:
+      "home, shop, guest-accommodation, weather-exposure and outdoor lighting access notes",
+    emergencyFocus:
+      "home power loss, shop or accommodation faults, weather-exposed outdoor power hazards and storm faults",
+    jobFocus:
+      "home, shop, guest-accommodation, outdoor-lighting and weather-exposure electrical work",
+    level2Focus:
+      "supply-side support for homes, shops, guest accommodation, private service equipment and consumer mains",
+    plannedFocus:
+      "home repairs, shop and accommodation electrical work, outdoor lighting and storm fault follow-up",
+    propertyMix:
+      "homes, shops/guest accommodation where accurate, weather exposure, outdoor lighting, storm faults, switchboards, consumer mains, private service equipment and access notes",
+    setting:
+      "Wentworth Falls home, shop, guest-accommodation, weather-exposure and outdoor-lighting service area",
+    switchboardFocus:
+      "home and shop boards, accommodation circuits, outdoor lighting, private service equipment and consumer mains",
+  }),
+  winmalee: makeBlueMountainsLocalContext({
+    accessFocus:
+      "family-home, larger-block, outdoor power and storm fault access notes",
+    emergencyFocus:
+      "family-home power loss, larger-block storm faults, outdoor power hazards and hot water electrical issues",
+    jobFocus:
+      "family-home, larger-block, outdoor-power and hot-water electrical work",
+    level2Focus:
+      "supply-side support for family homes, larger residential blocks and service equipment",
+    plannedFocus:
+      "family-home repairs, outdoor power, hot water circuits and storm fault follow-up",
+    propertyMix:
+      "family homes, larger residential blocks, outdoor power, storm faults, switchboards, hot water, safety switches and Level 2 support",
+    setting:
+      "Winmalee family-home, larger-block, outdoor-power and hot-water service area",
+    switchboardFocus:
+      "family-home boards, larger-block loads, outdoor circuits and hot water loads",
+  }),
+  woodford: makeBlueMountainsLocalContext({
+    accessFocus:
+      "bushland-edge, long-access, older-board and private service equipment notes",
+    emergencyFocus:
+      "bushland-edge power loss, long-access storm faults, outdoor power hazards and private service equipment concerns",
+    jobFocus:
+      "bushland-edge, older-board, long-access and private-service-equipment electrical work",
+    level2Focus:
+      "supply-side support for bushland-edge homes, long access and private service equipment",
+    plannedFocus:
+      "older-board checks, outdoor power, private service equipment review and storm fault follow-up",
+    propertyMix:
+      "bushland-edge homes, older boards, long access, storm faults, outdoor power, switchboards and private service equipment",
+    setting:
+      "Woodford bushland-edge, older-board, long-access and private-service-equipment service area",
+    switchboardFocus:
+      "older boards, outdoor circuits, private service equipment and long-access loads",
+  }),
+  "yellow-rock": makeBlueMountainsLocalContext({
+    accessFocus:
+      "rural-edge/bushland, gate, outdoor power and quote-photo notes",
+    emergencyFocus:
+      "rural-edge or bushland power loss, storm faults, outdoor power hazards and private service equipment concerns",
+    jobFocus:
+      "rural-edge/bushland, access-gate, outdoor-power and private-service-equipment electrical work",
+    level2Focus:
+      "supply-side support for rural-edge properties, private service equipment and consumer mains",
+    plannedFocus:
+      "outdoor power, private service equipment review, consumer mains and quote-photo planning",
+    propertyMix:
+      "rural-edge/bushland homes, access/gate notes, outdoor power, storm faults, private service equipment, consumer mains and planned quote-photo guidance",
+    setting:
+      "Yellow Rock rural-edge/bushland, gate-access, outdoor-power and consumer-mains service area",
+    switchboardFocus:
+      "rural-edge boards, outdoor circuits, private service equipment and consumer mains",
+  }),
+};
+
+function getBlueMountainsLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "blue-mountains" ||
+    coverageArea.slug !== "blue-mountains"
+  ) {
+    return null;
+  }
+
+  return blueMountainsLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 const burwoodLocalContexts: Record<string, LocalPageContext> = {
   burwood: {
     accessDetail:
@@ -11961,6 +12392,16 @@ function getLocalPageContext(
 
   if (northernBeachesContext) {
     return northernBeachesContext;
+  }
+
+  const blueMountainsContext = getBlueMountainsLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (blueMountainsContext) {
+    return blueMountainsContext;
   }
 
   const burwoodContext = getBurwoodLocalContext(
@@ -12651,7 +13092,7 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
       "Common Springwood requests include storm fault checks, shed and outbuilding power, switchboard upgrades, safety switch tripping, outdoor lighting, smoke alarms and Level 2 supply enquiries.",
     serviceSummaryText: {
       emergency:
-        "Springwood emergency calls often involve storm damage, power loss, tripping safety switches, unsafe outdoor circuits and faults affecting sheds or detached areas.",
+        "Springwood emergency calls often involve storm damage, power loss, repeated safety switch trips, unsafe outdoor power and faults affecting sheds or detached areas.",
       switchboard:
         "Switchboard work in Springwood often means checking older boards, extra circuit capacity, shed loads, safety switches and outdoor circuit protection.",
       level2:
@@ -12971,7 +13412,7 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
       "Common Katoomba requests include storm fault checks, outdoor lighting, shed circuits, switchboard upgrades, smoke alarms, hot water electrical faults and private pole or point-of-attachment enquiries.",
     serviceSummaryText: {
       emergency:
-        "Katoomba emergency calls often involve storm damage, power loss, tripping safety switches, unsafe outdoor circuits or faults affecting detached areas.",
+        "Katoomba emergency calls often involve storm damage, power loss, repeated safety switch trips, unsafe outdoor power or faults affecting detached areas.",
       level2:
         "Level 2 enquiries in Katoomba can involve consumer mains, point of attachment, private poles, overhead service work, service equipment and defect notices.",
       switchboard:
