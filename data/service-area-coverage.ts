@@ -5296,6 +5296,286 @@ function getStrathfieldAreaLocalContext(
   return strathfieldAreaLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+function makeRandwickLocalContext({
+  accessFocus,
+  commonJobs,
+  emergencySignals,
+  level2Detail,
+  plannedWork,
+  propertyMix,
+  setting,
+  switchboardDetail,
+}: Omit<LocalPageContext, "accessDetail"> & {
+  accessFocus: string;
+}): LocalPageContext {
+  return {
+    accessDetail: `photos of the switchboard, meter box, affected fitting, ${accessFocus}, access notes, parking details, strata/building-manager notes and any defect notice or paperwork`,
+    commonJobs,
+    emergencySignals,
+    level2Detail,
+    plannedWork,
+    propertyMix,
+    setting,
+    switchboardDetail,
+  };
+}
+
+const randwickLocalContexts: Record<string, LocalPageContext> = {
+  "centennial-park": makeRandwickLocalContext({
+    accessFocus:
+      "apartment entry notes, terrace access details, park-edge parking information and outdoor lighting photos",
+    commonJobs:
+      "apartment, terrace, older-home and park-edge property electrical work, strata access, outdoor lighting, switchboard upgrades, safety-switch faults, hot water electrical, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, terrace wiring faults, park-edge outdoor lighting faults, older switchboard heat, smoke smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, terraces, older homes and park-edge properties",
+    plannedWork:
+      "apartment repairs, terrace electrical work, older-home wiring checks, outdoor lighting, switchboard upgrades, safety-switch repairs, hot water circuits, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, terraces, older homes, park-edge properties, strata buildings, limited parking sites and outdoor lighting",
+    setting: "Centennial Park apartment, terrace, park-edge and older-home service area",
+    switchboardDetail:
+      "older wiring, apartment boards, terrace switchboards, outdoor lighting loads, consumer mains and safety switches",
+  }),
+  chifley: makeRandwickLocalContext({
+    accessFocus:
+      "duplex access details, local shop timing, outdoor power photos and weather-exposed fitting notes",
+    commonJobs:
+      "home, duplex and local shop electrical work, older-board checks, outdoor power, weather-exposed fittings, hot water electrical, safety-switch faults, CCTV/data and planned quote work",
+    emergencySignals:
+      "home power loss, duplex faults, local shop outages, weather-exposed fitting faults, hot water electrical faults, smoke smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, duplexes and local shops",
+    plannedWork:
+      "home repairs, duplex electrical work, local shop lighting, outdoor power, weather-exposed fitting repairs, hot water circuits, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, duplexes, local shops, older boards, outdoor power, weather-exposed fittings and hot water loads",
+    setting: "Chifley home, duplex, local shop and outdoor-power service area",
+    switchboardDetail:
+      "older boards, outdoor circuit loads, hot water demand, local shop circuits, consumer mains and safety switches",
+  }),
+  clovelly: makeRandwickLocalContext({
+    accessFocus:
+      "coastal access notes, strata entry details, salt-exposed fitting photos and tight parking information",
+    commonJobs:
+      "coastal-home, apartment and strata electrical work, salt-exposed outdoor power, switchboard upgrades, hot water electrical, access and parking planning, CCTV/data and planned quote work",
+    emergencySignals:
+      "coastal power loss, apartment or strata faults, salt-exposed outdoor power hazards, hot water electrical faults, smoke smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for coastal homes, apartments and strata buildings",
+    plannedWork:
+      "coastal-home repairs, apartment maintenance, strata electrical work, weather-rated outdoor power, hot water circuits, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "coastal homes, apartments, strata buildings, salt exposure, outdoor power, hot water loads and tight parking sites",
+    setting: "Clovelly coastal-home, apartment, strata and weather-exposed service area",
+    switchboardDetail:
+      "coastal exposure, apartment boards, strata switchboards, outdoor circuits, hot water loads, consumer mains and safety switches",
+  }),
+  coogee: makeRandwickLocalContext({
+    accessFocus:
+      "beachside access notes, shared meter-room details, cafe or restaurant timing and weather-exposed outdoor power photos",
+    commonJobs:
+      "coastal-home, apartment, strata, beachside shop, cafe, restaurant and renovated-house electrical work, shared meter-room access, weather-exposed outdoor power, commercial faults, switchboards, CCTV/data and planned quote work",
+    emergencySignals:
+      "coastal apartment power loss, beachside shop or restaurant faults, shared meter-room issues, weather-exposed outdoor power hazards, smoke smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for coastal homes, apartments, strata buildings and beachside businesses",
+    plannedWork:
+      "apartment repairs, strata maintenance, cafe and restaurant power, renovated-house electrical work, outdoor power, switchboard upgrades, shared meter-room checks, CCTV/data and planned quote work",
+    propertyMix:
+      "coastal homes, apartments, strata buildings, beachside shops, cafes, restaurants, renovated houses, shared meter rooms and weather-exposed outdoor power",
+    setting: "Coogee coastal, strata, beachside business and renovated-home service area",
+    switchboardDetail:
+      "shared meter rooms, coastal exposure, apartment boards, restaurant and cafe loads, renovated-house circuits, consumer mains and safety switches",
+  }),
+  kensington: makeRandwickLocalContext({
+    accessFocus:
+      "student-housing access notes, university-area timing, shared meter-room information and strata entry details",
+    commonJobs:
+      "apartment, student-housing, university-area, shop, cafe and office electrical work, strata access, shared meter-room checks, older wiring, switchboard upgrades, hot water electrical, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, student-housing faults, university-area shop or cafe outages, shared meter-room issues, hot water electrical faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, student housing, shops, cafes and office suites",
+    plannedWork:
+      "apartment repairs, student-housing maintenance, shop and cafe power, office suite electrical work, hot water circuits, switchboard upgrades, shared meter-room checks, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, student housing, university-area properties, shops, cafes, office suites, strata buildings, shared meter rooms and older wiring",
+    setting: "Kensington apartment, student-housing, university-area and mixed-use service area",
+    switchboardDetail:
+      "shared meter rooms, older wiring, apartment boards, shop and cafe loads, office suite circuits, hot water demand and safety switches",
+  }),
+  kingsford: makeRandwickLocalContext({
+    accessFocus:
+      "restaurant or shop timing, student-housing entry details, shared switchboard notes and strata access information",
+    commonJobs:
+      "restaurant, shop, apartment, student-housing and strata electrical work, shared switchboard access, older wiring checks, business outages, hot water electrical, CCTV/data and planned quote work",
+    emergencySignals:
+      "restaurant or shop outages, apartment power loss, student-housing faults, shared switchboard issues, hot water electrical faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for restaurants, shops, apartments, student housing and strata buildings",
+    plannedWork:
+      "restaurant power, shop lighting, apartment repairs, student-housing maintenance, shared switchboard checks, hot water circuits, CCTV/data and planned quote work",
+    propertyMix:
+      "restaurants, shops, apartments, student housing, strata buildings, shared switchboards, older wiring and hot water loads",
+    setting: "Kingsford restaurant, shop, apartment, student-housing and strata service area",
+    switchboardDetail:
+      "shared switchboards, older wiring, restaurant and shop loads, apartment boards, hot water demand, consumer mains and safety switches",
+  }),
+  "la-perouse": makeRandwickLocalContext({
+    accessFocus:
+      "coastal access notes, outdoor power photos, weather-exposed fitting details and storm or water fault notes",
+    commonJobs:
+      "coastal-home electrical work, outdoor power, weather-exposed fitting repairs, storm and water-affected fault checks, switchboard upgrades, hot water electrical, CCTV/data and planned quote work",
+    emergencySignals:
+      "coastal power loss, storm or water-affected faults, weather-exposed fitting hazards, outdoor power issues, smoke smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for coastal homes and weather-exposed properties",
+    plannedWork:
+      "coastal-home repairs, weather-rated outdoor power, outdoor lighting, storm-related repair planning, switchboard upgrades, hot water circuits, CCTV/data and planned quote work",
+    propertyMix:
+      "coastal homes, weather-exposed fittings, outdoor power, storm and water exposure, access constraints and residential switchboards",
+    setting: "La Perouse coastal, outdoor-power and weather-exposed service area",
+    switchboardDetail:
+      "coastal exposure, outdoor circuits, weather-exposed equipment, hot water loads, consumer mains and safety switches",
+  }),
+  "little-bay": makeRandwickLocalContext({
+    accessFocus:
+      "new-development access notes, shared meter-room details, coastal fitting photos and strata entry information",
+    commonJobs:
+      "apartment, new-development, coastal-home and strata electrical work, shared meter-room access, outdoor power, weather-exposed fittings, metering, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, new-development faults, coastal outdoor power hazards, shared meter-room issues, weather-exposed fitting faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "metering, consumer mains, service equipment, defect notices and supply-side questions for apartments, new developments, coastal homes and strata buildings",
+    plannedWork:
+      "apartment repairs, new-development electrical work, strata maintenance, outdoor power, weather-exposed fitting repairs, metering support, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, new developments, coastal homes, strata buildings, shared meter rooms, outdoor power and weather-exposed fittings",
+    setting: "Little Bay apartment, new-development, coastal and strata service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, new-development loads, coastal exposure, metering, consumer mains and safety switches",
+  }),
+  malabar: makeRandwickLocalContext({
+    accessFocus:
+      "coastal fitting photos, local shop timing, outdoor power details and storm or water fault notes",
+    commonJobs:
+      "coastal-home, apartment and local shop electrical work, weather-exposed outdoor power, storm and water-affected fault checks, switchboard upgrades, safety switches, hot water electrical, CCTV/data and planned quote work",
+    emergencySignals:
+      "coastal-home power loss, apartment faults, local shop outages, storm or water-affected electrical issues, outdoor power hazards, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for coastal homes, apartments and local shops",
+    plannedWork:
+      "coastal-home repairs, apartment maintenance, local shop lighting, weather-rated outdoor power, switchboard upgrades, hot water circuits, CCTV/data and planned quote work",
+    propertyMix:
+      "coastal homes, apartments, local shops, weather exposure, outdoor power, storm and water-affected faults and safety switches",
+    setting: "Malabar coastal-home, apartment, local shop and weather-exposed service area",
+    switchboardDetail:
+      "coastal exposure, apartment boards, local shop loads, outdoor circuits, hot water demand, consumer mains and safety switches",
+  }),
+  maroubra: makeRandwickLocalContext({
+    accessFocus:
+      "beachside access notes, shared meter-room details, cafe or restaurant timing and weather-exposed outdoor power photos",
+    commonJobs:
+      "apartment, beachside-home, shop, cafe, restaurant, strata and older-home electrical work, weather-exposed outdoor power, business outages, shared meter-room access, consumer mains, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, beachside home faults, shop or restaurant outages, shared meter-room issues, weather-exposed outdoor power hazards, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, beachside homes, strata buildings, shops and restaurants",
+    plannedWork:
+      "apartment repairs, strata maintenance, shop and restaurant power, older-home wiring checks, outdoor power, switchboard upgrades, consumer mains review, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, beachside homes, shops, cafes, restaurants, strata buildings, older homes, shared meter rooms and weather-exposed outdoor power",
+    setting: "Maroubra apartment, beachside, strata and local business service area",
+    switchboardDetail:
+      "shared meter rooms, coastal exposure, apartment boards, shop and restaurant loads, older wiring, consumer mains, defect notices and safety switches",
+  }),
+  matraville: makeRandwickLocalContext({
+    accessFocus:
+      "workshop or warehouse access notes, small factory entry details, commercial switchboard photos and load-check information",
+    commonJobs:
+      "home, unit, workshop, warehouse, small factory and commercial electrical work, commercial switchboards, business outages, three-phase and load checks, lighting, power, CCTV/data, service equipment and planned quote work",
+    emergencySignals:
+      "home or unit power loss, workshop faults, warehouse or small factory outages, commercial switchboard issues, smoke smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, units, workshops, warehouses, small factories and commercial sites",
+    plannedWork:
+      "home and unit repairs, workshop circuits, warehouse lighting, small factory power, commercial switchboard upgrades, three-phase and load checks, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, units, workshops, warehouses, small factories, commercial switchboards, business outages, three-phase loads and service equipment",
+    setting: "Matraville home, unit, workshop, warehouse and commercial service area",
+    switchboardDetail:
+      "commercial switchboards, workshop and warehouse loads, small factory circuits, three-phase capacity, consumer mains, service equipment and safety switches",
+  }),
+  "phillip-bay": makeRandwickLocalContext({
+    accessFocus:
+      "coastal access notes, outdoor circuit photos, storm or water exposure details and private service equipment information",
+    commonJobs:
+      "coastal-home and apartment electrical work, outdoor circuits, storm and water-exposure fault checks, switchboard upgrades, private service equipment, consumer mains, hot water electrical, CCTV/data and planned quote work",
+    emergencySignals:
+      "coastal power loss, apartment faults, storm or water-exposure electrical issues, outdoor circuit hazards, smoke smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices and supply-side questions for coastal homes and apartments",
+    plannedWork:
+      "coastal-home repairs, apartment maintenance, outdoor circuits, storm-related repair planning, switchboard upgrades, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "coastal homes, apartments, outdoor circuits, storm and water exposure, private service equipment, consumer mains and access constraints",
+    setting: "Phillip Bay coastal-home, apartment, outdoor-circuit and service-equipment service area",
+    switchboardDetail:
+      "coastal exposure, outdoor circuits, private service equipment, consumer mains, hot water loads and safety switches",
+  }),
+  randwick: makeRandwickLocalContext({
+    accessFocus:
+      "medical precinct timing, university-area access notes, shared meter-room details and strata entry information",
+    commonJobs:
+      "apartment, strata, hospital or medical precinct, university-area, shop, office and older-home electrical work, shared meter-room access, business outages, switchboard upgrades, consumer mains, metering, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, strata shared-power issues, medical precinct or shop faults, business outages, shared meter-room issues, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, strata buildings, medical precinct sites, shops, offices and older homes",
+    plannedWork:
+      "apartment repairs, strata maintenance, medical precinct electrical work, university-area property maintenance, shop lighting, office suite power, older-home repairs, switchboard upgrades, consumer mains review, metering support, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, strata buildings, hospital and medical precinct sites, university-area properties, shops, offices, older homes, shared meter rooms and business sites",
+    setting: "Randwick apartment, strata, medical precinct, university-area and local business service area",
+    switchboardDetail:
+      "shared meter rooms, apartment and strata boards, older wiring, shop and office loads, medical precinct circuits, consumer mains, metering and safety switches",
+  }),
+  "south-coogee": makeRandwickLocalContext({
+    accessFocus:
+      "steep or tight access notes, coastal outdoor lighting photos, weather-exposed power details and strata entry information",
+    commonJobs:
+      "coastal-home, apartment and strata electrical work, steep or tight access jobs, outdoor lighting, weather-exposed power, storm and water fault checks, switchboard upgrades, CCTV/data and planned quote work",
+    emergencySignals:
+      "coastal power loss, apartment or strata faults, weather-exposed power hazards, storm or water-affected electrical issues, smoke smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for coastal homes, apartments and strata buildings",
+    plannedWork:
+      "coastal-home repairs, apartment maintenance, strata electrical work, outdoor lighting, weather-rated power, storm-related repair planning, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "coastal homes, apartments, strata buildings, steep or tight access sites, outdoor lighting, weather-exposed power and shared access",
+    setting: "South Coogee coastal-home, apartment, strata and steep-access service area",
+    switchboardDetail:
+      "coastal exposure, apartment boards, strata switchboards, outdoor lighting loads, weather-exposed power, consumer mains and safety switches",
+  }),
+};
+
+function getRandwickLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "sydney-city-and-eastern-suburbs" ||
+    coverageArea.slug !== "randwick"
+  ) {
+    return null;
+  }
+
+  return randwickLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 const burwoodLocalContexts: Record<string, LocalPageContext> = {
   burwood: {
     accessDetail:
@@ -5516,6 +5796,16 @@ function getLocalPageContext(
 
   if (strathfieldAreaContext) {
     return strathfieldAreaContext;
+  }
+
+  const randwickContext = getRandwickLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (randwickContext) {
+    return randwickContext;
   }
 
   const burwoodContext = getBurwoodLocalContext(
