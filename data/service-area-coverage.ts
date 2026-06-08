@@ -3944,7 +3944,7 @@ const wollondillyLocalContexts: Record<string, LocalPageContext> = {
       "rural-edge homes, new estates, larger blocks, sheds, outdoor areas, private service equipment and residential service equipment",
     setting: "Appin rural-edge, new-estate and larger-block service area",
     switchboardDetail:
-      "larger-block loads, shed demand, outdoor power, private service equipment, consumer mains condition and future capacity",
+      "broad-site loads, shed demand, outdoor power, private service equipment, consumer mains condition and future capacity",
   }),
   "belimbla-park": makeWollondillyLocalContext({
     accessFocus:
@@ -4422,6 +4422,320 @@ function getWollondillyLocalContext(
   return wollondillyLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+function makeCanadaBayLocalContext({
+  accessFocus,
+  commonJobs,
+  emergencySignals,
+  level2Detail,
+  plannedWork,
+  propertyMix,
+  setting,
+  switchboardDetail,
+}: Omit<LocalPageContext, "accessDetail"> & {
+  accessFocus: string;
+}): LocalPageContext {
+  return {
+    accessDetail: `photos of the switchboard, meter box, affected fitting, ${accessFocus}, access notes, parking details and any defect notice or paperwork`,
+    commonJobs,
+    emergencySignals,
+    level2Detail,
+    plannedWork,
+    propertyMix,
+    setting,
+    switchboardDetail,
+  };
+}
+
+const canadaBayLocalContexts: Record<string, LocalPageContext> = {
+  abbotsford: makeCanadaBayLocalContext({
+    accessFocus:
+      "shared access notes, waterfront or outdoor power photos and parking information",
+    commonJobs:
+      "waterfront-home electrical work, apartment and strata repairs, older switchboard checks, outdoor power, shared access jobs, consumer mains, CCTV/data and Level 2 support",
+    emergencySignals:
+      "waterfront home power loss, apartment or strata faults, outdoor power hazards, older-board overheating, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for waterfront homes and strata buildings",
+    plannedWork:
+      "outdoor power, apartment repairs, strata electrical work, switchboard upgrades, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "waterfront homes, apartments, strata buildings, older switchboards, outdoor areas, shared access sites and residential service equipment",
+    setting: "Abbotsford waterfront-home, apartment and strata service area",
+    switchboardDetail:
+      "older switchboards, strata boards, outdoor power, consumer mains, safety switches and shared access to service equipment",
+  }),
+  "breakfast-point": makeCanadaBayLocalContext({
+    accessFocus:
+      "estate access notes, shared meter-room details, building-manager contacts and visitor parking information",
+    commonJobs:
+      "apartment and strata tower electrical work, estate-style access jobs, shared meter-room support, building-manager maintenance, hot water electrical, safety switches, CCTV/data and planned maintenance",
+    emergencySignals:
+      "apartment power loss, shared meter-room issues, hot water electrical faults, common-area lighting faults, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for strata towers and estate-style apartment complexes",
+    plannedWork:
+      "apartment repairs, strata maintenance, hot water electrical, safety switches, common-area lighting, shared meter-room checks, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, strata towers, estate-style complexes, shared meter rooms, visitor parking areas, hot water loads and common areas",
+    setting: "Breakfast Point apartment, strata tower and estate-style service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, hot water loads, common-area lighting, safety switches and building-manager access",
+  }),
+  cabarita: makeCanadaBayLocalContext({
+    accessFocus:
+      "strata entry notes, waterfront access details, outdoor power photos and shared meter-area information",
+    commonJobs:
+      "waterfront apartment and home electrical work, strata access jobs, outdoor power, switchboard upgrades, private service equipment, shared meter-area support, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "waterfront apartment power loss, strata shared-power issues, outdoor power hazards, storm or water-affected fixtures, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and supply-side questions for waterfront homes and apartments",
+    plannedWork:
+      "outdoor power, waterfront lighting, apartment repairs, strata electrical work, switchboard upgrades, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "waterfront apartments, waterfront homes, strata buildings, shared meter areas, outdoor circuits and private service equipment",
+    setting: "Cabarita waterfront apartment, home and strata service area",
+    switchboardDetail:
+      "shared meter areas, waterfront exposure, apartment boards, outdoor power, private service equipment and safety switches",
+  }),
+  "canada-bay": makeCanadaBayLocalContext({
+    accessFocus:
+      "strata or shop access details, waterfront property notes, older wiring information and consumer mains paperwork",
+    commonJobs:
+      "apartment, waterfront-home and shopfront electrical work, strata repairs, older wiring checks, switchboard upgrades, business outages, consumer mains, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment power loss, shop faults, business outages, older wiring faults, burning smells, hot outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for apartments, shops and waterfront homes",
+    plannedWork:
+      "apartment repairs, shopfront lighting, older wiring checks, switchboard upgrades, consumer mains review, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "apartments, waterfront homes, strata buildings, shops, older wiring, shared access sites and service equipment",
+    setting: "Canada Bay apartment, waterfront-home and shopfront service area",
+    switchboardDetail:
+      "older wiring, strata boards, shop loads, consumer mains, metering, safety switches and clear circuit labelling",
+  }),
+  chiswick: makeCanadaBayLocalContext({
+    accessFocus:
+      "shared meter-room notes, tight parking details, waterfront or outdoor power photos and hot water circuit information",
+    commonJobs:
+      "waterfront apartment and older-home electrical work, strata repairs, shared meter-room access, outdoor power, hot water electrical, switchboard upgrades, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "waterfront apartment power loss, hot water electrical faults, outdoor power hazards, shared meter-room issues, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for waterfront apartments and older homes",
+    plannedWork:
+      "apartment repairs, hot water electrical, outdoor power, switchboard upgrades, shared meter-room checks, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "waterfront apartments, strata buildings, older homes, shared meter rooms, tight parking areas, outdoor circuits and hot water loads",
+    setting: "Chiswick waterfront apartment, older-home and tight-parking service area",
+    switchboardDetail:
+      "shared meter rooms, older wiring, hot water loads, outdoor power, consumer mains and safety switches",
+  }),
+  concord: makeCanadaBayLocalContext({
+    accessFocus:
+      "suite or school contact details, shop access notes, older-home photos and defect notice paperwork",
+    commonJobs:
+      "large-home, older-home, apartment, shop, cafe, medical suite, school and office suite electrical work, strata access jobs, switchboard upgrades, consumer mains, defect notices, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "large-home power loss, shop or cafe outages, medical or commercial suite faults, school electrical issues, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for large homes, strata sites, schools, shops and suites",
+    plannedWork:
+      "large-home upgrades, shop and cafe maintenance, medical suite power, school maintenance, switchboard upgrades, consumer mains review, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "large homes, older homes, apartments, shops, cafes, medical and commercial suites, schools, strata sites and service equipment",
+    setting: "Concord large-home, shop, school and suite service area",
+    switchboardDetail:
+      "large-home loads, older wiring, suite and shop loads, school circuits, consumer mains, defect notices and safety switches",
+  }),
+  "concord-west": makeCanadaBayLocalContext({
+    accessFocus:
+      "station-area access notes, commercial or industrial entry details, hot water circuit notes and older wiring photos",
+    commonJobs:
+      "family-home, station-area, apartment, commercial pocket and industrial pocket electrical work, older wiring checks, switchboard upgrades, hot water electrical, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "family-home power loss, station-area shop faults, commercial or industrial pocket outages, hot water electrical faults, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes, apartments and commercial or industrial pockets",
+    plannedWork:
+      "family-home repairs, station-area shop maintenance, older wiring checks, hot water electrical, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, station-area properties, apartments, commercial pockets, industrial pockets, older wiring and hot water loads",
+    setting: "Concord West family-home, station-area and commercial-pocket service area",
+    switchboardDetail:
+      "older wiring, family-home loads, shop loads, hot water demand, commercial pocket loads and consumer mains condition",
+  }),
+  drummoyne: makeCanadaBayLocalContext({
+    accessFocus:
+      "restaurant or shop access details, shared meter-room notes, strata contacts and parking information",
+    commonJobs:
+      "apartment, restaurant, shop, office suite and strata electrical work, older wiring checks, shared meter-room access, business outages, switchboard upgrades, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment power loss, restaurant or shop outages, business faults, shared meter-room issues, burning smells, hot outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for apartments, shops, restaurants and strata buildings",
+    plannedWork:
+      "restaurant power, shop lighting, office suite electrical work, apartment repairs, strata electrical work, switchboard upgrades, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, restaurants, shops, office suites, strata buildings, older wiring, shared meter rooms and busy parking areas",
+    setting: "Drummoyne apartment, restaurant, shop and strata service area",
+    switchboardDetail:
+      "shared meter rooms, restaurant and shop loads, older wiring, business loads, consumer mains and safety switches",
+  }),
+  "five-dock": makeCanadaBayLocalContext({
+    accessFocus:
+      "shopfront or restaurant access notes, office suite details, apartment entry notes and hot water circuit information",
+    commonJobs:
+      "shopfront, restaurant, office suite, apartment and older-home electrical work, strata repairs, commercial faults, switchboard upgrades, hot water electrical, CCTV/data and Level 2 support",
+    emergencySignals:
+      "shopfront outages, restaurant faults, apartment power loss, commercial faults, hot water electrical issues, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for shops, apartments and older homes",
+    plannedWork:
+      "shopfront lighting, restaurant power, office suite electrical work, apartment repairs, hot water electrical, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "shopfronts, restaurants, office suites, apartments, older homes, strata buildings, hot water loads and service equipment",
+    setting: "Five Dock shopfront, restaurant, apartment and older-home service area",
+    switchboardDetail:
+      "shopfront loads, restaurant circuits, apartment boards, older wiring, hot water demand, consumer mains and safety switches",
+  }),
+  "liberty-grove": makeCanadaBayLocalContext({
+    accessFocus:
+      "estate access notes, carpark or loading access details, building-manager contacts and shared meter-room information",
+    commonJobs:
+      "estate-style apartment and strata electrical work, shared meter-room access, building-manager maintenance, carpark and loading access jobs, safety switches, hot water electrical, CCTV/data and planned maintenance",
+    emergencySignals:
+      "estate-style apartment power loss, shared meter-room issues, carpark lighting faults, hot water electrical faults, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for estate-style apartments and shared meter rooms",
+    plannedWork:
+      "apartment repairs, strata maintenance, common-area lighting, hot water electrical, safety switches, shared meter-room checks, CCTV/data and planned quote work",
+    propertyMix:
+      "estate-style apartments, strata buildings, shared meter rooms, carpark access areas, loading areas, hot water loads and common areas",
+    setting: "Liberty Grove estate-style apartment, strata and carpark-access service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, carpark lighting, hot water loads, safety switches and building-manager access",
+  }),
+  mortlake: makeCanadaBayLocalContext({
+    accessFocus:
+      "waterfront or townhouse access details, shared access notes, outdoor power photos and hot water circuit information",
+    commonJobs:
+      "waterfront apartment, townhouse, strata and older industrial conversion-style electrical work, shared access jobs, switchboard upgrades, hot water electrical, outdoor power, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "waterfront apartment power loss, townhouse faults, shared access electrical issues, hot water electrical faults, outdoor power hazards and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for waterfront apartments, townhouses and strata sites",
+    plannedWork:
+      "townhouse repairs, apartment maintenance, hot water electrical, outdoor power, switchboard upgrades, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "waterfront apartments, townhouses, strata buildings, older industrial conversion-style properties, shared access sites and hot water loads",
+    setting: "Mortlake waterfront apartment, townhouse and shared-access service area",
+    switchboardDetail:
+      "shared access boards, apartment and townhouse loads, hot water demand, outdoor power, consumer mains and safety switches",
+  }),
+  "north-strathfield": makeCanadaBayLocalContext({
+    accessFocus:
+      "station-area shop or restaurant access notes, shared meter-room details and older wiring information",
+    commonJobs:
+      "apartment, station-area shop, office suite, restaurant and strata electrical work, shared meter-room access, business outages, older wiring checks, consumer mains, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment power loss, station-area shop or restaurant outages, business faults, shared meter-room issues, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, shops, restaurants, office suites and strata buildings",
+    plannedWork:
+      "station-area shop lighting, restaurant power, office suite electrical work, apartment repairs, older wiring checks, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, station-area shops, office suites, restaurants, strata buildings, shared meter rooms, older wiring and service equipment",
+    setting: "North Strathfield apartment, station-area shop and strata service area",
+    switchboardDetail:
+      "shared meter rooms, older wiring, shop and restaurant loads, apartment boards, consumer mains and safety switches",
+  }),
+  rhodes: makeCanadaBayLocalContext({
+    accessFocus:
+      "building-manager access details, shared meter-room notes, carpark or loading access details and retail tenancy information",
+    commonJobs:
+      "high-rise apartment, strata tower, shopping, retail, office suite and common-area electrical work, shared meter-room access, hot water electrical, common-area lighting, business outages, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "high-rise apartment power loss, retail or office outages, shared meter-room issues, common-area lighting faults, hot water electrical faults, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for strata towers, retail tenancies, office suites and shared meter rooms",
+    plannedWork:
+      "high-rise apartment repairs, retail tenancy power, office suite electrical work, common-area lighting, hot water electrical, shared meter-room checks, CCTV/data and planned quote work",
+    propertyMix:
+      "high-rise apartments, strata towers, shopping and retail tenancies, office suites, shared meter rooms, carpark access areas, loading areas and common lighting",
+    setting: "Rhodes high-rise apartment, retail, office suite and strata tower service area",
+    switchboardDetail:
+      "shared meter rooms, high-rise apartment loads, retail and office suite loads, common-area lighting, hot water demand and consumer mains",
+  }),
+  "rodd-point": makeCanadaBayLocalContext({
+    accessFocus:
+      "waterfront access notes, smaller-street parking details, outdoor lighting photos and private service equipment information",
+    commonJobs:
+      "waterfront-home and residential electrical work, outdoor lighting, weather-exposed power, private service equipment, switchboard upgrades, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "waterfront home power loss, weather-exposed power faults, outdoor lighting hazards, storm or water-affected fixtures, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and waterfront-home supply questions",
+    plannedWork:
+      "outdoor lighting, weather-exposed power, switchboard upgrades, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "waterfront homes, smaller residential streets, outdoor areas, weather-exposed power, private service equipment and residential switchboards",
+    setting: "Rodd Point waterfront-home, outdoor-lighting and smaller-street service area",
+    switchboardDetail:
+      "waterfront exposure, outdoor lighting, weather-exposed power, private service equipment, safety switches and consumer mains condition",
+  }),
+  "russell-lea": makeCanadaBayLocalContext({
+    accessFocus:
+      "duplex or apartment access notes, renovation details, outdoor power photos and hot water circuit information",
+    commonJobs:
+      "home, duplex, apartment and older switchboard electrical work, outdoor power, hot water electrical, safety switches, renovations, consumer mains, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home or duplex power loss, apartment faults, hot water electrical issues, outdoor power hazards, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for homes, duplexes and apartments",
+    plannedWork:
+      "renovation wiring, outdoor power, hot water electrical, switchboard upgrades, safety switches, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, duplexes, apartments, older switchboards, outdoor areas, hot water loads, renovation sites and consumer mains",
+    setting: "Russell Lea home, duplex, apartment and renovation service area",
+    switchboardDetail:
+      "older switchboards, renovation capacity, hot water loads, outdoor power, safety switches and consumer mains condition",
+  }),
+  wareemba: makeCanadaBayLocalContext({
+    accessFocus:
+      "shop or cafe access notes, tight street parking details, apartment entry notes and hot water circuit information",
+    commonJobs:
+      "local shop, cafe, older-home and apartment electrical work, tight-street access jobs, switchboard upgrades, lighting and power, hot water electrical, CCTV/data and general maintenance",
+    emergencySignals:
+      "local shop or cafe outages, older-home power loss, apartment faults, hot water electrical issues, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for shops, apartments and older homes",
+    plannedWork:
+      "shop and cafe maintenance, lighting and power, apartment repairs, hot water electrical, switchboard upgrades, data cabling, CCTV and general maintenance",
+    propertyMix:
+      "local shops, cafes, older homes, apartments, tight streets, limited parking areas, hot water loads and residential service equipment",
+    setting: "Wareemba local-shop, cafe, older-home and apartment service area",
+    switchboardDetail:
+      "shop and cafe loads, older wiring, apartment boards, hot water demand, safety switches and consumer mains condition",
+  }),
+};
+
+function getCanadaBayLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "inner-west-burwood-and-canada-bay" ||
+    coverageArea.slug !== "canada-bay"
+  ) {
+    return null;
+  }
+
+  return canadaBayLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 const burwoodLocalContexts: Record<string, LocalPageContext> = {
   burwood: {
     accessDetail:
@@ -4612,6 +4926,16 @@ function getLocalPageContext(
 
   if (wollondillyContext) {
     return wollondillyContext;
+  }
+
+  const canadaBayContext = getCanadaBayLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (canadaBayContext) {
+    return canadaBayContext;
   }
 
   const burwoodContext = getBurwoodLocalContext(
