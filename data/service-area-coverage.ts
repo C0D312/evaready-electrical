@@ -5576,6 +5576,507 @@ function getRandwickLocalContext(
   return randwickLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+function makeSydneyCbdLocalContext({
+  accessFocus,
+  commonJobs,
+  emergencySignals,
+  level2Detail,
+  plannedWork,
+  propertyMix,
+  setting,
+  switchboardDetail,
+}: Omit<LocalPageContext, "accessDetail"> & {
+  accessFocus: string;
+}): LocalPageContext {
+  return {
+    accessDetail: `photos of the switchboard, meter box, affected fitting, ${accessFocus}, access notes, parking/loading details, building-manager or strata notes and any defect notice or paperwork`,
+    commonJobs,
+    emergencySignals,
+    level2Detail,
+    plannedWork,
+    propertyMix,
+    setting,
+    switchboardDetail,
+  };
+}
+
+const sydneyCbdLocalContexts: Record<string, LocalPageContext> = {
+  alexandria: makeSydneyCbdLocalContext({
+    accessFocus:
+      "warehouse entry details, showroom timing, creative-space access notes and loading dock information",
+    commonJobs:
+      "warehouse, creative-space, apartment, showroom and commercial electrical work, business outages, commercial switchboards, three-phase and load checks, CCTV/data, lighting, power and planned quote work",
+    emergencySignals:
+      "warehouse outages, apartment power loss, showroom faults, commercial switchboard issues, equipment circuit faults, smoke smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for warehouses, apartments, showrooms and commercial spaces",
+    plannedWork:
+      "warehouse lighting, showroom power, creative-space fitout support, apartment repairs, commercial switchboard upgrades, three-phase and load checks, CCTV/data and planned quote work",
+    propertyMix:
+      "warehouses, creative and commercial spaces, apartments, showrooms, business sites, loading docks and commercial switchboards",
+    setting: "Alexandria warehouse, showroom, apartment and creative-commercial service area",
+    switchboardDetail:
+      "commercial switchboards, warehouse loads, showroom circuits, apartment boards, three-phase capacity, consumer mains and safety switches",
+  }),
+  barangaroo: makeSydneyCbdLocalContext({
+    accessFocus:
+      "tower concierge details, loading dock bookings, tenancy contacts and shared meter-room information",
+    commonJobs:
+      "high-rise commercial tower, restaurant, retail tenancy, office suite, apartment and strata electrical work, shared meter rooms, building-manager access, loading docks, after-hours business faults, CCTV/data and planned quote work",
+    emergencySignals:
+      "tower power faults, restaurant or retail outages, apartment electrical faults, shared meter-room issues, after-hours business faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for towers, apartments, retail tenancies and commercial suites",
+    plannedWork:
+      "restaurant power, retail tenancy lighting, commercial suite maintenance, apartment repairs, shared meter-room checks, loading dock access planning, CCTV/data and planned quote work",
+    propertyMix:
+      "high-rise commercial towers, restaurants, retail tenancies, commercial suites, apartments, shared meter rooms, building-manager access and loading docks",
+    setting: "Barangaroo high-rise, restaurant, retail, apartment and CBD tower service area",
+    switchboardDetail:
+      "tower switchboards, shared meter rooms, restaurant and retail loads, apartment boards, commercial suite circuits, metering and safety switches",
+  }),
+  beaconsfield: makeSydneyCbdLocalContext({
+    accessFocus:
+      "terrace or duplex entry details, strata access notes, mixed commercial site timing and hot water circuit notes",
+    commonJobs:
+      "apartment, older-home, terrace, duplex, mixed commercial site and strata electrical work, switchboard upgrades, hot water electrical, power loss, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, older-home faults, terrace or duplex wiring issues, mixed commercial site outages, hot water electrical faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, older homes, terraces, duplexes and mixed commercial sites",
+    plannedWork:
+      "apartment repairs, older-home maintenance, terrace and duplex electrical work, mixed commercial site lighting, hot water circuits, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, older homes, terraces, duplexes, mixed commercial sites, strata access and hot water loads",
+    setting: "Beaconsfield apartment, older-home, terrace, duplex and mixed-use service area",
+    switchboardDetail:
+      "older wiring, apartment boards, terrace and duplex loads, mixed commercial circuits, hot water demand, consumer mains and safety switches",
+  }),
+  chippendale: makeSydneyCbdLocalContext({
+    accessFocus:
+      "student-housing entry details, university-area timing, tenancy contacts and shared meter-room information",
+    commonJobs:
+      "apartment, student-housing, university-area, commercial suite, cafe, restaurant and strata electrical work, older wiring checks, shared meter-room access, hot water electrical, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, student-housing faults, cafe or restaurant outages, shared meter-room issues, older wiring faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, student housing, restaurants, cafes and strata buildings",
+    plannedWork:
+      "apartment repairs, student-housing maintenance, cafe and restaurant power, commercial suite electrical work, older wiring checks, shared meter-room checks, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, student housing, university-area properties, commercial suites, cafes, restaurants, older wiring, strata access and shared meter rooms",
+    setting: "Chippendale apartment, student-housing, university-area and hospitality service area",
+    switchboardDetail:
+      "shared meter rooms, older wiring, apartment boards, cafe and restaurant loads, student-housing circuits, hot water demand and safety switches",
+  }),
+  darlinghurst: makeSydneyCbdLocalContext({
+    accessFocus:
+      "restaurant or bar trading hours, medical suite contacts, strata entry notes and terrace access details",
+    commonJobs:
+      "apartment, terrace, restaurant, bar, cafe, medical suite, commercial suite and strata electrical work, older wiring, after-hours commercial faults, switchboard upgrades, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, restaurant or bar outages, medical suite faults, terrace wiring issues, after-hours commercial faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, terraces, medical suites and hospitality tenancies",
+    plannedWork:
+      "restaurant and bar power, cafe lighting, medical suite maintenance, terrace repairs, apartment and strata electrical work, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, terraces, restaurants, bars, cafes, medical suites, commercial suites, older wiring and strata access",
+    setting: "Darlinghurst apartment, terrace, hospitality, medical-suite and strata service area",
+    switchboardDetail:
+      "older wiring, apartment boards, hospitality loads, medical suite circuits, shared meter rooms, consumer mains and safety switches",
+  }),
+  darlington: makeSydneyCbdLocalContext({
+    accessFocus:
+      "terrace entry details, university-area access notes, hot water circuit information and parking notes",
+    commonJobs:
+      "terrace, university-area, apartment and older wiring electrical work, switchboard upgrades, hot water electrical, Level 2 support, CCTV/data and planned quote work",
+    emergencySignals:
+      "terrace power loss, apartment faults, university-area property outages, older wiring faults, hot water electrical faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for terraces, apartments and university-area properties",
+    plannedWork:
+      "terrace repairs, apartment maintenance, university-area property work, older wiring checks, hot water circuits, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "terraces, university-area properties, apartments, older wiring, hot water circuits and tight access sites",
+    setting: "Darlington terrace, apartment and university-area service area",
+    switchboardDetail:
+      "older wiring, terrace switchboards, apartment boards, hot water loads, consumer mains and safety switches",
+  }),
+  "dawes-point": makeSydneyCbdLocalContext({
+    accessFocus:
+      "heritage access notes, harbour-side entry details, limited parking information and private service equipment photos",
+    commonJobs:
+      "heritage building, harbour-side property, apartment and older wiring electrical work, limited parking access, private service equipment, switchboard upgrades, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "heritage property power loss, harbour-side apartment faults, older wiring concerns, private service equipment issues, smoke smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, point of attachment concerns, defect notices and supply-side questions for heritage buildings and harbour-side properties",
+    plannedWork:
+      "heritage building repairs, harbour-side apartment maintenance, older wiring checks, private service equipment review, switchboard upgrades, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "heritage buildings, harbour-side properties, apartments, older wiring, limited parking, access constraints and private service equipment",
+    setting: "Dawes Point heritage, harbour-side, apartment and access-constrained service area",
+    switchboardDetail:
+      "older wiring, heritage property switchboards, apartment boards, private service equipment, consumer mains and safety switches",
+  }),
+  "elizabeth-bay": makeSydneyCbdLocalContext({
+    accessFocus:
+      "strata entry notes, shared meter-room details, waterfront access notes and limited parking information",
+    commonJobs:
+      "apartment, strata, waterfront and older-property electrical work, shared meter-room access, hot water faults, switchboard upgrades, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, strata shared-power issues, waterfront property faults, shared meter-room concerns, hot water electrical faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, strata buildings and older waterfront properties",
+    plannedWork:
+      "apartment repairs, strata maintenance, waterfront property electrical work, shared meter-room checks, hot water circuits, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, strata buildings, waterfront and older properties, shared meter rooms, limited parking and hot water loads",
+    setting: "Elizabeth Bay apartment, strata, waterfront and older-property service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, older wiring, waterfront exposure, hot water demand, consumer mains and safety switches",
+  }),
+  erskineville: makeSydneyCbdLocalContext({
+    accessFocus:
+      "terrace access notes, converted warehouse-style entry details, apartment access information and hot water circuit notes",
+    commonJobs:
+      "terrace, apartment, converted warehouse-style and older wiring electrical work, switchboard upgrades, hot water electrical, lighting, power, CCTV/data and planned quote work",
+    emergencySignals:
+      "terrace power loss, apartment faults, converted warehouse-style property outages, older wiring issues, hot water electrical faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for terraces, apartments and converted warehouse-style properties",
+    plannedWork:
+      "terrace repairs, apartment maintenance, converted warehouse-style electrical work, older wiring checks, hot water circuits, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "terraces, apartments, converted warehouse-style properties, older wiring, switchboard upgrades and hot water circuits",
+    setting: "Erskineville terrace, apartment and converted warehouse-style service area",
+    switchboardDetail:
+      "older wiring, terrace switchboards, apartment boards, converted warehouse-style loads, hot water demand, consumer mains and safety switches",
+  }),
+  eveleigh: makeSydneyCbdLocalContext({
+    accessFocus:
+      "rail-corridor site contacts, workshop entry details, warehouse access notes and load-check information",
+    commonJobs:
+      "commercial suite, rail-corridor site, apartment, warehouse and workshop electrical work, business outages, switchboards, three-phase and load checks, CCTV/data and planned quote work",
+    emergencySignals:
+      "commercial site outages, rail-corridor property faults, apartment power loss, warehouse or workshop faults, commercial switchboard issues, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for commercial sites, apartments, warehouses and workshops",
+    plannedWork:
+      "commercial suite maintenance, rail-corridor property work, apartment repairs, warehouse lighting, workshop circuits, switchboard upgrades, three-phase and load checks, CCTV/data and planned quote work",
+    propertyMix:
+      "commercial suites, rail-corridor sites, apartments, warehouses, workshops, business outages, switchboards and three-phase loads",
+    setting: "Eveleigh commercial, rail-corridor, apartment, warehouse and workshop service area",
+    switchboardDetail:
+      "commercial switchboards, warehouse and workshop loads, apartment boards, three-phase capacity, consumer mains and safety switches",
+  }),
+  "forest-lodge": makeSydneyCbdLocalContext({
+    accessFocus:
+      "terrace entry details, strata access notes, shared access information and hot water circuit notes",
+    commonJobs:
+      "apartment, older-home, terrace and strata electrical work, shared access, switchboard upgrades, hot water faults, planned Level 2 enquiries, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, older-home faults, terrace wiring issues, strata shared-power concerns, hot water electrical faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, older homes, terraces and strata buildings",
+    plannedWork:
+      "apartment repairs, older-home maintenance, terrace electrical work, strata maintenance, shared access planning, hot water circuits, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, older homes, terraces, strata buildings, shared access, hot water faults and planned Level 2 enquiries",
+    setting: "Forest Lodge apartment, older-home, terrace and strata service area",
+    switchboardDetail:
+      "older wiring, apartment boards, terrace switchboards, shared access sites, hot water demand, consumer mains and safety switches",
+  }),
+  glebe: makeSydneyCbdLocalContext({
+    accessFocus:
+      "terrace entry details, heritage-home access notes, narrow street parking information and local shop timing",
+    commonJobs:
+      "terrace, heritage-home, apartment, cafe and local shop electrical work, narrow street access, older wiring, switchboard upgrades, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "terrace power loss, heritage-home faults, apartment issues, cafe or local shop outages, older wiring concerns, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for terraces, heritage homes, apartments and local shops",
+    plannedWork:
+      "terrace repairs, heritage-home electrical work, apartment maintenance, cafe and local shop power, older wiring checks, switchboard upgrades, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "terraces, heritage homes, apartments, cafes, local shops, narrow streets, limited parking, older wiring and consumer mains",
+    setting: "Glebe terrace, heritage-home, apartment and local shop service area",
+    switchboardDetail:
+      "older wiring, terrace switchboards, heritage-home boards, apartment boards, cafe and shop loads, consumer mains and safety switches",
+  }),
+  haymarket: makeSydneyCbdLocalContext({
+    accessFocus:
+      "restaurant trading hours, hotel contacts, commercial kitchen details, shared meter-room information and loading dock bookings",
+    commonJobs:
+      "restaurant, hotel, apartment, retail tenancy, commercial suite and commercial kitchen electrical work, after-hours business outages, shared meter rooms, loading docks, switchboards, CCTV/data and planned quote work",
+    emergencySignals:
+      "restaurant outages, hotel faults, commercial kitchen circuit issues, apartment power loss, shared meter-room concerns, after-hours business faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for restaurants, hotels, apartments, retail tenancies and commercial kitchens",
+    plannedWork:
+      "restaurant power, hotel maintenance, retail lighting, commercial kitchen circuits, apartment repairs, shared meter-room checks, loading dock planning, CCTV/data and planned quote work",
+    propertyMix:
+      "restaurants, hotels, apartments, retail tenancies, commercial suites, commercial kitchens, shared meter rooms and loading docks",
+    setting: "Haymarket restaurant, hotel, apartment, retail and commercial kitchen service area",
+    switchboardDetail:
+      "shared meter rooms, restaurant and commercial kitchen loads, hotel circuits, apartment boards, retail tenancy loads, consumer mains and safety switches",
+  }),
+  "millers-point": makeSydneyCbdLocalContext({
+    accessFocus:
+      "heritage access notes, harbour-side entry details, limited parking information and private service equipment photos",
+    commonJobs:
+      "heritage-home, apartment, waterfront, harbour-side and older wiring electrical work, limited parking access, private service equipment, consumer mains, switchboard upgrades, CCTV/data and planned quote work",
+    emergencySignals:
+      "heritage-home power loss, apartment faults, harbour-side property issues, older wiring concerns, private service equipment faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, point of attachment concerns, defect notices and supply-side questions for heritage homes, apartments and harbour-side buildings",
+    plannedWork:
+      "heritage-home repairs, apartment maintenance, harbour-side property electrical work, older wiring checks, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "heritage homes, apartments, waterfront and harbour-side buildings, older wiring, limited parking, private service equipment and consumer mains",
+    setting: "Millers Point heritage-home, apartment, harbour-side and service-equipment service area",
+    switchboardDetail:
+      "older wiring, heritage-home switchboards, apartment boards, private service equipment, consumer mains and safety switches",
+  }),
+  "moore-park": makeSydneyCbdLocalContext({
+    accessFocus:
+      "event timing, retail tenancy contacts, entertainment precinct access notes and parking information",
+    commonJobs:
+      "event, retail, commercial, entertainment precinct and nearby apartment electrical work, business outages, lighting, power, switchboards, CCTV/data and planned quote work",
+    emergencySignals:
+      "event or retail outages, entertainment precinct faults, nearby apartment power loss, commercial switchboard issues, lighting faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for commercial properties, retail tenancies and nearby apartments",
+    plannedWork:
+      "event support, retail tenancy lighting, entertainment precinct electrical work, nearby apartment repairs, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "event properties, retail tenancies, commercial sites, entertainment precinct work, nearby apartments, parking constraints and business outages",
+    setting: "Moore Park event, retail, commercial, entertainment and apartment service area",
+    switchboardDetail:
+      "commercial switchboards, event and retail loads, lighting circuits, apartment boards, consumer mains and safety switches",
+  }),
+  paddington: makeSydneyCbdLocalContext({
+    accessFocus:
+      "terrace entry details, heritage-home notes, boutique or cafe timing and narrow street parking information",
+    commonJobs:
+      "terrace, heritage-home, apartment, boutique, cafe and strata electrical work, narrow street access, older wiring, switchboard upgrades, consumer mains, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "terrace power loss, heritage-home faults, boutique or cafe outages, apartment issues, older wiring concerns, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for terraces, heritage homes, apartments and boutique tenancies",
+    plannedWork:
+      "terrace repairs, heritage-home electrical work, apartment maintenance, boutique and cafe lighting, older wiring checks, switchboard upgrades, consumer mains review, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "terraces, heritage homes, apartments, boutiques, cafes, narrow streets, older wiring, consumer mains and defect notices",
+    setting: "Paddington terrace, heritage-home, apartment, boutique and cafe service area",
+    switchboardDetail:
+      "older wiring, terrace switchboards, heritage-home boards, boutique and cafe loads, consumer mains, defect notices and safety switches",
+  }),
+  "potts-point": makeSydneyCbdLocalContext({
+    accessFocus:
+      "high-density apartment entry notes, shared meter-room details, restaurant or bar timing and strata contact information",
+    commonJobs:
+      "high-density apartment, strata, restaurant, bar, cafe and older wiring electrical work, shared meter-room access, after-hours business faults, hot water electrical, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, strata shared-power issues, restaurant or bar outages, shared meter-room concerns, older wiring faults, hot water electrical faults and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, strata buildings and hospitality tenancies",
+    plannedWork:
+      "apartment repairs, strata maintenance, restaurant and bar power, cafe lighting, older wiring checks, shared meter-room checks, hot water circuits, CCTV/data and planned quote work",
+    propertyMix:
+      "high-density apartments, strata buildings, restaurants, bars, cafes, older wiring, shared meter rooms, after-hours business faults and hot water loads",
+    setting: "Potts Point high-density apartment, strata, hospitality and older-wiring service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, older wiring, restaurant and bar loads, hot water demand, consumer mains and safety switches",
+  }),
+  pyrmont: makeSydneyCbdLocalContext({
+    accessFocus:
+      "tower entry notes, loading dock bookings, shared meter-room details and hospitality or retail tenancy contacts",
+    commonJobs:
+      "apartment, commercial suite, hospitality, retail tenancy and strata tower electrical work, shared meter-room access, loading docks, business outages, service equipment, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, commercial suite faults, hospitality or retail outages, shared meter-room issues, loading dock access faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartment towers, strata buildings, retail tenancies and commercial suites",
+    plannedWork:
+      "apartment repairs, strata tower maintenance, hospitality power, retail tenancy lighting, commercial suite electrical work, shared meter-room checks, loading dock planning, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, commercial suites, hospitality venues, retail tenancies, strata towers, shared meter rooms, loading docks, business outages and service equipment",
+    setting: "Pyrmont apartment, strata tower, hospitality, retail and commercial service area",
+    switchboardDetail:
+      "shared meter rooms, apartment tower boards, hospitality and retail loads, commercial suite circuits, service equipment, consumer mains and safety switches",
+  }),
+  redfern: makeSydneyCbdLocalContext({
+    accessFocus:
+      "terrace entry details, station-area shop timing, strata access notes and older wiring photos",
+    commonJobs:
+      "apartment, terrace, station-area shop, commercial suite and strata electrical work, older wiring, switchboard upgrades, power loss, safety-switch faults, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, terrace wiring faults, station-area shop outages, strata shared-power concerns, older wiring issues, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, terraces, shops and strata buildings",
+    plannedWork:
+      "apartment repairs, terrace electrical work, station-area shop lighting, commercial suite maintenance, older wiring checks, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, terraces, station-area shops, commercial suites, older wiring, strata access, switchboard upgrades and safety-switch faults",
+    setting: "Redfern apartment, terrace, station-area shop and strata service area",
+    switchboardDetail:
+      "older wiring, apartment boards, terrace switchboards, shop loads, consumer mains and safety switches",
+  }),
+  "rushcutters-bay": makeSydneyCbdLocalContext({
+    accessFocus:
+      "waterfront access notes, marina-adjacent entry details, tight parking information and weather-exposed outdoor power photos",
+    commonJobs:
+      "apartment, waterfront, marina-adjacent and strata electrical work, tight parking access, weather-exposed outdoor power, switchboard upgrades, hot water faults, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, waterfront property faults, marina-adjacent electrical issues, weather-exposed outdoor power hazards, hot water electrical faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, strata buildings and waterfront properties",
+    plannedWork:
+      "apartment repairs, strata maintenance, waterfront property electrical work, weather-rated outdoor power, hot water circuits, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, waterfront and marina-adjacent properties, strata access, tight parking, weather-exposed outdoor power, switchboards and hot water loads",
+    setting: "Rushcutters Bay apartment, waterfront, marina-adjacent and weather-exposed service area",
+    switchboardDetail:
+      "apartment boards, waterfront exposure, outdoor circuits, hot water demand, consumer mains and safety switches",
+  }),
+  "surry-hills": makeSydneyCbdLocalContext({
+    accessFocus:
+      "restaurant, cafe or bar trading hours, terrace entry details, strata access notes and after-hours contact information",
+    commonJobs:
+      "restaurant, cafe, bar, commercial suite, terrace, apartment and strata electrical work, older wiring, after-hours business outages, switchboard upgrades, CCTV/data and planned quote work",
+    emergencySignals:
+      "restaurant, cafe or bar outages, apartment power loss, terrace wiring faults, after-hours business faults, older wiring concerns, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for restaurants, cafes, bars, apartments, terraces and strata buildings",
+    plannedWork:
+      "restaurant and cafe power, bar lighting, commercial suite maintenance, terrace repairs, apartment and strata electrical work, older wiring checks, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "restaurants, cafes, bars, commercial suites, terraces, apartments, older wiring, after-hours business outages, strata access and switchboards",
+    setting: "Surry Hills hospitality, commercial suite, terrace, apartment and strata service area",
+    switchboardDetail:
+      "older wiring, hospitality loads, terrace switchboards, apartment boards, shared meter rooms, consumer mains and safety switches",
+  }),
+  sydney: makeSydneyCbdLocalContext({
+    accessFocus:
+      "CBD loading dock bookings, tower concierge details, hotel or restaurant timing and shared meter-room information",
+    commonJobs:
+      "CBD commercial suite, apartment, hotel, retail tenancy, restaurant and strata tower electrical work, shared meter-room access, business outages, loading docks, after-hours faults, switchboards, consumer mains, metering, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "CBD business outages, apartment power loss, hotel faults, retail tenancy or restaurant outages, shared meter-room issues, after-hours faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for CBD towers, apartments, hotels, retail tenancies and restaurants",
+    plannedWork:
+      "commercial suite maintenance, apartment repairs, hotel electrical work, retail tenancy lighting, restaurant power, shared meter-room checks, loading dock planning, consumer mains review, metering support, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "CBD commercial suites, apartments, hotels, retail tenancies, restaurants, strata towers, shared meter rooms, business outages, loading docks and after-hours faults",
+    setting: "Sydney CBD commercial suite, apartment, hotel, retail, restaurant and strata tower service area",
+    switchboardDetail:
+      "shared meter rooms, CBD tower switchboards, hotel and restaurant loads, retail tenancy circuits, apartment boards, consumer mains, metering and safety switches",
+  }),
+  "the-rocks": makeSydneyCbdLocalContext({
+    accessFocus:
+      "heritage access notes, pub or restaurant trading hours, hotel contacts, harbour-side entry details and limited parking information",
+    commonJobs:
+      "heritage building, pub, restaurant, retail tenancy, hotel, apartment and harbour-side electrical work, older wiring, limited parking, business outages, switchboard upgrades, CCTV/data and planned quote work",
+    emergencySignals:
+      "heritage building power loss, pub or restaurant outages, hotel faults, harbour-side apartment issues, older wiring concerns, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, point of attachment concerns, defect notices and supply-side questions for heritage buildings, hotels, apartments and hospitality venues",
+    plannedWork:
+      "heritage building repairs, pub and restaurant power, hotel maintenance, retail tenancy lighting, apartment repairs, older wiring checks, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "heritage buildings, pubs, restaurants, retail tenancies, hotels, apartments, harbour-side access, older wiring, limited parking and business outages",
+    setting: "The Rocks heritage, hospitality, hotel, retail and harbour-side service area",
+    switchboardDetail:
+      "older wiring, heritage building switchboards, hospitality loads, hotel circuits, apartment boards, consumer mains and safety switches",
+  }),
+  ultimo: makeSydneyCbdLocalContext({
+    accessFocus:
+      "student-housing entry details, education or tech precinct contacts, strata access notes and hot water circuit information",
+    commonJobs:
+      "apartment, student-housing, commercial suite, education and tech precinct electrical work, older wiring, strata access, hot water faults, switchboard upgrades, CCTV/data and planned maintenance",
+    emergencySignals:
+      "apartment power loss, student-housing faults, education or tech precinct outages, hot water electrical faults, older wiring issues, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, student housing, education properties and commercial suites",
+    plannedWork:
+      "apartment repairs, student-housing maintenance, education and tech precinct electrical work, commercial suite maintenance, hot water circuits, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, student housing, commercial suites, education and tech precinct demand, older wiring, strata access and hot water loads",
+    setting: "Ultimo apartment, student-housing, education, tech precinct and strata service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, student-housing loads, older wiring, hot water demand, consumer mains and safety switches",
+  }),
+  waterloo: makeSydneyCbdLocalContext({
+    accessFocus:
+      "high-rise entry details, tower concierge contacts, carpark/loading access notes and aircon or EV load information",
+    commonJobs:
+      "high-rise apartment, strata tower, retail tenancy and new-development electrical work, shared meter-room access, building-manager access, hot water faults, switchboard upgrades, aircon and EV load checks, common-area lighting, CCTV/data and planned quote work",
+    emergencySignals:
+      "high-rise apartment power loss, strata tower shared-power issues, retail tenancy outages, shared meter-room concerns, hot water electrical faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for high-rise apartments, strata towers and new developments",
+    plannedWork:
+      "high-rise apartment repairs, strata tower maintenance, retail tenancy lighting, hot water circuits, switchboard upgrades, aircon and EV load checks, common-area lighting, CCTV/data and planned quote work",
+    propertyMix:
+      "high-rise apartments, strata towers, retail tenancies, shared meter rooms, building-manager access, carpark and loading access, hot water faults and aircon or EV load checks",
+    setting: "Waterloo high-rise apartment, strata tower, retail and new-development service area",
+    switchboardDetail:
+      "shared meter rooms, high-rise apartment boards, retail loads, hot water demand, aircon and EV load checks, consumer mains and safety switches",
+  }),
+  woolloomooloo: makeSydneyCbdLocalContext({
+    accessFocus:
+      "waterfront or wharf-side access notes, restaurant timing, limited parking information and weather-exposed outdoor power photos",
+    commonJobs:
+      "apartment, waterfront, wharf-side, restaurant and older wiring electrical work, limited parking, shared access, switchboard upgrades, weather-exposed outdoor power, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, waterfront or wharf-side property faults, restaurant outages, older wiring concerns, weather-exposed outdoor power hazards, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, waterfront properties, restaurants and older buildings",
+    plannedWork:
+      "apartment repairs, waterfront property electrical work, wharf-side maintenance, restaurant power, older wiring checks, weather-rated outdoor power, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, waterfront and wharf-side properties, restaurants, older wiring, limited parking, shared access, switchboards and weather-exposed outdoor power",
+    setting: "Woolloomooloo apartment, waterfront, wharf-side, restaurant and older-wiring service area",
+    switchboardDetail:
+      "older wiring, apartment boards, restaurant loads, waterfront exposure, outdoor circuits, consumer mains and safety switches",
+  }),
+  zetland: makeSydneyCbdLocalContext({
+    accessFocus:
+      "high-rise entry details, new-development contacts, carpark/loading access notes and aircon or EV load information",
+    commonJobs:
+      "high-rise apartment, new-development, strata tower and retail electrical work, shared meter-room access, building-manager access, carpark and loading access, aircon and EV load checks, hot water faults, common-area lighting, CCTV/data and planned quote work",
+    emergencySignals:
+      "high-rise apartment power loss, strata tower shared-power issues, retail faults, shared meter-room concerns, hot water electrical faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for high-rise apartments, new developments, strata towers and retail tenancies",
+    plannedWork:
+      "high-rise apartment repairs, new-development electrical work, strata tower maintenance, retail lighting, aircon and EV load checks, hot water circuits, common-area lighting, CCTV/data and planned quote work",
+    propertyMix:
+      "high-rise apartments, new developments, strata towers, shared meter rooms, building-manager access, carpark and loading access, aircon and EV load checks, hot water faults and common-area lighting",
+    setting: "Zetland high-rise apartment, new-development, strata tower and retail service area",
+    switchboardDetail:
+      "shared meter rooms, high-rise apartment boards, retail loads, hot water demand, aircon and EV load checks, consumer mains and safety switches",
+  }),
+};
+
+function getSydneyCbdLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "sydney-city-and-eastern-suburbs" ||
+    coverageArea.slug !== "sydney"
+  ) {
+    return null;
+  }
+
+  return sydneyCbdLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 const burwoodLocalContexts: Record<string, LocalPageContext> = {
   burwood: {
     accessDetail:
@@ -5806,6 +6307,16 @@ function getLocalPageContext(
 
   if (randwickContext) {
     return randwickContext;
+  }
+
+  const sydneyCbdContext = getSydneyCbdLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (sydneyCbdContext) {
+    return sydneyCbdContext;
   }
 
   const burwoodContext = getBurwoodLocalContext(
