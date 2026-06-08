@@ -9874,6 +9874,570 @@ function getHillsDistrictLocalContext(
   return hillsDistrictLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+function makeHornsbyLocalContext({
+  accessFocus,
+  commonJobs,
+  emergencySignals,
+  level2Detail,
+  plannedWork,
+  propertyMix,
+  setting,
+  switchboardDetail,
+}: Omit<LocalPageContext, "accessDetail"> & {
+  accessFocus: string;
+}): LocalPageContext {
+  return {
+    accessDetail: `photos of the switchboard, meter box, affected equipment, ${accessFocus}, access notes, parking/loading details, gate/access details, strata/building-manager notes and any defect notice or paperwork`,
+    commonJobs,
+    emergencySignals,
+    level2Detail,
+    plannedWork,
+    propertyMix,
+    setting,
+    switchboardDetail,
+  };
+}
+
+const hornsbyLocalContexts: Record<string, LocalPageContext> = {
+  arcadia: makeHornsbyLocalContext({
+    accessFocus:
+      "long driveway notes, gate details, shed photos and outdoor power locations",
+    commonJobs:
+      "acreage-home electrical work, larger-block maintenance, shed power, outdoor power, private service equipment, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "acreage power loss, shed faults, outdoor power hazards, storm-affected electrical equipment, private service equipment concerns and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, private poles, point of attachment questions and defect notices for acreage homes, sheds and long-driveway properties",
+    plannedWork:
+      "acreage repairs, shed power, outdoor power, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage homes, larger blocks, long driveways, sheds, outdoor power, private service equipment, consumer mains and gate/access notes",
+    setting:
+      "Arcadia acreage, larger-block, shed, outdoor-power and long-driveway service area",
+    switchboardDetail:
+      "acreage switchboards, shed loads, outdoor circuits, private service equipment, consumer mains and RCD protection",
+  }),
+  asquith: makeHornsbyLocalContext({
+    accessFocus:
+      "station-area, apartment, townhouse, strata or shop access notes and parking details",
+    commonJobs:
+      "station-area home, apartment, townhouse, strata and local-shop electrical work, older switchboards, hot water electrical, RCD repairs, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "station-area power loss, apartment or townhouse faults, local-shop outages, hot water electrical issues, older-board concerns and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for station-area homes, apartments, townhouses, strata sites and local shops",
+    plannedWork:
+      "station-area home repairs, apartment and townhouse maintenance, local-shop electrical work, older-board upgrades, hot water electrical, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "station-area homes, apartments, townhouses, older switchboards, strata access, local shops, hot water faults, RCD repairs and defect notices",
+    setting:
+      "Asquith station-area, apartment, townhouse, strata, shop and older-board service area",
+    switchboardDetail:
+      "older boards, apartment and townhouse loads, shop demand, hot water circuits, consumer mains and RCD protection",
+  }),
+  beecroft: makeHornsbyLocalContext({
+    accessFocus:
+      "premium-home, apartment, townhouse, school, shop or private service equipment notes",
+    commonJobs:
+      "premium-home, apartment, townhouse, school and local-shop electrical work, older wiring checks, switchboards, consumer mains, private service equipment, CCTV/data and planned quote work",
+    emergencySignals:
+      "premium-home power loss, older-wiring concerns, apartment or townhouse faults, school or local-shop outages, private service equipment issues and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, service equipment and defect notices for premium homes, apartments, townhouses, schools and local shops",
+    plannedWork:
+      "premium-home repairs, apartment and townhouse maintenance, school and local-shop electrical work, switchboard upgrades, consumer mains, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "premium homes, older wiring, apartments/townhouses, schools/local shops, switchboards, consumer mains, private service equipment and access notes",
+    setting:
+      "Beecroft premium-home, apartment, townhouse, school, local-shop and private-service-equipment service area",
+    switchboardDetail:
+      "premium-home boards, older wiring, apartment and townhouse loads, consumer mains, private service equipment and RCD protection",
+  }),
+  berowra: makeHornsbyLocalContext({
+    accessFocus:
+      "bushland-edge access notes, steep or long driveway details, outdoor power photos and storm fault information",
+    commonJobs:
+      "bushland-edge home electrical work, outdoor power, storm fault checks, switchboards, private service equipment, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "bushland-edge power loss, storm-affected electrical equipment, outdoor power hazards, private service equipment concerns, switchboard faults and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and defect notices for bushland-edge homes and steep or long-access properties",
+    plannedWork:
+      "bushland-edge home repairs, outdoor power, storm fault follow-up, switchboard upgrades, private service equipment review, consumer mains, CCTV/data and planned quote work",
+    propertyMix:
+      "bushland-edge homes, steep/long access, outdoor power, storm faults, switchboards, private service equipment and consumer mains",
+    setting:
+      "Berowra bushland-edge, steep-access, outdoor-power and storm-fault service area",
+    switchboardDetail:
+      "bushland-edge switchboards, outdoor circuits, private service equipment, consumer mains and storm-exposed equipment",
+  }),
+  "berowra-creek": makeHornsbyLocalContext({
+    accessFocus:
+      "remote, bushland or water-access notes, limited-access details and storm or water-affected equipment photos",
+    commonJobs:
+      "remote, bushland and water-access electrical work, outdoor power, storm and water-affected fault checks, private service equipment, careful attendance planning, CCTV/data and planned quote work",
+    emergencySignals:
+      "remote property power loss, water-affected electrical equipment, storm faults, outdoor power hazards, private service equipment concerns and unsafe symptoms that need call-first triage",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and point of attachment questions for remote, bushland and water-access properties",
+    plannedWork:
+      "remote and water-access repairs, outdoor power, private service equipment review, storm or water-fault follow-up, CCTV/data and planned quote work",
+    propertyMix:
+      "remote/bushland/water-access properties, limited access, private service equipment, outdoor power, storm/water-affected faults and careful attendance wording",
+    setting:
+      "Berowra Creek remote, bushland, water-access and careful-attendance service area",
+    switchboardDetail:
+      "remote property switchboards, outdoor circuits, water-exposure checks, private service equipment and consumer mains",
+  }),
+  "berowra-heights": makeHornsbyLocalContext({
+    accessFocus:
+      "family-home, bushland-edge or outdoor power access notes, storm fault details and hot water information",
+    commonJobs:
+      "family-home and bushland-edge electrical work, older switchboards, outdoor power, storm fault checks, hot water electrical, RCD repairs, Level 2 support, CCTV/data and planned quote work",
+    emergencySignals:
+      "family-home power loss, bushland-edge storm faults, outdoor power hazards, hot water electrical issues, older-board concerns and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for family homes, bushland-edge properties and older boards",
+    plannedWork:
+      "family-home repairs, outdoor power, storm fault follow-up, hot water electrical, older-board upgrades, consumer mains, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, bushland-edge properties, older switchboards, outdoor power, storm faults, hot water, RCD repairs and Level 2 support",
+    setting:
+      "Berowra Heights family-home, bushland-edge, older-board, storm-fault and hot-water service area",
+    switchboardDetail:
+      "older home boards, bushland-edge loads, outdoor circuits, hot water demand, consumer mains and RCD protection",
+  }),
+  "berowra-waters": makeHornsbyLocalContext({
+    accessFocus:
+      "water-access or remote-access notes, access limitation details, outdoor circuit photos and weather-exposure information",
+    commonJobs:
+      "water-access and remote-access electrical work, outdoor circuits, weather-exposure checks, private service equipment, safety-first triage, CCTV/data and planned quote work",
+    emergencySignals:
+      "water-access property power loss, weather-exposed equipment, outdoor circuit hazards, private service equipment concerns and unsafe symptoms that need call-first triage",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and point of attachment questions for water-access and remote-access properties",
+    plannedWork:
+      "water-access repairs, outdoor circuits, private service equipment review, weather-exposure follow-up, CCTV/data and planned quote work",
+    propertyMix:
+      "water-access and remote-access properties, weather-exposed equipment, outdoor circuits, private service equipment, access limitations and safety-first triage",
+    setting:
+      "Berowra Waters water-access, remote-access, weather-exposure and safety-first service area",
+    switchboardDetail:
+      "water-access switchboards, outdoor circuits, weather-exposure checks, private service equipment and consumer mains",
+  }),
+  berrilee: makeHornsbyLocalContext({
+    accessFocus:
+      "acreage access notes, long driveway details, shed or outbuilding photos and storm fault information",
+    commonJobs:
+      "acreage and rural-edge electrical work, shed and outbuilding power, outdoor power, private service equipment, storm fault checks, CCTV/data and planned quote work",
+    emergencySignals:
+      "acreage power loss, shed or outbuilding faults, outdoor power hazards, storm-affected electrical equipment, private service equipment concerns and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and defect notices for acreage properties, sheds and long-driveway sites",
+    plannedWork:
+      "acreage repairs, shed and outbuilding power, outdoor power, private service equipment review, storm fault follow-up, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage/rural-edge properties, long driveways, sheds/outbuildings, private service equipment, outdoor power and storm faults",
+    setting:
+      "Berrilee acreage, rural-edge, shed, outdoor-power and storm-fault service area",
+    switchboardDetail:
+      "acreage switchboards, shed and outbuilding loads, outdoor circuits, private service equipment and consumer mains",
+  }),
+  brooklyn: makeHornsbyLocalContext({
+    accessFocus:
+      "river, harbour-side, small-business or access/parking notes and outdoor power photos",
+    commonJobs:
+      "river and harbour-side home, small-business and weather-exposure electrical work, outdoor power, switchboards, private service equipment, CCTV/data and planned quote work",
+    emergencySignals:
+      "river or harbour-side power loss, small-business outages, weather-exposed equipment, outdoor power hazards, private service equipment concerns and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, service equipment and defect notices for homes, small businesses and harbour-side properties",
+    plannedWork:
+      "home repairs, small-business maintenance, outdoor power, weather-exposure follow-up, switchboard upgrades, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "river/harbour-side access, homes, small businesses, weather exposure, outdoor power, switchboards, private service equipment and access/parking notes",
+    setting:
+      "Brooklyn river, harbour-side, home, small-business and weather-exposure service area",
+    switchboardDetail:
+      "home and small-business boards, outdoor circuits, weather-exposure checks, private service equipment and consumer mains",
+  }),
+  canoelands: makeHornsbyLocalContext({
+    accessFocus:
+      "rural acreage access notes, long driveway details, shed photos and storm fault information",
+    commonJobs:
+      "rural acreage electrical work, shed power, outdoor power, private service equipment, storm fault checks, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "rural acreage power loss, shed faults, outdoor power hazards, storm-affected electrical equipment, private service equipment concerns and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and defect notices for rural acreage, sheds and long-driveway properties",
+    plannedWork:
+      "rural acreage repairs, shed and outdoor power, private service equipment review, storm fault follow-up, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "rural acreage, long driveways, sheds, outdoor power, private service equipment, storm faults and consumer mains",
+    setting:
+      "Canoelands rural-acreage, shed, long-driveway, storm-fault and consumer-mains service area",
+    switchboardDetail:
+      "rural acreage switchboards, shed loads, outdoor circuits, private service equipment and consumer mains",
+  }),
+  cheltenham: makeHornsbyLocalContext({
+    accessFocus:
+      "larger-home, apartment, townhouse or parking access notes and hot water information",
+    commonJobs:
+      "larger-home, apartment and townhouse electrical work, older wiring checks, switchboards, consumer mains, RCD repairs, hot water electrical, CCTV/data and planned quote work",
+    emergencySignals:
+      "larger-home power loss, apartment or townhouse faults, older-wiring concerns, hot water electrical issues and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for larger homes, apartments, townhouses and older wiring upgrades",
+    plannedWork:
+      "residential repairs, apartment and townhouse maintenance, older-board upgrades, hot water electrical, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "larger homes, apartments/townhouses, older wiring, switchboards, consumer mains, RCD repairs, hot water and parking/access notes",
+    setting:
+      "Cheltenham larger-home, apartment, townhouse, older-wiring and hot-water service area",
+    switchboardDetail:
+      "residential boards, apartment and townhouse loads, older wiring, hot water demand, consumer mains and RCD protection",
+  }),
+  cherrybrook: makeHornsbyLocalContext({
+    accessFocus:
+      "family-property, townhouse or larger-property access notes and aircon or EV load details",
+    commonJobs:
+      "family-home, larger-property and townhouse electrical work, switchboard upgrades, aircon and EV load checks, consumer mains, defect notices, hot water electrical, CCTV/data and planned quote work",
+    emergencySignals:
+      "family-home power loss, townhouse faults, hot water electrical issues, switchboard capacity concerns, aircon or EV load problems and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for family homes, larger properties, townhouses and planned load upgrades",
+    plannedWork:
+      "family-home repairs, larger-property and townhouse maintenance, switchboard upgrades, aircon and EV load review, consumer mains, defect notice paperwork, hot water electrical, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, larger properties, townhouses, switchboard upgrades, aircon/EV load checks, consumer mains, defect notices and hot water faults",
+    setting:
+      "Cherrybrook family-home, larger-property, townhouse, load-check and defect-notice service area",
+    switchboardDetail:
+      "family-home and townhouse boards, larger-property loads, aircon and EV demand, consumer mains and RCD protection",
+  }),
+  cowan: makeHornsbyLocalContext({
+    accessFocus:
+      "bushland-edge, rail-access, long driveway or outdoor power notes and storm fault details",
+    commonJobs:
+      "bushland-edge home electrical work, rail/access-sensitive planning, outdoor power, storm fault checks, private service equipment, CCTV/data and planned quote work",
+    emergencySignals:
+      "bushland-edge power loss, storm-affected electrical equipment, outdoor power hazards, private service equipment concerns and unsafe symptoms that need call-first triage",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and point of attachment questions for bushland-edge homes and long-access properties",
+    plannedWork:
+      "bushland-edge repairs, outdoor power, storm fault follow-up, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "bushland-edge homes, rail/access notes, long driveways, outdoor power, storm faults, private service equipment and call-first safety wording",
+    setting:
+      "Cowan bushland-edge, rail-access, long-driveway, outdoor-power and safety-first service area",
+    switchboardDetail:
+      "bushland-edge switchboards, outdoor circuits, storm-exposed equipment, private service equipment and consumer mains",
+  }),
+  "dangar-island": makeHornsbyLocalContext({
+    accessFocus:
+      "island access details, planned photo guidance, weather-exposure notes and private service equipment photos",
+    commonJobs:
+      "island and access-limited electrical work, weather-exposure checks, planned photo review, private service equipment, safety-first triage, outdoor power, CCTV/data and planned quote work",
+    emergencySignals:
+      "island property power loss, weather-exposed equipment, outdoor power hazards, private service equipment concerns and unsafe symptoms that need call-first triage without overpromise language",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and point of attachment questions for island and access-limited properties",
+    plannedWork:
+      "access-limited repairs, outdoor power, private service equipment review, weather-exposure follow-up, planned photo review, CCTV/data and planned quote work",
+    propertyMix:
+      "island/access limitations, weather exposure, planned photo guidance, safety-first triage, private service equipment and no overpromise language",
+    setting:
+      "Dangar Island island-access, weather-exposure, photo-guided and safety-first service area",
+    switchboardDetail:
+      "island property switchboards, outdoor circuits, weather-exposure checks, private service equipment and consumer mains",
+  }),
+  fiddletown: makeHornsbyLocalContext({
+    accessFocus:
+      "acreage access notes, long driveway details, shed photos and outdoor lighting or power locations",
+    commonJobs:
+      "acreage property electrical work, shed power, outdoor lighting and power, private service equipment, storm fault checks, CCTV/data and planned quote work",
+    emergencySignals:
+      "acreage power loss, shed faults, outdoor lighting or power hazards, storm-affected electrical equipment, private service equipment concerns and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and defect notices for acreage properties, sheds and long-access sites",
+    plannedWork:
+      "acreage repairs, shed power, outdoor lighting and power, private service equipment review, storm fault follow-up, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage properties, long access, sheds, private service equipment, outdoor lighting/power, storm faults and planned quote guidance",
+    setting:
+      "Fiddletown acreage, long-access, shed, outdoor-lighting and planned-quote service area",
+    switchboardDetail:
+      "acreage switchboards, shed loads, outdoor lighting and power, private service equipment and consumer mains",
+  }),
+  "forest-glen": makeHornsbyLocalContext({
+    accessFocus:
+      "rural or bushland-edge access notes, acreage details, outdoor power photos and storm fault information",
+    commonJobs:
+      "rural and bushland-edge home electrical work, acreage access planning, outdoor power, private service equipment, switchboards, consumer mains, storm fault checks, CCTV/data and planned quote work",
+    emergencySignals:
+      "rural or bushland-edge power loss, storm faults, outdoor power hazards, private service equipment concerns, switchboard faults and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and defect notices for rural/bushland-edge homes and acreage access properties",
+    plannedWork:
+      "rural and bushland-edge repairs, outdoor power, private service equipment review, switchboard upgrades, consumer mains checks, storm fault follow-up, CCTV/data and planned quote work",
+    propertyMix:
+      "rural/bushland-edge homes, acreage access, private service equipment, outdoor power, switchboards, consumer mains and storm faults",
+    setting:
+      "Forest Glen rural, bushland-edge, acreage-access, outdoor-power and storm-fault service area",
+    switchboardDetail:
+      "rural and bushland-edge switchboards, outdoor circuits, private service equipment, consumer mains and storm-exposed equipment",
+  }),
+  galston: makeHornsbyLocalContext({
+    accessFocus:
+      "village, acreage, shop, local-business or shed access notes and defect notice paperwork",
+    commonJobs:
+      "village home, acreage, shop and local-business electrical work, shed power, outdoor power, private service equipment, switchboards, consumer mains, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "village power loss, shop or local-business outages, acreage faults, shed electrical issues, outdoor power hazards and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, service equipment and defect notices for village homes, acreage properties, shops and local businesses",
+    plannedWork:
+      "village home repairs, acreage electrical work, shop and local-business maintenance, shed and outdoor power, private service equipment review, switchboard upgrades, consumer mains, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "village homes, acreage properties, shops/local businesses, sheds, outdoor power, private service equipment, switchboards, consumer mains and defect notices",
+    setting:
+      "Galston village, acreage, shop, local-business, shed and defect-notice service area",
+    switchboardDetail:
+      "village, shop and acreage boards, shed loads, outdoor circuits, private service equipment and consumer mains",
+  }),
+  hornsby: makeHornsbyLocalContext({
+    accessFocus:
+      "apartment, station-area, office, strata, shared meter-room or loading access notes",
+    commonJobs:
+      "apartment, station-area shop, office, strata and local-business electrical work, shared meter rooms, older wiring checks, business outages, switchboards, consumer mains, metering, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, station-area shop or office outages, shared meter-room concerns, older-wiring faults, business outages and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for apartments, station-area shops, offices, strata buildings and shared meter rooms",
+    plannedWork:
+      "apartment repairs, station-area shop and office electrical work, strata maintenance, shared meter-room checks, switchboard upgrades, consumer mains review, metering support, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, station-area shops, offices, strata buildings, shared meter rooms, older wiring, business outages, switchboards, consumer mains, metering and defect notices",
+    setting:
+      "Hornsby apartment, station-area, shop, office, strata and shared-meter-room service area",
+    switchboardDetail:
+      "apartment and strata boards, shared meter rooms, shop and office loads, consumer mains, metering and RCD protection",
+  }),
+  "hornsby-heights": makeHornsbyLocalContext({
+    accessFocus:
+      "bushland-edge access notes, driveway details, outdoor power photos and storm fault information",
+    commonJobs:
+      "bushland-edge home and larger-block electrical work, outdoor power, storm fault checks, switchboards, private service equipment, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "bushland-edge power loss, storm-affected electrical equipment, outdoor power hazards, private service equipment concerns, switchboard faults and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, service equipment and defect notices for bushland-edge homes, larger blocks and access-sensitive properties",
+    plannedWork:
+      "bushland-edge repairs, outdoor power, storm fault follow-up, switchboard upgrades, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "bushland-edge homes, larger blocks, outdoor power, storm faults, switchboards, private service equipment, consumer mains and access/driveway notes",
+    setting:
+      "Hornsby Heights bushland-edge, larger-block, outdoor-power and storm-fault service area",
+    switchboardDetail:
+      "bushland-edge switchboards, outdoor circuits, private service equipment, consumer mains and storm-exposed equipment",
+  }),
+  "milsons-passage": makeHornsbyLocalContext({
+    accessFocus:
+      "remote or water-access notes, access limitation details, planned work photos and weather-exposure information",
+    commonJobs:
+      "remote and water-access electrical work, planned photo review, private service equipment, outdoor power, weather-exposure checks, safety-first triage, CCTV/data and planned quote work",
+    emergencySignals:
+      "remote or water-access power loss, weather-exposed equipment, outdoor power hazards, private service equipment concerns and unsafe symptoms that need call-first triage",
+    level2Detail:
+      "consumer mains, metering, private service equipment, private poles and point of attachment questions for remote and water-access properties",
+    plannedWork:
+      "remote and water-access repairs, planned photo review, outdoor power, private service equipment review, weather-exposure follow-up, CCTV/data and planned quote work",
+    propertyMix:
+      "remote/water-access properties, access limitations, planned work photos, private service equipment, outdoor power, weather exposure and safety-first triage",
+    setting:
+      "Milsons Passage remote, water-access, photo-guided and safety-first service area",
+    switchboardDetail:
+      "remote and water-access switchboards, outdoor circuits, weather-exposure checks, private service equipment and consumer mains",
+  }),
+  "mount-colah": makeHornsbyLocalContext({
+    accessFocus:
+      "family-home, bushland-edge or outdoor power access notes, storm fault details and hot water information",
+    commonJobs:
+      "family-home and bushland-edge electrical work, older switchboards, outdoor power, hot water electrical, RCD repairs, storm fault checks, Level 2 service-equipment support, CCTV/data and planned quote work",
+    emergencySignals:
+      "family-home power loss, bushland-edge storm faults, outdoor power hazards, hot water electrical issues, older-board concerns and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for family homes, bushland-edge properties and older boards",
+    plannedWork:
+      "family-home repairs, outdoor power, hot water electrical, storm fault follow-up, older-board upgrades, service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, bushland-edge properties, older switchboards, outdoor power, hot water, RCD repairs, storm faults and Level 2 service-equipment support",
+    setting:
+      "Mount Colah family-home, bushland-edge, older-board, outdoor-power and hot-water service area",
+    switchboardDetail:
+      "older home boards, bushland-edge loads, outdoor circuits, hot water demand, service equipment and RCD protection",
+  }),
+  "mount-kuring-gai": makeHornsbyLocalContext({
+    accessFocus:
+      "home, workshop, warehouse, commercial or bushland access notes and business outage details",
+    commonJobs:
+      "home, industrial-pocket, commercial, workshop and warehouse electrical work, bushland access planning, commercial switchboards, business outages, outdoor power, Level 2 support, CCTV/data and planned quote work",
+    emergencySignals:
+      "home power loss, workshop or warehouse outages, commercial switchboard concerns, business outages, outdoor power hazards and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for homes, workshops, warehouses, commercial pockets and bushland-access properties",
+    plannedWork:
+      "home repairs, workshop and warehouse power, commercial electrical work, bushland access planning, commercial switchboard checks, outdoor power, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, industrial/commercial pockets, workshops/warehouses where relevant, bushland access, commercial switchboards, business outages, outdoor power and Level 2 support",
+    setting:
+      "Mount Kuring-Gai home, workshop, warehouse, commercial and bushland-access service area",
+    switchboardDetail:
+      "home and commercial switchboards, workshop and warehouse loads, outdoor circuits, consumer mains and RCD protection",
+  }),
+  normanhurst: makeHornsbyLocalContext({
+    accessFocus:
+      "home, apartment, school, local-shop or strata access notes and hot water information",
+    commonJobs:
+      "home, apartment, school, local-shop and strata electrical work, older wiring checks, switchboards, hot water electrical, RCD repairs, CCTV/data and planned quote work",
+    emergencySignals:
+      "home or apartment power loss, school or local-shop outages, older-wiring concerns, hot water electrical issues and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for homes, apartments, schools, local shops and strata sites",
+    plannedWork:
+      "home repairs, apartment and strata maintenance, school and local-shop electrical work, older-board upgrades, hot water electrical, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, apartments, schools/local shops, older wiring, switchboards, hot water, RCD repairs, strata access and planned quote guidance",
+    setting:
+      "Normanhurst home, apartment, school, local-shop, strata and older-wiring service area",
+    switchboardDetail:
+      "older home boards, apartment and strata loads, school and shop demand, hot water circuits and RCD protection",
+  }),
+  "north-epping": makeHornsbyLocalContext({
+    accessFocus:
+      "family-home, bushland access or larger-block notes, outdoor power photos and hot water details",
+    commonJobs:
+      "family-home and bushland-access electrical work, larger-block maintenance, outdoor power, hot water electrical, RCD repairs, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "family-home power loss, bushland-access faults, outdoor power hazards, hot water electrical issues, switchboard concerns and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for family homes, larger blocks and bushland-access properties",
+    plannedWork:
+      "family-home repairs, larger-block maintenance, outdoor power, hot water electrical, switchboard upgrades, consumer mains, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, bushland access, larger blocks, switchboards, outdoor power, hot water circuits, RCD repairs, consumer mains and access notes",
+    setting:
+      "North Epping family-home, bushland-access, larger-block, outdoor-power and hot-water service area",
+    switchboardDetail:
+      "family-home and larger-block boards, outdoor circuits, hot water demand, consumer mains and RCD protection",
+  }),
+  "pennant-hills": makeHornsbyLocalContext({
+    accessFocus:
+      "station-area, apartment, shop, office, strata or parking access notes and defect notice paperwork",
+    commonJobs:
+      "station-area home, apartment, local-shop, office and strata electrical work, older switchboards, consumer mains, defect notices, hot water electrical, business outages, CCTV/data and planned quote work",
+    emergencySignals:
+      "station-area power loss, apartment faults, local-shop or office outages, business faults, hot water electrical issues and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for station-area homes, apartments, local shops, offices and strata sites",
+    plannedWork:
+      "station-area home repairs, apartment and strata maintenance, shop and office electrical work, older-board upgrades, consumer mains review, defect notice paperwork, hot water electrical, CCTV/data and planned quote work",
+    propertyMix:
+      "station-area homes, apartments, local shops, offices, older switchboards, strata access, consumer mains, defect notices, hot water faults and business outages",
+    setting:
+      "Pennant Hills station-area, apartment, shop, office, strata and defect-notice service area",
+    switchboardDetail:
+      "older boards, apartment and strata loads, shop and office demand, hot water circuits, consumer mains and metering",
+  }),
+  thornleigh: makeHornsbyLocalContext({
+    accessFocus:
+      "shop, office, light industrial, commercial, apartment or parking access notes and load-check details",
+    commonJobs:
+      "shop, office, light industrial, commercial, home and apartment electrical work, business outages, switchboards, load checks, CCTV/data, access planning and planned quote work",
+    emergencySignals:
+      "shop or office outages, light industrial faults, commercial switchboard concerns, home or apartment power loss, business outages and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for shops, offices, light industrial/commercial sites, homes and apartments",
+    plannedWork:
+      "shop and office maintenance, light industrial and commercial electrical work, home and apartment repairs, load checks, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "shops, offices, light industrial/commercial pockets, homes, apartments, business outages, switchboards, load checks, CCTV/data and access/parking notes",
+    setting:
+      "Thornleigh shop, office, light-industrial, commercial, home and apartment service area",
+    switchboardDetail:
+      "commercial switchboards, shop and office loads, light industrial demand, apartment boards, load checks and consumer mains",
+  }),
+  wahroonga: makeHornsbyLocalContext({
+    accessFocus:
+      "larger-home, apartment, local-business, office or private service equipment access notes and parking details",
+    commonJobs:
+      "larger-home, apartment, local-business and office electrical work, older switchboards, private service equipment, consumer mains, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "larger-home power loss, apartment faults, local-business or office outages, older-board concerns, private service equipment issues and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, private service equipment, service equipment and defect notices for larger homes, apartments, local businesses and offices",
+    plannedWork:
+      "residential repairs, apartment maintenance, local-business and office electrical work, older-board upgrades, private service equipment review, consumer mains, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "larger homes, apartments, local business/office context, older switchboards, private service equipment, consumer mains, defect notices and access/parking notes",
+    setting:
+      "Wahroonga larger-home, apartment, local-business, office and private-service-equipment service area",
+    switchboardDetail:
+      "premium-home and apartment boards, office loads, private service equipment, consumer mains and RCD protection",
+  }),
+  waitara: makeHornsbyLocalContext({
+    accessFocus:
+      "apartment, high-density strata, shared meter-room, station-area shop or limited-parking notes",
+    commonJobs:
+      "apartment, high-density strata, station-area shop and shared meter-room electrical work, hot water electrical, RCD repairs, switchboards, metering, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, high-density strata faults, shared meter-room concerns, station-area shop outages, hot water electrical issues and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for apartments, high-density strata sites, station-area shops and shared meter rooms",
+    plannedWork:
+      "apartment repairs, strata maintenance, shared meter-room checks, station-area shop electrical work, hot water electrical, metering support, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, high-density strata, shared meter rooms, station-area shops, limited parking, hot water faults, RCD repairs, switchboards and metering",
+    setting:
+      "Waitara apartment, high-density-strata, shared-meter-room, station-area-shop and metering service area",
+    switchboardDetail:
+      "apartment and strata boards, shared meter rooms, shop loads, hot water circuits, metering and RCD protection",
+  }),
+  westleigh: makeHornsbyLocalContext({
+    accessFocus:
+      "family-home, bushland-edge or outdoor power access notes, storm fault details and hot water information",
+    commonJobs:
+      "family-home and bushland-edge electrical work, older switchboards, outdoor power, storm fault checks, RCD repairs, hot water electrical, Level 2 service-equipment support, CCTV/data and planned quote work",
+    emergencySignals:
+      "family-home power loss, bushland-edge storm faults, outdoor power hazards, hot water electrical issues, older-board concerns and repeated RCD trips",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notices for family homes, bushland-edge properties and older boards",
+    plannedWork:
+      "family-home repairs, bushland-edge maintenance, outdoor power, storm fault follow-up, older-board upgrades, hot water electrical, service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, bushland-edge access, older switchboards, outdoor power, storm faults, RCD repairs, hot water circuits and Level 2 service-equipment support",
+    setting:
+      "Westleigh family-home, bushland-edge, older-board, outdoor-power and hot-water service area",
+    switchboardDetail:
+      "older home boards, bushland-edge loads, outdoor circuits, hot water demand, service equipment and RCD protection",
+  }),
+};
+
+function getHornsbyLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "hills-hawkesbury-and-hornsby" ||
+    coverageArea.slug !== "hornsby"
+  ) {
+    return null;
+  }
+
+  return hornsbyLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 const burwoodLocalContexts: Record<string, LocalPageContext> = {
   burwood: {
     accessDetail:
@@ -10194,6 +10758,16 @@ function getLocalPageContext(
 
   if (hillsDistrictContext) {
     return hillsDistrictContext;
+  }
+
+  const hornsbyContext = getHornsbyLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (hornsbyContext) {
+    return hornsbyContext;
   }
 
   const burwoodContext = getBurwoodLocalContext(
