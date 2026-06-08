@@ -456,6 +456,364 @@ function getBaysideAirportLocalContext(
   return baysideAirportLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
+  allawah: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, strata access notes, parking details, shared meter-room details and any defect notice or paperwork",
+    commonJobs:
+      "apartment fault finding, older switchboard checks, hot water circuits, safety-switch faults, strata maintenance, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment power loss, safety-switch tripping, hot water electrical faults, burning smells, hot outlets and unsafe shared electrical areas",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata supply questions",
+    plannedWork:
+      "older switchboard upgrades, strata repairs, apartment power points, hot water electrical checks, smoke alarms, data points and planned quote work",
+    propertyMix:
+      "apartments, strata buildings, older homes, shared meter rooms and local residential properties",
+    setting: "Georges River apartment, strata and older-home service area",
+    switchboardDetail:
+      "older boards, shared meter rooms, safety switches, RCBO protection, hot water circuits and clearer strata labelling",
+  },
+  "beverley-park": {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, driveway or gate access notes, outdoor power photos and any defect notice or paperwork",
+    commonJobs:
+      "premium residential fault finding, outdoor power, switchboard upgrades, consumer mains, hot water circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, storm-affected outdoor circuits, hot outlets, burning smells, safety-switch tripping and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, service equipment, point of attachment concerns, defect notices and supply upgrade questions",
+    plannedWork:
+      "outdoor power, switchboard upgrades, renovation wiring, lighting, hot water circuits, CCTV, data cabling and planned residential quote work",
+    propertyMix:
+      "premium homes, renovated properties, larger residences, outdoor areas and residential service equipment",
+    setting: "Georges River premium residential service area",
+    switchboardDetail:
+      "larger home loads, consumer mains, safety switches, RCBOs, outdoor circuits and future renovation capacity",
+  },
+  blakehurst: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, driveway or gate access notes, renovation details, private service equipment photos and any defect notice or paperwork",
+    commonJobs:
+      "larger-home fault finding, renovation wiring, outdoor power, private service equipment, switchboard upgrades, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "large-home power loss, storm-exposed outdoor faults, hot outlets, burning smells, safety-switch tripping and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, private service equipment, point of attachment concerns, defect notices and supply upgrade questions",
+    plannedWork:
+      "renovation wiring, outdoor lighting, switchboard capacity checks, hot water circuits, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "larger homes, renovated properties, waterfront residences, outdoor areas and private service equipment",
+    setting: "Georges River larger-home, renovation and waterfront service area",
+    switchboardDetail:
+      "home loads, renovation capacity, safety switches, RCBOs, consumer mains and private service equipment",
+  },
+  carlton: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, unit or villa access notes, shopfront entry details, parking notes and any defect notice or paperwork",
+    commonJobs:
+      "unit repairs, villa switchboards, older-home fault finding, shop maintenance, rental electrical repairs, hot water circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "unit power loss, rental maintenance faults, shop power issues, safety-switch tripping, hot outlets and burning smells",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
+    plannedWork:
+      "rental maintenance, shop lighting, villa switchboards, older-home repairs, smoke alarms, data points, CCTV and planned quote work",
+    propertyMix:
+      "units, villas, older homes, shops, rental properties and small local businesses",
+    setting: "Georges River unit, villa, shop and rental-maintenance service area",
+    switchboardDetail:
+      "older boards, villa loads, shared access, safety switches, RCBO protection and clearer circuit labelling",
+  },
+  "carss-park": {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, driveway or gate notes, outdoor circuit photos, hot water details and any defect notice or paperwork",
+    commonJobs:
+      "family-home fault finding, renovation wiring, outdoor circuits, hot water electrical, switchboard upgrades, service equipment, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, outdoor circuit faults, hot water electrical faults, storm damage, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, point of attachment concerns, defect notices and supply-side questions",
+    plannedWork:
+      "renovation wiring, outdoor power, hot water circuits, switchboard upgrades, lighting, CCTV, data cabling and planned quote work",
+    propertyMix:
+      "family homes, renovated properties, outdoor areas, villas and residential service equipment",
+    setting: "Georges River family-home, renovation and outdoor-power service area",
+    switchboardDetail:
+      "older boards, outdoor circuits, hot water loads, service equipment, safety switches and RCBO protection",
+  },
+  "connells-point": {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, driveway or waterfront access notes, outdoor fitting photos, service equipment photos and any defect notice or paperwork",
+    commonJobs:
+      "waterfront-home fault finding, outdoor power, weather-exposed fixtures, point of attachment checks, private service equipment, switchboards, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "storm-exposed outdoor faults, water-affected outdoor fixtures, home power loss, hot outlets, burning smells and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, point of attachment concerns, private service equipment, defect notices and supply-side questions",
+    plannedWork:
+      "outdoor power, weather-exposed lighting, switchboard upgrades, private service equipment checks, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "waterfront homes, larger residences, outdoor areas, private service equipment and weather-exposed fixtures",
+    setting: "Georges River waterfront-home and weather-exposed electrical service area",
+    switchboardDetail:
+      "home loads, outdoor circuits, point of attachment concerns, private service equipment, safety switches and RCBOs",
+  },
+  hurstville: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, shared meter-room details, building manager contacts, loading or parking notes and any defect notice or paperwork",
+    commonJobs:
+      "apartment faults, strata repairs, office lighting, shop and restaurant power, business outages, shared meter-room access, commercial switchboards, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment power loss, business outages, restaurant or shop circuit faults, hot outlets, burning smells, shared meter-room issues and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and commercial or strata supply questions",
+    plannedWork:
+      "office lighting, shop maintenance, restaurant circuits, apartment repairs, strata electrical work, CCTV, data cabling and planned quote work",
+    propertyMix:
+      "apartments, strata buildings, offices, shops, restaurants, medical and retail suites, shared meter rooms and commercial sites",
+    setting: "Georges River apartment, strata and commercial centre service area",
+    switchboardDetail:
+      "commercial switchboards, shared meter rooms, tenancy loads, strata boards, safety switches and clearer circuit labelling",
+  },
+  "hurstville-grove": {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, driveway or gate access notes, renovation details, outdoor power photos and any defect notice or paperwork",
+    commonJobs:
+      "home fault finding, renovation wiring, outdoor power, switchboard upgrades, hot water circuits, lighting, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, outdoor circuit faults, hot water electrical faults, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
+    plannedWork:
+      "renovation wiring, outdoor power, switchboard upgrades, hot water circuits, lighting, smoke alarms, data cabling and planned quote work",
+    propertyMix:
+      "homes, renovated properties, villas, outdoor areas and residential service equipment",
+    setting: "Georges River home, renovation and outdoor-power service area",
+    switchboardDetail:
+      "older boards, renovation capacity, outdoor circuits, hot water loads, safety switches and RCBO protection",
+  },
+  kogarah: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, strata or building manager details, shared meter-room notes, parking or loading-zone details and any defect notice or paperwork",
+    commonJobs:
+      "apartment faults, office lighting, medical and retail suite maintenance, shop power, strata repairs, shared meter-room access, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment outages, medical or retail suite power loss, shop circuit faults, shared meter-room issues, hot outlets, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and medical, retail or strata supply questions",
+    plannedWork:
+      "medical suite power, retail lighting, office circuits, apartment repairs, strata electrical work, CCTV, data cabling and planned quote work",
+    propertyMix:
+      "apartments, offices, medical and retail suites, shops, strata buildings, shared meter rooms and local businesses",
+    setting: "Georges River apartment, medical, retail and strata service area",
+    switchboardDetail:
+      "shared meter rooms, strata boards, tenancy circuits, medical or retail loads, safety switches and RCBO protection",
+  },
+  "kogarah-bay": {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, driveway or gate notes, outdoor fitting photos, point of attachment photos and any defect notice or paperwork",
+    commonJobs:
+      "home fault finding, outdoor power, storm-exposed fitting checks, switchboard upgrades, consumer mains, point of attachment support, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "storm-exposed outdoor faults, water-affected outdoor fixtures, home power loss, hot outlets, burning smells and unsafe point of attachment concerns",
+    level2Detail:
+      "consumer mains, metering, point of attachment support, service equipment, defect notices and supply-side questions",
+    plannedWork:
+      "outdoor power, weather-exposed lighting, switchboard upgrades, consumer mains checks, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, larger residences, outdoor areas, weather-exposed fixtures and residential service equipment",
+    setting: "Georges River home, outdoor-power and storm-exposed service area",
+    switchboardDetail:
+      "older boards, outdoor circuits, consumer mains, point of attachment concerns, safety switches and RCBOs",
+  },
+  "kyle-bay": {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, driveway or gate access notes, renovation details, outdoor lighting photos and any defect notice or paperwork",
+    commonJobs:
+      "larger-home fault finding, renovation wiring, outdoor lighting, switchboard upgrades, hot water circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, outdoor lighting faults, hot water electrical issues, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
+    plannedWork:
+      "renovation wiring, outdoor lighting, switchboard upgrades, hot water circuits, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "larger homes, renovated properties, outdoor areas, villas and residential service equipment",
+    setting: "Georges River larger-home, renovation and outdoor-lighting service area",
+    switchboardDetail:
+      "larger home loads, renovation capacity, outdoor lighting circuits, hot water loads, safety switches and RCBO protection",
+  },
+  lugarno: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, long driveway or access notes, private pole or service equipment photos and any defect notice or paperwork",
+    commonJobs:
+      "larger-block fault finding, outdoor circuits, long-access electrical work, private pole questions, consumer mains, storm-related faults, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "storm-related faults, private pole or overhead concerns, home power loss, outdoor circuit faults, hot outlets and water-affected electrical equipment",
+    level2Detail:
+      "consumer mains, metering, private poles, point of attachment concerns, service equipment, defect notices and supply-side questions",
+    plannedWork:
+      "outdoor circuits, private pole checks, consumer mains, switchboard upgrades, long-access lighting, CCTV, data cabling and planned quote work",
+    propertyMix:
+      "larger blocks, homes with long access, outdoor areas, private poles and residential service equipment",
+    setting: "Georges River larger-block, outdoor-circuit and private service area",
+    switchboardDetail:
+      "larger property loads, outdoor circuits, consumer mains, private poles, safety switches and storm-related service concerns",
+  },
+  mortdale: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, shop or warehouse access notes, parking details, site contact details and any defect notice or paperwork",
+    commonJobs:
+      "home and unit fault finding, shop maintenance, warehouse circuits, commercial switchboards, hot water circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home or unit power loss, shop or warehouse outages, hot water electrical faults, hot outlets, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and commercial supply questions",
+    plannedWork:
+      "shop lighting, warehouse power, commercial switchboards, hot water circuits, home repairs, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, units, shops, warehouses, workshops, commercial tenancies and small businesses",
+    setting: "Georges River home, shop and warehouse service area",
+    switchboardDetail:
+      "commercial switchboards, older home boards, warehouse circuits, hot water loads, safety switches and RCBOs",
+  },
+  oatley: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, driveway or villa access notes, outdoor power photos and any defect notice or paperwork",
+    commonJobs:
+      "home and villa fault finding, renovation wiring, switchboard upgrades, outdoor power, consumer mains, hot water circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, outdoor circuit faults, hot water electrical issues, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
+    plannedWork:
+      "renovation wiring, outdoor power, switchboard upgrades, consumer mains checks, lighting, CCTV, data cabling and planned quote work",
+    propertyMix:
+      "homes, villas, renovated properties, outdoor areas and residential service equipment",
+    setting: "Georges River home, villa and renovation service area",
+    switchboardDetail:
+      "older boards, villa loads, outdoor circuits, consumer mains, safety switches and future renovation capacity",
+  },
+  peakhurst: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, workshop or warehouse access notes, parking details, site contact details and any defect notice or paperwork",
+    commonJobs:
+      "home fault finding, warehouse power, workshop circuits, commercial switchboards, business outages, load checks, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "business outages, warehouse power loss, workshop circuit faults, home power loss, hot outlets, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns, load checks and supply capacity questions",
+    plannedWork:
+      "warehouse lighting, workshop circuits, commercial switchboards, load checks, home repairs, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, warehouses, workshops, commercial tenancies, business sites and mixed residential properties",
+    setting: "Georges River home, warehouse and workshop service area",
+    switchboardDetail:
+      "commercial switchboards, workshop loads, load capacity checks, safety switches, RCBOs and clearer circuit labelling",
+  },
+  "peakhurst-heights": {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, driveway or gate access notes, outdoor power photos, service equipment photos and any defect notice or paperwork",
+    commonJobs:
+      "home fault finding, renovation wiring, outdoor power, switchboard upgrades, service-equipment support, hot water circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, outdoor circuit faults, storm damage, hot outlets, burning smells, safety-switch tripping and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
+    plannedWork:
+      "renovation wiring, outdoor power, switchboard upgrades, service-equipment checks, lighting, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, renovated properties, outdoor areas, residential service equipment and larger blocks",
+    setting: "Georges River home, renovation and service-equipment service area",
+    switchboardDetail:
+      "older boards, outdoor circuits, service equipment, safety switches, RCBOs and future renovation capacity",
+  },
+  penshurst: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, unit or villa access notes, shopfront entry details, shared access notes and any defect notice or paperwork",
+    commonJobs:
+      "unit and villa repairs, older-home fault finding, local shop maintenance, shared-access electrical work, switchboards, safety switches, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "unit power loss, shared circuit tripping, shop power faults, hot outlets, burning smells and safety-switch faults",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata supply questions",
+    plannedWork:
+      "unit repairs, villa switchboards, local shop lighting, older-home maintenance, smoke alarms, data points, CCTV and planned quote work",
+    propertyMix:
+      "units, villas, older homes, local shops, shared-access sites and strata buildings",
+    setting: "Georges River unit, villa, shop and shared-access service area",
+    switchboardDetail:
+      "older boards, shared access, safety switches, RCBO protection, villa loads and clearer labelling",
+  },
+  ramsgate: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, coastal or shopfront access notes, outdoor power photos, parking details and any defect notice or paperwork",
+    commonJobs:
+      "coastal fault finding, unit repairs, shopfront maintenance, outdoor power, switchboard upgrades, water-affected electrical checks, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "water-affected electrical equipment, coastal outdoor faults, unit power loss, shopfront outages, hot outlets, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
+    plannedWork:
+      "outdoor power, weather-exposed lighting, shopfront maintenance, unit repairs, switchboard upgrades, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "coastal units, shopfronts, homes, strata buildings, outdoor areas and small businesses",
+    setting: "Georges River coastal unit, shopfront and outdoor-power service area",
+    switchboardDetail:
+      "coastal exposure, older boards, outdoor circuits, safety switches, RCBOs and water-affected electrical risks",
+  },
+  "sans-souci": {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, driveway or coastal access notes, outdoor power photos, consumer mains photos and any defect notice or paperwork",
+    commonJobs:
+      "premium-home fault finding, coastal outdoor power, switchboard upgrades, consumer mains, service equipment, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "coastal outdoor faults, storm or water-affected electrical, home power loss, hot outlets, burning smells and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, service equipment, point of attachment concerns, defect notices and supply-side questions",
+    plannedWork:
+      "outdoor power, switchboard upgrades, consumer mains checks, weather-exposed lighting, renovation wiring, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "premium homes, coastal properties, renovated residences, outdoor areas and residential service equipment",
+    setting: "Georges River premium coastal-home and Level 2 service area",
+    switchboardDetail:
+      "larger home loads, coastal exposure, consumer mains, service equipment, safety switches and outdoor circuits",
+  },
+  "south-hurstville": {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, unit or business access notes, strata contact details, parking notes and any defect notice or paperwork",
+    commonJobs:
+      "home and unit fault finding, local business maintenance, strata repairs, switchboard upgrades, hot water circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home or unit power loss, local business outages, shared circuit tripping, hot water electrical faults, hot outlets and burning smells",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata or business supply questions",
+    plannedWork:
+      "home repairs, unit maintenance, local business lighting, strata electrical work, hot water circuits, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, units, local businesses, strata buildings, shared-access sites and residential properties",
+    setting: "Georges River home, unit, strata and local business service area",
+    switchboardDetail:
+      "older boards, strata access, hot water loads, safety switches, RCBO protection and clearer circuit labelling",
+  },
+};
+
+function getGeorgesRiverLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "st-george-and-bayside" ||
+    coverageArea.slug !== "georges-river"
+  ) {
+    return null;
+  }
+
+  return georgesRiverLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 function getLocalPageContext(
   coverageRegion: CoverageRegion,
   coverageArea: CoverageArea,
@@ -480,6 +838,16 @@ function getLocalPageContext(
 
   if (baysideAirportContext) {
     return baysideAirportContext;
+  }
+
+  const georgesRiverContext = getGeorgesRiverLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (georgesRiverContext) {
+    return georgesRiverContext;
   }
 
   if (
