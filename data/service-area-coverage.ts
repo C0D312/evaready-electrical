@@ -8092,6 +8092,606 @@ function getBlacktownLocalContext(
   return blacktownLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+function makePenrithLocalContext({
+  accessFocus,
+  commonJobs,
+  emergencySignals,
+  level2Detail,
+  plannedWork,
+  propertyMix,
+  setting,
+  switchboardDetail,
+}: Omit<LocalPageContext, "accessDetail"> & {
+  accessFocus: string;
+}): LocalPageContext {
+  return {
+    accessDetail: `photos of the switchboard, meter box, affected fitting, ${accessFocus}, access notes, parking/loading details, gate or strata/building-manager notes and any defect notice or paperwork`,
+    commonJobs,
+    emergencySignals,
+    level2Detail,
+    plannedWork,
+    propertyMix,
+    setting,
+    switchboardDetail,
+  };
+}
+
+const penrithLocalContexts: Record<string, LocalPageContext> = {
+  "berkshire-park": makePenrithLocalContext({
+    accessFocus:
+      "long driveway details, gate notes, shed or outbuilding photos and outdoor power locations",
+    commonJobs:
+      "acreage and rural-edge home electrical work, larger-block maintenance, shed power, outdoor power, storm fault checks, private service equipment, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "acreage power loss, shed or outbuilding faults, outdoor power hazards, storm-affected electrical equipment, switchboard faults, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for acreage homes, sheds, long driveways and private service equipment",
+    plannedWork:
+      "larger-block repairs, shed and outbuilding power, outdoor power, private service equipment review, consumer mains checks, CCTV/data, storm fault follow-up and planned quote work",
+    propertyMix:
+      "acreage and rural-edge homes, larger blocks, sheds, outdoor power, private service equipment, long driveways, storm faults and consumer mains",
+    setting:
+      "Berkshire Park acreage, rural-edge, shed, outdoor-power and long-driveway service area",
+    switchboardDetail:
+      "acreage switchboards, shed loads, outdoor power, private service equipment, consumer mains and safety switches",
+  }),
+  caddens: makePenrithLocalContext({
+    accessFocus:
+      "townhouse or apartment access details, aircon or EV load notes and shared access information",
+    commonJobs:
+      "newer-home, townhouse and apartment electrical work, aircon and EV load checks, switchboard capacity checks, consumer mains, metering, CCTV/data and planned quote work",
+    emergencySignals:
+      "newer-home power loss, townhouse or apartment faults, hot water electrical faults, switchboard capacity issues, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for newer homes, townhouses and apartment sites",
+    plannedWork:
+      "newer-home repairs, townhouse and apartment maintenance, aircon and EV load review, switchboard capacity checks, consumer mains, metering, CCTV/data and planned upgrades",
+    propertyMix:
+      "newer homes, townhouses, apartments, aircon and EV load checks, switchboard capacity, consumer mains, metering and planned upgrades",
+    setting:
+      "Caddens newer-home, townhouse, apartment, load-check and planned-upgrade service area",
+    switchboardDetail:
+      "newer-home boards, townhouse and apartment loads, aircon and EV demand, consumer mains, metering and safety switches",
+  }),
+  "cambridge-gardens": makePenrithLocalContext({
+    accessFocus:
+      "driveway or family-property access notes, hot water system details and outdoor power photos",
+    commonJobs:
+      "family-home electrical work, older and newer residential repairs, hot water electrical, safety switches, outdoor power, switchboards, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "family-home power loss, hot water electrical faults, outdoor power hazards, switchboard faults, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes and residential upgrades",
+    plannedWork:
+      "family-home repairs, outdoor power, hot water electrical, safety switch work, switchboard upgrades, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, older and newer residential properties, hot water faults, safety switches, outdoor power and Level 2 support",
+    setting:
+      "Cambridge Gardens family-home, residential-maintenance, hot-water and outdoor-power service area",
+    switchboardDetail:
+      "family-home boards, hot water demand, outdoor power, consumer mains and safety switches",
+  }),
+  "cambridge-park": makePenrithLocalContext({
+    accessFocus:
+      "unit, villa, rental or shop access notes, hot water details and switchboard photos",
+    commonJobs:
+      "home, unit, villa, rental-maintenance and local-shop electrical work, older-board checks, switchboards, hot water electrical, lighting, power, CCTV/data and planned quote work",
+    emergencySignals:
+      "home or unit power loss, villa and rental faults, local-shop outages, hot water electrical faults, switchboard issues, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, units, villas and local shops",
+    plannedWork:
+      "home repairs, unit and villa maintenance, rental maintenance, local-shop electrical work, older-board upgrades, hot water electrical, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, units, villas, rental maintenance, local shops, older boards, switchboards and hot water circuits",
+    setting:
+      "Cambridge Park home, unit, villa, rental-maintenance and local-shop service area",
+    switchboardDetail:
+      "older boards, unit and villa loads, local-shop circuits, hot water demand, consumer mains and safety switches",
+  }),
+  castlereagh: makePenrithLocalContext({
+    accessFocus:
+      "long driveway, gate and rural access notes, shed photos and private service equipment details",
+    commonJobs:
+      "rural and acreage home electrical work, shed power, outdoor power, storm fault checks, private service equipment, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "rural property power loss, shed faults, outdoor power hazards, storm-affected electrical equipment, private service equipment concerns, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for rural homes, long driveways, sheds and private service equipment",
+    plannedWork:
+      "acreage repairs, shed and outdoor power, private service equipment review, consumer mains checks, storm fault follow-up, CCTV/data and planned quote work",
+    propertyMix:
+      "rural and acreage homes, long driveways, sheds, private service equipment, outdoor power, storm faults and access notes",
+    setting:
+      "Castlereagh rural, acreage, long-driveway, shed and private-service-equipment service area",
+    switchboardDetail:
+      "acreage switchboards, shed loads, outdoor power, private service equipment, consumer mains and safety switches",
+  }),
+  "claremont-meadows": makePenrithLocalContext({
+    accessFocus:
+      "townhouse or family-property access notes, aircon load details and hot water system information",
+    commonJobs:
+      "home, townhouse and family-property electrical work, aircon load checks, switchboard capacity checks, hot water electrical, safety switches, CCTV/data and planned maintenance",
+    emergencySignals:
+      "home power loss, townhouse faults, hot water electrical issues, aircon load concerns, switchboard faults, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, townhouses and family properties",
+    plannedWork:
+      "home repairs, townhouse maintenance, aircon load review, switchboard capacity checks, hot water electrical, safety switch work, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, townhouses, family properties, aircon loads, switchboard capacity, hot water faults and planned maintenance",
+    setting:
+      "Claremont Meadows home, townhouse, family-property, aircon-load and hot-water service area",
+    switchboardDetail:
+      "home and townhouse boards, aircon demand, hot water loads, consumer mains and safety switches",
+  }),
+  colyton: makePenrithLocalContext({
+    accessFocus:
+      "rental or shop access notes, older-board photos and hot water system details",
+    commonJobs:
+      "older-home, rental-maintenance and shop electrical work, safety switches, switchboard upgrades, lighting, power, hot water electrical, CCTV/data and planned quote work",
+    emergencySignals:
+      "older-home power loss, rental maintenance faults, shop outages, hot water electrical faults, switchboard issues, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes, shops and rental properties",
+    plannedWork:
+      "older-home repairs, rental maintenance, shop maintenance, switchboard upgrades, lighting, power, hot water electrical, CCTV/data and planned quote work",
+    propertyMix:
+      "older homes, rental maintenance, shops, safety switches, switchboard upgrades, lighting/power repairs and hot water circuits",
+    setting:
+      "Colyton older-home, rental-maintenance, shop, switchboard and hot-water service area",
+    switchboardDetail:
+      "older switchboards, shop and rental-property loads, hot water demand, consumer mains and safety switches",
+  }),
+  cranebrook: makePenrithLocalContext({
+    accessFocus:
+      "estate, acreage-edge or outdoor power access notes, storm fault details and switchboard photos",
+    commonJobs:
+      "family-home, newer-estate and acreage-edge electrical work, outdoor power, storm fault checks, switchboards, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "family-home power loss, newer-estate faults, acreage-edge outdoor power hazards, storm-affected electrical equipment, switchboard faults, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes, newer estates and acreage-edge properties",
+    plannedWork:
+      "family-home repairs, newer-estate maintenance, outdoor power, storm fault follow-up, switchboard upgrades, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, newer estates, acreage edges, outdoor power, storm faults, switchboards, consumer mains and access notes",
+    setting:
+      "Cranebrook family-home, newer-estate, acreage-edge, outdoor-power and storm-fault service area",
+    switchboardDetail:
+      "family-home boards, newer-estate loads, outdoor power, consumer mains and safety switches",
+  }),
+  "emu-heights": makePenrithLocalContext({
+    accessFocus:
+      "hillside or river-edge access notes, driveway details, outdoor power photos and storm fault information",
+    commonJobs:
+      "hillside and river-edge home electrical work, outdoor power, access-sensitive fault finding, private service equipment, switchboards, storm fault checks, CCTV/data and planned quote work",
+    emergencySignals:
+      "hillside or river-edge power loss, outdoor power hazards, storm-related faults, private service equipment concerns, switchboard faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for hillside homes, river-edge homes and private service equipment",
+    plannedWork:
+      "home repairs, outdoor power, private service equipment review, switchboard upgrades, storm fault follow-up, CCTV/data and planned quote work",
+    propertyMix:
+      "hillside and river-edge homes, outdoor power, access notes, private service equipment, switchboards and storm-related faults",
+    setting:
+      "Emu Heights hillside, river-edge, outdoor-power and access-sensitive service area",
+    switchboardDetail:
+      "residential boards, outdoor power, private service equipment, consumer mains and safety switches",
+  }),
+  "emu-plains": makePenrithLocalContext({
+    accessFocus:
+      "shop, light industrial or commercial access notes, loading details and meter-room information",
+    commonJobs:
+      "home, shop, light industrial and commercial electrical work, business outages, switchboards, consumer mains, metering, lighting, power, CCTV/data and planned quote work",
+    emergencySignals:
+      "home power loss, shop or light industrial outages, commercial faults, switchboard issues, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, shops, light industrial sites and commercial properties",
+    plannedWork:
+      "home repairs, shop maintenance, light industrial electrical work, commercial switchboard checks, consumer mains review, metering support, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, shops, light industrial and commercial work, access notes, business outages, switchboards, consumer mains and metering",
+    setting:
+      "Emu Plains home, shop, light-industrial, commercial and metering service area",
+    switchboardDetail:
+      "home, shop and light industrial boards, commercial loads, consumer mains, metering and safety switches",
+  }),
+  "erskine-park": makePenrithLocalContext({
+    accessFocus:
+      "warehouse entry, logistics-site contact details, factory loading access and business outage notes",
+    commonJobs:
+      "warehouse, logistics, factory and workshop electrical work, commercial switchboards, load checks, business outages, lighting, power, CCTV/data and planned quote work",
+    emergencySignals:
+      "warehouse power loss, logistics-site faults, factory or workshop outages, commercial switchboard concerns, business outages, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for warehouses, logistics sites, factories and workshops",
+    plannedWork:
+      "warehouse lighting, logistics-site power, factory and workshop maintenance, commercial switchboard upgrades, load checks, CCTV/data and planned quote work",
+    propertyMix:
+      "warehouses, logistics sites, factories, workshops, commercial switchboards, three-phase/load checks, business outages, lighting/power and CCTV/data",
+    setting:
+      "Erskine Park warehouse, logistics, factory, workshop and commercial-switchboard service area",
+    switchboardDetail:
+      "commercial switchboards, warehouse and logistics loads, factory and workshop demand, load checks, consumer mains and safety switches",
+  }),
+  "glenmore-park": makePenrithLocalContext({
+    accessFocus:
+      "family-property access notes, aircon or EV load details, outdoor power photos and shop contact information",
+    commonJobs:
+      "newer-home, larger family-property and local-shop electrical work, aircon and EV load checks, switchboard capacity checks, hot water electrical, outdoor power, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "newer-home power loss, local-shop outages, outdoor power hazards, hot water electrical faults, switchboard capacity issues, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for newer homes, larger family properties and local shops",
+    plannedWork:
+      "newer-home repairs, larger family-property upgrades, local-shop maintenance, aircon and EV load checks, switchboard capacity review, outdoor power, CCTV/data and planned quote work",
+    propertyMix:
+      "newer homes, larger family properties, local shops, aircon and EV load checks, switchboard capacity, hot water, outdoor power and consumer mains",
+    setting:
+      "Glenmore Park newer-home, larger-family-property, local-shop and load-check service area",
+    switchboardDetail:
+      "newer-home boards, larger family-property loads, local-shop demand, aircon and EV load checks, consumer mains and safety switches",
+  }),
+  jamisontown: makePenrithLocalContext({
+    accessFocus:
+      "showroom, bulky-goods, office or industrial access notes, loading details and business contact information",
+    commonJobs:
+      "bulky-goods, showroom, industrial-commercial, shop, office and home electrical work, business outages, commercial switchboards, lighting, power, CCTV/data, Level 2 support and planned quote work",
+    emergencySignals:
+      "showroom power loss, bulky-goods or industrial-commercial outages, shop or office faults, business outages, commercial switchboard concerns, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for showrooms, shops, offices, homes and industrial-commercial properties",
+    plannedWork:
+      "showroom lighting, bulky-goods power, shop and office maintenance, commercial switchboard upgrades, CCTV/data, consumer mains review and planned quote work",
+    propertyMix:
+      "bulky goods, showrooms, industrial-commercial sites, shops, offices, homes, business outages, commercial switchboards, lighting/power, CCTV/data and Level 2 support",
+    setting:
+      "Jamisontown bulky-goods, showroom, industrial-commercial, shop and office service area",
+    switchboardDetail:
+      "commercial switchboards, showroom and bulky-goods loads, shop and office demand, consumer mains and safety switches",
+  }),
+  "jordan-springs": makePenrithLocalContext({
+    accessFocus:
+      "new-estate, townhouse or community access details, aircon or EV load notes and metering photos",
+    commonJobs:
+      "new-estate, townhouse and family-home electrical work, aircon and EV load checks, switchboard capacity checks, consumer mains, metering, new-build support, CCTV/data and planned quote work",
+    emergencySignals:
+      "new-estate power loss, townhouse or family-home faults, aircon or EV load concerns, hot water electrical issues, switchboard faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for new estates, townhouses, family homes and new-build support",
+    plannedWork:
+      "new-estate maintenance, townhouse and family-home repairs, aircon and EV load checks, switchboard capacity review, consumer mains, metering, CCTV/data and planned upgrades",
+    propertyMix:
+      "new estates, townhouses, family homes, aircon and EV loads, switchboard capacity, consumer mains, metering, new-build support and community access notes",
+    setting:
+      "Jordan Springs new-estate, townhouse, family-home, load-check and metering service area",
+    switchboardDetail:
+      "new-estate boards, townhouse and family-home loads, aircon and EV demand, consumer mains, metering and safety switches",
+  }),
+  kingswood: makePenrithLocalContext({
+    accessFocus:
+      "apartment, station-area, medical or education access notes, shared meter-room details and parking information",
+    commonJobs:
+      "apartment, station-area shop, medical and education precinct electrical work, strata access, shared meter rooms, older switchboards, hot water electrical, Level 2 support, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, station-area shop faults, medical or education site electrical issues, shared meter-room concerns, hot water electrical faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, shops, medical or education sites and shared meter rooms",
+    plannedWork:
+      "apartment repairs, station-area shop maintenance, medical and education precinct electrical work, shared meter-room checks, older-switchboard upgrades, hot water electrical, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, station-area shops, medical and education precinct demand, strata access, shared meter rooms, older switchboards, hot water faults and Level 2 support",
+    setting:
+      "Kingswood apartment, station-area, medical, education, shared-meter-room and hot-water service area",
+    switchboardDetail:
+      "shared meter rooms, older switchboards, apartment and shop loads, hot water demand, consumer mains and safety switches",
+  }),
+  leonay: makePenrithLocalContext({
+    accessFocus:
+      "river or hillside access notes, driveway details, outdoor power photos and storm fault information",
+    commonJobs:
+      "river and hillside home electrical work, outdoor power, access-sensitive repairs, switchboards, hot water electrical, private service equipment, storm fault checks, CCTV/data and planned quote work",
+    emergencySignals:
+      "river or hillside home power loss, outdoor power hazards, storm-related faults, hot water electrical issues, private service equipment concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for river homes, hillside homes and private service equipment",
+    plannedWork:
+      "home repairs, outdoor power, hot water electrical, private service equipment review, storm fault follow-up, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "river and hillside homes, outdoor circuits, access notes, switchboards, hot water, private service equipment and storm-related faults",
+    setting:
+      "Leonay river-home, hillside-home, outdoor-power and storm-fault service area",
+    switchboardDetail:
+      "residential boards, outdoor power, hot water demand, private service equipment, consumer mains and safety switches",
+  }),
+  llandilo: makePenrithLocalContext({
+    accessFocus:
+      "long driveway, gate and rural-edge access notes, shed photos and outdoor power details",
+    commonJobs:
+      "acreage and rural-edge property electrical work, long-driveway access, shed power, outdoor power, private service equipment, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "acreage power loss, shed faults, outdoor power hazards, rural-edge storm faults, private service equipment concerns, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for acreage homes, rural-edge properties, sheds and private service equipment",
+    plannedWork:
+      "acreage repairs, shed power, outdoor power, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage homes, rural-edge properties, long driveways, sheds, outdoor power, private service equipment, consumer mains and access/gate notes",
+    setting:
+      "Llandilo acreage, rural-edge, long-driveway, shed and access-gate service area",
+    switchboardDetail:
+      "acreage boards, shed loads, outdoor power, private service equipment, consumer mains and safety switches",
+  }),
+  londonderry: makePenrithLocalContext({
+    accessFocus:
+      "rural access notes, shed or workshop details, gate information and storm fault photos",
+    commonJobs:
+      "acreage and rural property electrical work, shed and workshop power, outdoor power, private service equipment, switchboards, storm fault checks, CCTV/data and planned quote work",
+    emergencySignals:
+      "acreage or rural property power loss, shed or workshop faults, outdoor power hazards, storm-affected electrical equipment, private service equipment concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for acreage properties, sheds, workshops and private service equipment",
+    plannedWork:
+      "acreage repairs, shed and workshop power, outdoor power, private service equipment review, switchboard upgrades, storm fault follow-up, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage and rural properties, sheds, workshops, outdoor power, private service equipment, switchboards, storm faults and access notes",
+    setting:
+      "Londonderry acreage, rural-property, shed, workshop and storm-fault service area",
+    switchboardDetail:
+      "acreage boards, shed and workshop loads, outdoor power, private service equipment, consumer mains and safety switches",
+  }),
+  "mount-vernon": makePenrithLocalContext({
+    accessFocus:
+      "long driveway, gate and large-block access notes, shed or outbuilding photos and outdoor power details",
+    commonJobs:
+      "acreage-home and large-block electrical work, sheds and outbuildings, outdoor power, private service equipment, switchboards, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "large-block power loss, shed or outbuilding faults, outdoor power hazards, private service equipment concerns, storm fault symptoms and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for acreage homes, large blocks, sheds, outbuildings and private service equipment",
+    plannedWork:
+      "acreage-home repairs, shed and outbuilding power, outdoor power, private service equipment review, switchboard upgrades, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage homes, large blocks, long driveways, sheds and outbuildings, private service equipment, outdoor power, switchboards and consumer mains",
+    setting:
+      "Mount Vernon acreage-home, large-block, shed, outbuilding and private-service-equipment service area",
+    switchboardDetail:
+      "acreage switchboards, shed and outbuilding loads, outdoor power, private service equipment, consumer mains and safety switches",
+  }),
+  mulgoa: makePenrithLocalContext({
+    accessFocus:
+      "village or acreage access notes, outdoor lighting photos, gate details and storm fault information",
+    commonJobs:
+      "rural, village and acreage electrical work, outdoor lighting, private service equipment, storm fault checks, switchboards, CCTV/data and planned quote work",
+    emergencySignals:
+      "rural or village home power loss, acreage outdoor power hazards, storm-affected electrical equipment, private service equipment concerns, switchboard faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for rural homes, village homes, acreage properties and private service equipment",
+    plannedWork:
+      "rural and village repairs, acreage maintenance, outdoor lighting, private service equipment review, storm fault follow-up, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "rural and village homes, acreage, outdoor lighting, private service equipment, storm faults, switchboards and planned quote guidance",
+    setting:
+      "Mulgoa rural, village, acreage, outdoor-lighting and private-service-equipment service area",
+    switchboardDetail:
+      "rural and village boards, acreage loads, outdoor lighting, private service equipment, consumer mains and safety switches",
+  }),
+  "north-st-marys": makePenrithLocalContext({
+    accessFocus:
+      "workshop or industrial pocket access notes, business outage details, hot water information and older-board photos",
+    commonJobs:
+      "home, workshop and industrial-pocket electrical work, older boards, business outages, switchboards, lighting, power, hot water electrical, Level 2 support, CCTV/data and planned quote work",
+    emergencySignals:
+      "home power loss, workshop or industrial-pocket outages, business faults, older-board concerns, hot water electrical issues and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, workshops and industrial-pocket properties",
+    plannedWork:
+      "home repairs, workshop power, industrial-pocket maintenance, older-board upgrades, lighting, power, hot water electrical, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, industrial pockets, workshops, older boards, business outages, switchboards, lighting/power, hot water and Level 2 support",
+    setting:
+      "North St Marys home, industrial-pocket, workshop, older-board and hot-water service area",
+    switchboardDetail:
+      "older boards, workshop and industrial-pocket loads, hot water demand, consumer mains and safety switches",
+  }),
+  "orchard-hills": makePenrithLocalContext({
+    accessFocus:
+      "rural-growth, new-estate or broad-block access notes, gate details and aircon or EV load information",
+    commonJobs:
+      "rural-growth corridor, broad-block and new-estate electrical work, long-driveway access, private service equipment, aircon and EV load checks, consumer mains, metering, CCTV/data and planned quote work",
+    emergencySignals:
+      "rural-growth property power loss, broad-block faults, new-estate electrical issues, private service equipment concerns, aircon or EV load problems and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for rural-growth properties, new estates, broad blocks and private service equipment",
+    plannedWork:
+      "rural-growth repairs, new-estate maintenance, long-driveway access planning, private service equipment review, aircon and EV load checks, consumer mains, metering, CCTV/data and planned quote work",
+    propertyMix:
+      "rural-growth corridor, broad blocks, new estates, long driveways, private service equipment, aircon and EV loads, consumer mains and metering",
+    setting:
+      "Orchard Hills rural-growth, broad-block, new-estate, load-check and metering service area",
+    switchboardDetail:
+      "broad-block and new-estate boards, aircon and EV demand, private service equipment, consumer mains, metering and safety switches",
+  }),
+  "oxley-park": makePenrithLocalContext({
+    accessFocus:
+      "unit, shop, rental or station-area access notes, hot water details and switchboard photos",
+    commonJobs:
+      "older-home, unit, station-area shop and rental-maintenance electrical work, switchboards, safety switches, hot water electrical, lighting, power, Level 2 support, CCTV/data and planned quote work",
+    emergencySignals:
+      "older-home power loss, unit or rental faults, station-area shop outages, hot water electrical issues, switchboard faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes, units, shops and rental properties",
+    plannedWork:
+      "older-home repairs, unit maintenance, station-area shop electrical work, rental maintenance, switchboard upgrades, safety switches, hot water electrical, CCTV/data and planned quote work",
+    propertyMix:
+      "older homes, units, station-area shops, rental maintenance, switchboards, safety switches, hot water, lighting/power and Level 2 support",
+    setting:
+      "Oxley Park older-home, unit, station-area-shop, rental-maintenance and hot-water service area",
+    switchboardDetail:
+      "older switchboards, unit and shop loads, rental-property demand, hot water loads, consumer mains and safety switches",
+  }),
+  penrith: makePenrithLocalContext({
+    accessFocus:
+      "CBD, apartment, office, restaurant, warehouse or shared meter-room access notes and loading information",
+    commonJobs:
+      "CBD, local business, apartment, office, restaurant, retail, station-area and warehouse electrical work, business outages, shared meter rooms, switchboards, consumer mains, metering, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "CBD apartment power loss, office or restaurant outages, retail faults, station-area issues, warehouse electrical faults, shared meter-room concerns, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, offices, restaurants, retail sites, warehouses and shared meter rooms",
+    plannedWork:
+      "apartment repairs, office and restaurant electrical work, retail maintenance, warehouse lighting, shared meter-room checks, switchboard upgrades, consumer mains review, metering support, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "CBD and local business properties, apartments, offices, restaurants, retail, station-area properties, warehouses, business outages, shared meter rooms, switchboards, consumer mains, metering and defect notices",
+    setting:
+      "Penrith CBD, apartment, office, restaurant, retail, warehouse and shared-meter-room service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, office and restaurant loads, retail and warehouse demand, consumer mains, metering and safety switches",
+  }),
+  regentville: makePenrithLocalContext({
+    accessFocus:
+      "river-edge or larger-block access notes, outdoor power photos, driveway details and private service equipment information",
+    commonJobs:
+      "home, larger-block and river-edge electrical work, outdoor power, switchboards, private service equipment, hot water electrical, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "home power loss, river-edge outdoor power hazards, larger-block faults, hot water electrical issues, private service equipment concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, larger blocks, river-edge properties and private service equipment",
+    plannedWork:
+      "home repairs, larger-block maintenance, outdoor power, private service equipment review, hot water electrical, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, larger blocks, river-edge and outdoor power context, switchboards, private service equipment, hot water circuits, consumer mains and access notes",
+    setting:
+      "Regentville home, larger-block, river-edge, outdoor-power and private-service-equipment service area",
+    switchboardDetail:
+      "larger-block boards, outdoor power, hot water demand, private service equipment, consumer mains and safety switches",
+  }),
+  "south-penrith": makePenrithLocalContext({
+    accessFocus:
+      "family-property or local-shop access notes, outdoor power photos and hot water system details",
+    commonJobs:
+      "family-home and local-shop electrical work, older switchboards, hot water electrical, safety switches, outdoor power, switchboard upgrades, CCTV/data and planned maintenance",
+    emergencySignals:
+      "family-home power loss, local-shop outages, hot water electrical faults, outdoor power hazards, older-switchboard concerns, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes and local shops",
+    plannedWork:
+      "family-home repairs, local-shop maintenance, older-switchboard upgrades, hot water electrical, safety switch work, outdoor power, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, local shops, older switchboards, hot water faults, safety switches, outdoor power, switchboard upgrades and planned maintenance",
+    setting:
+      "South Penrith family-home, local-shop, older-switchboard and planned-maintenance service area",
+    switchboardDetail:
+      "older switchboards, family-home loads, local-shop demand, hot water circuits, outdoor power, consumer mains and safety switches",
+  }),
+  "st-clair": makePenrithLocalContext({
+    accessFocus:
+      "family-property or shop access notes, outdoor power photos, smoke alarm locations and hot water information",
+    commonJobs:
+      "family-home and local-shop electrical work, older boards, safety-switch faults, hot water electrical, outdoor power, smoke alarms, switchboards, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "family-home power loss, local-shop faults, older-board issues, hot water electrical faults, outdoor power hazards, smoke alarm concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes and local shops",
+    plannedWork:
+      "family-home repairs, local-shop maintenance, older-board upgrades, hot water electrical, outdoor power, smoke alarms, safety switch work, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, local shops, older boards, safety-switch faults, hot water, outdoor power, smoke alarms, switchboards and consumer mains",
+    setting:
+      "St Clair family-home, local-shop, older-board, outdoor-power and smoke-alarm service area",
+    switchboardDetail:
+      "older boards, family-home and local-shop loads, hot water demand, outdoor power, consumer mains and safety switches",
+  }),
+  "st-marys": makePenrithLocalContext({
+    accessFocus:
+      "station-area, warehouse, workshop or industrial access notes, loading details and business outage information",
+    commonJobs:
+      "station-area shop, apartment, warehouse, workshop and industrial-commercial electrical work, business outages, commercial switchboards, load checks, consumer mains, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "station-area shop outages, apartment power loss, warehouse or workshop faults, industrial-commercial outages, commercial switchboard concerns, smoke smells and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for shops, apartments, warehouses, workshops and industrial-commercial sites",
+    plannedWork:
+      "shop and apartment maintenance, warehouse lighting, workshop power, industrial-commercial electrical work, commercial switchboard upgrades, load checks, consumer mains review, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "station-area shops, apartments, warehouses, workshops, industrial and commercial sites, business outages, commercial switchboards, load checks, consumer mains and defect notices",
+    setting:
+      "St Marys station-area, apartment, warehouse, workshop and industrial-commercial service area",
+    switchboardDetail:
+      "commercial switchboards, apartment and shop loads, warehouse and workshop demand, load checks, consumer mains and safety switches",
+  }),
+  werrington: makePenrithLocalContext({
+    accessFocus:
+      "station-area, townhouse, apartment or unit access notes, hot water details and switchboard photos",
+    commonJobs:
+      "station-area home, townhouse, apartment and unit electrical work, older boards, switchboards, hot water electrical, safety switches, Level 2 support, CCTV/data and planned quote work",
+    emergencySignals:
+      "station-area home power loss, townhouse or apartment faults, unit electrical issues, hot water electrical faults, older-board concerns and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for station-area homes, townhouses, apartments and units",
+    plannedWork:
+      "station-area home repairs, townhouse and apartment maintenance, unit electrical work, older-board upgrades, hot water electrical, safety switch work, CCTV/data and planned quote work",
+    propertyMix:
+      "station-area homes, townhouses, apartments and units, older boards, switchboards, hot water, safety switches, access notes and Level 2 support",
+    setting:
+      "Werrington station-area, townhouse, apartment, unit, older-board and hot-water service area",
+    switchboardDetail:
+      "older boards, townhouse and apartment loads, unit demand, hot water circuits, consumer mains and safety switches",
+  }),
+  "werrington-county": makePenrithLocalContext({
+    accessFocus:
+      "family-property access notes, outdoor power photos, hot water information and aircon load details",
+    commonJobs:
+      "family-home electrical work, residential maintenance, older switchboards, outdoor power, hot water electrical, safety switches, aircon load checks, CCTV/data and planned quote work",
+    emergencySignals:
+      "family-home power loss, residential maintenance faults, outdoor power hazards, hot water electrical issues, aircon load concerns, older-switchboard faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes and residential maintenance work",
+    plannedWork:
+      "family-home repairs, residential maintenance, older-switchboard upgrades, outdoor power, hot water electrical, safety switch work, aircon load checks, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, residential maintenance, older switchboards, outdoor power, hot water, safety switches, aircon circuits and quote guidance",
+    setting:
+      "Werrington County family-home, residential-maintenance, outdoor-power and aircon-load service area",
+    switchboardDetail:
+      "older switchboards, family-home loads, outdoor power, hot water demand, aircon loads, consumer mains and safety switches",
+  }),
+  "werrington-downs": makePenrithLocalContext({
+    accessFocus:
+      "family-property or larger-block access notes, outdoor lighting photos and driveway details",
+    commonJobs:
+      "family-home and larger residential block electrical work, switchboards, hot water electrical, outdoor lighting and power, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "family-home power loss, larger residential block faults, outdoor lighting or power hazards, hot water electrical issues, switchboard faults and repeated safety-switch trips",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes and larger residential blocks",
+    plannedWork:
+      "family-home repairs, larger residential block maintenance, switchboard upgrades, hot water electrical, outdoor lighting and power, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, larger residential blocks, switchboards, hot water, outdoor lighting and power, consumer mains and access notes",
+    setting:
+      "Werrington Downs family-home, larger-residential-block, outdoor-lighting and consumer-mains service area",
+    switchboardDetail:
+      "family-home and larger residential block boards, hot water demand, outdoor lighting and power, consumer mains and safety switches",
+  }),
+};
+
+function getPenrithLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "western-sydney-and-nepean" ||
+    coverageArea.slug !== "penrith"
+  ) {
+    return null;
+  }
+
+  return penrithLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 const burwoodLocalContexts: Record<string, LocalPageContext> = {
   burwood: {
     accessDetail:
@@ -8382,6 +8982,16 @@ function getLocalPageContext(
 
   if (blacktownContext) {
     return blacktownContext;
+  }
+
+  const penrithContext = getPenrithLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (penrithContext) {
+    return penrithContext;
   }
 
   const burwoodContext = getBurwoodLocalContext(
