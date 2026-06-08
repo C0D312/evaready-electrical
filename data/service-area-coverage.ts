@@ -4736,6 +4736,473 @@ function getCanadaBayLocalContext(
   return canadaBayLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+function makeInnerWestLocalContext({
+  accessFocus,
+  commonJobs,
+  emergencySignals,
+  level2Detail,
+  plannedWork,
+  propertyMix,
+  setting,
+  switchboardDetail,
+}: Omit<LocalPageContext, "accessDetail"> & {
+  accessFocus: string;
+}): LocalPageContext {
+  return {
+    accessDetail: `photos of the switchboard, meter box, affected fitting, ${accessFocus}, access notes, parking details and any defect notice or paperwork`,
+    commonJobs,
+    emergencySignals,
+    level2Detail,
+    plannedWork,
+    propertyMix,
+    setting,
+    switchboardDetail,
+  };
+}
+
+const innerWestLocalContexts: Record<string, LocalPageContext> = {
+  annandale: makeInnerWestLocalContext({
+    accessFocus:
+      "narrow-street parking notes, terrace or strata access details and cafe or local shop contact information",
+    commonJobs:
+      "terrace electrical work, older wiring checks, strata apartment repairs, cafe and local shop maintenance, switchboard upgrades, defect notices, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "terrace power loss, strata apartment faults, cafe or local shop outages, older wiring faults, burning smells, hot outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for terraces, older homes, strata apartments and local shops",
+    plannedWork:
+      "terrace repairs, older wiring checks, strata electrical work, cafe and shop maintenance, switchboard upgrades, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "terraces, older homes, strata apartments, cafes, local shops, narrow streets, limited parking and residential service equipment",
+    setting: "Annandale terrace, strata apartment and cafe service area",
+    switchboardDetail:
+      "older wiring, terrace loads, strata boards, cafe and shop loads, consumer mains, defect notices and safety switches",
+  }),
+  ashbury: makeInnerWestLocalContext({
+    accessFocus:
+      "older-home photos, duplex access notes, hot water circuit details and safety-switch fault notes",
+    commonJobs:
+      "older-home electrical work, duplex repairs, federation-style residential wiring checks, switchboard upgrades, hot water electrical, safety-switch tripping, CCTV/data and planned quote work",
+    emergencySignals:
+      "older-home power loss, hot water electrical faults, older-board overheating, burning smells, hot outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes and duplexes",
+    plannedWork:
+      "older-home repairs, duplex electrical work, hot water circuits, switchboard upgrades, safety-switch repairs, smoke alarms, CCTV/data and planned quote work",
+    propertyMix:
+      "older homes, duplexes, federation-style residential wiring, hot water circuits and residential service equipment",
+    setting: "Ashbury older-home, duplex and federation-style residential service area",
+    switchboardDetail:
+      "older wiring, older switchboards, hot water loads, safety switches, RCBO protection and consumer mains condition",
+  }),
+  ashfield: makeInnerWestLocalContext({
+    accessFocus:
+      "shared meter-room notes, strata or shop access details, restaurant contact details and metering paperwork",
+    commonJobs:
+      "apartment, strata, older-home, shop and restaurant electrical work, shared meter-room access, business outages, switchboard upgrades, consumer mains, defect notices, metering, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, shop or restaurant outages, shared meter-room issues, business faults, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for apartments, strata buildings, shops and older homes",
+    plannedWork:
+      "apartment repairs, strata maintenance, shop and restaurant power, older-home repairs, switchboard upgrades, consumer mains review, metering support, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, strata buildings, older homes, shops, restaurants, shared meter rooms, business sites and residential service equipment",
+    setting: "Ashfield apartment, strata, shop and older-home service area",
+    switchboardDetail:
+      "shared meter rooms, older wiring, apartment boards, shop and restaurant loads, consumer mains, defect notices, metering and safety switches",
+  }),
+  balmain: makeInnerWestLocalContext({
+    accessFocus:
+      "heritage terrace notes, waterfront access details, shopfront contact details and tight parking information",
+    commonJobs:
+      "heritage terrace electrical work, older wiring checks, waterfront-home repairs, apartment and cafe maintenance, shopfront power, switchboard upgrades, consumer mains, service equipment, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "heritage terrace power loss, waterfront-home faults, cafe or shopfront outages, older wiring faults, burning smells, hot outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for heritage terraces, waterfront homes, apartments and shopfronts",
+    plannedWork:
+      "heritage terrace repairs, apartment maintenance, cafe and shopfront power, outdoor power, switchboard upgrades, consumer mains review, service equipment checks, CCTV/data and planned quote work",
+    propertyMix:
+      "heritage terraces, older wiring, waterfront homes, apartments, cafes, shopfronts, tight parking and service equipment",
+    setting: "Balmain heritage terrace, waterfront-home and shopfront service area",
+    switchboardDetail:
+      "older wiring, heritage terrace loads, shopfront loads, waterfront exposure, consumer mains, service equipment and safety switches",
+  }),
+  "balmain-east": makeInnerWestLocalContext({
+    accessFocus:
+      "waterfront access notes, narrow access details, limited parking information and point of attachment photos",
+    commonJobs:
+      "waterfront apartment and home electrical work, heritage wiring checks, outdoor power, switchboard upgrades, consumer mains, point of attachment enquiries, CCTV/data and planned quote work",
+    emergencySignals:
+      "waterfront apartment power loss, heritage wiring faults, outdoor power hazards, storm or water-affected fixtures, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for waterfront apartments, waterfront homes and heritage properties",
+    plannedWork:
+      "waterfront apartment repairs, heritage wiring checks, outdoor power, switchboard upgrades, consumer mains review, point of attachment checks, CCTV/data and planned quote work",
+    propertyMix:
+      "waterfront apartments, waterfront homes, heritage wiring, narrow access streets, limited parking and point of attachment assets",
+    setting: "Balmain East waterfront, heritage and narrow-access service area",
+    switchboardDetail:
+      "waterfront exposure, heritage wiring, older switchboards, outdoor power, consumer mains, point of attachment condition and safety switches",
+  }),
+  birchgrove: makeInnerWestLocalContext({
+    accessFocus:
+      "waterfront access notes, heritage property details, outdoor power photos and private service equipment information",
+    commonJobs:
+      "waterfront-home electrical work, heritage property wiring checks, older switchboard upgrades, weather-exposed outdoor power, private service equipment, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "waterfront home power loss, weather-exposed power faults, outdoor power hazards, storm or water-affected fixtures, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and supply-side questions for waterfront and heritage properties",
+    plannedWork:
+      "heritage property repairs, waterfront outdoor power, switchboard upgrades, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "waterfront homes, heritage properties, older switchboards, outdoor circuits, private service equipment and constrained parking",
+    setting: "Birchgrove waterfront-home, heritage and outdoor-power service area",
+    switchboardDetail:
+      "older switchboards, waterfront exposure, weather-exposed power, private service equipment, consumer mains and safety switches",
+  }),
+  camperdown: makeInnerWestLocalContext({
+    accessFocus:
+      "strata entry notes, medical or education site contact details, commercial tenancy access details and shared meter-room information",
+    commonJobs:
+      "apartment, terrace, medical precinct, education precinct and commercial tenancy electrical work, strata access jobs, shared meter-room support, switchboard upgrades, urgent faults, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment power loss, medical or education site faults, commercial tenancy outages, shared meter-room issues, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, terraces, strata buildings and commercial tenancies",
+    plannedWork:
+      "apartment repairs, terrace electrical work, medical and education tenancy maintenance, commercial fitout support, switchboard upgrades, shared meter-room checks, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, terrace houses, medical and education precinct buildings, commercial tenancies, strata sites and shared meter rooms",
+    setting: "Camperdown apartment, terrace, medical precinct and commercial-tenancy service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, terrace loads, commercial tenancy loads, medical or education site circuits, consumer mains and safety switches",
+  }),
+  croydon: makeInnerWestLocalContext({
+    accessFocus:
+      "older-home photos, villa or apartment access notes, shopfront details and defect notice paperwork",
+    commonJobs:
+      "older-home, apartment, villa and shopfront electrical work, switchboard upgrades, hot water electrical, safety switches, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "older-home power loss, apartment or villa faults, shopfront outages, hot water electrical issues, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes, apartments, villas and shopfronts",
+    plannedWork:
+      "older-home repairs, apartment and villa maintenance, shopfront lighting, hot water electrical, switchboard upgrades, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "older homes, apartments, villas, shopfronts, hot water loads, switchboards and residential service equipment",
+    setting: "Croydon older-home, apartment, villa and shopfront service area",
+    switchboardDetail:
+      "older wiring, apartment boards, villa loads, shopfront loads, hot water demand, defect notices and safety switches",
+  }),
+  "croydon-park": makeInnerWestLocalContext({
+    accessFocus:
+      "duplex, villa or apartment access notes, rental maintenance details and local shop access information",
+    commonJobs:
+      "older-home, duplex, villa, apartment and local shop electrical work, rental maintenance, switchboard upgrades, general electrical repairs, hot water electrical, CCTV/data and planned quote work",
+    emergencySignals:
+      "older-home power loss, rental maintenance hazards, apartment faults, local shop outages, hot water electrical issues, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notice questions for older homes, duplexes, villas, apartments and local shops",
+    plannedWork:
+      "rental maintenance, duplex and villa repairs, apartment electrical work, local shop lighting, switchboard upgrades, hot water circuits, CCTV/data and planned quote work",
+    propertyMix:
+      "older homes, duplexes, villas, apartments, local shops, rental properties and residential service equipment",
+    setting: "Croydon Park older-home, duplex, villa and local-shop service area",
+    switchboardDetail:
+      "older switchboards, rental safety needs, hot water loads, local shop loads, consumer mains and safety switches",
+  }),
+  "dulwich-hill": makeInnerWestLocalContext({
+    accessFocus:
+      "strata entry notes, terrace or older-home photos, cafe or shop access details and hot water circuit information",
+    commonJobs:
+      "apartment, terrace, older-home, cafe and shop electrical work, strata access jobs, older wiring checks, switchboard upgrades, hot water faults, urgent power loss, CCTV/data and planned quote work",
+    emergencySignals:
+      "urgent power loss, apartment faults, cafe or shop outages, older wiring faults, hot water electrical issues, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, terraces, older homes, cafes and shops",
+    plannedWork:
+      "apartment repairs, terrace electrical work, older wiring checks, cafe and shop maintenance, hot water electrical, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, terraces, older homes, cafes, shops, strata buildings, older wiring and hot water loads",
+    setting: "Dulwich Hill apartment, terrace, cafe and older-home service area",
+    switchboardDetail:
+      "older wiring, strata boards, terrace loads, cafe and shop loads, hot water demand, consumer mains and safety switches",
+  }),
+  enmore: makeInnerWestLocalContext({
+    accessFocus:
+      "venue, restaurant or cafe access notes, after-hours contact details, shopfront information and apartment entry notes",
+    commonJobs:
+      "terrace, music venue, entertainment venue, restaurant, cafe, shopfront and apartment electrical work, older wiring checks, after-hours faults, business outages, switchboard upgrades, CCTV/data and planned quote work",
+    emergencySignals:
+      "after-hours venue faults, restaurant or cafe outages, shopfront power loss, terrace wiring faults, apartment faults, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for terraces, apartments, venues, restaurants, cafes and shopfronts",
+    plannedWork:
+      "venue maintenance, restaurant and cafe power, shopfront lighting, terrace repairs, apartment maintenance, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "terraces, music and entertainment venues, restaurants, cafes, shopfronts, apartments, older wiring and business sites",
+    setting: "Enmore terrace, venue, restaurant and shopfront service area",
+    switchboardDetail:
+      "older wiring, venue loads, restaurant and cafe circuits, shopfront loads, apartment boards, business outage risks and safety switches",
+  }),
+  haberfield: makeInnerWestLocalContext({
+    accessFocus:
+      "heritage-home photos, larger-property access notes, shopfront details and outdoor power information",
+    commonJobs:
+      "heritage-home electrical work, older wiring checks, larger residential property repairs, shopfront maintenance, outdoor power, switchboard upgrades, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "heritage-home power loss, older wiring faults, shopfront outages, outdoor power hazards, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for heritage homes, larger residential properties and shopfronts",
+    plannedWork:
+      "heritage-home repairs, older wiring checks, larger residential upgrades, shopfront lighting, outdoor power, switchboard upgrades, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "heritage homes, older wiring, larger residential properties, shopfronts, outdoor circuits and consumer mains",
+    setting: "Haberfield heritage-home, larger-property and shopfront service area",
+    switchboardDetail:
+      "older wiring, heritage-home loads, larger residential loads, outdoor power, shopfront loads, consumer mains and safety switches",
+  }),
+  "hurlstone-park": makeInnerWestLocalContext({
+    accessFocus:
+      "station-area access notes, strata entry details, hot water circuit notes and parking information",
+    commonJobs:
+      "older-home, apartment, station-area and strata electrical work, switchboard upgrades, hot water electrical, safety switches, CCTV/data and planned quote work",
+    emergencySignals:
+      "older-home power loss, apartment faults, station-area property outages, hot water electrical issues, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notice questions for older homes, apartments, station-area properties and strata buildings",
+    plannedWork:
+      "older-home repairs, apartment maintenance, station-area property work, hot water circuits, switchboard upgrades, safety-switch repairs, CCTV/data and planned quote work",
+    propertyMix:
+      "older homes, apartments, station-area properties, strata buildings, hot water loads and limited parking areas",
+    setting: "Hurlstone Park older-home, apartment and station-area service area",
+    switchboardDetail:
+      "older wiring, apartment boards, hot water demand, station-area property loads, safety switches and consumer mains condition",
+  }),
+  leichhardt: makeInnerWestLocalContext({
+    accessFocus:
+      "restaurant, shop or office access notes, terrace entry details, business outage notes and defect notice paperwork",
+    commonJobs:
+      "restaurant, shop, office, terrace and apartment electrical work, older wiring checks, business outages, switchboard upgrades, consumer mains, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "restaurant or shop outages, office faults, terrace power loss, apartment faults, older wiring hazards, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for restaurants, shops, terraces, apartments and offices",
+    plannedWork:
+      "restaurant power, shop lighting, office suite electrical work, terrace repairs, apartment maintenance, switchboard upgrades, consumer mains review, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "restaurants, shops, offices, terraces, apartments, older wiring, business sites and residential service equipment",
+    setting: "Leichhardt restaurant, shop, terrace and apartment service area",
+    switchboardDetail:
+      "restaurant and shop loads, office suite circuits, older wiring, terrace loads, consumer mains, defect notices and safety switches",
+  }),
+  lewisham: makeInnerWestLocalContext({
+    accessFocus:
+      "station-area access notes, strata entry details, shared access information and hot water circuit notes",
+    commonJobs:
+      "apartment, older-home, station-area and strata electrical work, shared access jobs, hot water electrical, switchboard upgrades, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment power loss, station-area property faults, shared access electrical issues, hot water electrical faults, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, older homes, station-area properties and strata buildings",
+    plannedWork:
+      "apartment repairs, older-home electrical work, station-area property maintenance, hot water circuits, switchboard upgrades, shared access checks, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, older homes, station-area properties, strata buildings, shared access sites and hot water loads",
+    setting: "Lewisham apartment, older-home and station-area service area",
+    switchboardDetail:
+      "shared access boards, apartment boards, older wiring, hot water loads, consumer mains and safety switches",
+  }),
+  lilyfield: makeInnerWestLocalContext({
+    accessFocus:
+      "terrace or apartment access notes, tight-street parking details, outdoor power photos and consumer mains information",
+    commonJobs:
+      "terrace-home, apartment and older wiring electrical work, outdoor power, tight-street access jobs, switchboard upgrades, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "terrace power loss, apartment faults, outdoor power hazards, older wiring faults, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for terrace homes, apartments and older homes",
+    plannedWork:
+      "terrace repairs, apartment maintenance, older wiring checks, outdoor power, switchboard upgrades, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "terrace homes, apartments, older wiring, outdoor circuits, tight streets, limited parking and consumer mains",
+    setting: "Lilyfield terrace, apartment, tight-street and outdoor-power service area",
+    switchboardDetail:
+      "older wiring, terrace loads, apartment boards, outdoor power, consumer mains and safety switches",
+  }),
+  marrickville: makeInnerWestLocalContext({
+    accessFocus:
+      "warehouse or creative-space access notes, cafe contact details, three-phase or load details and defect notice paperwork",
+    commonJobs:
+      "warehouse, creative-space, commercial, cafe, apartment and older-home electrical work, business outages, switchboard upgrades, three-phase and load checks, consumer mains, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "warehouse or creative-space outages, cafe faults, apartment power loss, older-home wiring faults, business outages, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions for warehouses, creative spaces, commercial sites, apartments and older homes",
+    plannedWork:
+      "warehouse power, creative-space fitout support, cafe electrical work, apartment repairs, older-home upgrades, switchboard upgrades, three-phase and load checks, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "warehouses, creative and commercial spaces, cafes, apartments, older homes, business sites, three-phase loads and service equipment",
+    setting: "Marrickville warehouse, creative-space, cafe and apartment service area",
+    switchboardDetail:
+      "warehouse loads, creative-space circuits, cafe loads, three-phase and load checks, consumer mains, defect notices and safety switches",
+  }),
+  newtown: makeInnerWestLocalContext({
+    accessFocus:
+      "restaurant or shop access notes, after-hours contact details, terrace entry details and shared access information",
+    commonJobs:
+      "restaurant, shop, terrace, apartment and older wiring electrical work, after-hours faults, business outages, switchboard upgrades, shared access jobs, CCTV/data and planned quote work",
+    emergencySignals:
+      "restaurant or shop outages, after-hours business faults, terrace power loss, apartment faults, older wiring hazards, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for restaurants, shops, terraces, apartments and older wiring sites",
+    plannedWork:
+      "restaurant power, shop lighting, terrace repairs, apartment maintenance, older wiring checks, switchboard upgrades, shared access checks, CCTV/data and planned quote work",
+    propertyMix:
+      "restaurants, shops, terraces, apartments, older wiring, after-hours business sites and shared access buildings",
+    setting: "Newtown restaurant, shop, terrace and apartment service area",
+    switchboardDetail:
+      "restaurant and shop loads, older wiring, terrace loads, apartment boards, business outage risks and safety switches",
+  }),
+  petersham: makeInnerWestLocalContext({
+    accessFocus:
+      "restaurant or shopfront access notes, strata entry details, hot water circuit notes and parking information",
+    commonJobs:
+      "older-home, apartment, restaurant, shopfront and strata electrical work, switchboard upgrades, hot water electrical, lighting and power, CCTV/data and Level 2 support",
+    emergencySignals:
+      "older-home power loss, apartment faults, restaurant or shopfront outages, hot water electrical issues, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes, apartments, restaurants and shopfronts",
+    plannedWork:
+      "older-home repairs, apartment maintenance, restaurant power, shopfront lighting, hot water circuits, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "older homes, apartments, restaurants, shopfronts, strata buildings, hot water loads and lighting or power circuits",
+    setting: "Petersham older-home, apartment, restaurant and shopfront service area",
+    switchboardDetail:
+      "older wiring, apartment boards, restaurant and shopfront loads, hot water demand, consumer mains and safety switches",
+  }),
+  rozelle: makeInnerWestLocalContext({
+    accessFocus:
+      "terrace or harbour-side access notes, limited parking details, outdoor power photos and private service equipment information",
+    commonJobs:
+      "terrace, harbour-side home, apartment and older wiring electrical work, outdoor power, limited-parking access jobs, switchboard upgrades, private service equipment, CCTV/data and planned quote work",
+    emergencySignals:
+      "terrace power loss, harbour-side home faults, apartment faults, outdoor power hazards, older wiring faults, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and supply-side questions for terraces, harbour-side homes and apartments",
+    plannedWork:
+      "terrace repairs, harbour-side home upgrades, apartment maintenance, outdoor power, switchboard upgrades, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "terraces, harbour-side homes, apartments, older wiring, limited parking, outdoor circuits and private service equipment",
+    setting: "Rozelle terrace, harbour-side home and apartment service area",
+    switchboardDetail:
+      "older wiring, terrace loads, apartment boards, outdoor power, private service equipment, consumer mains and safety switches",
+  }),
+  "st-peters": makeInnerWestLocalContext({
+    accessFocus:
+      "warehouse or workshop access notes, creative-space details, three-phase or load information and apartment entry notes",
+    commonJobs:
+      "warehouse, workshop, apartment and creative-space electrical work, business outages, switchboard upgrades, three-phase and load checks, lighting and power, CCTV/data and planned quote work",
+    emergencySignals:
+      "warehouse or workshop outages, creative-space faults, apartment power loss, business outages, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for warehouses, workshops, apartments and creative or commercial spaces",
+    plannedWork:
+      "warehouse power, workshop circuits, creative-space fitout support, apartment repairs, switchboard upgrades, three-phase and load checks, lighting, power, CCTV/data and planned quote work",
+    propertyMix:
+      "warehouses, workshops, apartments, creative and commercial spaces, business sites, three-phase loads and service equipment",
+    setting: "St Peters warehouse, workshop, apartment and creative-space service area",
+    switchboardDetail:
+      "warehouse loads, workshop circuits, creative-space loads, three-phase and load checks, lighting and power demand, consumer mains and safety switches",
+  }),
+  stanmore: makeInnerWestLocalContext({
+    accessFocus:
+      "terrace or apartment access notes, local shop details, hot water circuit notes and strata entry information",
+    commonJobs:
+      "older-home, terrace, apartment and local shop electrical work, older switchboard upgrades, hot water electrical, safety-switch tripping, strata access jobs, CCTV/data and planned quote work",
+    emergencySignals:
+      "older-home power loss, terrace faults, apartment faults, local shop outages, hot water electrical issues, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notice questions for older homes, terraces, apartments and local shops",
+    plannedWork:
+      "older-home repairs, terrace electrical work, apartment maintenance, local shop lighting, hot water circuits, switchboard upgrades, strata access checks, CCTV/data and planned quote work",
+    propertyMix:
+      "older homes, terraces, apartments, local shops, older switchboards, hot water loads and strata access sites",
+    setting: "Stanmore older-home, terrace, apartment and local-shop service area",
+    switchboardDetail:
+      "older switchboards, terrace loads, apartment boards, local shop loads, hot water demand and safety switches",
+  }),
+  "summer-hill": makeInnerWestLocalContext({
+    accessFocus:
+      "villa, apartment or strata access notes, shop or cafe details, hot water circuit notes and quote-photo information",
+    commonJobs:
+      "apartment, older-home, villa, shop and cafe electrical work, strata access jobs, switchboard upgrades, hot water electrical, safety switches, CCTV/data and quote-photo guided planned work",
+    emergencySignals:
+      "apartment power loss, older-home faults, shop or cafe outages, hot water electrical issues, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notice questions for apartments, older homes, villas, shops and cafes",
+    plannedWork:
+      "apartment repairs, older-home electrical work, villa maintenance, shop and cafe power, hot water circuits, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, older homes, villas, shops, cafes, strata sites, hot water loads and residential service equipment",
+    setting: "Summer Hill apartment, older-home, villa and cafe service area",
+    switchboardDetail:
+      "apartment boards, older wiring, villa loads, shop and cafe circuits, hot water demand, consumer mains and safety switches",
+  }),
+  sydenham: makeInnerWestLocalContext({
+    accessFocus:
+      "railway or industrial access notes, warehouse or workshop entry details, three-phase or load information and parking notes",
+    commonJobs:
+      "railway-adjacent, industrial, warehouse, workshop, apartment and commercial electrical work, business outages, switchboard upgrades, three-phase and load checks, CCTV/data and planned quote work",
+    emergencySignals:
+      "warehouse or workshop outages, industrial site faults, apartment power loss, railway-adjacent access issues, business outages, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for warehouses, workshops, apartments and industrial or commercial sites",
+    plannedWork:
+      "warehouse power, workshop circuits, commercial maintenance, apartment repairs, switchboard upgrades, three-phase and load checks, CCTV/data and planned quote work",
+    propertyMix:
+      "railway-adjacent sites, industrial and commercial buildings, warehouses, workshops, apartments, business sites and three-phase loads",
+    setting: "Sydenham railway-adjacent, industrial, warehouse and apartment service area",
+    switchboardDetail:
+      "industrial and warehouse loads, workshop circuits, three-phase and load checks, apartment boards, consumer mains and safety switches",
+  }),
+  tempe: makeInnerWestLocalContext({
+    accessFocus:
+      "railway or airport-adjacent access notes, industrial pocket details, apartment entry notes and hot water circuit information",
+    commonJobs:
+      "older-home, apartment, industrial pocket, railway-adjacent and airport-adjacent electrical work, switchboard upgrades, hot water electrical, lighting and power, business faults, CCTV/data and planned quote work",
+    emergencySignals:
+      "older-home power loss, apartment faults, industrial pocket outages, business faults, hot water electrical issues, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment and defect notice questions for older homes, apartments and industrial pockets",
+    plannedWork:
+      "older-home repairs, apartment maintenance, industrial pocket power, hot water circuits, lighting and power, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "older homes, apartments, industrial pockets, railway-adjacent and airport-adjacent sites, hot water loads and business faults",
+    setting: "Tempe older-home, apartment, industrial-pocket and railway-adjacent service area",
+    switchboardDetail:
+      "older wiring, apartment boards, industrial pocket loads, hot water demand, lighting and power circuits, consumer mains and safety switches",
+  }),
+};
+
+function getInnerWestLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "inner-west-burwood-and-canada-bay" ||
+    coverageArea.slug !== "inner-west"
+  ) {
+    return null;
+  }
+
+  return innerWestLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 const burwoodLocalContexts: Record<string, LocalPageContext> = {
   burwood: {
     accessDetail:
@@ -4936,6 +5403,16 @@ function getLocalPageContext(
 
   if (canadaBayContext) {
     return canadaBayContext;
+  }
+
+  const innerWestContext = getInnerWestLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (innerWestContext) {
+    return innerWestContext;
   }
 
   const burwoodContext = getBurwoodLocalContext(
