@@ -1819,6 +1819,466 @@ function getSutherlandShireLocalContext(
   return sutherlandShireLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+const fairfieldLocalContexts: Record<string, LocalPageContext> = {
+  abbotsbury: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, driveway or larger-block access notes, parking details and any defect notice or paperwork",
+    commonJobs:
+      "family-home fault finding, larger-block outdoor power, hot water circuits, switchboard upgrades, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "home power loss, outdoor circuit faults, hot water electrical issues, heat at outlets, sparking, storm damage and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and residential supply questions",
+    plannedWork:
+      "outdoor power, driveway lighting, switchboard upgrades, hot water circuits, consumer mains review, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "family homes, larger blocks, outdoor areas, sheds, long driveways and residential service equipment",
+    setting: "Fairfield family-home and larger-block service area",
+    switchboardDetail:
+      "home loads, outdoor circuits, hot water loads, safety switches, RCBO protection and consumer mains capacity",
+  },
+  bonnyrigg: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, villa or duplex access notes, hot water circuit details, parking notes and any defect notice or paperwork",
+    commonJobs:
+      "home, duplex and villa repairs, older switchboards, safety-switch faults, hot water circuits, power outages, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "power loss, older-board faults, hot water electrical issues, heat at outlets, sparking and repeated safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, duplexes and villas",
+    plannedWork:
+      "older switchboard upgrades, safety-switch repairs, hot water circuits, lighting, power points, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, duplexes, villas, older switchboards, rental properties and residential service equipment",
+    setting: "Fairfield homes, duplexes and villas service area",
+    switchboardDetail:
+      "older protection, hot water loads, safety switches, RCBOs, clear circuit labelling and consumer mains condition",
+  },
+  "bonnyrigg-heights": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, driveway or outdoor-area notes, aircon circuit details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "larger-home fault finding, outdoor lighting, aircon electrical support, switchboard upgrades, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "home power loss, outdoor circuit faults, aircon circuit trips, hot outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply capacity questions for larger homes",
+    plannedWork:
+      "outdoor lighting, aircon circuits, switchboard capacity checks, hot water circuits, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "larger homes, family properties, outdoor areas, aircon circuits and residential service equipment",
+    setting: "Fairfield larger-home and family-property service area",
+    switchboardDetail:
+      "larger home loads, aircon circuits, outdoor circuits, safety switches, RCBOs and consumer mains capacity",
+  },
+  "bossley-park": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, business or driveway access notes, private service equipment photos and any defect notice or paperwork",
+    commonJobs:
+      "larger-home repairs, local business maintenance, outdoor power, switchboards, consumer mains, private service equipment, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, local business outages, outdoor circuit faults, heat at outlets, sparking and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and supply-side questions",
+    plannedWork:
+      "outdoor power, local business lighting, switchboard capacity checks, consumer mains review, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "larger homes, local businesses, outdoor areas, private service equipment and residential service equipment",
+    setting: "Fairfield larger-home and local-business service area",
+    switchboardDetail:
+      "home loads, local business circuits, outdoor circuits, service equipment, safety switches and RCBO protection",
+  },
+  cabramatta: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, shared meter-room notes, shop or restaurant access details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "shopfront and restaurant power, apartment faults, strata repairs, older wiring checks, shared meter-room access, business outages, switchboards, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "restaurant or shop outages, apartment power loss, shared meter-room faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, shared supply concerns and commercial or strata supply questions",
+    plannedWork:
+      "restaurant circuits, shop lighting, apartment repairs, strata maintenance, switchboard upgrades, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "shopfronts, restaurants, apartments, strata buildings, older wiring, shared meter rooms and local businesses",
+    setting: "Fairfield shopfront, restaurant and strata service area",
+    switchboardDetail:
+      "shared meter rooms, hospitality loads, shop circuits, older boards, safety switches and clearer circuit labelling",
+  },
+  "cabramatta-west": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, strata or shop access notes, hot water circuit details, parking notes and any defect notice or paperwork",
+    commonJobs:
+      "home and unit repairs, local shop maintenance, strata access work, older switchboards, hot water circuits, safety-switch faults, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home or unit power loss, shop circuit faults, hot water electrical issues, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, units and shops",
+    plannedWork:
+      "older switchboard upgrades, hot water circuits, local shop lighting, unit repairs, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, units, local shops, strata access sites, older switchboards and residential service equipment",
+    setting: "Fairfield homes, units and local-shop service area",
+    switchboardDetail:
+      "older boards, hot water loads, shop circuits, safety switches, RCBOs and clear labelling",
+  },
+  "canley-heights": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, restaurant or shop access notes, strata entry details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "restaurant and shop maintenance, apartment faults, home repairs, strata access work, business outages, lighting and power, switchboards, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "restaurant or shop outages, apartment power loss, hot equipment circuits, heat at outlets, sparking and repeated tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and commercial or strata supply questions",
+    plannedWork:
+      "restaurant circuits, shop lighting, apartment repairs, home electrical work, switchboard upgrades, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "restaurants, shops, apartments, homes, strata buildings and local businesses",
+    setting: "Fairfield restaurant, shop and apartment service area",
+    switchboardDetail:
+      "hospitality loads, shop circuits, apartment boards, safety switches, RCBOs and clearer circuit labelling",
+  },
+  "canley-vale": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, station-area or shop access notes, shared access details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "home and unit repairs, station-area shopfront maintenance, older-board checks, shared access work, lighting, power, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home or unit power loss, shopfront circuit faults, shared access electrical issues, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, units and shopfronts",
+    plannedWork:
+      "older switchboard upgrades, shopfront lighting, unit repairs, power points, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, units, station-area properties, shopfronts, older boards and shared access sites",
+    setting: "Fairfield station-area home, unit and shopfront service area",
+    switchboardDetail:
+      "older boards, shopfront circuits, shared access, safety switches, RCBO protection and clear labelling",
+  },
+  carramar: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, rental or unit access notes, hot water circuit details, parking notes and any defect notice or paperwork",
+    commonJobs:
+      "older-home repairs, unit maintenance, rental electrical work, switchboard upgrades, hot water circuits, safety-switch faults, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home or unit power loss, hot water electrical faults, heat at outlets, sparking and repeated safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes and units",
+    plannedWork:
+      "older switchboard upgrades, rental maintenance, hot water circuits, smoke alarms, power points, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "older homes, units, rental properties, switchboards, hot water circuits and residential service equipment",
+    setting: "Fairfield older-home, unit and rental service area",
+    switchboardDetail:
+      "older protection, hot water loads, safety switches, RCBOs, rental safety needs and clear circuit labelling",
+  },
+  "cecil-park": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, gate or long-driveway access notes, shed or outdoor power photos and any defect notice or paperwork",
+    commonJobs:
+      "acreage fault finding, shed power, outdoor circuits, long-driveway access work, private service equipment, consumer mains, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "property power loss, shed circuit faults, outdoor power hazards, storm damage, heat at outlets, sparking and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and larger-property supply questions",
+    plannedWork:
+      "shed circuits, outdoor power, driveway lighting, switchboard capacity checks, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage and larger-block properties, sheds, outdoor areas, long driveways and private service equipment",
+    setting: "Fairfield acreage and larger-block service area",
+    switchboardDetail:
+      "long circuit runs, shed loads, outdoor circuits, private service equipment, safety switches and consumer mains capacity",
+  },
+  "edensor-park": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, outdoor-area notes, driveway or parking details, hot water circuit information and any defect notice or paperwork",
+    commonJobs:
+      "family-home repairs, larger-block outdoor lighting, switchboard upgrades, hot water circuits, consumer mains, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, outdoor circuit faults, hot water electrical issues, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes",
+    plannedWork:
+      "outdoor lighting, hot water circuits, switchboard upgrades, consumer mains review, smoke alarms, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, larger blocks, outdoor lighting areas, hot water circuits and residential service equipment",
+    setting: "Fairfield family-home and larger-block service area",
+    switchboardDetail:
+      "home loads, outdoor circuits, hot water loads, consumer mains, safety switches and RCBO protection",
+  },
+  fairfield: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, shared meter-room notes, shop or restaurant access details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "apartment faults, shop and restaurant maintenance, office and retail power, strata access work, shared meter-room faults, business outages, switchboards, consumer mains, defect notices, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment power loss, shop or restaurant outages, shared meter-room issues, heat at outlets, sparking and repeated tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, shared supply concerns and commercial or strata supply questions",
+    plannedWork:
+      "retail lighting, restaurant circuits, apartment repairs, strata electrical work, commercial switchboards, consumer mains review, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "apartments, shops, offices, restaurants, strata buildings, shared meter rooms, homes and commercial sites",
+    setting: "Fairfield apartment, shop, restaurant and commercial service area",
+    switchboardDetail:
+      "shared meter rooms, commercial switchboards, restaurant loads, strata boards, safety switches and clear circuit labelling",
+  },
+  "fairfield-east": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, workshop or warehouse access notes, equipment details, operating hours and any defect notice or paperwork",
+    commonJobs:
+      "industrial and commercial fault finding, workshop circuits, warehouse lighting, business outages, commercial switchboards, load checks, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "business outages, workshop power loss, warehouse circuit faults, equipment circuit trips, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, load checks and commercial supply questions",
+    plannedWork:
+      "warehouse lighting, workshop circuits, commercial switchboards, load capacity checks, data cabling, CCTV and planned commercial quote work",
+    propertyMix:
+      "industrial and commercial sites, workshops, warehouses, local businesses and service equipment",
+    setting: "Fairfield industrial, workshop and warehouse service area",
+    switchboardDetail:
+      "commercial switchboards, workshop loads, warehouse circuits, three-phase and load checks, safety switches and clear labelling",
+  },
+  "fairfield-heights": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, strata or shopfront access notes, parking details, older-board photos and any defect notice or paperwork",
+    commonJobs:
+      "home and unit repairs, shopfront maintenance, strata access work, older switchboards, parking-sensitive jobs, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home or unit power loss, shopfront faults, older-board overheating, heat at outlets, sparking and repeated tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, units and shopfronts",
+    plannedWork:
+      "older switchboard upgrades, shopfront lighting, unit repairs, power points, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, units, shopfronts, strata buildings, older boards and parking-sensitive access sites",
+    setting: "Fairfield home, unit and shopfront service area",
+    switchboardDetail:
+      "older boards, shop circuits, strata access, safety switches, RCBOs and clear labelling",
+  },
+  "fairfield-west": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, villa or duplex access notes, outdoor fault photos, parking details and any defect notice or paperwork",
+    commonJobs:
+      "family-home repairs, duplex and villa electrical work, rental maintenance, outdoor faults, switchboard upgrades, consumer mains, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, outdoor electrical faults, rental maintenance hazards, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, duplexes and villas",
+    plannedWork:
+      "outdoor power, switchboard upgrades, rental maintenance, hot water circuits, consumer mains review, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "family homes, duplexes, villas, rental properties, outdoor areas and residential service equipment",
+    setting: "Fairfield family-home, duplex and villa service area",
+    switchboardDetail:
+      "home loads, outdoor circuits, hot water loads, consumer mains, safety switches and RCBO protection",
+  },
+  "greenfield-park": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, outdoor-area notes, hot water circuit details, parking notes and any defect notice or paperwork",
+    commonJobs:
+      "family-home fault finding, larger-block repairs, switchboard upgrades, hot water circuits, outdoor power, safety switches, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, outdoor power faults, hot water electrical issues, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes",
+    plannedWork:
+      "hot water circuits, outdoor power, switchboard upgrades, smoke alarms, safety-switch repairs, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "family homes, larger blocks, outdoor areas, hot water circuits and residential service equipment",
+    setting: "Fairfield family-home and outdoor-power service area",
+    switchboardDetail:
+      "home loads, outdoor circuits, hot water loads, safety switches, RCBOs and consumer mains capacity",
+  },
+  "horsley-park": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, gate or long-driveway access notes, warehouse or shed details and any defect notice or paperwork",
+    commonJobs:
+      "acreage and rural-edge fault finding, warehouse power, shed circuits, workshop maintenance, long-driveway access work, load checks, private service equipment, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "property power loss, warehouse or shed outages, outdoor power hazards, equipment circuit trips, heat at outlets, sparking and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns, load checks and larger-property supply questions",
+    plannedWork:
+      "shed circuits, warehouse lighting, workshop power, driveway lighting, load capacity checks, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage and rural-edge properties, warehouses, sheds, workshops, long driveways and private service equipment",
+    setting: "Fairfield acreage, warehouse and workshop service area",
+    switchboardDetail:
+      "long circuit runs, shed and warehouse loads, three-phase and load checks, private service equipment and safety switches",
+  },
+  lansvale: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, river-adjacent or outdoor access notes, hot water circuit details, parking notes and any defect notice or paperwork",
+    commonJobs:
+      "river-adjacent home repairs, older switchboards, outdoor power, hot water circuits, safety-switch faults, small business maintenance, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "storm or water-adjacent outdoor faults, home power loss, hot water electrical issues, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes and small businesses",
+    plannedWork:
+      "outdoor power, hot water circuits, older switchboard upgrades, safety-switch repairs, small business lighting, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "river-adjacent homes, older switchboards, outdoor areas, hot water circuits and small businesses",
+    setting: "Fairfield river-adjacent home and small-business service area",
+    switchboardDetail:
+      "older boards, outdoor circuits, hot water loads, safety switches, RCBOs and service equipment",
+  },
+  "mount-pritchard": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, business or unit access notes, hot water circuit details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "home repairs, unit electrical work, local business maintenance, lighting and power, hot water circuits, switchboards, urgent outages, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home or business power loss, unit circuit faults, hot water electrical issues, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, units and local businesses",
+    plannedWork:
+      "lighting, power points, hot water circuits, local business maintenance, switchboard upgrades, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, local businesses, units, hot water circuits, lighting and power circuits",
+    setting: "Fairfield home, unit and local-business service area",
+    switchboardDetail:
+      "home loads, business circuits, hot water loads, safety switches, RCBO protection and clear labelling",
+  },
+  "old-guildford": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, rental or unit access notes, hot water circuit details, parking notes and any defect notice or paperwork",
+    commonJobs:
+      "older-home repairs, unit maintenance, rental electrical work, switchboard upgrades, safety-switch tripping, hot water circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "older-home power loss, unit circuit faults, hot water electrical issues, heat at outlets, sparking and repeated safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes and units",
+    plannedWork:
+      "older switchboard upgrades, rental maintenance, safety-switch repairs, hot water circuits, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "older homes, units, rental properties, switchboards, safety switches and hot water circuits",
+    setting: "Fairfield older-home, unit and rental-maintenance service area",
+    switchboardDetail:
+      "older protection, hot water loads, safety switches, RCBOs, rental safety needs and clear labelling",
+  },
+  prairiewood: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, shop or medical access notes, parking details, metering or defect notice photos and any paperwork",
+    commonJobs:
+      "home repairs, shop and medical property maintenance, business outages, switchboards, consumer mains, metering, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, shop or medical property outages, equipment circuit trips, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and commercial or residential supply questions",
+    plannedWork:
+      "shop lighting, medical property power, switchboard upgrades, consumer mains review, metering support, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, shops, medical and retail properties, local businesses, switchboards and service equipment",
+    setting: "Fairfield home, shop and medical-property service area",
+    switchboardDetail:
+      "home loads, business circuits, metering, consumer mains, safety switches and clear circuit labelling",
+  },
+  smithfield: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, warehouse or factory access notes, equipment details, operating hours and any defect notice or paperwork",
+    commonJobs:
+      "industrial estate fault finding, warehouse lighting, factory and workshop circuits, business outages, commercial switchboards, three-phase and load checks, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "business outages, warehouse or factory power loss, workshop circuit faults, equipment trips, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, load checks and industrial supply questions",
+    plannedWork:
+      "warehouse lighting, factory circuits, workshop power, commercial switchboards, load capacity checks, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "industrial estates, warehouses, factories, workshops, commercial switchboards and service equipment",
+    setting: "Fairfield industrial estate, warehouse and factory service area",
+    switchboardDetail:
+      "commercial switchboards, three-phase and load checks, factory loads, workshop circuits, safety switches and clear circuit labelling",
+  },
+  "st-johns-park": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, driveway or outdoor-area notes, hot water circuit details, parking notes and any defect notice or paperwork",
+    commonJobs:
+      "home and larger-property repairs, switchboard upgrades, lighting and power, hot water circuits, outdoor circuits, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, outdoor circuit faults, hot water electrical issues, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for residential properties",
+    plannedWork:
+      "lighting, power points, hot water circuits, outdoor power, switchboard upgrades, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, larger residential properties, outdoor areas, hot water circuits and residential service equipment",
+    setting: "Fairfield home and larger-residential-property service area",
+    switchboardDetail:
+      "home loads, outdoor circuits, hot water loads, safety switches, RCBOs and consumer mains capacity",
+  },
+  wakeley: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, villa or rental access notes, hot water circuit details, parking notes and any defect notice or paperwork",
+    commonJobs:
+      "family-home repairs, villa electrical work, rental maintenance, switchboards, hot water circuits, safety-switch faults, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, villa circuit faults, hot water electrical issues, heat at outlets, sparking and repeated safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes and villas",
+    plannedWork:
+      "switchboard upgrades, rental maintenance, hot water circuits, safety-switch repairs, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "family homes, villas, rental properties, switchboards, hot water circuits and safety switches",
+    setting: "Fairfield family-home, villa and rental-maintenance service area",
+    switchboardDetail:
+      "home loads, hot water circuits, safety switches, RCBO protection, rental safety needs and clear labelling",
+  },
+  "wetherill-park": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, warehouse or showroom access notes, equipment details, operating hours and any defect notice or paperwork",
+    commonJobs:
+      "warehouse, factory and showroom fault finding, workshop power, business outages, commercial switchboards, load capacity checks, CCTV/data, planned maintenance and Level 2 enquiries",
+    emergencySignals:
+      "business outages, warehouse or factory power loss, showroom circuit faults, equipment trips, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, load checks and commercial or industrial supply questions",
+    plannedWork:
+      "warehouse lighting, factory circuits, showroom power, commercial switchboards, load capacity checks, planned maintenance, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "warehouses, factories, showrooms, workshops, commercial switchboards, service equipment and business sites",
+    setting: "Fairfield warehouse, factory and showroom service area",
+    switchboardDetail:
+      "commercial switchboards, three-phase and load checks, workshop circuits, showroom loads, safety switches and clear labelling",
+  },
+  yennora: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fixture, transport or warehouse access notes, equipment details, operating hours and any defect notice or paperwork",
+    commonJobs:
+      "transport and logistics site fault finding, warehouse lighting, workshop power, business outages, commercial switchboards, load checks, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "business outages, warehouse power loss, transport site circuit faults, equipment trips, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, load checks and logistics site supply questions",
+    plannedWork:
+      "warehouse lighting, workshop circuits, loading-area power, commercial switchboards, load checks, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "warehouses, transport and logistics sites, workshops, commercial switchboards and business service equipment",
+    setting: "Fairfield transport, logistics and warehouse service area",
+    switchboardDetail:
+      "commercial switchboards, warehouse loads, transport site circuits, load checks, safety switches and clear circuit labelling",
+  },
+};
+
+function getFairfieldLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "liverpool-and-fairfield" ||
+    coverageArea.slug !== "fairfield"
+  ) {
+    return null;
+  }
+
+  return fairfieldLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 function getLocalPageContext(
   coverageRegion: CoverageRegion,
   coverageArea: CoverageArea,
@@ -1873,6 +2333,16 @@ function getLocalPageContext(
 
   if (sutherlandShireContext) {
     return sutherlandShireContext;
+  }
+
+  const fairfieldContext = getFairfieldLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (fairfieldContext) {
+    return fairfieldContext;
   }
 
   if (
