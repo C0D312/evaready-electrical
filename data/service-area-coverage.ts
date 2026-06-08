@@ -2858,6 +2858,398 @@ function getLiverpoolLocalContext(
   return liverpoolLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+const camdenLocalContexts: Record<string, LocalPageContext> = {
+  bringelly: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, long-driveway or gate access notes, shed or workshop details, load-check notes and any defect notice or paperwork",
+    commonJobs:
+      "airport-growth and acreage electrical work, shed and workshop power, outdoor power, private service equipment, three-phase and load checks, switchboard capacity, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "acreage power loss, shed or workshop outages, outdoor power hazards, equipment trips, heat at outlets, sparking and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and airport-growth supply questions",
+    plannedWork:
+      "shed power, workshop power, outdoor lighting, switchboard capacity checks, three-phase and load checks, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "airport-growth sites, acreage homes, long driveways, sheds, workshops, outdoor areas and private service equipment",
+    setting: "Camden airport-growth and acreage service area",
+    switchboardDetail:
+      "acreage loads, shed and workshop demand, three-phase and load checks, private service equipment, safety switches and consumer mains capacity",
+  },
+  camden: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, town-centre access notes, shop or suite contact details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "town-centre shop maintenance, cafe and retail suite power, older-home repairs, family-home electrical work, strata repairs, business outages, consumer mains, defect notices, metering, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "shop or cafe outages, home power loss, strata shared-power issues, hot outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, shops, strata sites and retail suites",
+    plannedWork:
+      "shop lighting, cafe power, older-home repairs, family-home upgrades, strata electrical work, switchboard upgrades, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "town-centre shops, cafes, offices, older homes, family homes, strata buildings and service equipment",
+    setting: "Camden town-centre, older-home and strata service area",
+    switchboardDetail:
+      "older boards, shop loads, strata boards, consumer mains, metering, safety switches and clear circuit labelling",
+  },
+  "camden-south": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, renovation or outdoor-area notes, hot water circuit details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "family-home electrical work, older switchboard checks, renovation wiring, outdoor power, safety switches, hot water electrical, CCTV/data and Level 2 support",
+    emergencySignals:
+      "home power loss, older-board overheating, outdoor power hazards, hot water electrical faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes and renovations",
+    plannedWork:
+      "renovation wiring, outdoor power, switchboard upgrades, hot water electrical, safety-switch repairs, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "family homes, older switchboards, renovations, outdoor areas, hot water loads and residential service equipment",
+    setting: "Camden South family-home and renovation service area",
+    switchboardDetail:
+      "older switchboards, renovation loads, hot water loads, outdoor power, safety switches and RCBO protection",
+  },
+  "catherine-field": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, builder or site access notes, aircon or EV load details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "new-home and duplex electrical work, construction and new-build electrical, growth-corridor support, aircon and EV load checks, switchboard capacity, consumer mains, metering and Level 2 enquiries",
+    emergencySignals:
+      "new-estate power loss, construction defect concerns, aircon circuit trips, hot water electrical faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, new-build supply questions and switchboard capacity checks",
+    plannedWork:
+      "new-build electrical, construction defect review, aircon circuits, EV-ready load checks, switchboard capacity checks, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "new homes, duplexes, construction sites, growth-corridor properties, aircon loads, EV-ready loads and residential service equipment",
+    setting: "Camden growth-corridor and new-build service area",
+    switchboardDetail:
+      "new-home loads, aircon and EV-ready capacity, consumer mains, metering, safety switches and RCBO protection",
+  },
+  cawdor: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, gate or long-driveway access notes, shed or outdoor power photos, private service equipment details and any defect notice or paperwork",
+    commonJobs:
+      "acreage and rural property electrical work, long-driveway access jobs, shed power, outdoor power, private pole and service equipment enquiries, switchboard upgrades, storm faults, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "rural property power loss, storm damage, shed power faults, outdoor power hazards, heat at outlets, sparking and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
+    plannedWork:
+      "shed power, outdoor power, driveway lighting, switchboard upgrades, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "acreage properties, rural homes, long driveways, sheds, outdoor areas and private service equipment",
+    setting: "Camden acreage and rural-property service area",
+    switchboardDetail:
+      "long-driveway loads, shed demand, outdoor power, private service equipment, safety switches and consumer mains condition",
+  },
+  cobbitty: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, gate or driveway notes, outdoor lighting photos, shed details, consumer mains photos and any defect notice or paperwork",
+    commonJobs:
+      "premium rural-residential electrical work, new-estate support, acreage-home repairs, outdoor lighting, shed power, consumer mains, switchboard capacity, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "acreage or new-estate power loss, outdoor power hazards, shed power faults, hot outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and acreage or new-estate supply questions",
+    plannedWork:
+      "outdoor lighting, shed power, new-home circuits, switchboard upgrades, consumer mains review, CCTV/data and quote-photo planning",
+    propertyMix:
+      "premium rural-residential properties, new estates, acreage homes, sheds, outdoor areas and service equipment",
+    setting: "Camden premium rural-residential and new-estate service area",
+    switchboardDetail:
+      "larger-home loads, shed demand, outdoor lighting, consumer mains, safety switches and future capacity",
+  },
+  "currans-hill": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, driveway or outdoor-area notes, hot water and aircon details and any defect notice or paperwork",
+    commonJobs:
+      "family-home electrical work, newer-estate repairs, safety-switch tripping, switchboard upgrades, hot water electrical, aircon electrical, planned maintenance, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, repeated safety-switch tripping, hot water electrical faults, aircon circuit trips, heat at outlets and sparking",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes and newer estates",
+    plannedWork:
+      "switchboard upgrades, hot water electrical, aircon circuits, outdoor power, safety-switch repairs, smoke alarms, CCTV/data and planned maintenance",
+    propertyMix:
+      "family homes, newer estates, outdoor areas, hot water loads, aircon loads and residential service equipment",
+    setting: "Camden family-home and newer-estate service area",
+    switchboardDetail:
+      "newer home loads, hot water and aircon demand, safety switches, RCBOs and consumer mains capacity",
+  },
+  elderslie: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, local facility or home access notes, hot water details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "home electrical work, local facility support, older and newer property repairs, switchboards, lighting and power, hot water electrical, safety switches, CCTV/data and Level 2 support",
+    emergencySignals:
+      "home power loss, local facility faults, hot water electrical faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes and local facilities",
+    plannedWork:
+      "lighting and power, hot water electrical, switchboard upgrades, safety-switch repairs, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, local facilities, older and newer properties, hot water loads and residential service equipment",
+    setting: "Camden home and local-facility service area",
+    switchboardDetail:
+      "older and newer boards, hot water loads, safety switches, RCBOs and clear circuit labelling",
+  },
+  "ellis-lane": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, gate or long-access notes, shed and outdoor power photos, private service equipment details and any defect notice or paperwork",
+    commonJobs:
+      "rural and acreage home electrical work, long-access jobs, shed power, outdoor power, private service equipment, switchboard upgrades, storm fault checks, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "rural property power loss, storm faults, shed power issues, outdoor power hazards, heat at outlets, sparking and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
+    plannedWork:
+      "shed power, outdoor power, driveway lighting, switchboard upgrades, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "rural homes, acreage properties, long access points, sheds, outdoor areas and private service equipment",
+    setting: "Camden rural and acreage service area",
+    switchboardDetail:
+      "long-access loads, shed demand, outdoor power, private service equipment, safety switches and consumer mains condition",
+  },
+  "gledswood-hills": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, townhouse or estate access notes, property-manager details, aircon or EV load details and any defect notice or paperwork",
+    commonJobs:
+      "newer-home and townhouse electrical work, estate maintenance, aircon and EV load checks, switchboard capacity, hot water electrical, property-manager jobs, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "newer-home power loss, townhouse circuit faults, aircon circuit trips, hot water electrical faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and load capacity questions for newer homes, townhouses and estates",
+    plannedWork:
+      "aircon circuits, EV-ready load checks, hot water electrical, switchboard upgrades, estate maintenance, CCTV/data and planned quote work",
+    propertyMix:
+      "newer homes, townhouses, estates, property-manager sites, hot water loads, aircon loads and residential service equipment",
+    setting: "Camden newer-home, townhouse and estate service area",
+    switchboardDetail:
+      "newer home loads, aircon and EV-ready capacity, hot water demand, safety switches and consumer mains capacity",
+  },
+  grasmere: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, driveway or gate access notes, outdoor power photos, private service equipment details and any defect notice or paperwork",
+    commonJobs:
+      "larger-block and rural-home electrical work, outdoor power, private pole and service equipment enquiries, long-driveway access jobs, switchboard upgrades, supply-side support, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "larger-block power loss, outdoor power hazards, storm faults, heat at outlets, sparking and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and supply-side questions for larger blocks",
+    plannedWork:
+      "outdoor power, driveway lighting, switchboard upgrades, private service equipment review, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "larger blocks, rural homes, outdoor areas, long driveways, private poles and service equipment",
+    setting: "Camden larger-block and rural-home service area",
+    switchboardDetail:
+      "larger-property loads, outdoor power, private service equipment, consumer mains, safety switches and load capacity",
+  },
+  "gregory-hills": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, shop or suite access notes, restaurant timing, parking details, site contact information and any defect notice or paperwork",
+    commonJobs:
+      "shop, medical suite, retail suite, restaurant and office suite electrical work, townhouse and apartment repairs, business outages, commercial switchboards, three-phase and load checks, planned maintenance, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "business outages, medical or retail suite power loss, restaurant faults, townhouse or apartment power loss, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, load checks and commercial or strata supply questions",
+    plannedWork:
+      "shop lighting, medical suite power, restaurant power, office suite electrical work, apartment repairs, commercial switchboards, load checks, CCTV/data and planned maintenance",
+    propertyMix:
+      "shops, medical and retail suites, restaurants, office suites, townhouses, apartments and commercial switchboards",
+    setting: "Camden retail, medical, restaurant and townhouse service area",
+    switchboardDetail:
+      "commercial switchboards, tenancy loads, apartment boards, three-phase and load checks, safety switches and clear circuit labelling",
+  },
+  "harrington-park": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, renovation or outdoor-area notes, aircon circuit details, driveway information and any defect notice or paperwork",
+    commonJobs:
+      "larger-home and premium-residential electrical work, renovations, outdoor lighting, aircon electrical, switchboard upgrades, consumer mains, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "larger-home power loss, renovation electrical faults, outdoor power hazards, aircon circuit trips, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for larger homes and renovations",
+    plannedWork:
+      "renovation wiring, outdoor lighting, aircon circuits, switchboard upgrades, consumer mains review, smoke alarms, CCTV/data and planned quote work",
+    propertyMix:
+      "larger homes, premium residential properties, renovations, outdoor areas, aircon loads and residential service equipment",
+    setting: "Camden premium-residential and renovation service area",
+    switchboardDetail:
+      "larger-home loads, renovation capacity, aircon demand, consumer mains, safety switches and RCBO protection",
+  },
+  kirkham: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, gate or long-driveway access notes, shed or outbuilding details, private service equipment photos and any defect notice or paperwork",
+    commonJobs:
+      "premium acreage electrical work, rural access jobs, outdoor power, shed and outbuilding power, private service equipment, long-driveway electrical work, safety-first triage, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "acreage power loss, shed or outbuilding faults, outdoor power hazards, storm faults, heat at outlets, sparking and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns and acreage supply questions",
+    plannedWork:
+      "shed power, outbuilding power, outdoor lighting, driveway lighting, switchboard upgrades, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "premium acreage homes, rural access properties, long driveways, sheds, outbuildings and private service equipment",
+    setting: "Camden premium-acreage and rural-access service area",
+    switchboardDetail:
+      "long-driveway loads, shed and outbuilding demand, private service equipment, safety switches and consumer mains capacity",
+  },
+  leppington: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, builder or site access notes, aircon or EV-ready load details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "new-estate and duplex electrical work, builder and construction support, new-build defect review, aircon and EV-ready circuit work, switchboard capacity, consumer mains, metering, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "new-estate power loss, construction defect concerns, aircon circuit trips, hot water electrical faults, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, new-build supply questions and switchboard capacity checks",
+    plannedWork:
+      "new-build electrical work, construction defect review, aircon circuits, EV-ready load checks, switchboard capacity checks, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "new estates, duplexes, builder sites, growth-corridor homes, aircon loads, EV-ready loads and residential service equipment",
+    setting: "Camden growth-corridor, new-estate and builder service area",
+    switchboardDetail:
+      "new-estate loads, aircon and EV-ready capacity, consumer mains, metering, safety switches and RCBO protection",
+  },
+  "mount-annan": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, local shop or home access notes, hot water or aircon details, parking information and any defect notice or paperwork",
+    commonJobs:
+      "family-home electrical work, local shop maintenance, switchboard upgrades, safety-switch faults, hot water electrical, aircon electrical, outdoor power, CCTV/data and Level 2 support",
+    emergencySignals:
+      "home power loss, local shop outages, hot water electrical faults, aircon circuit trips, outdoor power hazards, heat at outlets and sparking",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes and local shops",
+    plannedWork:
+      "switchboard upgrades, safety-switch repairs, hot water electrical, aircon circuits, outdoor power, local shop lighting, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, local shops, outdoor areas, hot water loads, aircon loads and residential service equipment",
+    setting: "Camden family-home and local-shop service area",
+    switchboardDetail:
+      "family-home loads, hot water and aircon demand, outdoor power, safety switches and consumer mains condition",
+  },
+  narellan: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, retail or suite access notes, warehouse or workshop entry details, operating hours and any defect notice or paperwork",
+    commonJobs:
+      "shopping and retail electrical work, office suite power, medical suite support, local business maintenance, commercial switchboards, business outages, warehouse and workshop work, three-phase and load checks, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "business outages, retail or medical suite power loss, warehouse or workshop faults, equipment trips, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, load checks and commercial supply-side questions",
+    plannedWork:
+      "retail lighting, medical suite power, office suite electrical work, warehouse power, workshop power, commercial switchboards, load checks, CCTV/data and planned maintenance",
+    propertyMix:
+      "shopping and retail sites, offices, medical suites, local businesses, warehouses, workshops and service equipment",
+    setting: "Camden retail, business and warehouse service area",
+    switchboardDetail:
+      "commercial switchboards, tenancy loads, warehouse demand, three-phase and load checks, safety switches and clear circuit labelling",
+  },
+  "narellan-vale": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, villa or townhouse access notes, outdoor power photos, hot water details and any defect notice or paperwork",
+    commonJobs:
+      "family-home, villa and townhouse electrical work, switchboard upgrades, safety-switch faults, hot water electrical, outdoor power, planned quote work, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home, villa or townhouse power loss, hot water electrical faults, outdoor power hazards, heat at outlets, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, villas and townhouses",
+    plannedWork:
+      "switchboard upgrades, safety-switch repairs, hot water electrical, outdoor power, smoke alarms, data cabling, CCTV and planned quote guidance",
+    propertyMix:
+      "family homes, villas, townhouses, outdoor areas, hot water loads and residential service equipment",
+    setting: "Camden family-home, villa and townhouse service area",
+    switchboardDetail:
+      "home loads, hot water demand, outdoor power, safety switches, RCBOs and consumer mains condition",
+  },
+  "oran-park": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, townhouse or apartment access notes, retail precinct details, school or site contact information and any defect notice or paperwork",
+    commonJobs:
+      "new-home, townhouse and apartment electrical work, retail and commercial precinct maintenance, school and community site support, aircon and EV load checks, switchboard capacity, consumer mains, metering, new-build issue review, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "new-home power loss, townhouse or apartment faults, retail precinct outages, school site electrical faults, aircon circuit trips, heat at outlets and sparking",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, new-build supply questions and load capacity checks",
+    plannedWork:
+      "new-build issue review, aircon circuits, EV-ready load checks, switchboard capacity checks, retail lighting, consumer mains review, CCTV/data and planned quote work",
+    propertyMix:
+      "new homes, townhouses, apartments, retail and commercial precincts, schools, aircon loads, EV-ready loads and service equipment",
+    setting: "Camden new-town, apartment and commercial-precinct service area",
+    switchboardDetail:
+      "new-home loads, apartment boards, retail loads, aircon and EV-ready capacity, consumer mains and safety switches",
+  },
+  rossmore: {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, gate or long-driveway access notes, shed, warehouse or workshop details, load-check notes and any defect notice or paperwork",
+    commonJobs:
+      "rural-edge and airport-growth electrical work, acreage-home repairs, shed power, warehouse and workshop power, long-driveway access jobs, private service equipment, three-phase and load checks, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "rural-edge power loss, shed or warehouse outages, workshop faults, outdoor power hazards, heat at outlets, sparking and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, private service equipment, defect notices, point of attachment concerns, load checks and airport-growth supply questions",
+    plannedWork:
+      "shed power, warehouse power, workshop power, driveway lighting, switchboard capacity checks, three-phase and load checks, private service equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "rural-edge properties, airport-growth sites, acreage homes, sheds, warehouses, workshops, long driveways and private service equipment",
+    setting: "Camden rural-edge, airport-growth and workshop service area",
+    switchboardDetail:
+      "commercial and acreage loads, shed and warehouse demand, three-phase and load checks, private service equipment and safety switches",
+  },
+  "smeaton-grange": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, warehouse or factory access notes, showroom entry details, operating hours, site contact information and any defect notice or paperwork",
+    commonJobs:
+      "warehouse, factory, workshop and showroom electrical work, commercial switchboards, three-phase and load checks, business outages, CCTV/data, emergency make-safe support and planned maintenance",
+    emergencySignals:
+      "business outages, warehouse or factory power loss, workshop equipment trips, showroom faults, heat at outlets, sparking and unsafe commercial switchboards",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, load checks and commercial supply-side questions",
+    plannedWork:
+      "warehouse lighting, factory power, workshop power, showroom lighting, commercial switchboards, load checks, CCTV/data and planned maintenance",
+    propertyMix:
+      "warehouses, factories, workshops, showrooms, commercial switchboards and service equipment",
+    setting: "Camden warehouse, factory and showroom service area",
+    switchboardDetail:
+      "commercial switchboards, three-phase and load checks, warehouse and factory loads, safety switches and clear circuit labelling",
+  },
+  "spring-farm": {
+    accessDetail:
+      "photos of the switchboard, meter box, affected fitting, townhouse or construction access notes, hot water or aircon details, outdoor lighting photos and any defect notice or paperwork",
+    commonJobs:
+      "newer-estate and family-home electrical work, townhouse repairs, construction and new-build issue review, switchboard capacity, hot water electrical, aircon electrical, outdoor lighting, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "newer-estate power loss, townhouse faults, construction or new-build electrical concerns, hot water electrical faults, aircon circuit trips, heat at outlets and sparking",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, new-build supply questions and switchboard capacity checks",
+    plannedWork:
+      "new-build issue review, switchboard capacity checks, hot water electrical, aircon circuits, outdoor lighting, consumer mains review, CCTV/data and quote-photo planning",
+    propertyMix:
+      "newer estates, family homes, townhouses, construction sites, hot water loads, aircon loads and residential service equipment",
+    setting: "Camden newer-estate, townhouse and new-build service area",
+    switchboardDetail:
+      "newer estate loads, hot water and aircon demand, outdoor lighting, consumer mains, safety switches and future capacity",
+  },
+};
+
+function getCamdenLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "macarthur-camden-and-wollondilly" ||
+    coverageArea.slug !== "camden"
+  ) {
+    return null;
+  }
+
+  return camdenLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 function getLocalPageContext(
   coverageRegion: CoverageRegion,
   coverageArea: CoverageArea,
@@ -2932,6 +3324,16 @@ function getLocalPageContext(
 
   if (liverpoolContext) {
     return liverpoolContext;
+  }
+
+  const camdenContext = getCamdenLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (camdenContext) {
+    return camdenContext;
   }
 
   if (
