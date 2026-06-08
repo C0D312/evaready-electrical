@@ -6467,6 +6467,371 @@ function getWoollahraLocalContext(
   return woollahraLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+function makeCumberlandLocalContext({
+  accessFocus,
+  commonJobs,
+  emergencySignals,
+  level2Detail,
+  plannedWork,
+  propertyMix,
+  setting,
+  switchboardDetail,
+}: Omit<LocalPageContext, "accessDetail"> & {
+  accessFocus: string;
+}): LocalPageContext {
+  return {
+    accessDetail: `photos of the switchboard, meter box, affected fitting, ${accessFocus}, access notes, parking/loading details, strata/building-manager notes and any defect notice or paperwork`,
+    commonJobs,
+    emergencySignals,
+    level2Detail,
+    plannedWork,
+    propertyMix,
+    setting,
+    switchboardDetail,
+  };
+}
+
+const cumberlandLocalContexts: Record<string, LocalPageContext> = {
+  auburn: makeCumberlandLocalContext({
+    accessFocus:
+      "station-area access notes, restaurant or shop timing, warehouse entry details and loading access information",
+    commonJobs:
+      "apartment, shopfront, restaurant, warehouse, workshop and station-area electrical work, business outages, commercial switchboards, three-phase and load checks, CCTV/data, lighting, power and planned quote work",
+    emergencySignals:
+      "apartment power loss, restaurant or shop outages, warehouse faults, workshop power issues, commercial switchboard faults, smoke smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, shops, restaurants, warehouses and workshops",
+    plannedWork:
+      "apartment repairs, restaurant and shop power, warehouse lighting, workshop maintenance, commercial switchboard upgrades, three-phase and load checks, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, shopfronts, restaurants, warehouses, workshops, station-area access, business outages, commercial switchboards, three-phase and load checks",
+    setting: "Auburn apartment, shopfront, restaurant, warehouse and workshop service area",
+    switchboardDetail:
+      "commercial switchboards, warehouse loads, workshop power, apartment boards, restaurant and shop demand, consumer mains and safety switches",
+  }),
+  berala: makeCumberlandLocalContext({
+    accessFocus:
+      "station-area entry notes, unit or villa access details, outdoor power photos and hot water system notes",
+    commonJobs:
+      "older-home, unit, villa and station-area property electrical work, safety-switch faults, hot water electrical, switchboards, outdoor power, lighting, power, CCTV/data and planned quote work",
+    emergencySignals:
+      "older-home power loss, unit faults, villa electrical issues, station-area property outages, hot water faults, smoke smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for older homes, units, villas and station-area properties",
+    plannedWork:
+      "older-home repairs, unit and villa maintenance, hot water electrical, outdoor power, lighting, power points, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "older homes, units, villas, station-area properties, safety-switch faults, hot water loads, switchboards and outdoor power",
+    setting: "Berala older-home, unit, villa and station-area service area",
+    switchboardDetail:
+      "older switchboards, unit boards, villa loads, hot water demand, outdoor power, consumer mains and safety switches",
+  }),
+  girraween: makeCumberlandLocalContext({
+    accessFocus:
+      "industrial entry notes, warehouse or workshop access details, business contact information and load-check notes",
+    commonJobs:
+      "industrial, commercial, warehouse, workshop, home and duplex electrical work, business outages, lighting and power faults, load checks, service-equipment support, CCTV/data and planned quote work",
+    emergencySignals:
+      "warehouse power loss, workshop faults, business outages, home or duplex power issues, commercial switchboard faults, smoke smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for industrial sites, warehouses, workshops, homes and duplexes",
+    plannedWork:
+      "warehouse lighting, workshop power, commercial switchboard upgrades, home and duplex repairs, load checks, service-equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "industrial and commercial pockets, warehouses, workshops, homes, duplexes, business outages, lighting and power faults, load checks and service equipment",
+    setting: "Girraween industrial, warehouse, workshop, home and duplex service area",
+    switchboardDetail:
+      "commercial switchboards, warehouse and workshop loads, home and duplex boards, service equipment, consumer mains and safety switches",
+  }),
+  greystanes: makeCumberlandLocalContext({
+    accessFocus:
+      "driveway access notes, renovation details, outdoor power photos and defect notice paperwork",
+    commonJobs:
+      "family-home, larger-block, duplex and renovation electrical work, outdoor power, switchboards, consumer mains, defect notices, lighting, power, CCTV/data and planned quote work",
+    emergencySignals:
+      "family-home power loss, duplex faults, renovation power issues, outdoor power hazards, switchboard faults, smoke smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for family homes, larger blocks, duplexes and renovation projects",
+    plannedWork:
+      "family-home repairs, duplex electrical work, renovation support, outdoor power, switchboard upgrades, consumer mains checks, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "family homes, larger blocks, duplexes, renovations, outdoor power, switchboards, consumer mains, defect notices and driveway access notes",
+    setting: "Greystanes family-home, duplex, larger-block and renovation service area",
+    switchboardDetail:
+      "family-home switchboards, duplex loads, renovation circuits, outdoor power, consumer mains, defect notices and safety switches",
+  }),
+  guildford: makeCumberlandLocalContext({
+    accessFocus:
+      "station-area parking notes, strata access details, shared meter-room information and hot water system notes",
+    commonJobs:
+      "apartment, older-home, shopfront and strata electrical work, station-area parking, shared meter rooms, safety-switch tripping, hot water faults, switchboards, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, older-home faults, shopfront outages, shared meter-room issues, hot water electrical faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, older homes, shopfronts and strata buildings",
+    plannedWork:
+      "apartment repairs, older-home maintenance, shopfront lighting, strata electrical work, shared meter-room checks, hot water electrical, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, older homes, shopfronts, strata access, station-area parking, shared meter rooms, safety-switch tripping and hot water faults",
+    setting: "Guildford apartment, older-home, shopfront and strata service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, older-home switchboards, shopfront loads, hot water demand, consumer mains and safety switches",
+  }),
+  "guildford-west": makeCumberlandLocalContext({
+    accessFocus:
+      "villa or duplex access details, rental access notes, local shop timing and hot water system notes",
+    commonJobs:
+      "home, duplex, villa, rental maintenance and local shop electrical work, older switchboards, hot water electrical, lighting, power, safety switches, CCTV/data and planned quote work",
+    emergencySignals:
+      "home power loss, duplex or villa faults, rental maintenance faults, local shop outages, hot water electrical faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, duplexes, villas, rental properties and local shops",
+    plannedWork:
+      "home repairs, duplex and villa maintenance, rental electrical work, local shop lighting, hot water electrical, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, duplexes, villas, rental maintenance, local shops, older switchboards, hot water loads and planned quote work",
+    setting: "Guildford West home, duplex, villa, rental and local shop service area",
+    switchboardDetail:
+      "older switchboards, home boards, duplex and villa loads, shop circuits, hot water demand, consumer mains and safety switches",
+  }),
+  holroyd: makeCumberlandLocalContext({
+    accessFocus:
+      "apartment entry notes, shared meter-room details, building-manager contacts and limited parking information",
+    commonJobs:
+      "apartment, strata and local business electrical work, shared meter rooms, building-manager access, limited parking, hot water faults, switchboards, lighting, power, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, strata shared-power issues, local business outages, shared meter-room concerns, hot water electrical faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, strata buildings and local businesses",
+    plannedWork:
+      "apartment repairs, strata maintenance, local business power, shared meter-room checks, hot water electrical, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, strata buildings, local businesses, shared meter rooms, building-manager access, limited parking, hot water faults and switchboards",
+    setting: "Holroyd apartment, strata, local business and shared-meter-room service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, local business loads, hot water demand, consumer mains and safety switches",
+  }),
+  lidcombe: makeCumberlandLocalContext({
+    accessFocus:
+      "station-area access notes, warehouse entry details, strata access information and loading details",
+    commonJobs:
+      "apartment, station-area shop, warehouse, industrial, commercial, strata and commercial suite electrical work, business outages, commercial switchboards, three-phase and load checks, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, station-area shop outages, warehouse faults, industrial or commercial outages, strata shared-power issues, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, shops, warehouses, industrial sites and commercial suites",
+    plannedWork:
+      "apartment repairs, station-area shop lighting, warehouse power, industrial and commercial maintenance, strata electrical work, commercial switchboard upgrades, load checks, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, station-area shops, warehouses, industrial and commercial sites, commercial suites, strata buildings, business outages, commercial switchboards, three-phase and load checks",
+    setting: "Lidcombe apartment, station-area shop, warehouse, industrial and commercial service area",
+    switchboardDetail:
+      "commercial switchboards, warehouse and industrial loads, apartment boards, shop circuits, strata meter rooms, consumer mains and safety switches",
+  }),
+  merrylands: makeCumberlandLocalContext({
+    accessFocus:
+      "shared meter-room details, restaurant or shop timing, strata access notes and defect notice paperwork",
+    commonJobs:
+      "apartment, shop, restaurant, commercial suite and strata electrical work, shared meter rooms, business outages, older wiring, switchboards, consumer mains, metering, defect notices, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, shop or restaurant outages, commercial suite faults, shared meter-room issues, older wiring concerns, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, shops, restaurants, commercial suites and strata buildings",
+    plannedWork:
+      "apartment repairs, shop and restaurant power, commercial suite maintenance, strata electrical work, shared meter-room checks, switchboard upgrades, consumer mains review, metering support, defect notice paperwork, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, shops, restaurants, commercial suites, strata buildings, shared meter rooms, business outages, older wiring, switchboards, consumer mains, metering and defect notices",
+    setting: "Merrylands apartment, shop, restaurant, commercial suite and strata service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, restaurant and shop loads, commercial suite circuits, older wiring, consumer mains, metering and safety switches",
+  }),
+  "merrylands-west": makeCumberlandLocalContext({
+    accessFocus:
+      "villa or duplex access details, rental access notes, outdoor power photos and hot water system notes",
+    commonJobs:
+      "home, villa, duplex and rental maintenance electrical work, older boards, outdoor power, hot water electrical, safety switches, service equipment, CCTV/data and planned quote work",
+    emergencySignals:
+      "home power loss, villa or duplex faults, rental maintenance faults, outdoor power hazards, hot water electrical faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, villas, duplexes and rental properties",
+    plannedWork:
+      "home repairs, villa and duplex maintenance, rental electrical work, outdoor power, hot water electrical, switchboard upgrades, service-equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, villas, duplexes, rental maintenance, older boards, outdoor power, hot water loads, safety switches and Level 2 support",
+    setting: "Merrylands West home, villa, duplex, rental and outdoor-power service area",
+    switchboardDetail:
+      "older boards, home switchboards, villa and duplex loads, outdoor power, hot water demand, consumer mains and safety switches",
+  }),
+  pemulwuy: makeCumberlandLocalContext({
+    accessFocus:
+      "townhouse access details, apartment entry notes, local shop timing and aircon or EV load information",
+    commonJobs:
+      "newer-home, townhouse, apartment and local shop electrical work, aircon and EV load checks, switchboard capacity, hot water electrical, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "newer-home power loss, townhouse or apartment faults, local shop outages, switchboard capacity issues, hot water electrical faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for newer homes, townhouses, apartments and local shops",
+    plannedWork:
+      "newer-home repairs, townhouse and apartment maintenance, local shop lighting, aircon and EV load checks, switchboard capacity review, hot water electrical, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "newer homes, townhouses, apartments, local shops, aircon and EV load checks, switchboard capacity, hot water loads and consumer mains",
+    setting: "Pemulwuy newer-home, townhouse, apartment and local shop service area",
+    switchboardDetail:
+      "newer-home boards, townhouse and apartment loads, shop circuits, aircon and EV load checks, hot water demand, consumer mains and safety switches",
+  }),
+  "pendle-hill": makeCumberlandLocalContext({
+    accessFocus:
+      "station-area entry notes, strata access details, villa access information and hot water system notes",
+    commonJobs:
+      "station-area apartment, older-home, villa, local shop and strata electrical work, switchboards, hot water electrical, safety-switch faults, lighting, power, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, older-home faults, villa electrical issues, local shop outages, hot water electrical faults, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for station-area apartments, older homes, villas, local shops and strata buildings",
+    plannedWork:
+      "apartment repairs, older-home maintenance, villa electrical work, local shop lighting, strata maintenance, hot water electrical, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "station-area apartments, older homes, villas, local shops, strata access, switchboards, hot water loads and safety-switch faults",
+    setting: "Pendle Hill station-area apartment, older-home, villa, shop and strata service area",
+    switchboardDetail:
+      "apartment boards, older switchboards, villa loads, shop circuits, hot water demand, consumer mains and safety switches",
+  }),
+  "regents-park": makeCumberlandLocalContext({
+    accessFocus:
+      "workshop entry notes, warehouse access details, rail or industrial access information and load-check notes",
+    commonJobs:
+      "home, workshop, warehouse and rail or industrial-access electrical work, commercial switchboards, business outages, lighting and power faults, load checks, CCTV/data and planned quote work",
+    emergencySignals:
+      "warehouse power loss, workshop faults, business outages, home electrical faults, commercial switchboard issues, smoke smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, workshops, warehouses and industrial-access sites",
+    plannedWork:
+      "home repairs, workshop power, warehouse lighting, commercial switchboard upgrades, rail or industrial access planning, load checks, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, workshops, warehouses, rail and industrial-access properties, commercial switchboards, business outages, lighting and power faults and load checks",
+    setting: "Regents Park home, workshop, warehouse and industrial-access service area",
+    switchboardDetail:
+      "commercial switchboards, warehouse and workshop loads, home boards, lighting and power circuits, consumer mains and safety switches",
+  }),
+  rookwood: makeCumberlandLocalContext({
+    accessFocus:
+      "facility access notes, grounds access details, outdoor lighting photos and safety-first attendance notes",
+    commonJobs:
+      "institutional, facility, grounds-style and planned maintenance electrical work, outdoor lighting, switchboards, access notes, safety-first call triage, CCTV/data and planned quote work",
+    emergencySignals:
+      "facility power loss, grounds lighting faults, outdoor power hazards, switchboard faults, access-related safety issues, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for facilities, grounds-style sites and planned maintenance work",
+    plannedWork:
+      "facility maintenance, grounds lighting, outdoor power, switchboard upgrades, safety-first access planning, service-equipment review, CCTV/data and planned quote work",
+    propertyMix:
+      "institutional, facility and grounds-style properties, outdoor lighting, switchboards, access notes, safety-first call triage and planned maintenance",
+    setting: "Rookwood facility, grounds-style, outdoor-lighting and planned-maintenance service area",
+    switchboardDetail:
+      "facility switchboards, grounds lighting loads, outdoor power, service equipment, consumer mains and safety switches",
+  }),
+  "south-granville": makeCumberlandLocalContext({
+    accessFocus:
+      "small factory or warehouse access notes, local shop timing, hot water system notes and loading details",
+    commonJobs:
+      "home, unit, small factory, warehouse and local shop electrical work, business outages, commercial switchboards, hot water electrical, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "home power loss, unit faults, small factory or warehouse outages, local shop faults, commercial switchboard issues, hot water electrical faults and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, units, small factories, warehouses and local shops",
+    plannedWork:
+      "home and unit repairs, small factory power, warehouse lighting, local shop maintenance, commercial switchboard upgrades, hot water electrical, consumer mains checks, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, units, small factories, warehouses, local shops, business outages, commercial switchboards, hot water loads and consumer mains support",
+    setting: "South Granville home, unit, small factory, warehouse and local shop service area",
+    switchboardDetail:
+      "commercial switchboards, small factory and warehouse loads, home and unit boards, shop circuits, hot water demand, consumer mains and safety switches",
+  }),
+  "south-wentworthville": makeCumberlandLocalContext({
+    accessFocus:
+      "unit or villa access details, rental access notes, hot water system notes and parking information",
+    commonJobs:
+      "home, unit, villa and rental maintenance electrical work, older switchboards, hot water faults, safety-switch tripping, lighting, power, CCTV/data and planned quote work",
+    emergencySignals:
+      "home power loss, unit or villa faults, rental maintenance issues, hot water electrical faults, older switchboard issues, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for homes, units, villas and rental properties",
+    plannedWork:
+      "home repairs, unit and villa maintenance, rental electrical work, hot water electrical, safety-switch work, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "homes, units, villas, older switchboards, rental maintenance, hot water faults, safety-switch tripping and access notes",
+    setting: "South Wentworthville home, unit, villa, rental and hot-water service area",
+    switchboardDetail:
+      "older switchboards, home boards, unit and villa loads, hot water demand, consumer mains and safety switches",
+  }),
+  wentworthville: makeCumberlandLocalContext({
+    accessFocus:
+      "station-area access notes, shared meter-room information, local business timing and strata entry details",
+    commonJobs:
+      "apartment, station-area shop, commercial suite, local business and strata electrical work, shared meter rooms, business outages, switchboards, consumer mains, metering, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, station-area shop outages, commercial suite faults, local business outages, shared meter-room issues, smoke smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, shops, commercial suites, local businesses and strata buildings",
+    plannedWork:
+      "apartment repairs, station-area shop lighting, commercial suite maintenance, local business power, strata electrical work, shared meter-room checks, switchboard upgrades, consumer mains review, metering support, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, station-area shops, commercial suites, local businesses, strata buildings, shared meter rooms, business outages, switchboards, consumer mains and metering",
+    setting: "Wentworthville apartment, station-area shop, commercial suite, local business and strata service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, shop and business loads, commercial suite circuits, consumer mains, metering and safety switches",
+  }),
+  westmead: makeCumberlandLocalContext({
+    accessFocus:
+      "medical suite timing, health precinct access notes, shared meter-room details and parking information",
+    commonJobs:
+      "apartment, strata, medical suite, commercial suite and health precinct electrical work, shared meter rooms, business-critical faults, switchboards, hot water electrical, consumer mains, CCTV/data and planned quote work",
+    emergencySignals:
+      "apartment power loss, strata shared-power issues, medical suite faults, health precinct business-critical faults, shared meter-room concerns, hot water electrical faults and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for apartments, strata buildings, medical suites and health precinct properties",
+    plannedWork:
+      "apartment repairs, strata maintenance, medical suite power, commercial suite work, health precinct electrical support, shared meter-room checks, hot water electrical, consumer mains review, switchboard upgrades, CCTV/data and planned quote work",
+    propertyMix:
+      "apartments, strata buildings, medical suites, commercial suites, health precinct demand, shared meter rooms, business-critical faults, switchboards, hot water loads, consumer mains and access or parking notes",
+    setting: "Westmead apartment, strata, medical-suite, health precinct and shared-meter-room service area",
+    switchboardDetail:
+      "shared meter rooms, apartment boards, medical suite circuits, commercial suite loads, hot water demand, consumer mains and safety switches",
+  }),
+  woodpark: makeCumberlandLocalContext({
+    accessFocus:
+      "workshop entry notes, warehouse access details, small business timing and loading access information",
+    commonJobs:
+      "workshop, warehouse and small business electrical work, business outages, commercial switchboards, lighting, power, load checks, CCTV/data, loading access and planned quote work",
+    emergencySignals:
+      "workshop power loss, warehouse faults, small business outages, commercial switchboard issues, lighting or power faults, smoke smells, sparking and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices and supply-side questions for workshops, warehouses and small businesses",
+    plannedWork:
+      "workshop power, warehouse lighting, small business maintenance, commercial switchboard upgrades, load checks, CCTV/data, loading access planning and planned quote work",
+    propertyMix:
+      "workshops, warehouses, small businesses, business outages, commercial switchboards, lighting, power, load checks, CCTV/data and loading access",
+    setting: "Woodpark workshop, warehouse, small business and loading-access service area",
+    switchboardDetail:
+      "commercial switchboards, workshop and warehouse loads, small business circuits, lighting and power demand, consumer mains and safety switches",
+  }),
+};
+
+function getCumberlandLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "parramatta-and-cumberland" ||
+    coverageArea.slug !== "cumberland"
+  ) {
+    return null;
+  }
+
+  return cumberlandLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 const burwoodLocalContexts: Record<string, LocalPageContext> = {
   burwood: {
     accessDetail:
@@ -6727,6 +7092,16 @@ function getLocalPageContext(
 
   if (woollahraContext) {
     return woollahraContext;
+  }
+
+  const cumberlandContext = getCumberlandLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (cumberlandContext) {
+    return cumberlandContext;
   }
 
   const burwoodContext = getBurwoodLocalContext(
