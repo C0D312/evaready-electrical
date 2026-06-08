@@ -814,6 +814,279 @@ function getGeorgesRiverLocalContext(
   return georgesRiverLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+const rockdaleBexleyLocalContexts: Record<string, LocalPageContext> = {
+  arncliffe: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, apartment or villa access notes, airport-adjacent access details, parking notes and any defect notice or paperwork",
+    commonJobs:
+      "apartment fault finding, older-home switchboards, villa repairs, strata access, hot water circuits, airport-adjacent access planning, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment power loss, hot water electrical faults, older-board issues, burning smells, hot outlets, safety-switch tripping and unsafe strata electrical areas",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata or airport-adjacent access questions",
+    plannedWork:
+      "older switchboard upgrades, villa repairs, apartment power points, hot water electrical checks, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "apartments, older homes, villas, strata buildings, airport-adjacent properties and shared access sites",
+    setting: "Rockdale & Bexley apartment, villa and airport-adjacent service area",
+    switchboardDetail:
+      "older boards, villa loads, shared meter rooms, safety switches, RCBO protection and hot water circuits",
+  },
+  banksia: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, station-area access notes, rental contact details, parking notes and any defect notice or paperwork",
+    commonJobs:
+      "older-home fault finding, unit repairs, station-area shop maintenance, rental electrical repairs, switchboards, safety-switch faults, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home or unit power loss, rental maintenance faults, station-area shop outages, hot outlets, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and rental or shop supply questions",
+    plannedWork:
+      "rental maintenance, older switchboards, unit repairs, shop lighting, smoke alarms, data points, CCTV and planned quote work",
+    propertyMix:
+      "older homes, units, station-area shops, rental properties and small local businesses",
+    setting: "Rockdale & Bexley older-home, unit and station-area service area",
+    switchboardDetail:
+      "older boards, rental property loads, safety switches, RCBO protection and clearer circuit labelling",
+  },
+  "bardwell-park": {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, driveway or sloped-block access notes, renovation details, outdoor power photos and any defect notice or paperwork",
+    commonJobs:
+      "leafy-street home fault finding, older-home switchboards, sloped-block access work, renovation wiring, outdoor power, lighting, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home power loss, outdoor circuit faults, storm-related issues, hot outlets, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and renovation supply questions",
+    plannedWork:
+      "renovation wiring, outdoor power, older switchboard upgrades, garden lighting, hot water circuits, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "leafy residential streets, older homes, sloped blocks, renovated properties and outdoor areas",
+    setting: "Rockdale & Bexley leafy residential and sloped-block service area",
+    switchboardDetail:
+      "older boards, outdoor circuits, renovation capacity, safety switches, RCBO protection and hot water loads",
+  },
+  "bardwell-valley": {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, driveway or gate notes, renovation details, outdoor lighting photos and any defect notice or paperwork",
+    commonJobs:
+      "home and duplex fault finding, renovation wiring, outdoor power, lighting, switchboard upgrades, planned Level 2 support, CCTV/data and planned electrical work",
+    emergencySignals:
+      "home power loss, duplex circuit faults, outdoor power faults, hot outlets, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and planned supply-side questions",
+    plannedWork:
+      "renovation wiring, outdoor lighting, switchboard upgrades, hot water circuits, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "homes, duplexes, renovated properties, outdoor areas and residential service equipment",
+    setting: "Rockdale & Bexley home, duplex and renovation service area",
+    switchboardDetail:
+      "older boards, duplex loads, outdoor circuits, renovation capacity, safety switches and RCBO protection",
+  },
+  bexley: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, villa or shop access notes, parking details, defect notice photos and any service equipment paperwork",
+    commonJobs:
+      "older-home fault finding, duplex and villa repairs, unit work, shop maintenance, switchboards, consumer mains, defect notices, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home or shop power loss, duplex circuit faults, hot outlets, burning smells, safety-switch tripping and unsafe service equipment",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
+    plannedWork:
+      "switchboard upgrades, consumer mains checks, defect notice review, villa repairs, shop lighting, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "older homes, duplexes, villas, units, shops, strata buildings and small local businesses",
+    setting: "Rockdale & Bexley older-home, duplex, villa and shop service area",
+    switchboardDetail:
+      "older boards, duplex and villa loads, consumer mains, safety switches, RCBOs and clearer circuit labelling",
+  },
+  "bexley-north": {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, apartment or villa access notes, transport-area parking notes and any defect notice or paperwork",
+    commonJobs:
+      "older-home repairs, apartment faults near transport, villa switchboards, strata access, hot water electrical, switchboard upgrades, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "home or apartment power loss, hot water electrical faults, shared circuit tripping, hot outlets, burning smells and safety-switch faults",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata supply questions",
+    plannedWork:
+      "older switchboards, villa repairs, apartment power points, hot water electrical checks, smoke alarms, data points, CCTV and planned quote work",
+    propertyMix:
+      "older homes, apartments near transport, villas, strata buildings and residential service equipment",
+    setting: "Rockdale & Bexley older-home, apartment and villa service area",
+    switchboardDetail:
+      "older boards, villa loads, shared meter rooms, hot water circuits, safety switches and RCBO protection",
+  },
+  "brighton-le-sands": {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, strata or shopfront access notes, outdoor power photos, parking details and any defect notice or paperwork",
+    commonJobs:
+      "apartment faults, strata repairs, cafe and restaurant power, shopfront maintenance, outdoor power, coastal electrical checks, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment power loss, cafe or restaurant outages, shopfront circuit faults, coastal outdoor faults, hot outlets, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata or commercial supply questions",
+    plannedWork:
+      "restaurant circuits, cafe lighting, shopfront maintenance, apartment repairs, outdoor power, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "apartments, strata buildings, cafes, restaurants, shopfronts, outdoor areas and coastal properties",
+    setting: "Rockdale & Bexley coastal apartment, hospitality and shopfront service area",
+    switchboardDetail:
+      "strata boards, tenancy loads, outdoor circuits, coastal exposure, safety switches and RCBO protection",
+  },
+  "dolls-point": {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, strata access notes, coastal access details, outdoor power photos and any defect notice or paperwork",
+    commonJobs:
+      "coastal-home fault finding, apartment repairs, strata access work, outdoor power, weather-exposed fixture checks, switchboard upgrades, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "coastal outdoor faults, apartment power loss, storm-related electrical issues, hot outlets, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
+    plannedWork:
+      "outdoor power, weather-rated lighting, apartment repairs, switchboard upgrades, smoke alarms, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "coastal homes, apartments, strata buildings, outdoor areas and residential service equipment",
+    setting: "Rockdale & Bexley coastal home, apartment and strata service area",
+    switchboardDetail:
+      "coastal exposure, older boards, outdoor circuits, safety switches, RCBOs and clearer circuit labelling",
+  },
+  kyeemagh: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, airport-adjacent access notes, outdoor circuit photos, parking details and any defect notice or paperwork",
+    commonJobs:
+      "coastal-home fault finding, airport-adjacent access work, outdoor circuits, weather-exposed fixture checks, switchboard upgrades, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "coastal outdoor faults, weather-affected electrical equipment, home power loss, hot outlets, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and airport-adjacent access questions",
+    plannedWork:
+      "outdoor circuits, weather-rated lighting, switchboard upgrades, hot water circuits, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "coastal homes, airport-adjacent properties, outdoor areas and residential service equipment",
+    setting: "Rockdale & Bexley coastal and airport-adjacent service area",
+    switchboardDetail:
+      "coastal exposure, outdoor circuits, older boards, safety switches, RCBO protection and service equipment",
+  },
+  monterey: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, apartment or strata access notes, coastal access details, parking notes and any defect notice or paperwork",
+    commonJobs:
+      "apartment faults, unit repairs, strata maintenance, coastal outdoor power, switchboard upgrades, hot water electrical, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "apartment power loss, hot water electrical faults, coastal outdoor issues, hot outlets, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata supply questions",
+    plannedWork:
+      "unit repairs, strata electrical work, outdoor power, switchboard upgrades, hot water circuits, data points, CCTV and planned quote work",
+    propertyMix:
+      "apartments, units, strata buildings, coastal properties, outdoor areas and shared meter rooms",
+    setting: "Rockdale & Bexley coastal apartment, unit and strata service area",
+    switchboardDetail:
+      "shared boards, coastal exposure, hot water loads, safety switches, RCBOs and clearer tenancy labelling",
+  },
+  "ramsgate-beach": {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, cafe or shopfront access notes, coastal parking details, outdoor power photos and any defect notice or paperwork",
+    commonJobs:
+      "apartment faults, cafe and shopfront maintenance, outdoor power, weather-exposed fixture checks, switchboard upgrades, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "power faults after rain, cafe or shopfront outages, apartment power loss, outdoor circuit faults, hot outlets, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and shopfront or strata supply questions",
+    plannedWork:
+      "cafe lighting, shopfront maintenance, apartment repairs, outdoor power, switchboard upgrades, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "apartments, cafes, shopfronts, coastal properties, outdoor areas and strata buildings",
+    setting: "Rockdale & Bexley coastal apartment, cafe and shopfront service area",
+    switchboardDetail:
+      "strata boards, shopfront loads, coastal exposure, outdoor circuits, safety switches and RCBO protection",
+  },
+  rockdale: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, shared meter-room notes, shop or office access details, loading or parking notes and any defect notice or paperwork",
+    commonJobs:
+      "apartment faults, strata repairs, shop power, office lighting, shared meter-room access, commercial switchboards, urgent outages, consumer mains, defect notices, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "urgent outages, apartment power loss, shop or office circuit faults, shared meter-room issues, hot outlets, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and commercial or strata supply questions",
+    plannedWork:
+      "commercial switchboards, office lighting, shop maintenance, apartment repairs, strata electrical work, consumer mains checks, CCTV, data cabling and planned quote work",
+    propertyMix:
+      "apartments, strata buildings, shops, offices, shared meter rooms, commercial sites and older homes",
+    setting: "Rockdale & Bexley apartment, strata, shop and commercial service area",
+    switchboardDetail:
+      "commercial switchboards, shared meter rooms, tenancy loads, strata boards, consumer mains, safety switches and clear circuit labelling",
+  },
+  sandringham: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, coastal access notes, outdoor lighting photos, service equipment photos and any defect notice or paperwork",
+    commonJobs:
+      "premium-home fault finding, coastal apartment repairs, outdoor lighting, outdoor power, weather-exposed fixture checks, service-equipment enquiries, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "coastal outdoor faults, weather-affected electrical equipment, home or apartment power loss, hot outlets, burning smells and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
+    plannedWork:
+      "outdoor lighting, outdoor power, switchboard upgrades, service-equipment checks, renovation wiring, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "premium homes, coastal apartments, outdoor areas, renovated properties and residential service equipment",
+    setting: "Rockdale & Bexley premium coastal-home and apartment service area",
+    switchboardDetail:
+      "home loads, coastal exposure, outdoor circuits, service equipment, safety switches and RCBO protection",
+  },
+  turrella: {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, strata or rail-corridor access notes, warehouse entry details, loading or parking details and any defect notice or paperwork",
+    commonJobs:
+      "apartment faults, strata repairs, airport or rail-corridor access work, warehouse lighting, workshop power, commercial switchboards, business outages, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "business outages, warehouse power loss, apartment power loss, shared circuit tripping, hot outlets, burning smells and safety-switch faults",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and commercial or strata supply questions",
+    plannedWork:
+      "warehouse lighting, workshop circuits, commercial switchboards, apartment repairs, strata electrical work, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "apartments, strata buildings, airport-adjacent sites, rail-corridor access properties, warehouses, workshops and commercial tenancies",
+    setting: "Rockdale & Bexley apartment, rail-corridor and warehouse service area",
+    switchboardDetail:
+      "commercial switchboards, strata boards, workshop loads, warehouse circuits, safety switches and clearer circuit labelling",
+  },
+  "wolli-creek": {
+    accessDetail:
+      "switchboard, meter box and affected fitting photos, building-manager contact details, shared meter-room notes, loading or parking details and any defect notice or paperwork",
+    commonJobs:
+      "high-rise apartment faults, strata tower repairs, shared meter-room access, switchboard cupboard checks, common-area lighting, hot water faults, CCTV/data and Level 2 enquiries",
+    emergencySignals:
+      "high-rise apartment power loss, shared meter-room issues, common-area lighting faults, hot water electrical faults, burning smells, hot outlets and safety-switch tripping",
+    level2Detail:
+      "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata tower supply questions",
+    plannedWork:
+      "apartment repairs, common-area lighting, switchboard cupboard checks, hot water circuits, strata electrical work, data cabling, CCTV and planned quote work",
+    propertyMix:
+      "high-rise apartments, strata towers, shared meter rooms, switchboard cupboards, common areas and building-manager access sites",
+    setting: "Rockdale & Bexley high-rise apartment and strata tower service area",
+    switchboardDetail:
+      "shared meter rooms, switchboard cupboards, strata boards, hot water loads, safety switches and clearer apartment labelling",
+  },
+};
+
+function getRockdaleBexleyLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "st-george-and-bayside" ||
+    coverageArea.slug !== "rockdale-and-bexley"
+  ) {
+    return null;
+  }
+
+  return rockdaleBexleyLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 function getLocalPageContext(
   coverageRegion: CoverageRegion,
   coverageArea: CoverageArea,
@@ -848,6 +1121,16 @@ function getLocalPageContext(
 
   if (georgesRiverContext) {
     return georgesRiverContext;
+  }
+
+  const rockdaleBexleyContext = getRockdaleBexleyLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (rockdaleBexleyContext) {
+    return rockdaleBexleyContext;
   }
 
   if (
