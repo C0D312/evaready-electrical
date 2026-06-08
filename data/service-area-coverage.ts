@@ -12815,6 +12815,563 @@ function getWollongongLocalContext(
   return wollongongLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+type WingecarribeeContextSeed = {
+  accessFocus: string;
+  emergencyFocus: string;
+  jobFocus: string;
+  level2Focus: string;
+  plannedFocus: string;
+  propertyMix: string;
+  setting: string;
+  switchboardFocus: string;
+};
+
+function makeWingecarribeeLocalContext({
+  accessFocus,
+  emergencyFocus,
+  jobFocus,
+  level2Focus,
+  plannedFocus,
+  propertyMix,
+  setting,
+  switchboardFocus,
+}: WingecarribeeContextSeed): LocalPageContext {
+  return {
+    accessDetail: `photos of the switchboard, meter box, affected fitting, ${accessFocus}, access notes, gate details, parking/loading details and any defect notice or paperwork`,
+    commonJobs: `${jobFocus}, emergency electrician work, Level 2 electrician enquiries, general licensed electrical work, switchboards, fault finding, hot water electrical, air conditioning electrical, CCTV/data and planned quote work`,
+    emergencySignals: `${emergencyFocus}, power loss, storm and weather-related electrical faults, outdoor power hazards, heat, smoke, sparking, repeated safety switch trips and call-first safety triage`,
+    level2Detail: `${level2Focus}, private service equipment, consumer mains, metering and defect notices`,
+    plannedWork: `${plannedFocus}, switchboard upgrades, lighting and power, hot water electrical, air conditioning electrical, CCTV/data and planned quote work`,
+    propertyMix,
+    quoteGuidance:
+      "Send photos of the switchboard, meter box, affected fitting, access notes, gate details, parking/loading details and any defect notice or paperwork.",
+    setting,
+    switchboardDetail: `${switchboardFocus}, older switchboards, safety switch protection, hot water circuits, outdoor power, private service equipment, consumer mains and metering where relevant`,
+  };
+}
+
+const wingecarribeeLocalContexts: Record<string, LocalPageContext> = {
+  alpine: makeWingecarribeeLocalContext({
+    accessFocus:
+      "rural-edge access, larger-block notes, long driveway details, outdoor power photos and gate information",
+    emergencyFocus:
+      "rural-edge home faults, long-driveway access issues, outdoor power hazards and hot water electrical issues",
+    jobFocus:
+      "rural-edge home, larger-block, long-driveway, outdoor-power and hot-water electrical work",
+    level2Focus:
+      "supply-side support for rural-edge homes, private service equipment and consumer mains",
+    plannedFocus:
+      "outdoor power, hot water circuits, switchboards, consumer mains and access-sensitive quote work",
+    propertyMix:
+      "rural-edge homes, larger blocks, long driveways, outdoor power, private service equipment, hot water circuits, switchboards, consumer mains and access/gate notes",
+    setting:
+      "Alpine rural-edge, larger-block, long-driveway, outdoor-power and access-gate service area",
+    switchboardFocus:
+      "rural-edge boards, hot water circuits, outdoor power, private service equipment and consumer mains",
+  }),
+  avoca: makeWingecarribeeLocalContext({
+    accessFocus:
+      "rural residential access, older-switchboard photos, storm fault notes, long access details and quote-photo guidance",
+    emergencyFocus:
+      "rural residential power loss, storm faults, long-access hazards and outdoor power issues",
+    jobFocus:
+      "rural residential, older-switchboard, storm-fault, long-access and outdoor-power electrical work",
+    level2Focus:
+      "supply-side support for rural residential properties, consumer mains and older service equipment",
+    plannedFocus:
+      "older switchboard checks, outdoor power, hot water circuits, consumer mains and quote-photo planning",
+    propertyMix:
+      "rural residential properties, older switchboards, storm faults, long access, outdoor power, hot water circuits, consumer mains and quote-photo guidance",
+    setting:
+      "Avoca rural-residential, older-switchboard, storm-fault and quote-photo service area",
+    switchboardFocus:
+      "older rural residential boards, outdoor circuits, hot water loads and consumer mains",
+  }),
+  aylmerton: makeWingecarribeeLocalContext({
+    accessFocus:
+      "highway or industrial-edge access, workshop entry notes, larger-block details and parking information",
+    emergencyFocus:
+      "highway-edge home faults, workshop outages, larger-block access issues and outdoor power hazards",
+    jobFocus:
+      "highway-edge, industrial-edge, home, workshop, larger-block and parking-sensitive electrical work",
+    level2Focus:
+      "supply-side support for homes, workshops, larger blocks and consumer mains",
+    plannedFocus:
+      "workshop power, home maintenance, outdoor power, switchboards, hot water and parking-sensitive quote work",
+    propertyMix:
+      "highway/industrial-edge access, homes, workshops, larger blocks, outdoor power, switchboards, hot water, consumer mains and parking/access notes",
+    setting:
+      "Aylmerton highway-edge, industrial-edge, workshop, larger-block and parking-access service area",
+    switchboardFocus:
+      "home and workshop boards, outdoor power, hot water loads and consumer mains",
+  }),
+  balaclava: makeWingecarribeeLocalContext({
+    accessFocus:
+      "home, small-business, older-switchboard, hot-water and access notes",
+    emergencyFocus:
+      "home power loss, small-business outages, older-board concerns and hot water electrical faults",
+    jobFocus:
+      "home, small-business, older-switchboard, hot-water, safety-switch and lighting-and-power electrical work",
+    level2Focus:
+      "supply-side support for homes, small local businesses and consumer mains",
+    plannedFocus:
+      "small-business maintenance, home repairs, lighting and power, hot water and consumer mains review",
+    propertyMix:
+      "homes, small local businesses, older switchboards, hot water, safety switches, lighting and power, consumer mains and access notes",
+    setting:
+      "Balaclava home, small-business, older-switchboard and hot-water service area",
+    switchboardFocus:
+      "older home and small-business boards, hot water circuits, safety switches and consumer mains",
+  }),
+  balmoral: makeWingecarribeeLocalContext({
+    accessFocus:
+      "rural/bushland-edge access, long driveway details, storm fault notes, private service equipment photos and outdoor power details",
+    emergencyFocus:
+      "rural or bushland-edge power loss, long-driveway access issues, storm faults and outdoor power hazards",
+    jobFocus:
+      "rural/bushland-edge, long-driveway, storm-fault, private-service-equipment and outdoor-power electrical work",
+    level2Focus:
+      "supply-side support for rural/bushland-edge homes and private service equipment",
+    plannedFocus:
+      "outdoor power, private service equipment review, switchboards and careful access-sensitive quote work",
+    propertyMix:
+      "rural/bushland-edge homes, long driveways, storm faults, private service equipment, outdoor power and careful 90-minute response wording",
+    setting:
+      "Balmoral rural-bushland-edge, long-driveway, private-service-equipment and careful-response service area",
+    switchboardFocus:
+      "rural/bushland-edge boards, outdoor circuits and private service equipment",
+  }),
+  bargo: makeWingecarribeeLocalContext({
+    accessFocus:
+      "home, shop, rural-edge, shed, outdoor power and gate/access notes",
+    emergencyFocus:
+      "home power loss, shop outages, shed faults, outdoor power hazards and hot water electrical issues",
+    jobFocus:
+      "home, shop, rural-edge, shed, outdoor-power, hot-water and defect-notice electrical work",
+    level2Focus:
+      "supply-side support for homes, shops, rural-edge properties, consumer mains and defect notices",
+    plannedFocus:
+      "shop maintenance, shed power, outdoor power, hot water, switchboards, consumer mains and defect notice paperwork",
+    propertyMix:
+      "homes, shops, rural-edge properties, sheds, outdoor power, switchboards, hot water faults, consumer mains, defect notices and access/gate notes",
+    setting:
+      "Bargo home, shop, rural-edge, shed, outdoor-power and defect-notice service area",
+    switchboardFocus:
+      "home, shop and shed boards, outdoor circuits, hot water loads, consumer mains and defect notices",
+  }),
+  berrima: makeWingecarribeeLocalContext({
+    accessFocus:
+      "heritage-style home, older-wiring, cafe/shop, hot-water and parking/access notes",
+    emergencyFocus:
+      "heritage-style home faults, older-wiring concerns, cafe or shop outages and hot water electrical issues",
+    jobFocus:
+      "heritage-style home, older-wiring, cafe/shop, hot-water and access-sensitive electrical work",
+    level2Focus:
+      "supply-side support for heritage-style homes, shops, consumer mains and service equipment",
+    plannedFocus:
+      "older-wiring reviews, cafe/shop maintenance, hot water circuits, switchboards and parking-sensitive quote work",
+    propertyMix:
+      "heritage-style homes, older wiring, cafes/shops, homes, switchboards, hot water circuits, consumer mains and access/parking notes",
+    setting:
+      "Berrima heritage-style, older-wiring, cafe-shop and access-parking service area",
+    switchboardFocus:
+      "older home and shop boards, hot water circuits, older wiring and consumer mains",
+  }),
+  bowral: makeWingecarribeeLocalContext({
+    accessFocus:
+      "premium-home, older-home, shop, cafe, restaurant, office, unit and parking/loading notes",
+    emergencyFocus:
+      "premium-home faults, shop, cafe or restaurant outages, unit electrical issues and business outages",
+    jobFocus:
+      "premium-home, older-home, shop, cafe, restaurant, office, unit and business-outage electrical work",
+    level2Focus:
+      "supply-side support for premium homes, shops, offices, units, consumer mains, metering and defect notices",
+    plannedFocus:
+      "premium-home upgrades, shop, cafe and restaurant maintenance, office electrical work, accommodation or short-stay maintenance where accurate, units, metering and defect notice paperwork",
+    propertyMix:
+      "premium homes, older homes, shops, cafes, restaurants, accommodation/short-stay maintenance where accurate, offices, units, business outages, switchboards, consumer mains, metering and defect notices",
+    setting:
+      "Bowral premium-home, older-home, shop-cafe, restaurant, office, unit and business-outage service area",
+    switchboardFocus:
+      "premium-home, shop, restaurant and office boards, unit loads, consumer mains, metering and defect notices",
+  }),
+  braemar: makeWingecarribeeLocalContext({
+    accessFocus:
+      "industrial/commercial, warehouse/workshop, home, loading, parking and Level 2 access notes",
+    emergencyFocus:
+      "warehouse or workshop outages, commercial switchboard issues, home faults and business outages",
+    jobFocus:
+      "industrial/commercial, warehouse, workshop, home, business-outage, lighting-and-power and load-check electrical work",
+    level2Focus:
+      "supply-side support for commercial sites, warehouses, workshops, homes and consumer mains",
+    plannedFocus:
+      "warehouse and workshop power, commercial switchboards, lighting and power, load checks, consumer mains and Level 2 enquiries",
+    propertyMix:
+      "industrial/commercial pockets, warehouses/workshops, homes, switchboards, business outages, lighting and power, load checks, consumer mains and Level 2 support",
+    setting:
+      "Braemar industrial-commercial, warehouse-workshop, home, business-outage and load-check service area",
+    switchboardFocus:
+      "commercial switchboards, workshop loads, warehouse power, lighting loads, home boards and consumer mains",
+  }),
+  burradoo: makeWingecarribeeLocalContext({
+    accessFocus:
+      "large-home, heritage/older-wiring, long-driveway, renovation and outdoor-lighting notes",
+    emergencyFocus:
+      "large-home faults, older-wiring concerns, long-driveway access issues and outdoor lighting hazards",
+    jobFocus:
+      "large-home, heritage/older-wiring, long-driveway, renovation, outdoor-lighting and private-service-equipment electrical work",
+    level2Focus:
+      "supply-side support for large homes, private service equipment and consumer mains",
+    plannedFocus:
+      "renovations, outdoor lighting, switchboards, private service equipment, consumer mains and long-driveway quote planning",
+    propertyMix:
+      "large homes, heritage/older wiring, long driveways, renovations, outdoor lighting, private service equipment, consumer mains, switchboards and access notes",
+    setting:
+      "Burradoo large-home, heritage-wiring, long-driveway, renovation and private-service-equipment service area",
+    switchboardFocus:
+      "large-home boards, older wiring, renovation loads, outdoor lighting, private service equipment and consumer mains",
+  }),
+  burrawang: makeWingecarribeeLocalContext({
+    accessFocus:
+      "village-home, cafe/shop, rural/acreage, older-board and planned-quote notes",
+    emergencyFocus:
+      "village-home faults, cafe or shop outages, rural property issues and hot water electrical faults",
+    jobFocus:
+      "village-home, cafe/shop, rural/acreage, older-board, hot-water and outdoor-power electrical work",
+    level2Focus:
+      "supply-side support for village homes, rural/acreage properties, shops and consumer mains",
+    plannedFocus:
+      "village-home repairs, cafe/shop maintenance, rural/acreage electrical work, outdoor power, hot water and planned quote guidance",
+    propertyMix:
+      "village homes, cafes/shops where relevant, rural/acreage properties, older boards, hot water faults, outdoor power, switchboards, consumer mains and planned quote guidance",
+    setting:
+      "Burrawang village-home, cafe-shop, rural-acreage and planned-quote service area",
+    switchboardFocus:
+      "village-home and shop boards, rural/acreage loads, hot water circuits and consumer mains",
+  }),
+  buxton: makeWingecarribeeLocalContext({
+    accessFocus:
+      "home, rural-edge, shed, bushland/storm exposure, private service equipment and access notes",
+    emergencyFocus:
+      "home power loss, rural-edge faults, shed electrical issues, bushland storm exposure and outdoor power hazards",
+    jobFocus:
+      "home, rural-edge, shed, bushland/storm-exposure, outdoor-power and private-service-equipment electrical work",
+    level2Focus:
+      "supply-side support for homes, rural-edge properties, sheds and private service equipment",
+    plannedFocus:
+      "shed power, outdoor power, switchboards, private service equipment and access-sensitive quote work",
+    propertyMix:
+      "homes, rural-edge properties, sheds, bushland/storm exposure, outdoor power, private service equipment, switchboards and access notes",
+    setting:
+      "Buxton home, rural-edge, shed, bushland-storm and private-service-equipment service area",
+    switchboardFocus:
+      "home and shed boards, outdoor circuits, private service equipment and storm-exposed loads",
+  }),
+  "colo-vale": makeWingecarribeeLocalContext({
+    accessFocus:
+      "family-home, rural-edge block, shed, outdoor circuit, hot-water and gate/access notes",
+    emergencyFocus:
+      "family-home power loss, rural-edge block faults, shed electrical issues, hot water faults and outdoor power hazards",
+    jobFocus:
+      "family-home, rural-edge-block, shed, outdoor-circuit, hot-water and safety-switch electrical work",
+    level2Focus:
+      "supply-side support for family homes, rural-edge blocks, sheds and consumer mains",
+    plannedFocus:
+      "shed power, outdoor circuits, hot water, safety switches, consumer mains and access/gate quote work",
+    propertyMix:
+      "family homes, rural-edge blocks, sheds, outdoor circuits, hot water, safety switches, consumer mains and access/gate notes",
+    setting:
+      "Colo Vale family-home, rural-edge-block, shed, outdoor-circuit and gate-access service area",
+    switchboardFocus:
+      "family-home boards, shed loads, outdoor circuits, hot water loads, safety switches and consumer mains",
+  }),
+  "east-kangaloon": makeWingecarribeeLocalContext({
+    accessFocus:
+      "rural/acreage, long-driveway, private-service-equipment, outdoor-power and photo-planning notes",
+    emergencyFocus:
+      "rural/acreage power loss, long-driveway access issues, private service equipment concerns and storm faults",
+    jobFocus:
+      "rural/acreage, long-driveway, private-service-equipment, outdoor-power and storm-fault electrical work",
+    level2Focus:
+      "supply-side support for rural/acreage homes and private service equipment",
+    plannedFocus:
+      "outdoor power, private service equipment, switchboards, storm follow-up and planned photo guidance",
+    propertyMix:
+      "rural/acreage homes, long driveways, private service equipment, outdoor power, storm faults and planned photo guidance",
+    setting:
+      "East Kangaloon rural-acreage, long-driveway, private-service-equipment and photo-planning service area",
+    switchboardFocus:
+      "rural/acreage boards, outdoor circuits, private service equipment and storm-exposed loads",
+  }),
+  exeter: makeWingecarribeeLocalContext({
+    accessFocus:
+      "village-home, older-wiring, premium/rural-residential, local shop/cafe and access notes",
+    emergencyFocus:
+      "village-home faults, older-wiring concerns, local shop or cafe outages and hot water electrical issues",
+    jobFocus:
+      "village-home, older-wiring, premium/rural-residential, local-shop-cafe and hot-water electrical work",
+    level2Focus:
+      "supply-side support for village homes, rural residential properties, shops, consumer mains and service equipment",
+    plannedFocus:
+      "older-wiring reviews, local shop/cafe maintenance, hot water circuits, switchboards and access-sensitive quote work",
+    propertyMix:
+      "village homes, older wiring, premium/rural residential, local shops/cafes where relevant, switchboards, hot water, consumer mains and access notes",
+    setting:
+      "Exeter village-home, older-wiring, premium-rural-residential and local-shop-cafe service area",
+    switchboardFocus:
+      "village-home and shop boards, older wiring, hot water circuits and consumer mains",
+  }),
+  glenquarry: makeWingecarribeeLocalContext({
+    accessFocus:
+      "acreage, larger-block, long-driveway, shed/outbuilding and storm-related notes",
+    emergencyFocus:
+      "acreage power loss, long-driveway access issues, shed or outbuilding faults and storm-related hazards",
+    jobFocus:
+      "acreage, larger-block, long-driveway, shed/outbuilding, private-service-equipment and outdoor-power electrical work",
+    level2Focus:
+      "supply-side support for acreage homes, sheds, outbuildings and private service equipment",
+    plannedFocus:
+      "shed and outbuilding power, outdoor power, private service equipment review and storm-related follow-up",
+    propertyMix:
+      "acreage homes, larger blocks, long driveways, outdoor power, sheds/outbuildings, private service equipment and storm-related faults",
+    setting:
+      "Glenquarry acreage, larger-block, long-driveway, shed-outbuilding and storm-related service area",
+    switchboardFocus:
+      "acreage boards, shed and outbuilding loads, outdoor circuits and private service equipment",
+  }),
+  "hill-top": makeWingecarribeeLocalContext({
+    accessFocus:
+      "home, bushland-edge, older-switchboard, outdoor-power, private-service-equipment and safety-first notes",
+    emergencyFocus:
+      "bushland-edge home power loss, storm faults, older-board concerns and outdoor power hazards",
+    jobFocus:
+      "home, bushland-edge, older-switchboard, outdoor-power, hot-water and safety-first electrical work",
+    level2Focus:
+      "supply-side support for bushland-edge homes, private service equipment and service-equipment enquiries",
+    plannedFocus:
+      "older-switchboard checks, outdoor power, hot water circuits, private service equipment and safety-first quote work",
+    propertyMix:
+      "homes, bushland-edge access, older switchboards, storm faults, outdoor power, hot water circuits, private service equipment and safety-first call wording",
+    setting:
+      "Hill Top home, bushland-edge, older-switchboard, outdoor-power and safety-first service area",
+    switchboardFocus:
+      "older bushland-edge boards, outdoor circuits, hot water loads and private service equipment",
+  }),
+  kangaloon: makeWingecarribeeLocalContext({
+    accessFocus:
+      "acreage/rural, long-access, outdoor-power, private-service-equipment and consumer-mains notes",
+    emergencyFocus:
+      "acreage or rural power loss, long-access issues, outdoor power hazards, private service equipment concerns and storm faults",
+    jobFocus:
+      "acreage/rural, long-access, outdoor-power, private-service-equipment, switchboard and consumer-mains electrical work",
+    level2Focus:
+      "supply-side support for acreage/rural properties, private service equipment and consumer mains",
+    plannedFocus:
+      "outdoor power, private service equipment, switchboards, storm follow-up and consumer mains review",
+    propertyMix:
+      "acreage/rural properties, long access, outdoor power, private service equipment, switchboards, storm faults and consumer mains",
+    setting:
+      "Kangaloon acreage-rural, long-access, outdoor-power, private-service-equipment and consumer-mains service area",
+    switchboardFocus:
+      "acreage/rural boards, outdoor circuits, private service equipment and consumer mains",
+  }),
+  medway: makeWingecarribeeLocalContext({
+    accessFocus:
+      "rural/industrial-edge, workshop, larger-property, outdoor-power and access notes",
+    emergencyFocus:
+      "rural or industrial-edge power loss, workshop faults, larger-property access issues and outdoor power hazards",
+    jobFocus:
+      "rural/industrial-edge, workshop, larger-property, outdoor-power, hot-water and consumer-mains electrical work",
+    level2Focus:
+      "supply-side support for rural/industrial-edge properties, workshops, consumer mains and service equipment",
+    plannedFocus:
+      "workshop power, larger-property maintenance, outdoor power, hot water and consumer mains review",
+    propertyMix:
+      "rural/industrial-edge properties, workshops, larger properties, outdoor power, switchboards, consumer mains, hot water and access notes",
+    setting:
+      "Medway rural-industrial-edge, workshop, larger-property and consumer-mains service area",
+    switchboardFocus:
+      "workshop and larger-property boards, outdoor circuits, hot water loads and consumer mains",
+  }),
+  mittagong: makeWingecarribeeLocalContext({
+    accessFocus:
+      "town-centre shop, cafe, office, home, unit, commercial-fault and parking/loading notes",
+    emergencyFocus:
+      "town-centre shop outages, cafe or office faults, unit electrical issues, home power loss and business outages",
+    jobFocus:
+      "town-centre shop, cafe, office, home, unit, commercial-fault and business-outage electrical work",
+    level2Focus:
+      "supply-side support for town-centre shops, offices, homes, units, consumer mains, metering and defect notices",
+    plannedFocus:
+      "shop, cafe and office electrical work, unit maintenance, hot water, commercial fault follow-up, metering and defect notice paperwork",
+    propertyMix:
+      "town-centre shops, cafes, offices, homes, units, commercial faults, business outages, older switchboards, hot water, consumer mains, metering and defect notices",
+    setting:
+      "Mittagong town-centre, shop-cafe, office, unit, business-outage and defect-notice service area",
+    switchboardFocus:
+      "town-centre shop, cafe, office, home and unit boards, older switchboards, consumer mains, metering and defect notices",
+  }),
+  "moss-vale": makeWingecarribeeLocalContext({
+    accessFocus:
+      "shop, local-business, industrial/commercial, rural-edge, loading and access notes",
+    emergencyFocus:
+      "shop and local-business outages, industrial/commercial faults, rural-edge power loss and business outages",
+    jobFocus:
+      "shop, local-business, industrial/commercial, rural-edge, business-outage, consumer-mains and defect-notice electrical work",
+    level2Focus:
+      "supply-side support for shops, local businesses, industrial/commercial pockets, rural-edge properties, consumer mains, metering and defect notices",
+    plannedFocus:
+      "shop and business maintenance, industrial/commercial electrical work, consumer mains, metering, defect notice paperwork and access/loading planning",
+    propertyMix:
+      "shops, local businesses, industrial/commercial pockets, homes, rural-edge properties, switchboards, business outages, consumer mains, metering, defect notices and access/loading notes",
+    setting:
+      "Moss Vale shop, local-business, industrial-commercial, rural-edge and access-loading service area",
+    switchboardFocus:
+      "shop, local-business, industrial/commercial and rural-edge boards, consumer mains, metering and defect notices",
+  }),
+  "new-berrima": makeWingecarribeeLocalContext({
+    accessFocus:
+      "industrial/commercial, residential, workshop, warehouse, business-outage and planned-Level-2 notes",
+    emergencyFocus:
+      "workshop or warehouse outages, industrial/commercial faults, residential power loss and business outages",
+    jobFocus:
+      "industrial/commercial, residential, workshop, warehouse, business-outage, lighting-and-power and Level 2 electrical work",
+    level2Focus:
+      "supply-side support for industrial/commercial sites, homes, workshops, warehouses and consumer mains",
+    plannedFocus:
+      "workshop and warehouse power, residential repairs, business outage planning, lighting and power and planned Level 2 support",
+    propertyMix:
+      "industrial/commercial and residential mix, workshops, warehouses, business outages, switchboards, consumer mains, lighting and power and planned Level 2 support",
+    setting:
+      "New Berrima industrial-commercial, residential, workshop, warehouse and planned-Level-2 service area",
+    switchboardFocus:
+      "industrial/commercial, workshop, warehouse and residential boards, lighting loads and consumer mains",
+  }),
+  renwick: makeWingecarribeeLocalContext({
+    accessFocus:
+      "newer-home, townhouse, family-property, aircon/EV-load, hot-water and planned-upgrade notes",
+    emergencyFocus:
+      "newer-home power loss, townhouse faults, family-property electrical issues and hot water faults",
+    jobFocus:
+      "newer-home, townhouse, family-property, switchboard-capacity, aircon/EV-load and hot-water electrical work",
+    level2Focus:
+      "supply-side support for newer homes, townhouses, consumer mains and capacity planning",
+    plannedFocus:
+      "switchboard capacity checks, aircon/EV load checks, hot water, safety switches, consumer mains and planned upgrades",
+    propertyMix:
+      "newer homes, townhouses, family properties, switchboard capacity, aircon/EV load checks, hot water, safety switches, consumer mains and planned upgrades",
+    setting:
+      "Renwick newer-home, townhouse, family-property, capacity-check and planned-upgrade service area",
+    switchboardFocus:
+      "newer-home and townhouse boards, aircon/EV demand, hot water loads, safety switches and consumer mains",
+  }),
+  "sutton-forest": makeWingecarribeeLocalContext({
+    accessFocus:
+      "acreage/rural-estate, larger-property, long-driveway, shed, private-service-equipment and gate notes",
+    emergencyFocus:
+      "acreage or rural-estate power loss, long-driveway access issues, shed faults and storm faults",
+    jobFocus:
+      "acreage/rural-estate, larger-property, long-driveway, shed, outdoor-power and private-service-equipment electrical work",
+    level2Focus:
+      "supply-side support for acreage and rural estates, private service equipment and consumer mains",
+    plannedFocus:
+      "shed power, outdoor power, private service equipment, switchboards, storm follow-up and access/gate quote work",
+    propertyMix:
+      "acreage and rural estates, larger properties, long driveways, outdoor power, sheds, private service equipment, switchboards, storm faults and access/gate notes",
+    setting:
+      "Sutton Forest acreage-rural-estate, larger-property, long-driveway, shed and gate-access service area",
+    switchboardFocus:
+      "acreage and rural-estate boards, shed loads, outdoor circuits and private service equipment",
+  }),
+  welby: makeWingecarribeeLocalContext({
+    accessFocus:
+      "home, older-switchboard, local-business, industrial-edge, lighting-and-power and consumer-mains notes",
+    emergencyFocus:
+      "home power loss, local-business outages, industrial-edge faults and hot water electrical issues",
+    jobFocus:
+      "home, older-switchboard, local-business, industrial-edge, lighting-and-power, hot-water and safety-switch electrical work",
+    level2Focus:
+      "supply-side support for homes, local businesses, industrial-edge sites and consumer mains",
+    plannedFocus:
+      "home repairs, local-business maintenance, industrial-edge electrical work, lighting and power, hot water and consumer mains support",
+    propertyMix:
+      "homes, older switchboards, local businesses, industrial-edge access, lighting and power, hot water, safety switches and consumer mains support",
+    setting:
+      "Welby home, older-switchboard, local-business, industrial-edge and consumer-mains service area",
+    switchboardFocus:
+      "older home, local-business and industrial-edge boards, hot water circuits, safety switches and consumer mains",
+  }),
+  "willow-vale": makeWingecarribeeLocalContext({
+    accessFocus:
+      "rural-edge, larger-block, outdoor-power, long-driveway, private-service-equipment and quote-photo notes",
+    emergencyFocus:
+      "rural-edge power loss, larger-block faults, long-driveway access issues and outdoor power hazards",
+    jobFocus:
+      "rural-edge, larger-block, outdoor-power, long-driveway, private-service-equipment and hot-water electrical work",
+    level2Focus:
+      "supply-side support for rural-edge homes, private service equipment and consumer mains",
+    plannedFocus:
+      "outdoor power, hot water circuits, private service equipment review and planned quote-photo guidance",
+    propertyMix:
+      "rural-edge homes, larger blocks, outdoor power, long driveways, private service equipment, hot water circuits and planned quote-photo guidance",
+    setting:
+      "Willow Vale rural-edge, larger-block, long-driveway, private-service-equipment and quote-photo service area",
+    switchboardFocus:
+      "rural-edge boards, outdoor circuits, hot water loads and private service equipment",
+  }),
+  woodlands: makeWingecarribeeLocalContext({
+    accessFocus:
+      "acreage/rural, long-access, outdoor-power, private-service-equipment and gate notes",
+    emergencyFocus:
+      "acreage or rural power loss, long-access issues, outdoor power hazards, private service equipment concerns and storm faults",
+    jobFocus:
+      "acreage/rural, long-access, outdoor-power, private-service-equipment and storm-fault electrical work",
+    level2Focus:
+      "supply-side support for acreage/rural homes and private service equipment",
+    plannedFocus:
+      "outdoor power, private service equipment, switchboards, storm follow-up and access/gate quote work",
+    propertyMix:
+      "acreage/rural homes, long access, outdoor power, private service equipment, storm faults, switchboards and access/gate notes",
+    setting:
+      "Woodlands acreage-rural, long-access, outdoor-power, private-service-equipment and gate-access service area",
+    switchboardFocus:
+      "acreage/rural boards, outdoor circuits and private service equipment",
+  }),
+  yerrinbool: makeWingecarribeeLocalContext({
+    accessFocus:
+      "village/rural-edge, bushland access, older-switchboard, outdoor-power, private-service-equipment and safety-first notes",
+    emergencyFocus:
+      "village or rural-edge power loss, bushland access issues, storm faults and outdoor power hazards",
+    jobFocus:
+      "village/rural-edge, bushland-access, older-switchboard, outdoor-power, hot-water and safety-first electrical work",
+    level2Focus:
+      "supply-side support for village/rural-edge homes and private service equipment",
+    plannedFocus:
+      "older-switchboard checks, outdoor power, hot water circuits, private service equipment and safety-first quote work",
+    propertyMix:
+      "village/rural-edge homes, bushland access, older switchboards, storm faults, outdoor power, hot water circuits, private service equipment and safety-first emergency wording",
+    setting:
+      "Yerrinbool village-rural-edge, bushland-access, older-switchboard and safety-first service area",
+    switchboardFocus:
+      "older village/rural-edge boards, outdoor circuits, hot water loads and private service equipment",
+  }),
+};
+
+function getWingecarribeeLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "southern-highlands" ||
+    coverageArea.slug !== "wingecarribee"
+  ) {
+    return null;
+  }
+
+  return wingecarribeeLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 const burwoodLocalContexts: Record<string, LocalPageContext> = {
   burwood: {
     accessDetail:
@@ -13205,6 +13762,16 @@ function getLocalPageContext(
 
   if (wollongongContext) {
     return wollongongContext;
+  }
+
+  const wingecarribeeContext = getWingecarribeeLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (wingecarribeeContext) {
+    return wingecarribeeContext;
   }
 
   const burwoodContext = getBurwoodLocalContext(
