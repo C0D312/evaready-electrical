@@ -12526,6 +12526,295 @@ function getShellharbourLocalContext(
   return shellharbourLocalContexts[coverageSuburb.slug] ?? null;
 }
 
+function makeWollongongLocalContext(
+  detail: string,
+  setting: string,
+): LocalPageContext {
+  return {
+    accessDetail: `photos of the switchboard, meter box, affected fitting, ${detail}, access notes, parking/loading details, gate details and any defect notice or paperwork`,
+    commonJobs: `${detail}, emergency electrician work, Level 2 electrician enquiries, general licensed electrical work, switchboards, fault finding, hot water electrical, air conditioning electrical, CCTV/data and planned quote work`,
+    emergencySignals: `power loss, storm or water-related electrical faults, weather-exposed outdoor power, heat, smoke, sparking, repeated safety switch trips and call-first safety triage for ${detail}`,
+    level2Detail: `consumer mains, private service equipment, point of attachment, metering and defect notices for ${detail}`,
+    plannedWork: `${detail}, switchboard upgrades, lighting and power, hot water electrical, air conditioning electrical, CCTV/data and planned quote work`,
+    propertyMix: detail,
+    quoteGuidance:
+      "Send photos of the switchboard, meter box, affected fitting, access notes, parking/loading details, gate details and any defect notice or paperwork.",
+    setting,
+    switchboardDetail:
+      "older switchboards, safety switch protection, hot water circuits, weather-exposed outdoor circuits, private service equipment, consumer mains and metering where relevant",
+  };
+}
+
+const wollongongLocalContexts: Record<string, LocalPageContext> = {
+  austinmer: makeWollongongLocalContext(
+    "coastal homes, beachside properties, older switchboards, salt/corrosion exposure, outdoor power, storm and water-related electrical faults and private service equipment",
+    "Austinmer coastal-home, beachside, older-switchboard and private-service-equipment service area",
+  ),
+  avondale: makeWollongongLocalContext(
+    "rural-edge homes, larger blocks, sheds, workshops, outdoor power, long driveways, private service equipment and access/gate notes",
+    "Avondale rural-edge, larger-block, shed, workshop and long-driveway service area",
+  ),
+  balgownie: makeWollongongLocalContext(
+    "family homes, escarpment access, older switchboards, outdoor lighting, hot water, safety switches and Level 2 support",
+    "Balgownie family-home, escarpment-access, older-board and hot-water service area",
+  ),
+  bellambi: makeWollongongLocalContext(
+    "coastal homes, units, local shops, beach/weather exposure, outdoor power, hot water faults and switchboards",
+    "Bellambi coastal-home, unit, local-shop and weather-exposed service area",
+  ),
+  berkeley: makeWollongongLocalContext(
+    "lake-side homes, older switchboards, units, rental maintenance, storm and water-related electrical faults, hot water and safety switches",
+    "Berkeley lake-side, unit, rental-maintenance and older-switchboard service area",
+  ),
+  brownsville: makeWollongongLocalContext(
+    "family homes, older switchboards, hot water faults, lighting and power repairs, safety switches and quote-photo guidance",
+    "Brownsville family-home, older-board, hot-water and quote-photo service area",
+  ),
+  bulli: makeWollongongLocalContext(
+    "coastal homes, apartments/units, shops/cafes, older switchboards, outdoor power, storm and water-related electrical faults and Level 2 support",
+    "Bulli coastal-home, apartment/unit, shop-cafe and Level 2 support service area",
+  ),
+  cleveland: makeWollongongLocalContext(
+    "rural-edge and larger-property sites, sheds, outdoor power, long driveways, private service equipment and switchboards",
+    "Cleveland rural-edge, larger-property, shed, outdoor-power and long-driveway service area",
+  ),
+  clifton: makeWollongongLocalContext(
+    "coastal/cliff-side access, older homes, limited parking, weather-exposed power, private service equipment and outdoor circuits",
+    "Clifton coastal-cliff, older-home, limited-parking and private-service-equipment service area",
+  ),
+  coalcliff: makeWollongongLocalContext(
+    "coastal homes, steep/tight access, weather exposure, salt/corrosion, outdoor power, switchboards and storm faults",
+    "Coalcliff coastal-home, steep-access, corrosion-exposure and storm-fault service area",
+  ),
+  coledale: makeWollongongLocalContext(
+    "beachside homes, apartments/units, cafes/local shops, outdoor power, hot water faults, weather-exposed fittings and parking notes",
+    "Coledale beachside-home, apartment/unit, cafe-shop and parking-note service area",
+  ),
+  coniston: makeWollongongLocalContext(
+    "homes, units, local businesses, station-area access, older switchboards, hot water faults, lighting and power repairs and consumer mains",
+    "Coniston home, unit, local-business, station-access and consumer-mains service area",
+  ),
+  "cordeaux-heights": makeWollongongLocalContext(
+    "family homes, elevated blocks, outdoor power, storm faults, switchboards, hot water and consumer mains",
+    "Cordeaux Heights family-home, elevated-block, outdoor-power and consumer-mains service area",
+  ),
+  corrimal: makeWollongongLocalContext(
+    "shops, apartments, older homes, local businesses, shared access, business outages, switchboards, hot water faults, consumer mains and defect notices",
+    "Corrimal shop, apartment, older-home, local-business and defect-notice service area",
+  ),
+  cringila: makeWollongongLocalContext(
+    "industrial/residential mix, older homes, workshops, small businesses, business outages, switchboards, lighting and power and Level 2 support",
+    "Cringila industrial-residential, workshop, small-business and business-outage service area",
+  ),
+  dapto: makeWollongongLocalContext(
+    "homes, shops, business premises, older switchboards, lake/rural-edge properties, hot water, safety switches, consumer mains and defect notices",
+    "Dapto home, shop, business-premises, lake-rural-edge and defect-notice service area",
+  ),
+  "darkes-forest": makeWollongongLocalContext(
+    "rural/bushland access, long driveways, storm faults, sheds, outdoor power, private service equipment and careful 90-minute response wording",
+    "Darkes Forest rural-bushland, long-driveway, shed and careful-response service area",
+  ),
+  dombarton: makeWollongongLocalContext(
+    "rural/industrial-edge context, larger properties, sheds/workshops, outdoor power, private service equipment and gate/access notes",
+    "Dombarton rural-industrial-edge, larger-property, shed/workshop and gate-access service area",
+  ),
+  "east-corrimal": makeWollongongLocalContext(
+    "coastal homes, units, beachside access, weather-exposed outdoor power, hot water faults, safety switches and switchboards",
+    "East Corrimal coastal-home, unit, beachside-access and weather-exposed service area",
+  ),
+  "fairy-meadow": makeWollongongLocalContext(
+    "apartments, student/uni-area demand where relevant, shops, cafes, local businesses, shared meter rooms, switchboards and hot water faults",
+    "Fairy Meadow apartment, student-area, shop-cafe, local-business and shared-meter-room service area",
+  ),
+  "farmborough-heights": makeWollongongLocalContext(
+    "family homes, elevated blocks, outdoor power, storm faults, hot water circuits, aircon loads, switchboards and consumer mains",
+    "Farmborough Heights family-home, elevated-block, aircon-load and consumer-mains service area",
+  ),
+  fernhill: makeWollongongLocalContext(
+    "older homes, rental maintenance, escarpment-side access, switchboards, hot water faults, safety switches and general repairs",
+    "Fernhill older-home, rental-maintenance, escarpment-access and safety-switch service area",
+  ),
+  figtree: makeWollongongLocalContext(
+    "family homes, shops/retail, medical/local business properties, older switchboards, hot water, aircon load checks, consumer mains and defect notices",
+    "Figtree family-home, retail, medical-local-business, aircon-load and defect-notice service area",
+  ),
+  gwynneville: makeWollongongLocalContext(
+    "apartments, university/hospital-adjacent demand without overclaiming, shared meter rooms, older wiring, hot water faults, switchboards and strata access",
+    "Gwynneville apartment, university-adjacent, shared-meter-room and strata-access service area",
+  ),
+  "haywards-bay": makeWollongongLocalContext(
+    "new homes, lake-side properties, outdoor power, hot water circuits, switchboard capacity, storm and water-related electrical faults, consumer mains and planned upgrades",
+    "Haywards Bay new-home, lake-side, capacity-check and planned-upgrade service area",
+  ),
+  helensburgh: makeWollongongLocalContext(
+    "homes, bushland-edge access, older switchboards, storm faults, outdoor power, local shops, private service equipment and Level 2 support",
+    "Helensburgh home, bushland-edge, local-shop and private-service-equipment service area",
+  ),
+  horsley: makeWollongongLocalContext(
+    "family homes, larger residential blocks, newer estates, switchboard capacity, hot water, safety switches, outdoor power and consumer mains",
+    "Horsley family-home, larger-block, newer-estate and switchboard-capacity service area",
+  ),
+  huntley: makeWollongongLocalContext(
+    "rural-edge properties, larger blocks, sheds, outdoor power, long driveways, private service equipment and access/gate notes",
+    "Huntley rural-edge, larger-block, shed, long-driveway and gate-access service area",
+  ),
+  kanahooka: makeWollongongLocalContext(
+    "lake-side homes, units, older switchboards, storm and water-related electrical faults, outdoor power, hot water circuits and Level 2 support",
+    "Kanahooka lake-side, unit, older-board, outdoor-power and Level 2 support service area",
+  ),
+  keiraville: makeWollongongLocalContext(
+    "homes, apartments, university-area properties, older wiring, parking/access constraints, switchboards, hot water and safety-switch faults",
+    "Keiraville home, apartment, university-area, older-wiring and parking-access service area",
+  ),
+  "kembla-grange": makeWollongongLocalContext(
+    "rural/industrial/growth mix, larger blocks, event-area access where phrased generally, sheds, switchboards, consumer mains and access notes",
+    "Kembla Grange rural-industrial-growth, larger-block, shed and consumer-mains service area",
+  ),
+  "kembla-heights": makeWollongongLocalContext(
+    "escarpment/bushland homes, older switchboards, storm faults, long driveways, outdoor power, private service equipment and planned quotes",
+    "Kembla Heights escarpment-bushland, older-board, long-driveway and planned-quote service area",
+  ),
+  koonawarra: makeWollongongLocalContext(
+    "lake-side homes, older homes, units, rental maintenance, hot water circuits, safety switches, switchboards and outdoor power",
+    "Koonawarra lake-side, older-home, unit, rental-maintenance and outdoor-power service area",
+  ),
+  "lake-heights": makeWollongongLocalContext(
+    "lake-side homes, units, steep/access notes, storm and water-related faults, hot water circuits, outdoor power, switchboards and consumer mains",
+    "Lake Heights lake-side, unit, steep-access, hot-water and consumer-mains service area",
+  ),
+  lilyvale: makeWollongongLocalContext(
+    "rural/bushland access, long driveways, storm faults, private service equipment, outdoor power, switchboards and call-first safety wording",
+    "Lilyvale rural-bushland, long-driveway, private-service-equipment and call-first service area",
+  ),
+  "maddens-plains": makeWollongongLocalContext(
+    "rural/coastal-edge access, larger blocks, long driveways, outdoor power, private service equipment and storm faults",
+    "Maddens Plains rural-coastal-edge, larger-block, long-driveway and private-service-equipment service area",
+  ),
+  mangerton: makeWollongongLocalContext(
+    "premium homes, older switchboards, apartments/units where relevant, access/parking notes, hot water faults, outdoor power and Level 2 support",
+    "Mangerton premium-home, older-board, apartment/unit and access-parking service area",
+  ),
+  "marshall-mount": makeWollongongLocalContext(
+    "rural-edge homes, larger blocks, sheds, outdoor circuits, private service equipment, long driveways and consumer mains",
+    "Marshall Mount rural-edge, larger-block, shed, long-driveway and consumer-mains service area",
+  ),
+  "mount-keira": makeWollongongLocalContext(
+    "escarpment homes, sloped/driveway access, storm faults, outdoor power, older switchboards, private service equipment and access notes",
+    "Mount Keira escarpment-home, sloped-access, storm-fault and private-service-equipment service area",
+  ),
+  "mount-kembla": makeWollongongLocalContext(
+    "village/escarpment homes, older wiring, storm faults, outdoor power, private service equipment, switchboards and Level 2 support",
+    "Mount Kembla village-escarpment, older-wiring, outdoor-power and Level 2 support service area",
+  ),
+  "mount-ousley": makeWollongongLocalContext(
+    "family homes, university/commuter access, elevated blocks, storm faults, hot water circuits, switchboards and consumer mains",
+    "Mount Ousley family-home, university-commuter-access, elevated-block and consumer-mains service area",
+  ),
+  "mount-pleasant": makeWollongongLocalContext(
+    "family homes, elevated/steep access, outdoor power, older switchboards, storm faults, hot water and Level 2 support",
+    "Mount Pleasant family-home, elevated-steep-access, older-board and Level 2 support service area",
+  ),
+  "mount-saint-thomas": makeWollongongLocalContext(
+    "homes, older boards, sloped streets/access, hot water circuits, safety switches, outdoor power and switchboards",
+    "Mount Saint Thomas home, older-board, sloped-access, hot-water and safety-switch service area",
+  ),
+  "north-wollongong": makeWollongongLocalContext(
+    "apartments, student/uni demand, beachside homes, cafes, shops, shared meter rooms, business outages, hot water faults and strata access",
+    "North Wollongong apartment, student-area, beachside-home, cafe-shop and strata-access service area",
+  ),
+  otford: makeWollongongLocalContext(
+    "remote/coastal-bushland access, steep roads, storm faults, private service equipment, outdoor power and careful 90-minute response wording",
+    "Otford remote-coastal-bushland, steep-road, storm-fault and careful-response service area",
+  ),
+  "port-kembla": makeWollongongLocalContext(
+    "industrial sites, workshops, warehouses, shops, homes, business outages, commercial switchboards, load checks and CCTV/data",
+    "Port Kembla industrial-site, workshop, warehouse, shop, business-outage and CCTV/data service area",
+  ),
+  primbee: makeWollongongLocalContext(
+    "lake/coastal homes, weather-exposed fittings, outdoor power, storm and water-related faults, hot water circuits, switchboards and access notes",
+    "Primbee lake-coastal, weather-exposed, outdoor-power and access-note service area",
+  ),
+  "russell-vale": makeWollongongLocalContext(
+    "family homes, older switchboards, escarpment access, outdoor power, safety switches, hot water and Level 2 support",
+    "Russell Vale family-home, older-board, escarpment-access and Level 2 support service area",
+  ),
+  scarborough: makeWollongongLocalContext(
+    "coastal homes, steep/tight access, weather-exposed outdoor power, private service equipment, salt/corrosion exposure and planned quotes",
+    "Scarborough coastal-home, steep-access, corrosion-exposure and planned-quote service area",
+  ),
+  "stanwell-park": makeWollongongLocalContext(
+    "coastal homes, steep access, beachside properties, storm faults, outdoor power, private service equipment, switchboards and call-first wording",
+    "Stanwell Park coastal-home, steep-access, beachside, storm-fault and call-first service area",
+  ),
+  "stanwell-tops": makeWollongongLocalContext(
+    "bushland/elevated homes, long/steep driveways, outdoor power, private service equipment, storm faults and access notes",
+    "Stanwell Tops bushland-elevated, long-driveway, private-service-equipment and access-note service area",
+  ),
+  tarrawanna: makeWollongongLocalContext(
+    "homes, local shops, older switchboards, hot water faults, safety switches, outdoor power and consumer mains",
+    "Tarrawanna home, local-shop, older-board, hot-water and consumer-mains service area",
+  ),
+  thirroul: makeWollongongLocalContext(
+    "coastal homes, apartments/units, cafes/shops, beachside weather exposure, hot water circuits, outdoor power, switchboards and business outage wording",
+    "Thirroul coastal-home, apartment/unit, cafe-shop, beachside-weather and business-outage service area",
+  ),
+  towradgi: makeWollongongLocalContext(
+    "coastal homes, units, local shops, outdoor power, hot water faults, storm/water exposure, switchboards and safety switches",
+    "Towradgi coastal-home, unit, local-shop, outdoor-power and safety-switch service area",
+  ),
+  unanderra: makeWollongongLocalContext(
+    "industrial/commercial and residential mix, warehouses, workshops, shops, homes, business outages, commercial switchboards, load checks and Level 2 support",
+    "Unanderra industrial-commercial, residential, warehouse, workshop and business-outage service area",
+  ),
+  warrawong: makeWollongongLocalContext(
+    "shops, apartments/units, older homes, lake/coastal exposure, business outages, switchboards, hot water circuits, consumer mains and defect notices",
+    "Warrawong shop, apartment/unit, older-home, lake-coastal and defect-notice service area",
+  ),
+  "west-wollongong": makeWollongongLocalContext(
+    "homes, apartments, hospital/uni-adjacent demand without overclaiming, older wiring, shared access, hot water, switchboards and Level 2 support",
+    "West Wollongong home, apartment, hospital-uni-adjacent, older-wiring and shared-access service area",
+  ),
+  windang: makeWollongongLocalContext(
+    "coastal/lake homes, holiday/rental maintenance where accurate, outdoor power, storm/water faults, weather exposure, switchboards and private service equipment",
+    "Windang coastal-lake, holiday-rental, outdoor-power and private-service-equipment service area",
+  ),
+  wollongong: makeWollongongLocalContext(
+    "CBD apartments, shops, offices, restaurants/cafes, student/uni demand, business outages, shared meter rooms, switchboards, consumer mains, metering and defect notices",
+    "Wollongong CBD, apartment, office, restaurant-cafe, student-area and business-outage service area",
+  ),
+  wombarra: makeWollongongLocalContext(
+    "coastal homes, steep/tight access, outdoor power, weather exposure, private service equipment, hot water faults and switchboards",
+    "Wombarra coastal-home, steep-access, outdoor-power and private-service-equipment service area",
+  ),
+  wongawilli: makeWollongongLocalContext(
+    "growth/rural-edge homes, larger blocks, sheds, outdoor power, switchboard capacity, consumer mains, metering and access/gate notes",
+    "Wongawilli growth-rural-edge, larger-block, shed, capacity-check and gate-access service area",
+  ),
+  woonona: makeWollongongLocalContext(
+    "homes, shops, apartments/units, coastal/escarpment access, older switchboards, hot water, safety switches, business faults and consumer mains",
+    "Woonona home, shop, apartment/unit, coastal-escarpment and business-fault service area",
+  ),
+  yallah: makeWollongongLocalContext(
+    "rural/industrial-edge properties, sheds, workshops, outdoor power, private service equipment, long driveways and access/gate notes",
+    "Yallah rural-industrial-edge, shed, workshop, long-driveway and access-gate service area",
+  ),
+};
+
+function getWollongongLocalContext(
+  coverageRegion: CoverageRegion,
+  coverageArea: CoverageArea,
+  coverageSuburb: CoverageSuburb,
+): LocalPageContext | null {
+  if (
+    coverageRegion.slug !== "wollongong-and-illawarra" ||
+    coverageArea.slug !== "wollongong"
+  ) {
+    return null;
+  }
+
+  return wollongongLocalContexts[coverageSuburb.slug] ?? null;
+}
+
 const burwoodLocalContexts: Record<string, LocalPageContext> = {
   burwood: {
     accessDetail:
@@ -12906,6 +13195,16 @@ function getLocalPageContext(
 
   if (shellharbourContext) {
     return shellharbourContext;
+  }
+
+  const wollongongContext = getWollongongLocalContext(
+    coverageRegion,
+    coverageArea,
+    coverageSuburb,
+  );
+
+  if (wollongongContext) {
+    return wollongongContext;
   }
 
   const burwoodContext = getBurwoodLocalContext(
