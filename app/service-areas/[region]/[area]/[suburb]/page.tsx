@@ -394,25 +394,36 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                 </li>
               ))}
             </ul>
-            <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-              <Link
-                href="/level-2-electrician-sydney"
-                data-suburb-action-link="level-2-services"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-cyan-300/45 px-4 py-3 text-center text-sm font-black uppercase tracking-[0.18em] text-cyan-100 transition hover:border-cyan-200 hover:bg-cyan-300/10 focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
-              >
-                Level 2 services
-                <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
-              </Link>
+            <div className="mt-7 grid gap-3">
               <a
-                href={business.bookingUrl}
-                data-suburb-action-link="level-2-quote"
-                data-quote-trigger="true"
-                data-conversion-action="quote-click"
-                aria-haspopup="dialog"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white px-4 py-3 text-center text-sm font-black uppercase tracking-[0.18em] text-slate-950 transition hover:bg-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+                href={business.phoneHref}
+                data-suburb-action-link="level-2-call"
+                data-conversion-action="phone-click"
+                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-3 text-center text-sm font-black uppercase tracking-[0.18em] text-white shadow-lg shadow-red-950/25 transition hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-200 focus:ring-offset-2 focus:ring-offset-slate-950"
               >
-                Send details
+                <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
+                Call Level 2 0461 247 247
               </a>
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                <Link
+                  href="/level-2-electrician-sydney"
+                  data-suburb-action-link="level-2-services"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-cyan-300/45 px-4 py-3 text-center text-sm font-black uppercase tracking-[0.18em] text-cyan-100 transition hover:border-cyan-200 hover:bg-cyan-300/10 focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+                >
+                  Level 2 services
+                  <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+                </Link>
+                <a
+                  href={business.bookingUrl}
+                  data-suburb-action-link="level-2-quote"
+                  data-quote-trigger="true"
+                  data-conversion-action="quote-click"
+                  aria-haspopup="dialog"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white px-4 py-3 text-center text-sm font-black uppercase tracking-[0.18em] text-slate-950 transition hover:bg-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+                >
+                  Send details
+                </a>
+              </div>
             </div>
           </article>
         </div>
