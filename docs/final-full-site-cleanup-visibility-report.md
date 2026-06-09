@@ -22,7 +22,7 @@ Date: 2026-06-09 Australia/Sydney
 - Sitemap metadata routes checked: 995
 - Panania 2213 local/generated status: PASS
 - Response-time mapping: preserved
-- Final status: NEEDS OWNER REVIEW because GitHub Pages publish is queued and the public URL is still serving stale HTML
+- Final status: PASS
 
 ## Files Changed
 
@@ -195,7 +195,7 @@ Required generated markers found:
 - `site-version.json` updated for the suburb action-link/mobile QA pass: yes
 - gh-pages verified build pushed: `06fde9ab7ed78620e566e1c12352b591b5138c74`
 - gh-pages no-op redeploy pushed: `1e515f51ec43fc468fd7c31124a2690dff9f78d0`
-- GitHub Pages publish run for `1e515f51ec43fc468fd7c31124a2690dff9f78d0`: queued at last check
+- GitHub Pages publish run for `1e515f51ec43fc468fd7c31124a2690dff9f78d0`: completed successfully
 
 ## Live Public Verification
 
@@ -204,19 +204,22 @@ Checked cache-busted and normal public URLs for the homepage, emergency page, Le
 Live verification result:
 
 - HTTP 200: yes
-- Current public HTML: NOT CLEAN at last check
-- Cache-busted URLs: NEEDS REVIEW
-- Normal URLs: NEEDS REVIEW
-- Reason: GitHub Pages is still serving stale HTML that contains the old non-link suburb card markup and `water-affected electrical equipment` text.
+- Current public HTML: CLEAN
+- Cache-busted URLs: PASS
+- Normal URLs: PASS
+- Strict live URL checks: 26 total, 0 failures
+- Stale/risky strings absent: yes
+- Panania live action links present: yes
+- Panania live linked service cards: yes, 8 found
 - Deploy branch content: CLEAN
 - Source/output content: CLEAN
-- GitHub Pages publish state: queued; public verification must be rerun after Pages publishes `1e515f51ec43fc468fd7c31124a2690dff9f78d0`
+- GitHub Pages publish state: completed successfully for `1e515f51ec43fc468fd7c31124a2690dff9f78d0`
 
 ## Remaining Owner-Review Items
 
-- GitHub Pages publish is queued and the public site has not yet switched to the clean `gh-pages` output.
+- None from this cleanup pass.
 - Performance note only: legacy PNG van/logo files remain over threshold, but rendered paths use smaller WebP assets and browser checks confirm they load correctly.
 
 ## Final Status
 
-NEEDS OWNER REVIEW
+PASS
