@@ -273,6 +273,40 @@ async function assertRouteVisible(page: Page, route: RouteInventoryItem) {
         `Emergency, Level 2 and general electrical work in ${route.suburbName} ${route.postcode}`,
       ),
     ).toBeVisible();
+    await expectSuburbActionLinks(page, route.route);
+  }
+}
+
+async function expectSuburbActionLinks(page: Page, route: string) {
+  await expectAnyVisible(
+    page.locator(
+      'a[data-suburb-action-link="call-first"][href="tel:+61461247247"]',
+    ),
+    `${route} call-first action link`,
+  );
+  await expectAnyVisible(
+    page.locator('a[data-suburb-action-link="quote-form"]'),
+    `${route} quote-form action link`,
+  );
+  await expectAnyVisible(
+    page.locator('a[data-suburb-action-link="level-2-services"]'),
+    `${route} Level 2 service action link`,
+  );
+  await expectAnyVisible(
+    page.locator('a[data-suburb-action-link="level-2-quote"]'),
+    `${route} Level 2 quote action link`,
+  );
+
+  const serviceCards = page.locator("a[data-suburb-service-card]");
+  await expect(serviceCards, `${route} linked service cards`).toHaveCount(8);
+
+  for (let index = 0; index < 8; index += 1) {
+    const card = serviceCards.nth(index);
+    await expect(card, `${route} service card ${index + 1}`).toBeVisible();
+    await expect(card, `${route} service card ${index + 1} href`).toHaveAttribute(
+      "href",
+      /\/(?:services|emergency-electrician-sydney|level-2-electrician-sydney)/,
+    );
   }
 }
 

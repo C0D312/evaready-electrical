@@ -116,6 +116,7 @@ export type SuburbPageCopy = {
     title: string;
   }[];
   serviceSummaries: {
+    href: string;
     intent: SuburbServiceIntent;
     text: string;
     title: string;
@@ -15783,6 +15784,7 @@ export function getSuburbPageCopy(
 
   const serviceSummaries = [
     {
+      href: "/emergency-electrician-sydney",
       intent: "emergency" as const,
       title: pick(
         [
@@ -15804,6 +15806,7 @@ export function getSuburbPageCopy(
       ),
     },
     {
+      href: "/level-2-electrician-sydney",
       intent: "level2" as const,
       title: pick(
         [
@@ -15825,6 +15828,7 @@ export function getSuburbPageCopy(
       ),
     },
     {
+      href: "/services/switchboard-upgrades-sydney",
       intent: "switchboard" as const,
       title: pick(
         [
@@ -15846,6 +15850,7 @@ export function getSuburbPageCopy(
       ),
     },
     {
+      href: "/services/electrical-fault-finding-sydney",
       intent: "faultFinding" as const,
       title: pick(
         [
@@ -15867,6 +15872,7 @@ export function getSuburbPageCopy(
       ),
     },
     {
+      href: "/services/hot-water-system-electrician-sydney",
       intent: "hotWater" as const,
       title: pick(
         [
@@ -15888,6 +15894,7 @@ export function getSuburbPageCopy(
       ),
     },
     {
+      href: "/services/split-system-air-conditioning-sydney",
       intent: "aircon" as const,
       title: pick(
         [
@@ -15902,13 +15909,14 @@ export function getSuburbPageCopy(
         [
           `Air-conditioning electrical support in ${coverageSuburb.name} can include dedicated circuits, isolators, switchboard capacity checks and outdoor unit power.`,
           `Split-system enquiries in ${suburbLabel} may need electrical supply planning, safety switch checks, outdoor unit power and clear coordination with appropriately licensed technicians where required.`,
-          `ARCtick Refrigerant Handling Licence L157323 â€” Split Systems (1) applies to eligible split systems, hot water heat pumps and swimming pool heat pumps under licence scope.`,
+          `ARCtick Refrigerant Handling Licence L157323 - Split Systems (1) applies to eligible split systems, hot water heat pumps and swimming pool heat pumps under licence scope.`,
         ],
         seed,
         53,
       ),
     },
     {
+      href: "/services/cctv-security-camera-installation-sydney",
       intent: "dataCctv" as const,
       title: pick(
         [
@@ -15930,6 +15938,7 @@ export function getSuburbPageCopy(
       ),
     },
     {
+      href: "/services",
       intent: "general" as const,
       title: pick(
         [
@@ -16234,7 +16243,7 @@ export function getSuburbPageCopy(
       `Open 24/7 for urgent electrical faults`,
       `${response.badgeTitle} for emergency call-outs`,
       business.level2Asp.display,
-      `ARCtick Refrigerant Handling Licence L157323 â€” Split Systems (1)`,
+      `ARCtick Refrigerant Handling Licence L157323 - Split Systems (1)`,
       pick(
         [
           `Electrical help in ${suburbLabel}`,

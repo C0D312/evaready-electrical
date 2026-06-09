@@ -296,75 +296,124 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         </div>
       </section>
 
-      <section className="border-b border-slate-200 bg-white py-16">
-        <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-[1fr_1fr_1.1fr] lg:px-8">
-          <article className="rounded-2xl border border-red-200 bg-red-50 p-6">
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-red-700">
+      <section className="border-b border-cyan-300/15 bg-[#020814] py-12 text-white sm:py-16">
+        <div className="mx-auto grid max-w-7xl gap-5 px-4 sm:px-6 lg:grid-cols-[1fr_1fr_1.1fr] lg:px-8">
+          <article
+            data-suburb-action-card="call-first"
+            className="flex h-full flex-col rounded-2xl border border-red-300/35 bg-[linear-gradient(135deg,rgba(127,29,29,0.96),rgba(35,7,18,0.98))] p-5 shadow-2xl shadow-red-950/20 sm:p-6"
+          >
+            <p className="text-sm font-black uppercase tracking-[0.25em] text-red-100">
               Call first
             </p>
-            <h2 className="mt-3 text-2xl font-black text-slate-950">
+            <h2 className="mt-3 text-2xl font-black text-white">
               Unsafe faults in {suburb.name} need a phone call.
             </h2>
-            <p className="mt-3 leading-7 text-slate-700">
+            <p className="mt-3 leading-7 text-red-50">
               Call first for burning smells, power loss, unsafe faults,
-              sparking, shocks, storm damage or water-affected electrical
+              sparking, shocks, storm damage or water-damaged electrical
               equipment.
             </p>
-            <ul className="mt-5 grid gap-2 text-sm font-bold text-slate-800">
+            <ul className="mt-5 grid gap-2 text-sm font-bold text-red-50">
               {copy.callQuoteGuidance.callFirst.map((item) => (
                 <li key={item} className="flex items-start gap-2">
-                  <Phone
-                    className="mt-0.5 h-4 w-4 shrink-0 text-red-600"
+                  <CheckCircle2
+                    className="mt-0.5 h-4 w-4 shrink-0 text-red-200"
                     aria-hidden="true"
                   />
-                  <span>{item}</span>
+                  <span className="break-words">{item}</span>
                 </li>
               ))}
             </ul>
+            <a
+              href={business.phoneHref}
+              data-suburb-action-link="call-first"
+              data-conversion-action="phone-click"
+              className="mt-7 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 text-center text-sm font-black uppercase tracking-[0.2em] text-red-800 shadow-lg shadow-red-950/25 transition hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-950"
+            >
+              <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
+              Call 0461 247 247
+            </a>
           </article>
 
-          <article className="rounded-2xl border border-blue-200 bg-blue-50 p-6">
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-blue-700">
+          <article
+            data-suburb-action-card="quote-form"
+            className="flex h-full flex-col rounded-2xl border border-cyan-300/25 bg-[linear-gradient(135deg,rgba(8,22,42,0.98),rgba(3,18,38,0.98))] p-5 shadow-2xl shadow-cyan-950/10 sm:p-6"
+          >
+            <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
               Use the quote form
             </p>
-            <h2 className="mt-3 text-2xl font-black text-slate-950">
+            <h2 className="mt-3 text-2xl font-black text-white">
               Planned work is clearer with photos and notes.
             </h2>
-            <p className="mt-3 leading-7 text-slate-700">
+            <p className="mt-3 leading-7 text-slate-100">
               Use the quote form for planned work, photos, defect notices,
               switchboard photos, meter box photos and job notes.
             </p>
-            <ul className="mt-5 grid gap-2 text-sm font-bold text-slate-800">
+            <ul className="mt-5 grid gap-2 text-sm font-bold text-slate-100">
               {copy.callQuoteGuidance.quoteForm.map((item) => (
                 <li key={item} className="flex items-start gap-2">
                   <CheckCircle2
-                    className="mt-0.5 h-4 w-4 shrink-0 text-blue-700"
+                    className="mt-0.5 h-4 w-4 shrink-0 text-cyan-300"
                     aria-hidden="true"
                   />
-                  <span>{item}</span>
+                  <span className="break-words">{item}</span>
                 </li>
               ))}
             </ul>
+            <a
+              href={business.bookingUrl}
+              data-suburb-action-link="quote-form"
+              data-quote-trigger="true"
+              data-conversion-action="quote-click"
+              aria-haspopup="dialog"
+              className="mt-7 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-cyan-300 px-5 py-3 text-center text-sm font-black uppercase tracking-[0.2em] text-slate-950 shadow-lg shadow-cyan-950/20 transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+            >
+              Open quote form
+              <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+            </a>
           </article>
 
-          <article className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-blue-700">
+          <article
+            data-suburb-action-card="level-2-checklist"
+            className="flex h-full flex-col rounded-2xl border border-cyan-300/25 bg-[linear-gradient(135deg,rgba(9,20,35,0.98),rgba(4,17,36,0.98))] p-5 shadow-2xl shadow-cyan-950/10 sm:p-6"
+          >
+            <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
               Level 2 quote checklist
             </p>
-            <h2 className="mt-3 text-2xl font-black text-slate-950">
+            <h2 className="mt-3 text-2xl font-black text-white">
               For Level 2 enquiries in {suburb.name}, send these details.
             </h2>
-            <ul className="mt-5 grid gap-2 text-sm font-bold text-slate-800">
+            <ul className="mt-5 grid gap-2 text-sm font-bold text-slate-100">
               {copy.level2QuoteChecklist.map((item) => (
                 <li key={item} className="flex items-start gap-2">
                   <CheckCircle2
-                    className="mt-0.5 h-4 w-4 shrink-0 text-cyan-700"
+                    className="mt-0.5 h-4 w-4 shrink-0 text-cyan-300"
                     aria-hidden="true"
                   />
-                  <span>{item}</span>
+                  <span className="break-words">{item}</span>
                 </li>
               ))}
             </ul>
+            <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+              <Link
+                href="/level-2-electrician-sydney"
+                data-suburb-action-link="level-2-services"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-cyan-300/45 px-4 py-3 text-center text-sm font-black uppercase tracking-[0.18em] text-cyan-100 transition hover:border-cyan-200 hover:bg-cyan-300/10 focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+              >
+                Level 2 services
+                <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+              </Link>
+              <a
+                href={business.bookingUrl}
+                data-suburb-action-link="level-2-quote"
+                data-quote-trigger="true"
+                data-conversion-action="quote-click"
+                aria-haspopup="dialog"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white px-4 py-3 text-center text-sm font-black uppercase tracking-[0.18em] text-slate-950 transition hover:bg-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+              >
+                Send details
+              </a>
+            </div>
           </article>
         </div>
       </section>
@@ -490,14 +539,20 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
               const Icon = serviceIconByIntent[item.intent];
 
               return (
-                <article
+                <Link
                   key={item.title}
-                  className="rounded-lg border border-slate-200 bg-slate-50 p-6"
+                  href={item.href}
+                  data-suburb-service-card={item.intent}
+                  className="group flex h-full flex-col rounded-lg border border-slate-200 bg-slate-50 p-6 transition hover:-translate-y-1 hover:border-blue-600 hover:bg-white hover:shadow-xl hover:shadow-blue-950/10 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
                 >
                   <Icon className="h-8 w-8 text-blue-700" />
                   <h3 className="mt-5 text-xl font-black">{item.title}</h3>
                   <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
-                </article>
+                  <span className="mt-5 inline-flex items-center gap-2 font-black text-red-600">
+                    View service
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                  </span>
+                </Link>
               );
             })}
           </div>

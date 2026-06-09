@@ -308,6 +308,46 @@ function localSuburbWarning(item: RouteInventoryItem, visibleText: string) {
   return warnings.join("; ");
 }
 
+function localSuburbMarkupWarning(item: RouteInventoryItem, html: string) {
+  if (item.pageType !== "suburb page") {
+    return "";
+  }
+
+  const warnings: string[] = [];
+  const serviceCardCount =
+    html.match(/\bdata-suburb-service-card=/g)?.length ?? 0;
+
+  if (!html.includes('data-suburb-action-card="call-first"')) {
+    warnings.push("call-first action card missing");
+  }
+
+  if (!html.includes('data-suburb-action-link="call-first"')) {
+    warnings.push("call-first phone action link missing");
+  }
+
+  if (!html.includes('data-suburb-action-link="quote-form"')) {
+    warnings.push("quote-form action link missing");
+  }
+
+  if (!html.includes('data-suburb-action-link="level-2-services"')) {
+    warnings.push("Level 2 service action link missing");
+  }
+
+  if (!html.includes('data-suburb-action-link="level-2-quote"')) {
+    warnings.push("Level 2 quote action link missing");
+  }
+
+  if (!html.includes('href="tel:+61461247247"')) {
+    warnings.push("suburb phone href missing");
+  }
+
+  if (serviceCardCount < 8) {
+    warnings.push(`expected 8 linked service summary cards, found ${serviceCardCount}`);
+  }
+
+  return warnings.join("; ");
+}
+
 function escapeRegExp(value: string) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
@@ -408,6 +448,7 @@ function auditRoute(item: RouteInventoryItem, sitemapRoutes: Set<string>) {
   const choppedPhrase = firstMatch(visibleText, choppedPhrasePattern);
   const postcodeOnly = firstMatch(visibleText, postcodeOnlyPattern);
   const localWarning = localSuburbWarning(item, visibleText);
+  const localMarkupWarning = localSuburbMarkupWarning(item, raw);
   const responseStatus = responseTimeStatus(item, visibleText);
   const hiddenWarnings = [
     isHtml && !/<main\b/i.test(raw) ? "main element missing" : "",
@@ -415,6 +456,7 @@ function auditRoute(item: RouteInventoryItem, sitemapRoutes: Set<string>) {
       ? "low visible word count"
       : "",
     localWarning,
+    localMarkupWarning,
     responseStatus.hardMismatch,
   ].filter(Boolean);
 
@@ -505,6 +547,7 @@ function auditRoute(item: RouteInventoryItem, sitemapRoutes: Set<string>) {
     choppedPhrase,
     postcodeOnly,
     localWarning,
+    localMarkupWarning,
     responseStatus.hardMismatch,
   ].filter(Boolean);
 

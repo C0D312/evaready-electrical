@@ -884,7 +884,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     intro:
       "Evaready provides air-conditioning electrical support and air-conditioning services through appropriately licensed technicians. We help with split-system air conditioning, AC isolators, dedicated circuits, outdoor unit power, safety switches, heat pump electrical support and switchboard capacity checks across Sydney and surrounding regions.",
     credentialHighlights: [
-      "ARCtick Licensed â€” L157323",
+      "ARCtick Licensed - L157323",
       "Licence L157323 for eligible air-conditioning, heat pump and related work.",
     ],
     heroBullets: [
@@ -950,7 +950,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "What does ARCtick Licensed mean here?",
         answer:
-          "ARCtick Licensed â€” L157323. Licence L157323 applies to eligible air-conditioning, heat pump and related work.",
+          "ARCtick Licensed - L157323. Licence L157323 applies to eligible air-conditioning, heat pump and related work.",
       },
     ],
     relatedServices: [
