@@ -698,7 +698,7 @@ export default function Level2ElectricianSydneyPage() {
             </h2>
             <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-300">
               Planned work can go through the booking form. Urgent supply
-              faults, smoke, heat, sparking or loss of power should start with a
+              faults, smoke, heat, sparking or power loss should start with a
               phone call.
             </p>
           </div>

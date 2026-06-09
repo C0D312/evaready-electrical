@@ -85,7 +85,7 @@ export default function TermsPage() {
               </a>
               . Do not rely on a form submission for immediate danger, unsafe
               wiring, smoke and burning smells, sparking, electric shock risk, wet
-              electrical equipment or loss of power.
+              electrical equipment or power loss.
             </p>
             <p>
               For life-threatening danger, fire, fallen powerlines or a serious

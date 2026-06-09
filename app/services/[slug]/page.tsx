@@ -421,7 +421,7 @@ export default async function ServiceLandingPage({
               </p>
               <p className="mt-2 leading-7 text-slate-100">
                 If there is heat, smoke, sparking, a burning smell, electric
-                shock risk or loss of power,{" "}
+                shock risk or power loss,{" "}
                 <a
                   href={business.phoneHref}
                   data-conversion-action="phone-click"

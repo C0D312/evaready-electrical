@@ -48,6 +48,16 @@ const reportPath = path.join(
   "reports",
   "all-routes-visibility-audit.csv",
 );
+const launchReportPath = path.join(
+  process.cwd(),
+  "reports",
+  "all-routes-launch-sweep.csv",
+);
+const launchSummaryPath = path.join(
+  process.cwd(),
+  "docs",
+  "all-routes-launch-sweep.md",
+);
 
 const staleStringPatterns: Array<[string, RegExp]> = [
   ["sparking.For", /sparking\.For/],
@@ -591,16 +601,17 @@ const headers: Array<keyof VisibilityAuditRow> = [
 ];
 
 mkdirSync(path.dirname(reportPath), { recursive: true });
-writeFileSync(
-  reportPath,
-  [
-    headers.map(csvEscape).join(","),
-    ...auditResults.map(({ row }) =>
-      headers.map((header) => csvEscape(row[header])).join(","),
-    ),
-  ].join("\n"),
-  "utf8",
-);
+mkdirSync(path.dirname(launchSummaryPath), { recursive: true });
+
+const csvOutput = [
+  headers.map(csvEscape).join(","),
+  ...auditResults.map(({ row }) =>
+    headers.map((header) => csvEscape(row[header])).join(","),
+  ),
+].join("\n");
+
+writeFileSync(reportPath, csvOutput, "utf8");
+writeFileSync(launchReportPath, csvOutput, "utf8");
 
 const criticalRows = auditResults.filter(
   ({ criticalWarnings }) => criticalWarnings.length > 0,
@@ -608,11 +619,63 @@ const criticalRows = auditResults.filter(
 const suburbPagesChecked = inventory.filter(
   (item) => item.pageType === "suburb page",
 ).length;
+const commercialPagesChecked = inventory.filter((item) => item.commercial).length;
+const pageTypeCounts = inventory.reduce<Record<string, number>>((counts, item) => {
+  counts[item.pageType] = (counts[item.pageType] ?? 0) + 1;
+  return counts;
+}, {});
+const finalResult =
+  criticalRows.length === 0 && sitemapMissingOutput.length === 0
+    ? "PASS"
+    : "FAIL";
+
+writeFileSync(
+  launchSummaryPath,
+  [
+    "# All-Routes Launch Sweep",
+    "",
+    `Date: ${new Date().toISOString()}`,
+    "",
+    `Final result: ${finalResult}`,
+    "",
+    "## Totals",
+    "",
+    `- Total generated routes checked: ${inventory.length}`,
+    `- Suburb pages checked: ${suburbPagesChecked}`,
+    `- Commercial routes checked: ${commercialPagesChecked}`,
+    `- Sitemap routes missing output: ${sitemapMissingOutput.length}`,
+    `- Critical warning rows: ${criticalRows.length}`,
+    "",
+    "## Page Types",
+    "",
+    ...Object.entries(pageTypeCounts)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([pageType, count]) => `- ${pageType}: ${count}`),
+    "",
+    "## Output Files",
+    "",
+    `- CSV: ${path.relative(process.cwd(), launchReportPath)}`,
+    `- Legacy visibility CSV: ${path.relative(process.cwd(), reportPath)}`,
+    "",
+    "## Warning Examples",
+    "",
+    ...(criticalRows.length === 0
+      ? ["- None"]
+      : criticalRows.slice(0, 20).map(
+          (result) =>
+            `- ${result.row.route}: ${result.criticalWarnings.join("; ")}`,
+        )),
+    "",
+  ].join("\n"),
+  "utf8",
+);
 
 console.log(
   JSON.stringify(
     {
       criticalWarnings: criticalRows.length + sitemapMissingOutput.length,
+      launchReportPath,
+      launchSummaryPath,
       outputPath: reportPath,
       sitemapRoutesMissingOutput: sitemapMissingOutput,
       suburbPagesChecked,

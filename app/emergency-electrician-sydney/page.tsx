@@ -80,7 +80,7 @@ const emergencyServices = [
 const warningSigns = [
   {
     title: "No power, partial power loss or a circuit that will not stay on",
-    text: "Turn off sensitive appliances if safe and call if the loss of power feels unsafe or unexplained.",
+    text: "Turn off sensitive appliances if safe and call if the power loss feels unsafe or unexplained.",
     href: "/electrical-faults/no-power-to-house",
   },
   {

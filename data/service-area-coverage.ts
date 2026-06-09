@@ -14614,7 +14614,7 @@ function getLocalPageContext(
       commonJobs:
         "outdoor lighting, hot water electrical checks, safety switch faults, CCTV and switchboard upgrades",
       emergencySignals:
-        "storm faults, water-damaged fixtures, loss of power and overheating power points and repeated safety switch tripping",
+        "storm faults, water-damaged fixtures, power loss, overheating power points and repeated safety switch tripping",
       level2Detail:
         "consumer mains, point of attachment, metering and supply-side upgrade enquiries",
       plannedWork:
@@ -14816,7 +14816,7 @@ function getLocalPageContext(
       commonJobs:
         "three-phase enquiries, fault finding, lighting, switchboards and maintenance work",
       emergencySignals:
-        "loss of power to equipment and circuit tripping, isolators that feel hot and damaged outlets",
+        "power loss to equipment, circuit tripping, isolators that feel hot and damaged outlets",
       level2Detail:
         "consumer mains, supply capacity, metering and service equipment questions",
       plannedWork:
@@ -14848,7 +14848,7 @@ function getLocalPageContext(
       commonJobs:
         "switchboard upgrades, fault finding, shed power, lighting and larger planned electrical work",
       emergencySignals:
-        "loss of power, storm damage, tripping safety switches and unsafe outdoor circuits",
+        "power loss, storm damage, tripping safety switches and unsafe outdoor circuits",
       level2Detail:
         "consumer mains, point of attachment, private pole and supply upgrade enquiries",
       plannedWork:
