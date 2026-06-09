@@ -4,11 +4,15 @@ Date: 2026-06-09 Australia/Sydney
 
 ## Git State
 
-- Source SHA before: `de7ec812b8f`
-- Source cleanup SHA after local QA/source commit: `cb293f24b11d3b5b6af19b3efd18295ab469f464`
-- Final report/site-version source commit: created after this report is written; final chat records the exact HEAD SHA.
-- gh-pages SHA before: `788befc9b23`
-- gh-pages SHA after: `d1da4f435f809b83d81372a6b0b2c63e2f903bd2`
+- Source SHA before full cleanup: `de7ec812b8f`
+- Source SHA after initial cleanup QA: `cb293f24b11d3b5b6af19b3efd18295ab469f464`
+- Source SHA after suburb link/mobile repair: `8359525d746a67ebf54c5f56493a3a0290777d68`
+- Report-only follow-up commit: final chat records the exact source HEAD SHA
+- gh-pages SHA before full cleanup: `788befc9b23`
+- gh-pages verified build SHA: `06fde9ab7ed78620e566e1c12352b591b5138c74`
+- gh-pages no-op redeploy SHA: `1e515f51ec43fc468fd7c31124a2690dff9f78d0`
+- Source working tree: clean after commit/push
+- gh-pages working tree: clean after no-op redeploy push
 
 ## Scope Checked
 
@@ -16,14 +20,15 @@ Date: 2026-06-09 Australia/Sydney
 - Generated HTML routes browser-checked: 997
 - Total suburb pages checked: 873
 - Sitemap metadata routes checked: 995
-- Panania 2213 status: PASS
+- Panania 2213 local/generated status: PASS
 - Response-time mapping: preserved
-- Final status: PASS
+- Final status: NEEDS OWNER REVIEW because GitHub Pages publish is queued and the public URL is still serving stale HTML
 
 ## Files Changed
 
-- Source copy cleanup:
+- Source copy/link cleanup:
   - `app/emergency-electrician-sydney/page.tsx`
+  - `app/service-areas/[region]/[area]/[suburb]/page.tsx`
   - `data/electrical-faults.ts`
   - `data/service-area-coverage.ts`
   - `data/service-pages.ts`
@@ -34,8 +39,9 @@ Date: 2026-06-09 Australia/Sydney
   - `scripts/audit-internal-links.ts`
   - `tests/e2e/full-site-visibility.spec.ts`
   - `package.json`
-- Ignore/report updates:
-  - `.gitignore`
+- Reports:
+  - `docs/final-full-site-cleanup-visibility-report.md`
+  - `docs/suburb-page-link-mobile-qa-report.md`
   - `reports/all-routes-visibility-audit.csv`
   - `reports/all-suburb-visible-copy-audit.csv`
   - `reports/internal-link-audit.md`
@@ -43,20 +49,13 @@ Date: 2026-06-09 Australia/Sydney
   - `reports/page-health-audit.csv`
   - `reports/suburb-page-audit.csv`
   - `reports/visible-copy-audit.csv`
-  - `docs/final-full-site-cleanup-visibility-report.md`
 
 ## Temp Files Deleted
 
 - `.next`
 - `out`
-- `reports/cross-browser-screenshots`
-- `reports/playwright-html-report`
-- `reports/playwright-test-results`
-- `reports/site-smoke-screenshots`
-- `reports/mobile-polish-screenshots`
-- `reports/google-rating-card-homepage-current.png`
-- `reports/playwright-results.json`
 - `debug.log`
+- stale local Playwright/screenshot report folders from earlier QA passes
 
 ## Redundant Code Deleted
 
@@ -64,13 +63,18 @@ Date: 2026-06-09 Australia/Sydney
 
 ## CSS And Layout Fixes
 
-- No CSS/template layout fix was required after full browser verification.
-- The Playwright visibility spec was tightened to check for any visible mobile CTA rather than a hidden desktop-header duplicate.
-- The screenshot output folder is reset at test start and ignored in Git to avoid stale local screenshot artifacts.
+- Rebuilt the suburb-page call-first, quote-form and Level 2 checklist cards for higher contrast and mobile-first spacing.
+- Added real links to the suburb action cards so they no longer behave like dead panels:
+  - call-first card links to `tel:+61461247247`
+  - quote card links to the central ServiceM8 quote/booking URL
+  - Level 2 checklist card links to the Level 2 service page and quote form
+- Converted the eight suburb service summary cards into real internal links with visible "View service" affordances.
+- The Playwright visibility spec now checks suburb action links and linked service cards across generated suburb routes.
 
 ## Copy And Risk Cleanup
 
 - Replaced chopped/risky generated fragments such as `, hot outlets`, `, burning smells`, `, tripping circuits`, `hot isolators`, and `water-affected fittings` with safer complete wording in source data.
+- Replaced stale `water-affected electrical equipment` wording with `water-damaged electrical equipment`.
 - Replaced the emergency page `tel:000` CTA link with an internal safety guide link while keeping emergency-services safety copy intact.
 - No Level 1 or Level 3 wording added.
 - No fake office, fake depot, fake review, fake rating or guaranteed-arrival wording added.
@@ -96,7 +100,7 @@ Playwright test: `npm.cmd run test:e2e -- tests/e2e/full-site-visibility.spec.ts
 - Full generated HTML route sweep at 390px: PASS
 - Required mobile/desktop screenshot matrix: PASS
 - Panania 2213 at 360, 390, 412 and 430 widths: PASS
-- Screenshots captured: 77 local screenshots, not committed
+- Screenshots captured locally under ignored report output
 - Mobile widths checked: 360x800, 390x844, 412x915, 430x932
 - Desktop widths checked: 1366x768, 1440x900, 1920x1080
 - Sticky CTA overlap: PASS
@@ -113,6 +117,8 @@ Playwright test: `npm.cmd run test:e2e -- tests/e2e/full-site-visibility.spec.ts
 - 60-minute response wording visible: yes
 - Phone CTA visible: yes
 - Quote CTA visible: yes
+- Suburb action cards are linked in generated output: yes
+- Service summary cards are linked in generated output: yes
 - Sticky CTA did not cover final content/footer: yes
 - No `Panania Panania`: yes
 - No postcode-only `Electrical help for 2213`: yes
@@ -132,6 +138,7 @@ No matches found in `out/` for:
 - postcode-only `Electrical help for ####`
 - duplicate/chopped location phrases
 - chopped fault fragments
+- `water-affected electrical equipment`
 - Level 1/Level 3/ASP1/ASP3 wording
 - guaranteed/fake-office/fake-depot/fake-review/fake-rating wording
 
@@ -150,7 +157,6 @@ Required generated markers found:
 
 - Source/data internal link sources checked: 19,964
 - Generated HTML routes crawled: 997
-- Generated anchor checks recorded in report: 81,010
 - Broken internal links: 0
 - Phone CTA links: present and correct
 - Quote CTA links: present and correct
@@ -186,51 +192,31 @@ Required generated markers found:
   - `data-conversion-action="phone-click"`: present
   - `data-conversion-action="quote-click"`: present
   - `tel:+61461247247`: present
-- `site-version.json` updated for 2026-06-09 final QA: yes
-- gh-pages deploy commit pushed: `d1da4f435f809b83d81372a6b0b2c63e2f903bd2`
+- `site-version.json` updated for the suburb action-link/mobile QA pass: yes
+- gh-pages verified build pushed: `06fde9ab7ed78620e566e1c12352b591b5138c74`
+- gh-pages no-op redeploy pushed: `1e515f51ec43fc468fd7c31124a2690dff9f78d0`
+- GitHub Pages publish run for `1e515f51ec43fc468fd7c31124a2690dff9f78d0`: queued at last check
 
 ## Live Public Verification
 
-Verified cache-busted with `?v=d1da4f435f809b83d81372a6b0b2c63e2f903bd2` and normal URLs:
-
-- `/`
-- `/emergency-electrician-sydney/`
-- `/level-2-electrician-sydney/`
-- `/services/`
-- `/service-areas/`
-- `/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/`
-- `/service-areas/sydney-city-and-eastern-suburbs/randwick/coogee/`
-- `/service-areas/western-sydney-and-nepean/blacktown/blacktown/`
-- `/privacy-policy/`
-- `/terms/`
-- `/sitemap.xml`
-- `/robots.txt`
-- `/site-version.json`
+Checked cache-busted and normal public URLs for the homepage, emergency page, Level 2 page, services index, service-area index, Panania, Coogee, Blacktown, privacy, terms, sitemap, robots and site-version.
 
 Live verification result:
 
-- Cache-busted URLs: PASS
-- Normal URLs: PASS
 - HTTP 200: yes
-- CSS loads: yes
-- images/icons load: yes
-- stale/risky strings absent: yes
-- duplicate/chopped/postcode-only wording absent: yes
-- Google Ads tag present: yes
-- phone conversion attribute present: yes
-- quote conversion attribute present: yes
-- phone CTA link present: yes
-- quote CTA link present: yes
-- response-time wording correct on sampled 60/90 pages: yes
-- Google Rating card present on commercial pages: yes
-- privacy substantial: yes
-- terms substantial: yes
+- Current public HTML: NOT CLEAN at last check
+- Cache-busted URLs: NEEDS REVIEW
+- Normal URLs: NEEDS REVIEW
+- Reason: GitHub Pages is still serving stale HTML that contains the old non-link suburb card markup and `water-affected electrical equipment` text.
+- Deploy branch content: CLEAN
+- Source/output content: CLEAN
+- GitHub Pages publish state: queued; public verification must be rerun after Pages publishes `1e515f51ec43fc468fd7c31124a2690dff9f78d0`
 
 ## Remaining Owner-Review Items
 
-- None from this cleanup pass.
+- GitHub Pages publish is queued and the public site has not yet switched to the clean `gh-pages` output.
 - Performance note only: legacy PNG van/logo files remain over threshold, but rendered paths use smaller WebP assets and browser checks confirm they load correctly.
 
 ## Final Status
 
-PASS
+NEEDS OWNER REVIEW
