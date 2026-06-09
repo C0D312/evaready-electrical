@@ -255,7 +255,7 @@ function getCanterburyBankstownLocalContext(
       commonJobs:
         "home fault finding, duplex and villa switchboards, outdoor power, renovation wiring, hot water electrical, aircon electrical and CCTV/data",
       emergencySignals:
-        "home power loss, tripping safety switches and burning smells and heat at outlets, storm-damaged outdoor power and water-affected electrical equipment",
+        "home power loss, tripping safety switches and burning smells and heat at outlets, storm-damaged outdoor power and water-damaged electrical equipment",
       level2Detail:
         "consumer mains, point of attachment, metering, defect notices, service equipment and supply upgrade enquiries",
       plannedWork:
@@ -274,7 +274,7 @@ function getCanterburyBankstownLocalContext(
     commonJobs:
       "emergency faults, Level 2 enquiries, switchboards, hot water electrical, aircon electrical, CCTV/data and planned electrical work",
     emergencySignals:
-      "power loss and burning smells, sparking, safety switch tripping, storm damage and water-affected electrical equipment",
+      "power loss and burning smells, sparking, safety switch tripping, storm damage and water-damaged electrical equipment",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side electrical questions",
     plannedWork:
@@ -311,7 +311,7 @@ const baysideAirportLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "older-home fault finding, shopfront maintenance, warehouse lighting, strata repairs, hot water circuits, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home or shop power loss and burning smells and heat at outlets, safety switch tripping, warehouse circuit faults and water-affected electrical equipment",
+      "home or shop power loss and burning smells and heat at outlets, safety switch tripping, warehouse circuit faults and water-damaged electrical equipment",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
     plannedWork:
@@ -328,7 +328,7 @@ const baysideAirportLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "home fault finding, unit repairs, villa switchboards, strata maintenance, lighting, power points, smoke alarms, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home power loss, unit circuit tripping and burning smells and heat at outlets, unsafe older boards and water-affected electrical equipment",
+      "home power loss, unit circuit tripping and burning smells and heat at outlets, unsafe older boards and water-damaged electrical equipment",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and strata supply questions",
     plannedWork:
@@ -413,7 +413,7 @@ const baysideAirportLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "home fault finding, apartment repairs, retail maintenance, warehouse power, switchboard upgrades, hot water circuits, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "home or apartment power loss, retail outages, warehouse circuit faults and burning smells and heat at outlets, tripping safety switches and water-affected electrical equipment",
+      "home or apartment power loss, retail outages, warehouse circuit faults and burning smells and heat at outlets, tripping safety switches and water-damaged electrical equipment",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
     plannedWork:
@@ -652,7 +652,7 @@ const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "larger-block fault finding, outdoor circuits, long-access electrical work, private pole questions, consumer mains, storm-related faults, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "storm-related faults, private pole or overhead concerns, home power loss, outdoor circuit faults and heat at outlets and water-affected electrical equipment",
+      "storm-related faults, private pole or overhead concerns, home power loss, outdoor circuit faults and heat at outlets and water-damaged electrical equipment",
     level2Detail:
       "consumer mains, metering, private poles, point of attachment concerns, service equipment, defect notices and supply-side questions",
     plannedWork:
@@ -754,7 +754,7 @@ const georgesRiverLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "coastal fault finding, unit repairs, shopfront maintenance, outdoor power, switchboard upgrades, water-affected electrical checks, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "water-affected electrical equipment, coastal outdoor faults, unit power loss, shopfront outages and heat at outlets and burning smells and safety-switch tripping",
+      "water-damaged electrical equipment, coastal outdoor faults, unit power loss, shopfront outages and heat at outlets and burning smells and safety-switch tripping",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
     plannedWork:
@@ -1147,7 +1147,7 @@ const sutherlandShireLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "riverside-home fault finding, weather-exposed outdoor power, storm and water-related faults, switchboard upgrades, hot water circuits, CCTV/data and Level 2 enquiries",
     emergencySignals:
-      "storm-related faults, water-affected electrical equipment, outdoor circuit trips, heat at outlets, sparking and home power loss",
+      "storm-related faults, water-damaged electrical equipment, outdoor circuit trips, heat at outlets, sparking and home power loss",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and riverside access questions",
     plannedWork:
@@ -8833,7 +8833,7 @@ const hawkesburyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "river-flat and rural property electrical work, flood and storm fault checks, outdoor power, shed circuits, long-driveway access, Level 2 service equipment, CCTV/data and planned quote work",
     emergencySignals:
-      "river-flat power loss, water-affected electrical equipment, storm faults, outdoor power hazards, shed electrical faults and repeated safety-switch trips",
+      "river-flat power loss, water-damaged electrical equipment, storm faults, outdoor power hazards, shed electrical faults and repeated safety-switch trips",
     level2Detail:
       "consumer mains, metering, service equipment, private poles and defect notices for river-flat properties, sheds and long driveways",
     plannedWork:
@@ -8851,7 +8851,7 @@ const hawkesburyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "riverfront and access-sensitive electrical work, larger-block maintenance, outdoor power, storm and water-affected fault checks, private service equipment, CCTV/data and planned quote work",
     emergencySignals:
-      "riverfront power loss, water-affected electrical equipment, storm faults, outdoor power hazards, private service equipment concerns and repeated safety-switch trips",
+      "riverfront power loss, water-damaged electrical equipment, storm faults, outdoor power hazards, private service equipment concerns and repeated safety-switch trips",
     level2Detail:
       "consumer mains, metering, private service equipment, private poles, point of attachment questions and defect notices for riverfront and remote-access properties",
     plannedWork:
@@ -9157,7 +9157,7 @@ const hawkesburyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "river-flat property electrical work, flood and water-exposure fault checks, shed power, outdoor power, private service equipment, consumer mains, CCTV/data and planned quote work",
     emergencySignals:
-      "river-flat power loss, water-affected electrical equipment, flood or storm faults, outdoor power hazards, shed electrical faults and repeated safety-switch trips",
+      "river-flat power loss, water-damaged electrical equipment, flood or storm faults, outdoor power hazards, shed electrical faults and repeated safety-switch trips",
     level2Detail:
       "consumer mains, metering, private service equipment, private poles and defect notices for river-flat properties, sheds and access-sensitive sites",
     plannedWork:
@@ -9265,7 +9265,7 @@ const hawkesburyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "river-area home and larger-block electrical work, outdoor power, storm and water-exposure fault checks, private service equipment, switchboards, CCTV/data and planned quote work",
     emergencySignals:
-      "river-area power loss, storm or water-affected electrical equipment, outdoor power hazards, private service equipment concerns, switchboard faults and repeated safety-switch trips",
+      "river-area power loss, storm-damaged or water-damaged electrical equipment, outdoor power hazards, private service equipment concerns, switchboard faults and repeated safety-switch trips",
     level2Detail:
       "consumer mains, metering, private service equipment, private poles and defect notices for river-area homes and larger blocks",
     plannedWork:
@@ -9559,7 +9559,7 @@ const hillsDistrictLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "rural and river-edge property electrical work, acreage maintenance, shed power, outdoor power, private service equipment, storm and water-affected fault checks, CCTV/data and planned quote work",
     emergencySignals:
-      "rural or river-edge power loss, storm or water-affected electrical equipment, shed faults, outdoor power hazards, private service equipment concerns and unsafe symptoms that need call-first triage",
+      "rural or river-edge power loss, storm-damaged or water-damaged electrical equipment, shed faults, outdoor power hazards, private service equipment concerns and unsafe symptoms that need call-first triage",
     level2Detail:
       "consumer mains, metering, private service equipment, private poles, point of attachment questions and defect notices for rural/river-edge properties and sheds",
     plannedWork:
@@ -9775,7 +9775,7 @@ const hillsDistrictLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "remote river and rural property electrical work, shed power, outdoor power, storm and water-affected fault checks, private service equipment, CCTV/data and planned quote work",
     emergencySignals:
-      "remote or river property power loss, storm or water-affected electrical equipment, shed faults, outdoor power hazards, private service equipment concerns and repeated RCD trips",
+      "remote or river property power loss, storm-damaged or water-damaged electrical equipment, shed faults, outdoor power hazards, private service equipment concerns and repeated RCD trips",
     level2Detail:
       "consumer mains, metering, private service equipment, private poles and point of attachment questions for remote river and rural properties",
     plannedWork:
@@ -9979,7 +9979,7 @@ const hornsbyLocalContexts: Record<string, LocalPageContext> = {
     commonJobs:
       "remote, bushland and water-access electrical work, outdoor power, storm and water-affected fault checks, private service equipment, careful attendance planning, CCTV/data and planned quote work",
     emergencySignals:
-      "remote property power loss, water-affected electrical equipment, storm faults, outdoor power hazards, private service equipment concerns and unsafe symptoms that need call-first triage",
+      "remote property power loss, water-damaged electrical equipment, storm faults, outdoor power hazards, private service equipment concerns and unsafe symptoms that need call-first triage",
     level2Detail:
       "consumer mains, metering, private service equipment, private poles and point of attachment questions for remote, bushland and water-access properties",
     plannedWork:
@@ -10620,7 +10620,7 @@ function makeNorthernBeachesLocalContext({
   return {
     accessDetail: `photos of the switchboard, meter box, affected fitting, ${accessFocus}, access notes, parking/loading details, gate/access details, strata/building-manager notes and any defect notice or paperwork`,
     commonJobs: `${jobFocus}, switchboards, fault finding, hot water electrical, air conditioning electrical, CCTV/data, planned quote work and general licensed electrical support`,
-    emergencySignals: `${emergencyFocus}, power loss, storm or water-affected electrical equipment, outdoor power hazards, heat, smoke, sparking, repeated safety switch trips and ${safetyDetail}`,
+    emergencySignals: `${emergencyFocus}, power loss, storm-damaged or water-damaged electrical equipment, outdoor power hazards, heat, smoke, sparking, repeated safety switch trips and ${safetyDetail}`,
     level2Detail: `${level2Focus}, consumer mains, private service equipment, service equipment, point of attachment, metering and defect notices`,
     plannedWork: `${plannedFocus}, switchboard upgrades, lighting and power, hot water electrical, air conditioning electrical, CCTV/data and planned quote work`,
     propertyMix,
@@ -11636,7 +11636,7 @@ function makeBlueMountainsLocalContext({
   return {
     accessDetail: `photos of the switchboard, meter box, affected fitting, ${accessFocus}, access notes, gate details, parking/loading details and any defect notice or paperwork`,
     commonJobs: `${jobFocus}, switchboards, fault finding, hot water electrical, air conditioning electrical, CCTV/data, planned quote work and general licensed electrical support`,
-    emergencySignals: `${emergencyFocus}, power loss, storm or water-affected electrical equipment, outdoor power hazards, heat, smoke, sparking, repeated safety switch trips and call-first safety triage`,
+    emergencySignals: `${emergencyFocus}, power loss, storm-damaged or water-damaged electrical equipment, outdoor power hazards, heat, smoke, sparking, repeated safety switch trips and call-first safety triage`,
     level2Detail: `${level2Focus}, consumer mains, private service equipment, point of attachment, metering and defect notices`,
     plannedWork: `${plannedFocus}, switchboard upgrades, lighting and power, hot water electrical, air conditioning electrical, CCTV/data and planned quote work`,
     propertyMix,
@@ -15995,7 +15995,7 @@ export function getSuburbPageCopy(
         "sparking",
         "electric shocks",
         "storm damage",
-        "water-affected electrical equipment",
+        "water-damaged electrical equipment",
       ],
       quoteForm: [
         "planned work",

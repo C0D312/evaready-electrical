@@ -724,7 +724,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
       {
         question: "Can I turn power back on after water damage?",
         answer:
-          "Do not energise water-affected electrical equipment until it has been checked safely.",
+          "Do not energise water-damaged electrical equipment until it has been checked safely.",
       },
       {
         question: "Can storm damage affect private poles?",

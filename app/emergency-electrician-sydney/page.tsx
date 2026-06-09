@@ -402,7 +402,7 @@ export default function EmergencyElectricianSydneyPage() {
               areas, with 90-minute response for greater Sydney and surrounding
               regions. Call first for power loss and burning smells, sparking,
               tripping safety switches, switchboard faults, storm damage or
-              water-affected electrical equipment.
+              water-damaged electrical equipment.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
