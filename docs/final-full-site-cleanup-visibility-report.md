@@ -2,14 +2,16 @@
 
 Date/time: 2026-06-10 Australia/Sydney
 
-Final status: PASS pending live deploy verification update
+Final status: PASS
 
 ## Repository Status
 
 - Source SHA before this pass: 5219536779e248b65a6c53a3920105ee462f6c9b
 - Remote main before this pass: 5219536779e248b65a6c53a3920105ee462f6c9b
+- Source QA commit for this pass: 92fd301d19fe3ccba6e7a102e24eea1046273ed0
 - gh-pages SHA before this pass: 912f7871a714d13a985adb7965c072cdb81eca39
 - Remote gh-pages before this pass: 912f7871a714d13a985adb7965c072cdb81eca39
+- gh-pages SHA after deploy: 85abf77dad0a9fe69f1be900c52900536dea84c5
 - Source dirty at start: no
 - Deploy worktree dirty at start: no
 - Previous deploy worktree stale: no, local and remote gh-pages matched at start
@@ -207,10 +209,28 @@ Asset checks:
 
 ## Live Deployment
 
-- Source commit: pending
-- gh-pages deploy commit: pending
-- Cache-busted live verification: pending
-- Normal live verification: pending
+- Source QA commit: 92fd301d19fe3ccba6e7a102e24eea1046273ed0
+- gh-pages deploy commit: 85abf77dad0a9fe69f1be900c52900536dea84c5
+- Cache-busted live verification: PASS
+  - 19 required public URLs checked
+  - HTTP failures: 0
+  - Content/tracking failures: 0
+  - Asset failures: 0
+- Normal live verification: PASS
+  - 19 required public URLs checked
+  - HTTP failures: 0
+  - Content/tracking failures: 0
+  - Asset failures: 0
+- Public asset verification: PASS, 17 referenced CSS/JS/image/icon assets checked, 0 failures
+- Live Panania browser verification: PASS at 360x800, 390x844, 412x915, 430x932 and 1366x768
+  - H1 visible: yes
+  - Main content visible: yes
+  - Phone CTA visible: yes
+  - Quote CTA visible: yes
+  - 60-minute wording present: yes
+  - Emergency, Level 2 and general electrical wording present: yes
+  - Horizontal overflow: no
+  - Sticky CTA/footer overlap: no
 
 ## Owner-Review Items
 
@@ -218,4 +238,4 @@ Asset checks:
 
 ## Final Result
 
-PASS pending source commit, gh-pages deploy and live verification.
+PASS
