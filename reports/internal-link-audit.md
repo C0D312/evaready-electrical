@@ -1,6 +1,6 @@
 # Internal Link Audit
 
-Generated: 2026-06-09T22:17:05.885Z
+Generated: 2026-06-14T08:46:16.588Z
 
 ## Route Inventory
 
@@ -21,7 +21,7 @@ Generated: 2026-06-09T22:17:05.885Z
 - Generated service-area search links
 - Generated suburb service links
 
-Internal links checked: 19965
+Internal links checked: 19970
 
 ## Broken Links
 
@@ -30,7 +30,7 @@ No broken internal links found.
 ## Generated HTML Crawl
 
 - HTML routes checked: 997
-- Anchors checked: 92445
+- Anchors checked: 92461
 - Generated HTML link issues: 0
 
 

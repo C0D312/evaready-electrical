@@ -6,6 +6,7 @@ import { business } from "@/data/site";
 
 export function MobileStickyCta() {
   const [footerVisible, setFooterVisible] = useState(false);
+  const [homeHeroVisible, setHomeHeroVisible] = useState(false);
 
   useEffect(() => {
     const footer = document.querySelector("[data-site-footer]");
@@ -26,11 +27,32 @@ export function MobileStickyCta() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const homeHero = document.querySelector(".home-brand-hero");
+
+    if (!homeHero || !("IntersectionObserver" in window)) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setHomeHeroVisible(entry.isIntersecting);
+      },
+      { rootMargin: "0px 0px -18% 0px", threshold: 0.01 },
+    );
+
+    observer.observe(homeHero);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div
       aria-label="Mobile contact actions"
       className={`mobile-sticky-cta${
         footerVisible ? " mobile-sticky-cta--footer-visible" : ""
+      }${
+        homeHeroVisible ? " mobile-sticky-cta--home-hero-visible" : ""
       }`}
       role="navigation"
     >

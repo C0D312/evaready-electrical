@@ -88,9 +88,9 @@ export function homeSeoMetadata(): RouteSeoMetadata {
   return {
     path,
     canonical: routeUrl(path),
-    title: "Emergency & Level 2 Electrician Sydney | 60-Min Response",
+    title: "Emergency Electrician & Level 2 Electrician Sydney",
     description: clampDescription(
-      "Emergency electrician in Sydney with 60-minute core response, 90-minute greater region response and accredited Level 2 ASP support.",
+      "Call for emergency faults or request quotes for Level 2, switchboards and general electrical work across Sydney and surrounding regions.",
     ),
   };
 }

@@ -3286,6 +3286,7 @@ a[data-quote-trigger="true"].site-header-quote {
 }
 
 .mobile-sticky-cta--footer-visible,
+.mobile-sticky-cta--home-hero-visible,
 body.quote-modal-open .mobile-sticky-cta {
   pointer-events: none;
   opacity: 0;
@@ -5576,7 +5577,7 @@ main.legal-page :is(h1, h2, p, a),
   }
 
   .mobile-sticky-cta__link {
-    min-height: 2.45rem !important;
+    min-height: 2.75rem !important;
     padding: 0.42rem 0.38rem !important;
     font-size: 0.63rem !important;
     line-height: 1.08 !important;
