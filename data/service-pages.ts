@@ -19,6 +19,14 @@ export type ServiceLandingPage = {
   faqs: ServiceFaq[];
   heroBullets: string[];
   intro: string;
+  loadCapacitySection?: {
+    copy: string;
+    heading: string;
+    links: {
+      href: string;
+      label: string;
+    }[];
+  };
   metaDescription: string;
   metaTitle: string;
   process: ServiceProcessStep[];
@@ -29,6 +37,7 @@ export type ServiceLandingPage = {
   };
   relatedServices: string[];
   responseTrustProof?: {
+    heading?: string;
     items: string[];
     note: string;
   };
@@ -952,12 +961,12 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     slug: "split-system-air-conditioning-sydney",
     metaTitle: "Air Conditioning Electrician Sydney | AC Circuits",
     metaDescription:
-      "Air conditioning electrician in Sydney for AC isolators, dedicated circuits, outdoor unit power, heat pump support and capacity checks.",
+      "Air conditioning electrician Sydney for split systems, AC isolators, dedicated circuits and switchboard capacity checks. Call now or get a quote.",
     title: "Air Conditioning Electrician Sydney & Surrounding Regions",
     description:
       "Air-conditioning electrical support, split-system air conditioning, AC isolators, dedicated circuits, heat pump support and switchboard capacity checks.",
     intro:
-      "Evaready provides air-conditioning electrical support and air-conditioning services through appropriately licensed technicians. We help with split-system air conditioning, AC isolators, dedicated circuits, outdoor unit power, safety switches, heat pump electrical support and switchboard capacity checks across Sydney and surrounding regions.",
+      "Evaready helps with the electrical side of split-system air conditioning, including dedicated circuits, AC isolators, outdoor unit power, safety switch protection, switchboard capacity checks and heat-pump electrical supply where relevant. Air-conditioning installation or refrigeration work is handled by appropriately licensed technicians. If the job involves electrical supply, tripping, burning smell, heat, buzzing, sparking, unsafe wiring, isolators, switchboard capacity or power to the unit, call first or send photos for review.",
     credentialHighlights: [
       "ARCtick Licensed - L157323",
       "Licence L157323 for eligible air-conditioning, heat pump and related work.",
@@ -974,15 +983,82 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Switchboard capacity or safety switch protection needs checking",
       "A hot water or swimming pool heat pump needs electrical support",
     ],
+    callFirstBlock: {
+      heading: "Call first if the aircon electrical fault feels unsafe",
+      items: [
+        "The AC circuit or safety switch keeps tripping",
+        "Burning smell near the switchboard, isolator or outdoor unit",
+        "Heat, buzzing or sparking near the isolator",
+        "Outdoor unit power or isolator looks damaged",
+        "Water has reached electrical equipment",
+        "Power loss, electric shock risk or exposed wiring",
+        "Switchboard capacity or protection looks overloaded",
+      ],
+      safetyCopy:
+        "Do not keep resetting breakers or touching damaged fittings. Call first so the electrical fault can be triaged safely.",
+    },
+    responseTrustProof: {
+      heading: "Trusted air-conditioning electrical support without overclaiming.",
+      items: [
+        "60-minute emergency response in core service areas",
+        "90-minute emergency response for greater regions",
+        "Ausgrid & Endeavour Energy Accredited Level 2 ASP",
+        "Call first for urgent electrical faults",
+        "Send photos and job details for planned work",
+      ],
+      note:
+        "Level 2 support may be relevant where consumer mains, metering, defect notices, switchboard capacity, load capacity or supply-side electrical work affects the job.",
+    },
+    loadCapacitySection: {
+      heading: "Before adding air conditioning, check the electrical supply",
+      copy:
+        "New split systems, heat pumps and larger air-conditioning loads can require a dedicated circuit, isolator, RCBO/safety switch protection, switchboard capacity review or electrical load capacity check. If the supply, switchboard or consumer mains may be undersized, Evaready can review the electrical side before work proceeds.",
+      links: [
+        {
+          href: "/services/electrical-load-capacity-checks-sydney",
+          label: "Electrical load capacity checks",
+        },
+        {
+          href: "/services/switchboard-upgrades-sydney",
+          label: "Switchboard upgrades",
+        },
+        {
+          href: "/services/consumer-mains-sydney",
+          label: "Consumer mains electrical work",
+        },
+        {
+          href: "/level-2-electrician-sydney",
+          label: "Level 2 electrician Sydney",
+        },
+      ],
+    },
+    quoteChecklist: {
+      heading: "What to send for an air-conditioning electrical quote",
+      items: [
+        "Photo of the indoor and outdoor unit if installed",
+        "Photo of the AC isolator",
+        "Photo of the switchboard",
+        "Photo of any tripped breaker, RCD or RCBO",
+        "Photo of the model label or unit details if visible",
+        "Whether the job is a new split-system, replacement, relocation or fault",
+        "Whether a dedicated circuit is already present",
+        "Whether there is tripping, burning smell, buzzing, heat, sparking or water exposure",
+        "Suburb, address, access notes and parking details",
+        "Any strata, property-manager or landlord details if relevant",
+        "Any installation date, builder/installer booking or deadline",
+      ],
+      urgentNote:
+        "If there is heat, smoke, sparking, burning smell, shock risk, water exposure or loss of power, call first.",
+    },
     services: [
       "Air-conditioning electrical support",
-      "Split-system air conditioning",
+      "Split-system electrical support",
       "AC isolators",
       "Dedicated air conditioner circuits",
       "Outdoor unit power",
-      "Switchboard capacity checks",
       "Safety switches and RCBOs",
-      "Heat pump electrical support",
+      "Switchboard capacity checks",
+      "Heat-pump electrical supply",
       "Hot water heat pumps",
       "Swimming pool heat pumps",
       "Aircon fault support",
@@ -1008,24 +1084,49 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     ],
     faqs: [
       {
-        question: "Can you help with air-conditioning electrical work?",
+        question: "Can an electrician help with air conditioning?",
         answer:
-          "Yes. Evaready Electrical can help with dedicated aircon circuits, AC isolators, outdoor unit power, switchboard checks, safety switches and split-system electrical support.",
+          "Yes. Evaready Electrical can help with the electrical side of air conditioning, including split-system electrical support, AC isolators, dedicated circuits, outdoor unit power, safety switches, switchboard capacity checks and heat-pump electrical supply.",
       },
       {
-        question: "Do you only help with split systems?",
+        question: "Do I need an electrician or an air-conditioning technician?",
         answer:
-          "No. Split-system air conditioning is a key service, but Evaready also helps with air-conditioning electrical support, hot water heat pumps, swimming pool heat pumps, aircon fault support and electrical supply planning.",
+          "An electrician handles the electrical supply, circuit, isolator, switchboard protection, safety switch behaviour and capacity checks. Air-conditioning installation or refrigeration work is handled by appropriately licensed technicians, so some jobs may need both trades.",
       },
       {
-        question: "Can Evaready arrange the right licensed technician?",
+        question: "What is an AC isolator?",
         answer:
-          "Yes. Evaready provides air-conditioning electrical support and air-conditioning services through appropriately licensed technicians.",
+          "An AC isolator is a local isolation switch near the air-conditioning outdoor unit. It lets power to the unit be isolated for service or safety and must be installed and checked as part of the electrical side of the job.",
       },
       {
-        question: "What does ARCtick Licensed mean here?",
+        question: "Does a split system need a dedicated circuit?",
         answer:
-          "ARCtick Licensed - L157323. Licence L157323 applies to eligible air-conditioning, heat pump and related work.",
+          "Many split-system air conditioners need a dedicated circuit, suitable cable size, an AC isolator and the right safety switch or RCBO protection. The exact requirement depends on the unit, location and existing switchboard capacity.",
+      },
+      {
+        question: "Why does my aircon trip the safety switch?",
+        answer:
+          "An aircon can trip the safety switch because of a fault in the circuit, isolator, outdoor unit supply, damaged wiring, water exposure or connected equipment. If it keeps tripping, do not keep resetting it. Call first so the electrical fault can be triaged.",
+      },
+      {
+        question: "What photos help with an air-conditioning quote?",
+        answer:
+          "Send photos of the indoor and outdoor unit if installed, the AC isolator, switchboard, any tripped breaker, RCD or RCBO, the model label if visible, access notes, parking details and whether the job is a new split-system, replacement, relocation or fault.",
+      },
+      {
+        question: "Can Evaready help with heat pump electrical supply?",
+        answer:
+          "Yes. Evaready can review the electrical side of heat-pump electrical supply, including circuit requirements, isolators, switchboard protection and capacity checks where relevant.",
+      },
+      {
+        question: "Can a new aircon need switchboard or load capacity checks?",
+        answer:
+          "Yes. New split systems, heat pumps and larger loads can need a switchboard capacity review, dedicated circuit, RCBO or safety switch protection, consumer mains review or electrical load capacity checks before work proceeds.",
+      },
+      {
+        question: "When should I call first instead of requesting a quote?",
+        answer:
+          "Call first if there is heat, smoke, sparking, burning smell, shock risk, water exposure, loss of power, repeated tripping or damaged electrical equipment. Planned work can use the quote form with photos and job details.",
       },
     ],
     relatedServices: [

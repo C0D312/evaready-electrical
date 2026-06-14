@@ -469,7 +469,8 @@ export default async function ServiceLandingPage({
                 Response and proof
               </p>
               <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-                Trusted hot water electrical support without overclaiming.
+                {service.responseTrustProof.heading ??
+                  "Trusted hot water electrical support without overclaiming."}
               </h2>
               <p className="mt-5 rounded-lg border border-blue-200 bg-white p-4 text-base font-bold leading-7 text-slate-800">
                 {service.responseTrustProof.note}
@@ -535,6 +536,36 @@ export default async function ServiceLandingPage({
                   <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" />
                   <p className="font-bold leading-7 text-slate-900">{item}</p>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {service.loadCapacitySection ? (
+        <section className="border-b border-cyan-100 bg-white py-14">
+          <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.24em] text-blue-700">
+                Load and capacity
+              </p>
+              <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+                {service.loadCapacitySection.heading}
+              </h2>
+              <p className="mt-5 text-base font-semibold leading-7 text-slate-700 sm:text-lg sm:leading-8">
+                {service.loadCapacitySection.copy}
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {service.loadCapacitySection.links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="group flex min-h-24 items-center justify-between gap-4 rounded-lg border border-slate-200 bg-slate-50 p-5 font-black text-slate-950 shadow-sm transition hover:border-blue-500 hover:bg-blue-50 hover:text-blue-700"
+                >
+                  <span>{link.label}</span>
+                  <ArrowRight className="h-5 w-5 shrink-0 text-blue-700 transition group-hover:translate-x-1" />
+                </Link>
               ))}
             </div>
           </div>
