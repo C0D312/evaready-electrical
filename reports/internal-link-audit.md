@@ -1,6 +1,6 @@
 # Internal Link Audit
 
-Generated: 2026-06-14T13:41:09.699Z
+Generated: 2026-06-14T14:37:47.380Z
 
 ## Route Inventory
 
@@ -30,7 +30,7 @@ No broken internal links found.
 ## Generated HTML Crawl
 
 - HTML routes checked: 997
-- Anchors checked: 92485
+- Anchors checked: 92489
 - Generated HTML link issues: 0
 
 

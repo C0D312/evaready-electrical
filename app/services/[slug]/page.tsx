@@ -461,6 +461,137 @@ export default async function ServiceLandingPage({
         items={offerItems}
       />
 
+      {service.responseTrustProof ? (
+        <section className="border-b border-cyan-100 bg-slate-50 py-14">
+          <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.24em] text-blue-700">
+                Response and proof
+              </p>
+              <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+                Trusted hot water electrical support without overclaiming.
+              </h2>
+              <p className="mt-5 rounded-lg border border-blue-200 bg-white p-4 text-base font-bold leading-7 text-slate-800">
+                {service.responseTrustProof.note}
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {service.responseTrustProof.items.map((item) => (
+                <div
+                  key={item}
+                  className="flex gap-3 rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+                >
+                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-blue-700" />
+                  <p className="font-bold leading-7 text-slate-900">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {service.callFirstBlock ? (
+        <section className="border-b border-red-200 bg-white py-14">
+          <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.24em] text-red-600">
+                Call first
+              </p>
+              <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+                {service.callFirstBlock.heading}
+              </h2>
+              <p className="mt-5 rounded-lg border border-red-200 bg-red-50 p-4 text-base font-bold leading-7 text-red-950">
+                {service.callFirstBlock.safetyCopy}
+              </p>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href={business.phoneHref}
+                  data-conversion-action="phone-click"
+                  aria-label={business.callCta}
+                  className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-6 py-4 font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500"
+                >
+                  <Phone className="h-5 w-5" />
+                  <span className="whitespace-nowrap">{business.callCta}</span>
+                </a>
+                <a
+                  href={business.bookingUrl}
+                  data-quote-trigger="true"
+                  data-conversion-action="quote-click"
+                  aria-haspopup="dialog"
+                  aria-label="Get a quote from Evaready Electrical"
+                  className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
+                >
+                  {business.quoteCta}
+                  <ArrowRight className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {service.callFirstBlock.items.map((item) => (
+                <div
+                  key={item}
+                  className="flex gap-3 rounded-lg border border-slate-200 bg-slate-50 p-4"
+                >
+                  <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" />
+                  <p className="font-bold leading-7 text-slate-900">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {service.quoteChecklist ? (
+        <section className="border-b border-blue-100 bg-slate-50 py-14">
+          <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.24em] text-blue-700">
+                Quote checklist
+              </p>
+              <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+                {service.quoteChecklist.heading}
+              </h2>
+              <p className="mt-5 rounded-lg border border-red-200 bg-white p-4 text-base font-bold leading-7 text-red-700">
+                {service.quoteChecklist.urgentNote}
+              </p>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href={business.bookingUrl}
+                  data-quote-trigger="true"
+                  data-conversion-action="quote-click"
+                  aria-haspopup="dialog"
+                  aria-label="Get a quote from Evaready Electrical"
+                  className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
+                >
+                  {business.quoteCta}
+                  <ArrowRight className="h-5 w-5" />
+                </a>
+                <a
+                  href={business.phoneHref}
+                  data-conversion-action="phone-click"
+                  aria-label={business.callCta}
+                  className="inline-flex items-center justify-center gap-3 rounded-lg border border-red-200 bg-white px-6 py-4 font-black text-red-700 shadow-sm transition hover:bg-red-50"
+                >
+                  <Phone className="h-5 w-5" />
+                  <span className="whitespace-nowrap">{business.callCta}</span>
+                </a>
+              </div>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {service.quoteChecklist.items.map((item) => (
+                <div
+                  key={item}
+                  className="flex gap-3 rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+                >
+                  <ClipboardList className="mt-1 h-5 w-5 shrink-0 text-blue-700" />
+                  <p className="font-bold leading-7 text-slate-900">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       <TrustProcessProof
         compact
         className="border-b border-cyan-300/15"

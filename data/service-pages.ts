@@ -9,6 +9,11 @@ export type ServiceProcessStep = {
 };
 
 export type ServiceLandingPage = {
+  callFirstBlock?: {
+    heading: string;
+    items: string[];
+    safetyCopy: string;
+  };
   credentialHighlights?: string[];
   description: string;
   faqs: ServiceFaq[];
@@ -17,7 +22,16 @@ export type ServiceLandingPage = {
   metaDescription: string;
   metaTitle: string;
   process: ServiceProcessStep[];
+  quoteChecklist?: {
+    heading: string;
+    items: string[];
+    urgentNote: string;
+  };
   relatedServices: string[];
+  responseTrustProof?: {
+    items: string[];
+    note: string;
+  };
   services: string[];
   slug: string;
   title: string;
@@ -798,14 +812,14 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "hot-water-system-electrician-sydney",
-    metaTitle: "Hot Water Electrician Sydney | Circuits & Isolators",
+    metaTitle: "Hot Water System Electrician Sydney | Electric Faults",
     metaDescription:
-      "Hot water electrician in Sydney for no hot water and circuit tripping, isolators, thermostat checks and heat pump electrical support.",
+      "Hot water system electrician for electric faults, tripping circuits, isolators, heat pumps and replacement wiring. Call Now or get a quote.",
     title: "Hot Water System Electrician Sydney & Surrounding Regions",
     description:
       "Electrical support for electric hot water faults, hot water circuits, isolators, replacement wiring and heat pump electrical support.",
     intro:
-      "No hot water can turn into an urgent problem quickly. Evaready Electrical checks the electrical side of electric hot water systems, including supply, isolators, safety switches, thermostats, elements and wiring, so the fault can be understood clearly before repair or replacement work proceeds.",
+      "No hot water can turn into an urgent problem quickly. Evaready handles the electrical side of electric hot water systems, including the circuit, isolator, switchboard protection, wiring, thermostat/element electrical checks and heat-pump electrical supply where relevant. For plumbing work, water leaks, tank replacement, valves or gas hot water work, a licensed plumber or gas fitter may also be required. If the issue involves power, tripping, burning smell, heat, buzzing, sparking or unsafe electrical equipment, call first.",
     heroBullets: [
       "No hot water electrical faults",
       "Hot water circuit and isolator checks",
@@ -818,12 +832,53 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "There is heat, smell or buzzing near the isolator",
       "The system needs electrical work before replacement",
     ],
+    callFirstBlock: {
+      heading: "Call first if the hot water fault feels unsafe",
+      items: [
+        "No hot water and the hot water circuit has tripped",
+        "Burning smell near the switchboard, isolator or hot water unit",
+        "Heat, buzzing or sparking near the isolator",
+        "Safety switch keeps tripping when the hot water circuit is reset",
+        "Water has reached electrical equipment",
+        "Power loss, electric shock risk or exposed wiring",
+      ],
+      safetyCopy:
+        "Do not keep resetting breakers or touching damaged fittings. Call first so the fault can be triaged safely.",
+    },
+    responseTrustProof: {
+      items: [
+        "60-minute emergency response in core service areas",
+        "90-minute emergency response for greater regions",
+        "Ausgrid & Endeavour Energy Accredited Level 2 ASP",
+        "Call first for urgent electrical faults",
+        "Send photos and job details for planned work",
+      ],
+      note:
+        "Level 2 support may be relevant where consumer mains, metering, defect notices, load capacity or supply-side electrical work affects the job.",
+    },
+    quoteChecklist: {
+      heading: "What to send for a hot water electrical quote",
+      items: [
+        "Photo of the hot water unit",
+        "Photo of the isolator",
+        "Photo of the switchboard",
+        "Photo of any tripped breaker or safety switch",
+        "Model label or unit details if visible",
+        "Whether the system is electric storage, heat pump or part of a replacement",
+        "Whether there is no hot water, tripping, burning smell, buzzing, heat or water exposure",
+        "Suburb, address, access notes and parking details",
+        "Any strata, property-manager or landlord details if relevant",
+        "Any deadline or replacement booking date",
+      ],
+      urgentNote:
+        "If there is heat, smoke, sparking, burning smell, shock risk, water exposure or loss of power, call first.",
+    },
     services: [
       "Electric hot water circuit fault finding",
       "Hot water isolator checks and replacement",
+      "Safety switch tripping on hot water circuits",
       "Thermostat and element electrical testing",
-      "Safety switch tripping investigations",
-      "Wiring support for replacement systems",
+      "Replacement electric hot water wiring support",
       "Hot water heat pump electrical support",
     ],
     process: [
@@ -848,7 +903,12 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Can an electrician help when there is no hot water?",
         answer:
-          "Yes. If the issue is electrical, Evaready Electrical can check the supply, circuit, isolator, thermostat, element and safety switch behaviour.",
+          "Yes. If the issue is electrical, Evaready can check the circuit, isolator, switchboard protection, thermostat, element, wiring and safety switch behaviour.",
+      },
+      {
+        question: "Do I need an electrician or a plumber for hot water?",
+        answer:
+          "An electrician handles the electrical side, including power supply, circuits, isolators, wiring, safety switches, thermostats and elements. Plumbing, water leaks, tank replacement, valves and gas hot water may require a licensed plumber or gas fitter.",
       },
       {
         question: "Why does my hot water trip the safety switch?",
@@ -864,6 +924,21 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         question: "Can you help with hot water heat pumps?",
         answer:
           "Yes. Evaready Electrical can assist with the electrical side of hot water heat pump installs, including supply, isolator, circuit and switchboard requirements.",
+      },
+      {
+        question: "Can Evaready wire a replacement electric hot water system?",
+        answer:
+          "Yes, where electrical work is required. Evaready can help with replacement electric hot water wiring, isolator requirements, circuit checks and switchboard protection for the electrical side of the job.",
+      },
+      {
+        question: "Is a burning smell or hot isolator urgent?",
+        answer:
+          "Yes. Heat, smoke, sparking, burning smells, shock risk, water exposure or loss of power should be treated as urgent. Call first and do not keep resetting breakers or touching damaged equipment.",
+      },
+      {
+        question: "Can a hot water upgrade require switchboard or load capacity checks?",
+        answer:
+          "Yes. Some electric storage, heat pump or replacement hot water jobs need switchboard capacity, circuit protection, load capacity or supply-side checks before the electrical work is planned.",
       },
     ],
     relatedServices: [
