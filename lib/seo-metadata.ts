@@ -168,7 +168,7 @@ export function serviceAreaIndexSeoMetadata(): RouteSeoMetadata {
     canonical: routeUrl(path),
     title: "Electrician Service Areas Sydney | Emergency & Level 2",
     description: clampDescription(
-      "Search Evaready Electrical service areas across Sydney suburbs and surrounding regions for urgent faults, Level 2 work and planned electrical jobs.",
+      "Find your suburb for emergency electrician, Level 2 and planned electrical help across Sydney and surrounding regions. Call first or get a quote.",
     ),
   };
 }

@@ -41,6 +41,20 @@ export type ElectricianSchemaOptions = {
   url?: string;
 };
 
+export type DirectoryCollectionItem = {
+  children?: DirectoryCollectionItem[];
+  description?: string;
+  name: string;
+  path: string;
+};
+
+export type CollectionPageSchemaOptions = {
+  description: string;
+  items: DirectoryCollectionItem[];
+  name: string;
+  path: string;
+};
+
 const allDays = [
   "Monday",
   "Tuesday",
@@ -212,6 +226,46 @@ export function buildServiceSchema({
           })),
         }
       : undefined,
+  };
+}
+
+export function buildCollectionPageSchema({
+  description,
+  items,
+  name,
+  path,
+}: CollectionPageSchemaOptions) {
+  const buildListItem = (item: DirectoryCollectionItem, index: number) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: item.name,
+    url: absoluteUrl(item.path),
+    item: {
+      "@type": "WebPage",
+      name: item.name,
+      description: item.description,
+      url: absoluteUrl(item.path),
+      hasPart: item.children?.map((child) => ({
+        "@type": "WebPage",
+        name: child.name,
+        description: child.description,
+        url: absoluteUrl(child.path),
+      })),
+    },
+  });
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${absoluteUrl(path)}#collection`,
+    name,
+    description,
+    url: absoluteUrl(path),
+    mainEntity: {
+      "@type": "ItemList",
+      name: `${name} directory`,
+      itemListElement: items.map(buildListItem),
+    },
   };
 }
 
