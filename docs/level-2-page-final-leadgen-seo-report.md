@@ -22,9 +22,9 @@ Routes in scope for live verification:
 ## Source SHAs
 
 - Source SHA before: fd1754c9eae
-- Source SHA after: pending final source commit
+- Source SHA after: 4e848acdbeafbc5bc8b75cac0ef2d03dce642c7b
 - gh-pages SHA before: 7df97dc904f
-- gh-pages SHA after: pending deployment
+- gh-pages SHA after: 963aee42b7c58a7cea83b0d838239a97de7ff098
 
 ## Level 2 Page Changes Made
 
@@ -69,9 +69,10 @@ Routes in scope for live verification:
 
 ## Live Verification
 
-- Live normal clean: pending deployment.
-- Live cache-busted clean: pending deployment.
+- Live normal clean: yes.
+- Live cache-busted clean: yes.
+- Live mobile spot check: PASS at 390px width with no horizontal overflow; H1, Call Now, Get a Quote, AW-18165545331, phone-click and quote-click all present.
 
 ## Final Status
 
-Pending deployment verification.
+PASS.
