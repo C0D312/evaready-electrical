@@ -61,14 +61,17 @@ Note: `audit:all-suburb-copy` requires generated `out/` HTML. The first clean-st
 
 ## Live Verification
 
-- Live normal clean: pending deploy verification.
-- Live cache-busted clean: pending deploy verification.
+- Live normal clean: yes.
+- Live cache-busted clean: yes.
+- Live `/service-areas/` CSS load: PASS.
+- Live `/service-areas/` CTA/tracking markers: PASS.
+- Live `/service-areas/` mobile spot check: PASS at 360, 390, 412 and 430 widths with no horizontal overflow.
 
 ## SHAs
 
-- Main SHA: pending source commit.
-- gh-pages SHA: pending deployment commit.
+- Main SHA: `f744d5790f6`.
+- gh-pages SHA: `4ecea4ae815`.
 
 ## Final Recommendation
 
-Pending live verification after gh-pages deployment.
+PASS.
