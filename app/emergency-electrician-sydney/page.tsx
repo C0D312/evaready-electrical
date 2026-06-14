@@ -17,7 +17,6 @@ import {
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
-import { emergencyFaultGuideLinks } from "@/data/internal-links";
 import { absoluteUrl, business } from "@/data/site";
 import { emergencySeoMetadata, toMetadata } from "@/lib/seo-metadata";
 
@@ -25,22 +24,22 @@ export const metadata: Metadata = toMetadata(emergencySeoMetadata());
 
 const emergencyServices = [
   {
-    title: "No power or partial power loss",
+    title: "No power fault finding",
     text: "Call first if a home, shop or strata area has lost power or only part of the property is working.",
     href: "/electrical-faults/no-power-to-house",
   },
   {
-    title: "Safety switch keeps tripping",
+    title: "Safety switch tripping help",
     text: "Repeated resets can hide a real fault. Stop resetting and have the circuit tested.",
     href: "/electrical-faults/safety-switch-keeps-tripping",
   },
   {
-    title: "Burning smell from a switchboard",
+    title: "Burning smell from switchboard",
     text: "Smoke, heat or a burning smell near electrical equipment should be treated as urgent.",
     href: "/electrical-faults/burning-smell-from-switchboard",
   },
   {
-    title: "Sparking power point or buzzing fitting",
+    title: "Sparking power point or damaged fitting",
     text: "Keep clear of noisy, hot or sparking outlets, switches and light fixtures until checked.",
     href: "/electrical-faults/power-point-sparking",
   },
@@ -50,24 +49,49 @@ const emergencyServices = [
     href: "/electrical-faults/hot-power-point",
   },
   {
-    title: "Storm or water-damaged electrical fault",
+    title: "Storm and water-damage electrical faults",
     text: "Do not use wet power points, outdoor lights or affected circuits until they have been inspected.",
     href: "/electrical-faults/power-outage-after-storm",
   },
   {
-    title: "Switchboard fault or damaged wiring",
+    title: "Switchboard fault repairs",
     text: "Burnt wiring, old protection or damaged switchboard gear needs careful testing and repair.",
     href: "/services/switchboard-upgrades-sydney",
   },
   {
-    title: "Supply-side or Level 2 electrical issue",
-    text: "Consumer mains, metering, point-of-attachment and supply issues may need Level 2 support.",
+    title: "Urgent lighting faults",
+    text: "Flickering lights, failed lighting circuits or unsafe fittings can be checked from the fault symptom.",
+    href: "/electrical-faults/lights-flickering",
+  },
+  {
+    title: "Commercial emergency faults",
+    text: "Businesses can call for urgent faults affecting power, safety, access or trading areas.",
+    href: "/services/commercial-electrician-sydney",
+  },
+  {
+    title: "Level 2 electrician Sydney",
+    text: "Supply-side, metering, consumer mains and point-of-attachment issues may need Level 2 support.",
     href: "/level-2-electrician-sydney",
   },
   {
-    title: "Commercial after-hours electrical fault",
-    text: "Businesses can call for urgent faults affecting power, safety, access or trading areas.",
-    href: "/services/commercial-electrician-sydney",
+    title: "Defect notice repairs",
+    text: "Urgent defect notices can be reviewed with photos, paperwork, access details and the due date.",
+    href: "/services/defect-notice-repairs-sydney",
+  },
+  {
+    title: "Consumer mains electrical work",
+    text: "Consumer mains faults, upgrades and supply capacity questions can be checked before work starts.",
+    href: "/services/consumer-mains-sydney",
+  },
+  {
+    title: "Point of attachment repairs",
+    text: "Damaged service lines or point-of-attachment concerns need careful access and safety triage.",
+    href: "/services/point-of-attachment-repairs-sydney",
+  },
+  {
+    title: "Switchboard upgrades",
+    text: "Older or damaged switchboards can be reviewed when repairs, protection upgrades or capacity checks are needed.",
+    href: "/services/switchboard-upgrades-sydney",
   },
   {
     title: "After-hours electrician Sydney",
@@ -136,24 +160,24 @@ const safetySteps = [
 
 const emergencyFaqs = [
   {
-    question: "Can you be on site within 60 minutes?",
+    question: "What counts as an electrical emergency?",
     answer:
-      "Yes. For emergency electrical call-outs in core service areas, Evaready can be on site within 60 minutes. For greater regions, emergency attendance is within 90 minutes. Call first so the fault, location and safety risk can be triaged. Timing depends on the job location, access, traffic and safety conditions.",
+      "An electrical emergency can include no power, partial power loss, burning smells, smoke, sparking, buzzing, hot fittings, repeated safety-switch tripping, switchboard faults, storm damage, water-affected outlets or exposed wiring.",
   },
   {
-    question: "Do you answer emergency electrician calls after hours?",
+    question: "Should I call or request a quote?",
     answer:
-      "Yes. Evaready Electrical takes urgent electrical fault calls day and night. Call first for no power and burning smells, smoke, sparking, repeated tripping or anything that feels unsafe.",
+      "Call first if the fault feels unsafe, urgent or active. Use the quote form for planned work, photos, paperwork, defect notices, switchboard photos, meter box photos and job notes.",
   },
   {
-    question: "What should I do if my power is out?",
+    question: "Can Evaready attend within 60 minutes?",
     answer:
-      "Check whether nearby properties also have no power. If only your property or part of it has lost power, keep clear of damaged equipment, avoid repeated resets and call a licensed electrician.",
+      "For emergency electrical call-outs in core service areas, Evaready can be on site within 60 minutes. Timing depends on location, access, traffic, safety conditions, job type and current availability.",
   },
   {
-    question: "Is a burning smell from a switchboard urgent?",
+    question: "What areas are 90-minute greater regions?",
     answer:
-      "Yes. A burning smell, smoke, heat, buzzing or crackling near a switchboard can point to a dangerous electrical fault. Keep clear and call before touching the switchboard.",
+      "Greater regions are areas outside the core service areas. Emergency attendance for greater regions is within 90 minutes, depending on location, access, traffic, safety conditions, job type and current availability.",
   },
   {
     question: "Should I keep resetting a tripping safety switch?",
@@ -161,14 +185,19 @@ const emergencyFaqs = [
       "No. If a safety switch or circuit breaker keeps tripping, stop resetting it. It may be reacting to water, damaged wiring, a faulty appliance or another fault that needs testing.",
   },
   {
-    question: "Can you help with storm or water-damaged electrical faults?",
+    question: "What should I do before an electrician arrives?",
     answer:
-      "Yes. Call first if water has reached switches, outlets, lights, outdoor fixtures or electrical equipment. Do not use affected circuits until they have been checked.",
+      "Keep clear of damaged fittings, wet outlets, exposed wiring, smoke, burning smells and fallen service lines. Turn off an affected circuit only if it is safe, and call emergency services first for life-threatening danger.",
   },
   {
-    question: "Can businesses call for urgent electrical faults?",
+    question: "Can water-damaged electrical fittings be used again?",
     answer:
-      "Yes. Shops, offices, strata buildings, warehouses and commercial sites can call for urgent electrical faults, power loss, switchboard issues and safety hazards.",
+      "Do not use water-affected outlets, switches, lights, outdoor fittings or electrical equipment until they have been checked. Water damage can leave unsafe wiring, fittings or protection devices behind.",
+  },
+  {
+    question: "Can emergency faults involve Level 2 work?",
+    answer:
+      "Yes. Some emergency faults can involve consumer mains, metering, point-of-attachment damage, service equipment or defect notices. Evaready provides Ausgrid and Endeavour Energy Accredited Level 2 ASP support where the job scope requires it.",
   },
 ];
 
@@ -192,19 +221,67 @@ const process = [
 ];
 
 const relatedLinks = [
-  ...emergencyFaultGuideLinks,
+  {
+    label: "No power fault finding",
+    href: "/electrical-faults/no-power-to-house",
+  },
+  {
+    label: "Safety switch tripping help",
+    href: "/electrical-faults/safety-switch-keeps-tripping",
+  },
+  {
+    label: "Burning smell from switchboard",
+    href: "/electrical-faults/burning-smell-from-switchboard",
+  },
+  {
+    label: "Storm and water-damage electrical faults",
+    href: "/electrical-faults/power-outage-after-storm",
+  },
+  {
+    label: "Sparking power point help",
+    href: "/electrical-faults/power-point-sparking",
+  },
+  {
+    label: "Urgent lighting faults",
+    href: "/electrical-faults/lights-flickering",
+  },
+  {
+    label: "Commercial emergency faults",
+    href: "/services/commercial-electrician-sydney",
+  },
   {
     label: "Switchboard upgrades",
     href: "/services/switchboard-upgrades-sydney",
   },
   {
-    label: "Level 2 electrician",
+    label: "Level 2 electrician Sydney",
     href: "/level-2-electrician-sydney",
   },
   {
-    label: "Service areas",
-    href: "/service-areas",
+    label: "Defect notice repairs",
+    href: "/services/defect-notice-repairs-sydney",
   },
+  {
+    label: "Consumer mains electrical work",
+    href: "/services/consumer-mains-sydney",
+  },
+  {
+    label: "Point of attachment repairs",
+    href: "/services/point-of-attachment-repairs-sydney",
+  },
+];
+
+const emergencyProofItems = [
+  `NSW Electrical Licence ${business.licence}`,
+  `ABN ${business.abn}`,
+  `Open Cabler Registration ${business.openCablerRegistration}`,
+  `ARCtick Licensed ${business.arctickLicence}`,
+  business.level2Asp.display,
+  "Call-first emergency triage",
+  "Safety-first fault testing",
+  "Clear next step before work begins",
+  "Photos and paperwork reviewed for planned work",
+  "Sydney and surrounding regions",
 ];
 
 function EmergencyActionLink({
@@ -230,9 +307,11 @@ function EmergencyActionLink({
 function QuoteActionLink({
   className = "",
   compact = false,
+  secondary = false,
 }: {
   className?: string;
   compact?: boolean;
+  secondary?: boolean;
 }) {
   return (
     <a
@@ -241,7 +320,11 @@ function QuoteActionLink({
       data-conversion-action="quote-click"
       aria-haspopup="dialog"
       aria-label="Get a quote from Evaready Electrical"
-      className={`inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-600 font-black text-white shadow-xl shadow-blue-600/20 transition hover:bg-blue-500 ${compact ? "px-5 py-3 text-sm" : "px-7 py-4 text-base"} ${className}`}
+      className={`inline-flex items-center justify-center gap-3 rounded-2xl font-black text-white transition ${
+        secondary
+          ? "border border-cyan-300/35 bg-white/[0.06] shadow-lg shadow-cyan-950/15 hover:bg-white/[0.12]"
+          : "bg-blue-600 shadow-xl shadow-blue-600/20 hover:bg-blue-500"
+      } ${compact ? "px-5 py-3 text-sm" : "px-7 py-4 text-base"} ${className}`}
     >
       {business.quoteCta}
       <ArrowRight className="h-5 w-5" aria-hidden="true" />
@@ -318,7 +401,7 @@ function buildSchema() {
       {
         "@type": "Service",
         "@id": `${pageUrl}#emergency-service`,
-        name: "24/7 Emergency Electrical Fault Help",
+        name: "Emergency Electrician Sydney",
         serviceType: [
           "60-minute emergency electrician response in core service areas",
           "90-minute emergency response for greater regions",
@@ -388,26 +471,31 @@ export default function EmergencyElectricianSydneyPage() {
             </div>
 
             <h1 className="max-w-5xl text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
-              Emergency Electrician Sydney for Urgent Electrical Faults
+              Emergency electrical fault? Call now — 0461 247 247
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">
-              Call now for no power and burning smells, smoke, sparking power
-              points and overheating power points, tripping safety switches, storm damage,
-              water-damaged fixtures or after-hours electrical hazards.
+              Call first for no power, burning smells, sparking, repeated
+              safety-switch tripping, switchboard faults, storm damage or
+              unsafe electrical equipment.
+            </p>
+
+            <p className="mt-3 max-w-2xl text-base font-bold leading-7 text-cyan-100">
+              For planned work, send photos and job details.
             </p>
 
             <p className="mt-4 max-w-2xl rounded-2xl border border-red-300/25 bg-red-500/10 p-4 text-sm font-bold leading-6 text-slate-100">
-              Emergency electrician on site within 60 minutes in core service
-              areas, with 90-minute response for greater Sydney and surrounding
-              regions. Call first for power loss and burning smells, sparking,
-              tripping safety switches, switchboard faults, storm damage or
-              water-damaged electrical equipment.
+              Evaready provides 60-minute emergency response in core service
+              areas and 90-minute emergency response for greater regions. Call
+              first so the fault, location, access and safety risk can be
+              triaged. Timing depends on location, access, traffic, safety
+              conditions, job type and current availability. Response times
+              apply to emergency electrical call-outs, not planned quote work.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <EmergencyActionLink />
-              <QuoteActionLink />
+              <EmergencyActionLink className="min-h-14 px-8 py-4 text-lg sm:min-w-[18rem]" />
+              <QuoteActionLink secondary className="min-h-14 sm:min-w-[12rem]" />
             </div>
 
             <ServiceCredentialStrip
@@ -462,6 +550,35 @@ export default function EmergencyElectricianSydneyPage() {
         heading="Check Evaready Electrical reviews before you call."
         subheading="For urgent electrical faults, call first. You can also view Evaready Electrical on Google to read real customer feedback before booking planned work."
       />
+
+      <section className="border-b border-slate-200 bg-white py-16">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.32em] text-red-600">
+              Trust and safety
+            </p>
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+              Why call Evaready in an emergency?
+            </h2>
+            <p className="mt-5 text-base font-bold leading-7 text-slate-700 sm:text-lg">
+              Do not keep resetting breakers, touching damaged fittings or
+              using water-affected outlets. Call first if the fault feels
+              unsafe.
+            </p>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            {emergencyProofItems.map((item) => (
+              <div
+                key={item}
+                className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-black leading-6 text-slate-900"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <LeadOfferPanel
         className="border-b border-cyan-300/15"

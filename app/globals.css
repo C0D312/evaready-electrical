@@ -3030,11 +3030,15 @@ a[data-quote-trigger="true"].site-header-quote {
 
 .footer-link {
   display: inline-flex;
+  min-height: 44px;
   width: fit-content;
+  align-items: center;
   color: rgba(226, 239, 255, 0.78);
   font-size: 0.84rem;
   font-weight: 750;
   line-height: 1.35;
+  padding-block: 0.35rem;
+  padding-inline: 0.25rem;
   text-decoration: none;
   transition:
     color 0.18s ease,

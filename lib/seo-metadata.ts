@@ -116,7 +116,7 @@ export function emergencySeoMetadata(): RouteSeoMetadata {
     canonical: routeUrl(path),
     title: "Emergency Electrician Sydney | 60-Min Response",
     description: clampDescription(
-      "Call Evaready for emergency electrical faults in Sydney. 60-minute core response, 90 minutes for greater regions. Power loss and sparking.",
+      "Call Evaready for urgent electrical faults in Sydney and surrounding regions. 60-minute core response, 90-minute greater regions.",
     ),
   };
 }
