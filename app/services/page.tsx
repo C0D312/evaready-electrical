@@ -204,7 +204,7 @@ const services = [
     ],
   },
   {
-    title: "Air Conditioning",
+    title: "Air Conditioning Electrical",
     description:
       "Air-conditioning services, split-system support, AC isolators, dedicated circuits, heat pump electrical support and switchboard capacity checks.",
     icon: Bolt,
@@ -667,7 +667,7 @@ const servicePageLinks: Record<string, string> = {
   "Power Points": "/services/power-point-installation-sydney",
   "Smoke Alarms": "/services/smoke-alarm-electrician-sydney",
   "Hot Water System Electrical": "/services/hot-water-system-electrician-sydney",
-  "Air Conditioning": "/services/split-system-air-conditioning-sydney",
+  "Air Conditioning Electrical": "/services/split-system-air-conditioning-sydney",
   "CCTV & Security Cameras": "/services/cctv-security-camera-installation-sydney",
   "Data Cabling & Internet Points": "/services/data-cabling-electrician-sydney",
   "Ceiling & Exhaust Fans": "/services/ceiling-fan-installation-sydney",
@@ -710,7 +710,7 @@ const leadValueServiceTitles = [
   "Defect Notice Repairs",
   "Point of Attachment Repairs",
   "Hot Water System Electrical",
-  "Air Conditioning",
+  "Air Conditioning Electrical",
   "CCTV & Security Cameras",
   "Commercial Electrician",
   "Safety Switches & RCDs",
@@ -743,6 +743,128 @@ const servicesIndexProofItems = [
     : []),
   "Call first for urgent electrical faults",
   "Send photos and job details for planned work",
+];
+
+const serviceProblemSelectorItems = [
+  {
+    problem: "No power or partial power loss",
+    links: [
+      { label: "Emergency electrician", href: "/emergency-electrician-sydney" },
+      {
+        label: "Electrical fault finding",
+        href: "/services/electrical-fault-finding-sydney",
+      },
+    ],
+  },
+  {
+    problem: "Burning smell or hot fitting",
+    links: [
+      { label: "Emergency electrician", href: "/emergency-electrician-sydney" },
+      {
+        label: "Electrical fault finding",
+        href: "/services/electrical-fault-finding-sydney",
+      },
+    ],
+  },
+  {
+    problem: "Safety switch keeps tripping",
+    links: [
+      {
+        label: "Safety switches",
+        href: "/services/safety-switch-rcd-installation-sydney",
+      },
+      {
+        label: "Electrical fault finding",
+        href: "/services/electrical-fault-finding-sydney",
+      },
+    ],
+  },
+  {
+    problem: "Old switchboard or ceramic fuses",
+    links: [
+      {
+        label: "Switchboard upgrades",
+        href: "/services/switchboard-upgrades-sydney",
+      },
+    ],
+  },
+  {
+    problem: "Defect notice",
+    links: [
+      {
+        label: "Defect notice repairs",
+        href: "/services/defect-notice-repairs-sydney",
+      },
+    ],
+  },
+  {
+    problem: "Consumer mains or supply upgrade",
+    links: [
+      { label: "Consumer mains", href: "/services/consumer-mains-sydney" },
+    ],
+  },
+  {
+    problem: "Damaged point of attachment",
+    links: [
+      {
+        label: "Point of attachment repairs",
+        href: "/services/point-of-attachment-repairs-sydney",
+      },
+    ],
+  },
+  {
+    problem: "Hot water not working",
+    links: [
+      {
+        label: "Hot water electrical",
+        href: "/services/hot-water-system-electrician-sydney",
+      },
+    ],
+  },
+  {
+    problem: "Aircon circuit or isolator",
+    links: [
+      {
+        label: "Air conditioning electrical",
+        href: "/services/split-system-air-conditioning-sydney",
+      },
+    ],
+  },
+  {
+    problem: "CCTV/data cabling",
+    links: [
+      {
+        label: "CCTV and security cameras",
+        href: "/services/cctv-security-camera-installation-sydney",
+      },
+      {
+        label: "Data cabling",
+        href: "/services/data-cabling-electrician-sydney",
+      },
+    ],
+  },
+  {
+    problem: "Shop, office or strata work",
+    links: [
+      {
+        label: "Commercial electrician",
+        href: "/services/commercial-electrician-sydney",
+      },
+    ],
+  },
+  {
+    problem: "Planned renovation/new circuit",
+    links: [
+      {
+        label: "Residential electrician",
+        href: "/services/residential-electrician-sydney",
+      },
+      {
+        label: "New builds and renovations",
+        href: "/services/new-build-renovation-electrician-sydney",
+      },
+    ],
+  },
 ];
 
 function getServiceHref(title: string) {
@@ -868,23 +990,6 @@ export default function ServicesPage() {
               </div>
             </div>
 
-            <ServiceCredentialStrip
-              items={serviceCredentialPresets.general}
-              className="mt-6 max-w-4xl"
-            />
-
-            <div className="mt-4 grid max-w-4xl gap-2 sm:grid-cols-2 lg:grid-cols-3">
-              {servicesIndexProofItems.map((item) => (
-                <div
-                  key={item}
-                  className="flex items-start gap-2 rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-sm font-bold leading-6 text-slate-100"
-                >
-                  <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-cyan-200" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a
                 href={business.phoneHref}
@@ -908,11 +1013,70 @@ export default function ServicesPage() {
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
+
+            <ServiceCredentialStrip
+              items={serviceCredentialPresets.general}
+              className="mt-6 max-w-4xl"
+            />
+
+            <div className="mt-4 grid max-w-4xl gap-2 sm:grid-cols-2 lg:grid-cols-3">
+              {servicesIndexProofItems.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-start gap-2 rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-sm font-bold leading-6 text-slate-100"
+                >
+                  <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-cyan-200" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       <TrustSymbolBand className="border-b border-slate-200" />
+
+      <section className="bg-slate-50 py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-black uppercase tracking-[0.22em] text-blue-700">
+              Problem selector
+            </p>
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+              What do you need help with?
+            </h2>
+            <p className="mt-4 text-base font-semibold leading-7 text-slate-600 sm:text-lg">
+              Choose the closest issue first, then call for urgent faults or
+              send photos and job details for planned work.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {serviceProblemSelectorItems.map((item) => (
+              <article
+                key={item.problem}
+                className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+              >
+                <h3 className="text-base font-black leading-6 text-slate-950">
+                  {item.problem}
+                </h3>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {item.links.map((link) => (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-blue-200 bg-blue-50 px-3 py-2 text-sm font-black text-blue-800 transition hover:border-blue-500 hover:bg-blue-100"
+                    >
+                      {link.label}
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <GoogleReviewProof
         heading="Read Evaready Electrical reviews before choosing a service."
