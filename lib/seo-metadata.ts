@@ -101,9 +101,9 @@ export function servicesIndexSeoMetadata(): RouteSeoMetadata {
   return {
     path,
     canonical: routeUrl(path),
-    title: "Electrical Services Sydney & Surrounding Regions",
+    title: "Electrical Services Sydney | Emergency, Level 2 & Switchboards",
     description: clampDescription(
-      "Electrical services across Sydney and surrounding regions for emergency faults, Level 2 work, switchboards, hot water, aircon, CCTV and data.",
+      "Licensed electrical services for emergency faults, Level 2, switchboards, homes, businesses and strata across Sydney and surrounding regions.",
     ),
   };
 }
@@ -129,7 +129,7 @@ export function level2SeoMetadata(): RouteSeoMetadata {
     canonical: routeUrl(path),
     title: "Level 2 Electrician Sydney | Accredited ASP",
     description: clampDescription(
-      "Ausgrid & Endeavour Energy accredited Level 2 ASP for consumer mains, defect notices, metering and supply-side electrical work in Sydney.",
+      "Level 2 ASP in Sydney and surrounding regions for consumer mains, defect notices, metering, point of attachment and supply work.",
     ),
   };
 }

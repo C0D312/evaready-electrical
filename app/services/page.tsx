@@ -23,11 +23,11 @@ import { LeadOfferPanel } from "@/components/lead-offer-panel";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
+import { serviceLandingPages } from "@/data/service-pages";
 import { absoluteUrl, business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
   buildElectricianSchema,
-  buildSiteOfferCatalog,
   schemaJson,
 } from "@/lib/schema";
 import { servicesIndexSeoMetadata, toMetadata } from "@/lib/seo-metadata";
@@ -117,6 +117,34 @@ const services = [
       "Water ingress",
       "Overloaded circuits",
       "Appliance faults",
+    ],
+  },
+  {
+    title: "Consumer Mains",
+    description:
+      "Consumer mains support for supply upgrades, defect notices, metering coordination and service-equipment enquiries.",
+    icon: Bolt,
+    includes: [
+      "Consumer mains checks",
+      "Supply upgrade planning",
+      "Defect notice support",
+      "Meter area coordination",
+      "Overhead and underground supply",
+      "Level 2 enquiries",
+    ],
+  },
+  {
+    title: "Defect Notice Repairs",
+    description:
+      "Electrical defect notice repair support for switchboards, consumer mains, point of attachment and service equipment.",
+    icon: BadgeCheck,
+    includes: [
+      "Defect notice review",
+      "Switchboard defects",
+      "Consumer mains defects",
+      "Point of attachment issues",
+      "Service equipment checks",
+      "Paperwork guidance",
     ],
   },
   {
@@ -633,6 +661,8 @@ const servicePageLinks: Record<string, string> = {
   "Level 2 Electrician": "/level-2-electrician-sydney",
   "Switchboard Upgrades": "/services/switchboard-upgrades-sydney",
   "Electrical Fault Finding": "/services/electrical-fault-finding-sydney",
+  "Consumer Mains": "/services/consumer-mains-sydney",
+  "Defect Notice Repairs": "/services/defect-notice-repairs-sydney",
   "Lighting Electrician": "/services/lighting-electrician-sydney",
   "Power Points": "/services/power-point-installation-sydney",
   "Smoke Alarms": "/services/smoke-alarm-electrician-sydney",
@@ -671,21 +701,49 @@ const servicePageLinks: Record<string, string> = {
   "Smart Meter Electrician": "/services/smart-meter-electrician-sydney",
 };
 
-const featuredServiceTitles = [
+const leadValueServiceTitles = [
   "Emergency Electrician",
   "Level 2 Electrician",
   "Switchboard Upgrades",
   "Electrical Fault Finding",
+  "Consumer Mains",
+  "Defect Notice Repairs",
+  "Point of Attachment Repairs",
   "Hot Water System Electrical",
   "Air Conditioning",
   "CCTV & Security Cameras",
+  "Commercial Electrician",
+  "Safety Switches & RCDs",
 ];
 
-const featuredServices = featuredServiceTitles.flatMap((title) => {
+const leadValueServiceTitleSet = new Set(leadValueServiceTitles);
+
+const leadValueServices = leadValueServiceTitles.flatMap((title) => {
   const service = services.find((entry) => entry.title === title);
 
   return service ? [service] : [];
 });
+
+const orderedServices = [
+  ...leadValueServices,
+  ...services.filter((service) => !leadValueServiceTitleSet.has(service.title)),
+];
+
+const featuredServices = leadValueServices;
+
+const serviceLandingPageBySlug = new Map(
+  serviceLandingPages.map((service) => [service.slug, service]),
+);
+
+const servicesIndexProofItems = [
+  "60-minute emergency response in core service areas",
+  "90-minute emergency response for greater regions",
+  ...(business.level2Asp.enabled && business.level2Asp.display
+    ? [business.level2Asp.display]
+    : []),
+  "Call first for urgent electrical faults",
+  "Send photos and job details for planned work",
+];
 
 function getServiceHref(title: string) {
   return servicePageLinks[title] ?? business.bookingUrl;
@@ -695,19 +753,51 @@ function isExternalServiceLink(title: string) {
   return !servicePageLinks[title];
 }
 
+function getServiceSlugFromHref(href: string) {
+  return href.startsWith("/services/") ? href.replace("/services/", "") : null;
+}
+
+function getCatalogServiceName(service: (typeof services)[number]) {
+  const slug = getServiceSlugFromHref(getServiceHref(service.title));
+
+  return slug ? (serviceLandingPageBySlug.get(slug)?.title ?? service.title) : service.title;
+}
+
+function getCatalogServiceDescription(service: (typeof services)[number]) {
+  const slug = getServiceSlugFromHref(getServiceHref(service.title));
+
+  return slug
+    ? (serviceLandingPageBySlug.get(slug)?.description ?? service.description)
+    : service.description;
+}
+
+function buildServicesIndexOfferCatalog() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    name: "Electrical Services Sydney",
+    itemListElement: orderedServices.map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: getCatalogServiceName(service),
+        description: getCatalogServiceDescription(service),
+        url: absoluteUrl(getServiceHref(service.title)),
+      },
+    })),
+  };
+}
+
 export default function ServicesPage() {
   const schema = buildElectricianSchema({
     description:
       "Residential, commercial, emergency, Level 2 and planned electrical services across Sydney and surrounding regions.",
     name: "Evaready Electrical - Electrical Services Sydney & Surrounding Regions",
-    offerNames: services.map((service) => service.title),
-    serviceTypes: services.map((service) => service.title),
+    offerNames: orderedServices.map((service) => service.title),
+    serviceTypes: orderedServices.map((service) => service.title),
     url: absoluteUrl("/services"),
   });
-  const offerCatalogSchema = {
-    "@context": "https://schema.org",
-    ...buildSiteOfferCatalog(),
-  };
+  const offerCatalogSchema = buildServicesIndexOfferCatalog();
   const breadcrumbSchema = buildBreadcrumbSchema(
     [
       { name: "Home", path: "/" },
@@ -750,18 +840,50 @@ export default function ServicesPage() {
             </h1>
 
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
-              Evaready Electrical helps homes, strata, shops, builders and
-              businesses with electrical work that needs a licensed hand and a
-              clear next steps before work begins. That includes urgent faults,
-              Level 2 work, switchboards, testing, lighting, hot water
-              electrical faults, data, CCTV, fans, smart wiring and larger
-              upgrades.
+              Electrical services for urgent faults, Level 2 work,
+              switchboards, hot water, air conditioning, CCTV/data, lighting,
+              power, homes, strata, shops and commercial sites across Sydney
+              and surrounding regions.
             </p>
+
+            <div className="mt-6 grid gap-3 md:grid-cols-2">
+              <div className="rounded-2xl border border-red-300/25 bg-red-500/12 p-4">
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-red-100">
+                  Emergency fault
+                </p>
+                <p className="mt-2 text-sm font-bold leading-6 text-slate-100">
+                  Call now for no power, burning smells, sparking, repeated
+                  safety-switch tripping, switchboard faults, storm damage or
+                  unsafe electrical equipment.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-cyan-300/25 bg-cyan-300/10 p-4">
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan-100">
+                  Planned work
+                </p>
+                <p className="mt-2 text-sm font-bold leading-6 text-slate-100">
+                  Choose the closest service below and send photos, job notes
+                  and access details for review.
+                </p>
+              </div>
+            </div>
 
             <ServiceCredentialStrip
               items={serviceCredentialPresets.general}
               className="mt-6 max-w-4xl"
             />
+
+            <div className="mt-4 grid max-w-4xl gap-2 sm:grid-cols-2 lg:grid-cols-3">
+              {servicesIndexProofItems.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-start gap-2 rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-sm font-bold leading-6 text-slate-100"
+                >
+                  <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-cyan-200" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a
@@ -780,7 +902,7 @@ export default function ServicesPage() {
                 data-conversion-action="quote-click"
                 aria-haspopup="dialog"
                 aria-label="Get a quote from Evaready Electrical"
-                className="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
+                className="inline-flex items-center justify-center gap-3 rounded-2xl border border-cyan-300/35 bg-white/10 px-7 py-4 text-base font-black text-white shadow-xl shadow-slate-950/20 transition hover:bg-white/15"
               >
                 {business.quoteCta}
                 <ArrowRight className="h-5 w-5" />
@@ -876,7 +998,7 @@ export default function ServicesPage() {
           </p>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => {
+            {orderedServices.map((service) => {
               const Icon = service.icon;
 
               return (

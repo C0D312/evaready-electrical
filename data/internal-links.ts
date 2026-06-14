@@ -113,7 +113,7 @@ export const emergencyFaultGuideLinks: InternalLink[] = [
 export const level2ClusterLinks: InternalLink[] = [
   {
     href: "/services/consumer-mains-sydney",
-    label: "Consumer mains electrician",
+    label: "Consumer mains repairs and upgrades",
   },
   {
     href: "/services/defect-notice-repairs-sydney",
@@ -125,7 +125,7 @@ export const level2ClusterLinks: InternalLink[] = [
   },
   {
     href: "/services/private-power-pole-sydney",
-    label: "Private power pole electrician",
+    label: "Private power pole support",
   },
   {
     href: "/services/point-of-attachment-repairs-sydney",
@@ -145,7 +145,7 @@ export const level2ClusterLinks: InternalLink[] = [
   },
   {
     href: "/services/switchboard-upgrades-sydney",
-    label: "Switchboard upgrades",
+    label: "Switchboard upgrades for supply work",
   },
   {
     href: "/services/three-phase-power-sydney",
