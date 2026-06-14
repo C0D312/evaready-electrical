@@ -56,17 +56,25 @@ Date: 2026-06-14
 
 ## Live Verification
 
-Live normal clean: pending deploy verification.
+Live normal clean: yes.
 
-Live cache-busted clean: pending deploy verification.
+Live cache-busted clean: yes.
+
+Live checks confirmed:
+- Homepage, emergency page, Level 2 page, service areas, privacy, terms, sitemap, robots and site-version all returned HTTP 200.
+- HTML pages loaded CSS.
+- HTML pages retained `AW-18165545331`, `data-conversion-action="phone-click"` and `data-conversion-action="quote-click"`.
+- Stale/risky string checks were clean.
+- Live homepage mobile spot check at 390x844 had no horizontal overflow, visible H1, visible Call Now, visible Get a Quote and sticky CTA hidden over the hero.
 
 ## SHAs
 
 - Source SHA before: `a18fe60b01c`
-- Source SHA after: recorded after source commit
+- Source SHA after homepage source commit: `9092e37bf7b`
 - gh-pages SHA before: `f1e2f0e8983`
-- gh-pages SHA after: recorded after deploy commit
+- gh-pages deploy SHA: `377eba6976c`
+- gh-pages refresh SHA: `d84bf4713ef`
 
 ## Final Status
 
-PASS for source/build gate. Deployment verification pending.
+PASS
