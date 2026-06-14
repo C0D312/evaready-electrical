@@ -86,8 +86,49 @@ Required emergency-page checks:
 
 ## Live Verification
 
-Pending deploy at report creation time. Final live status and commit SHAs are reported after deployment.
+Source commit:
+
+- `34621e60b9d1b60825ca8114331913bf96f3641f`
+
+GitHub Pages commit:
+
+- `7df97dc904fe9b62083a64bb65c639f0fc94c7dc`
+
+Live normal URLs checked:
+
+- `/emergency-electrician-sydney/`
+- `/`
+- `/level-2-electrician-sydney/`
+- `/privacy-policy/`
+- `/terms/`
+- `/sitemap.xml`
+- `/robots.txt`
+- `/site-version.json`
+
+Live cache-busted URLs checked with `?v=7df97dc904f`:
+
+- `/emergency-electrician-sydney/`
+- `/`
+- `/level-2-electrician-sydney/`
+- `/privacy-policy/`
+- `/terms/`
+- `/sitemap.xml`
+- `/robots.txt`
+- `/site-version.json`
+
+Live result:
+
+- HTTP 200: yes
+- CSS loads: yes
+- stale/risky string matches: 0
+- `AW-18165545331`: present on HTML pages
+- `phone-click`: present on HTML pages
+- `quote-click`: present on HTML pages
+- Call Now visible on emergency page: yes
+- Get a Quote visible on emergency page: yes
+- emergency call-first H1 present: yes
+- mobile 390x844 spot check: no horizontal overflow, H1 visible, Call Now visible, Get a Quote visible
 
 ## Final Recommendation
 
-PASS, pending clean source commit, gh-pages deployment and live verification.
+PASS
