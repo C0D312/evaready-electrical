@@ -62,18 +62,52 @@ Final validation and deploy gate for `/services/`. No new routes, response-time 
 
 ## Live Verification
 
-Live verification is to be completed after the source and gh-pages commits are pushed.
+Checked normal and cache-busted public URLs for:
 
-- Live normal clean: pending
-- Live cache-busted clean: pending
+- `/services/`
+- `/`
+- `/emergency-electrician-sydney/`
+- `/level-2-electrician-sydney/`
+- `/services/consumer-mains-sydney/`
+- `/services/defect-notice-repairs-sydney/`
+- `/services/point-of-attachment-repairs-sydney/`
+- `/services/switchboard-upgrades-sydney/`
+- `/privacy-policy/`
+- `/terms/`
+- `/sitemap.xml`
+- `/robots.txt`
+- `/site-version.json`
+
+Live verification results:
+
+- Live normal clean: yes
+- Live cache-busted clean: yes
+- URLs checked: 26 normal/cache-busted checks
+- HTTP 200: yes
+- CSS loads on HTML pages: yes
+- Stale strings: none found
+- Risky strings: none found
+- Google Ads tag present on HTML pages: yes
+- Phone conversion marker present on HTML pages: yes
+- Quote conversion marker present on HTML pages: yes
+- Privacy and terms substantial: yes
+- Sitemap, robots and site-version load: yes
+
+Live mobile spot check for `/services/?v=73ea61b7f3929aae3215e45e5c254cac2e7be4af` at 390 x 844:
+
+- Horizontal overflow: no
+- H1 visible: yes
+- Visible phone CTAs: 5
+- Visible quote CTAs: 5
+- Problem selector present: yes
 
 ## Git
 
 - Source SHA before: `af26f3007438669d497ac419d6dab5b06df15355`
 - gh-pages SHA before: `963aee42b7c58a7cea83b0d838239a97de7ff098`
-- Main SHA after: pending final commit
-- gh-pages SHA after: pending deployment
+- Main SHA after source commit: `0df6e70dacd5d82c29ee1b157edf938f039ebfe7`
+- gh-pages SHA after deployment: `73ea61b7f3929aae3215e45e5c254cac2e7be4af`
 
 ## Final Status
 
-PASS TO DEPLOY
+PASS
