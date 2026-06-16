@@ -1,0 +1,313 @@
+import Link from "next/link";
+import type { Metadata } from "next";
+import {
+  ArrowRight,
+  CheckCircle2,
+  ClipboardCheck,
+  Mail,
+  MapPin,
+  Phone,
+  ShieldCheck,
+} from "lucide-react";
+import { SiteFooter, SiteHeader } from "@/components/site-frame";
+import { business } from "@/data/site";
+import {
+  buildBreadcrumbSchema,
+  buildContactPointSchema,
+  schemaJson,
+} from "@/lib/schema";
+import { contactSeoMetadata, toMetadata } from "@/lib/seo-metadata";
+
+export const metadata: Metadata = toMetadata(contactSeoMetadata());
+
+const contactOptions = [
+  {
+    title: "Phone",
+    text: business.phoneDisplay,
+    href: business.phoneHref,
+    icon: Phone,
+  },
+  {
+    title: "Email",
+    text: business.email,
+    href: business.emailHref,
+    icon: Mail,
+  },
+  {
+    title: "Quote form",
+    text: "Send photos, job details, access notes and paperwork.",
+    href: business.bookingUrl,
+    icon: ClipboardCheck,
+  },
+  {
+    title: "Service areas",
+    text: "Sydney and surrounding regions",
+    href: "/service-areas",
+    icon: MapPin,
+  },
+];
+
+const quoteDetails = [
+  "photos of the switchboard, meter box or affected fitting",
+  "suburb, postcode and job address",
+  "access notes, parking details or gate information",
+  "defect notices, retailer paperwork or job documents",
+  "whether the job is urgent or planned",
+];
+
+const internalLinks = [
+  { href: "/service-areas", label: "Service areas" },
+  { href: "/services", label: "Electrical services" },
+  { href: "/emergency-electrician-sydney", label: "Emergency electrician" },
+  { href: "/level-2-electrician-sydney", label: "Level 2 electrician" },
+  { href: "/privacy-policy", label: "Privacy Policy" },
+  { href: "/terms", label: "Terms of Use" },
+];
+
+export default function ContactPage() {
+  const breadcrumbSchema = buildBreadcrumbSchema(
+    [
+      { name: "Home", path: "/" },
+      { name: "Contact Evaready Electrical", path: "/contact" },
+    ],
+    "/contact",
+  );
+  const contactPointSchema = buildContactPointSchema("/contact");
+
+  return (
+    <>
+      <SiteHeader />
+      <main className="bg-[#020814] text-white">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={schemaJson(contactPointSchema)}
+        />
+
+        <section className="brand-internal-hero relative overflow-hidden bg-slate-950 text-white">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(0,200,255,0.22),transparent_30%),radial-gradient(circle_at_86%_24%,rgba(255,18,54,0.2),transparent_32%)]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#020814]/96 via-[#061A3A]/88 to-[#020814]/82" />
+          <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-20">
+            <div className="max-w-4xl">
+              <p className="mb-5 inline-flex rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
+                Contact
+              </p>
+              <h1 className="text-4xl font-black tracking-tight sm:text-6xl lg:text-7xl">
+                Contact Evaready Electrical
+              </h1>
+              <p className="mt-6 max-w-3xl text-base font-semibold leading-7 text-slate-200 sm:text-xl sm:leading-8">
+                For urgent faults, call first. Use the quote form for planned
+                work, photos, access notes and paperwork.
+              </p>
+              <p className="mt-5 max-w-3xl text-lg font-semibold leading-8 text-slate-300">
+                Evaready Electrical helps with emergency electrical faults,
+                Level 2 enquiries, switchboards, hot water electrical, air
+                conditioning electrical, CCTV/data, lighting and power across
+                Sydney and surrounding regions.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href={business.phoneHref}
+                  data-conversion-action="phone-click"
+                  aria-label={business.callCta}
+                  className="inline-flex min-h-13 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#ff1236] to-[#ff4b3f] px-6 py-3 text-base font-black text-white shadow-[0_18px_45px_rgba(255,18,54,0.32)]"
+                >
+                  <Phone className="h-5 w-5" aria-hidden="true" />
+                  {business.callCta}
+                </a>
+                <a
+                  href={business.bookingUrl}
+                  data-quote-trigger="true"
+                  data-conversion-action="quote-click"
+                  aria-haspopup="dialog"
+                  className="inline-flex min-h-13 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#0b7cff] to-[#00c8ff] px-6 py-3 text-base font-black text-white"
+                >
+                  {business.quoteCta}
+                  <ArrowRight className="h-5 w-5" aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+
+            <aside className="rounded-[2rem] border border-cyan-300/20 bg-white/[0.055] p-6 shadow-2xl shadow-slate-950/20 sm:p-8">
+              <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
+                Direct options
+              </p>
+              <h2 className="mt-3 text-3xl font-black tracking-tight">
+                Call, email or send job details.
+              </h2>
+              <div className="mt-6 grid gap-3">
+                {contactOptions.map((option) => {
+                  const Icon = option.icon;
+                  const isPhone = option.title === "Phone";
+                  const isQuote = option.title === "Quote form";
+
+                  return (
+                    <a
+                      key={option.title}
+                      href={option.href}
+                      className="flex min-h-16 items-center gap-4 rounded-2xl border border-cyan-300/16 bg-slate-950/55 p-4 text-left transition hover:border-cyan-200/45 hover:bg-slate-900"
+                      data-conversion-action={
+                        isPhone ? "phone-click" : isQuote ? "quote-click" : undefined
+                      }
+                      data-quote-trigger={isQuote ? "true" : undefined}
+                      aria-haspopup={isQuote ? "dialog" : undefined}
+                    >
+                      <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cyan-300/12 text-cyan-200">
+                        <Icon className="h-5 w-5" aria-hidden="true" />
+                      </span>
+                      <span>
+                        <span className="block text-sm font-black uppercase tracking-[0.12em] text-cyan-100">
+                          {option.title}
+                        </span>
+                        <span className="mt-1 block text-sm font-semibold leading-6 text-slate-200">
+                          {option.text}
+                        </span>
+                      </span>
+                    </a>
+                  );
+                })}
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section className="bg-slate-50 px-4 py-12 text-slate-950 sm:px-6 sm:py-16 lg:px-8">
+          <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.82fr_1.18fr]">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.22em] text-blue-700">
+                Quote form
+              </p>
+              <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-5xl">
+                Send the job details through the quote form.
+              </h2>
+              <p className="mt-4 text-base font-semibold leading-7 text-slate-700 sm:text-lg">
+                Use the quote form to send photos, job details, access notes
+                and paperwork. This keeps planned enquiries in the approved
+                ServiceM8 quote path.
+              </p>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href={business.bookingUrl}
+                  data-quote-trigger="true"
+                  data-conversion-action="quote-click"
+                  aria-haspopup="dialog"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-blue-700 px-5 py-3 text-sm font-black text-white"
+                >
+                  {business.quoteCta}
+                  <ArrowRight className="h-5 w-5" aria-hidden="true" />
+                </a>
+                <a
+                  href={business.phoneHref}
+                  data-conversion-action="phone-click"
+                  aria-label={business.callCta}
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-red-200 bg-white px-5 py-3 text-sm font-black text-red-700"
+                >
+                  <Phone className="h-5 w-5" aria-hidden="true" />
+                  {business.callCta}
+                </a>
+              </div>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {quoteDetails.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+                >
+                  <CheckCircle2
+                    className="h-5 w-5 text-blue-700"
+                    aria-hidden="true"
+                  />
+                  <p className="mt-3 text-sm font-black leading-6 text-slate-900">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white px-4 py-12 text-slate-950 sm:px-6 sm:py-16 lg:px-8">
+          <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+            <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-6 sm:p-8">
+              <p className="text-xs font-black uppercase tracking-[0.22em] text-blue-700">
+                Address and map
+              </p>
+              <h2 className="mt-3 text-3xl font-black tracking-tight">
+                Servicing Sydney and surrounding regions
+              </h2>
+              <p className="mt-4 text-base font-semibold leading-7 text-slate-700">
+                No public address is shown because a verified public address is
+                not configured in the current site constants. No map is embedded
+                on this page.
+              </p>
+            </div>
+
+            <div className="rounded-[2rem] border border-blue-100 bg-blue-950 p-6 text-white sm:p-8">
+              <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
+                Useful links
+              </p>
+              <h2 className="mt-3 text-3xl font-black tracking-tight">
+                Find service information quickly.
+              </h2>
+              <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                {internalLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="inline-flex min-h-12 items-center justify-between gap-3 rounded-2xl border border-cyan-300/16 bg-slate-950/55 px-4 py-3 text-sm font-black text-white transition hover:border-cyan-200/45 hover:bg-slate-900"
+                  >
+                    {link.label}
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#061226] px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8">
+          <div className="mx-auto max-w-7xl rounded-[2rem] border border-cyan-300/18 bg-white/[0.055] p-6 sm:p-8">
+            <div className="grid gap-8 lg:grid-cols-[0.86fr_1.14fr]">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
+                  Verified contact details
+                </p>
+                <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-5xl">
+                  Contact details are kept simple and direct.
+                </h2>
+                <p className="mt-4 text-sm font-semibold leading-6 text-slate-300">
+                  Evaready uses the verified phone number, email address and
+                  ServiceM8 quote link from the site constants.
+                </p>
+              </div>
+              <div className="grid gap-3 sm:grid-cols-2">
+                <div className="rounded-2xl border border-cyan-300/16 bg-slate-950/55 p-5">
+                  <ShieldCheck
+                    className="h-5 w-5 text-cyan-200"
+                    aria-hidden="true"
+                  />
+                  <p className="mt-3 text-sm font-black text-white">
+                    NSW Electrical Licence {business.licence}
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-cyan-300/16 bg-slate-950/55 p-5">
+                  <ShieldCheck
+                    className="h-5 w-5 text-cyan-200"
+                    aria-hidden="true"
+                  />
+                  <p className="mt-3 text-sm font-black text-white">
+                    {business.level2Asp.display}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <SiteFooter />
+    </>
+  );
+}

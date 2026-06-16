@@ -18,6 +18,7 @@ import {
 import { HeroCredentialBadges } from "@/components/credential-badges";
 import { EmergencyTrustPanel } from "@/components/emergency-trust-panel";
 import { GoogleReviewProof } from "@/components/google-review-proof";
+import { HeroGoogleReviewBadge } from "@/components/hero-google-review-badge";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
 import { QuoteProcessGraphic } from "@/components/quote-process-graphic";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
@@ -486,6 +487,8 @@ export default function HomePage() {
               </a>
             </div>
 
+            <HeroGoogleReviewBadge className="mt-4" />
+
             <HeroCredentialBadges className="mt-8 max-w-3xl" />
           </div>
         </div>
@@ -812,6 +815,20 @@ export default function HomePage() {
               triages unsafe faults by phone and gives a clear next step before
               work begins.
             </p>
+            <div className="mt-5 flex flex-wrap gap-3 text-sm font-black">
+              <Link
+                href="/about"
+                className="inline-flex min-h-10 items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-950 transition hover:border-blue-700 hover:text-blue-700"
+              >
+                About Evaready
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex min-h-10 items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-950 transition hover:border-blue-700 hover:text-blue-700"
+              >
+                Contact
+              </Link>
+            </div>
             <div className="mt-7 grid gap-3 sm:flex">
               <a
                 href={business.phoneHref}

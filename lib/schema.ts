@@ -118,6 +118,20 @@ export function buildBreadcrumbSchema(
   };
 }
 
+export function buildContactPointSchema(idPath = "/contact") {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPoint",
+    "@id": `${absoluteUrl(idPath)}#contact`,
+    telephone: business.phoneDisplay,
+    email: business.email,
+    contactType: "Electrical enquiries and urgent fault calls",
+    areaServed: business.serviceArea,
+    availableLanguage: "English",
+    url: absoluteUrl(idPath),
+  };
+}
+
 export function buildFaqSchema(faqs: FaqItem[], idPath?: string) {
   return {
     "@context": "https://schema.org",
@@ -155,7 +169,6 @@ export function buildElectricianSchema({
     email: business.email,
     image: [absoluteUrl(business.brandImage), absoluteUrl(business.heroImage)],
     logo: absoluteUrl(business.logoImage),
-    priceRange: "$$",
     areaServed,
     identifier: businessIdentifiers(),
     serviceType: serviceTypes,

@@ -20,6 +20,8 @@ const navItems = [
   { href: "/services/hot-water-system-electrician-sydney", label: "Hot Water" },
   { href: "/services/split-system-air-conditioning-sydney", label: "Aircon" },
   { href: "/service-areas", label: "Service Areas" },
+  { href: "/about", label: "About Evaready", desktopClassName: "hidden xl:inline" },
+  { href: "/contact", label: "Contact", desktopClassName: "hidden xl:inline" },
 ];
 
 const legalLinks = [
@@ -50,11 +52,13 @@ export function SiteHeader() {
             </HomeNavigationLink>
 
             <nav className="hidden items-center gap-4 text-sm font-bold text-slate-700 xl:gap-5 lg:flex">
-              {navItems.map((item) => (
-                item.href === "/" ? (
+              {navItems.map((item) => {
+                const className = `hover:text-blue-700 ${item.desktopClassName ?? ""}`.trim();
+
+                return item.href === "/" ? (
                   <HomeNavigationLink
                     key={item.href}
-                    className="hover:text-blue-700"
+                    className={className}
                   >
                     {item.label}
                   </HomeNavigationLink>
@@ -62,12 +66,12 @@ export function SiteHeader() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="hover:text-blue-700"
+                    className={className}
                   >
                     {item.label}
                   </Link>
-                )
-              ))}
+                );
+              })}
             </nav>
 
             <div className="site-header-actions flex min-w-0 shrink-0 items-center gap-1 sm:gap-2">

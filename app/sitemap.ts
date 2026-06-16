@@ -23,6 +23,8 @@ const routes: SitemapRoute[] = [
   { path: "/level-2-electrician-sydney", priority: 0.9 },
   { path: "/services/switchboard-upgrades-sydney", priority: 0.9 },
   { path: "/service-areas", priority: 0.85 },
+  { path: "/about", priority: 0.65 },
+  { path: "/contact", priority: 0.66 },
   { path: "/privacy-policy", priority: 0.4 },
   { path: "/terms", priority: 0.4 },
 ];

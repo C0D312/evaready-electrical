@@ -34,6 +34,8 @@ const staticRoutes: RouteInventoryItem[] = [
     "mixed",
   ),
   createRoute("/service-areas", "service-area index", true, "mixed"),
+  createRoute("/about", "about page", true, "mixed"),
+  createRoute("/contact", "contact page", true, "mixed"),
   createRoute("/privacy-policy", "privacy policy", false, "n/a"),
   createRoute("/terms", "terms", false, "n/a"),
   createRoute("/robots.txt", "robots", false, "n/a"),
@@ -97,6 +99,8 @@ export function pageTypeForRoute(route: string) {
   if (normalizedRoute === "/service-areas") return "service-area index";
   if (normalizedRoute === "/emergency-electrician-sydney") return "emergency page";
   if (normalizedRoute === "/level-2-electrician-sydney") return "level 2 page";
+  if (normalizedRoute === "/about") return "about page";
+  if (normalizedRoute === "/contact") return "contact page";
   if (normalizedRoute === "/privacy-policy") return "privacy policy";
   if (normalizedRoute === "/terms") return "terms";
   if (normalizedRoute === "/sitemap.xml") return "sitemap";

@@ -173,6 +173,32 @@ export function serviceAreaIndexSeoMetadata(): RouteSeoMetadata {
   };
 }
 
+export function aboutSeoMetadata(): RouteSeoMetadata {
+  const path = "/about";
+
+  return {
+    path,
+    canonical: routeUrl(path),
+    title: "About Evaready Electrical | Sydney Electrician",
+    description: clampDescription(
+      "Learn about Evaready Electrical, a licensed Sydney electrician for emergency faults, Level 2 support and planned work across surrounding regions.",
+    ),
+  };
+}
+
+export function contactSeoMetadata(): RouteSeoMetadata {
+  const path = "/contact";
+
+  return {
+    path,
+    canonical: routeUrl(path),
+    title: "Contact Evaready Electrical | Sydney Electrician",
+    description: clampDescription(
+      "Contact Evaready Electrical to call for urgent faults or get a quote for planned electrical work across Sydney and surrounding regions.",
+    ),
+  };
+}
+
 export function servicePageSeoMetadata(
   service: ServiceLandingPage,
 ): RouteSeoMetadata {

@@ -69,6 +69,14 @@ const footerColumns: FooterColumn[] = [
     title: "Contact",
     links: [
       {
+        href: "/about",
+        label: "About Evaready",
+      },
+      {
+        href: "/contact",
+        label: "Contact Evaready",
+      },
+      {
         href: business.phoneHref,
         label: `Call ${business.phoneDisplay}`,
         action: "call",

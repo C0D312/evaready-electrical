@@ -9,6 +9,8 @@ import {
   Droplets,
   Flame,
   Home,
+  Info,
+  Mail,
   MapPin,
   Menu,
   Phone,
@@ -54,6 +56,16 @@ const mobileNavItems = [
     href: "/service-areas",
     label: "Service Areas",
     icon: MapPin,
+  },
+  {
+    href: "/about",
+    label: "About Evaready",
+    icon: Info,
+  },
+  {
+    href: "/contact",
+    label: "Contact",
+    icon: Mail,
   },
 ];
 

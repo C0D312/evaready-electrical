@@ -9,6 +9,8 @@ import {
 import { serviceLandingPages } from "../data/service-pages";
 import {
   areaSeoMetadata,
+  aboutSeoMetadata,
+  contactSeoMetadata,
   emergencySeoMetadata,
   faultPageSeoMetadata,
   faultsIndexSeoMetadata,
@@ -92,6 +94,8 @@ function collectMetadata() {
     switchboardSeoMetadata(),
     faultsIndexSeoMetadata(),
     serviceAreaIndexSeoMetadata(),
+    aboutSeoMetadata(),
+    contactSeoMetadata(),
     legalSeoMetadata("/privacy-policy"),
     legalSeoMetadata("/terms"),
     ...generatedServicePages.map(servicePageSeoMetadata),

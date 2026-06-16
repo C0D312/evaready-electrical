@@ -57,6 +57,8 @@ const staticRoutes = [
   "/services/switchboard-upgrades-sydney",
   "/service-areas",
   "/electrical-faults",
+  "/about",
+  "/contact",
   "/privacy-policy",
   "/terms",
   "/robots.txt",
@@ -414,6 +416,7 @@ function isCommercialPage(route: string) {
     "suburb page",
     "emergency page",
     "level 2 page",
+    "contact page",
   ]).has(pageTypeForRoute(route));
 }
 

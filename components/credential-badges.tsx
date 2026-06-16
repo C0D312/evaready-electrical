@@ -3,10 +3,12 @@ import {
   Clock3,
   MapPin,
   ShieldCheck,
+  Star,
   type LucideIcon,
   Zap,
 } from "lucide-react";
 import { business } from "@/data/site";
+import { footerTrustBadges, type TrustBadgeIconName } from "@/data/trust-badges";
 
 export type CredentialBadgeItem = {
   icon: LucideIcon;
@@ -54,38 +56,13 @@ export const heroCredentialItems: CredentialBadgeItem[] = [
   },
 ];
 
-export const footerCredentialItems: CredentialBadgeItem[] = [
-  {
-    icon: ShieldCheck,
-    title: "Electrical Licence",
-    text: business.licence,
-    tone: "cyan",
-  },
-  {
-    icon: BadgeCheck,
-    title: "ABN",
-    text: business.abn,
-    tone: "blue",
-  },
-  {
-    icon: Zap,
-    title: "Open Cabler Registration",
-    text: business.openCablerRegistration,
-    tone: "cyan",
-  },
-  {
-    icon: BadgeCheck,
-    title: "ARCtick Refrigerant Handling Licence",
-    text: `${business.arctickLicence} - Split Systems (1)`,
-    tone: "blue",
-  },
-  {
-    icon: MapPin,
-    title: "Service Area",
-    text: "Sydney & Surrounding Regions",
-    tone: "cyan",
-  },
-];
+const footerIconMap: Record<TrustBadgeIconName, LucideIcon> = {
+  badge: BadgeCheck,
+  "map-pin": MapPin,
+  shield: ShieldCheck,
+  star: Star,
+  zap: Zap,
+};
 
 function CredentialBadgeIcon({
   icon: Icon,
@@ -100,6 +77,23 @@ function CredentialBadgeIcon({
       aria-hidden="true"
     >
       <Icon className="h-5 w-5" strokeWidth={2.1} />
+    </span>
+  );
+}
+
+function FooterBadgeIcon({
+  icon: Icon,
+  tone = "cyan",
+}: {
+  icon: LucideIcon;
+  tone?: CredentialBadgeItem["tone"];
+}) {
+  return (
+    <span
+      className={`inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg ring-1 ${iconToneClasses[tone ?? "cyan"]}`}
+      aria-hidden="true"
+    >
+      <Icon className="h-3.5 w-3.5" strokeWidth={2.2} />
     </span>
   );
 }
@@ -140,16 +134,18 @@ export function HeroCredentialBadges({
 export function FooterCredentialStrip({ className = "" }: { className?: string }) {
   return (
     <dl className={`footer-credential-strip grid gap-2 text-xs ${className}`}>
-      {footerCredentialItems.map((item) => (
+      {footerTrustBadges.map((item) => (
         <div
           key={`${item.title}-${item.text}`}
+          aria-label={item.altText}
           className="rounded-xl border border-cyan-300/15 bg-white/[0.045] px-3 py-2"
         >
           <dt className="font-black uppercase tracking-[0.12em] text-cyan-200">
             {item.title}
           </dt>
-          <dd className="mt-0.5 font-semibold leading-5 text-slate-300">
-            {item.text}
+          <dd className="mt-1 flex min-w-0 items-center gap-2 font-semibold leading-5 text-slate-300">
+            <FooterBadgeIcon icon={footerIconMap[item.icon]} tone={item.tone} />
+            <span className="min-w-0 break-words">{item.text}</span>
           </dd>
         </div>
       ))}
