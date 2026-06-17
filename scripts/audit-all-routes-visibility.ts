@@ -88,7 +88,7 @@ const duplicateLocationPattern =
   /Bankstown Bankstown|Panania Panania|Point Point|Ryde Ryde|Parramatta Parramatta|Hills Hills|Blacktown Blacktown|Wollongong Wollongong|Penrith Penrith|Shellharbour Shellharbour|Springwood Springwood|Katoomba Katoomba|Fairfield Fairfield|Liverpool Liverpool|Coogee Coogee|Sydney Sydney|Camden Camden|Campbelltown Campbelltown|Northern Beaches Northern Beaches|Central Coast Central Coast|Blue Mountains Blue Mountains|Southern Highlands Southern Highlands|Wingecarribee Wingecarribee/i;
 
 const choppedPhrasePattern =
-  /\bripping circuits\b|\bipping circuits\b|\bping circuits\b|\bng circuits\b|\bd fittings\b|\bed fittings\b|\bted fittings\b|\bot outlets\b|\bt outlets\b|,\s*tripping circuits|,\s*burning smells|,\s*hot outlets|ss,\s*tripping circuits|hot isolators|water-affected fittings/i;
+  /\bripping circuits\b|\bipping circuits\b|\bping circuits\b|\bng circuits\b|\bd fittings\b|\bed fittings\b|\bted fittings\b|\bot outlets\b|\bt outlets\b|ss,\s*tripping circuits|hot isolators|water-affected fittings/i;
 
 const postcodeOnlyPattern = /Electrical help for [0-9][0-9][0-9][0-9]/i;
 

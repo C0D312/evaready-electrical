@@ -1,20 +1,22 @@
 # All-Routes Launch Sweep
 
-Date: 2026-06-09T17:54:41.702Z
+Date: 2026-06-17T15:04:50.361Z
 
 Final result: PASS
 
 ## Totals
 
-- Total generated routes checked: 998
+- Total generated routes checked: 1000
 - Suburb pages checked: 873
-- Commercial routes checked: 993
+- Commercial routes checked: 995
 - Sitemap routes missing output: 0
 - Critical warning rows: 0
 
 ## Page Types
 
+- about page: 1
 - area page: 39
+- contact page: 1
 - emergency page: 1
 - fault guide: 15
 - fault index: 1

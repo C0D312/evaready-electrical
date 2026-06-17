@@ -258,7 +258,100 @@ async function anyVisible(page: Page, selector: string) {
 }
 
 async function pageSnapshot(page: Page) {
-  return page.evaluate(() => {
+  return page.evaluate(String.raw`(() => {
+    const parseRgb = (value) => {
+      const match = value.match(
+        /rgba?\((\d+(?:\.\d+)?),\s*(\d+(?:\.\d+)?),\s*(\d+(?:\.\d+)?)(?:,\s*(\d?(?:\.\d+)?))?\)/i,
+      );
+
+      if (!match) {
+        return null;
+      }
+
+      return {
+        alpha: match[4] === undefined ? 1 : Number(match[4]),
+        blue: Number(match[3]),
+        green: Number(match[2]),
+        red: Number(match[1]),
+      };
+    };
+
+    const luminance = (red, green, blue) => {
+      const channels = [red, green, blue].map((channel) => {
+        const value = channel / 255;
+
+        return value <= 0.03928
+          ? value / 12.92
+          : ((value + 0.055) / 1.055) ** 2.4;
+      });
+
+      return channels[0] * 0.2126 + channels[1] * 0.7152 + channels[2] * 0.0722;
+    };
+
+    const nearestSolidBackground = (element) => {
+      let current = element;
+
+      while (current) {
+        const style = window.getComputedStyle(current);
+        const color = parseRgb(style.backgroundColor);
+
+        if (color && color.alpha > 0.7) {
+          return {
+            element: current,
+            luminance: luminance(color.red, color.green, color.blue),
+          };
+        }
+
+        if (style.backgroundImage && style.backgroundImage !== "none") {
+          return null;
+        }
+
+        current = current.parentElement;
+      }
+
+      return null;
+    };
+
+    const lowContrastText = Array.from(
+      document.querySelectorAll(
+        "main h1, main h2, main h3, main h4, main p, main span, main a, main li, main button, main summary, main dt, main dd",
+      ),
+    )
+      .filter((element) => {
+        const text = element.textContent?.replace(/\s+/g, " ").trim() ?? "";
+        const rect = element.getBoundingClientRect();
+        const style = window.getComputedStyle(element);
+        const color = parseRgb(style.color);
+        const background = nearestSolidBackground(element);
+
+        if (
+          !text ||
+          text.length < 3 ||
+          rect.width <= 1 ||
+          rect.height <= 1 ||
+          style.display === "none" ||
+          style.visibility === "hidden" ||
+          Number(style.opacity || "1") < 0.2 ||
+          !color ||
+          color.alpha < 0.8 ||
+          !background
+        ) {
+          return false;
+        }
+
+        const textIsNearWhite =
+          luminance(color.red, color.green, color.blue) > 0.86;
+        const backgroundIsLight = background.luminance > 0.74;
+
+        return textIsNearWhite && backgroundIsLight;
+      })
+      .slice(0, 8)
+      .map((element) => {
+        const text = element.textContent?.replace(/\s+/g, " ").trim() ?? "";
+
+        return text.slice(0, 90);
+      });
+
     const bodyText = document.body.innerText || "";
     const h1 = document.querySelector("h1");
     const main = document.querySelector("main");
@@ -363,11 +456,12 @@ async function pageSnapshot(page: Page) {
       hasHeroImage,
       headerOverlapsHero,
       horizontalOverflow,
+      lowContrastText,
       mainVisible,
       marqueeClipped,
       title: document.title,
     };
-  });
+  })()`);
 }
 
 async function stickyFooterState(page: Page) {
@@ -507,6 +601,13 @@ async function auditRouteAtViewport(
 
     if (snapshot.headerOverlapsHero) {
       critical.push("header overlaps hero");
+    }
+
+    if (snapshot.lowContrastText.length > 0) {
+      critical.push("low contrast text on light surface");
+      invisibleWarnings.push(
+        `low contrast: ${snapshot.lowContrastText.join("; ")}`,
+      );
     }
 
     if (stickyState.stickyOverlapsContent) {

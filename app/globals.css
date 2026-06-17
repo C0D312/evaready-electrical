@@ -1288,6 +1288,40 @@ main section :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50) {
     linear-gradient(180deg, rgba(21, 23, 28, 0.82), rgba(6, 26, 58, 0.68)) !important;
 }
 
+/* Light alert panels keep their intended pale background. The site-wide dark
+   section skin above recolors slate text to white, which can make emergency
+   triage/help panels unreadable on bg-red-50 surfaces. */
+main section .bg-red-50 {
+  background: #fff0f2 !important;
+  color: #0f172a !important;
+}
+
+main section .bg-red-50 :is(.bg-white, .bg-slate-50, .bg-slate-100) {
+  background: #ffffff !important;
+  color: #0f172a !important;
+}
+
+main section .bg-red-50 .bg-blue-50 {
+  background: #eaf5ff !important;
+}
+
+main section .bg-red-50 :is(.text-slate-950, .text-slate-900, .text-slate-800, .text-slate-700) {
+  color: #0f172a !important;
+}
+
+main section .bg-red-50 :is(.text-slate-600, .text-slate-500, .text-slate-400, .text-slate-300) {
+  color: #475569 !important;
+}
+
+main section .bg-red-50 :is(.text-red-950, .text-red-900, .text-red-800, .text-red-700, .text-red-600) {
+  color: #b91c1c !important;
+}
+
+main section .bg-red-50 :is(a.bg-red-600, button.bg-red-600, .floating-call-button),
+main section .bg-red-50 :is(a.bg-red-600, button.bg-red-600, .floating-call-button) :is(span, svg) {
+  color: #ffffff !important;
+}
+
 main section :is(article, .rounded-lg, .rounded-2xl, .rounded-\[2rem\]).border,
 main section a.group.border {
   border-color: rgba(0, 200, 255, 0.18) !important;
