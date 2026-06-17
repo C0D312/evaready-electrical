@@ -56,6 +56,24 @@ type VisibilityRow = {
   notes: string;
 };
 
+type PageSnapshot = {
+  bodyWordCount: number;
+  clippedQuoteCards: string[];
+  clippedTrustCards: string[];
+  footerExists: boolean;
+  googleBlockExists: boolean;
+  googleVisible: boolean;
+  h1Text: string;
+  h1Visible: boolean;
+  hasHeroImage: boolean;
+  headerOverlapsHero: boolean;
+  horizontalOverflow: boolean;
+  lowContrastText: string[];
+  mainVisible: boolean;
+  marqueeClipped: boolean;
+  title: string;
+};
+
 const reportPath = path.join(
   process.cwd(),
   "reports",
@@ -257,7 +275,7 @@ async function anyVisible(page: Page, selector: string) {
   return false;
 }
 
-async function pageSnapshot(page: Page) {
+async function pageSnapshot(page: Page): Promise<PageSnapshot> {
   return page.evaluate(String.raw`(() => {
     const parseRgb = (value) => {
       const match = value.match(
@@ -461,7 +479,7 @@ async function pageSnapshot(page: Page) {
       marqueeClipped,
       title: document.title,
     };
-  })()`);
+  })()`) as Promise<PageSnapshot>;
 }
 
 async function stickyFooterState(page: Page) {
