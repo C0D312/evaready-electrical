@@ -38,5 +38,5 @@ No repeated wording patterns were flagged.
 
 ## Output
 
-- CSV: `C:\Users\CodexSandboxOffline\.codex\.sandbox\cwd\47d729f8b5038de8\reports\all-suburb-visible-copy-audit.csv`
-- Summary: `C:\Users\CodexSandboxOffline\.codex\.sandbox\cwd\47d729f8b5038de8\docs\all-suburb-visible-copy-audit.md`
+- CSV: `C:\Users\Admin\evaready-electrical\reports\all-suburb-visible-copy-audit.csv`
+- Summary: `C:\Users\Admin\evaready-electrical\docs\all-suburb-visible-copy-audit.md`

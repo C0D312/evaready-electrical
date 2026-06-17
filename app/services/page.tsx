@@ -1215,7 +1215,7 @@ export default function ServicesPage() {
 
       {/* CTA */}
       <section className="bg-gradient-to-r from-[#031640] via-[#020617] to-[#43040e] py-24 text-white">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:px-8 xl:flex-row xl:items-center">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-300">
               Electrical help without the guesswork.
