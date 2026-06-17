@@ -1,27 +1,50 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #020814;
-  --navy: #020814;
-  --panel: rgba(6, 26, 58, 0.78);
-  --panel2: rgba(21, 23, 28, 0.86);
-  --blue: #005bff;
-  --cyan: #00c8ff;
-  --red: #ff001e;
-  --text: #ffffff;
-  --muted: rgba(255, 255, 255, 0.68);
-  --border: rgba(255, 255, 255, 0.12);
-  --ee-black: #020814;
-  --ee-deep: #061a3a;
-  --ee-blue: #005bff;
-  --ee-blue-bright: #007bff;
-  --ee-cyan: #00c8ff;
-  --ee-red: #ff001e;
-  --ee-red-bright: #ff4a3d;
-  --ee-graphite: #15171c;
-  --ee-line: rgba(0, 200, 255, 0.22);
-  --ee-soft: rgba(6, 26, 58, 0.72);
-  --ee-card: rgba(21, 23, 28, 0.74);
+  --brand-black: #030512;
+  --brand-void: #050816;
+  --brand-midnight: #071533;
+  --brand-panel: #091A38;
+  --brand-panel-strong: #0B2248;
+  --brand-navy: #061E72;
+  --brand-royal-blue: #073CFF;
+  --brand-electric-blue: #05A4FF;
+  --brand-cyan: #65D8FF;
+  --brand-glow: rgba(5, 164, 255, 0.45);
+  --brand-glow-soft: rgba(101, 216, 255, 0.18);
+  --brand-red: #E9111E;
+  --brand-red-dark: #7A0713;
+  --brand-red-glow: rgba(233, 17, 30, 0.42);
+  --brand-white: #FFFFFF;
+  --brand-silver: #D6E8F0;
+  --brand-muted: #AAB7C8;
+  --brand-steel: #7D8494;
+  --brand-border-blue: rgba(101, 216, 255, 0.28);
+  --brand-border-red: rgba(233, 17, 30, 0.35);
+  --bg: var(--brand-black);
+  --navy: var(--brand-black);
+  --panel: rgba(9, 26, 56, 0.78);
+  --panel2: rgba(11, 34, 72, 0.86);
+  --blue: var(--brand-royal-blue);
+  --cyan: var(--brand-electric-blue);
+  --red: var(--brand-red);
+  --text: var(--brand-white);
+  --muted: rgba(214, 232, 240, 0.72);
+  --border: var(--brand-border-blue);
+  --ee-black: var(--brand-black);
+  --ee-deep: var(--brand-midnight);
+  --ee-blue: var(--brand-royal-blue);
+  --ee-blue-bright: var(--brand-electric-blue);
+  --ee-cyan: var(--brand-cyan);
+  --ee-red: var(--brand-red);
+  --ee-red-bright: #FF3B46;
+  --ee-graphite: var(--brand-panel-strong);
+  --ee-line: var(--brand-border-blue);
+  --ee-soft: rgba(9, 26, 56, 0.72);
+  --ee-card: rgba(11, 34, 72, 0.74);
+  --ee-ink: var(--brand-white);
+  --ee-navy: var(--brand-black);
+  --ee-navy-2: var(--brand-midnight);
 }
 
 * {
@@ -497,18 +520,18 @@ body.quote-modal-open .floating-call-button {
 
 /* Evaready storm theme: drawn from the logo, lightning van and emergency CTAs. */
 :root {
-  --ee-ink: #ffffff;
-  --ee-navy: #020814;
-  --ee-navy-2: #061a3a;
-  --ee-blue: #005bff;
-  --ee-blue-bright: #007bff;
-  --ee-cyan: #00c8ff;
-  --ee-red: #ff001e;
-  --ee-red-bright: #ff4a3d;
-  --ee-line: rgba(0, 200, 255, 0.22);
-  --ee-soft: rgba(6, 26, 58, 0.72);
-  --ee-card: rgba(21, 23, 28, 0.74);
-  --ee-graphite: #15171c;
+  --ee-ink: var(--brand-white);
+  --ee-navy: var(--brand-black);
+  --ee-navy-2: var(--brand-midnight);
+  --ee-blue: var(--brand-royal-blue);
+  --ee-blue-bright: var(--brand-electric-blue);
+  --ee-cyan: var(--brand-cyan);
+  --ee-red: var(--brand-red);
+  --ee-red-bright: #FF3B46;
+  --ee-line: var(--brand-border-blue);
+  --ee-soft: rgba(9, 26, 56, 0.72);
+  --ee-card: rgba(11, 34, 72, 0.74);
+  --ee-graphite: var(--brand-panel-strong);
 }
 
 html {
@@ -6281,4 +6304,456 @@ main.legal-page :is(h1, h2, p, a),
   left: 0 !important;
   max-width: none !important;
   transform: translate3d(0, 0, 0);
+}
+
+/* Evaready logo colour application: final colour-only layer for core layout. */
+body {
+  background:
+    radial-gradient(circle at 82% 8%, rgba(5, 164, 255, 0.13), transparent 30%),
+    radial-gradient(circle at 12% 24%, rgba(101, 216, 255, 0.08), transparent 28%),
+    linear-gradient(180deg, var(--brand-black) 0%, var(--brand-midnight) 48%, var(--brand-black) 100%) !important;
+  color: var(--brand-white) !important;
+}
+
+main {
+  background:
+    radial-gradient(circle at 88% 4%, rgba(5, 164, 255, 0.1), transparent 32%),
+    linear-gradient(180deg, var(--brand-black) 0%, var(--brand-midnight) 46%, var(--brand-black) 100%) !important;
+}
+
+.site-header {
+  border-color: var(--brand-border-blue) !important;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(101, 216, 255, 0.16), transparent 34%),
+    linear-gradient(90deg, rgba(3, 5, 18, 0.98), rgba(7, 21, 51, 0.98) 52%, rgba(3, 5, 18, 0.98)) !important;
+  box-shadow:
+    0 1px 0 var(--brand-border-red),
+    0 18px 54px rgba(0, 0, 0, 0.38),
+    0 0 30px rgba(5, 164, 255, 0.08) !important;
+}
+
+.site-header nav a {
+  color: rgba(214, 232, 240, 0.9) !important;
+}
+
+.site-header nav a:hover,
+.site-header nav a:focus-visible {
+  color: var(--brand-cyan) !important;
+  text-shadow: 0 0 18px rgba(101, 216, 255, 0.34);
+}
+
+.site-header-quote,
+a[data-quote-trigger="true"].site-header-quote,
+a.bg-blue-700,
+a.bg-blue-600,
+button.bg-blue-700,
+button.bg-blue-600,
+a[href*="book.servicem8.com"].bg-white,
+a[href*="book.servicem8.com"].border {
+  border-color: var(--brand-border-blue) !important;
+  background:
+    linear-gradient(135deg, var(--brand-royal-blue) 0%, var(--brand-electric-blue) 62%, var(--brand-cyan) 100%) !important;
+  color: var(--brand-white) !important;
+  box-shadow:
+    0 16px 36px rgba(5, 164, 255, 0.28),
+    0 0 0 1px rgba(255, 255, 255, 0.13) inset !important;
+}
+
+a.bg-red-600,
+button.bg-red-600,
+.floating-call-button,
+.site-header a[href^="tel:"],
+.site-header-actions > a[href^="tel:"],
+.footer-action-call,
+.mobile-sticky-cta__call {
+  border-color: var(--brand-border-red) !important;
+  background:
+    linear-gradient(135deg, var(--brand-red-dark) 0%, var(--brand-red) 48%, #ff3b46 100%) !important;
+  color: var(--brand-white) !important;
+  box-shadow:
+    0 16px 38px rgba(233, 17, 30, 0.32),
+    0 0 0 1px rgba(255, 255, 255, 0.13) inset !important;
+}
+
+.mobile-nav-trigger button {
+  border-color: var(--brand-border-blue) !important;
+  background:
+    linear-gradient(180deg, rgba(9, 26, 56, 0.96), rgba(5, 8, 22, 0.96)) !important;
+  color: var(--brand-cyan) !important;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.28),
+    0 0 18px rgba(5, 164, 255, 0.16) !important;
+}
+
+#mobile-site-menu {
+  border-color: var(--brand-border-blue) !important;
+  background:
+    radial-gradient(circle at 16% 0%, rgba(101, 216, 255, 0.17), transparent 34%),
+    radial-gradient(circle at 90% 10%, rgba(233, 17, 30, 0.12), transparent 30%),
+    linear-gradient(180deg, rgba(3, 5, 18, 0.98), rgba(7, 21, 51, 0.98)) !important;
+  color: var(--brand-white) !important;
+}
+
+#mobile-site-menu > div {
+  border-color: rgba(101, 216, 255, 0.16) !important;
+  background: transparent !important;
+}
+
+#mobile-site-menu a {
+  border-color: rgba(101, 216, 255, 0.2) !important;
+  background:
+    linear-gradient(180deg, rgba(11, 34, 72, 0.82), rgba(9, 26, 56, 0.72)) !important;
+  color: var(--brand-white) !important;
+}
+
+#mobile-site-menu a span:first-child {
+  background: rgba(5, 164, 255, 0.17) !important;
+  color: var(--brand-cyan) !important;
+}
+
+#mobile-site-menu a[data-quote-trigger="true"] {
+  border-color: rgba(101, 216, 255, 0.42) !important;
+  background:
+    linear-gradient(135deg, var(--brand-royal-blue) 0%, var(--brand-electric-blue) 60%, var(--brand-cyan) 100%) !important;
+  color: var(--brand-white) !important;
+  box-shadow:
+    0 18px 42px rgba(5, 164, 255, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.14) inset !important;
+}
+
+#mobile-site-menu a[href^="tel:"] {
+  border-color: var(--brand-border-red) !important;
+  background:
+    linear-gradient(135deg, var(--brand-red-dark) 0%, var(--brand-red) 56%, #ff3b46 100%) !important;
+  color: var(--brand-white) !important;
+  box-shadow:
+    0 18px 42px rgba(233, 17, 30, 0.34),
+    0 0 0 1px rgba(255, 255, 255, 0.14) inset !important;
+}
+
+#mobile-site-menu button[aria-label="Close menu"] {
+  border-color: var(--brand-border-blue) !important;
+  background: rgba(9, 26, 56, 0.94) !important;
+  color: var(--brand-silver) !important;
+}
+
+.home-brand-hero,
+.brand-internal-hero,
+section.brand-internal-hero.bg-slate-950,
+section.brand-internal-hero.bg-\[\#020617\] {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(5, 164, 255, 0.22), transparent 34%),
+    radial-gradient(circle at 14% 22%, rgba(101, 216, 255, 0.12), transparent 30%),
+    linear-gradient(135deg, var(--brand-black) 0%, var(--brand-midnight) 54%, var(--brand-void) 100%) !important;
+}
+
+main .home-brand-hero .home-hero-readability-overlay.absolute.inset-0,
+.brand-internal-hero > .absolute + .absolute {
+  background:
+    linear-gradient(90deg, rgba(3, 5, 18, 0.94) 0%, rgba(7, 21, 51, 0.86) 44%, rgba(3, 5, 18, 0.34) 76%, rgba(3, 5, 18, 0.78) 100%) !important;
+}
+
+main .home-brand-hero .home-hero-glow-overlay.absolute.inset-0,
+.brand-internal-hero::before,
+main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white)::before {
+  background:
+    radial-gradient(circle at 78% 16%, rgba(5, 164, 255, 0.22), transparent 34%),
+    radial-gradient(circle at 18% 36%, rgba(101, 216, 255, 0.12), transparent 28%),
+    radial-gradient(circle at 92% 78%, rgba(233, 17, 30, 0.09), transparent 30%) !important;
+}
+
+.home-brand-hero :is(h1, h2),
+.brand-internal-hero :is(h1, h2) {
+  color: var(--brand-white) !important;
+}
+
+.home-brand-hero p,
+.brand-internal-hero p {
+  color: rgba(214, 232, 240, 0.9) !important;
+}
+
+.emergency-issue-marquee {
+  border-color: var(--brand-border-blue) !important;
+  background:
+    linear-gradient(90deg, rgba(3, 5, 18, 0.98), rgba(7, 21, 51, 0.98), rgba(3, 5, 18, 0.98)) !important;
+  box-shadow:
+    0 1px 0 rgba(101, 216, 255, 0.2) inset,
+    0 -1px 0 rgba(233, 17, 30, 0.14) inset !important;
+}
+
+.emergency-issue-marquee::before {
+  background: linear-gradient(90deg, var(--brand-black), transparent) !important;
+}
+
+.emergency-issue-marquee::after {
+  background: linear-gradient(270deg, var(--brand-black), transparent) !important;
+}
+
+.emergency-issue-chip {
+  border-color: rgba(101, 216, 255, 0.26) !important;
+  background:
+    linear-gradient(180deg, rgba(11, 34, 72, 0.78), rgba(5, 8, 22, 0.78)) !important;
+  color: var(--brand-silver) !important;
+  box-shadow: 0 0 18px rgba(5, 164, 255, 0.1) !important;
+}
+
+.emergency-issue-chip svg {
+  color: var(--brand-cyan) !important;
+}
+
+.site-footer {
+  background:
+    radial-gradient(circle at 8% 10%, rgba(101, 216, 255, 0.16), transparent 30%),
+    radial-gradient(circle at 92% 0%, rgba(233, 17, 30, 0.13), transparent 28%),
+    linear-gradient(135deg, var(--brand-black) 0%, var(--brand-midnight) 56%, var(--brand-void) 100%) !important;
+  color: var(--brand-white) !important;
+}
+
+.site-footer::before {
+  background-image:
+    linear-gradient(90deg, rgba(101, 216, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(101, 216, 255, 0.045) 1px, transparent 1px) !important;
+}
+
+.footer-link {
+  color: rgba(214, 232, 240, 0.78) !important;
+}
+
+.footer-link:hover,
+.footer-link:focus-visible {
+  color: var(--brand-cyan) !important;
+}
+
+.footer-link:focus-visible,
+.footer-action:focus-visible,
+.footer-link-group-button:focus-visible,
+.site-header :is(a, button):focus-visible,
+.mobile-sticky-cta__link:focus-visible {
+  outline-color: rgba(101, 216, 255, 0.72) !important;
+}
+
+.footer-link-group {
+  border-color: rgba(101, 216, 255, 0.16) !important;
+  background: rgba(5, 8, 22, 0.48) !important;
+}
+
+.footer-link-group-button {
+  color: var(--brand-white) !important;
+}
+
+.footer-link-group-icon {
+  color: var(--brand-cyan) !important;
+}
+
+.footer-action-quote,
+.mobile-sticky-cta__quote {
+  border-color: var(--brand-border-blue) !important;
+  background:
+    linear-gradient(135deg, var(--brand-royal-blue) 0%, var(--brand-electric-blue) 62%, var(--brand-cyan) 100%) !important;
+  box-shadow:
+    0 14px 30px rgba(5, 164, 255, 0.28),
+    0 0 0 1px rgba(255, 255, 255, 0.12) inset !important;
+}
+
+.footer-action-email {
+  border-color: rgba(101, 216, 255, 0.32) !important;
+  background: rgba(5, 8, 22, 0.58) !important;
+  color: var(--brand-silver) !important;
+}
+
+.mobile-sticky-cta {
+  border-color: rgba(101, 216, 255, 0.22) !important;
+  background:
+    linear-gradient(180deg, rgba(7, 21, 51, 0.9), rgba(3, 5, 18, 0.9)) !important;
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.42),
+    0 0 26px rgba(5, 164, 255, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset !important;
+}
+
+/* Evaready logo colour application: cards, trust proof, forms and service sections. */
+main section :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50):not(a):not(button),
+main section :is(article, div, li, aside)[class*="rounded"][class*="border"],
+main section :is(article, div, li, aside)[class*="rounded"][class*="bg-white"],
+main section :is(article, div, li, aside)[class*="rounded"][class*="bg-slate-"],
+main section a.group[class*="border-slate"],
+main section a.group[class*="bg-white"],
+main section a.group[class*="bg-slate-"],
+main section a.group[class*="bg-blue-50"],
+.google-rating-card,
+.google-review-proof__panel,
+.google-review-proof__cards > div,
+.quote-process-graphic,
+.quote-process-graphic li,
+.service-credential-strip > div,
+.hero-credential-badges > div,
+.footer-credential-strip > div,
+.trust-symbol-band > div > div > div {
+  border-color: var(--brand-border-blue) !important;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(101, 216, 255, 0.08), transparent 34%),
+    linear-gradient(180deg, rgba(11, 34, 72, 0.84), rgba(5, 8, 22, 0.86)) !important;
+  color: var(--brand-white) !important;
+  box-shadow:
+    0 20px 52px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(101, 216, 255, 0.08) inset !important;
+}
+
+main section a.group[class*="border-slate"]:hover,
+main section a.group[class*="bg-white"]:hover,
+main section a.group[class*="bg-slate-"]:hover,
+main section article[class*="border"]:hover,
+main section div[class*="rounded"][class*="border"]:hover {
+  border-color: rgba(101, 216, 255, 0.5) !important;
+  box-shadow:
+    0 26px 68px rgba(0, 0, 0, 0.36),
+    0 0 28px rgba(5, 164, 255, 0.14),
+    0 0 0 1px rgba(101, 216, 255, 0.16) inset !important;
+}
+
+main section .bg-red-50,
+main section :is(article, div, li, aside)[class*="rounded"][class*="bg-red-50"],
+main section a.group[class*="bg-red-50"] {
+  border-color: var(--brand-border-red) !important;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(233, 17, 30, 0.24), transparent 34%),
+    linear-gradient(135deg, rgba(122, 7, 19, 0.9), rgba(9, 26, 56, 0.86) 58%, rgba(5, 8, 22, 0.9)) !important;
+  color: var(--brand-white) !important;
+  box-shadow:
+    0 22px 54px rgba(0, 0, 0, 0.32),
+    0 0 0 1px rgba(233, 17, 30, 0.12) inset !important;
+}
+
+main section .bg-red-50 :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50):not(a):not(button) {
+  border-color: rgba(233, 17, 30, 0.24) !important;
+  background:
+    linear-gradient(180deg, rgba(11, 34, 72, 0.82), rgba(5, 8, 22, 0.84)) !important;
+  color: var(--brand-white) !important;
+}
+
+main section :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50, .bg-red-50) :is(h2, h3, h4, h5, dt),
+main section :is(article, div, li, aside)[class*="rounded"] :is(h2, h3, h4, h5, dt),
+.google-rating-card :is(h2, h3, h4, p:first-child),
+.google-review-proof__panel :is(h2, h3, h4),
+.quote-process-graphic :is(h2, h3, h4),
+.service-credential-strip > div span:first-child,
+.hero-credential-badges > div p:first-child,
+.footer-credential-strip dt {
+  color: var(--brand-white) !important;
+}
+
+main section :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50, .bg-red-50) :is(p, dd, li, span),
+main section :is(article, div, li, aside)[class*="rounded"] :is(p, dd, li, span),
+.google-rating-card p,
+.google-review-proof__panel p,
+.quote-process-graphic :is(p, li),
+.service-credential-strip > div span,
+.hero-credential-badges > div p,
+.footer-credential-strip dd {
+  color: rgba(214, 232, 240, 0.86) !important;
+}
+
+main section :is(.text-blue-700, .text-blue-600, .text-cyan-200, .text-cyan-300),
+main section :is(article, div, li, aside)[class*="rounded"] svg,
+.google-review-proof__panel svg,
+.quote-process-graphic svg,
+.service-credential-strip svg,
+.hero-credential-badges svg,
+.footer-credential-strip svg {
+  color: var(--brand-cyan) !important;
+}
+
+main section :is(.text-red-600, .text-red-500, .text-red-300, .text-red-200),
+main section .bg-red-50 svg,
+main section [class*="border-red"] svg {
+  color: #ff9aa3 !important;
+}
+
+.google-review-proof {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(101, 216, 255, 0.12), transparent 32%),
+    linear-gradient(180deg, var(--brand-black), var(--brand-midnight) 58%, var(--brand-black)) !important;
+  color: var(--brand-white) !important;
+}
+
+.google-rating-card {
+  border-color: rgba(101, 216, 255, 0.3) !important;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(101, 216, 255, 0.16), transparent 34%),
+    linear-gradient(135deg, rgba(7, 21, 51, 0.96), rgba(5, 8, 22, 0.94)) !important;
+}
+
+.google-rating-card .text-amber-300 {
+  color: #ffd166 !important;
+}
+
+.quote-process-step-number,
+main section :is(.bg-blue-50, .bg-cyan-50) > span:first-child,
+main section span[class*="bg-blue-50"],
+main section span[class*="bg-cyan-"] {
+  background: rgba(5, 164, 255, 0.18) !important;
+  color: var(--brand-cyan) !important;
+  box-shadow: 0 0 0 1px rgba(101, 216, 255, 0.18) inset !important;
+}
+
+main :is(form, .service-area-search, .quote-request-panel) {
+  color-scheme: dark;
+}
+
+main :is(input:not([type="checkbox"]):not([type="radio"]), textarea, select) {
+  border-color: var(--brand-border-blue) !important;
+  background: rgba(5, 8, 22, 0.82) !important;
+  color: var(--brand-white) !important;
+  box-shadow:
+    0 0 0 1px rgba(101, 216, 255, 0.08) inset,
+    0 12px 28px rgba(0, 0, 0, 0.18) !important;
+}
+
+main :is(input:not([type="checkbox"]):not([type="radio"]), textarea, select):focus {
+  border-color: var(--brand-cyan) !important;
+  outline: 3px solid rgba(101, 216, 255, 0.24) !important;
+  outline-offset: 2px !important;
+}
+
+main :is(label, legend) {
+  color: var(--brand-silver) !important;
+}
+
+main :is(input, textarea)::placeholder {
+  color: rgba(170, 183, 200, 0.74) !important;
+}
+
+.footer-credential-strip > div {
+  background:
+    linear-gradient(180deg, rgba(11, 34, 72, 0.72), rgba(5, 8, 22, 0.72)) !important;
+}
+
+a.bg-red-600,
+button.bg-red-600,
+.floating-call-button,
+.site-header a[href^="tel:"],
+.site-header-actions > a[href^="tel:"],
+.footer-action-call,
+.mobile-sticky-cta__call,
+main section .bg-red-50 :is(a.bg-red-600, button.bg-red-600, .floating-call-button) {
+  border-color: var(--brand-border-red) !important;
+  background:
+    linear-gradient(135deg, var(--brand-red-dark) 0%, var(--brand-red) 48%, #ff3b46 100%) !important;
+  color: var(--brand-white) !important;
+}
+
+.site-header-quote,
+a[data-quote-trigger="true"].site-header-quote,
+a.bg-blue-700,
+a.bg-blue-600,
+button.bg-blue-700,
+button.bg-blue-600,
+.footer-action-quote,
+.mobile-sticky-cta__quote,
+a[href*="book.servicem8.com"].bg-white,
+a[href*="book.servicem8.com"].border {
+  border-color: var(--brand-border-blue) !important;
+  background:
+    linear-gradient(135deg, var(--brand-royal-blue) 0%, var(--brand-electric-blue) 62%, var(--brand-cyan) 100%) !important;
+  color: var(--brand-white) !important;
 }
