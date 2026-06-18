@@ -1,2 +1,2 @@
-:HL["/evaready-electrical/_next/static/chunks/0g22wt~efhamx.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"electrical-faults","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"circuit-breaker-keeps-tripping","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"aqu0xJuWcTodB_zBfbYLf"}
+:HL["/evaready-electrical/_next/static/chunks/0jjd1pxefp24f.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"electrical-faults","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"circuit-breaker-keeps-tripping","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"v19K7WqenNpJx3XkTvbuP"}
