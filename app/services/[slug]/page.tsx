@@ -298,7 +298,7 @@ export default async function ServiceLandingPage({
       : undefined;
 
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white text-[#061E72]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(electricianSchema)}
@@ -318,9 +318,9 @@ export default async function ServiceLandingPage({
 
       <SiteHeader />
 
-      <section className="brand-internal-hero relative overflow-hidden bg-slate-950 text-white">
+      <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(37,99,235,0.28),transparent_32%),radial-gradient(circle_at_86%_20%,rgba(239,68,68,0.22),transparent_30%)]" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#031640] via-slate-950 to-[#25020a]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#082A86] via-[#082A86] to-[#25020a]" />
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_0.85fr] lg:px-8 lg:py-24">
           <div>
@@ -561,7 +561,7 @@ export default async function ServiceLandingPage({
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="group flex min-h-24 items-center justify-between gap-4 rounded-lg border border-slate-200 bg-slate-50 p-5 font-black text-slate-950 shadow-sm transition hover:border-blue-500 hover:bg-blue-50 hover:text-blue-700"
+                  className="group flex min-h-24 items-center justify-between gap-4 rounded-lg border border-slate-200 bg-slate-50 p-5 font-black text-[#061E72] shadow-sm transition hover:border-blue-500 hover:bg-blue-50 hover:text-blue-700"
                 >
                   <span>{link.label}</span>
                   <ArrowRight className="h-5 w-5 shrink-0 text-blue-700 transition group-hover:translate-x-1" />
@@ -712,7 +712,7 @@ export default async function ServiceLandingPage({
         </div>
       </section>
 
-      <section className="bg-slate-950 py-20 text-white">
+      <section className="bg-[#061E72] py-20 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-black uppercase tracking-[0.28em] text-cyan-300">
             Process
@@ -853,7 +853,7 @@ export default async function ServiceLandingPage({
                   aria-haspopup="dialog"
                   className="group rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-600 hover:bg-blue-50"
                 >
-                  <h3 className="font-black text-slate-950">{link.label}</h3>
+                  <h3 className="font-black text-[#061E72]">{link.label}</h3>
                   <span className="mt-4 inline-flex items-center gap-2 font-black text-blue-600">
                     Open Booking Form
                     <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
@@ -865,7 +865,7 @@ export default async function ServiceLandingPage({
                   href={link.href}
                   className="group rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-600 hover:bg-blue-50"
                 >
-                  <h3 className="font-black text-slate-950">{link.label}</h3>
+                  <h3 className="font-black text-[#061E72]">{link.label}</h3>
                   <span className="mt-4 inline-flex items-center gap-2 font-black text-red-600">
                     Learn more
                     <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
@@ -877,7 +877,7 @@ export default async function ServiceLandingPage({
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-blue-800 via-slate-950 to-red-700 py-16 text-white">
+      <section className="bg-gradient-to-r from-blue-800 via-[#082A86] to-red-700 py-16 text-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.24em] text-cyan-200">

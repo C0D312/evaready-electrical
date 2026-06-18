@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { ArrowRight, Clock3, Flame, Phone, ShieldCheck, Zap } from "lucide-react";
 import { business } from "@/data/site";
 
@@ -63,7 +63,7 @@ const checklist = [
 
 export function EmergencyTrustPanel({ className = "" }: { className?: string }) {
   return (
-    <section className={`emergency-trust-panel bg-[#020814] py-14 text-white sm:py-18 ${className}`}>
+    <section className={`emergency-trust-panel bg-[#061E72] py-14 text-white sm:py-18 ${className}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
@@ -116,7 +116,7 @@ export function EmergencyTrustPanel({ className = "" }: { className?: string }) 
                   <Link
                     href={card.href}
                     key={card.title}
-                    className={`group rounded-[1.35rem] border p-5 shadow-xl shadow-slate-950/20 transition hover:-translate-y-0.5 hover:border-cyan-200/45 hover:shadow-cyan-500/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200 ${tone}`}
+                    className={`group rounded-[1.35rem] border p-5 shadow-xl shadow-blue-950/20 transition hover:-translate-y-0.5 hover:border-cyan-200/45 hover:shadow-cyan-500/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200 ${tone}`}
                   >
                     <span
                       className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10"
@@ -135,7 +135,7 @@ export function EmergencyTrustPanel({ className = "" }: { className?: string }) 
               })}
             </div>
 
-            <div className="rounded-[1.35rem] border border-cyan-300/18 bg-white/[0.055] p-4 shadow-xl shadow-slate-950/20">
+            <div className="rounded-[1.35rem] border border-cyan-300/18 bg-white/[0.055] p-4 shadow-xl shadow-blue-950/20">
               <div className="grid gap-2 sm:grid-cols-2">
                 {checklist.map((item) => (
                   <Link

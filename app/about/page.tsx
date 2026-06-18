@@ -136,7 +136,7 @@ export default function AboutPage() {
   return (
     <>
       <SiteHeader />
-      <main className="bg-[#020814] text-white">
+      <main className="bg-[#061E72] text-white">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
@@ -146,9 +146,9 @@ export default function AboutPage() {
           dangerouslySetInnerHTML={schemaJson(electricianSchema)}
         />
 
-        <section className="brand-internal-hero relative overflow-hidden bg-slate-950 text-white">
+        <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(0,200,255,0.22),transparent_30%),radial-gradient(circle_at_86%_24%,rgba(255,18,54,0.2),transparent_32%)]" />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#020814]/96 via-[#061A3A]/88 to-[#020814]/82" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#061E72]/96 via-[#0A349E]/88 to-[#061E72]/82" />
           <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
             <div className="max-w-4xl">
               <p className="mb-5 inline-flex rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
@@ -194,7 +194,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-[#020814] px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <section className="bg-[#061E72] px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
           <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-[0.82fr_1.18fr] lg:gap-8">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
@@ -217,7 +217,7 @@ export default function AboutPage() {
                 return (
                   <article
                     key={item.title}
-                    className="rounded-2xl border border-cyan-300/18 bg-white/[0.055] p-5 shadow-xl shadow-slate-950/20"
+                    className="rounded-2xl border border-cyan-300/18 bg-white/[0.055] p-5 shadow-xl shadow-blue-950/20"
                   >
                     <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-300/12 text-cyan-200">
                       <Icon className="h-5 w-5" aria-hidden="true" />
@@ -235,7 +235,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-slate-50 px-4 py-12 text-slate-950 sm:px-6 sm:py-16 lg:px-8">
+        <section className="bg-slate-50 px-4 py-12 text-[#061E72] sm:px-6 sm:py-16 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <div className="max-w-3xl">
               <p className="text-xs font-black uppercase tracking-[0.22em] text-blue-700">
@@ -264,7 +264,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-white px-4 py-12 text-slate-950 sm:px-6 sm:py-16 lg:px-8">
+        <section className="bg-white px-4 py-12 text-[#061E72] sm:px-6 sm:py-16 lg:px-8">
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.22em] text-blue-700">
@@ -287,7 +287,7 @@ export default function AboutPage() {
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-blue-700 text-sm font-black text-white">
                     {index + 1}
                   </span>
-                  <h3 className="mt-4 text-xl font-black text-slate-950">
+                  <h3 className="mt-4 text-xl font-black text-[#061E72]">
                     {step.title}
                   </h3>
                   <p className="mt-2 text-sm font-semibold leading-6 text-slate-700">
@@ -313,7 +313,7 @@ export default function AboutPage() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="inline-flex min-h-12 items-center justify-between gap-3 rounded-2xl border border-cyan-300/16 bg-slate-950/60 px-4 py-3 text-sm font-black text-white transition hover:border-cyan-200/45 hover:bg-slate-900"
+                    className="inline-flex min-h-12 items-center justify-between gap-3 rounded-2xl border border-cyan-300/16 bg-[#061E72]/60 px-4 py-3 text-sm font-black text-white transition hover:border-cyan-200/45 hover:bg-[#082A86]"
                   >
                     {link.label}
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -355,7 +355,7 @@ export default function AboutPage() {
                 </a>
                 <a
                   href={business.emailHref}
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-cyan-300/22 bg-slate-950/45 px-5 py-3 text-sm font-black text-white"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-cyan-300/22 bg-[#061E72]/45 px-5 py-3 text-sm font-black text-white"
                 >
                   <Mail className="h-5 w-5" aria-hidden="true" />
                   {business.email}

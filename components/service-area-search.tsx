@@ -32,7 +32,7 @@ export function ServiceAreaSearch({ items }: ServiceAreaSearchProps) {
     : [];
 
   return (
-    <div className="service-area-search rounded-lg border border-slate-200 bg-white p-4 shadow-xl shadow-slate-950/5 sm:p-5">
+    <div className="service-area-search rounded-lg border border-slate-200 bg-white p-4 shadow-xl shadow-blue-950/5 sm:p-5">
       <label
         htmlFor="service-area-search"
         className="text-sm font-black uppercase tracking-[0.18em] text-blue-700"
@@ -48,7 +48,7 @@ export function ServiceAreaSearch({ items }: ServiceAreaSearchProps) {
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder="Enter suburb or postcode"
-          className="h-12 w-full bg-transparent text-base font-semibold text-slate-950 outline-none placeholder:text-slate-500"
+          className="h-12 w-full bg-transparent text-base font-semibold text-[#061E72] outline-none placeholder:text-slate-500"
         />
       </div>
 
@@ -68,7 +68,7 @@ export function ServiceAreaSearch({ items }: ServiceAreaSearchProps) {
                   className="grid gap-3 rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-left transition hover:border-blue-600 hover:bg-blue-50 sm:grid-cols-[1fr_auto] sm:items-center"
                 >
                   <span className="min-w-0">
-                    <span className="block font-black text-slate-950">
+                    <span className="block font-black text-[#061E72]">
                       {item.suburbName} {item.postcode}
                     </span>
                     <span className="mt-1 block text-sm font-semibold text-slate-600">

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   AlertTriangle,
@@ -165,7 +165,7 @@ export default function SwitchboardUpgradesSydneyPage() {
   );
 
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white text-[#061E72]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(schema)}
@@ -186,9 +186,9 @@ export default function SwitchboardUpgradesSydneyPage() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="brand-internal-hero relative overflow-hidden bg-[#020617] text-white">
+      <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(37,99,235,0.35),transparent_30%),radial-gradient(circle_at_85%_30%,rgba(239,68,68,0.25),transparent_32%)]" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#031640] via-[#020617] to-[#23020a]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#082A86] via-[#061E72] to-[#23020a]" />
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-28">
           <div>
@@ -465,7 +465,7 @@ export default function SwitchboardUpgradesSydneyPage() {
       </section>
 
       {/* Process */}
-      <section className="bg-[#020617] py-24 text-white">
+      <section className="bg-[#061E72] py-24 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-black uppercase tracking-[0.35em] text-red-400">
             How It Works
@@ -534,7 +534,7 @@ export default function SwitchboardUpgradesSydneyPage() {
                 href={link.href}
                 className="group rounded-lg border border-slate-200 bg-white p-5 transition hover:border-blue-600 hover:bg-blue-50"
               >
-                <h3 className="font-black text-slate-950">{link.label}</h3>
+                <h3 className="font-black text-[#061E72]">{link.label}</h3>
                 <span className="mt-4 inline-flex items-center gap-2 font-black text-blue-700">
                   View related service
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
@@ -546,7 +546,7 @@ export default function SwitchboardUpgradesSydneyPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-r from-[#031640] via-[#020617] to-[#43040e] py-24 text-white">
+      <section className="bg-gradient-to-r from-[#082A86] via-[#061E72] to-[#43040e] py-24 text-white">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-300">

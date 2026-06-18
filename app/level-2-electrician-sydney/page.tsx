@@ -366,7 +366,7 @@ function buildSchema() {
 
 export default function Level2ElectricianSydneyPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white text-[#061E72]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildSchema()) }}
@@ -374,9 +374,9 @@ export default function Level2ElectricianSydneyPage() {
 
       <SiteHeader />
 
-      <section className="brand-internal-hero relative overflow-hidden bg-[#020617] text-white">
+      <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(37,99,235,0.34),transparent_30%),radial-gradient(circle_at_85%_30%,rgba(239,68,68,0.16),transparent_32%)]" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#031640] via-[#020617] to-[#160208]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#082A86] via-[#061E72] to-[#160208]" />
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-28">
           <div>
@@ -424,7 +424,7 @@ export default function Level2ElectricianSydneyPage() {
             </div>
           </div>
 
-          <aside className="rounded-[2rem] border border-white/15 bg-slate-950/70 p-6 shadow-2xl shadow-slate-950/30 backdrop-blur-xl">
+          <aside className="rounded-[2rem] border border-white/15 bg-[#061E72]/70 p-6 shadow-2xl shadow-blue-950/30 backdrop-blur-xl">
             <p className="text-sm font-black uppercase tracking-[0.2em] text-red-300">
               Send these details
             </p>
@@ -515,7 +515,7 @@ export default function Level2ElectricianSydneyPage() {
                 className="group flex min-h-36 flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-blue-300 hover:bg-blue-50"
               >
                 <Bolt className="h-6 w-6 text-blue-700" />
-                <h3 className="mt-4 text-xl font-black leading-tight text-slate-950">
+                <h3 className="mt-4 text-xl font-black leading-tight text-[#061E72]">
                   {item.title}
                 </h3>
                 <p className="mt-2 flex-1 text-sm font-semibold leading-6 text-slate-600">
@@ -578,7 +578,7 @@ export default function Level2ElectricianSydneyPage() {
                   <div className="flex items-start gap-3">
                     <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" />
                     <div>
-                      <h3 className="font-black text-slate-950">{item.title}</h3>
+                      <h3 className="font-black text-[#061E72]">{item.title}</h3>
                       <p className="mt-1 text-sm font-semibold leading-6 text-slate-600">
                         {item.text}
                       </p>
@@ -623,7 +623,7 @@ export default function Level2ElectricianSydneyPage() {
         </div>
       </section>
 
-      <section className="bg-[#020617] py-20 text-white sm:py-24">
+      <section className="bg-[#061E72] py-20 text-white sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-3 lg:px-8">
           {[
             {
@@ -718,7 +718,7 @@ export default function Level2ElectricianSydneyPage() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-[#031640] via-[#020617] to-[#160208] py-20 text-white sm:py-24">
+      <section className="bg-gradient-to-r from-[#082A86] via-[#061E72] to-[#160208] py-20 text-white sm:py-24">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-200">

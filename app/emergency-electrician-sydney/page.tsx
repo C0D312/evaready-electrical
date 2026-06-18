@@ -19,8 +19,13 @@ import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { absoluteUrl, business } from "@/data/site";
 import { emergencySeoMetadata, toMetadata } from "@/lib/seo-metadata";
+import styles from "./emergency-theme.module.css";
 
 export const metadata: Metadata = toMetadata(emergencySeoMetadata());
+
+function cx(...classes: Array<string | false | null | undefined>) {
+  return classes.filter(Boolean).join(" ");
+}
 
 const emergencyServices = [
   {
@@ -296,7 +301,12 @@ function EmergencyActionLink({
       href={business.phoneHref}
       data-conversion-action="phone-click"
       aria-label={business.callCta}
-      className={`inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500 ${compact ? "px-5 py-3 text-sm" : "px-7 py-4 text-base"} ${className}`}
+      className={cx(
+        styles.callButton,
+        "inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500",
+        compact ? "px-5 py-3 text-sm" : "px-7 py-4 text-base",
+        className,
+      )}
     >
       <Phone className="h-5 w-5" aria-hidden="true" />
       <span className="whitespace-nowrap">{business.callCta}</span>
@@ -320,11 +330,15 @@ function QuoteActionLink({
       data-conversion-action="quote-click"
       aria-haspopup="dialog"
       aria-label="Get a quote from Evaready Electrical"
-      className={`inline-flex items-center justify-center gap-3 rounded-2xl font-black text-white transition ${
+      className={cx(
+        secondary ? styles.secondaryQuoteButton : styles.quoteButton,
+        "inline-flex items-center justify-center gap-3 rounded-2xl font-black text-white transition",
         secondary
           ? "border border-cyan-300/35 bg-white/[0.06] shadow-lg shadow-cyan-950/15 hover:bg-white/[0.12]"
-          : "bg-blue-600 shadow-xl shadow-blue-600/20 hover:bg-blue-500"
-      } ${compact ? "px-5 py-3 text-sm" : "px-7 py-4 text-base"} ${className}`}
+          : "bg-blue-600 shadow-xl shadow-blue-600/20 hover:bg-blue-500",
+        compact ? "px-5 py-3 text-sm" : "px-7 py-4 text-base",
+        className,
+      )}
     >
       {business.quoteCta}
       <ArrowRight className="h-5 w-5" aria-hidden="true" />
@@ -451,7 +465,7 @@ export default function EmergencyElectricianSydneyPage() {
   const schema = buildSchema();
 
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className={cx(styles.page, "min-h-screen bg-white text-[#061E72]")}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -459,32 +473,33 @@ export default function EmergencyElectricianSydneyPage() {
 
       <SiteHeader />
 
-      <section className="brand-internal-hero relative overflow-hidden bg-[#020617] text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(239,68,68,0.22),transparent_30%),radial-gradient(circle_at_82%_28%,rgba(37,99,235,0.16),transparent_32%)]" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#160208] via-[#020617] to-[#031640]" />
+      <section className={cx(styles.hero, "brand-internal-hero relative overflow-hidden bg-[#061E72] text-white")}>
+        <div className={cx(styles.heroWash, "absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(239,68,68,0.22),transparent_30%),radial-gradient(circle_at_82%_28%,rgba(37,99,235,0.16),transparent_32%)]")} />
+        <div className={cx(styles.heroTint, "absolute inset-0 bg-gradient-to-br from-[#160208] via-[#061E72] to-[#082A86]")} />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-24">
+        <div className={cx(styles.heroInner, "relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-24")}>
           <div>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-red-400/30 bg-red-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-red-200">
+            <div className={cx(styles.eyebrow, "mb-6 inline-flex items-center gap-2 rounded-full border border-red-400/30 bg-red-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-red-200")}>
               <AlertTriangle className="h-4 w-4" aria-hidden="true" />
               Open 24/7 for urgent electrical faults
             </div>
 
-            <h1 className="max-w-5xl text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
-              Emergency electrical fault? Call now — 0461 247 247
+            <h1 className={cx(styles.heroTitle, "max-w-5xl text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl")}>
+              Emergency Electrician Sydney
             </h1>
 
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">
+            <p className={cx(styles.heroLead, "mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl")}>
               Call first for no power, burning smells, sparking, repeated
               safety-switch tripping, switchboard faults, storm damage or
-              unsafe electrical equipment.
+              unsafe electrical equipment across Sydney and surrounding
+              regions.
             </p>
 
-            <p className="mt-3 max-w-2xl text-base font-bold leading-7 text-cyan-100">
+            <p className={cx(styles.heroPlanned, "mt-3 max-w-2xl text-base font-bold leading-7 text-cyan-100")}>
               For planned work, send photos and job details.
             </p>
 
-            <p className="mt-4 max-w-2xl rounded-2xl border border-red-300/25 bg-red-500/10 p-4 text-sm font-bold leading-6 text-slate-100">
+            <p className={cx(styles.heroResponse, "mt-4 max-w-2xl rounded-2xl border border-red-300/25 bg-red-500/10 p-4 text-sm font-bold leading-6 text-slate-100")}>
               Evaready provides 60-minute emergency response in core service
               areas and 90-minute emergency response for greater regions. Call
               first so the fault, location, access and safety risk can be
@@ -504,11 +519,11 @@ export default function EmergencyElectricianSydneyPage() {
             />
           </div>
 
-          <aside className="rounded-[2rem] border border-red-300/20 bg-[#111827]/85 p-6 shadow-2xl shadow-red-950/20 backdrop-blur-xl">
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-red-300">
+          <aside className={cx(styles.heroPanel, "rounded-[2rem] border border-red-300/20 bg-[#111827]/85 p-6 shadow-2xl shadow-red-950/20 backdrop-blur-xl")}>
+            <p className={cx(styles.redEyebrow, "text-sm font-black uppercase tracking-[0.2em] text-red-300")}>
               What to do now
             </p>
-            <h2 className="mt-3 text-3xl font-black">
+            <h2 className={cx(styles.sectionTitle, "mt-3 text-3xl font-black")}>
               Keep clear and call first if it feels unsafe.
             </h2>
 
@@ -516,16 +531,16 @@ export default function EmergencyElectricianSydneyPage() {
               {safetySteps.slice(0, 3).map((step) => (
                 <div
                   key={step.title}
-                  className="rounded-2xl border border-white/10 bg-white/[0.055] p-4"
+                  className={cx(styles.heroPanelItem, "rounded-2xl border border-white/10 bg-white/[0.055] p-4")}
                 >
-                  <p className="flex gap-3 font-black text-white">
+                  <p className={cx(styles.cardTitle, "flex gap-3 font-black text-white")}>
                     <AlertTriangle
                       className="mt-0.5 h-5 w-5 shrink-0 text-red-300"
                       aria-hidden="true"
                     />
                     {step.title}
                   </p>
-                  <p className="mt-2 pl-8 text-sm leading-6 text-slate-300">
+                  <p className={cx(styles.cardText, "mt-2 pl-8 text-sm leading-6 text-slate-300")}>
                     {step.text}
                   </p>
                 </div>
@@ -551,16 +566,16 @@ export default function EmergencyElectricianSydneyPage() {
         subheading="For urgent electrical faults, call first. You can also view Evaready Electrical on Google to read real customer feedback before booking planned work."
       />
 
-      <section className="border-b border-slate-200 bg-white py-16">
+      <section className={cx(styles.calmSection, "border-b border-slate-200 bg-white py-16")}>
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.32em] text-red-600">
+            <p className={cx(styles.redEyebrow, "text-sm font-black uppercase tracking-[0.32em] text-red-600")}>
               Trust and safety
             </p>
-            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+            <h2 className={cx(styles.sectionTitle, "mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl")}>
               Why call Evaready in an emergency?
             </h2>
-            <p className="mt-5 text-base font-bold leading-7 text-slate-700 sm:text-lg">
+            <p className={cx(styles.sectionText, "mt-5 text-base font-bold leading-7 text-slate-700 sm:text-lg")}>
               Do not keep resetting breakers, touching damaged fittings or
               using water-affected outlets. Call first if the fault feels
               unsafe.
@@ -571,7 +586,7 @@ export default function EmergencyElectricianSydneyPage() {
             {emergencyProofItems.map((item) => (
               <div
                 key={item}
-                className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-black leading-6 text-slate-900"
+                className={cx(styles.proofCard, "rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-black leading-6 text-slate-900")}
               >
                 {item}
               </div>
@@ -600,18 +615,18 @@ export default function EmergencyElectricianSydneyPage() {
 
       <TrustSymbolBand className="border-b border-slate-200" />
 
-      <section className="bg-slate-50 py-24">
+      <section className={cx(styles.blueSection, "bg-slate-50 py-24")}>
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
+            <p className={cx(styles.redEyebrow, "text-sm font-black uppercase tracking-[0.35em] text-red-600")}>
               Emergency Electrical Services
             </p>
 
-            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+            <h2 className={cx(styles.sectionTitle, "mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl")}>
               Urgent electrical faults we can help with.
             </h2>
 
-            <p className="mt-5 text-lg leading-8 text-slate-600">
+            <p className={cx(styles.sectionText, "mt-5 text-lg leading-8 text-slate-600")}>
               Start with the symptom you are seeing. If there is heat, smoke,
               sparking, water around electrical equipment or power loss that
               feels unsafe, use the phone first.
@@ -628,14 +643,14 @@ export default function EmergencyElectricianSydneyPage() {
                   data-conversion-action={
                     item.href === business.phoneHref ? "phone-click" : undefined
                   }
-                  className="group flex min-h-28 gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-red-300 hover:bg-red-50"
+                  className={cx(styles.hazardCard, "group flex min-h-28 gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-red-300 hover:bg-red-50")}
                 >
                   <Zap className="mt-1 h-5 w-5 shrink-0 text-red-600" aria-hidden="true" />
                   <span>
-                    <span className="block font-black text-slate-900">
+                    <span className={cx(styles.cardTitle, "block font-black text-slate-900")}>
                       {item.title}
                     </span>
-                    <span className="mt-2 block text-sm leading-6 text-slate-600">
+                    <span className={cx(styles.cardText, "mt-2 block text-sm leading-6 text-slate-600")}>
                       {item.text}
                     </span>
                   </span>
@@ -648,14 +663,14 @@ export default function EmergencyElectricianSydneyPage() {
                 <Link
                   key={item.title}
                   href={item.href}
-                  className="group flex min-h-28 gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-red-300 hover:bg-red-50"
+                  className={cx(styles.hazardCard, "group flex min-h-28 gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-red-300 hover:bg-red-50")}
                 >
                   <Zap className="mt-1 h-5 w-5 shrink-0 text-red-600" aria-hidden="true" />
                   <span>
-                    <span className="block font-black text-slate-900">
+                    <span className={cx(styles.cardTitle, "block font-black text-slate-900")}>
                       {item.title}
                     </span>
-                    <span className="mt-2 block text-sm leading-6 text-slate-600">
+                    <span className={cx(styles.cardText, "mt-2 block text-sm leading-6 text-slate-600")}>
                       {item.text}
                     </span>
                   </span>
@@ -676,30 +691,30 @@ export default function EmergencyElectricianSydneyPage() {
         description="For unsafe faults, call first. For planned help, include the suburb, what has lost power, whether anything is hot, buzzing, wet, sparking or tripping, and photos of the switchboard or damaged fitting if available."
       />
 
-      <section className="bg-white py-24">
+      <section className={cx(styles.calmSection, "bg-white py-24")}>
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+            <p className={cx(styles.blueEyebrow, "text-sm font-black uppercase tracking-[0.35em] text-blue-700")}>
               Warning Signs
             </p>
 
-            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+            <h2 className={cx(styles.sectionTitle, "mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl")}>
               When should you call an emergency electrician?
             </h2>
 
-            <p className="mt-5 text-lg leading-8 text-slate-600">
+            <p className={cx(styles.sectionText, "mt-5 text-lg leading-8 text-slate-600")}>
               Electrical faults can look minor before they become dangerous.
               These warning signs deserve a call-first approach.
             </p>
           </div>
 
-          <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-7">
+          <div className={cx(styles.warningPanel, "rounded-[2rem] border border-slate-200 bg-slate-50 p-7")}>
             <div className="grid gap-4">
               {warningSigns.map((item) => (
                 <Link
                   key={item.title}
                   href={item.href}
-                  className="group rounded-xl p-3 transition hover:bg-red-50"
+                  className={cx(styles.warningCard, "group rounded-xl p-3 transition hover:bg-red-50")}
                 >
                   <span className="flex gap-3">
                     <AlertTriangle
@@ -707,10 +722,10 @@ export default function EmergencyElectricianSydneyPage() {
                       aria-hidden="true"
                     />
                     <span>
-                      <span className="block font-black text-slate-900">
+                      <span className={cx(styles.cardTitle, "block font-black text-slate-900")}>
                         {item.title}
                       </span>
-                      <span className="mt-1 block text-sm leading-6 text-slate-600">
+                      <span className={cx(styles.cardText, "mt-1 block text-sm leading-6 text-slate-600")}>
                         {item.text}
                       </span>
                     </span>
@@ -726,16 +741,16 @@ export default function EmergencyElectricianSydneyPage() {
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20">
+      <section className={cx(styles.blueSection, "bg-slate-50 py-20")}>
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
+            <p className={cx(styles.redEyebrow, "text-sm font-black uppercase tracking-[0.35em] text-red-600")}>
               Safety First
             </p>
-            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+            <h2 className={cx(styles.sectionTitle, "mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl")}>
               What to do before an electrician arrives.
             </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">
+            <p className={cx(styles.sectionText, "mt-5 text-lg leading-8 text-slate-600")}>
               Emergency electrical faults need a calm, safety-first response.
               Keep people away from the affected area and avoid touching
               anything that may be live.
@@ -752,14 +767,14 @@ export default function EmergencyElectricianSydneyPage() {
                   data-conversion-action={
                     item.href === business.phoneHref ? "phone-click" : undefined
                   }
-                  className="group flex gap-3 rounded-lg border border-red-100 bg-white p-5 transition hover:border-red-300 hover:bg-red-50"
+                  className={cx(styles.safetyCard, "group flex gap-3 rounded-lg border border-red-100 bg-white p-5 transition hover:border-red-300 hover:bg-red-50")}
                 >
                   <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" aria-hidden="true" />
                   <span>
-                    <span className="block font-black leading-7 text-slate-900">
+                    <span className={cx(styles.cardTitle, "block font-black leading-7 text-slate-900")}>
                       {item.title}{" "}
                     </span>
-                    <span className="mt-1 block leading-7 text-slate-600">
+                    <span className={cx(styles.cardText, "mt-1 block leading-7 text-slate-600")}>
                       {item.text}
                     </span>
                   </span>
@@ -772,14 +787,14 @@ export default function EmergencyElectricianSydneyPage() {
                 <Link
                   key={item.title}
                   href={item.href}
-                  className="group flex gap-3 rounded-lg border border-red-100 bg-white p-5 transition hover:border-red-300 hover:bg-red-50"
+                  className={cx(styles.safetyCard, "group flex gap-3 rounded-lg border border-red-100 bg-white p-5 transition hover:border-red-300 hover:bg-red-50")}
                 >
                   <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" aria-hidden="true" />
                   <span>
-                    <span className="block font-black leading-7 text-slate-900">
+                    <span className={cx(styles.cardTitle, "block font-black leading-7 text-slate-900")}>
                       {item.title}{" "}
                     </span>
-                    <span className="mt-1 block leading-7 text-slate-600">
+                    <span className={cx(styles.cardText, "mt-1 block leading-7 text-slate-600")}>
                       {item.text}
                     </span>
                   </span>
@@ -794,13 +809,13 @@ export default function EmergencyElectricianSydneyPage() {
         </div>
       </section>
 
-      <section className="bg-[#020617] py-24 text-white">
+      <section className={cx(styles.processSection, "bg-[#061E72] py-24 text-white")}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-black uppercase tracking-[0.35em] text-red-400">
+          <p className={cx(styles.redEyebrow, "text-sm font-black uppercase tracking-[0.35em] text-red-400")}>
             Emergency Call Flow
           </p>
 
-          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+          <h2 className={cx(styles.sectionTitle, "mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl")}>
             Clear phone triage, proper testing and safe next steps.
           </h2>
 
@@ -808,27 +823,27 @@ export default function EmergencyElectricianSydneyPage() {
             {process.map((step, index) => (
               <div
                 key={step.title}
-                className="rounded-[2rem] border border-white/10 bg-white/5 p-6"
+                className={cx(styles.processCard, "rounded-[2rem] border border-white/10 bg-white/5 p-6")}
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-600 font-black">
+                <div className={cx(styles.processNumber, "flex h-12 w-12 items-center justify-center rounded-2xl bg-red-600 font-black")}>
                   {index + 1}
                 </div>
 
-                <h3 className="mt-6 text-xl font-black">{step.title}</h3>
-                <p className="mt-3 leading-7 text-slate-300">{step.text}</p>
+                <h3 className={cx(styles.cardTitle, "mt-6 text-xl font-black")}>{step.title}</h3>
+                <p className={cx(styles.cardText, "mt-3 leading-7 text-slate-300")}>{step.text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className={cx(styles.calmSection, "bg-white py-20")}>
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+            <p className={cx(styles.blueEyebrow, "text-sm font-black uppercase tracking-[0.35em] text-blue-700")}>
               Emergency FAQ
             </p>
-            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+            <h2 className={cx(styles.sectionTitle, "mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl")}>
               Common urgent fault questions.
             </h2>
           </div>
@@ -837,22 +852,22 @@ export default function EmergencyElectricianSydneyPage() {
             {emergencyFaqs.map((faq) => (
               <article
                 key={faq.question}
-                className="rounded-lg border border-slate-200 bg-slate-50 p-6"
+                className={cx(styles.faqCard, "rounded-lg border border-slate-200 bg-slate-50 p-6")}
               >
-                <h3 className="text-xl font-black">{faq.question}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.answer}</p>
+                <h3 className={cx(styles.cardTitle, "text-xl font-black")}>{faq.question}</h3>
+                <p className={cx(styles.cardText, "mt-3 leading-7 text-slate-600")}>{faq.answer}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20">
+      <section className={cx(styles.blueSection, "bg-slate-50 py-20")}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+          <p className={cx(styles.blueEyebrow, "text-sm font-black uppercase tracking-[0.35em] text-blue-700")}>
             Helpful fault guides
           </p>
-          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+          <h2 className={cx(styles.sectionTitle, "mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl")}>
             Read more about common emergency electrical faults.
           </h2>
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -860,7 +875,7 @@ export default function EmergencyElectricianSydneyPage() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group flex min-h-14 items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 font-black text-slate-900 transition hover:border-blue-300 hover:bg-blue-50"
+                className={cx(styles.relatedCard, "group flex min-h-14 items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 font-black text-slate-900 transition hover:border-blue-300 hover:bg-blue-50")}
               >
                 {link.label}
                 <ArrowRight
@@ -873,17 +888,17 @@ export default function EmergencyElectricianSydneyPage() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-[#160208] via-[#020617] to-[#031640] py-24 text-white">
+      <section className={cx(styles.finalCta, "bg-gradient-to-r from-[#160208] via-[#061E72] to-[#082A86] py-24 text-white")}>
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-red-300">
+            <p className={cx(styles.redEyebrow, "text-sm font-black uppercase tracking-[0.35em] text-red-300")}>
               Emergency electrical fault?
             </p>
 
-            <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+            <h2 className={cx(styles.sectionTitle, "mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl")}>
               Call first for no power, smoke and burning smells or sparking.
             </h2>
-            <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-300">
+            <p className={cx(styles.sectionText, "mt-4 max-w-2xl text-lg leading-8 text-slate-300")}>
               Planned work can go through the booking form. Anything unsafe
               should start with a phone call before the affected area is used
               again.

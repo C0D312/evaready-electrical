@@ -111,7 +111,7 @@ export function TrustGraphics({
   tone?: "dark" | "light";
 }) {
   return (
-    <section className={`trust-graphics bg-[#020814] text-white ${className}`}>
+    <section className={`trust-graphics bg-[#061E72] text-white ${className}`}>
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <div className="mb-8 max-w-4xl">
           <p className="text-sm font-black uppercase tracking-[0.24em] text-cyan-300">
@@ -133,7 +133,7 @@ export function TrustGraphics({
             return (
               <article
                 key={item.title}
-                className={`group relative overflow-hidden rounded-[1.35rem] border p-4 shadow-xl shadow-slate-950/20 transition hover:-translate-y-0.5 hover:border-cyan-200/45 hover:shadow-cyan-500/10 sm:p-5 ${cardTone[tone]}`}
+                className={`group relative overflow-hidden rounded-[1.35rem] border p-4 shadow-xl shadow-blue-950/20 transition hover:-translate-y-0.5 hover:border-cyan-200/45 hover:shadow-cyan-500/10 sm:p-5 ${cardTone[tone]}`}
               >
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200/45 to-transparent" />
                 <div className="flex items-start gap-3 xl:block">

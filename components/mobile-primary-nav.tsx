@@ -100,7 +100,7 @@ export function MobilePrimaryNav() {
       <button
         type="button"
         aria-label="Close navigation menu"
-        className="absolute inset-0 bg-slate-950/55"
+        className="absolute inset-0 bg-[#061E72]/55"
         onClick={() => setOpen(false)}
       />
 

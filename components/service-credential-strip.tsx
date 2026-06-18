@@ -174,7 +174,7 @@ export function ServiceCredentialStrip({
         return (
           <div
             key={`${item.title}-${item.text ?? ""}`}
-            className={`inline-flex min-h-12 min-w-0 flex-1 basis-[12rem] items-center gap-2.5 rounded-2xl border px-3 py-2 shadow-lg shadow-slate-950/10 backdrop-blur-md sm:flex-none ${stripTone[tone]}`}
+            className={`inline-flex min-h-12 min-w-0 flex-1 basis-[12rem] items-center gap-2.5 rounded-2xl border px-3 py-2 shadow-lg shadow-blue-950/10 backdrop-blur-md sm:flex-none ${stripTone[tone]}`}
           >
             <span
               className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${iconTone[tone]}`}

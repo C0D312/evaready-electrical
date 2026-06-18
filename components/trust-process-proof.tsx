@@ -315,7 +315,7 @@ export function TrustProcessProof({
 
   return (
     <section
-      className={`trust-process-proof bg-[#020814] py-12 text-white sm:py-16 ${className}`}
+      className={`trust-process-proof bg-[#061E72] py-12 text-white sm:py-16 ${className}`}
       aria-labelledby={`trust-process-proof-${variant}`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -348,7 +348,7 @@ export function TrustProcessProof({
                 return (
                   <article
                     key={item.title}
-                    className="rounded-2xl border border-cyan-300/18 bg-white/[0.055] p-5 shadow-xl shadow-slate-950/18 ring-1 ring-white/5"
+                    className="rounded-2xl border border-cyan-300/18 bg-white/[0.055] p-5 shadow-xl shadow-blue-950/18 ring-1 ring-white/5"
                   >
                     <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-300/12 text-cyan-200">
                       <Icon className="h-5 w-5" aria-hidden="true" />
@@ -368,7 +368,7 @@ export function TrustProcessProof({
               {checklistGroups.map((group) => (
                 <article
                   key={group.title}
-                  className="rounded-2xl border border-cyan-300/18 bg-[linear-gradient(135deg,rgba(7,18,38,0.92),rgba(8,35,65,0.78))] p-5 shadow-xl shadow-slate-950/18"
+                  className="rounded-2xl border border-cyan-300/18 bg-[linear-gradient(135deg,rgba(8,42,134,0.92),rgba(8,35,65,0.78))] p-5 shadow-xl shadow-blue-950/18"
                 >
                   <h3 className="text-lg font-black text-white">
                     {group.title}

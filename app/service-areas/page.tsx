@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import type { Metadata } from "next";
 import {
   ArrowRight,
@@ -184,7 +184,7 @@ export default function AreasPage() {
   });
 
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white text-[#061E72]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(schema)}
@@ -219,7 +219,7 @@ export default function AreasPage() {
         </p>
 
         <div className="mt-6 grid max-w-4xl gap-3 lg:grid-cols-2">
-          <div className="rounded-lg border border-red-300/30 bg-red-500/15 p-4 shadow-lg shadow-slate-950/20">
+          <div className="rounded-lg border border-red-300/30 bg-red-500/15 p-4 shadow-lg shadow-blue-950/20">
             <p className="text-xs font-black uppercase tracking-[0.2em] text-red-100">
               Emergency fault
             </p>
@@ -229,7 +229,7 @@ export default function AreasPage() {
               unsafe electrical equipment.
             </p>
           </div>
-          <div className="rounded-lg border border-cyan-300/25 bg-white/10 p-4 shadow-lg shadow-slate-950/20">
+          <div className="rounded-lg border border-cyan-300/25 bg-white/10 p-4 shadow-lg shadow-blue-950/20">
             <p className="text-xs font-black uppercase tracking-[0.2em] text-cyan-100">
               Planned work
             </p>
@@ -240,7 +240,7 @@ export default function AreasPage() {
           </div>
         </div>
 
-        <div className="mt-5 max-w-4xl rounded-lg border border-cyan-300/25 bg-white/10 p-4 shadow-lg shadow-slate-950/20">
+        <div className="mt-5 max-w-4xl rounded-lg border border-cyan-300/25 bg-white/10 p-4 shadow-lg shadow-blue-950/20">
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {[
               `${business.emergencyResponse.coreMinutes}-minute emergency response in core service areas`,
@@ -271,7 +271,7 @@ export default function AreasPage() {
           {responseRegionGroups.map((group) => (
             <section
               key={group.heading}
-              className="rounded-lg border border-cyan-300/25 bg-[#061A3A]/80 p-4 shadow-lg shadow-slate-950/20"
+              className="rounded-lg border border-cyan-300/25 bg-[#0A349E]/80 p-4 shadow-lg shadow-blue-950/20"
               aria-label={group.heading}
             >
               <p
@@ -299,7 +299,7 @@ export default function AreasPage() {
               </div>
             </section>
           ))}
-          <p className="rounded-lg border border-cyan-300/25 bg-white/10 p-4 text-sm font-semibold leading-6 text-slate-200 shadow-lg shadow-slate-950/20 lg:col-span-2">
+          <p className="rounded-lg border border-cyan-300/25 bg-white/10 p-4 text-sm font-semibold leading-6 text-slate-200 shadow-lg shadow-blue-950/20 lg:col-span-2">
             Search your suburb or postcode for the local page. Core and
             greater-region timing applies to emergency electrical call-outs
             only.
@@ -360,19 +360,19 @@ export default function AreasPage() {
         </div>
       </section>
 
-      <section className="border-y border-cyan-300/15 bg-[#020814] text-white">
+      <section className="border-y border-cyan-300/15 bg-[#061E72] text-white">
         <div className="mx-auto grid max-w-7xl gap-3 px-4 py-4 sm:grid-cols-3 sm:px-6 lg:px-8">
-          <div className="rounded-lg border border-cyan-300/25 bg-[#061A3A] p-4 shadow-lg shadow-slate-950/30">
+          <div className="rounded-lg border border-cyan-300/25 bg-[#0A349E] p-4 shadow-lg shadow-blue-950/30">
             <p className="text-3xl font-black">{coverageStats.regionCount}</p>
             <p className="mt-1 text-sm font-semibold text-slate-300">
               Regions
             </p>
           </div>
-          <div className="rounded-lg border border-cyan-300/25 bg-[#061A3A] p-4 shadow-lg shadow-slate-950/30">
+          <div className="rounded-lg border border-cyan-300/25 bg-[#0A349E] p-4 shadow-lg shadow-blue-950/30">
             <p className="text-3xl font-black">{coverageStats.areaCount}</p>
             <p className="mt-1 text-sm font-semibold text-slate-300">Areas</p>
           </div>
-          <div className="rounded-lg border border-cyan-300/25 bg-[#061A3A] p-4 shadow-lg shadow-slate-950/30">
+          <div className="rounded-lg border border-cyan-300/25 bg-[#0A349E] p-4 shadow-lg shadow-blue-950/30">
             <p className="text-3xl font-black">{coverageStats.suburbCount}</p>
             <p className="mt-1 text-sm font-semibold text-slate-300">
               Suburbs
@@ -441,7 +441,7 @@ export default function AreasPage() {
                 href={shortcut.href}
                 className="group rounded-lg border border-slate-200 bg-slate-50 p-4 transition hover:-translate-y-0.5 hover:border-blue-600 hover:bg-blue-50 hover:shadow-lg"
               >
-                <span className="block text-base font-black text-slate-950">
+                <span className="block text-base font-black text-[#061E72]">
                   {shortcut.label}
                 </span>
                 <span className="mt-2 block text-sm font-semibold leading-6 text-slate-600">
@@ -479,7 +479,7 @@ export default function AreasPage() {
                 href={item.href}
                 className="group rounded-lg border border-slate-200 bg-slate-50 p-4 transition hover:-translate-y-0.5 hover:border-blue-600 hover:bg-blue-50 hover:shadow-lg"
               >
-                <span className="block text-base font-black text-slate-950">
+                <span className="block text-base font-black text-[#061E72]">
                   Electrician {item.suburbName} {item.postcode}
                 </span>
                 <span className="mt-2 block text-sm font-semibold leading-6 text-slate-600">
@@ -591,7 +591,7 @@ export default function AreasPage() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-[#031640] via-[#020617] to-[#43040e] py-20 text-white">
+      <section className="bg-gradient-to-r from-[#082A86] via-[#061E72] to-[#43040e] py-20 text-white">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-300">

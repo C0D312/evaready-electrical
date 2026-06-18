@@ -120,11 +120,11 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
   };
   const landingCardStyles = {
     emergency:
-      "border-red-400/30 bg-gradient-to-br from-red-950 via-slate-950 to-slate-950 text-red-100",
+      "border-red-400/30 bg-gradient-to-br from-red-950 via-[#082A86] to-[#061E72] text-red-100",
     general:
-      "border-cyan-300/25 bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-cyan-100",
+      "border-cyan-300/25 bg-gradient-to-br from-[#061E72] via-[#0A349E] to-blue-950 text-cyan-100",
     level2:
-      "border-blue-300/30 bg-gradient-to-br from-blue-950 via-slate-950 to-slate-950 text-blue-100",
+      "border-blue-300/30 bg-gradient-to-br from-blue-950 via-[#082A86] to-[#061E72] text-blue-100",
   };
   const suburbFaqs = [
     {
@@ -174,7 +174,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
   );
 
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white text-[#061E72]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(schema)}
@@ -240,7 +240,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
 
       <TrustSymbolBand className="border-b border-slate-200" />
 
-      <section className="bg-[#020814] py-14 text-white">
+      <section className="bg-[#061E72] py-14 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-200">
             Suburb electrical support
@@ -296,7 +296,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         </div>
       </section>
 
-      <section className="border-b border-cyan-300/15 bg-[#020814] py-12 text-white sm:py-16">
+      <section className="border-b border-cyan-300/15 bg-[#061E72] py-12 text-white sm:py-16">
         <div className="mx-auto grid max-w-7xl gap-5 px-4 sm:px-6 lg:grid-cols-[1fr_1fr_1.1fr] lg:px-8">
           <article
             data-suburb-action-card="call-first"
@@ -366,7 +366,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
               data-quote-trigger="true"
               data-conversion-action="quote-click"
               aria-haspopup="dialog"
-              className="mt-7 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-cyan-300 px-5 py-3 text-center text-sm font-black uppercase tracking-[0.2em] text-slate-950 shadow-lg shadow-cyan-950/20 transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+              className="mt-7 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-cyan-300 px-5 py-3 text-center text-sm font-black uppercase tracking-[0.2em] text-[#061E72] shadow-lg shadow-cyan-950/20 transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-[#061E72]"
             >
               Open quote form
               <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
@@ -399,7 +399,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                 href={business.phoneHref}
                 data-suburb-action-link="level-2-call"
                 data-conversion-action="phone-click"
-                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-3 text-center text-sm font-black uppercase tracking-[0.18em] text-white shadow-lg shadow-red-950/25 transition hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-3 text-center text-sm font-black uppercase tracking-[0.18em] text-white shadow-lg shadow-red-950/25 transition hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-200 focus:ring-offset-2 focus:ring-offset-[#061E72]"
               >
                 <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
                 Call Level 2 0461 247 247
@@ -408,7 +408,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                 <Link
                   href="/level-2-electrician-sydney"
                   data-suburb-action-link="level-2-services"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-cyan-300/45 px-4 py-3 text-center text-sm font-black uppercase tracking-[0.18em] text-cyan-100 transition hover:border-cyan-200 hover:bg-cyan-300/10 focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-cyan-300/45 px-4 py-3 text-center text-sm font-black uppercase tracking-[0.18em] text-cyan-100 transition hover:border-cyan-200 hover:bg-cyan-300/10 focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-[#061E72]"
                 >
                   Level 2 services
                   <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
@@ -419,7 +419,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                   data-quote-trigger="true"
                   data-conversion-action="quote-click"
                   aria-haspopup="dialog"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white px-4 py-3 text-center text-sm font-black uppercase tracking-[0.18em] text-slate-950 transition hover:bg-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white px-4 py-3 text-center text-sm font-black uppercase tracking-[0.18em] text-[#061E72] transition hover:bg-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-[#061E72]"
                 >
                   Send details
                 </a>
@@ -494,7 +494,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                 key={item.title}
                 className="rounded-lg border border-slate-200 bg-slate-50 p-6"
               >
-                <h3 className="text-xl font-black text-slate-950">
+                <h3 className="text-xl font-black text-[#061E72]">
                   {item.title}
                 </h3>
                 <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
@@ -586,7 +586,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                 href={item.href}
                 className="group rounded-lg border border-slate-200 bg-white p-6 transition hover:border-blue-600 hover:bg-blue-50"
               >
-                <h3 className="text-xl font-black text-slate-950">
+                <h3 className="text-xl font-black text-[#061E72]">
                   {item.title}
                 </h3>
                 <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
@@ -642,7 +642,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                   aria-haspopup="dialog"
                   className="group rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-600 hover:bg-blue-50"
                 >
-                  <h3 className="text-xl font-black text-slate-950">
+                  <h3 className="text-xl font-black text-[#061E72]">
                     {item.label}
                   </h3>
                   <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
@@ -657,7 +657,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                   href={item.href}
                   className="group rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-600 hover:bg-blue-50"
                 >
-                  <h3 className="text-xl font-black text-slate-950">
+                  <h3 className="text-xl font-black text-[#061E72]">
                     {item.label}
                   </h3>
                   <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
@@ -728,7 +728,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-[#031640] via-[#020617] to-[#43040e] py-20 text-white">
+      <section className="bg-gradient-to-r from-[#082A86] via-[#061E72] to-[#43040e] py-20 text-white">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-300">

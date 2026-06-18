@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { business } from "@/data/site";
 import { legalSeoMetadata, toMetadata } from "@/lib/seo-metadata";
@@ -20,13 +20,13 @@ export default function TermsPage() {
   return (
     <>
       <SiteHeader />
-      <main className="legal-page bg-[#020814] text-white">
+      <main className="legal-page bg-[#061E72] text-white">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
         />
         <section className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-          <div className="rounded-[2rem] border border-cyan-300/20 bg-slate-950/75 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.35)] sm:p-8 lg:p-10">
+          <div className="rounded-[2rem] border border-cyan-300/20 bg-[#061E72]/75 p-6 shadow-[0_24px_80px_rgba(4,28,112,0.35)] sm:p-8 lg:p-10">
             <p className="text-sm font-black uppercase tracking-[0.28em] text-cyan-300">
               Evaready Electrical
             </p>
@@ -210,7 +210,7 @@ export default function TermsPage() {
 
           <section
             aria-labelledby="terms-cta-heading"
-            className="mt-3 rounded-[2rem] border border-cyan-300/20 bg-gradient-to-br from-slate-900 via-slate-950 to-[#051b34] p-6 shadow-[0_20px_70px_rgba(0,0,0,0.35)] sm:p-8"
+            className="mt-3 rounded-[2rem] border border-cyan-300/20 bg-gradient-to-br from-[#082A86] via-[#082A86] to-[#084CC4] p-6 shadow-[0_20px_70px_rgba(4,28,112,0.35)] sm:p-8"
           >
             <p className="text-sm font-black uppercase tracking-[0.24em] text-cyan-300">
               Next step

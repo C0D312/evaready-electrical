@@ -77,7 +77,7 @@ export default function ContactPage() {
   return (
     <>
       <SiteHeader />
-      <main className="bg-[#020814] text-white">
+      <main className="bg-[#061E72] text-white">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
@@ -87,9 +87,9 @@ export default function ContactPage() {
           dangerouslySetInnerHTML={schemaJson(contactPointSchema)}
         />
 
-        <section className="brand-internal-hero relative overflow-hidden bg-slate-950 text-white">
+        <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(0,200,255,0.22),transparent_30%),radial-gradient(circle_at_86%_24%,rgba(255,18,54,0.2),transparent_32%)]" />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#020814]/96 via-[#061A3A]/88 to-[#020814]/82" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#061E72]/96 via-[#0A349E]/88 to-[#061E72]/82" />
           <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-20">
             <div className="max-w-4xl">
               <p className="mb-5 inline-flex rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
@@ -131,7 +131,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <aside className="rounded-[2rem] border border-cyan-300/20 bg-white/[0.055] p-6 shadow-2xl shadow-slate-950/20 sm:p-8">
+            <aside className="rounded-[2rem] border border-cyan-300/20 bg-white/[0.055] p-6 shadow-2xl shadow-blue-950/20 sm:p-8">
               <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
                 Direct options
               </p>
@@ -148,7 +148,7 @@ export default function ContactPage() {
                     <a
                       key={option.title}
                       href={option.href}
-                      className="flex min-h-16 items-center gap-4 rounded-2xl border border-cyan-300/16 bg-slate-950/55 p-4 text-left transition hover:border-cyan-200/45 hover:bg-slate-900"
+                      className="flex min-h-16 items-center gap-4 rounded-2xl border border-cyan-300/16 bg-[#061E72]/55 p-4 text-left transition hover:border-cyan-200/45 hover:bg-[#082A86]"
                       data-conversion-action={
                         isPhone ? "phone-click" : isQuote ? "quote-click" : undefined
                       }
@@ -174,7 +174,7 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <section className="bg-slate-50 px-4 py-12 text-slate-950 sm:px-6 sm:py-16 lg:px-8">
+        <section className="bg-slate-50 px-4 py-12 text-[#061E72] sm:px-6 sm:py-16 lg:px-8">
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.82fr_1.18fr]">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.22em] text-blue-700">
@@ -229,7 +229,7 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <section className="bg-white px-4 py-12 text-slate-950 sm:px-6 sm:py-16 lg:px-8">
+        <section className="bg-white px-4 py-12 text-[#061E72] sm:px-6 sm:py-16 lg:px-8">
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.95fr_1.05fr]">
             <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-6 sm:p-8">
               <p className="text-xs font-black uppercase tracking-[0.22em] text-blue-700">
@@ -257,7 +257,7 @@ export default function ContactPage() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="inline-flex min-h-12 items-center justify-between gap-3 rounded-2xl border border-cyan-300/16 bg-slate-950/55 px-4 py-3 text-sm font-black text-white transition hover:border-cyan-200/45 hover:bg-slate-900"
+                    className="inline-flex min-h-12 items-center justify-between gap-3 rounded-2xl border border-cyan-300/16 bg-[#061E72]/55 px-4 py-3 text-sm font-black text-white transition hover:border-cyan-200/45 hover:bg-[#082A86]"
                   >
                     {link.label}
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -284,7 +284,7 @@ export default function ContactPage() {
                 </p>
               </div>
               <div className="grid gap-3 sm:grid-cols-2">
-                <div className="rounded-2xl border border-cyan-300/16 bg-slate-950/55 p-5">
+                <div className="rounded-2xl border border-cyan-300/16 bg-[#061E72]/55 p-5">
                   <ShieldCheck
                     className="h-5 w-5 text-cyan-200"
                     aria-hidden="true"
@@ -293,7 +293,7 @@ export default function ContactPage() {
                     NSW Electrical Licence {business.licence}
                   </p>
                 </div>
-                <div className="rounded-2xl border border-cyan-300/16 bg-slate-950/55 p-5">
+                <div className="rounded-2xl border border-cyan-300/16 bg-[#061E72]/55 p-5">
                   <ShieldCheck
                     className="h-5 w-5 text-cyan-200"
                     aria-hidden="true"

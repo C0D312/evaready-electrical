@@ -33,7 +33,7 @@ export function QuoteRequestPanel({
             <div className="flex items-start gap-3">
               <ShieldAlert className="mt-1 h-6 w-6 shrink-0 text-red-600" />
               <div>
-                <p className="font-black text-slate-950">
+                <p className="font-black text-[#061E72]">
                   Electrical issue feels unsafe?
                 </p>
                 <p className="mt-1 text-sm font-semibold leading-6 text-slate-600">
@@ -56,7 +56,7 @@ export function QuoteRequestPanel({
           </div>
         </div>
 
-        <div className="quote-request-card rounded-lg border border-white/10 bg-slate-950 p-4 text-white shadow-xl shadow-slate-950/15 sm:p-5">
+        <div className="quote-request-card rounded-lg border border-white/10 bg-[#061E72] p-4 text-white shadow-xl shadow-blue-950/15 sm:p-5">
           <div>
             <p className="hidden text-xs font-black uppercase tracking-[0.18em] text-cyan-200 sm:block sm:text-sm sm:tracking-[0.2em]">
               Job details

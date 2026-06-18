@@ -11,7 +11,7 @@ export function QuoteProcessGraphic({ className = "" }: { className?: string }) 
   return (
     <section
       aria-labelledby="quote-process-heading"
-      className={`quote-process-graphic rounded-[1.35rem] border border-cyan-300/18 bg-[#020814] p-4 text-white shadow-xl shadow-slate-950/15 sm:p-6 ${className}`}
+      className={`quote-process-graphic rounded-[1.35rem] border border-cyan-300/18 bg-[#061E72] p-4 text-white shadow-xl shadow-blue-950/15 sm:p-6 ${className}`}
     >
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>

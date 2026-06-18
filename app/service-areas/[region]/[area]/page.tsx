@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowRight, CheckCircle2, MapPin, Phone } from "lucide-react";
 import { notFound } from "next/navigation";
@@ -156,7 +156,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
   });
 
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white text-[#061E72]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(electricianSchema)}
@@ -248,7 +248,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
                 key={item.title}
                 className="rounded-lg border border-slate-200 bg-slate-50 p-5"
               >
-                <h3 className="text-lg font-black text-slate-950">
+                <h3 className="text-lg font-black text-[#061E72]">
                   {item.title}
                 </h3>
                 <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
@@ -307,7 +307,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
                 <span className="block text-sm font-black uppercase tracking-[0.24em] text-blue-700">
                   Nearby high-value page
                 </span>
-                <span className="mt-2 block text-2xl font-black text-slate-950">
+                <span className="mt-2 block text-2xl font-black text-[#061E72]">
                   {strathfieldSuburbCrossLink.title}
                 </span>
                 <span className="mt-2 block max-w-3xl leading-7 text-slate-600">
@@ -405,7 +405,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-[#031640] via-[#020617] to-[#43040e] py-20 text-white">
+      <section className="bg-gradient-to-r from-[#082A86] via-[#061E72] to-[#43040e] py-20 text-white">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-300">

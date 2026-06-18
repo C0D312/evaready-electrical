@@ -16,12 +16,12 @@ export function GoogleReviewProof({
 }: GoogleReviewProofProps) {
   return (
     <section
-      className={`google-review-proof overflow-hidden bg-[#020814] py-8 text-white sm:py-10 ${className}`}
+      className={`google-review-proof overflow-hidden bg-[#061E72] py-8 text-white sm:py-10 ${className}`}
       aria-labelledby="google-review-proof-heading"
     >
       <div className="google-review-proof__container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div
-          className="google-review-proof__panel flex flex-col gap-5 rounded-2xl border border-cyan-300/20 bg-[rgba(7,18,38,0.88)] p-4 shadow-2xl shadow-cyan-950/20 ring-1 ring-white/5 sm:p-5 lg:flex-row lg:items-center lg:justify-between"
+          className="google-review-proof__panel flex flex-col gap-5 rounded-2xl border border-cyan-300/20 bg-[rgba(8,42,134,0.88)] p-4 shadow-2xl shadow-cyan-950/20 ring-1 ring-white/5 sm:p-5 lg:flex-row lg:items-center lg:justify-between"
         >
           <div className="google-review-proof__copy max-w-3xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-cyan-300/25 bg-cyan-400/10 px-3 py-2 text-xs font-black uppercase tracking-[0.18em] text-cyan-100">

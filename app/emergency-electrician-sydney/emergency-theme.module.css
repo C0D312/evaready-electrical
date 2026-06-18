@@ -1,0 +1,443 @@
+.page {
+  --ev-page-bg: var(--ev-black);
+  --ev-card-border: rgba(89, 219, 252, 0.22);
+  --ev-card-border-strong: rgba(89, 219, 252, 0.36);
+  --ev-card-shadow: 0 24px 70px rgba(4, 28, 112, 0.36);
+  --ev-red-border: rgba(226, 16, 29, 0.36);
+  --ev-red-panel: linear-gradient(
+    135deg,
+    rgba(122, 7, 19, 0.9) 0%,
+    rgba(11, 62, 175, 0.9) 54%,
+    rgba(8, 42, 134, 0.96) 100%
+  );
+  --ev-blue-panel: linear-gradient(
+    135deg,
+    rgba(11, 62, 175, 0.94) 0%,
+    rgba(8, 76, 196, 0.9) 56%,
+    rgba(8, 42, 134, 0.96) 100%
+  );
+  min-height: 100vh;
+  overflow-x: clip;
+  background:
+    radial-gradient(circle at 12% 6%, rgba(3, 157, 254, 0.18), transparent 26rem),
+    linear-gradient(180deg, var(--ev-black), var(--ev-void) 52%, var(--ev-black));
+  color: var(--ev-silver);
+}
+
+.page :global(.site-header) {
+  border-bottom-color: rgba(89, 219, 252, 0.28);
+  background:
+    linear-gradient(90deg, rgba(6, 30, 114, 0.97), rgba(10, 52, 158, 0.96) 58%, rgba(8, 42, 134, 0.97));
+  box-shadow:
+    0 14px 48px rgba(4, 28, 112, 0.32),
+    0 1px 0 rgba(89, 219, 252, 0.14) inset;
+}
+
+.page :global(.site-header nav a) {
+  color: rgba(212, 233, 236, 0.86);
+}
+
+.page :global(.site-header nav a:hover),
+.page :global(.site-header nav a:focus-visible) {
+  color: var(--ev-cyan);
+}
+
+.page :global(.site-header-quote),
+.quoteButton {
+  border: 1px solid rgba(89, 219, 252, 0.46);
+  background:
+    linear-gradient(135deg, var(--ev-royal-blue), var(--ev-electric-blue)) !important;
+  color: var(--ev-white);
+  box-shadow:
+    0 18px 42px rgba(3, 157, 254, 0.28),
+    0 0 0 1px rgba(255, 255, 255, 0.16) inset;
+}
+
+.page :global(.site-header-quote:hover),
+.quoteButton:hover {
+  border-color: rgba(89, 219, 252, 0.7);
+  background:
+    linear-gradient(135deg, var(--ev-cobalt), var(--ev-cyan)) !important;
+  box-shadow:
+    0 20px 50px rgba(3, 157, 254, 0.36),
+    0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+}
+
+.page :global(.site-header a[href^="tel:"]),
+.callButton {
+  border: 1px solid rgba(255, 149, 158, 0.46);
+  background:
+    linear-gradient(135deg, var(--ev-red-dark), var(--ev-red), var(--ev-red-bright)) !important;
+  color: var(--ev-white);
+  box-shadow:
+    0 18px 46px rgba(226, 16, 29, 0.36),
+    0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+}
+
+.page :global(.site-header a[href^="tel:"]:hover),
+.callButton:hover {
+  background:
+    linear-gradient(135deg, #940a18, var(--ev-red-bright), #ff5b67) !important;
+  box-shadow:
+    0 22px 54px rgba(226, 16, 29, 0.44),
+    0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+}
+
+.page :global(.emergency-issue-marquee) {
+  border-color: rgba(89, 219, 252, 0.24);
+  background:
+    linear-gradient(90deg, var(--ev-royal-blue), var(--ev-cyan), var(--ev-red)) top / 100% 2px no-repeat,
+    linear-gradient(90deg, var(--ev-royal-blue), var(--ev-cyan), var(--ev-red)) bottom / 100% 2px no-repeat,
+    linear-gradient(90deg, var(--ev-black), var(--ev-panel), rgba(122, 7, 19, 0.78));
+}
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  border-bottom: 1px solid rgba(89, 219, 252, 0.18);
+  background:
+    radial-gradient(circle at 25% 17%, rgba(3, 157, 254, 0.24), transparent 26rem),
+    radial-gradient(circle at 72% 14%, rgba(89, 219, 252, 0.12), transparent 22rem),
+    linear-gradient(135deg, var(--ev-black), var(--ev-midnight) 58%, var(--ev-void));
+}
+
+.heroWash {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(226, 16, 29, 0.16), transparent 20rem),
+    radial-gradient(circle at 42% 20%, rgba(3, 157, 254, 0.28), transparent 27rem),
+    radial-gradient(circle at 88% 32%, rgba(89, 219, 252, 0.18), transparent 24rem) !important;
+}
+
+.heroTint {
+  background:
+    linear-gradient(90deg, rgba(6, 30, 114, 0.96) 0%, rgba(10, 52, 158, 0.88) 37%, rgba(6, 30, 114, 0.34) 63%, rgba(6, 30, 114, 0.08) 100%),
+    linear-gradient(180deg, rgba(6, 30, 114, 0.14), rgba(6, 30, 114, 0.54)) !important;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 4;
+}
+
+.eyebrow,
+.sectionEyebrow,
+.redEyebrow {
+  color: #ffd8dd;
+  border-color: rgba(226, 16, 29, 0.42);
+  background:
+    linear-gradient(135deg, rgba(122, 7, 19, 0.74), rgba(11, 62, 175, 0.68));
+  box-shadow: 0 0 22px rgba(226, 16, 29, 0.12);
+}
+
+.blueEyebrow {
+  color: var(--ev-cyan);
+  border-color: rgba(89, 219, 252, 0.34);
+  background: rgba(3, 157, 254, 0.1);
+}
+
+.heroTitle {
+  color: var(--ev-white);
+  text-shadow: 0 8px 34px rgba(4, 28, 112, 0.38);
+}
+
+.heroLead {
+  color: var(--ev-silver);
+}
+
+.heroPlanned {
+  color: var(--ev-cyan);
+}
+
+.heroResponse {
+  border-color: rgba(226, 16, 29, 0.34);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(226, 16, 29, 0.22), transparent 32%),
+    linear-gradient(135deg, rgba(122, 7, 19, 0.72), rgba(11, 62, 175, 0.72));
+  color: #fff1f3;
+  box-shadow: 0 20px 54px rgba(4, 28, 112, 0.28);
+}
+
+.heroPanel {
+  border-color: rgba(89, 219, 252, 0.28) !important;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(226, 16, 29, 0.12), transparent 30%),
+    linear-gradient(135deg, rgba(8, 42, 134, 0.92), rgba(11, 62, 175, 0.9) 54%, rgba(6, 30, 114, 0.96)) !important;
+  box-shadow:
+    0 28px 84px rgba(4, 28, 112, 0.4),
+    0 0 0 1px rgba(89, 219, 252, 0.12) inset,
+    0 0 44px rgba(3, 157, 254, 0.12);
+}
+
+.heroPanelItem,
+.trustCard,
+.faqCard,
+.relatedCard {
+  border-color: var(--ev-card-border) !important;
+  background: var(--ev-blue-panel) !important;
+  color: var(--ev-silver);
+  box-shadow: var(--ev-card-shadow);
+}
+
+.heroPanelItem p,
+.trustCard p,
+.faqCard p,
+.relatedCard p {
+  color: rgba(212, 233, 236, 0.78) !important;
+}
+
+.heroPanelItem svg,
+.hazardCard svg,
+.warningCard svg,
+.safetyCard svg,
+.processNumber {
+  color: #ffbdc5 !important;
+}
+
+.secondaryQuoteButton {
+  border-color: rgba(89, 219, 252, 0.42) !important;
+  background:
+    linear-gradient(135deg, rgba(11, 62, 175, 0.92), rgba(3, 157, 254, 0.22)) !important;
+  color: var(--ev-white) !important;
+  box-shadow:
+    0 18px 40px rgba(3, 157, 254, 0.16),
+    0 0 0 1px rgba(89, 219, 252, 0.12) inset;
+}
+
+.secondaryQuoteButton:hover {
+  border-color: rgba(89, 219, 252, 0.72) !important;
+  background:
+    linear-gradient(135deg, rgba(1, 24, 168, 0.86), rgba(3, 157, 254, 0.72)) !important;
+}
+
+.page :is(a, button):focus-visible {
+  outline: 3px solid var(--ev-cyan);
+  outline-offset: 3px;
+}
+
+.blueSection,
+.darkSection,
+.processSection,
+.finalCta {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(3, 157, 254, 0.14), transparent 24rem),
+    linear-gradient(180deg, var(--ev-black), var(--ev-midnight) 62%, var(--ev-void)) !important;
+  color: var(--ev-white);
+}
+
+.calmSection {
+  background:
+    radial-gradient(circle at 84% 0%, rgba(3, 157, 254, 0.1), transparent 22rem),
+    linear-gradient(180deg, var(--ev-void), var(--ev-black)) !important;
+  color: var(--ev-white);
+}
+
+.sectionTitle {
+  color: var(--ev-white);
+}
+
+.sectionText {
+  color: rgba(212, 233, 236, 0.8) !important;
+}
+
+.proofCard {
+  border-color: rgba(89, 219, 252, 0.24) !important;
+  background:
+    linear-gradient(135deg, rgba(11, 62, 175, 0.86), rgba(8, 42, 134, 0.9)) !important;
+  color: var(--ev-silver) !important;
+  box-shadow: 0 18px 44px rgba(4, 28, 112, 0.28);
+}
+
+.serviceCard,
+.relatedCard {
+  min-width: 0;
+  border-color: rgba(89, 219, 252, 0.22) !important;
+  background:
+    linear-gradient(135deg, rgba(11, 62, 175, 0.88), rgba(8, 42, 134, 0.92)) !important;
+  color: var(--ev-silver);
+}
+
+.serviceCard:hover,
+.relatedCard:hover {
+  border-color: rgba(89, 219, 252, 0.52) !important;
+  background:
+    linear-gradient(135deg, rgba(11, 62, 175, 0.96), rgba(3, 157, 254, 0.16)) !important;
+}
+
+.hazardCard,
+.warningCard,
+.safetyCard {
+  min-width: 0;
+  border-color: var(--ev-red-border) !important;
+  background: var(--ev-red-panel) !important;
+  color: var(--ev-white);
+  box-shadow:
+    0 20px 50px rgba(4, 28, 112, 0.3),
+    0 0 30px rgba(226, 16, 29, 0.1);
+}
+
+.hazardCard::before,
+.warningCard::before,
+.safetyCard::before {
+  display: block;
+  width: 0.22rem;
+  align-self: stretch;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--ev-red-bright), var(--ev-red-dark));
+  content: "";
+  flex: 0 0 0.22rem;
+}
+
+.hazardCard:hover,
+.warningCard:hover,
+.safetyCard:hover {
+  border-color: rgba(255, 149, 158, 0.58) !important;
+  background:
+    linear-gradient(135deg, rgba(122, 7, 19, 0.96), rgba(11, 62, 175, 0.95)) !important;
+}
+
+.cardTitle {
+  color: var(--ev-white) !important;
+}
+
+.cardText {
+  color: rgba(212, 233, 236, 0.78) !important;
+}
+
+.warningPanel {
+  border-color: rgba(89, 219, 252, 0.24) !important;
+  background:
+    linear-gradient(135deg, rgba(11, 62, 175, 0.88), rgba(8, 42, 134, 0.96)) !important;
+  box-shadow: var(--ev-card-shadow);
+}
+
+.processCard {
+  border-color: rgba(89, 219, 252, 0.2) !important;
+  background:
+    linear-gradient(135deg, rgba(11, 62, 175, 0.84), rgba(8, 42, 134, 0.86)) !important;
+}
+
+.processNumber {
+  background:
+    linear-gradient(135deg, var(--ev-red-dark), var(--ev-red-bright)) !important;
+  color: var(--ev-white) !important;
+  box-shadow: 0 0 24px rgba(226, 16, 29, 0.28);
+}
+
+.finalCta {
+  border-top: 1px solid rgba(226, 16, 29, 0.22);
+  box-shadow: 0 -36px 82px rgba(226, 16, 29, 0.08) inset;
+}
+
+.page :global(.emergency-trust-panel),
+.page :global(.trust-process-proof) {
+  border-color: rgba(89, 219, 252, 0.18) !important;
+  background:
+    radial-gradient(circle at 14% 0%, rgba(226, 16, 29, 0.1), transparent 22rem),
+    radial-gradient(circle at 78% 4%, rgba(3, 157, 254, 0.16), transparent 24rem),
+    linear-gradient(180deg, var(--ev-black), var(--ev-midnight) 62%, var(--ev-void)) !important;
+}
+
+.page :global(.emergency-trust-panel a),
+.page :global(.trust-process-proof article),
+.page :global(.google-review-proof),
+.page :global(.lead-offer-panel),
+.page :global(.quote-request-panel) {
+  border-color: rgba(89, 219, 252, 0.22);
+}
+
+.page :global(.google-review-proof),
+.page :global(.lead-offer-panel),
+.page :global(.quote-request-panel) {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(3, 157, 254, 0.11), transparent 22rem),
+    linear-gradient(180deg, var(--ev-void), var(--ev-black)) !important;
+  color: var(--ev-white);
+}
+
+.page :global(.google-review-proof h2),
+.page :global(.lead-offer-panel h2),
+.page :global(.quote-request-panel h2),
+.page :global(.trust-process-proof h2),
+.page :global(.emergency-trust-panel h2) {
+  color: var(--ev-white) !important;
+}
+
+.page :global(.google-review-proof p),
+.page :global(.lead-offer-panel p),
+.page :global(.quote-request-panel p),
+.page :global(.trust-process-proof p),
+.page :global(.emergency-trust-panel p) {
+  color: rgba(212, 233, 236, 0.78) !important;
+}
+
+.page :global(.service-credential-strip > div) {
+  border-color: rgba(89, 219, 252, 0.28) !important;
+  background:
+    linear-gradient(135deg, rgba(11, 62, 175, 0.82), rgba(8, 42, 134, 0.72)) !important;
+}
+
+.page :global(.service-credential-strip [class*="border-red"]) {
+  border-color: rgba(226, 16, 29, 0.38) !important;
+  background:
+    linear-gradient(135deg, rgba(122, 7, 19, 0.76), rgba(11, 62, 175, 0.76)) !important;
+}
+
+.page :global(.site-footer) {
+  border-top: 1px solid rgba(89, 219, 252, 0.18);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(3, 157, 254, 0.12), transparent 22rem),
+    linear-gradient(180deg, var(--ev-midnight), var(--ev-black) 68%, var(--ev-void)) !important;
+  color: var(--ev-silver);
+}
+
+.page :global(.footer-link:hover),
+.page :global(.footer-link:focus-visible) {
+  color: var(--ev-cyan) !important;
+}
+
+.page :global(.mobile-sticky-cta__call) {
+  background:
+    linear-gradient(135deg, var(--ev-red-dark), var(--ev-red-bright)) !important;
+  box-shadow: 0 12px 34px rgba(226, 16, 29, 0.36);
+}
+
+.page :global(.mobile-sticky-cta__quote) {
+  background:
+    linear-gradient(135deg, var(--ev-royal-blue), var(--ev-electric-blue)) !important;
+  box-shadow: 0 12px 34px rgba(3, 157, 254, 0.28);
+}
+
+@media (max-width: 767px) {
+  .page {
+    overflow-x: hidden;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .heroTint {
+    background:
+      linear-gradient(90deg, rgba(6, 30, 114, 0.94) 0%, rgba(10, 52, 158, 0.74) 48%, rgba(6, 30, 114, 0.22) 78%),
+      linear-gradient(180deg, rgba(6, 30, 114, 0.04), rgba(6, 30, 114, 0.5)) !important;
+  }
+
+  .heroPanel,
+  .warningPanel {
+    border-radius: 1.35rem;
+  }
+
+  .callButton,
+  .quoteButton,
+  .secondaryQuoteButton {
+    width: 100%;
+    min-height: 3.35rem;
+  }
+
+  .hazardCard,
+  .warningCard,
+  .safetyCard,
+  .serviceCard {
+    overflow-wrap: anywhere;
+  }
+}

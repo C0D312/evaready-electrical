@@ -32,10 +32,10 @@ export function LeadOfferPanel({
 }: LeadOfferPanelProps) {
   return (
     <section
-      className={`lead-offer-panel bg-[#020814] py-12 text-white sm:py-16 ${className}`}
+      className={`lead-offer-panel bg-[#061E72] py-12 text-white sm:py-16 ${className}`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="overflow-hidden rounded-[1.5rem] border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(7,18,38,0.96),rgba(4,24,48,0.9)_58%,rgba(55,5,18,0.78))] shadow-2xl shadow-slate-950/25 ring-1 ring-white/5">
+        <div className="overflow-hidden rounded-[1.5rem] border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(8,42,134,0.96),rgba(8,76,196,0.9)_58%,rgba(55,5,18,0.78))] shadow-2xl shadow-blue-950/25 ring-1 ring-white/5">
           <div className={`grid gap-0 ${compact ? "lg:grid-cols-[0.9fr_1.1fr]" : "lg:grid-cols-[0.82fr_1.18fr]"}`}>
             <div className="p-5 sm:p-7 lg:p-8">
               <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
@@ -80,7 +80,7 @@ export function LeadOfferPanel({
                   return (
                     <div
                       key={item}
-                      className="flex min-h-20 items-start gap-3 rounded-xl border border-cyan-300/18 bg-slate-950/45 p-4"
+                      className="flex min-h-20 items-start gap-3 rounded-xl border border-cyan-300/18 bg-[#061E72]/45 p-4"
                     >
                       <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-cyan-300/12 text-cyan-200">
                         <Icon className="h-5 w-5" aria-hidden="true" />

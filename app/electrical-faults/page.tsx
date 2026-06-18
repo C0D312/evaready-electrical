@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   AlertTriangle,
@@ -73,7 +73,7 @@ export default function ElectricalFaultsPage() {
   );
 
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white text-[#061E72]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(electricianSchema)}
@@ -89,10 +89,10 @@ export default function ElectricalFaultsPage() {
 
       <SiteHeader />
 
-      <section className="brand-internal-hero relative overflow-hidden bg-slate-950 text-white">
+      <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.08)_1px,transparent_1px)] bg-[size:44px_44px]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(37,99,235,0.28),transparent_32%),radial-gradient(circle_at_84%_18%,rgba(239,68,68,0.24),transparent_34%)]" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#031640]/95 via-slate-950/96 to-[#28020a]/95" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#082A86]/95 via-[#082A86]/96 to-[#28020a]/95" />
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_0.85fr] lg:px-8 lg:py-24">
           <div>
@@ -172,7 +172,7 @@ export default function ElectricalFaultsPage() {
                   <Icon className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="font-black text-slate-950">{item.title}</p>
+                  <p className="font-black text-[#061E72]">{item.title}</p>
                   <p className="mt-1 text-sm font-semibold leading-6 text-slate-600">
                     {item.text}
                   </p>
@@ -206,7 +206,7 @@ export default function ElectricalFaultsPage() {
                 className="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-blue-500 hover:shadow-xl"
               >
                 <Zap className="h-6 w-6 text-blue-700" />
-                <h3 className="mt-5 text-xl font-black leading-tight text-slate-950">
+                <h3 className="mt-5 text-xl font-black leading-tight text-[#061E72]">
                   {fault.title}
                 </h3>
                 <p className="mt-3 line-clamp-3 text-sm font-semibold leading-6 text-slate-600">

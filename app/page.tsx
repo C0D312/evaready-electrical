@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import {
@@ -409,7 +409,7 @@ export default function HomePage() {
   const breadcrumbSchema = buildBreadcrumbSchema([{ name: "Home", path: "/" }], "/");
 
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-950">
+    <main className="min-h-screen bg-slate-50 text-[#061E72]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(localBusinessSchema)}
@@ -425,7 +425,7 @@ export default function HomePage() {
 
       <SiteHeader />
 
-      <section className="home-brand-hero relative isolate overflow-hidden bg-[#020814] text-white">
+      <section className="home-brand-hero relative isolate overflow-hidden bg-[#061E72] text-white">
         <Image
           src={assetPath(business.heroImage)}
           alt={business.brandImageAlt}
@@ -439,23 +439,25 @@ export default function HomePage() {
 
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
           <div className="max-w-3xl">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-300/35 bg-[#061A3A]/70 px-3 py-2 text-xs font-black uppercase tracking-[0.16em] text-cyan-100 shadow-lg shadow-cyan-500/10 backdrop-blur sm:px-4">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-300/35 bg-[#0A349E]/70 px-3 py-2 text-xs font-black uppercase tracking-[0.16em] text-cyan-100 shadow-lg shadow-cyan-500/10 backdrop-blur sm:px-4">
               <Clock3 className="h-4 w-4" />
               Open 24/7 for urgent electrical faults
             </div>
 
-            <h1 className="max-w-5xl text-4xl font-black leading-[0.98] tracking-tight text-white sm:text-6xl lg:text-7xl">
-              Emergency electrical fault? Call now &mdash; {business.phoneDisplay}
-            </h1>
+            <h1
+              className="max-w-5xl text-4xl font-black leading-[0.98] tracking-tight text-white sm:text-6xl lg:text-7xl"
+              dangerouslySetInnerHTML={{
+                __html: "Emergency & Level 2 Electrician Sydney",
+              }}
+            />
 
             <p className="mt-5 max-w-2xl text-base leading-7 text-slate-100 sm:mt-6 sm:text-xl sm:leading-8">
-              Call first for no power, burning smells, sparking, repeated
-              safety-switch tripping, switchboard faults, storm damage or
-              unsafe electrical equipment. For planned work, send photos and
-              details so Evaready can confirm the next step.
+              Urgent fault support, Level 2 electrical work, switchboards,
+              fault finding and general electrical services across Sydney and
+              surrounding regions.
             </p>
 
-            <p className="mt-4 max-w-2xl rounded-lg border border-cyan-300/25 bg-[#061A3A]/70 px-4 py-3 text-sm font-black leading-6 text-cyan-50 shadow-lg shadow-cyan-950/20 sm:text-base">
+            <p className="mt-4 max-w-2xl rounded-lg border border-cyan-300/25 bg-[#0A349E]/70 px-4 py-3 text-sm font-black leading-6 text-cyan-50 shadow-lg shadow-cyan-950/20 sm:text-base">
               Planning electrical work? Send photos and job details. Emergency
               call-outs can be on site within 60 minutes in core service areas,
               with 90-minute response for greater regions. Evaready is an{" "}
@@ -480,7 +482,7 @@ export default function HomePage() {
                 data-quote-trigger="true"
                 data-conversion-action="quote-click"
                 aria-haspopup="dialog"
-                className="inline-flex min-h-14 items-center justify-center gap-3 rounded-lg border border-cyan-300/35 bg-[#061A3A]/80 px-6 py-4 text-center text-base font-black text-cyan-50 shadow-xl shadow-blue-700/15 transition hover:border-cyan-200 hover:bg-blue-700 sm:px-7"
+                className="inline-flex min-h-14 items-center justify-center gap-3 rounded-lg border border-cyan-300/35 bg-[#0A349E]/80 px-6 py-4 text-center text-base font-black text-cyan-50 shadow-xl shadow-blue-700/15 transition hover:border-cyan-200 hover:bg-blue-700 sm:px-7"
               >
                 {business.quoteCta}
                 <ArrowRight className="h-5 w-5 shrink-0" />
@@ -505,7 +507,7 @@ export default function HomePage() {
               </p>
               <h2
                 id="call-first-heading"
-                className="mt-3 text-3xl font-black leading-tight text-slate-950 sm:text-4xl"
+                className="mt-3 text-3xl font-black leading-tight text-[#061E72] sm:text-4xl"
               >
                 Call first if you notice
               </h2>
@@ -557,7 +559,7 @@ export default function HomePage() {
       </section>
 
       <section
-        className="border-b border-cyan-300/15 bg-slate-950 py-10 text-white sm:py-12"
+        className="border-b border-cyan-300/15 bg-[#061E72] py-10 text-white sm:py-12"
         aria-labelledby="who-evaready-helps-heading"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -584,7 +586,7 @@ export default function HomePage() {
                 return (
                   <article
                     key={item.title}
-                    className="rounded-lg border border-cyan-300/18 bg-white/[0.055] p-4 shadow-xl shadow-slate-950/20"
+                    className="rounded-lg border border-cyan-300/18 bg-white/[0.055] p-4 shadow-xl shadow-blue-950/20"
                   >
                     <Icon className="h-5 w-5 text-cyan-300" aria-hidden="true" />
                     <h3 className="mt-3 text-lg font-black leading-snug text-white">
@@ -612,7 +614,7 @@ export default function HomePage() {
 
       <TrustProcessProof className="border-b border-cyan-300/15" />
 
-      <section className="issue-selector-section border-y border-cyan-300/15 bg-slate-950 py-12 text-white sm:py-16">
+      <section className="issue-selector-section border-y border-cyan-300/15 bg-[#061E72] py-12 text-white sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[0.76fr_1.24fr] lg:items-start">
             <div>
@@ -657,7 +659,7 @@ export default function HomePage() {
                   <Link
                     key={issue.title}
                     href={issue.href}
-                    className="group rounded-lg border border-cyan-300/18 bg-white/[0.06] p-4 shadow-xl shadow-slate-950/20 transition hover:-translate-y-1 hover:border-cyan-300/45 hover:bg-white/[0.09]"
+                    className="group rounded-lg border border-cyan-300/18 bg-white/[0.06] p-4 shadow-xl shadow-blue-950/20 transition hover:-translate-y-1 hover:border-cyan-300/45 hover:bg-white/[0.09]"
                   >
                     <div className="flex items-start gap-3">
                       <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue-500/16 text-cyan-200">
@@ -686,7 +688,7 @@ export default function HomePage() {
 
       <section id="quote" className="bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="quote-home-card overflow-hidden rounded-lg border border-cyan-300/35 bg-slate-950 text-white shadow-2xl shadow-slate-950/15">
+          <div className="quote-home-card overflow-hidden rounded-lg border border-cyan-300/35 bg-[#061E72] text-white shadow-2xl shadow-blue-950/15">
             <div className="grid gap-0 lg:grid-cols-[1fr_auto] lg:items-center">
               <div className="p-5 sm:p-8 lg:p-10">
                 <p className="text-sm font-black uppercase tracking-[0.2em] text-cyan-200">
@@ -764,7 +766,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/services"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 font-black text-slate-950 transition hover:border-blue-700 hover:text-blue-700"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 font-black text-[#061E72] transition hover:border-blue-700 hover:text-blue-700"
             >
               View all services
               <ArrowRight className="h-4 w-4" />
@@ -784,7 +786,7 @@ export default function HomePage() {
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-700">
                     <Icon className="h-5 w-5" />
                   </span>
-                  <h3 className="mt-4 text-lg font-black leading-6 text-slate-950">
+                  <h3 className="mt-4 text-lg font-black leading-6 text-[#061E72]">
                     {service.title}
                   </h3>
                   <p className="mt-2 text-sm font-semibold leading-6 text-slate-600">
@@ -818,13 +820,13 @@ export default function HomePage() {
             <div className="mt-5 flex flex-wrap gap-3 text-sm font-black">
               <Link
                 href="/about"
-                className="inline-flex min-h-10 items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-950 transition hover:border-blue-700 hover:text-blue-700"
+                className="inline-flex min-h-10 items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-[#061E72] transition hover:border-blue-700 hover:text-blue-700"
               >
                 About Evaready
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex min-h-10 items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-950 transition hover:border-blue-700 hover:text-blue-700"
+                className="inline-flex min-h-10 items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-[#061E72] transition hover:border-blue-700 hover:text-blue-700"
               >
                 Contact
               </Link>
@@ -865,7 +867,7 @@ export default function HomePage() {
                   className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
                 >
                   <Icon className="h-7 w-7 text-blue-700" />
-                  <h3 className="mt-5 text-xl font-black text-slate-950">
+                  <h3 className="mt-5 text-xl font-black text-[#061E72]">
                     {item.title}
                   </h3>
                   <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
@@ -896,7 +898,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/service-areas"
-              className="mt-7 inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 font-black text-slate-950 transition hover:border-blue-700 hover:text-blue-700"
+              className="mt-7 inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 font-black text-[#061E72] transition hover:border-blue-700 hover:text-blue-700"
             >
               View service areas
               <MapPin className="h-5 w-5" />
@@ -913,7 +915,7 @@ export default function HomePage() {
                 <div className="flex items-start gap-3">
                   <MapPin className="mt-1 h-5 w-5 shrink-0 text-blue-700" />
                   <div>
-                    <h3 className="font-black text-slate-950">
+                    <h3 className="font-black text-[#061E72]">
                       {region.name}
                     </h3>
                     <p className="mt-1 text-sm font-semibold leading-6 text-slate-600">

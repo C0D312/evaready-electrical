@@ -125,7 +125,7 @@ export function SiteFooter() {
     <footer
       id="site-footer"
       data-site-footer
-      className="site-footer bg-[#020617] px-4 pb-[calc(6rem_+_env(safe-area-inset-bottom))] pt-8 text-white sm:px-6 md:pb-8 md:pt-10 lg:px-8"
+      className="site-footer bg-[#061E72] px-4 pb-[calc(6rem_+_env(safe-area-inset-bottom))] pt-8 text-white sm:px-6 md:pb-8 md:pt-10 lg:px-8"
     >
       <div className="footer-inner mx-auto max-w-7xl">
         <div className="grid gap-7 md:grid-cols-[minmax(17rem,1.15fr)_minmax(0,2fr)] lg:grid-cols-[minmax(18rem,1.05fr)_minmax(0,2.55fr)] lg:gap-8">
@@ -179,9 +179,9 @@ export function ServiceAreaHero({
   title: string;
 }) {
   return (
-    <section className="brand-internal-hero relative overflow-hidden bg-slate-950 text-white">
+    <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(0,200,255,0.22),transparent_30%),radial-gradient(circle_at_85%_30%,rgba(255,0,30,0.2),transparent_32%)]" />
-      <div className="absolute inset-0 bg-gradient-to-br from-[#020814]/94 via-[#061A3A]/88 to-[#020814]/76" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#061E72]/94 via-[#0A349E]/88 to-[#061E72]/76" />
 
       <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="max-w-4xl">

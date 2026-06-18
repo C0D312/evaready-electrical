@@ -89,7 +89,7 @@ export default async function ElectricalFaultDetailPage({
   );
 
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white text-[#061E72]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(electricianSchema)}
@@ -109,10 +109,10 @@ export default async function ElectricalFaultDetailPage({
 
       <SiteHeader />
 
-      <section className="brand-internal-hero relative overflow-hidden bg-slate-950 text-white">
+      <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.08)_1px,transparent_1px)] bg-[size:44px_44px]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(37,99,235,0.28),transparent_32%),radial-gradient(circle_at_84%_18%,rgba(239,68,68,0.24),transparent_34%)]" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#031640]/95 via-slate-950/96 to-[#28020a]/95" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#082A86]/95 via-[#082A86]/96 to-[#28020a]/95" />
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_0.85fr] lg:px-8 lg:py-24">
           <div>
@@ -249,7 +249,7 @@ export default async function ElectricalFaultDetailPage({
         </div>
       </section>
 
-      <section className="bg-slate-950 py-16 text-white sm:py-20">
+      <section className="bg-[#061E72] py-16 text-white sm:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.28em] text-cyan-300">
@@ -353,7 +353,7 @@ export default async function ElectricalFaultDetailPage({
                 href={service.href}
                 className="group rounded-lg border border-slate-200 bg-white p-5 transition hover:border-blue-600 hover:bg-blue-50"
               >
-                <h3 className="font-black text-slate-950">{service.label}</h3>
+                <h3 className="font-black text-[#061E72]">{service.label}</h3>
                 <span className="mt-4 inline-flex items-center gap-2 font-black text-red-600">
                   Learn more
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />

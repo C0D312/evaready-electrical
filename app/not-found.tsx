@@ -6,9 +6,9 @@ export default function NotFoundPage() {
   return (
     <>
       <SiteHeader />
-      <main className="bg-[#020814] text-white">
+      <main className="bg-[#061E72] text-white">
         <section className="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
-          <div className="rounded-3xl border border-cyan-300/20 bg-slate-950/80 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.35)] sm:p-8 lg:p-10">
+          <div className="rounded-3xl border border-cyan-300/20 bg-[#061E72]/80 p-6 shadow-[0_24px_80px_rgba(4,28,112,0.35)] sm:p-8 lg:p-10">
             <p className="text-sm font-black uppercase tracking-[0.24em] text-cyan-300">
               Page not found
             </p>

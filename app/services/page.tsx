@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import type { Metadata } from "next";
 import {
   ArrowRight,
@@ -929,7 +929,7 @@ export default function ServicesPage() {
   );
 
   return (
-    <main className="min-h-screen bg-white text-slate-950">
+    <main className="min-h-screen bg-white text-[#061E72]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(schema)}
@@ -946,9 +946,9 @@ export default function ServicesPage() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="brand-internal-hero relative overflow-hidden bg-[#020617] text-white">
+      <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(37,99,235,0.35),transparent_30%),radial-gradient(circle_at_85%_30%,rgba(239,68,68,0.25),transparent_32%)]" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#031640] via-[#020617] to-[#23020a]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#082A86] via-[#061E72] to-[#23020a]" />
 
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
           <div className="max-w-4xl">
@@ -1007,7 +1007,7 @@ export default function ServicesPage() {
                 data-conversion-action="quote-click"
                 aria-haspopup="dialog"
                 aria-label="Get a quote from Evaready Electrical"
-                className="inline-flex items-center justify-center gap-3 rounded-2xl border border-cyan-300/35 bg-white/10 px-7 py-4 text-base font-black text-white shadow-xl shadow-slate-950/20 transition hover:bg-white/15"
+                className="inline-flex items-center justify-center gap-3 rounded-2xl border border-cyan-300/35 bg-white/10 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-950/20 transition hover:bg-white/15"
               >
                 {business.quoteCta}
                 <ArrowRight className="h-5 w-5" />
@@ -1057,7 +1057,7 @@ export default function ServicesPage() {
                 key={item.problem}
                 className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
               >
-                <h3 className="text-base font-black leading-6 text-slate-950">
+                <h3 className="text-base font-black leading-6 text-[#061E72]">
                   {item.problem}
                 </h3>
                 <div className="mt-3 flex flex-wrap gap-2">
@@ -1119,7 +1119,7 @@ export default function ServicesPage() {
                 <Link
                   key={service.title}
                   href={href}
-                  className="group overflow-hidden rounded-2xl border border-cyan-300/20 bg-slate-950 p-6 text-white shadow-xl shadow-slate-950/10 transition hover:-translate-y-1 hover:border-cyan-300/55 hover:shadow-cyan-500/15"
+                  className="group overflow-hidden rounded-2xl border border-cyan-300/20 bg-[#061E72] p-6 text-white shadow-xl shadow-blue-950/10 transition hover:-translate-y-1 hover:border-cyan-300/55 hover:shadow-cyan-500/15"
                 >
                   <div className="flex items-start gap-4">
                     <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-blue-500/20 text-cyan-200">
@@ -1214,7 +1214,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-r from-[#031640] via-[#020617] to-[#43040e] py-24 text-white">
+      <section className="bg-gradient-to-r from-[#082A86] via-[#061E72] to-[#43040e] py-24 text-white">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:px-8 xl:flex-row xl:items-center">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-300">
