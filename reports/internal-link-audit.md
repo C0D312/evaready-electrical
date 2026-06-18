@@ -1,6 +1,6 @@
 # Internal Link Audit
 
-Generated: 2026-06-18T14:00:42.575Z
+Generated: 2026-06-18T14:43:27.269Z
 
 ## Route Inventory
 
