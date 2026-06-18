@@ -6306,6 +6306,16 @@ main.legal-page :is(h1, h2, p, a),
   transform: translate3d(0, 0, 0);
 }
 
+.emergency-issue-marquee__viewport {
+  min-height: calc(2.45rem + (var(--strip-rail-height, 2px) * 2)) !important;
+}
+
+.emergency-issue-marquee__track,
+.emergency-issue-marquee__group {
+  min-height: inherit !important;
+  align-items: center !important;
+}
+
 /* Evaready logo colour application: final colour-only layer for core layout. */
 body {
   background:
