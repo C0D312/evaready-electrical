@@ -13,6 +13,7 @@ import {
   Zap,
 } from "lucide-react";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
+import { GoogleRatingSeal } from "@/components/google-rating-seal";
 import { business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
@@ -188,6 +189,7 @@ export default function AboutPage() {
                   <ArrowRight className="h-5 w-5" aria-hidden="true" />
                 </a>
               </div>
+              <GoogleRatingSeal className="mt-5" variant="hero" />
             </div>
           </div>
         </section>

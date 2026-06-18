@@ -5590,16 +5590,16 @@ main.legal-page :is(h1, h2, p, a),
     line-height: 1.35 !important;
   }
 
-  .google-rating-card {
+  .google-rating-seal {
     border-radius: 1.05rem !important;
     padding: 1rem !important;
   }
 
-  .google-rating-card > div {
+  .google-rating-seal > div {
     gap: 1rem !important;
   }
 
-  .google-rating-card a {
+  .google-rating-seal a {
     min-height: 2.75rem !important;
     padding: 0.7rem 0.9rem !important;
     font-size: 0.84rem !important;
@@ -5906,7 +5906,7 @@ main.legal-page :is(h1, h2, p, a),
   }
 
   .google-review-proof,
-  .google-rating-card {
+  .google-rating-seal {
     position: relative;
     z-index: 1;
     max-width: 100%;
@@ -6580,9 +6580,8 @@ main section a.group[class*="border-slate"],
 main section a.group[class*="bg-white"],
 main section a.group[class*="bg-slate-"],
 main section a.group[class*="bg-blue-50"],
-.google-rating-card,
+.google-rating-seal,
 .google-review-proof__panel,
-.google-review-proof__cards > div,
 .quote-process-graphic,
 .quote-process-graphic li,
 .service-credential-strip > div,
@@ -6633,7 +6632,7 @@ main section .bg-red-50 :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50)
 
 main section :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50, .bg-red-50) :is(h2, h3, h4, h5, dt),
 main section :is(article, div, li, aside)[class*="rounded"] :is(h2, h3, h4, h5, dt),
-.google-rating-card :is(h2, h3, h4, p:first-child),
+.google-rating-seal :is(h2, h3, h4, p:first-child),
 .google-review-proof__panel :is(h2, h3, h4),
 .quote-process-graphic :is(h2, h3, h4),
 .service-credential-strip > div span:first-child,
@@ -6644,7 +6643,7 @@ main section :is(article, div, li, aside)[class*="rounded"] :is(h2, h3, h4, h5, 
 
 main section :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50, .bg-red-50) :is(p, dd, li, span),
 main section :is(article, div, li, aside)[class*="rounded"] :is(p, dd, li, span),
-.google-rating-card p,
+.google-rating-seal p,
 .google-review-proof__panel p,
 .quote-process-graphic :is(p, li),
 .service-credential-strip > div span,
@@ -6676,14 +6675,19 @@ main section [class*="border-red"] svg {
   color: var(--brand-white) !important;
 }
 
-.google-rating-card {
-  border-color: rgba(101, 216, 255, 0.3) !important;
+.google-rating-seal {
+  border-color: rgba(101, 216, 255, 0.34) !important;
   background:
-    radial-gradient(circle at 8% 0%, rgba(101, 216, 255, 0.16), transparent 34%),
+    radial-gradient(circle at 12% 0%, rgba(101, 216, 255, 0.18), transparent 36%),
     linear-gradient(135deg, rgba(7, 21, 51, 0.96), rgba(5, 8, 22, 0.94)) !important;
 }
 
-.google-rating-card .text-amber-300 {
+.google-rating-seal__mark {
+  color: #1a73e8 !important;
+}
+
+.google-rating-seal__stars,
+.google-rating-seal__stars svg {
   color: #ffd166 !important;
 }
 
@@ -6756,4 +6760,171 @@ a[href*="book.servicem8.com"].border {
   background:
     linear-gradient(135deg, var(--brand-royal-blue) 0%, var(--brand-electric-blue) 62%, var(--brand-cyan) 100%) !important;
   color: var(--brand-white) !important;
+}
+
+/* Emergency red colour theme: only urgent/call-first surfaces use the 24/7 red. */
+.emergency-issue-marquee {
+  border-color: var(--brand-border-red) !important;
+  background:
+    linear-gradient(90deg, var(--brand-red-dark) 0%, var(--brand-red) 52%, #ff3b46 100%) top / 100% 2px no-repeat,
+    linear-gradient(90deg, var(--brand-red-dark) 0%, var(--brand-red) 52%, #ff3b46 100%) bottom / 100% 2px no-repeat,
+    radial-gradient(circle at 12% 50%, rgba(233, 17, 30, 0.28), transparent 36%),
+    linear-gradient(90deg, rgba(3, 5, 18, 0.98) 0%, rgba(20, 7, 22, 0.98) 48%, rgba(7, 21, 51, 0.98) 100%) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 0 30px rgba(233, 17, 30, 0.14) !important;
+}
+
+.emergency-issue-marquee::before {
+  background: linear-gradient(90deg, var(--brand-black), transparent) !important;
+}
+
+.emergency-issue-marquee::after {
+  background: linear-gradient(270deg, var(--brand-black), transparent) !important;
+}
+
+.emergency-issue-chip {
+  border-color: rgba(233, 17, 30, 0.34) !important;
+  background:
+    radial-gradient(circle at 14% 0%, rgba(233, 17, 30, 0.26), transparent 38%),
+    linear-gradient(180deg, rgba(122, 7, 19, 0.76), rgba(5, 8, 22, 0.86)) !important;
+  color: var(--brand-white) !important;
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(233, 17, 30, 0.12) !important;
+}
+
+.emergency-issue-chip svg {
+  color: #ffb5bd !important;
+}
+
+a.bg-red-600,
+button.bg-red-600,
+.floating-call-button,
+.site-header a[href^="tel:"],
+.site-header-actions > a[href^="tel:"],
+.footer-action-call,
+.mobile-sticky-cta__call,
+#mobile-site-menu a[href^="tel:"],
+main section .bg-red-50 :is(a.bg-red-600, button.bg-red-600, .floating-call-button),
+main section [data-suburb-action-card="call-first"] a[href^="tel:"] {
+  border-color: rgba(255, 181, 189, 0.42) !important;
+  background:
+    linear-gradient(135deg, var(--brand-red-dark) 0%, var(--brand-red) 52%, #ff3b46 100%) !important;
+  color: var(--brand-white) !important;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.24) !important;
+  box-shadow:
+    0 18px 42px rgba(233, 17, 30, 0.36),
+    0 0 0 1px rgba(255, 255, 255, 0.14) inset,
+    0 0 28px rgba(233, 17, 30, 0.14) !important;
+}
+
+a.bg-red-600:hover,
+button.bg-red-600:hover,
+.floating-call-button:hover,
+.site-header a[href^="tel:"]:hover,
+.footer-action-call:hover,
+.mobile-sticky-cta__call:hover,
+#mobile-site-menu a[href^="tel:"]:hover {
+  background:
+    linear-gradient(135deg, #940a18 0%, #ff1526 54%, #ff5660 100%) !important;
+  box-shadow:
+    0 20px 46px rgba(233, 17, 30, 0.42),
+    0 0 0 1px rgba(255, 255, 255, 0.16) inset,
+    0 0 34px rgba(233, 17, 30, 0.18) !important;
+}
+
+main section .bg-red-50,
+main section :is(article, div, li, aside)[class*="rounded"][class*="bg-red-50"],
+main section a.group[class*="bg-red-50"],
+main section :is(article, div, li, aside)[class*="rounded"][class*="border-red"],
+main section [data-suburb-action-card="call-first"],
+.quote-modal-emergency {
+  border-color: var(--brand-border-red) !important;
+  background-color: var(--brand-red-dark) !important;
+  background-image:
+    radial-gradient(circle at 14% 0%, rgba(233, 17, 30, 0.34), transparent 34%),
+    radial-gradient(circle at 92% 12%, rgba(101, 216, 255, 0.1), transparent 30%),
+    linear-gradient(135deg, rgba(122, 7, 19, 0.96) 0%, rgba(9, 26, 56, 0.88) 58%, rgba(5, 8, 22, 0.94) 100%) !important;
+  color: var(--brand-white) !important;
+  box-shadow:
+    0 24px 58px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(233, 17, 30, 0.16) inset,
+    0 0 34px rgba(233, 17, 30, 0.14) !important;
+}
+
+main section .bg-red-50 :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50):not(a):not(button),
+main section :is(article, div, li, aside)[class*="rounded"][class*="border-red"] :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50):not(a):not(button),
+main section [data-suburb-action-card="call-first"] :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50):not(a):not(button) {
+  border-color: rgba(233, 17, 30, 0.3) !important;
+  background:
+    linear-gradient(180deg, rgba(26, 9, 24, 0.88), rgba(5, 8, 22, 0.88)) !important;
+  color: var(--brand-white) !important;
+  box-shadow: 0 0 0 1px rgba(233, 17, 30, 0.08) inset !important;
+}
+
+main section .bg-red-50 :is(h2, h3, h4, h5, p, li, span, dt, dd),
+main section :is(article, div, li, aside)[class*="rounded"][class*="border-red"] :is(h2, h3, h4, h5, p, li, span, dt, dd),
+main section [data-suburb-action-card="call-first"] :is(h2, h3, h4, h5, p, li, span, dt, dd),
+.quote-modal-emergency :is(h2, h3, h4, h5, p, li, span, dt, dd) {
+  color: rgba(255, 255, 255, 0.94) !important;
+}
+
+main section .bg-red-50 :is(.text-red-700, .text-red-600, .text-red-500, .text-red-300, .text-red-200),
+main section :is(article, div, li, aside)[class*="rounded"][class*="border-red"] :is(.text-red-700, .text-red-600, .text-red-500, .text-red-300, .text-red-200),
+main section [data-suburb-action-card="call-first"] :is(.text-red-700, .text-red-600, .text-red-500, .text-red-300, .text-red-200) {
+  color: #ffb5bd !important;
+}
+
+main section .bg-red-50 :is(svg, .text-red-700, .text-red-600),
+main section :is(article, div, li, aside)[class*="rounded"][class*="border-red"] svg,
+main section [data-suburb-action-card="call-first"] svg,
+.emergency-trust-panel [class*="border-red"] svg,
+.service-credential-strip [class*="border-red"] svg,
+.hero-credential-badges [class*="border-red"] svg {
+  color: #ffb5bd !important;
+}
+
+main section .bg-red-50 :is(span[class*="bg-red"], span[class*="bg-white"], span[class*="bg-slate"], .bg-red-100, .bg-red-50):not(a):not(button),
+main section :is(article, div, li, aside)[class*="rounded"][class*="border-red"] :is(span[class*="bg-red"], span[class*="bg-white"], span[class*="bg-slate"], .bg-red-100, .bg-red-50):not(a):not(button),
+main section [data-suburb-action-card="call-first"] :is(span[class*="bg-red"], span[class*="bg-white"], span[class*="bg-slate"], .bg-red-100, .bg-red-50):not(a):not(button) {
+  border-color: rgba(255, 181, 189, 0.26) !important;
+  background: rgba(233, 17, 30, 0.16) !important;
+  color: #ffe8eb !important;
+  box-shadow: 0 0 0 1px rgba(233, 17, 30, 0.08) inset !important;
+}
+
+main section .bg-red-50 a:not(.bg-red-600):not([data-quote-trigger="true"]),
+main section :is(article, div, li, aside)[class*="rounded"][class*="border-red"] a:not(.bg-red-600):not([data-quote-trigger="true"]),
+main section [data-suburb-action-card="call-first"] a:not(.bg-red-600):not([data-quote-trigger="true"]) {
+  border-color: rgba(255, 181, 189, 0.3) !important;
+  background: rgba(5, 8, 22, 0.72) !important;
+  color: #ffe8eb !important;
+}
+
+main section .bg-red-50 a:not(.bg-red-600):not([data-quote-trigger="true"]):hover,
+main section :is(article, div, li, aside)[class*="rounded"][class*="border-red"] a:not(.bg-red-600):not([data-quote-trigger="true"]):hover,
+main section [data-suburb-action-card="call-first"] a:not(.bg-red-600):not([data-quote-trigger="true"]):hover {
+  border-color: rgba(255, 181, 189, 0.48) !important;
+  background: rgba(233, 17, 30, 0.18) !important;
+  color: var(--brand-white) !important;
+}
+
+.service-credential-strip [class*="border-red"],
+.hero-credential-badges [class*="border-red"] {
+  border-color: rgba(255, 181, 189, 0.34) !important;
+  background:
+    radial-gradient(circle at 16% 0%, rgba(233, 17, 30, 0.24), transparent 36%),
+    linear-gradient(180deg, rgba(122, 7, 19, 0.74), rgba(5, 8, 22, 0.82)) !important;
+  color: var(--brand-white) !important;
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.24),
+    0 0 18px rgba(233, 17, 30, 0.1) !important;
+}
+
+.emergency-trust-panel {
+  border-color: rgba(233, 17, 30, 0.18) !important;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(233, 17, 30, 0.14), transparent 30%),
+    linear-gradient(180deg, var(--brand-black), var(--brand-midnight) 62%, var(--brand-black)) !important;
 }

@@ -377,7 +377,7 @@ async function pageSnapshot(page: Page): Promise<PageSnapshot> {
     const header = document.querySelector("header");
     const marquee = document.querySelector(".emergency-issue-marquee");
     const googleBlock = document.querySelector(
-      ".google-rating-card, [data-google-review-proof]",
+      ".google-rating-seal, .google-review-proof, [data-google-review-proof]",
     );
     const hasHeroImage = Array.from(document.images).some((image) => {
       const src = image.getAttribute("src") || "";
@@ -407,7 +407,7 @@ async function pageSnapshot(page: Page): Promise<PageSnapshot> {
     );
     const clippedTrustCards = Array.from(
       document.querySelectorAll(
-        ".google-rating-card, .service-credential-strip, .credential-card, [class*='credential']",
+        ".google-rating-seal, .service-credential-strip, .credential-card, [class*='credential']",
       ),
     )
       .filter((element) => {
