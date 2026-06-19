@@ -112,8 +112,44 @@ Generated output checks:
 
 ## Live Verification
 
-Pending deployment.
+- Main source SHA: `1b7cc06772a7c8d89d515143d0314571d833758c`
+- GitHub Pages SHA: `7bc40f0ae843e14712af1754a01c07f0728a8ba7`
+- Remote `main` confirmed: yes
+- Remote `gh-pages` confirmed: yes
+- Normal public URL checks: pass
+- Cache-busted public URL checks: pass
+
+Live routes verified:
+
+- `/`
+- `/emergency-electrician-sydney/`
+- `/level-2-electrician-sydney/`
+- `/services/`
+- `/service-areas/`
+- `/services/hot-water-system-electrician-sydney/`
+- `/services/split-system-air-conditioning-sydney/`
+- `/site-version.json`
+- `/sitemap.xml`
+- `/robots.txt`
+
+Live browser checks:
+
+- Pages/viewports checked: 14
+- HTTP 200: yes
+- CSS and images load: yes
+- Header fits: yes
+- No horizontal overflow: yes
+- Phone and quote CTAs visible: yes
+- Call Now is red: yes
+- Get a Quote is blue: yes
+- Google Ads tag present: yes
+- Actual hero van image visible: yes
+- Actual hero van computed `filter`: `none`
+- Actual hero van computed `opacity`: `1`
+- Actual hero van computed `mix-blend-mode`: `normal`
+- Old stale strings absent from sampled live pages: yes
+- Risky wording absent from sampled live pages: yes
 
 ## Final Result
 
-Pending deployment.
+LIVE PASS
