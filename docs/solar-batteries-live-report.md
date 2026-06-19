@@ -73,11 +73,32 @@ Generated-output checks:
 
 ## Deployment
 
-- Main SHA: pending
-- gh-pages SHA: pending
-- Normal live verified: pending
-- Cache-busted live verified: pending
+- Source implementation SHA: `00605866d47a3aae69d86e4baf7ba74fc6be09ce`
+- gh-pages SHA: `7b40a5bb7d999705fc2465cc828bbc8e421666d5`
+- Normal live verified: yes
+- Cache-busted live verified: yes
+
+Live URLs verified:
+
+- `https://c0d312.github.io/evaready-electrical/solar-batteries/`
+- `https://c0d312.github.io/evaready-electrical/solar-batteries/?v=7b40a5bb7d999705fc2465cc828bbc8e421666d5`
+- `https://c0d312.github.io/evaready-electrical/services/`
+- `https://c0d312.github.io/evaready-electrical/`
+- `https://c0d312.github.io/evaready-electrical/sitemap.xml`
+- `https://c0d312.github.io/evaready-electrical/robots.txt`
+- `https://c0d312.github.io/evaready-electrical/site-version.json`
+
+Live checks:
+
+- HTTP 200: yes
+- CSS loads: yes
+- Solar page visible: yes
+- Page appears under Electrical Services: yes
+- Header/menu route link works: yes
+- CTAs/tracking remain: yes
+- No unsafe solar/battery claims found: yes
+- Mobile horizontal overflow spot check: pass
 
 ## Final Result
 
-Pending deployment.
+LIVE PASS
