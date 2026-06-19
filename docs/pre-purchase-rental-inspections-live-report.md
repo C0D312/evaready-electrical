@@ -54,8 +54,19 @@
 
 ## Deployment
 
-- Main SHA: pending
-- gh-pages SHA: pending
-- Normal live verified: pending
-- Cache-busted live verified: pending
-- Final result: pending
+- Main SHA: `a93b83cc10d9aa2f789220c21a0cf45c72f609fb`
+- gh-pages SHA: `5b3c9ff3aa788dc56985b800acb18d2f5fde4383`
+- Normal live verified: yes
+- Cache-busted live verified: yes
+- Public URLs checked:
+  - `/services/pre-purchase-rental-electrical-inspections-sydney/`
+  - `/services/`
+  - `/`
+  - `/sitemap.xml`
+  - `/robots.txt`
+  - `/site-version.json`
+- Live CSS loads: yes
+- Live CTAs visible: yes
+- Live tracking markers present: yes
+- Live horizontal overflow found: no
+- Final result: LIVE PASS
