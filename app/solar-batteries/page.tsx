@@ -214,6 +214,14 @@ export default function SolarBatteriesPage() {
       <SiteHeader />
 
       <section className="brand-internal-hero relative overflow-hidden bg-[#06142f] text-white">
+        <Image
+          src={assetPath(business.heroImage)}
+          alt={business.brandImageAlt}
+          fill
+          priority
+          sizes="100vw"
+          className="brand-internal-hero-image object-cover object-[68%_center]"
+        />
         <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-4 py-16 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:py-24">
           <div className="internal-hero-copy-panel max-w-3xl">
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-300/35 bg-[#0d2b5c] px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-cyan-100">
@@ -258,17 +266,6 @@ export default function SolarBatteriesPage() {
                 <span className="whitespace-nowrap">{business.callCta}</span>
               </a>
             </div>
-          </div>
-
-          <div className="relative min-h-[20rem] overflow-hidden rounded-2xl border border-cyan-300/25 bg-[#0a234d] shadow-2xl shadow-blue-950/30 sm:min-h-[26rem] lg:min-h-[34rem]">
-            <Image
-              src={assetPath(business.heroImage)}
-              alt={business.brandImageAlt}
-              fill
-              priority
-              sizes="(max-width: 1023px) 100vw, 52vw"
-              className="object-cover object-[68%_center]"
-            />
           </div>
         </div>
       </section>

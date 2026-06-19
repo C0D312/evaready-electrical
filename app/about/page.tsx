@@ -147,10 +147,8 @@ export default function AboutPage() {
         />
 
         <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(0,200,255,0.22),transparent_30%),radial-gradient(circle_at_86%_24%,rgba(255,18,54,0.2),transparent_32%)]" />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#061E72]/96 via-[#0A349E]/88 to-[#061E72]/82" />
           <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-            <div className="max-w-4xl">
+            <div className="internal-hero-copy-panel max-w-4xl">
               <p className="mb-5 inline-flex rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
                 Evaready Electrical
               </p>

@@ -5032,24 +5032,23 @@ main .home-brand-hero .home-hero-readability-overlay.absolute.inset-0,
 }
 
 main.legal-page > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white),
-.legal-page > section:first-of-type {
+.legal-page > section:first-of-type:not(.brand-internal-hero) {
   min-height: auto !important;
   isolation: auto !important;
   overflow: visible !important;
   background: transparent !important;
 }
 
-.brand-internal-hero.legal-page::before,
 main.legal-page > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white)::before,
 main.legal-page > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white)::after,
-.legal-page > section:first-of-type::before,
-.legal-page > section:first-of-type::after {
+.legal-page > section:first-of-type:not(.brand-internal-hero)::before,
+.legal-page > section:first-of-type:not(.brand-internal-hero)::after {
   content: none !important;
   display: none !important;
 }
 
 main.legal-page > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white) > .mx-auto,
-.legal-page > section:first-of-type > .mx-auto {
+.legal-page > section:first-of-type:not(.brand-internal-hero) > .mx-auto {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
   transform: none !important;
@@ -6065,7 +6064,6 @@ main.legal-page :is(h1, h2, p, a),
 
 .home-brand-hero::before,
 .home-brand-hero::after,
-.brand-internal-hero::before,
 .brand-internal-hero::after,
 .home-hero-readability-overlay,
 .home-hero-glow-overlay,
@@ -6079,6 +6077,25 @@ main.legal-page :is(h1, h2, p, a),
   pointer-events: none !important;
 }
 
+.brand-internal-hero::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  background-image: var(--ee-van-image) !important;
+  background-repeat: no-repeat !important;
+  background-position: var(--hero-position-desktop, right center) !important;
+  background-size: var(--hero-size-desktop, min(58rem, 56vw) auto) !important;
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  background-blend-mode: normal !important;
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+}
+
 .home-brand-hero .brand-hero-image,
 .brand-internal-hero .brand-internal-hero-image {
   z-index: 0 !important;
@@ -6088,6 +6105,11 @@ main.legal-page :is(h1, h2, p, a),
   background-blend-mode: normal !important;
   mask-image: none !important;
   -webkit-mask-image: none !important;
+}
+
+.brand-internal-hero:has(.brand-internal-hero-image)::before {
+  content: none !important;
+  display: none !important;
 }
 
 .home-brand-hero > .relative,
@@ -6188,6 +6210,11 @@ a[href*="book.servicem8.com"].border {
 
   .brand-internal-hero .brand-internal-hero-image {
     object-position: 72% center !important;
+  }
+
+  .brand-internal-hero::before {
+    background-position: var(--hero-position-mobile, 72% 30%) !important;
+    background-size: var(--hero-size-mobile, auto 82svh) !important;
   }
 }
 
@@ -7161,16 +7188,30 @@ main section [data-suburb-action-card="call-first"] a:not(.bg-red-600):not([data
     linear-gradient(180deg, var(--brand-black), var(--brand-void) 62%, var(--brand-black)) !important;
 }
 
-/* Final internal hero van restore is retired: branded heroes now render the van
-   with a real image element so the original artwork is never filtered or tinted. */
+/* Final shared internal hero van layer. Pages with a real hero image keep that
+   image; compact/internal pages without one use this untinted van layer. */
 .brand-internal-hero::before {
-  content: none !important;
-  display: none !important;
-  background: none !important;
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  background-image: var(--ee-van-image) !important;
+  background-repeat: no-repeat !important;
+  background-position: var(--hero-position-desktop, right center) !important;
+  background-size: var(--hero-size-desktop, min(58rem, 56vw) auto) !important;
   opacity: 1 !important;
   filter: none !important;
   mix-blend-mode: normal !important;
-  pointer-events: none !important;
+  background-blend-mode: normal !important;
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+}
+
+.brand-internal-hero:has(.brand-internal-hero-image)::before {
+  content: none !important;
+  display: none !important;
 }
 
 .brand-internal-hero > .absolute:not(img) {
@@ -7204,9 +7245,8 @@ main section [data-suburb-action-card="call-first"] a:not(.bg-red-600):not([data
 
 @media (max-width: 767px) {
   .brand-internal-hero::before {
-    content: none !important;
-    display: none !important;
-    background: none !important;
+    background-position: var(--hero-position-mobile, 72% 30%) !important;
+    background-size: var(--hero-size-mobile, auto 82svh) !important;
     filter: none !important;
   }
 

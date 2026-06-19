@@ -1,0 +1,70 @@
+{
+  "generatedAt": "2026-06-19T22:39:35.698Z",
+  "staticAudit": {
+    "filesChecked": 1002,
+    "failures": []
+  },
+  "browserResults": [
+    {
+      "browser": "chromium",
+      "routesChecked": 12,
+      "viewportsChecked": 22,
+      "checks": 264,
+      "failures": 0,
+      "failureExamples": []
+    },
+    {
+      "browser": "webkit",
+      "routesChecked": 12,
+      "viewportsChecked": 22,
+      "checks": 264,
+      "failures": 0,
+      "failureExamples": []
+    }
+  ],
+  "browsersUnavailable": [
+    {
+      "browser": "firefox",
+      "reason": "headless launch timed out/crashed in prior run"
+    }
+  ],
+  "routes": [
+    "/",
+    "/about/",
+    "/contact/",
+    "/solar-batteries/",
+    "/emergency-electrician-sydney/",
+    "/level-2-electrician-sydney/",
+    "/services/",
+    "/service-areas/",
+    "/services/pre-purchase-rental-electrical-inspections-sydney/",
+    "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+    "/privacy-policy/",
+    "/terms/"
+  ],
+  "viewports": [
+    "320x568",
+    "360x800",
+    "375x812",
+    "390x844",
+    "412x915",
+    "430x932",
+    "768x1024",
+    "800x1280",
+    "820x1180",
+    "834x1194",
+    "912x1368",
+    "1024x1366",
+    "1280x800",
+    "1024x768",
+    "1180x820",
+    "1280x720",
+    "1366x768",
+    "1440x900",
+    "1536x864",
+    "1600x900",
+    "1920x1080",
+    "2560x1440"
+  ],
+  "screenshotDir": "C:\\Users\\Admin\\evaready-electrical\\reports\\global-hero-van-strip-sticky-qa"
+}

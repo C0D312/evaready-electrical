@@ -25,8 +25,8 @@ export default function PrivacyPolicyPage() {
           type="application/ld+json"
           dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
         />
-        <section className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-          <div className="rounded-[2rem] border border-cyan-300/20 bg-[#061E72]/75 p-6 shadow-[0_24px_80px_rgba(4,28,112,0.35)] sm:p-8 lg:p-10">
+        <section className="brand-internal-hero relative overflow-hidden px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+          <div className="internal-hero-copy-panel mx-auto max-w-5xl">
             <p className="text-sm font-black uppercase tracking-[0.28em] text-cyan-300">
               Evaready Electrical
             </p>
