@@ -6667,15 +6667,21 @@ section.brand-internal-hero.bg-\[\#061E72\] {
 
 main .home-brand-hero .home-hero-readability-overlay.absolute.inset-0,
 .brand-internal-hero > .absolute + .absolute {
-  background:
-    linear-gradient(90deg, rgba(4, 22, 83, 0.74) 0%, rgba(6, 30, 114, 0.48) 38%, rgba(6, 30, 114, 0.1) 66%, rgba(4, 22, 83, 0) 100%) !important;
+  display: none !important;
+  background: none !important;
+  opacity: 0 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
 }
 
 main .home-brand-hero .home-hero-glow-overlay.absolute.inset-0,
 .brand-internal-hero::before,
 main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white)::before {
-  background:
-    radial-gradient(circle at 78% 16%, rgba(21, 157, 255, 0.07), transparent 34%) !important;
+  display: none !important;
+  background: none !important;
+  opacity: 0 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
 }
 
 .home-brand-hero :is(h1, h2),
@@ -7167,8 +7173,20 @@ main section [data-suburb-action-card="call-first"] a:not(.bg-red-600):not([data
   pointer-events: none !important;
 }
 
-.brand-internal-hero > .absolute {
+.brand-internal-hero > .absolute:not(img) {
   display: none !important;
+  z-index: 0 !important;
+}
+
+.brand-internal-hero > img.brand-internal-hero-image,
+.brand-internal-hero > img.absolute {
+  display: block !important;
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  background-blend-mode: normal !important;
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
   z-index: 0 !important;
 }
 
