@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   AlertTriangle,
   ArrowRight,
@@ -24,7 +25,7 @@ import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { level2ClusterLinks } from "@/data/internal-links";
-import { absoluteUrl, business } from "@/data/site";
+import { absoluteUrl, assetPath, business } from "@/data/site";
 import { level2SeoMetadata, toMetadata } from "@/lib/seo-metadata";
 
 export const metadata: Metadata = toMetadata(level2SeoMetadata());
@@ -375,11 +376,17 @@ export default function Level2ElectricianSydneyPage() {
       <SiteHeader />
 
       <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(37,99,235,0.34),transparent_30%),radial-gradient(circle_at_85%_30%,rgba(239,68,68,0.16),transparent_32%)]" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#082A86] via-[#061E72] to-[#160208]" />
+        <Image
+          src={assetPath(business.heroImage)}
+          alt={business.brandImageAlt}
+          fill
+          priority
+          sizes="100vw"
+          className="brand-internal-hero-image object-cover object-[68%_center]"
+        />
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-28">
-          <div>
+          <div className="internal-hero-copy-panel">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-400/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-cyan-100">
               <BadgeCheck className="h-4 w-4" />
               Level 2 electrical enquiries

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   ArrowRight,
   BadgeCheck,
@@ -24,7 +25,7 @@ import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { serviceLandingPages } from "@/data/service-pages";
-import { absoluteUrl, business } from "@/data/site";
+import { absoluteUrl, assetPath, business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
   buildElectricianSchema,
@@ -947,11 +948,17 @@ export default function ServicesPage() {
 
       {/* Hero */}
       <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(37,99,235,0.35),transparent_30%),radial-gradient(circle_at_85%_30%,rgba(239,68,68,0.25),transparent_32%)]" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#082A86] via-[#061E72] to-[#23020a]" />
+        <Image
+          src={assetPath(business.heroImage)}
+          alt={business.brandImageAlt}
+          fill
+          priority
+          sizes="100vw"
+          className="brand-internal-hero-image object-cover object-[68%_center]"
+        />
 
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-          <div className="max-w-4xl">
+          <div className="internal-hero-copy-panel max-w-4xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-blue-200">
               <CheckCircle2 className="h-4 w-4" />
               Electrical Services

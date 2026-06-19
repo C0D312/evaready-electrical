@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   AlertTriangle,
@@ -24,7 +25,7 @@ import {
   serviceLandingPages,
 } from "@/data/service-pages";
 import { serviceClusterLinksBySlug } from "@/data/internal-links";
-import { absoluteUrl, business } from "@/data/site";
+import { absoluteUrl, assetPath, business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
   buildElectricianSchema,
@@ -319,11 +320,17 @@ export default async function ServiceLandingPage({
       <SiteHeader />
 
       <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(37,99,235,0.28),transparent_32%),radial-gradient(circle_at_86%_20%,rgba(239,68,68,0.22),transparent_30%)]" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#082A86] via-[#082A86] to-[#25020a]" />
+        <Image
+          src={assetPath(business.heroImage)}
+          alt={business.brandImageAlt}
+          fill
+          priority
+          sizes="100vw"
+          className="brand-internal-hero-image object-cover object-[68%_center]"
+        />
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_0.85fr] lg:px-8 lg:py-24">
-          <div>
+          <div className="internal-hero-copy-panel">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-blue-200">
               <ShieldCheck className="h-4 w-4" />
               Electrical service

@@ -434,11 +434,9 @@ export default function HomePage() {
           sizes="100vw"
           className="brand-hero-image object-cover object-[67%_center] sm:object-[66%_center] lg:object-center"
         />
-        <div className="home-hero-readability-overlay absolute inset-0" />
-        <div className="home-hero-glow-overlay absolute inset-0" />
 
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
-          <div className="max-w-3xl">
+          <div className="home-hero-copy-panel max-w-3xl">
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-300/35 bg-[#0A349E]/70 px-3 py-2 text-xs font-black uppercase tracking-[0.16em] text-cyan-100 shadow-lg shadow-cyan-500/10 backdrop-blur sm:px-4">
               <Clock3 className="h-4 w-4" />
               Open 24/7 for urgent electrical faults
