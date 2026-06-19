@@ -30,6 +30,10 @@ export const majorServiceLinks: InternalLink[] = [
     label: "Air conditioning electrician Sydney",
   },
   {
+    href: "/solar-batteries",
+    label: "Solar and battery electrical support",
+  },
+  {
     href: "/services/data-cabling-electrician-sydney",
     label: "CCTV and data cabling",
   },
@@ -237,6 +241,7 @@ export const serviceClusterLinksBySlug: Record<string, InternalLink[]> = {
     { href: "/services/rcd-safety-switch-repairs-sydney", label: "RCD safety switch repairs" },
     { href: "/services/electrical-safety-inspection-sydney", label: "Electrical safety inspection" },
     { href: "/services/pre-purchase-rental-electrical-inspections-sydney", label: "Pre-purchase and rental inspections" },
+    { href: "/solar-batteries", label: "Solar and battery electrical support" },
   ],
   "three-phase-power-sydney": [
     { href: "/level-2-electrician-sydney", label: "Level 2 electrical work" },
@@ -260,6 +265,7 @@ export const serviceClusterLinksBySlug: Record<string, InternalLink[]> = {
     { href: "/services/electrical-load-capacity-checks-sydney", label: "Load and capacity checks" },
     { href: "/services/hot-water-system-electrician-sydney", label: "Hot water heat pump support" },
     { href: "/services/switchboard-upgrades-sydney", label: "Switchboard capacity planning" },
+    { href: "/solar-batteries", label: "Solar and battery electrical support" },
     { href: "/service-areas", label: "Air conditioning electrician service areas" },
   ],
   "cctv-security-camera-installation-sydney": [
@@ -308,6 +314,7 @@ export const serviceClusterLinksBySlug: Record<string, InternalLink[]> = {
     { href: "/services/three-phase-power-sydney", label: "Three-phase power" },
     { href: "/services/ev-charger-installation-sydney", label: "EV charger load checks" },
     { href: "/services/switchboard-upgrades-sydney", label: "Switchboard capacity planning" },
+    { href: "/solar-batteries", label: "Solar and battery electrical support" },
     { href: "/services/smart-meter-electrician-sydney", label: "Smart meter electrical support" },
   ],
   "point-of-attachment-repairs-sydney": [

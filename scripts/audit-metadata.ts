@@ -21,6 +21,7 @@ import {
   serviceAreaIndexSeoMetadata,
   servicePageSeoMetadata,
   servicesIndexSeoMetadata,
+  solarBatteriesSeoMetadata,
   suburbSeoMetadata,
   switchboardSeoMetadata,
   type RouteSeoMetadata,
@@ -89,6 +90,7 @@ function collectMetadata() {
   const items: RouteSeoMetadata[] = [
     homeSeoMetadata(),
     servicesIndexSeoMetadata(),
+    solarBatteriesSeoMetadata(),
     emergencySeoMetadata(),
     level2SeoMetadata(),
     switchboardSeoMetadata(),

@@ -58,6 +58,7 @@ const riskyPatterns = [
 const commercialPageTypes = new Set([
   "homepage",
   "services index",
+  "solar batteries page",
   "service page",
   "fault index",
   "fault guide",
@@ -138,6 +139,7 @@ function pageTypeForRoute(route: string) {
 
   if (route === "/") return "homepage";
   if (route === "/services") return "services index";
+  if (route === "/solar-batteries") return "solar batteries page";
   if (route === "/electrical-faults") return "fault index";
   if (route === "/service-areas") return "service-area index";
   if (route === "/emergency-electrician-sydney") return "emergency page";

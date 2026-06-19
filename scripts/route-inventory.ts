@@ -24,6 +24,7 @@ export type RouteInventoryItem = {
 const staticRoutes: RouteInventoryItem[] = [
   createRoute("/", "homepage", true, "mixed"),
   createRoute("/services", "services index", true, "mixed"),
+  createRoute("/solar-batteries", "solar batteries page", true, "mixed"),
   createRoute("/emergency-electrician-sydney", "emergency page", true, "mixed"),
   createRoute("/level-2-electrician-sydney", "level 2 page", true, "mixed"),
   createRoute("/electrical-faults", "fault index", true, "mixed"),
@@ -95,6 +96,7 @@ export function pageTypeForRoute(route: string) {
 
   if (normalizedRoute === "/") return "homepage";
   if (normalizedRoute === "/services") return "services index";
+  if (normalizedRoute === "/solar-batteries") return "solar batteries page";
   if (normalizedRoute === "/electrical-faults") return "fault index";
   if (normalizedRoute === "/service-areas") return "service-area index";
   if (normalizedRoute === "/emergency-electrician-sydney") return "emergency page";

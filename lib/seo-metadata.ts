@@ -108,6 +108,19 @@ export function servicesIndexSeoMetadata(): RouteSeoMetadata {
   };
 }
 
+export function solarBatteriesSeoMetadata(): RouteSeoMetadata {
+  const path = "/solar-batteries/";
+
+  return {
+    path,
+    canonical: routeUrl(path),
+    title: "Solar & Battery Electrical Support Sydney | Evaready",
+    description: clampDescription(
+      "Electrical support for solar and batteries across Sydney, including switchboard capacity, consumer mains, metering, load checks and backup circuits.",
+    ),
+  };
+}
+
 export function emergencySeoMetadata(): RouteSeoMetadata {
   const path = "/emergency-electrician-sydney";
 

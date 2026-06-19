@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import {
   ArrowRight,
+  BatteryCharging,
   Bolt,
   Droplets,
   Flame,
@@ -51,6 +52,11 @@ const mobileNavItems = [
     href: "/services/split-system-air-conditioning-sydney",
     label: "Aircon",
     icon: Snowflake,
+  },
+  {
+    href: "/solar-batteries",
+    label: "Solar & Batteries",
+    icon: BatteryCharging,
   },
   {
     href: "/service-areas",

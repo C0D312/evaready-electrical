@@ -19,6 +19,7 @@ const navItems = [
   { href: "/services", label: "Electrical Services" },
   { href: "/services/hot-water-system-electrician-sydney", label: "Hot Water" },
   { href: "/services/split-system-air-conditioning-sydney", label: "Aircon" },
+  { href: "/solar-batteries", label: "Solar & Batteries" },
   { href: "/service-areas", label: "Service Areas" },
   { href: "/about", label: "About Evaready", desktopClassName: "hidden xl:inline" },
   { href: "/contact", label: "Contact", desktopClassName: "hidden xl:inline" },

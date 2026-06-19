@@ -275,6 +275,12 @@ const highIntentServiceLinks = [
     icon: Wrench,
   },
   {
+    title: "Solar and battery electrical support",
+    text: "Switchboard capacity, consumer mains, metering, load checks and specialist coordination.",
+    href: "/solar-batteries",
+    icon: Zap,
+  },
+  {
     title: "CCTV and data",
     text: "Security cameras, data cabling, network points and planned wiring work.",
     href: "/services/cctv-security-camera-installation-sydney",

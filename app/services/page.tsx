@@ -220,6 +220,20 @@ const services = [
     ],
   },
   {
+    title: "Solar & Battery Electrical Support",
+    description:
+      "Electrical-side support for solar and battery projects, including switchboard capacity, consumer mains, metering, load checks and specialist coordination.",
+    icon: Bolt,
+    includes: [
+      "Switchboard capacity checks",
+      "Consumer mains review",
+      "Metering and Level 2 enquiries",
+      "Load-capacity checks",
+      "Backup-circuit planning",
+      "Specialist coordination",
+    ],
+  },
+  {
     title: "CCTV & Security Cameras",
     description:
       "CCTV and security camera cabling, camera installation and neat setup support for homes and businesses.",
@@ -684,6 +698,7 @@ const servicePageLinks: Record<string, string> = {
   "Smoke Alarms": "/services/smoke-alarm-electrician-sydney",
   "Hot Water System Electrical": "/services/hot-water-system-electrician-sydney",
   "Air Conditioning Electrical": "/services/split-system-air-conditioning-sydney",
+  "Solar & Battery Electrical Support": "/solar-batteries",
   "CCTV & Security Cameras": "/services/cctv-security-camera-installation-sydney",
   "Data Cabling & Internet Points": "/services/data-cabling-electrician-sydney",
   "Ceiling & Exhaust Fans": "/services/ceiling-fan-installation-sydney",
@@ -728,6 +743,7 @@ const leadValueServiceTitles = [
   "Point of Attachment Repairs",
   "Hot Water System Electrical",
   "Air Conditioning Electrical",
+  "Solar & Battery Electrical Support",
   "CCTV & Security Cameras",
   "Commercial Electrician",
   "Safety Switches & RCDs",
@@ -844,6 +860,19 @@ const serviceProblemSelectorItems = [
       {
         label: "Air conditioning electrical",
         href: "/services/split-system-air-conditioning-sydney",
+      },
+    ],
+  },
+  {
+    problem: "Solar or battery electrical planning",
+    links: [
+      {
+        label: "Solar & Batteries",
+        href: "/solar-batteries",
+      },
+      {
+        label: "Load capacity checks",
+        href: "/services/electrical-load-capacity-checks-sydney",
       },
     ],
   },

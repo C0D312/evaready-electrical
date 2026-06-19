@@ -44,6 +44,7 @@ const footerColumns: FooterColumn[] = [
       { href: "/services/commercial-electrician-sydney", label: "Commercial electrician" },
       { href: "/services/hot-water-system-electrician-sydney", label: "Hot water electrical" },
       { href: "/services/split-system-air-conditioning-sydney", label: "Air conditioning" },
+      { href: "/solar-batteries", label: "Solar & Batteries" },
       { href: "/services/cctv-security-camera-installation-sydney", label: "CCTV and security" },
     ],
   },

@@ -18,6 +18,7 @@ type SitemapRoute = {
 const routes: SitemapRoute[] = [
   { path: "", priority: 1 },
   { path: "/services", priority: 0.9 },
+  { path: "/solar-batteries/", priority: 0.88 },
   { path: "/emergency-electrician-sydney", priority: 0.95 },
   { path: "/electrical-faults", priority: 0.88 },
   { path: "/level-2-electrician-sydney", priority: 0.9 },
