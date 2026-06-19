@@ -12,14 +12,14 @@
   );
   --ev-blue-panel: linear-gradient(
     135deg,
-    rgba(11, 62, 175, 0.94) 0%,
-    rgba(8, 76, 196, 0.9) 56%,
-    rgba(8, 42, 134, 0.96) 100%
+    rgba(6, 30, 114, 0.94) 0%,
+    rgba(8, 42, 134, 0.9) 58%,
+    rgba(4, 22, 83, 0.96) 100%
   );
   min-height: 100vh;
   overflow-x: clip;
   background:
-    radial-gradient(circle at 12% 6%, rgba(3, 157, 254, 0.18), transparent 26rem),
+    radial-gradient(circle at 12% 6%, rgba(3, 157, 254, 0.08), transparent 26rem),
     linear-gradient(180deg, var(--ev-black), var(--ev-void) 52%, var(--ev-black));
   color: var(--ev-silver);
 }
@@ -27,7 +27,7 @@
 .page :global(.site-header) {
   border-bottom-color: rgba(89, 219, 252, 0.28);
   background:
-    linear-gradient(90deg, rgba(6, 30, 114, 0.97), rgba(10, 52, 158, 0.96) 58%, rgba(8, 42, 134, 0.97));
+    linear-gradient(90deg, rgba(4, 22, 83, 0.98), rgba(6, 30, 114, 0.97) 58%, rgba(4, 22, 83, 0.98));
   box-shadow:
     0 14px 48px rgba(4, 28, 112, 0.32),
     0 1px 0 rgba(89, 219, 252, 0.14) inset;
@@ -96,22 +96,22 @@
   isolation: isolate;
   border-bottom: 1px solid rgba(89, 219, 252, 0.18);
   background:
-    radial-gradient(circle at 25% 17%, rgba(3, 157, 254, 0.24), transparent 26rem),
-    radial-gradient(circle at 72% 14%, rgba(89, 219, 252, 0.12), transparent 22rem),
-    linear-gradient(135deg, var(--ev-black), var(--ev-midnight) 58%, var(--ev-void));
+    radial-gradient(circle at 25% 17%, rgba(3, 157, 254, 0.1), transparent 26rem),
+    radial-gradient(circle at 72% 14%, rgba(89, 219, 252, 0.06), transparent 22rem),
+    linear-gradient(135deg, var(--ev-black), var(--ev-void) 58%, var(--ev-black));
 }
 
 .heroWash {
   background:
-    radial-gradient(circle at 18% 18%, rgba(226, 16, 29, 0.16), transparent 20rem),
-    radial-gradient(circle at 42% 20%, rgba(3, 157, 254, 0.28), transparent 27rem),
-    radial-gradient(circle at 88% 32%, rgba(89, 219, 252, 0.18), transparent 24rem) !important;
+    radial-gradient(circle at 18% 18%, rgba(226, 16, 29, 0.08), transparent 20rem),
+    radial-gradient(circle at 42% 20%, rgba(3, 157, 254, 0.1), transparent 27rem),
+    radial-gradient(circle at 88% 32%, rgba(89, 219, 252, 0.06), transparent 24rem) !important;
 }
 
 .heroTint {
   background:
-    linear-gradient(90deg, rgba(6, 30, 114, 0.96) 0%, rgba(10, 52, 158, 0.88) 37%, rgba(6, 30, 114, 0.34) 63%, rgba(6, 30, 114, 0.08) 100%),
-    linear-gradient(180deg, rgba(6, 30, 114, 0.14), rgba(6, 30, 114, 0.54)) !important;
+    linear-gradient(90deg, rgba(4, 22, 83, 0.84) 0%, rgba(6, 30, 114, 0.68) 37%, rgba(6, 30, 114, 0.22) 63%, rgba(6, 30, 114, 0.04) 100%),
+    linear-gradient(180deg, rgba(6, 30, 114, 0.06), rgba(6, 30, 114, 0.34)) !important;
 }
 
 .heroInner {
@@ -160,12 +160,12 @@
 .heroPanel {
   border-color: rgba(89, 219, 252, 0.28) !important;
   background:
-    radial-gradient(circle at 8% 0%, rgba(226, 16, 29, 0.12), transparent 30%),
-    linear-gradient(135deg, rgba(8, 42, 134, 0.92), rgba(11, 62, 175, 0.9) 54%, rgba(6, 30, 114, 0.96)) !important;
+    radial-gradient(circle at 8% 0%, rgba(226, 16, 29, 0.08), transparent 30%),
+    linear-gradient(135deg, rgba(4, 22, 83, 0.94), rgba(6, 30, 114, 0.92) 54%, rgba(8, 42, 134, 0.88)) !important;
   box-shadow:
     0 28px 84px rgba(4, 28, 112, 0.4),
     0 0 0 1px rgba(89, 219, 252, 0.12) inset,
-    0 0 44px rgba(3, 157, 254, 0.12);
+    0 0 30px rgba(3, 157, 254, 0.06);
 }
 
 .heroPanelItem,
@@ -242,7 +242,7 @@
 .proofCard {
   border-color: rgba(89, 219, 252, 0.24) !important;
   background:
-    linear-gradient(135deg, rgba(11, 62, 175, 0.86), rgba(8, 42, 134, 0.9)) !important;
+    linear-gradient(135deg, rgba(6, 30, 114, 0.9), rgba(4, 22, 83, 0.88)) !important;
   color: var(--ev-silver) !important;
   box-shadow: 0 18px 44px rgba(4, 28, 112, 0.28);
 }
@@ -252,7 +252,7 @@
   min-width: 0;
   border-color: rgba(89, 219, 252, 0.22) !important;
   background:
-    linear-gradient(135deg, rgba(11, 62, 175, 0.88), rgba(8, 42, 134, 0.92)) !important;
+    linear-gradient(135deg, rgba(6, 30, 114, 0.9), rgba(8, 42, 134, 0.86)) !important;
   color: var(--ev-silver);
 }
 
@@ -373,13 +373,13 @@
 .page :global(.service-credential-strip > div) {
   border-color: rgba(89, 219, 252, 0.28) !important;
   background:
-    linear-gradient(135deg, rgba(11, 62, 175, 0.82), rgba(8, 42, 134, 0.72)) !important;
+    linear-gradient(135deg, rgba(6, 30, 114, 0.9), rgba(4, 22, 83, 0.84)) !important;
 }
 
 .page :global(.service-credential-strip [class*="border-red"]) {
   border-color: rgba(226, 16, 29, 0.38) !important;
   background:
-    linear-gradient(135deg, rgba(122, 7, 19, 0.76), rgba(11, 62, 175, 0.76)) !important;
+    linear-gradient(135deg, rgba(122, 7, 19, 0.72), rgba(6, 30, 114, 0.84)) !important;
 }
 
 .page :global(.site-footer) {
