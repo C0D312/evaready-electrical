@@ -73,6 +73,7 @@ Generated-output checks:
 
 ## Deployment
 
+- Main SHA: `0732c19f3231702b9b02ba1d345a67e627d4a479`
 - Source implementation SHA: `00605866d47a3aae69d86e4baf7ba74fc6be09ce`
 - gh-pages SHA: `7b40a5bb7d999705fc2465cc828bbc8e421666d5`
 - Normal live verified: yes
