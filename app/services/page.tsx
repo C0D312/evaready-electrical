@@ -7,6 +7,7 @@ import {
   Bolt,
   Building2,
   CheckCircle2,
+  ClipboardList,
   Flame,
   Home,
   Lightbulb,
@@ -373,6 +374,20 @@ const services = [
     ],
   },
   {
+    title: "Pre-Purchase & Rental Inspections",
+    description:
+      "Electrical condition inspections for home buyers, landlords, property managers and owners preparing a property for sale or lease.",
+    icon: ClipboardList,
+    includes: [
+      "Pre-purchase checks",
+      "Rental inspections",
+      "Switchboard condition",
+      "Safety switches and RCDs",
+      "Visible wiring concerns",
+      "Inspection findings summary",
+    ],
+  },
+  {
     title: "Home Automation & Smart Wiring",
     description:
       "Smart switching, automation wiring, lighting control and future-ready cabling for homes and businesses.",
@@ -680,6 +695,7 @@ const servicePageLinks: Record<string, string> = {
   "Meters & Service Equipment": "/services/metering-services-sydney",
   "New Builds & Renovations": "/services/new-build-renovation-electrician-sydney",
   "Testing, Tagging & Reports": "/services/electrical-testing-tagging-reports-sydney",
+  "Pre-Purchase & Rental Inspections": "/services/pre-purchase-rental-electrical-inspections-sydney",
   "Home Automation & Smart Wiring": "/services/smart-home-electrician-sydney",
   "TV, Antenna & Wall Cabling": "/services/tv-antenna-wall-cabling-sydney",
   "Intercoms & Access Control": "/services/intercom-access-control-electrician-sydney",
@@ -850,6 +866,19 @@ const serviceProblemSelectorItems = [
       {
         label: "Commercial electrician",
         href: "/services/commercial-electrician-sydney",
+      },
+    ],
+  },
+  {
+    problem: "Buying, leasing or managing a property",
+    links: [
+      {
+        label: "Pre-purchase and rental electrical inspections",
+        href: "/services/pre-purchase-rental-electrical-inspections-sydney",
+      },
+      {
+        label: "Electrical safety inspections",
+        href: "/services/electrical-safety-inspection-sydney",
       },
     ],
   },

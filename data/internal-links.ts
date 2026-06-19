@@ -183,6 +183,7 @@ export const serviceClusterLinksBySlug: Record<string, InternalLink[]> = {
     { href: "/service-areas", label: "Commercial electrician service areas" },
     { href: "/services/electrical-fault-finding-sydney", label: "Commercial electrical fault finding" },
     { href: "/services/switchboard-upgrades-sydney", label: "Commercial switchboard upgrades" },
+    { href: "/services/pre-purchase-rental-electrical-inspections-sydney", label: "Rental property electrical inspections" },
     { href: "/services/emergency-exit-lighting-sydney", label: "Emergency and exit lighting" },
     { href: "/services/testing-and-tagging-sydney", label: "Testing and tagging" },
   ],
@@ -190,6 +191,7 @@ export const serviceClusterLinksBySlug: Record<string, InternalLink[]> = {
     ...emergencyFaultGuideLinks.slice(0, 8),
     { href: "/emergency-electrician-sydney", label: "Emergency electrician Sydney" },
     { href: "/services/switchboard-upgrades-sydney", label: "Switchboard fault support" },
+    { href: "/services/pre-purchase-rental-electrical-inspections-sydney", label: "Pre-purchase electrical inspection" },
     { href: "/services/hot-power-point-electrician-sydney", label: "Hot power point electrician" },
     { href: "/services/electric-shock-electrician-sydney", label: "Electric shock electrician" },
     { href: "/services/circuit-breaker-electrician-sydney", label: "Circuit breaker electrician" },
@@ -234,6 +236,7 @@ export const serviceClusterLinksBySlug: Record<string, InternalLink[]> = {
     { href: "/services/circuit-breaker-electrician-sydney", label: "Circuit breaker electrician" },
     { href: "/services/rcd-safety-switch-repairs-sydney", label: "RCD safety switch repairs" },
     { href: "/services/electrical-safety-inspection-sydney", label: "Electrical safety inspection" },
+    { href: "/services/pre-purchase-rental-electrical-inspections-sydney", label: "Pre-purchase and rental inspections" },
   ],
   "three-phase-power-sydney": [
     { href: "/level-2-electrician-sydney", label: "Level 2 electrical work" },
@@ -291,6 +294,7 @@ export const serviceClusterLinksBySlug: Record<string, InternalLink[]> = {
     { href: "/services/switchboard-upgrades-sydney", label: "Switchboard upgrades" },
     { href: "/services/rcd-safety-switch-repairs-sydney", label: "RCD safety switch repairs" },
     { href: "/services/circuit-breaker-electrician-sydney", label: "Circuit breaker electrician" },
+    { href: "/services/pre-purchase-rental-electrical-inspections-sydney", label: "Rental electrical inspections" },
   ],
   "storm-damage-electrician-sydney": [
     { href: "/emergency-electrician-sydney", label: "Emergency electrician Sydney" },
@@ -333,6 +337,7 @@ export const serviceClusterLinksBySlug: Record<string, InternalLink[]> = {
   ],
   "electrical-safety-inspection-sydney": [
     { href: "/services/switchboard-upgrades-sydney", label: "Switchboard safety checks" },
+    { href: "/services/pre-purchase-rental-electrical-inspections-sydney", label: "Pre-purchase and rental inspections" },
     { href: "/services/safety-switch-rcd-installation-sydney", label: "Safety switches and RCDs" },
     { href: "/services/electrical-fault-finding-sydney", label: "Electrical fault finding" },
     { href: "/services/testing-and-tagging-sydney", label: "Testing and tagging" },
@@ -340,6 +345,7 @@ export const serviceClusterLinksBySlug: Record<string, InternalLink[]> = {
   "testing-and-tagging-sydney": [
     { href: "/services/electrical-testing-tagging-reports-sydney", label: "Electrical testing and reports" },
     { href: "/services/electrical-safety-inspection-sydney", label: "Electrical safety inspection" },
+    { href: "/services/pre-purchase-rental-electrical-inspections-sydney", label: "Rental electrical inspections" },
     { href: "/services/commercial-electrician-sydney", label: "Commercial electrician Sydney" },
     { href: "/services/emergency-exit-lighting-sydney", label: "Emergency and exit lighting" },
   ],
@@ -366,6 +372,15 @@ export const serviceClusterLinksBySlug: Record<string, InternalLink[]> = {
     { href: "/services/electrical-safety-inspection-sydney", label: "Electrical safety inspection" },
     { href: "/services/testing-and-tagging-sydney", label: "Testing and tagging" },
     { href: "/services/lighting-electrician-sydney", label: "Lighting electrician" },
+  ],
+  "pre-purchase-rental-electrical-inspections-sydney": [
+    { href: "/services/electrical-safety-inspection-sydney", label: "Electrical safety inspection" },
+    { href: "/services/switchboard-upgrades-sydney", label: "Switchboard safety checks" },
+    { href: "/services/safety-switch-rcd-installation-sydney", label: "Safety switches and RCDs" },
+    { href: "/services/electrical-fault-finding-sydney", label: "Electrical fault finding" },
+    { href: "/services/smoke-alarm-electrician-sydney", label: "Smoke alarm electrician" },
+    { href: "/services/electrical-testing-tagging-reports-sydney", label: "Electrical testing and reports" },
+    { href: "/services/commercial-electrician-sydney", label: "Commercial and property manager electrical work" },
   ],
   "hot-power-point-electrician-sydney": [
     { href: "/emergency-electrician-sydney", label: "Emergency electrician Sydney" },

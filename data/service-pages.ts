@@ -9,6 +9,7 @@ export type ServiceProcessStep = {
 };
 
 export type ServiceLandingPage = {
+  audiences?: string[];
   callFirstBlock?: {
     heading: string;
     items: string[];
@@ -18,6 +19,8 @@ export type ServiceLandingPage = {
   description: string;
   faqs: ServiceFaq[];
   heroBullets: string[];
+  inspectionLimitations?: string[];
+  inspectionOutcomes?: string[];
   intro: string;
   loadCapacitySection?: {
     copy: string;
@@ -29,7 +32,9 @@ export type ServiceLandingPage = {
   };
   metaDescription: string;
   metaTitle: string;
+  primaryCta?: "phone" | "quote";
   process: ServiceProcessStep[];
+  quoteCtaLabel?: string;
   quoteChecklist?: {
     heading: string;
     items: string[];
@@ -2680,6 +2685,184 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "point-of-attachment-repairs-sydney",
       "switchboard-upgrades-sydney",
       "electrical-load-capacity-checks-sydney",
+    ],
+  },
+  {
+    slug: "pre-purchase-rental-electrical-inspections-sydney",
+    metaTitle: "Pre-Purchase Electrical Inspections Sydney | Evaready",
+    metaDescription:
+      "Electrical condition inspections for home buyers, landlords and property managers across Sydney. Check switchboards, RCDs, outlets and visible faults.",
+    title: "Pre-Purchase & Rental Electrical Inspections Sydney",
+    description:
+      "Electrical condition checks for home buyers, landlords, property managers, real estate agencies and owners preparing a property for sale or lease.",
+    intro:
+      "Evaready Electrical checks accessible electrical equipment, switchboards, safety switches, outlets, lighting and visible wiring concerns for homes being purchased, leased or managed across Sydney and surrounding regions.",
+    primaryCta: "quote",
+    quoteCtaLabel: "Get an Inspection Quote",
+    heroBullets: [
+      "Pre-purchase house electrical inspections",
+      "Rental property electrical inspections",
+      "Landlord and property-manager condition checks",
+      "Accessible electrical testing and visible defect review",
+    ],
+    audiences: [
+      "Home buyers before settlement",
+      "Landlords preparing a rental",
+      "Property managers reviewing reported faults",
+      "Owners before sale",
+      "Tenants with documented electrical concerns",
+      "Strata or real-estate maintenance reviews",
+    ],
+    warningSigns: [
+      "Missing or inadequate safety-switch protection",
+      "Damaged outlets or switches",
+      "Heat damage or burning marks",
+      "Old or overcrowded switchboards",
+      "Unsafe DIY alterations",
+      "Deteriorated outdoor electrical equipment",
+      "Tripping circuits",
+      "Exposed or damaged accessible wiring",
+      "Overloaded or unsuitable circuits",
+      "Defects requiring further investigation",
+    ],
+    services: [
+      "Switchboard condition checks",
+      "Safety switch and RCD checks",
+      "Circuit-breaker protection review",
+      "Signs of heat or damage",
+      "Power points and switches",
+      "Lighting operation",
+      "Visible wiring concerns",
+      "Smoke-alarm electrical supply where within verified scope",
+      "Outdoor electrical equipment",
+      "Hot-water electrical circuits",
+      "Air-conditioning circuits and isolators",
+      "Meter-box condition",
+      "Signs of unsafe modifications",
+      "Earthing and bonding checks where appropriate",
+      "Solar or battery electrical equipment only where within verified business scope",
+    ],
+    inspectionOutcomes: [
+      "Explanation of visible and tested findings",
+      "Priority safety items",
+      "Photos where practical",
+      "Recommendations for further investigation",
+      "Quote for repair work where requested",
+      "Inspection findings summary",
+    ],
+    inspectionLimitations: [
+      "This is an electrical inspection, not a building, pest, plumbing or gas inspection.",
+      "Access may limit what can be inspected.",
+      "Concealed wiring cannot always be assessed without invasive work.",
+      "Intermittent faults may require further testing.",
+      "Inspection findings apply to conditions observed at the time.",
+      "An electrical condition inspection can identify visible defects, unsafe equipment and issues found through accessible electrical testing. Concealed or intermittent defects may require further investigation.",
+    ],
+    process: [
+      {
+        title: "Request an inspection quote",
+        text: "Send the property address, suburb, purpose, deadline and any known electrical concerns.",
+      },
+      {
+        title: "Confirm scope and access",
+        text: "The property type, access details, timing and agreed electrical inspection scope are confirmed before booking.",
+      },
+      {
+        title: "Complete the agreed inspection",
+        text: "Accessible electrical equipment, switchboards, safety switches, outlets, lighting and visible concerns are checked where relevant.",
+      },
+      {
+        title: "Explain findings and next steps",
+        text: "Findings are explained clearly, with repair quotes or further investigation recommendations where requested.",
+      },
+    ],
+    callFirstBlock: {
+      heading: "Call first if the property has an immediate electrical hazard",
+      safetyCopy:
+        "Do not wait for an inspection quote if the property has an immediate electrical hazard. Call first so the fault can be triaged safely.",
+      items: [
+        "Burning smell",
+        "Sparking",
+        "Exposed wiring",
+        "Electric shock risk",
+        "Smoke or heat from switchboard",
+        "Water reaching electrical equipment",
+        "Repeated safety-switch tripping",
+        "Partial or complete power loss",
+      ],
+    },
+    quoteChecklist: {
+      heading: "What to send before booking an electrical inspection",
+      urgentNote:
+        "If there is burning smell, sparking, shock risk, exposed wiring, smoke, heat, water reaching electrical equipment or power loss, call first.",
+      items: [
+        "Property address",
+        "Suburb or postcode",
+        "Purchase, rental or management purpose",
+        "Settlement or tenancy deadline",
+        "Known electrical concerns",
+        "Access details",
+        "Agent or property-manager contact where relevant",
+        "Switchboard photos if available",
+        "Defect notices or previous reports if available",
+      ],
+    },
+    faqs: [
+      {
+        question: "What is included in a pre-purchase electrical inspection?",
+        answer:
+          "The agreed scope can include accessible switchboards, safety switches, circuit protection, outlets, lighting, visible wiring concerns and electrical fault symptoms. The inspection scope is confirmed before booking.",
+      },
+      {
+        question: "Is this the same as a building inspection?",
+        answer:
+          "No. This is an electrical condition inspection only. It is not a building, pest, structural, plumbing or gas inspection, and it does not advise on legal or property valuation matters.",
+      },
+      {
+        question: "Can you inspect a rental property?",
+        answer:
+          "Yes. Evaready can help landlords, property managers, owners and tenants with agreed electrical condition checks for rental properties across Sydney and surrounding regions.",
+      },
+      {
+        question: "Can you inspect an occupied property?",
+        answer:
+          "Yes, where safe access can be arranged. Access limits what can be checked, so agent, tenant or property-manager details should be provided before booking.",
+      },
+      {
+        question: "Do I receive a written report?",
+        answer:
+          "Evaready can provide an inspection findings summary with visible and tested findings, priority safety items, photos where practical and recommended next steps. A formal compliance certificate is not promised unless specifically confirmed before booking.",
+      },
+      {
+        question: "Can you quote repairs found during the inspection?",
+        answer:
+          "Yes. If repair work is requested, Evaready can quote electrical repairs or further investigation after the inspection findings are explained.",
+      },
+      {
+        question: "Does the inspection find concealed wiring defects?",
+        answer:
+          "Not always. Concealed wiring, intermittent faults and inaccessible areas may require further investigation or invasive work. Findings apply to the conditions observed at the time.",
+      },
+      {
+        question: "What should I send before booking?",
+        answer:
+          "Send the property address, suburb or postcode, purchase or rental purpose, deadline, access details, known concerns, switchboard photos and any defect notices or previous reports if available.",
+      },
+      {
+        question: "What if there is an urgent electrical hazard?",
+        answer:
+          "Call first if there is burning smell, sparking, exposed wiring, shock risk, smoke or heat from the switchboard, water reaching electrical equipment, repeated tripping or power loss.",
+      },
+    ],
+    relatedServices: [
+      "electrical-safety-inspection-sydney",
+      "switchboard-upgrades-sydney",
+      "safety-switch-rcd-installation-sydney",
+      "electrical-fault-finding-sydney",
+      "smoke-alarm-electrician-sydney",
+      "hot-water-system-electrician-sydney",
+      "split-system-air-conditioning-sydney",
+      "electrical-testing-tagging-reports-sydney",
     ],
   },
   {
