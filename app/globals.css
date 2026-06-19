@@ -1255,7 +1255,7 @@ main {
 }
 
 .brand-hero-image {
-  filter: saturate(1.12) contrast(1.05);
+  filter: none;
 }
 
 .home-brand-hero h1,
@@ -2130,7 +2130,7 @@ body.quote-modal-open .quote-modal-iframe {
 
   .home-brand-hero .brand-hero-image {
     object-position: 81% center !important;
-    filter: saturate(1.18) contrast(1.08) brightness(1.06) !important;
+    filter: none;
   }
 
   .home-hero-readability-overlay {
@@ -2470,7 +2470,7 @@ a[data-quote-trigger="true"].site-header-quote {
 
 .home-brand-hero .brand-hero-image {
   object-position: 69% center !important;
-  filter: saturate(1.12) contrast(1.08) brightness(1.02) !important;
+  filter: none;
 }
 
 .quote-modal-backdrop {
@@ -2641,7 +2641,7 @@ a[data-quote-trigger="true"].site-header-quote {
 
   .home-brand-hero .brand-hero-image {
     object-position: 78% center !important;
-    opacity: 0.9 !important;
+    opacity: 1 !important;
   }
 
   .home-hero-readability-overlay {
@@ -3166,7 +3166,7 @@ a[data-quote-trigger="true"].site-header-quote {
 
 .footer-action:hover {
   transform: translateY(-1px);
-  filter: saturate(1.08) brightness(1.05);
+  filter: none;
 }
 
 .footer-action-call {
@@ -3797,7 +3797,7 @@ body.quote-modal-open .mobile-sticky-cta {
    of a separate mobile picture card, and keep the vehicle clear on every page. */
 .home-brand-hero .brand-hero-image {
   opacity: 1 !important;
-  filter: saturate(1.08) contrast(1.04) brightness(1.05) !important;
+  filter: none;
 }
 
 .home-brand-hero .brand-hero-image {
@@ -4233,7 +4233,7 @@ main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not
   opacity: 1 !important;
   object-fit: cover !important;
   object-position: right center !important;
-  filter: saturate(1.18) contrast(1.06) brightness(1.08) !important;
+  filter: none;
 }
 
 .home-hero-readability-overlay {
@@ -4349,7 +4349,7 @@ main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not
   background-position: right center;
   background-size: min(60vw, 58rem) auto;
   opacity: 0.92;
-  filter: saturate(1.18) contrast(1.06) brightness(1.05);
+  filter: none;
 }
 
 .brand-internal-hero > .absolute,
@@ -4399,7 +4399,7 @@ main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not
   object-fit: cover !important;
   object-position: 74% center !important;
   opacity: 1 !important;
-  filter: saturate(1.18) contrast(1.06) brightness(1.08) !important;
+  filter: none;
   -webkit-mask-image: none !important;
   mask-image: none !important;
 }
@@ -4417,7 +4417,7 @@ main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not
   background-position: right center !important;
   background-size: min(62vw, 58rem) auto !important;
   opacity: 0.96 !important;
-  filter: saturate(1.18) contrast(1.06) brightness(1.08) !important;
+  filter: none;
 }
 
 .brand-internal-hero > .absolute,
@@ -4727,7 +4727,7 @@ main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not
   .home-brand-hero .brand-hero-image {
     transform: translate3d(0, -7%, 0) scale(1.1) !important;
     object-position: 74% center !important;
-    filter: saturate(1.08) contrast(1.04) brightness(1.08) !important;
+    filter: none;
   }
 
   .brand-internal-hero::before,
@@ -4737,7 +4737,7 @@ main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not
     background-position: 74% bottom !important;
     background-size: auto 126% !important;
     opacity: 1 !important;
-    filter: saturate(1.08) contrast(1.04) brightness(1.08) !important;
+    filter: none;
   }
 
   .home-hero-readability-overlay {
@@ -4805,7 +4805,7 @@ main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not
   object-position: 76% center !important;
   transform: none !important;
   opacity: 1 !important;
-  filter: saturate(1.08) contrast(1.04) brightness(1.06) !important;
+  filter: none;
 }
 
 .home-hero-readability-overlay {
@@ -4832,7 +4832,7 @@ main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not
   background-position: right center !important;
   background-size: cover !important;
   opacity: 1 !important;
-  filter: saturate(1.08) contrast(1.04) brightness(1.06) !important;
+  filter: none;
   pointer-events: none !important;
 }
 
@@ -4910,13 +4910,13 @@ main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not
 
 .home-brand-hero .brand-hero-image {
   object-position: 76% center !important;
-  filter: saturate(1.08) contrast(1.04) brightness(1.05) !important;
+  filter: none;
 }
 
 .brand-internal-hero::before {
   background-position: right center !important;
   background-size: cover !important;
-  filter: saturate(1.08) contrast(1.04) brightness(1.05) !important;
+  filter: none;
 }
 
 .home-hero-readability-overlay,
@@ -4935,7 +4935,7 @@ main .home-brand-hero .home-hero-readability-overlay.absolute.inset-0,
   .home-brand-hero .brand-hero-image {
     object-position: 80% 46% !important;
     transform: translate3d(0, -2%, 0) scale(1.04) !important;
-    filter: saturate(1.08) contrast(1.04) brightness(1.08) !important;
+    filter: none;
   }
 
   .brand-internal-hero::before {
@@ -4944,7 +4944,7 @@ main .home-brand-hero .home-hero-readability-overlay.absolute.inset-0,
     background-position: 80% 100% !important;
     background-size: auto 110% !important;
     opacity: 1 !important;
-    filter: saturate(1.08) contrast(1.04) brightness(1.08) !important;
+    filter: none;
   }
 
   .home-hero-readability-overlay,
@@ -4981,7 +4981,7 @@ main .home-brand-hero .home-hero-readability-overlay.absolute.inset-0,
   .brand-internal-hero::before {
     background-position: 81% 100% !important;
     background-size: auto 110% !important;
-    filter: saturate(1.08) contrast(1.04) brightness(1.08) !important;
+    filter: none;
   }
 
   .brand-internal-hero > .absolute + .absolute {
@@ -5458,14 +5458,14 @@ main.legal-page :is(h1, h2, p, a),
   .home-brand-hero .brand-hero-image {
     object-position: 76% 40% !important;
     transform: translate3d(0, -4%, 0) scale(1.03) !important;
-    filter: saturate(1.08) brightness(1.08) contrast(1.04) !important;
+    filter: none;
   }
 
   .brand-internal-hero::before,
   main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee):not(.bg-white)::before {
     background-position: 77% 44% !important;
     background-size: cover !important;
-    filter: saturate(1.08) brightness(1.08) contrast(1.04) !important;
+    filter: none;
     opacity: 0.98 !important;
   }
 
@@ -5771,7 +5771,7 @@ main.legal-page :is(h1, h2, p, a),
     object-position: var(--mobile-hero-image-position) !important;
     transform: translate3d(0, var(--mobile-hero-image-y), 0)
       scale(var(--mobile-hero-image-scale)) !important;
-    filter: saturate(1.08) brightness(1.08) contrast(1.04) !important;
+    filter: none;
   }
 
   .brand-internal-hero,
@@ -5809,7 +5809,7 @@ main.legal-page :is(h1, h2, p, a),
     background-repeat: no-repeat !important;
     background-position: right top !important;
     background-size: contain !important;
-    filter: saturate(1.08) brightness(1.08) contrast(1.04) !important;
+    filter: none;
     opacity: 0.98 !important;
     pointer-events: none !important;
   }
@@ -5909,7 +5909,7 @@ main.legal-page :is(h1, h2, p, a),
   .home-brand-hero .brand-hero-image {
     object-position: 74% 24% !important;
     transform: translate3d(0, -8%, 0) scale(1) !important;
-    filter: saturate(1.08) brightness(1.08) contrast(1.04) !important;
+    filter: none;
   }
 
   .brand-internal-hero::before,
@@ -5920,7 +5920,7 @@ main.legal-page :is(h1, h2, p, a),
     height: clamp(18.75rem, 53svh, 28rem) !important;
     background-position: right top !important;
     background-size: contain !important;
-    filter: saturate(1.08) brightness(1.08) contrast(1.04) !important;
+    filter: none;
   }
 
   main .home-brand-hero .home-hero-readability-overlay.absolute.inset-0,
@@ -6049,7 +6049,7 @@ main.legal-page :is(h1, h2, p, a),
     object-fit: contain !important;
     object-position: right top !important;
     transform: none !important;
-    filter: saturate(1.08) brightness(1.08) contrast(1.04) !important;
+    filter: none;
   }
 }
 
