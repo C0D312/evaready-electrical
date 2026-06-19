@@ -78,8 +78,31 @@ Files changed:
 
 ## Live Verification
 
-Pending deployment of the CSS correction.
+- Source fix SHA: `befd400da95715922c3e908f9419260afa4608fa`
+- GitHub Pages SHA: `1f96bfdfca0dd48cd6c0c5fff4cdcbf895b28c79`
+- Remote `main` confirmed: yes
+- Remote `gh-pages` confirmed: yes
+- Normal public URL checks: pass, 22/22 returned HTTP 200
+- Cache-busted public URL checks: pass, 22/22 returned HTTP 200
+- Live sitemap includes `/solar-batteries/`: yes
+- Live sitemap includes `/services/pre-purchase-rental-electrical-inspections-sydney`: yes
+- Live Solar & Batteries page content present: yes
+- Live inspection page content present: yes
+- Live phone and quote conversion attributes present: yes
+- Live Google Ads tag present: yes
+- Live unsafe solar claims absent: yes
+- Live unsafe inspection claims absent: yes
+
+Live browser QA:
+
+- Pages/viewports checked: 18
+- Horizontal overflow issues: 0
+- Header fit issues: 0
+- CTA visibility issues: 0
+- Actual hero van image computed styles: `filter: none`, `opacity: 1`, `mix-blend-mode: normal`
+- Mobile menu reaches Solar & Batteries: yes
+- Live browser failures: 0
 
 ## Final Result
 
-Pending deployment.
+LIVE PASS
