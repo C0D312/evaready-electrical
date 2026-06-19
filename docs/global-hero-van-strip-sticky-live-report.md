@@ -76,6 +76,7 @@
 - WebKit/Safari-style: 12 routes x 22 viewports = 264 checks, 0 failures.
 - Firefox: unavailable in this environment; headless launch timed out/crashed during the attempted run.
 - Static generated HTML audit: 1002 HTML files checked, 0 failures.
+- Live GitHub Pages QA: normal and cache-busted URLs checked for 12 HTML routes at 390x844 and 1366x768, plus 3 static routes; 54 checks, 0 failures.
 - Screenshots: `reports/global-hero-van-strip-sticky-qa/`.
 
 ## Automated Validation
@@ -103,12 +104,12 @@
 
 ## Deployment Fields
 
-- Main SHA: pending.
-- gh-pages SHA: pending.
-- Normal live URLs verified: pending.
-- Cache-busted URLs verified: pending.
-- New layout proven live: pending.
+- Main SHA: `548dfcc9665b8dc71e23b1097780b368bea235d4`.
+- gh-pages SHA: `c0daded4341481bb5e4b80e4f4c1b159db8436e6`.
+- Normal live URLs verified: yes.
+- Cache-busted URLs verified: yes, using `?v=c0daded4341481bb5e4b80e4f4c1b159db8436e6`.
+- New layout proven live: yes.
 
 ## Final Result
 
-Pending deployment.
+LIVE PASS.
