@@ -741,28 +741,41 @@ export default async function ServiceLandingPage({
               explains the next step clearly, and keeps the work neat from
               first inspection through to final testing.
             </p>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {service.services.map((item) => (
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a
-                key={item}
+                href={business.phoneHref}
+                data-conversion-action="phone-click"
+                aria-label={business.callCta}
+                className="inline-flex items-center justify-center gap-3 rounded-lg border border-red-200/40 bg-gradient-to-r from-red-700 to-red-500 px-6 py-4 font-black text-white shadow-lg shadow-red-900/25 transition hover:border-red-100 hover:from-red-600 hover:to-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-100"
+              >
+                <Phone className="h-5 w-5" />
+                <span className="whitespace-nowrap">{business.callCta}</span>
+              </a>
+              <a
                 href={business.bookingUrl}
                 data-quote-trigger="true"
                 data-conversion-action="quote-click"
                 aria-haspopup="dialog"
-                aria-label={`Request a quote for ${item}`}
-                className="group rounded-lg border border-slate-200 bg-white p-4 shadow-sm transition hover:border-blue-500 hover:bg-blue-50"
+                aria-label="Get a quote from Evaready Electrical"
+                className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
+              >
+                {quoteCtaLabel}
+                <ArrowRight className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {service.services.map((item) => (
+              <article
+                key={item}
+                className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
               >
                 <span className="flex items-start gap-3">
                   <Wrench className="mt-0.5 h-5 w-5 shrink-0 text-blue-700" />
                   <span className="font-bold text-slate-800">{item}</span>
                 </span>
-                <span className="mt-4 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.12em] text-blue-700">
-                  Open Booking Form
-                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                </span>
-              </a>
+              </article>
             ))}
           </div>
         </div>
