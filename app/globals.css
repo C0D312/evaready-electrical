@@ -4005,13 +4005,13 @@ body.quote-modal-open .mobile-sticky-cta {
   .brand-internal-hero .mt-10.grid,
   .home-brand-hero .mt-7.grid,
   .home-brand-hero .mt-8.grid {
-    width: calc(100vw - 2rem) !important;
-    max-width: calc(100vw - 2rem) !important;
+    width: auto !important;
+    max-width: 100% !important;
   }
 
   .home-brand-hero .mt-7.grid a {
-    width: calc(100vw - 2rem) !important;
-    max-width: calc(100vw - 2rem) !important;
+    width: 100% !important;
+    max-width: 100% !important;
     font-size: clamp(0.92rem, 4vw, 1rem) !important;
   }
 }
@@ -5221,8 +5221,8 @@ main.legal-page :is(h1, h2, p, a),
   .brand-internal-hero .mt-8.grid,
   .brand-internal-hero .mt-10.grid,
   .home-brand-hero .mt-8.grid {
-    width: 100% !important;
-    max-width: calc(100vw - 2rem) !important;
+    width: auto !important;
+    max-width: 100% !important;
     min-width: 0 !important;
     grid-template-columns: minmax(0, 1fr) !important;
   }
@@ -7071,6 +7071,81 @@ a[href*="book.servicem8.com"].border {
   background:
     linear-gradient(135deg, var(--brand-royal-blue) 0%, var(--brand-electric-blue) 62%, var(--brand-cyan) 100%) !important;
   color: var(--brand-white) !important;
+}
+
+/* Shared CTA containment: phone/quote buttons must never overhang narrow panels. */
+a[data-conversion-action="phone-click"],
+a[data-conversion-action="quote-click"],
+button[data-conversion-action="phone-click"],
+button[data-conversion-action="quote-click"] {
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+main a[data-conversion-action="phone-click"],
+main a[data-conversion-action="quote-click"] {
+  overflow-wrap: anywhere;
+  white-space: normal !important;
+}
+
+main a[data-conversion-action="phone-click"] > span,
+main a[data-conversion-action="quote-click"] > span,
+main a[data-conversion-action="phone-click"] .solar-quote-cta__label,
+main a[data-conversion-action="quote-click"] .solar-quote-cta__label {
+  min-width: 0;
+  max-width: 100%;
+}
+
+@media (max-width: 639px) {
+  main a[data-conversion-action="phone-click"],
+  main a[data-conversion-action="quote-click"] {
+    width: 100% !important;
+    padding-inline: clamp(0.95rem, 5vw, 1.35rem) !important;
+    text-align: center;
+  }
+
+  main a[data-conversion-action="phone-click"] > span,
+  main a[data-conversion-action="quote-click"] > span,
+  main a[data-conversion-action="phone-click"] .solar-quote-cta__label,
+  main a[data-conversion-action="quote-click"] .solar-quote-cta__label {
+    white-space: normal !important;
+  }
+}
+
+/* Mobile CTA fit guard: keep phone/quote rows inside padded hero and card
+   panels. This targets the shared conversion buttons rather than one page. */
+@media (max-width: 767px) {
+  main .grid > :is(article, aside, div),
+  main .flex > :is(article, aside, div) {
+    min-width: 0 !important;
+  }
+
+  main div:not(.mobile-sticky-cta):has(> a[data-conversion-action="phone-click"]),
+  main div:not(.mobile-sticky-cta):has(> a[data-conversion-action="quote-click"]) {
+    width: auto !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    align-items: stretch !important;
+    justify-content: stretch !important;
+  }
+
+  main div:not(.mobile-sticky-cta):has(> a[data-conversion-action="phone-click"]):has(> a[data-conversion-action="quote-click"]) {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  main div:not(.mobile-sticky-cta):has(> a[data-conversion-action="phone-click"]) > a[data-conversion-action],
+  main div:not(.mobile-sticky-cta):has(> a[data-conversion-action="quote-click"]) > a[data-conversion-action] {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  main a[data-conversion-action="phone-click"] > span,
+  main a[data-conversion-action="quote-click"] > span {
+    white-space: normal !important;
+  }
 }
 
 /* Fixed header stack: the service strip stays pinned below the header on every route. */
