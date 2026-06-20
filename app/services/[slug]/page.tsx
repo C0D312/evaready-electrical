@@ -433,7 +433,7 @@ export default async function ServiceLandingPage({
                 </article>
               ))}
             </div>
-            <div className="mt-6 rounded-lg border border-red-300/30 bg-red-500/15 p-5">
+            <div className="mt-6 rounded-lg border border-red-300/30 bg-gradient-to-br from-[#7A0713]/72 via-[#0d2b5c] to-[#091d42] p-5 shadow-xl shadow-red-950/20">
               <p className="text-sm font-black uppercase tracking-[0.16em] text-red-100">
                 Urgent electrical issue?
               </p>
@@ -446,7 +446,7 @@ export default async function ServiceLandingPage({
                 href={business.phoneHref}
                 data-conversion-action="phone-click"
                 aria-label={business.callCta}
-                className="mt-4 inline-flex w-full items-center justify-center gap-3 rounded-lg border border-red-200/40 bg-gradient-to-r from-red-700 to-red-500 px-5 py-3.5 text-center font-black text-white shadow-lg shadow-red-950/25 transition hover:border-red-100 hover:from-red-600 hover:to-red-400 sm:w-auto focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-100"
+                className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-lg border border-red-200/45 bg-gradient-to-r from-[#b90816] via-red-600 to-[#ff2637] px-5 py-3.5 text-center font-black text-white shadow-xl shadow-red-950/35 ring-1 ring-white/10 transition hover:border-red-100 hover:from-red-700 hover:via-red-500 hover:to-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-100 sm:w-auto"
               >
                 <Phone className="h-5 w-5" />
                 <span className="whitespace-nowrap">{business.callCta}</span>
