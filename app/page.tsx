@@ -613,7 +613,7 @@ export default function HomePage() {
         className="border-y border-cyan-300/15"
         eyebrow="Free photo review"
         heading="Jobs we can often review from photos."
-        intro="Send job notes, switchboard photos or affected-area photos for planned electrical work across Sydney and surrounding regions. For urgent faults in core service areas or greater regions, call first."
+        intro="Send job notes, switchboard photos or affected-area photos through the quote form for planned electrical work across Sydney and surrounding regions. For urgent faults in core service areas or greater regions, call first."
       />
 
       <TrustProcessProof className="border-b border-cyan-300/15" />
