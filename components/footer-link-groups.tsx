@@ -192,11 +192,16 @@ export function FooterLinkGroups() {
       {footerColumns.map((column) => {
         const panelId = toPanelId(column.title);
         const isOpen = isDesktop || openPanel === panelId;
+        const groupModifier = column.title === "Regions Covered"
+          ? "footer-link-group--regions"
+          : column.title === "Contact"
+            ? "footer-link-group--contact"
+            : "";
 
         return (
           <section
             key={column.title}
-            className={`footer-link-group ${isOpen ? "footer-link-group-open" : ""}`}
+            className={`footer-link-group ${groupModifier} ${isOpen ? "footer-link-group-open" : ""}`}
           >
             <button
               type="button"
