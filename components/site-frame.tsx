@@ -26,6 +26,8 @@ const navItems = [
 ];
 
 const legalLinks = [
+  { href: "/about", label: "About Evaready" },
+  { href: "/contact", label: "Contact" },
   { href: "/privacy-policy", label: "Privacy Policy" },
   { href: "/terms", label: "Terms" },
   { href: "/sitemap.xml", label: "Sitemap" },
