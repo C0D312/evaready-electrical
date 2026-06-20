@@ -1,2 +1,2 @@
-:HL["/evaready-electrical/_next/static/chunks/0mm~jnwvhjtbs.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"service-areas","param":null,"prefetchHints":0,"slots":{"children":{"name":"region","param":{"type":"d","key":"wollongong-and-illawarra","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"g0caZvmOXmgTek7_vw1Nn"}
+:HL["/evaready-electrical/_next/static/chunks/06wwb~kz~otad.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"service-areas","param":null,"prefetchHints":0,"slots":{"children":{"name":"region","param":{"type":"d","key":"wollongong-and-illawarra","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"KNumQzda2wo8IxhbfYjJC"}
