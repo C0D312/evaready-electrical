@@ -7427,3 +7427,150 @@ main section [data-suburb-action-card="call-first"] a:not(.bg-red-600):not([data
     background: none !important;
   }
 }
+
+/* Sitewide readability pass: dark brand panels should use white copy, not
+   low-contrast blue copy. Keep icons/cues cyan unless they sit inside CTAs. */
+:where(main, .site-footer, #mobile-site-menu) :is(
+  .lead-offer-panel,
+  .trust-process-proof,
+  .quote-process-graphic,
+  .quote-request-card,
+  .quote-home-card,
+  .google-rating-card,
+  .google-rating-seal,
+  .google-review-proof,
+  .emergency-trust-panel,
+  .service-credential-strip,
+  .hero-credential-badges,
+  [class*="bg-[#061E72]"],
+  [class*="from-[#061E72]"],
+  [class*="via-[#061E72]"],
+  [class*="to-[#061E72]"],
+  [class*="bg-[#082A86]"],
+  [class*="from-[#082A86]"],
+  [class*="via-[#082A86]"],
+  [class*="to-[#082A86]"],
+  [class*="bg-[#0A349E]"],
+  [class*="from-[#0A349E]"],
+  [class*="via-[#0A349E]"],
+  [class*="to-[#0A349E]"],
+  [class*="bg-blue-"],
+  [class*="from-blue-"],
+  [class*="via-blue-"],
+  [class*="to-blue-"],
+  [class*="bg-cyan-300/"],
+  [class*="bg-white/"]
+) :is(h1, h2, h3, h4, h5, h6, p, li, dt, dd, summary, label, a, span, strong, small) {
+  color: #ffffff !important;
+}
+
+:where(main, .site-footer, #mobile-site-menu) :is(
+  .lead-offer-panel,
+  .trust-process-proof,
+  .quote-process-graphic,
+  .quote-request-card,
+  .quote-home-card,
+  .google-rating-card,
+  .google-rating-seal,
+  .google-review-proof,
+  .emergency-trust-panel,
+  .service-credential-strip,
+  .hero-credential-badges,
+  [class*="bg-[#061E72]"],
+  [class*="from-[#061E72]"],
+  [class*="via-[#061E72]"],
+  [class*="to-[#061E72]"],
+  [class*="bg-[#082A86]"],
+  [class*="from-[#082A86]"],
+  [class*="via-[#082A86]"],
+  [class*="to-[#082A86]"],
+  [class*="bg-[#0A349E]"],
+  [class*="from-[#0A349E]"],
+  [class*="via-[#0A349E]"],
+  [class*="to-[#0A349E]"],
+  [class*="bg-blue-"],
+  [class*="from-blue-"],
+  [class*="via-blue-"],
+  [class*="to-blue-"],
+  [class*="bg-cyan-300/"],
+  [class*="bg-white/"]
+) :is(.text-slate-900, .text-slate-800, .text-slate-700, .text-slate-600, .text-slate-500, .text-slate-400, .text-slate-300, .text-slate-200, .text-slate-100, .text-blue-900, .text-blue-800, .text-blue-700, .text-blue-600, .text-blue-500, .text-blue-300, .text-blue-200, .text-blue-100, .text-cyan-900, .text-cyan-800, .text-cyan-700, .text-cyan-600, .text-cyan-500, .text-cyan-300, .text-cyan-200, .text-cyan-100) {
+  color: #ffffff !important;
+}
+
+:where(main, .site-footer, #mobile-site-menu) :is(
+  .lead-offer-panel,
+  .trust-process-proof,
+  .quote-process-graphic,
+  .quote-request-card,
+  .quote-home-card,
+  .google-rating-card,
+  .google-rating-seal,
+  .google-review-proof,
+  .emergency-trust-panel,
+  .service-credential-strip,
+  .hero-credential-badges,
+  [class*="bg-[#061E72]"],
+  [class*="from-[#061E72]"],
+  [class*="via-[#061E72]"],
+  [class*="to-[#061E72]"],
+  [class*="bg-[#082A86]"],
+  [class*="from-[#082A86]"],
+  [class*="via-[#082A86]"],
+  [class*="to-[#082A86]"],
+  [class*="bg-[#0A349E]"],
+  [class*="from-[#0A349E]"],
+  [class*="via-[#0A349E]"],
+  [class*="to-[#0A349E]"],
+  [class*="bg-blue-"],
+  [class*="from-blue-"],
+  [class*="via-blue-"],
+  [class*="to-blue-"],
+  [class*="bg-cyan-300/"],
+  [class*="bg-white/"]
+) svg {
+  color: #72e7ff !important;
+}
+
+:where(main, .site-footer, #mobile-site-menu) a[data-conversion-action] :is(span, svg),
+:where(main, .site-footer, #mobile-site-menu) a[href^="tel:"] :is(span, svg) {
+  color: #ffffff !important;
+}
+
+:where(main, .site-footer, #mobile-site-menu) :is(a, button, span, p, li, dt, dd)[class*="bg-[#061E72]"],
+:where(main, .site-footer, #mobile-site-menu) :is(a, button, span, p, li, dt, dd)[class*="from-[#061E72]"],
+:where(main, .site-footer, #mobile-site-menu) :is(a, button, span, p, li, dt, dd)[class*="via-[#061E72]"],
+:where(main, .site-footer, #mobile-site-menu) :is(a, button, span, p, li, dt, dd)[class*="to-[#061E72]"],
+:where(main, .site-footer, #mobile-site-menu) :is(a, button, span, p, li, dt, dd)[class*="bg-[#082A86]"],
+:where(main, .site-footer, #mobile-site-menu) :is(a, button, span, p, li, dt, dd)[class*="from-[#082A86]"],
+:where(main, .site-footer, #mobile-site-menu) :is(a, button, span, p, li, dt, dd)[class*="via-[#082A86]"],
+:where(main, .site-footer, #mobile-site-menu) :is(a, button, span, p, li, dt, dd)[class*="to-[#082A86]"],
+:where(main, .site-footer, #mobile-site-menu) :is(a, button, span, p, li, dt, dd)[class*="bg-[#0A349E]"],
+:where(main, .site-footer, #mobile-site-menu) :is(a, button, span, p, li, dt, dd)[class*="from-[#0A349E]"],
+:where(main, .site-footer, #mobile-site-menu) :is(a, button, span, p, li, dt, dd)[class*="via-[#0A349E]"],
+:where(main, .site-footer, #mobile-site-menu) :is(a, button, span, p, li, dt, dd)[class*="to-[#0A349E]"],
+:where(main, .site-footer, #mobile-site-menu) :is(a, button, span, p, li, dt, dd)[class*="bg-blue-"],
+:where(main, .site-footer, #mobile-site-menu) :is(a, button, span, p, li, dt, dd)[class*="from-blue-"],
+:where(main, .site-footer, #mobile-site-menu) :is(a, button, span, p, li, dt, dd)[class*="via-blue-"],
+:where(main, .site-footer, #mobile-site-menu) :is(a, button, span, p, li, dt, dd)[class*="to-blue-"],
+:where(main, .site-footer, #mobile-site-menu) :is(a, button, span, p, li, dt, dd)[class*="bg-cyan-300/"],
+:where(main, .site-footer, #mobile-site-menu) :is(a, button, span, p, li, dt, dd)[class*="bg-white/"] {
+  color: #ffffff !important;
+}
+
+:where(main, .site-footer) :is(
+  section,
+  article,
+  aside,
+  div,
+  li
+)[class*="rounded"][class*="border"] :is(h1, h2, h3, h4, h5, h6, p, li, dt, dd, summary, label, a, span, strong, small),
+:where(main, .site-footer) :is(
+  section,
+  article,
+  aside,
+  div,
+  li
+):is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50):not(a):not(button) :is(h1, h2, h3, h4, h5, h6, p, li, dt, dd, summary, label, a, span, strong, small) {
+  color: #ffffff !important;
+}
