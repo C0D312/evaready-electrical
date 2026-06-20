@@ -684,6 +684,15 @@ export default async function ServiceLandingPage({
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <a
+                  href={business.phoneHref}
+                  data-conversion-action="phone-click"
+                  aria-label={business.callCta}
+                  className="inline-flex items-center justify-center gap-3 rounded-lg border border-red-200/40 bg-gradient-to-r from-red-700 to-red-500 px-6 py-4 font-black text-white shadow-lg shadow-red-900/25 transition hover:border-red-100 hover:from-red-600 hover:to-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-100"
+                >
+                  <Phone className="h-5 w-5" />
+                  <span className="whitespace-nowrap">{business.callCta}</span>
+                </a>
+                <a
                   href={business.bookingUrl}
                   data-quote-trigger="true"
                   data-conversion-action="quote-click"
@@ -693,15 +702,6 @@ export default async function ServiceLandingPage({
                 >
                   {quoteCtaLabel}
                   <ArrowRight className="h-5 w-5" />
-                </a>
-                <a
-                  href={business.phoneHref}
-                  data-conversion-action="phone-click"
-                  aria-label={business.callCta}
-                  className="inline-flex items-center justify-center gap-3 rounded-lg border border-red-200 bg-white px-6 py-4 font-black text-red-700 shadow-sm transition hover:bg-red-50"
-                >
-                  <Phone className="h-5 w-5" />
-                  <span className="whitespace-nowrap">{business.callCta}</span>
                 </a>
               </div>
             </div>
