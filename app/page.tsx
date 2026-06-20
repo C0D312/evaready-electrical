@@ -530,10 +530,13 @@ export default function HomePage() {
                 </a>
                 <Link
                   href="/emergency-electrician-sydney"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-red-200 bg-white px-5 py-3 font-black text-red-700 transition hover:border-red-300 hover:bg-red-100"
+                  className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg border border-red-200 bg-white px-5 py-3 font-black text-red-700 transition hover:border-red-300 hover:bg-red-100"
                 >
-                  Emergency electrician guide
-                  <ArrowRight className="h-4 w-4 shrink-0" />
+                  <span>Emergency electrician guide</span>
+                  <span className="inline-flex items-center gap-1 rounded-full bg-red-50 px-2.5 py-1 text-[0.68rem] font-black uppercase tracking-[0.12em] text-red-700 ring-1 ring-red-100">
+                    Next step
+                    <ArrowRight className="h-3.5 w-3.5 shrink-0" />
+                  </span>
                 </Link>
               </div>
             </div>
@@ -551,8 +554,12 @@ export default function HomePage() {
                     <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-red-50 text-red-700 ring-1 ring-red-100 transition group-hover:bg-red-100">
                       <Icon className="h-4 w-4" aria-hidden="true" />
                     </span>
-                    <span className="text-sm font-black leading-6 text-slate-900">
-                      {item.title}
+                    <span className="min-w-0 flex-1 text-sm font-black leading-6 text-slate-900">
+                      <span>{item.title}</span>
+                      <span className="mt-2 inline-flex items-center gap-1 text-[0.68rem] font-black uppercase tracking-[0.12em] text-red-700">
+                        Next step
+                        <ArrowRight className="h-3.5 w-3.5 shrink-0 transition group-hover:translate-x-1" />
+                      </span>
                     </span>
                   </Link>
                 );
