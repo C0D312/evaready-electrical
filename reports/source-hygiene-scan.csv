@@ -1,0 +1,8 @@
+"scan","matches","classification","example"
+"debug markers","13","documented exception or audit-script pattern; reviewed","scripts\audit-all-routes-visibility.ts:673:console.log("
+"type suppressions","0","clean",""
+"unsafe code","50","documented exception or audit-script pattern; reviewed","app\terms\page.tsx:26:          dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}"
+"google api","0","clean",""
+"local placeholders","5","documented exception or audit-script pattern; reviewed","scripts\audit-live-links-and-ctas.ts:177:  if (/^localhost|^http:\/\/localhost|^http:\/\/127\.0\.0\.1/i.test(href)) {"
+"stale copy detectors","22","documented exception or audit-script pattern; reviewed","scripts\audit-all-suburb-visible-copy.ts:74:  ""sparking.For"","
+"risky copy detectors","35","documented exception or audit-script pattern; reviewed","scripts\audit-all-routes-visibility.ts:73:  [""Level 1"", /\b(Level 1|Level One|ASP1|ASP 1)\b/i],"

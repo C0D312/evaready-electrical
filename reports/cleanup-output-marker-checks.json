@@ -1,0 +1,50 @@
+[
+    {
+        "name":  "stale",
+        "expected":  "absent",
+        "found":  false,
+        "pass":  true
+    },
+    {
+        "name":  "risky",
+        "expected":  "absent",
+        "found":  false,
+        "pass":  true
+    },
+    {
+        "name":  "api",
+        "expected":  "absent",
+        "found":  false,
+        "pass":  true
+    },
+    {
+        "name":  "ads",
+        "expected":  "present",
+        "found":  true,
+        "pass":  true
+    },
+    {
+        "name":  "conversion",
+        "expected":  "present",
+        "found":  true,
+        "pass":  true
+    },
+    {
+        "name":  "phone",
+        "expected":  "present",
+        "found":  true,
+        "pass":  true
+    },
+    {
+        "name":  "response",
+        "expected":  "present",
+        "found":  true,
+        "pass":  true
+    },
+    {
+        "name":  "asp",
+        "expected":  "present",
+        "found":  true,
+        "pass":  true
+    }
+]
