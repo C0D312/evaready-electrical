@@ -682,12 +682,12 @@ export default async function ServiceLandingPage({
               <p className="mt-5 rounded-lg border border-red-200 bg-white p-4 text-base font-bold leading-7 text-red-700">
                 {service.quoteChecklist.urgentNote}
               </p>
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-6 grid gap-3 sm:grid-cols-2">
                 <a
                   href={business.phoneHref}
                   data-conversion-action="phone-click"
                   aria-label={business.callCta}
-                  className="inline-flex items-center justify-center gap-3 rounded-lg border border-red-200/40 bg-gradient-to-r from-red-700 to-red-500 px-6 py-4 font-black text-white shadow-lg shadow-red-900/25 transition hover:border-red-100 hover:from-red-600 hover:to-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-100"
+                  className="order-1 inline-flex min-h-16 items-center justify-center gap-3 rounded-lg border border-red-200/45 bg-gradient-to-r from-[#b90816] via-red-600 to-[#ff2637] px-6 py-4 text-center font-black text-white shadow-lg shadow-red-950/35 transition hover:border-red-100 hover:from-red-700 hover:via-red-500 hover:to-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-100"
                 >
                   <Phone className="h-5 w-5" />
                   <span className="whitespace-nowrap">{business.callCta}</span>
@@ -698,7 +698,7 @@ export default async function ServiceLandingPage({
                   data-conversion-action="quote-click"
                   aria-haspopup="dialog"
                   aria-label="Get a quote from Evaready Electrical"
-                  className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
+                  className="order-2 inline-flex min-h-16 items-center justify-center gap-3 rounded-lg bg-gradient-to-r from-blue-700 to-cyan-400 px-6 py-4 text-center font-black text-white shadow-lg shadow-blue-700/25 transition hover:from-blue-600 hover:to-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
                 >
                   {quoteCtaLabel}
                   <ArrowRight className="h-5 w-5" />
