@@ -1130,10 +1130,10 @@ export default function ServicesPage() {
                     <Link
                       key={link.label}
                       href={link.href}
-                      className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-blue-200 bg-blue-50 px-3 py-2 text-sm font-black text-blue-800 transition hover:border-blue-500 hover:bg-blue-100"
+                      className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-cyan-300/35 bg-cyan-300/10 px-3 py-2 text-sm font-black text-white shadow-sm shadow-cyan-950/20 transition hover:border-cyan-200 hover:bg-cyan-300/20 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
                     >
                       {link.label}
-                      <ArrowRight className="h-4 w-4" />
+                      <ArrowRight className="h-4 w-4 text-cyan-200" />
                     </Link>
                   ))}
                 </div>
