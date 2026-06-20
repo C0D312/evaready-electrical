@@ -491,8 +491,8 @@ export default function EmergencyElectricianSydneyPage() {
               Open 24/7 for urgent electrical faults
             </div>
 
-            <h1 className={cx(styles.heroTitle, "max-w-5xl text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl")}>
-              Emergency Electrician Sydney
+            <h1 className={cx(styles.heroTitle, "max-w-5xl text-4xl font-black leading-tight tracking-tight sm:text-5xl lg:text-6xl 2xl:text-7xl")}>
+              Emergency Electrician Sydney and Surrounding Regions
             </h1>
 
             <p className={cx(styles.heroLead, "mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl")}>
