@@ -7075,6 +7075,10 @@ a[href*="book.servicem8.com"].border {
 
 /* Emergency red colour theme: only urgent/call-first surfaces use the 24/7 red. */
 .emergency-issue-marquee {
+  position: sticky !important;
+  top: calc(88px + env(safe-area-inset-top)) !important;
+  z-index: 45 !important;
+  isolation: isolate;
   border-color: var(--brand-border-red) !important;
   background:
     linear-gradient(90deg, var(--brand-red-dark) 0%, var(--brand-red) 52%, #ff3b46 100%) top / 100% 2px no-repeat,
@@ -7107,6 +7111,28 @@ a[href*="book.servicem8.com"].border {
 
 .emergency-issue-chip svg {
   color: #ffb5bd !important;
+}
+
+.emergency-issue-marquee__track {
+  animation-duration: 52s !important;
+}
+
+@media (min-width: 640px) {
+  .emergency-issue-marquee {
+    top: calc(104px + env(safe-area-inset-top)) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .emergency-issue-marquee__track {
+    animation: none !important;
+  }
+
+  .emergency-issue-marquee__viewport {
+    overflow-x: auto !important;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
 }
 
 a.bg-red-600,
