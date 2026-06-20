@@ -533,8 +533,10 @@ export default function HomePage() {
                   className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg border border-red-200 bg-white px-5 py-3 font-black text-red-700 transition hover:border-red-300 hover:bg-red-100"
                 >
                   <span>Emergency electrician guide</span>
-                  <span className="inline-flex items-center gap-1 rounded-full bg-red-50 px-2.5 py-1 text-[0.68rem] font-black uppercase tracking-[0.12em] text-red-700 ring-1 ring-red-100">
-                    Next step
+                  <span
+                    className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-50 text-red-700 ring-1 ring-red-100 transition hover:bg-red-100"
+                    aria-hidden="true"
+                  >
                     <ArrowRight className="h-3.5 w-3.5 shrink-0" />
                   </span>
                 </Link>
@@ -555,11 +557,13 @@ export default function HomePage() {
                       <Icon className="h-4 w-4" aria-hidden="true" />
                     </span>
                     <span className="min-w-0 flex-1 text-sm font-black leading-6 text-slate-900">
-                      <span>{item.title}</span>
-                      <span className="mt-2 inline-flex items-center gap-1 text-[0.68rem] font-black uppercase tracking-[0.12em] text-red-700">
-                        Next step
-                        <ArrowRight className="h-3.5 w-3.5 shrink-0 transition group-hover:translate-x-1" />
-                      </span>
+                      {item.title}
+                    </span>
+                    <span
+                      className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-50 text-red-700 ring-1 ring-red-100 transition group-hover:translate-x-0.5 group-hover:bg-red-100"
+                      aria-hidden="true"
+                    >
+                      <ArrowRight className="h-3.5 w-3.5 shrink-0" />
                     </span>
                   </Link>
                 );
@@ -685,9 +689,11 @@ export default function HomePage() {
                         </span>
                       </span>
                     </div>
-                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-cyan-200">
-                      Next step
-                      <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                    <span
+                      className="mt-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-cyan-200/25 bg-cyan-300/10 text-cyan-100 transition group-hover:translate-x-1 group-hover:border-cyan-200/50 group-hover:bg-cyan-300/18"
+                      aria-hidden="true"
+                    >
+                      <ArrowRight className="h-4 w-4" />
                     </span>
                   </Link>
                 );

@@ -213,7 +213,7 @@ export default function TermsPage() {
             className="mt-3 rounded-[2rem] border border-cyan-300/20 bg-gradient-to-br from-[#082A86] via-[#082A86] to-[#084CC4] p-6 shadow-[0_20px_70px_rgba(4,28,112,0.35)] sm:p-8"
           >
             <p className="text-sm font-black uppercase tracking-[0.24em] text-cyan-300">
-              Next step
+              Need electrical help?
             </p>
             <h2
               id="terms-cta-heading"

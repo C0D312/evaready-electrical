@@ -130,11 +130,12 @@ export function EmergencyTrustPanel({ className = "" }: { className?: string }) 
                     <p className="mt-2 text-sm font-semibold leading-6 text-slate-300">
                       {card.text}
                     </p>
-                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-cyan-100">
-                      Next step
+                    <span
+                      className="mt-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-cyan-200/25 bg-cyan-300/10 text-cyan-100 transition group-hover:translate-x-1 group-hover:border-cyan-200/50 group-hover:bg-cyan-300/18"
+                      aria-hidden="true"
+                    >
                       <ArrowRight
                         className="h-4 w-4 shrink-0 transition group-hover:translate-x-1"
-                        aria-hidden="true"
                       />
                     </span>
                   </Link>
