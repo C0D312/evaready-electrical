@@ -7073,12 +7073,31 @@ a[href*="book.servicem8.com"].border {
   color: var(--brand-white) !important;
 }
 
+/* Fixed header stack: the service strip stays pinned below the header on every route. */
+:root {
+  --site-header-height: calc(88px + env(safe-area-inset-top));
+  --site-route-strip-height: calc(2.45rem + 4px);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --site-header-height: calc(104px + env(safe-area-inset-top));
+  }
+}
+
+.site-header-spacer {
+  height: calc(var(--site-header-height) + var(--site-route-strip-height));
+  flex: 0 0 auto;
+}
+
 /* Emergency red colour theme: only urgent/call-first surfaces use the 24/7 red. */
 .emergency-issue-marquee {
-  position: sticky !important;
-  top: calc(88px + env(safe-area-inset-top)) !important;
-  z-index: 45 !important;
+  position: fixed !important;
+  inset-inline: 0 !important;
+  top: var(--site-header-height) !important;
+  z-index: 49 !important;
   isolation: isolate;
+  min-height: var(--site-route-strip-height) !important;
   border-color: var(--brand-border-red) !important;
   background:
     linear-gradient(90deg, var(--brand-red-dark) 0%, var(--brand-red) 52%, #ff3b46 100%) top / 100% 2px no-repeat,
@@ -7115,12 +7134,6 @@ a[href*="book.servicem8.com"].border {
 
 .emergency-issue-marquee__track {
   animation-duration: 52s !important;
-}
-
-@media (min-width: 640px) {
-  .emergency-issue-marquee {
-    top: calc(104px + env(safe-area-inset-top)) !important;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

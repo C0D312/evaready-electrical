@@ -110,11 +110,11 @@ export function SiteHeader() {
           </div>
         </div>
       </header>
+      <RouteMarqueeStrip />
       <div
         aria-hidden="true"
-        className="h-[calc(88px_+_env(safe-area-inset-top))] sm:h-[calc(104px_+_env(safe-area-inset-top))] lg:h-[calc(104px_+_env(safe-area-inset-top))]"
+        className="site-header-spacer"
       />
-      <RouteMarqueeStrip />
       <QuoteFormModal />
       <MobileStickyCta />
     </>
