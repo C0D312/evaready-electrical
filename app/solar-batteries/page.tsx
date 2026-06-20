@@ -382,28 +382,28 @@ export default function SolarBatteriesPage() {
               side and identify whether a separate accredited solar or battery
               specialist is needed.
             </p>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-6 grid gap-3 xl:grid-cols-2">
+              <a
+                href={business.phoneHref}
+                data-conversion-action="phone-click"
+                aria-label={business.callCta}
+                className="inline-flex min-h-14 w-full min-w-0 items-center justify-center gap-3 rounded-lg border border-red-200/40 bg-gradient-to-r from-[#b90816] via-red-600 to-[#ff2637] px-5 py-4 text-center font-black text-white shadow-lg shadow-red-950/30 transition hover:border-red-100 hover:from-red-700 hover:via-red-500 hover:to-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-100"
+              >
+                <Phone className="h-5 w-5 shrink-0" />
+                <span className="whitespace-nowrap">{business.callCta}</span>
+              </a>
               <a
                 href={business.bookingUrl}
                 data-quote-trigger="true"
                 data-conversion-action="quote-click"
                 aria-haspopup="dialog"
                 aria-label="Get a solar and battery quote from Evaready Electrical"
-                className="solar-quote-cta inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-blue-600 px-6 py-4 font-black text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-500"
+                className="solar-quote-cta inline-flex min-h-14 w-full min-w-0 items-center justify-center gap-3 rounded-lg bg-gradient-to-r from-blue-700 to-cyan-400 px-5 py-4 text-center font-black text-white shadow-lg shadow-blue-600/20 transition hover:from-blue-600 hover:to-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-100"
               >
                 <span className="solar-quote-cta__label">
                   Get a Solar & Battery Quote
                 </span>
                 <ArrowRight className="h-5 w-5 shrink-0" />
-              </a>
-              <a
-                href={business.phoneHref}
-                data-conversion-action="phone-click"
-                aria-label={business.callCta}
-                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg border border-red-300/35 bg-red-500/10 px-6 py-4 font-black text-red-50 transition hover:bg-red-500/20"
-              >
-                <Phone className="h-5 w-5" />
-                <span className="whitespace-nowrap">{business.callCta}</span>
               </a>
             </div>
           </div>
