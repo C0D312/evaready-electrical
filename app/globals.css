@@ -7416,15 +7416,54 @@ main section [data-suburb-action-card="call-first"] a:not(.bg-red-600):not([data
 }
 
 @media (max-width: 767px) {
+  .home-brand-hero,
+  .brand-internal-hero {
+    --mobile-hero-photo-height: clamp(13.25rem, 56vw, 17.5rem);
+    --mobile-hero-photo-position: 72% 62%;
+  }
+
+  .home-brand-hero .brand-hero-image,
+  .brand-internal-hero > img.brand-internal-hero-image,
+  .brand-internal-hero > img.absolute {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 0 auto 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: var(--mobile-hero-photo-height) !important;
+    object-fit: cover !important;
+    object-position: var(--mobile-hero-photo-position) !important;
+    opacity: 1 !important;
+    filter: none !important;
+    mix-blend-mode: normal !important;
+    transform: none !important;
+    z-index: 0 !important;
+  }
+
   .brand-internal-hero::before {
-    background-position: var(--hero-position-mobile, 72% 30%) !important;
-    background-size: var(--hero-size-mobile, auto 82svh) !important;
+    inset: 0 0 auto 0 !important;
+    height: var(--mobile-hero-photo-height) !important;
+    background-position: var(--mobile-hero-photo-position) !important;
+    background-size: cover !important;
     filter: none !important;
   }
 
   .brand-internal-hero > .absolute + .absolute {
     display: none !important;
     background: none !important;
+  }
+
+  .home-brand-hero > .relative.mx-auto,
+  .brand-internal-hero > div.mx-auto,
+  .brand-internal-hero > .relative.mx-auto {
+    padding-block-start: calc(var(--mobile-hero-photo-height) + 1rem) !important;
+    padding-top: calc(var(--mobile-hero-photo-height) + 1rem) !important;
+  }
+
+  .brand-internal-hero:not(:has(.brand-internal-hero-image)) > div.mx-auto > .internal-hero-copy-panel,
+  .brand-internal-hero:not(:has(.brand-internal-hero-image)) > .internal-hero-copy-panel,
+  .brand-internal-hero:not(:has(.brand-internal-hero-image)) > .relative.mx-auto > .internal-hero-copy-panel {
+    margin-top: calc(var(--mobile-hero-photo-height) + 1rem) !important;
   }
 }
 
