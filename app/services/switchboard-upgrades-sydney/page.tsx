@@ -332,7 +332,7 @@ export default function SwitchboardUpgradesSydneyPage() {
           "Free photo review for planned electrical work",
           "Send switchboard, meter box or service equipment photos",
           "Photos help us quote faster",
-          "Clear next steps before work starts",
+          "Clear next actions before work starts",
         ]}
       />
 

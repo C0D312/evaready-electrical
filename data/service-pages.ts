@@ -97,7 +97,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         text: "Work is carried out with clean finishes, safe connections and proper testing.",
       },
       {
-        title: "Explain next steps",
+        title: "Explain next actions",
         text: "You get clear notes on what was done and anything that may need attention later.",
       },
     ],
@@ -170,7 +170,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Keep records clear",
-        text: "Photos, notes and next steps can be supplied where they are useful for managers or owners.",
+        text: "Photos, notes and next actions can be supplied where they are useful for managers or owners.",
       },
     ],
     faqs: [
@@ -750,7 +750,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Electrical support for private power pole concerns, overhead service issues and related defect notices.",
     intro:
-      "Private power poles and overhead services can become a serious safety issue when damaged, leaning or flagged in a defect notice. Evaready Electrical can assess the electrical side of the issue and explain the next steps.",
+      "Private power poles and overhead services can become a serious safety issue when damaged, leaning or flagged in a defect notice. Evaready Electrical can assess the electrical side of the issue and explain the next actions.",
     credentialHighlights: [
       "Private pole enquiries",
       "Overhead supply and defects",
@@ -782,7 +782,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Review photos",
-        text: "Photos of the pole, cables and switchboard help determine the next step.",
+        text: "Photos of the pole, cables and switchboard help determine the next action.",
       },
       {
         title: "Inspect the site",
@@ -1775,7 +1775,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Can you help with meter-related electrical issues?",
         answer:
-          "Yes. Evaready Electrical can assess metering-related electrical concerns and explain the next steps.",
+          "Yes. Evaready Electrical can assess metering-related electrical concerns and explain the next actions.",
       },
       {
         question: "Is metering work always Level 2 work?",
@@ -1921,7 +1921,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Record findings",
-        text: "Findings are documented clearly so owners or managers understand the next step.",
+        text: "Findings are documented clearly so owners or managers understand the next action.",
       },
       {
         title: "Plan repairs",
@@ -2141,7 +2141,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Test and explain",
-        text: "Installed electrical work is checked and any next steps are explained.",
+        text: "Installed electrical work is checked and any next actions are explained.",
       },
     ],
     faqs: [
@@ -2291,7 +2291,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         text: "Where needed, Level 2 or 3 phase pathways can be discussed.",
       },
       {
-        title: "Recommend next steps",
+        title: "Recommend next actions",
         text: "You get practical advice on circuits, upgrades or staged work before committing.",
       },
     ],
@@ -2340,7 +2340,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Supply-side electrical support for damaged point of attachment issues, overhead supply enquiries and defect notice work.",
     intro:
-      "The point of attachment is where the overhead service connects to the property. If it is damaged, loose, affected by storm damage or listed on a defect notice, Evaready Electrical can review the electrical side of the issue and explain the next step clearly.",
+      "The point of attachment is where the overhead service connects to the property. If it is damaged, loose, affected by storm damage or listed on a defect notice, Evaready Electrical can review the electrical side of the issue and explain the next action clearly.",
     credentialHighlights: [
       "Point of attachment review",
       "Overhead service and defect support",
@@ -2376,7 +2376,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Plan the correct pathway",
-        text: "Where network or retailer requirements apply, the next step is explained without promising third-party approvals or timeframes.",
+        text: "Where network or retailer requirements apply, the next action is explained without promising third-party approvals or timeframes.",
       },
       {
         title: "Complete and document",
@@ -2428,7 +2428,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Supply-side electrical support for overhead service line enquiries, storm damage, private poles and defect notice work.",
     intro:
-      "Overhead service issues need careful handling because they can involve the property connection, point of attachment, private poles, consumer mains and network requirements. Evaready Electrical can review overhead service enquiries and guide the correct next step.",
+      "Overhead service issues need careful handling because they can involve the property connection, point of attachment, private poles, consumer mains and network requirements. Evaready Electrical can review overhead service enquiries and guide the correct next action.",
     credentialHighlights: [
       "Overhead service enquiries",
       "Point of attachment and private pole links",
@@ -2467,7 +2467,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         text: "The property-side electrical requirements are checked and explained clearly.",
       },
       {
-        title: "Coordinate next steps",
+        title: "Coordinate next actions",
         text: "Where network involvement is needed, the process is explained without overpromising approvals or attendance times.",
       },
     ],
@@ -2642,7 +2642,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Explain requirements",
-        text: "Where network, retailer or Level 2 processes apply, the next steps are explained carefully.",
+        text: "Where network, retailer or Level 2 processes apply, the next actions are explained carefully.",
       },
       {
         title: "Complete the electrical work",
@@ -2772,7 +2772,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         text: "Accessible electrical equipment, switchboards, safety switches, outlets, lighting and visible concerns are checked where relevant.",
       },
       {
-        title: "Explain findings and next steps",
+        title: "Explain findings and next actions",
         text: "Findings are explained clearly, with repair quotes or further investigation recommendations where requested.",
       },
     ],
@@ -2831,7 +2831,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Do I receive a written report?",
         answer:
-          "Evaready can provide an inspection findings summary with visible and tested findings, priority safety items, photos where practical and recommended next steps. A formal compliance certificate is not promised unless specifically confirmed before booking.",
+          "Evaready can provide an inspection findings summary with visible and tested findings, priority safety items, photos where practical and recommended next actions. A formal compliance certificate is not promised unless specifically confirmed before booking.",
       },
       {
         question: "Can you quote repairs found during the inspection?",
@@ -2874,12 +2874,12 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Electrical safety checks for homes, rentals, strata, commercial sites and properties with wiring or switchboard concerns.",
     intro:
-      "Electrical safety inspections help identify visible risks before they become larger problems. Evaready Electrical can check switchboards, safety switches, power points, lighting, wiring condition and fault symptoms so the next step is clear.",
+      "Electrical safety inspections help identify visible risks before they become larger problems. Evaready Electrical can check switchboards, safety switches, power points, lighting, wiring condition and fault symptoms so the next action is clear.",
     heroBullets: [
       "Switchboard and safety checks",
       "Wiring and outlet review",
       "Rental, strata and property support",
-      "Clear next steps before work begins",
+      "Clear next actions before work begins",
     ],
     warningSigns: [
       "Safety switches keep tripping",
@@ -2906,7 +2906,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Explain findings",
-        text: "The results are explained in practical terms, including urgent and planned next steps.",
+        text: "The results are explained in practical terms, including urgent and planned next actions.",
       },
       {
         title: "Quote repair work",
@@ -2983,7 +2983,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Plan repairs",
-        text: "If repair work is needed, the next step can be quoted separately.",
+        text: "If repair work is needed, the next action can be quoted separately.",
       },
     ],
     faqs: [
@@ -3200,7 +3200,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Check the finish",
-        text: "The final setup is checked and any device-specific next steps are explained.",
+        text: "The final setup is checked and any device-specific next actions are explained.",
       },
     ],
     faqs: [
@@ -3271,7 +3271,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         text: "Approved repairs, replacements or wiring work are completed neatly.",
       },
       {
-        title: "Record next steps",
+        title: "Record next actions",
         text: "Any follow-up notes, failed fixtures or planned upgrades are explained clearly.",
       },
     ],
@@ -3279,7 +3279,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Do commercial sites need emergency and exit lighting?",
         answer:
-          "Many commercial and common areas have emergency and exit lighting requirements. Evaready can help review the electrical side and next steps.",
+          "Many commercial and common areas have emergency and exit lighting requirements. Evaready can help review the electrical side and next actions.",
       },
       {
         question: "Can you replace failed exit lights?",
@@ -3488,7 +3488,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Confirm safe operation",
-        text: "The circuit is retested and the next steps are explained clearly.",
+        text: "The circuit is retested and the next actions are explained clearly.",
       },
     ],
     faqs: [

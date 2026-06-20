@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useMemo } from "react";
 import { usePathname } from "next/navigation";
@@ -443,7 +443,7 @@ function configForPath(pathname: string): MarqueeConfig {
           titleFromSlug(lastSegment),
           "Licensed electrical work",
           "Photos and job notes",
-          "Clear next steps before work begins",
+          "Clear next actions before work begins",
           "Residential and commercial",
           "Sydney and surrounding regions",
         ],

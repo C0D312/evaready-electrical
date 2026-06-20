@@ -71,7 +71,7 @@ export default function TermsPage() {
             <p>
               For planned work, the secure booking form can be used to send your
               contact details, address, suburb, job notes and photos. We may
-              contact you to clarify details before confirming a next step.
+              contact you to clarify details before confirming a next action.
             </p>
           </article>
 

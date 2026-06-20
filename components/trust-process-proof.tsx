@@ -55,8 +55,8 @@ const baseProofItems: ProofItem[] = [
     icon: ClipboardCheck,
   },
   {
-    title: "Clear next steps",
-    text: "Urgent faults start with the phone. Planned work is reviewed from the details you send before the next step is confirmed.",
+    title: "Clear next actions",
+    text: "Urgent faults start with the phone. Planned work is reviewed from the details you send before the next action is confirmed.",
     icon: ShieldCheck,
   },
 ];
@@ -124,7 +124,7 @@ const checklistGroupsByVariant: Record<TrustProcessProofVariant, ChecklistGroup[
       items: [
         "Job details and photos are reviewed",
         "Urgent hazards are directed back to a phone call",
-        "Clear next steps are confirmed before work starts",
+        "Clear next actions are confirmed before work starts",
       ],
     },
   ],
@@ -177,7 +177,7 @@ const checklistGroupsByVariant: Record<TrustProcessProofVariant, ChecklistGroup[
       title: "Before work is booked",
       items: [
         "The notice is reviewed against the visible defect",
-        "Photos help confirm the right next step",
+        "Photos help confirm the right next action",
         "Urgent hazards are handled by phone first",
       ],
     },
@@ -210,7 +210,7 @@ const checklistGroupsByVariant: Record<TrustProcessProofVariant, ChecklistGroup[
       ],
     },
     {
-      title: "Clear next steps before work starts",
+      title: "Clear next actions before work starts",
       items: [
         "Call first for unsafe faults",
         "Use the booking form for planned work and photos",
@@ -257,7 +257,7 @@ function getHeading(variant: TrustProcessProofVariant, serviceName?: string, loc
   }
 
   if (variant === "defectNotice") {
-    return "Send the defect notice before the next step is booked.";
+    return "Send the defect notice before the next action is booked.";
   }
 
   if (variant === "switchboard") {
@@ -265,14 +265,14 @@ function getHeading(variant: TrustProcessProofVariant, serviceName?: string, loc
   }
 
   if (variant === "suburb" && locality) {
-    return `Clear electrical next steps for ${locality}.`;
+    return `Clear electrical next actions for ${locality}.`;
   }
 
   if (serviceName) {
     return `How Evaready scopes ${serviceName.toLowerCase()}.`;
   }
 
-  return "Licensed electrical help with clear next steps.";
+  return "Licensed electrical help with clear next actions.";
 }
 
 function getIntro(variant: TrustProcessProofVariant, serviceName?: string, locality?: string) {
@@ -297,7 +297,7 @@ function getIntro(variant: TrustProcessProofVariant, serviceName?: string, local
   }
 
   if (serviceName) {
-    return `For ${serviceName.toLowerCase()} across Sydney and surrounding regions, Evaready uses photos, job notes and call-first safety triage to confirm the clearest next step.`;
+    return `For ${serviceName.toLowerCase()} across Sydney and surrounding regions, Evaready uses photos, job notes and call-first safety triage to confirm the clearest next action.`;
   }
 
   return "Call first for urgent faults, or send photos and documents through the secure booking form for planned electrical work across Sydney and surrounding regions.";

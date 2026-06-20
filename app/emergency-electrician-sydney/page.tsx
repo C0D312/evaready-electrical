@@ -221,8 +221,8 @@ const process = [
     text: "The affected circuit, switchboard, fitting or appliance is tested so the cause is not guessed.",
   },
   {
-    title: "Repair or clear next steps",
-    text: "The fault is repaired where suitable, or the safest next step is explained before further work proceeds.",
+    title: "Repair or clear next actions",
+    text: "The fault is repaired where suitable, or the safest next action is explained before further work proceeds.",
   },
 ];
 
@@ -285,7 +285,7 @@ const emergencyProofItems = [
   business.level2Asp.display,
   "Call-first emergency triage",
   "Safety-first fault testing",
-  "Clear next step before work begins",
+  "Clear next action before work begins",
   "Photos and paperwork reviewed for planned work",
   "Sydney and surrounding regions",
 ];
@@ -611,7 +611,7 @@ export default function EmergencyElectricianSydneyPage() {
           "Call-first emergency triage",
           "Fast callback for urgent enquiries",
           "Photos help us quote faster",
-          "Clear next steps before work starts",
+          "Clear next actions before work starts",
         ]}
       />
 
@@ -823,7 +823,7 @@ export default function EmergencyElectricianSydneyPage() {
           </p>
 
           <h2 className={cx(styles.sectionTitle, "mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl")}>
-            Clear phone triage, proper testing and safe next steps.
+            Clear phone triage, proper testing and safe next actions.
           </h2>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">

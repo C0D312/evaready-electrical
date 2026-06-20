@@ -107,7 +107,7 @@ export default function ElectricalFaultsPage() {
 
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
               Power loss, tripping safety switches and burning smells and overheating power points
-              and storm damage need clear next steps. Call for urgent hazards
+              and storm damage need clear next actions. Call for urgent hazards
               or send photos and job notes for planned fault finding.
             </p>
 
@@ -190,7 +190,7 @@ export default function ElectricalFaultsPage() {
               Fault guides
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Find the electrical problem and the safest next step.
+              Find the electrical problem and the safest next action.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
               These guides help customers recognise when to call immediately
@@ -234,7 +234,7 @@ export default function ElectricalFaultsPage() {
             <p className="mt-5 text-lg leading-8 text-slate-700">
               We&apos;ll point you to the safest next action. For hazards, phone
               first. For planned fault finding, photos and job notes help
-              Evaready Electrical review the work before the next step.
+              Evaready Electrical review the work before the next action.
             </p>
           </div>
 

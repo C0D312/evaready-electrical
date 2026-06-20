@@ -288,14 +288,14 @@ export default async function ServiceLandingPage({
         "Send your defect notice for review",
         "Send switchboard, meter box or service equipment photos",
         "Photos help us quote faster",
-        "Clear next steps before work starts",
+        "Clear next actions before work starts",
       ]
     : isUrgentService
       ? [
           "Call-first emergency triage",
           "Fast callback for urgent enquiries",
           "Photos help us quote faster",
-          "Clear next steps before work starts",
+          "Clear next actions before work starts",
         ]
       : undefined;
   const quoteCtaLabel = service.quoteCtaLabel ?? business.quoteCta;
@@ -513,7 +513,7 @@ export default async function ServiceLandingPage({
                       What you receive
                     </p>
                     <h3 className="mt-3 text-2xl font-black">
-                      Inspection findings summary and next steps.
+                      Inspection findings summary and next actions.
                     </h3>
                     <div className="mt-5 grid gap-3">
                       {service.inspectionOutcomes.map((item) => (
@@ -730,7 +730,7 @@ export default async function ServiceLandingPage({
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
               Evaready Electrical checks the right part of the installation,
-              explains the next step clearly, and keeps the work neat from
+              explains the next action clearly, and keeps the work neat from
               first inspection through to final testing.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">

@@ -202,7 +202,7 @@ export default async function ElectricalFaultDetailPage({
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
               The cause can sit at the fitting, circuit, appliance, switchboard
-              or supply. Proper testing keeps the next step clear.
+              or supply. Proper testing keeps the next action clear.
             </p>
           </div>
 
@@ -261,7 +261,7 @@ export default async function ElectricalFaultDetailPage({
             <p className="mt-5 text-lg leading-8 text-slate-300">
               For non-urgent work, open the secure booking form to send your
               address, photos and job notes. Evaready Electrical can then
-              review the job and reply with the next step.
+              review the job and reply with the next action.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a

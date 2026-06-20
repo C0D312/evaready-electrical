@@ -413,7 +413,7 @@ export default function AreasPage() {
           "Send your defect notice for review",
           "Send switchboard, meter box or service equipment photos",
           "Photo details help Evaready quote faster",
-          "Clear next steps before work starts",
+          "Clear next actions before work starts",
           "Fast callback for urgent enquiries",
           "No-obligation quote for planned work",
         ]}

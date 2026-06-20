@@ -454,7 +454,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         className="border-b border-cyan-300/15"
         eyebrow={`${suburb.name} quote support`}
         heading={`Send photos and job notes for electrical work in ${suburb.name}.`}
-        intro={`For planned electrical work in ${suburb.name} ${suburb.postcode}, photos help us quote faster and confirm clear next steps before work starts. Call first for urgent faults across Sydney and surrounding regions.`}
+        intro={`For planned electrical work in ${suburb.name} ${suburb.postcode}, photos help us quote faster and confirm clear next actions before work starts. Call first for urgent faults across Sydney and surrounding regions.`}
         items={[
           "Free photo review for planned electrical work",
           "Send your defect notice for review",

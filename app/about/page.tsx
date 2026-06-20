@@ -61,8 +61,8 @@ const trustPoints = [
     icon: Wrench,
   },
   {
-    title: "Clear next step",
-    text: "The job type, location and next step are confirmed before work begins.",
+    title: "Clear next action",
+    text: "The job type, location and next action are confirmed before work begins.",
     icon: ClipboardCheck,
   },
 ];
@@ -94,8 +94,8 @@ const processSteps = [
     text: "The job type, location, access, safety risk and whether Level 2 support may be relevant are reviewed.",
   },
   {
-    title: "Next step confirmed",
-    text: "The practical next step is confirmed before work begins or before planned work is booked.",
+    title: "Next action confirmed",
+    text: "The practical next action is confirmed before work begins or before planned work is booked.",
   },
 ];
 
@@ -203,7 +203,7 @@ export default function AboutPage() {
               </h2>
               <p className="mt-4 text-base font-semibold leading-7 text-slate-300 sm:text-lg">
                 Evaready keeps urgent faults and planned jobs separate so the
-                right next step is clear. Unsafe electrical faults start with a
+                right next action is clear. Unsafe electrical faults start with a
                 call. Planned work can start with photos, job notes and
                 paperwork through the quote form.
               </p>
@@ -269,7 +269,7 @@ export default function AboutPage() {
                 Process
               </p>
               <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-5xl">
-                How the next step works.
+                How the next action works.
               </h2>
               <p className="mt-4 text-base font-semibold leading-7 text-slate-700 sm:text-lg">
                 The process is built around safety, useful job information and

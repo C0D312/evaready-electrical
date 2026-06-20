@@ -332,7 +332,7 @@ const homepageTrustProof = [
     : []),
   {
     title: "Call-first emergency triage",
-    text: "Unsafe faults go to phone first so the next step can be triaged.",
+    text: "Unsafe faults go to phone first so the next action can be triaged.",
     icon: Phone,
   },
   {
@@ -831,7 +831,7 @@ export default function HomePage() {
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
               Evaready keeps verified licence and business details visible,
-              triages unsafe faults by phone and gives a clear next step before
+              triages unsafe faults by phone and gives a clear next action before
               work begins.
             </p>
             <div className="mt-5 flex flex-wrap gap-3 text-sm font-black">

@@ -67,8 +67,8 @@ export default function PrivacyPolicyPage() {
             <p>
               If you send photos, documents, defect notices, switchboard photos,
               meter box photos or other job information, we collect that
-              material so we can understand the request and discuss the next
-              step with you.
+              material so we can understand the request and discuss the job
+              with you.
             </p>
           </article>
 

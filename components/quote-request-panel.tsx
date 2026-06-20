@@ -66,7 +66,7 @@ export function QuoteRequestPanel({
             </h3>
             <p className="mt-3 max-w-2xl text-sm font-semibold leading-6 text-slate-300 sm:text-sm">
               Add your contact details, address and photos so we can review the job.
-              <span className="hidden sm:inline"> We&apos;ll get back to you with the next step.</span>
+              <span className="hidden sm:inline"> We&apos;ll get back to you with the next action.</span>
             </p>
 
             <div className="mt-4 hidden grid-cols-2 gap-2 text-[0.68rem] font-black uppercase tracking-[0.08em] text-slate-100 sm:grid sm:grid-cols-3">

@@ -15,7 +15,7 @@ const defaultItems = [
   "Send your defect notice for review",
   "Send switchboard, meter box or service equipment photos",
   "Photos help us quote faster",
-  "Clear next steps before work starts",
+  "Clear next actions before work starts",
   "Fast callback for urgent enquiries",
   "No-obligation quote for planned work",
 ];
@@ -25,7 +25,7 @@ const itemIcons = [Camera, FileText, ClipboardCheck, ShieldAlert];
 export function LeadOfferPanel({
   className = "",
   eyebrow = "Fast quote support",
-  heading = "Send photos and job details for a clearer next step.",
+  heading = "Send photos and job details for a clearer next action.",
   intro = "Evaready Electrical helps with call-first emergency triage and planned electrical work across Sydney and surrounding regions, including core service areas and greater regions.",
   items = defaultItems,
   compact = false,

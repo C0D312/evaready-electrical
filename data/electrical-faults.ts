@@ -45,7 +45,7 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
     title: "Safety Switch Keeps Tripping",
     metaTitle: "Safety Switch Keeps Tripping Sydney & Surrounding Regions",
     metaDescription:
-      "Safety switch keeps tripping in Sydney? Evaready Electrical can help test the circuit, isolate the cause and explain the next step.",
+      "Safety switch keeps tripping in Sydney? Evaready Electrical can help test the circuit, isolate the cause and explain the next action.",
     intro:
       "A safety switch that keeps tripping is usually warning you that something on the circuit needs attention. It may be an appliance, water ingress, damaged wiring or an overloaded circuit.",
     primaryAdvice:

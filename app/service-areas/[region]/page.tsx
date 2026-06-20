@@ -96,7 +96,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
     },
     {
       title: `Defect notice repairs`,
-      text: `Send the notice, photos, suburb and deadline so the repair scope and next step can be reviewed clearly.`,
+      text: `Send the notice, photos, suburb and deadline so the repair scope and next action can be reviewed clearly.`,
       href: "/services/defect-notice-repairs-sydney",
     },
   ];

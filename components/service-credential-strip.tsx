@@ -54,7 +54,7 @@ export const serviceCredentialPresets = {
     {
       icon: ShieldAlert,
       title: "Defect Notices",
-      text: "Clear next steps before work begins",
+      text: "Clear next actions before work begins",
     },
     { icon: BadgeCheck, title: "Metering & Supply Issues", text: "Service equipment" },
   ],

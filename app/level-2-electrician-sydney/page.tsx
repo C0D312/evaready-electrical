@@ -214,7 +214,7 @@ const level2Faqs = [
   {
     question: "Do you guarantee network approval times?",
     answer:
-      "No. Evaready can help with the electrical scope, photos, paperwork and next steps, but network approvals, retailer processing and supply authority timing are not controlled by Evaready.",
+      "No. Evaready can help with the electrical scope, photos, paperwork and next actions, but network approvals, retailer processing and supply authority timing are not controlled by Evaready.",
   },
   {
     question: "Should I call or request a quote?",
@@ -486,7 +486,7 @@ export default function Level2ElectricianSydneyPage() {
           "Send your defect notice for review",
           "Send switchboard, meter box or service equipment photos",
           "Photos help us quote faster",
-          "Clear next steps before work starts",
+          "Clear next actions before work starts",
         ]}
       />
 
@@ -510,7 +510,7 @@ export default function Level2ElectricianSydneyPage() {
               Level 2 work sits around the connection between the property,
               service equipment and supply network. The right photos and
               paperwork help confirm whether the job needs a Level 2 pathway,
-              switchboard work, network paperwork or another next step.
+              switchboard work, network paperwork or another next action.
             </p>
           </div>
 
@@ -611,7 +611,7 @@ export default function Level2ElectricianSydneyPage() {
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
             Some Level 2 enquiries are linked to retailer, network or supply
             authority requirements. Evaready can help review the electrical
-            side, document the issue and guide the next step without promising
+            side, document the issue and guide the next action without promising
             network approvals, network attendance or processing times.
           </p>
 

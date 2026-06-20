@@ -97,7 +97,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
     },
     {
       title: `Defect notice repairs`,
-      text: `For defect notices, send the notice, photos, suburb and deadline so the next step can be scoped clearly.`,
+      text: `For defect notices, send the notice, photos, suburb and deadline so the next action can be scoped clearly.`,
       href: "/services/defect-notice-repairs-sydney",
     },
   ];
@@ -364,7 +364,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
               "Confirm the job type, suburb, access and urgency.",
               "Prioritise urgent electrical hazards and power faults.",
               "Use photos, job notes and access details to plan the work.",
-              "Complete the electrical work safely and explain the next steps.",
+              "Complete the electrical work safely and explain the next actions.",
             ].map((item) => (
               <div
                 key={item}

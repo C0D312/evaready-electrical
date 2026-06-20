@@ -15187,7 +15187,7 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
     heroNote:
       "Springwood jobs often include larger blocks, long driveways, detached sheds, outdoor circuits, storm-related faults, private pole enquiries and upgrade planning for renovations or extra circuits.",
     processDescription:
-      "Springwood electrical work is scoped around access, distance on the property and weather exposure. Photos of the switchboard, driveway, outbuilding and affected circuit help plan the safest next step.",
+      "Springwood electrical work is scoped around access, distance on the property and weather exposure. Photos of the switchboard, driveway, outbuilding and affected circuit help plan the safest next action.",
     serviceIntro:
       "Common Springwood requests include storm fault checks, shed and outbuilding power, switchboard upgrades, safety switch tripping, outdoor lighting, smoke alarms and Level 2 supply enquiries.",
     serviceSummaryText: {
@@ -15726,7 +15726,7 @@ export function getSuburbPageCopy(
       [
         {
           title: "Check the issue",
-          text: `The job type, address, access and urgency are confirmed for ${coverageSuburb.name} before the next step is agreed.`,
+          text: `The job type, address, access and urgency are confirmed for ${coverageSuburb.name} before the next action is agreed.`,
         },
         {
           title: "Review the evidence",
@@ -15773,8 +15773,8 @@ export function getSuburbPageCopy(
           text: "Testing and isolation come before repairs so the actual cause is understood.",
         },
         {
-          title: "Document next steps",
-          text: `Where useful, you get practical next steps for ${context.plannedWork} or future electrical upgrades.`,
+          title: "Document next actions",
+          text: `Where useful, you get practical next actions for ${context.plannedWork} or future electrical upgrades.`,
         },
       ],
     ],
@@ -15978,7 +15978,7 @@ export function getSuburbPageCopy(
       title: "Access and quote details",
       text:
         context.quoteGuidance ??
-        `For planned work, send ${context.accessDetail}, plus photos, job notes and the address through the secure booking form so the next step can be reviewed.`,
+        `For planned work, send ${context.accessDetail}, plus photos, job notes and the address through the secure booking form so the next action can be reviewed.`,
     },
     {
       title: "Typical local examples",
@@ -16008,7 +16008,7 @@ export function getSuburbPageCopy(
     },
     ctaHeading: pick(
       [
-        `Electrical help in ${coverageSuburb.name}, with clear next steps before work begins.`,
+        `Electrical help in ${coverageSuburb.name}, with clear next actions before work begins.`,
         `Planning electrical work in ${coverageSuburb.name}? Send the details through.`,
         `For ${suburbLabel} electrical faults or upgrades, start here.`,
     ],
@@ -16152,7 +16152,7 @@ export function getSuburbPageCopy(
       {
         title: `Defect notice repairs ${coverageSuburb.name}`,
         href: "/services/defect-notice-repairs-sydney",
-        text: `Send the notice, deadline, suburb and photos so the next step can be reviewed clearly.`,
+        text: `Send the notice, deadline, suburb and photos so the next action can be reviewed clearly.`,
       },
       {
         title: `Private pole and overhead service work ${coverageSuburb.name}`,

@@ -113,7 +113,7 @@ const faqs = [
   {
     question: "Can solar or batteries require a consumer mains upgrade?",
     answer:
-      "Yes, some projects may involve supply capacity, consumer mains, metering or Level 2 considerations. Evaready can review the electrical scope and explain the next step within the relevant network and job requirements.",
+      "Yes, some projects may involve supply capacity, consumer mains, metering or Level 2 considerations. Evaready can review the electrical scope and explain the next action within the relevant network and job requirements.",
   },
   {
     question: "Can you check electrical load capacity?",

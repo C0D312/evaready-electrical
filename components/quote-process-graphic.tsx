@@ -4,7 +4,7 @@ const quoteSteps = [
   "Choose the issue",
   "Add suburb, address and contact details",
   "Upload photos or job notes",
-  "We review and confirm the next step",
+  "We review and confirm the next action",
 ];
 
 export function QuoteProcessGraphic({ className = "" }: { className?: string }) {

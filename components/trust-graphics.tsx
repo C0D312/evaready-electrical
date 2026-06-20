@@ -56,7 +56,7 @@ const trustGraphicItems: TrustGraphicItem[] = [
   {
     icon: ShieldCheck,
     title: "Safety-First Testing",
-    text: "Faults, repairs and switchboard work are checked before the next step is recommended.",
+    text: "Faults, repairs and switchboard work are checked before the next action is recommended.",
   },
   {
     icon: Camera,
@@ -65,8 +65,8 @@ const trustGraphicItems: TrustGraphicItem[] = [
   },
   {
     icon: CheckCircle2,
-    title: "Clear Next Steps Before Work Begins",
-    text: "Urgent faults go to phone first; planned work is reviewed before the next step.",
+    title: "Clear Next Actions Before Work Begins",
+    text: "Urgent faults go to phone first; planned work is reviewed before the next action.",
   },
   {
     icon: Building2,
