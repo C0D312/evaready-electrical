@@ -60,10 +60,11 @@ export function GoogleRatingSeal({
   const ariaLabel = ratingText
     ? `Google Rating ${ratingText}. ${countText ?? "Read Google Reviews"}.`
     : "Read Google Reviews for Evaready Electrical.";
+  const ratingCardClass = showLeaveReview ? "google-rating-card" : "";
 
   return (
     <aside
-      className={`google-rating-seal google-rating-seal--${variant} w-full max-w-[24rem] rounded-2xl border border-cyan-300/30 bg-[#061a3a]/90 p-4 text-white shadow-[0_18px_52px_rgba(5,164,255,0.16)] ring-1 ring-white/10 ${compact ? "max-w-[20rem] p-3" : ""} ${className}`}
+      className={`google-rating-seal ${ratingCardClass} google-rating-seal--${variant} w-full max-w-[24rem] rounded-2xl border border-cyan-300/30 bg-[#061a3a]/90 p-4 text-white shadow-[0_18px_52px_rgba(5,164,255,0.16)] ring-1 ring-white/10 ${compact ? "max-w-[20rem] p-3" : ""} ${className}`}
       aria-label={ariaLabel}
     >
       <div className="flex min-w-0 items-center gap-3">
