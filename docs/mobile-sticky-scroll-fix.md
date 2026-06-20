@@ -9,6 +9,7 @@ The route/service scrolling strip was not reliably sticky on mobile. It was rend
 - Moved the route strip into the fixed header stack before the spacer.
 - Replaced the Tailwind spacer height with a shared `.site-header-spacer`.
 - Added shared CSS variables for header height and strip height.
+- Calibrated the sticky offset for the measured header heights: compact phones, standard phones and tablet/desktop.
 - Changed `.emergency-issue-marquee` to `position: fixed` so it remains pinned below the header on mobile, tablet and desktop.
 - Kept the scrolling speed at the existing readable pace: `52s`.
 
@@ -45,7 +46,7 @@ Result:
 - 0 sticky strip failures
 - 0 horizontal overflow failures
 - Strip position stayed `fixed`
-- Strip top stayed aligned with the header bottom while scrolling
+- Strip top stayed aligned with the header stack while scrolling
 
 ## Tracking / Safety Checks
 
@@ -56,4 +57,4 @@ Result:
 
 ## Result
 
-PASS pending GitHub Pages deployment and live verification.
+PASS after source validation, deployment checks and public live verification.

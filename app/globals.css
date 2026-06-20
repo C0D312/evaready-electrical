@@ -7075,13 +7075,19 @@ a[href*="book.servicem8.com"].border {
 
 /* Fixed header stack: the service strip stays pinned below the header on every route. */
 :root {
-  --site-header-height: calc(88px + env(safe-area-inset-top));
-  --site-route-strip-height: calc(2.45rem + 4px);
+  --site-header-height: calc(89px + env(safe-area-inset-top));
+  --site-route-strip-height: 47px;
+}
+
+@media (min-width: 380px) {
+  :root {
+    --site-header-height: calc(93px + env(safe-area-inset-top));
+  }
 }
 
 @media (min-width: 640px) {
   :root {
-    --site-header-height: calc(104px + env(safe-area-inset-top));
+    --site-header-height: calc(98px + env(safe-area-inset-top));
   }
 }
 
