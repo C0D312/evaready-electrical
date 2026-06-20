@@ -452,8 +452,9 @@ export default async function ServiceLandingPage({
                   href={business.phoneHref}
                   data-conversion-action="phone-click"
                   aria-label={business.callCta}
-                  className="font-black text-white underline decoration-cyan-300/70 underline-offset-4 transition hover:text-cyan-100"
+                  className="mx-1 inline-flex items-center gap-2 rounded-full border border-red-200/40 bg-gradient-to-r from-red-700 to-red-500 px-3 py-1.5 align-middle text-sm font-black leading-none text-white shadow-[0_0_18px_rgba(233,17,30,0.28)] transition hover:border-red-100 hover:from-red-600 hover:to-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-100"
                 >
+                  <Phone className="h-3.5 w-3.5" />
                   {business.callCta}
                 </a>{" "}
                 before touching the affected area.
