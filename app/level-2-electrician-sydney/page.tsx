@@ -480,8 +480,8 @@ export default function Level2ElectricianSydneyPage() {
       <LeadOfferPanel
         className="border-b border-cyan-300/15"
         eyebrow="Level 2 quote support"
-        heading="Send defect notices, photos and supply-side details for review."
-        intro="For Level 2 electrical enquiries across Sydney and surrounding regions, send the defect notice, suburb, deadline, switchboard photos, meter box photos or service equipment photos. Call first if the issue is unsafe."
+        heading="Send defect notices, photos and supply-side details through the quote form."
+        intro="For Level 2 electrical enquiries across Sydney and surrounding regions, use the quote form to send the defect notice, suburb, deadline, switchboard photos, meter box photos or service equipment photos. Call first if the issue is unsafe."
         items={[
           "Send your defect notice for review",
           "Send switchboard, meter box or service equipment photos",
