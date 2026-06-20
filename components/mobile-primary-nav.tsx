@@ -169,18 +169,6 @@ export function MobilePrimaryNav() {
 
         <div className="grid gap-2 border-t border-slate-200 bg-slate-50 p-3">
           <a
-            href={business.bookingUrl}
-            data-quote-trigger="true"
-            data-conversion-action="quote-click"
-            aria-haspopup="dialog"
-            aria-label="Get a quote from Evaready Electrical"
-            onClick={() => setOpen(false)}
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20"
-          >
-            {business.quoteCta}
-            <ArrowRight className="h-4 w-4" />
-          </a>
-          <a
             href={business.phoneHref}
             data-conversion-action="phone-click"
             aria-label={business.callCta}
@@ -191,6 +179,18 @@ export function MobilePrimaryNav() {
             <span className="whitespace-nowrap">
               {business.callCta}
             </span>
+          </a>
+          <a
+            href={business.bookingUrl}
+            data-quote-trigger="true"
+            data-conversion-action="quote-click"
+            aria-haspopup="dialog"
+            aria-label="Get a quote from Evaready Electrical"
+            onClick={() => setOpen(false)}
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20"
+          >
+            {business.quoteCta}
+            <ArrowRight className="h-4 w-4" />
           </a>
         </div>
       </nav>

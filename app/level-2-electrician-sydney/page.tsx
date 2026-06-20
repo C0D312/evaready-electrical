@@ -459,8 +459,8 @@ export default function Level2ElectricianSydneyPage() {
             </p>
 
             <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-              <QuoteActionLink className="rounded-xl px-5 py-3 text-sm" />
               <CallActionLink className="rounded-xl px-5 py-3 text-sm" />
+              <QuoteActionLink className="rounded-xl px-5 py-3 text-sm" />
             </div>
 
             <p className="mt-4 text-center text-xs text-slate-400">

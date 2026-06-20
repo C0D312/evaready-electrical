@@ -286,27 +286,26 @@ export default function SwitchboardUpgradesSydneyPage() {
               buzzing, smoke or repeated tripping.
             </p>
 
-            <div className="mt-6 grid gap-4">
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+              <a
+                href={business.phoneHref}
+                data-conversion-action="phone-click"
+                aria-label={business.callCta}
+                className="inline-flex items-center justify-center gap-3 rounded-xl border border-red-200/40 bg-gradient-to-r from-[#b90816] via-red-600 to-[#ff2637] px-6 py-4 font-black text-white shadow-lg shadow-red-950/30 transition hover:border-red-100 hover:from-red-700 hover:via-red-500 hover:to-red-400"
+              >
+                <Phone className="h-5 w-5" />
+                <span className="whitespace-nowrap">{business.callCta}</span>
+              </a>
               <a
                 href={business.bookingUrl}
                 aria-label="Get a quote from Evaready Electrical"
                 data-quote-trigger="true"
                 data-conversion-action="quote-click"
                 aria-haspopup="dialog"
-                className="inline-flex items-center justify-center gap-3 rounded-xl bg-blue-600 px-6 py-4 font-black text-white transition hover:bg-blue-500"
+                className="inline-flex items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-blue-700 to-cyan-400 px-6 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:from-blue-600 hover:to-cyan-300"
               >
                 {business.quoteCta}
                 <ArrowRight className="h-5 w-5" />
-              </a>
-
-              <a
-                href={business.phoneHref}
-                data-conversion-action="phone-click"
-                aria-label={business.callCta}
-                className="inline-flex items-center justify-center gap-3 rounded-xl bg-red-600 px-6 py-4 font-black text-white transition hover:bg-red-500"
-              >
-                <Phone className="h-5 w-5" />
-                <span className="whitespace-nowrap">{business.callCta}</span>
               </a>
             </div>
 

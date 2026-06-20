@@ -77,6 +77,19 @@ export function SiteHeader() {
 
             <div className="site-header-actions flex min-w-0 shrink-0 items-center gap-1 sm:gap-2">
               <a
+                href={business.phoneHref}
+                data-conversion-action="phone-click"
+                aria-label={business.callCta}
+                className="hidden min-h-10 w-[7.15rem] shrink-0 items-center justify-center gap-1 rounded-lg bg-red-600 px-1 py-2 text-[0.52rem] font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 min-[380px]:w-[7.75rem] min-[380px]:text-[0.58rem] sm:min-h-11 sm:w-auto sm:gap-2 sm:px-4 sm:text-sm md:inline-flex"
+              >
+                <Phone className="hidden h-4 w-4 shrink-0 min-[430px]:block sm:block" />
+                <span className="whitespace-nowrap">
+                  <span className="hidden lg:inline">Call Now </span>
+                  {business.phoneDisplay}
+                </span>
+              </a>
+
+              <a
                 href={business.bookingUrl}
                 data-quote-trigger="true"
                 data-conversion-action="quote-click"
@@ -89,19 +102,6 @@ export function SiteHeader() {
                   Quote
                 </span>
                 <ArrowRight className="hidden h-4 w-4 shrink-0 min-[480px]:block lg:block" />
-              </a>
-
-              <a
-                href={business.phoneHref}
-                data-conversion-action="phone-click"
-                aria-label={business.callCta}
-                className="hidden min-h-10 w-[7.15rem] shrink-0 items-center justify-center gap-1 rounded-lg bg-red-600 px-1 py-2 text-[0.52rem] font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 min-[380px]:w-[7.75rem] min-[380px]:text-[0.58rem] sm:min-h-11 sm:w-auto sm:gap-2 sm:px-4 sm:text-sm md:inline-flex"
-              >
-                <Phone className="hidden h-4 w-4 shrink-0 min-[430px]:block sm:block" />
-                <span className="whitespace-nowrap">
-                  <span className="hidden lg:inline">Call Now </span>
-                  {business.phoneDisplay}
-                </span>
               </a>
 
             </div>

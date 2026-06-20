@@ -246,6 +246,15 @@ export default function SolarBatteriesPage() {
             </p>
             <div className="mt-8 grid gap-3 lg:grid-cols-2">
               <a
+                href={business.phoneHref}
+                data-conversion-action="phone-click"
+                aria-label={business.callCta}
+                className="inline-flex min-h-14 w-full min-w-0 items-center justify-center gap-3 rounded-lg border border-red-200/40 bg-gradient-to-r from-[#b90816] via-red-600 to-[#ff2637] px-5 py-4 text-center text-base font-black text-white shadow-xl shadow-red-950/30 transition hover:border-red-100 hover:from-red-700 hover:via-red-500 hover:to-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-100"
+              >
+                <Phone className="h-5 w-5 shrink-0" />
+                <span className="whitespace-nowrap">{business.callCta}</span>
+              </a>
+              <a
                 href={business.bookingUrl}
                 data-quote-trigger="true"
                 data-conversion-action="quote-click"
@@ -257,15 +266,6 @@ export default function SolarBatteriesPage() {
                   Get a Solar & Battery Quote
                 </span>
                 <ArrowRight className="h-5 w-5 shrink-0" />
-              </a>
-              <a
-                href={business.phoneHref}
-                data-conversion-action="phone-click"
-                aria-label={business.callCta}
-                className="inline-flex min-h-14 w-full min-w-0 items-center justify-center gap-3 rounded-lg border border-red-200/40 bg-gradient-to-r from-[#b90816] via-red-600 to-[#ff2637] px-5 py-4 text-center text-base font-black text-white shadow-xl shadow-red-950/30 transition hover:border-red-100 hover:from-red-700 hover:via-red-500 hover:to-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-100"
-              >
-                <Phone className="h-5 w-5 shrink-0" />
-                <span className="whitespace-nowrap">{business.callCta}</span>
               </a>
             </div>
           </div>
@@ -489,28 +489,28 @@ export default function SolarBatteriesPage() {
               Send the electrical details or call first if the equipment feels unsafe.
             </h2>
           </div>
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <div className="grid gap-3 sm:grid-cols-2">
+            <a
+              href={business.phoneHref}
+              data-conversion-action="phone-click"
+              aria-label={business.callCta}
+              className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg border border-red-200/40 bg-gradient-to-r from-[#b90816] via-red-600 to-[#ff2637] px-6 py-4 font-black text-white shadow-xl shadow-red-950/30 transition hover:border-red-100 hover:from-red-700 hover:via-red-500 hover:to-red-400"
+            >
+              <Phone className="h-5 w-5" />
+              <span className="whitespace-nowrap">{business.callCta}</span>
+            </a>
             <a
               href={business.bookingUrl}
               data-quote-trigger="true"
               data-conversion-action="quote-click"
               aria-haspopup="dialog"
               aria-label="Get a solar and battery quote from Evaready Electrical"
-              className="solar-quote-cta inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-blue-600 px-6 py-4 font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
+              className="solar-quote-cta inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-gradient-to-r from-blue-700 to-cyan-400 px-6 py-4 font-black text-white shadow-xl shadow-blue-600/25 transition hover:from-blue-600 hover:to-cyan-300"
             >
               <span className="solar-quote-cta__label">
                 Get a Solar & Battery Quote
               </span>
               <ArrowRight className="h-5 w-5 shrink-0" />
-            </a>
-            <a
-              href={business.phoneHref}
-              data-conversion-action="phone-click"
-              aria-label={business.callCta}
-              className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-red-600 px-6 py-4 font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
-            >
-              <Phone className="h-5 w-5" />
-              <span className="whitespace-nowrap">{business.callCta}</span>
             </a>
           </div>
         </div>

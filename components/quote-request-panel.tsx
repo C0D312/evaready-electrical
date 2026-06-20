@@ -133,26 +133,26 @@ export function QuoteRequestPanel({
             </p>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               <a
-                href={business.bookingUrl}
-                data-quote-trigger="true"
-                data-conversion-action="quote-click"
-                aria-haspopup="dialog"
-                aria-label="Open booking form for planned electrical work"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
-              >
-                Open Booking Form
-                <ArrowRight className="h-4 w-4" />
-              </a>
-              <a
                 href={business.phoneHref}
                 data-conversion-action="phone-click"
                 aria-label={business.callCta}
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-3 text-sm font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-red-200/40 bg-gradient-to-r from-[#b90816] via-red-600 to-[#ff2637] px-4 py-3 text-sm font-black text-white shadow-lg shadow-red-950/30 transition hover:border-red-100 hover:from-red-700 hover:via-red-500 hover:to-red-400"
               >
                 <Phone className="h-4 w-4 shrink-0" />
                 <span className="whitespace-nowrap">
                   {business.callCta}
                 </span>
+              </a>
+              <a
+                href={business.bookingUrl}
+                data-quote-trigger="true"
+                data-conversion-action="quote-click"
+                aria-haspopup="dialog"
+                aria-label="Open booking form for planned electrical work"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-blue-700 to-cyan-400 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:from-blue-600 hover:to-cyan-300"
+              >
+                Open Booking Form
+                <ArrowRight className="h-4 w-4" />
               </a>
             </div>
           </div>

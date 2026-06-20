@@ -299,8 +299,6 @@ export default async function ServiceLandingPage({
         ]
       : undefined;
   const quoteCtaLabel = service.quoteCtaLabel ?? business.quoteCta;
-  const primaryCtaIsQuote = service.primaryCta === "quote";
-
   const quoteCta = (
     <a
       href={business.bookingUrl}
@@ -391,17 +389,8 @@ export default async function ServiceLandingPage({
             ) : null}
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              {primaryCtaIsQuote ? (
-                <>
-                  {quoteCta}
-                  {phoneCta}
-                </>
-              ) : (
-                <>
-                  {phoneCta}
-                  {quoteCta}
-                </>
-              )}
+              {phoneCta}
+              {quoteCta}
             </div>
           </div>
 

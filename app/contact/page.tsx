@@ -186,25 +186,25 @@ export default function ContactPage() {
                 and paperwork. This keeps planned enquiries in the approved
                 ServiceM8 quote path.
               </p>
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                <a
+                  href={business.phoneHref}
+                  data-conversion-action="phone-click"
+                  aria-label={business.callCta}
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-red-200/40 bg-gradient-to-r from-[#b90816] via-red-600 to-[#ff2637] px-5 py-3 text-sm font-black text-white shadow-lg shadow-red-950/30 transition hover:border-red-100 hover:from-red-700 hover:via-red-500 hover:to-red-400"
+                >
+                  <Phone className="h-5 w-5" aria-hidden="true" />
+                  {business.callCta}
+                </a>
                 <a
                   href={business.bookingUrl}
                   data-quote-trigger="true"
                   data-conversion-action="quote-click"
                   aria-haspopup="dialog"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-blue-700 px-5 py-3 text-sm font-black text-white"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-blue-700 to-cyan-400 px-5 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:from-blue-600 hover:to-cyan-300"
                 >
                   {business.quoteCta}
                   <ArrowRight className="h-5 w-5" aria-hidden="true" />
-                </a>
-                <a
-                  href={business.phoneHref}
-                  data-conversion-action="phone-click"
-                  aria-label={business.callCta}
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-red-200 bg-white px-5 py-3 text-sm font-black text-red-700"
-                >
-                  <Phone className="h-5 w-5" aria-hidden="true" />
-                  {business.callCta}
                 </a>
               </div>
             </div>
