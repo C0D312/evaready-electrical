@@ -1229,13 +1229,11 @@ export default function ServicesPage() {
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {orderedServices.map((service) => {
               const Icon = service.icon;
-
-              return (
-                <article
-                  key={service.title}
-                  className="rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
-                >
-                  <div className="rounded-2xl bg-blue-50 p-4 w-fit">
+              const href = getServiceHref(service.title);
+              const isExternal = isExternalServiceLink(service.title);
+              const cardContent = (
+                <>
+                  <div className="w-fit rounded-2xl bg-blue-50 p-4">
                     <Icon className="h-8 w-8 text-blue-700" />
                   </div>
 
@@ -1256,22 +1254,34 @@ export default function ServicesPage() {
                     ))}
                   </div>
 
-                  {isExternalServiceLink(service.title) ? (
-                    <a
-                      href={getServiceHref(service.title)}
-                      className="mt-7 inline-flex items-center gap-2 font-black text-blue-700"
-                    >
-                      {business.quoteCta} <ArrowRight className="h-4 w-4" />
-                    </a>
-                  ) : (
-                    <Link
-                      href={getServiceHref(service.title)}
-                      className="mt-7 inline-flex items-center gap-2 font-black text-blue-700"
-                    >
-                      Learn more <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  )}
-                </article>
+                  <span className="mt-7 inline-flex items-center gap-2 font-black text-blue-700">
+                    {isExternal ? business.quoteCta : "Learn more"}
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                  </span>
+                </>
+              );
+
+              return isExternal ? (
+                <a
+                  key={service.title}
+                  href={href}
+                  data-quote-trigger="true"
+                  data-conversion-action="quote-click"
+                  aria-haspopup="dialog"
+                  aria-label={`Get a quote for ${service.title}`}
+                  className="group block rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-blue-500 hover:bg-blue-50 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
+                >
+                  {cardContent}
+                </a>
+              ) : (
+                <Link
+                  key={service.title}
+                  href={href}
+                  aria-label={`Learn more about ${service.title}`}
+                  className="group block rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-blue-500 hover:bg-blue-50 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
+                >
+                  {cardContent}
+                </Link>
               );
             })}
           </div>
