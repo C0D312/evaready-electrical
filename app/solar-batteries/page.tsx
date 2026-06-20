@@ -251,9 +251,11 @@ export default function SolarBatteriesPage() {
                 data-conversion-action="quote-click"
                 aria-haspopup="dialog"
                 aria-label="Get a solar and battery quote from Evaready Electrical"
-                className="inline-flex min-h-14 items-center justify-center gap-3 rounded-lg bg-blue-600 px-6 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
+                className="solar-quote-cta inline-flex min-h-14 items-center justify-center gap-3 rounded-lg bg-blue-600 px-6 py-4 text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
               >
-                Get a Solar & Battery Quote
+                <span className="solar-quote-cta__label">
+                  Get a Solar & Battery Quote
+                </span>
                 <ArrowRight className="h-5 w-5 shrink-0" />
               </a>
               <a
@@ -387,10 +389,12 @@ export default function SolarBatteriesPage() {
                 data-conversion-action="quote-click"
                 aria-haspopup="dialog"
                 aria-label="Get a solar and battery quote from Evaready Electrical"
-                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-blue-600 px-6 py-4 font-black text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-500"
+                className="solar-quote-cta inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-blue-600 px-6 py-4 font-black text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-500"
               >
-                Get a Solar & Battery Quote
-                <ArrowRight className="h-5 w-5" />
+                <span className="solar-quote-cta__label">
+                  Get a Solar & Battery Quote
+                </span>
+                <ArrowRight className="h-5 w-5 shrink-0" />
               </a>
               <a
                 href={business.phoneHref}
@@ -492,10 +496,12 @@ export default function SolarBatteriesPage() {
               data-conversion-action="quote-click"
               aria-haspopup="dialog"
               aria-label="Get a solar and battery quote from Evaready Electrical"
-              className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-blue-600 px-6 py-4 font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
+              className="solar-quote-cta inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-blue-600 px-6 py-4 font-black text-white shadow-xl shadow-blue-600/25 transition hover:bg-blue-500"
             >
-              Get a Solar & Battery Quote
-              <ArrowRight className="h-5 w-5" />
+              <span className="solar-quote-cta__label">
+                Get a Solar & Battery Quote
+              </span>
+              <ArrowRight className="h-5 w-5 shrink-0" />
             </a>
             <a
               href={business.phoneHref}

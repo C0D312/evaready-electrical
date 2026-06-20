@@ -4005,6 +4005,19 @@ main section:not(.quote-request-panel) :is(a, button).bg-blue-700 svg {
   height: 1rem !important;
 }
 
+.solar-quote-cta {
+  width: min(100%, 18.75rem) !important;
+  min-width: min(100%, 17.5rem) !important;
+  white-space: normal !important;
+  text-align: center;
+}
+
+.solar-quote-cta__label {
+  min-width: 0;
+  white-space: normal !important;
+  text-wrap: balance;
+}
+
 @media (max-width: 639px) {
   main section:not(.quote-request-panel) :is(a, button).bg-red-600:not(.floating-call-button),
   main section:not(.quote-request-panel) :is(a, button).bg-blue-600,
