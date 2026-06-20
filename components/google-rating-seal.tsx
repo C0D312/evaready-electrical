@@ -123,9 +123,10 @@ export function GoogleRatingSeal({
             href={leaveReviewHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-10 items-center justify-center rounded-lg border border-cyan-300/20 px-3 py-2 text-cyan-100 transition hover:border-cyan-200 hover:bg-white/[0.08] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
+            className="inline-flex min-h-10 items-center justify-center gap-1 rounded-lg border border-cyan-300/20 px-3 py-2 text-cyan-100 transition hover:border-cyan-200 hover:bg-white/[0.08] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
           >
             Leave a Review
+            <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
           </a>
         ) : null}
       </div>

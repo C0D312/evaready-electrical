@@ -130,6 +130,13 @@ export function EmergencyTrustPanel({ className = "" }: { className?: string }) 
                     <p className="mt-2 text-sm font-semibold leading-6 text-slate-300">
                       {card.text}
                     </p>
+                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-cyan-100">
+                      Next step
+                      <ArrowRight
+                        className="h-4 w-4 shrink-0 transition group-hover:translate-x-1"
+                        aria-hidden="true"
+                      />
+                    </span>
                   </Link>
                 );
               })}
@@ -148,11 +155,15 @@ export function EmergencyTrustPanel({ className = "" }: { className?: string }) 
                       strokeWidth={2.1}
                       aria-hidden="true"
                     />
-                    <span className="text-sm font-black text-white">{item.label}</span>
-                    <ArrowRight
-                      className="ml-auto h-4 w-4 shrink-0 text-cyan-100 opacity-0 transition group-hover:translate-x-0.5 group-hover:opacity-100"
+                    <span className="min-w-0 flex-1 text-sm font-black text-white">
+                      {item.label}
+                    </span>
+                    <span
+                      className="ml-auto inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-cyan-200/25 bg-cyan-300/10 text-cyan-100 transition group-hover:translate-x-0.5 group-hover:border-cyan-200/50 group-hover:bg-cyan-300/18"
                       aria-hidden="true"
-                    />
+                    >
+                      <ArrowRight className="h-4 w-4" />
+                    </span>
                   </Link>
                 ))}
               </div>
