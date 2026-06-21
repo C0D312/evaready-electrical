@@ -3,6 +3,6 @@
   "site": "Evaready Electrical",
   "deployTarget": "GitHub Pages",
   "basePath": "/evaready-electrical",
-  "buildDate": "2026-06-21T06:45:12+10:00",
-  "versionNote": "Optimised static export after code cleanup, performance audit and verified GitHub Pages deployment."
+  "buildDate": "2026-06-22T02:02:47+10:00",
+  "versionNote": "Final all-updates deployment gate with full generated-route, responsive and public live verification."
 }
