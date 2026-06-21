@@ -1,0 +1,92 @@
+[
+    {
+        "name":  "stale",
+        "expected":  "absent",
+        "found":  false,
+        "pass":  true
+    },
+    {
+        "name":  "risky",
+        "expected":  "absent",
+        "found":  false,
+        "pass":  true
+    },
+    {
+        "name":  "ads",
+        "expected":  "present",
+        "found":  true,
+        "pass":  true
+    },
+    {
+        "name":  "conversion",
+        "expected":  "present",
+        "found":  true,
+        "pass":  true
+    },
+    {
+        "name":  "phone",
+        "expected":  "present",
+        "found":  true,
+        "pass":  true
+    },
+    {
+        "name":  "response",
+        "expected":  "present",
+        "found":  true,
+        "pass":  true
+    },
+    {
+        "name":  "asp",
+        "expected":  "present",
+        "found":  true,
+        "pass":  true
+    },
+    {
+        "name":  "about",
+        "expected":  "present",
+        "found":  true,
+        "pass":  true
+    },
+    {
+        "name":  "contact",
+        "expected":  "present",
+        "found":  true,
+        "pass":  true
+    },
+    {
+        "name":  "solar",
+        "expected":  "present",
+        "found":  true,
+        "pass":  true
+    },
+    {
+        "name":  "inspection",
+        "expected":  "present",
+        "found":  true,
+        "pass":  true
+    },
+    {
+        "name":  "google",
+        "expected":  "present",
+        "found":  true,
+        "pass":  true
+    },
+    {
+        "name":  "privacy",
+        "expected":  "present",
+        "found":  true,
+        "pass":  true
+    },
+    {
+        "name":  "terms",
+        "expected":  "present",
+        "found":  true,
+        "pass":  true
+    },
+    {
+        "name":  "site-version",
+        "expected":  "present",
+        "found":  true,
+        "pass":  true
+    }
+]

@@ -151,10 +151,122 @@ Detailed responsive output:
 - `reports/final-all-updates-responsive-qa.csv`
 - `reports/final-all-updates-responsive-qa-summary.json`
 
-## Deployment Diagnosis
+## Deployment
 
-This report is committed before the final source and deploy SHAs exist. The exact final main SHA, final gh-pages SHA, live sitemap crawl totals, normal URL verification and cache-busted URL verification are recorded in the final task response after deployment and public verification complete.
+Source commit pushed to `main` for this verification gate:
 
-Current deployment status at report creation: local validation PASS, generated output PASS, responsive generated-site QA PASS, public deployment pending.
+- `3df0156911b514ed806ede090b39b54ab6ee43b9`
 
-Final status is not LIVE PASS until both normal and cache-busted public URLs prove the refreshed `gh-pages` deployment is visible.
+Deployment commit pushed to `gh-pages`:
+
+- `d619a0c545cd474c568e1fdea8378b0c8bfbf960`
+
+Remote branch confirmation:
+
+- remote `main`: `3df0156911b514ed806ede090b39b54ab6ee43b9`
+- remote `gh-pages`: `d619a0c545cd474c568e1fdea8378b0c8bfbf960`
+
+Live build hash served publicly:
+
+- `lkBof4F6S3c3dPBku1EKf`
+
+Live site-version marker served publicly:
+
+- `Final all-updates deployment gate with full generated-route, responsive and public live verification.`
+
+## Public URL Verification
+
+Normal and cache-busted URLs checked:
+
+- checked: 34
+- failures: 0
+- normal URL failures: 0
+- cache-busted URL failures: 0
+
+Required public URL set included:
+
+- `/`
+- `/about/`
+- `/contact/`
+- `/solar-batteries/`
+- `/emergency-electrician-sydney/`
+- `/level-2-electrician-sydney/`
+- `/services/`
+- `/service-areas/`
+- `/services/pre-purchase-rental-electrical-inspections-sydney/`
+- `/services/hot-water-system-electrician-sydney/`
+- `/services/split-system-air-conditioning-sydney/`
+- `/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/`
+- `/privacy-policy/`
+- `/terms/`
+- `/sitemap.xml`
+- `/robots.txt`
+- `/site-version.json`
+
+Detailed public URL verification:
+
+- `reports/final-all-updates-required-public-url-verification.json`
+
+## Live Sitemap Crawl
+
+Live sitemap crawl result:
+
+- sitemap status: 200
+- live sitemap routes checked: 999
+- route failures: 0
+- de-duplicated internal links checked: 999
+- broken links: 0
+- public assets checked: 18
+- failed assets: 0
+- CTA failures: 0
+- stale-string failures: 0
+- risky-string failures: 0
+- localhost failures: 0
+
+Detailed live sitemap crawl:
+
+- `reports/final-all-updates-live-sitemap-crawl.json`
+
+## Live Visual Spot Check
+
+Public Playwright visual spot check:
+
+- pages checked: 12
+- viewport profiles checked: 4
+- page/viewport rows checked: 48
+- failures: 0
+
+Checked pages:
+
+- homepage
+- About
+- Contact
+- Solar & Batteries
+- Emergency
+- Level 2
+- Services
+- Service Areas
+- Pre-Purchase & Rental Electrical Inspections
+- Panania
+- Privacy
+- Terms
+
+Checked viewport profiles:
+
+- 390x844
+- 820x1180
+- 1366x768
+- 1920x1080
+
+Visual checks confirmed no horizontal overflow, no header clipping, scrolling strip present, sticky CTA present on mobile, CTAs/tracking present, CSS loaded, images loaded, and hero image styles remained untinted where a `.brand-hero-image` was present.
+
+Detailed visual QA:
+
+- `reports/final-all-updates-live-visual-spot-check.csv`
+- `reports/final-all-updates-live-visual-spot-check-summary.json`
+
+## Final Deployment Diagnosis
+
+Final result: LIVE PASS
+
+The correct repository and branches were confirmed, source validation passed, `main` and `gh-pages` were pushed, GitHub Pages served the latest build hash, normal and cache-busted URLs were current, and the full live sitemap crawl plus live visual spot check completed with zero failures.
