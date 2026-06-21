@@ -1,0 +1,28 @@
+[
+    {
+        "scan":  "debug",
+        "matches":  13,
+        "example":  "scripts\\audit-all-routes-visibility.ts:673:console.log("
+    },
+    {
+        "scan":  "stale-source",
+        "matches":  0,
+        "example":  {
+
+                    }
+    },
+    {
+        "scan":  "risky-source",
+        "matches":  0,
+        "example":  {
+
+                    }
+    },
+    {
+        "scan":  "placeholders",
+        "matches":  0,
+        "example":  {
+
+                    }
+    }
+]

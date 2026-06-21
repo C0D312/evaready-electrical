@@ -1,0 +1,62 @@
+[
+    {
+        "name":  "lint",
+        "exitCode":  0,
+        "seconds":  12.48
+    },
+    {
+        "name":  "typescript",
+        "exitCode":  0,
+        "seconds":  2.47
+    },
+    {
+        "name":  "build",
+        "exitCode":  0,
+        "seconds":  19.63
+    },
+    {
+        "name":  "audit:all-suburb-copy",
+        "exitCode":  0,
+        "seconds":  5.54
+    },
+    {
+        "name":  "audit:suburbs",
+        "exitCode":  0,
+        "seconds":  1.22
+    },
+    {
+        "name":  "audit:metadata",
+        "exitCode":  0,
+        "seconds":  1.12
+    },
+    {
+        "name":  "audit:links",
+        "exitCode":  0,
+        "seconds":  2.51
+    },
+    {
+        "name":  "audit:visible-copy",
+        "exitCode":  0,
+        "seconds":  2.54
+    },
+    {
+        "name":  "audit:page-health",
+        "exitCode":  0,
+        "seconds":  3.25
+    },
+    {
+        "name":  "audit:response-times",
+        "exitCode":  0,
+        "seconds":  2.29
+    },
+    {
+        "name":  "audit:visibility",
+        "exitCode":  0,
+        "seconds":  1081.28
+    },
+    {
+        "name":  "audit:live-links-and-ctas",
+        "exitCode":  0,
+        "seconds":  3.59
+    }
+]

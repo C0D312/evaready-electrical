@@ -1,0 +1,70 @@
+[
+    {
+        "path":  "out/index.html",
+        "exists":  true
+    },
+    {
+        "path":  "out/about/index.html",
+        "exists":  true
+    },
+    {
+        "path":  "out/contact/index.html",
+        "exists":  true
+    },
+    {
+        "path":  "out/solar-batteries/index.html",
+        "exists":  true
+    },
+    {
+        "path":  "out/emergency-electrician-sydney/index.html",
+        "exists":  true
+    },
+    {
+        "path":  "out/level-2-electrician-sydney/index.html",
+        "exists":  true
+    },
+    {
+        "path":  "out/services/index.html",
+        "exists":  true
+    },
+    {
+        "path":  "out/service-areas/index.html",
+        "exists":  true
+    },
+    {
+        "path":  "out/services/pre-purchase-rental-electrical-inspections-sydney/index.html",
+        "exists":  true
+    },
+    {
+        "path":  "out/services/hot-water-system-electrician-sydney/index.html",
+        "exists":  true
+    },
+    {
+        "path":  "out/services/split-system-air-conditioning-sydney/index.html",
+        "exists":  true
+    },
+    {
+        "path":  "out/services/switchboard-upgrades-sydney/index.html",
+        "exists":  true
+    },
+    {
+        "path":  "out/privacy-policy/index.html",
+        "exists":  true
+    },
+    {
+        "path":  "out/terms/index.html",
+        "exists":  true
+    },
+    {
+        "path":  "out/sitemap.xml",
+        "exists":  true
+    },
+    {
+        "path":  "out/robots.txt",
+        "exists":  true
+    },
+    {
+        "path":  "out/site-version.json",
+        "exists":  true
+    }
+]
