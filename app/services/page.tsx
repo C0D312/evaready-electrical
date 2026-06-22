@@ -1452,7 +1452,7 @@ export default function ServicesPage() {
                   </p>
                 </div>
 
-                <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                <div className="services-catalogue-grid mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                   {category.items.map((item) => {
                     const service = getServiceByTitle(item.title);
                     const Icon = service.icon;
@@ -1463,25 +1463,25 @@ export default function ServicesPage() {
                     const relatedLinks = item.related ?? [];
                     const serviceCardBody = (
                       <>
-                        <div className="flex items-start gap-4">
-                          <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-cyan-300/20 bg-cyan-300/10 text-cyan-200">
+                        <div className="services-catalogue-card__head grid min-w-0 grid-cols-[3.35rem_minmax(0,1fr)] items-start gap-4">
+                          <span className="services-catalogue-card__icon inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-cyan-300/20 bg-cyan-300/10 text-cyan-200">
                             <Icon className="h-5 w-5" />
                           </span>
                           <div className="min-w-0">
-                            <h4 className="text-lg font-black leading-6 text-white">
+                            <h4 className="services-catalogue-card__title text-lg font-black leading-6 text-white">
                               {displayTitle}
                             </h4>
-                            <p className="mt-2 text-sm font-semibold leading-6 text-slate-200">
+                            <p className="services-catalogue-card__copy mt-2 text-sm font-semibold leading-6 text-slate-100">
                               {item.helper ?? service.description}
                             </p>
                           </div>
                         </div>
 
-                        <div className="mt-4 grid gap-2">
+                        <div className="services-catalogue-card__includes mt-5 grid gap-2">
                           {visibleIncludes.map((include) => (
                             <div
                               key={include}
-                              className="flex items-start gap-2 text-sm font-bold leading-5 text-slate-100"
+                              className="services-catalogue-card__include grid grid-cols-[1.1rem_minmax(0,1fr)] items-start gap-2 text-sm font-bold leading-5 text-white"
                             >
                               <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-cyan-200" />
                               <span>{include}</span>
@@ -1489,7 +1489,7 @@ export default function ServicesPage() {
                           ))}
                         </div>
 
-                        <span className="mt-5 inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.12em] text-cyan-100">
+                        <span className="services-catalogue-card__action mt-auto inline-flex items-center gap-2 pt-5 text-sm font-black uppercase tracking-[0.12em] text-cyan-100">
                           View service
                           <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                         </span>
@@ -1500,7 +1500,7 @@ export default function ServicesPage() {
                       return (
                         <article
                           key={service.title}
-                          className="rounded-3xl border border-cyan-300/20 bg-[#08236b] p-4 shadow-xl shadow-blue-950/15"
+                          className="services-catalogue-related-card flex h-full flex-col rounded-3xl border border-cyan-300/20 bg-[#08236b] p-4 shadow-xl shadow-blue-950/15"
                         >
                           {isExternal ? (
                             <a
@@ -1510,7 +1510,7 @@ export default function ServicesPage() {
                               data-conversion-action="quote-click"
                               aria-haspopup="dialog"
                               aria-label={`Get a quote for ${displayTitle}`}
-                              className="group block rounded-2xl p-2 text-white transition hover:bg-cyan-300/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
+                              className="services-catalogue-card group flex flex-1 flex-col rounded-2xl p-4 text-white transition hover:bg-cyan-300/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
                             >
                               {serviceCardBody}
                             </a>
@@ -1519,7 +1519,7 @@ export default function ServicesPage() {
                               href={href}
                               data-catalog-href={href}
                               aria-label={`View ${displayTitle}`}
-                              className="group block rounded-2xl p-2 text-white transition hover:bg-cyan-300/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
+                              className="services-catalogue-card group flex flex-1 flex-col rounded-2xl p-4 text-white transition hover:bg-cyan-300/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
                             >
                               {serviceCardBody}
                             </Link>
@@ -1573,7 +1573,7 @@ export default function ServicesPage() {
                         data-conversion-action="quote-click"
                         aria-haspopup="dialog"
                         aria-label={`Get a quote for ${displayTitle}`}
-                        className="group block rounded-3xl border border-cyan-300/20 bg-[#08236b] p-6 text-white shadow-xl shadow-blue-950/15 transition hover:-translate-y-1 hover:border-cyan-300/55 hover:bg-[#0a2b7a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
+                        className="services-catalogue-card group flex h-full min-h-[18.5rem] flex-col rounded-3xl border border-cyan-300/20 bg-[#08236b] p-6 text-white shadow-xl shadow-blue-950/15 transition hover:-translate-y-1 hover:border-cyan-300/55 hover:bg-[#0a2b7a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
                       >
                         {serviceCardBody}
                       </a>
@@ -1583,7 +1583,7 @@ export default function ServicesPage() {
                         href={href}
                         data-catalog-href={href}
                         aria-label={`View ${displayTitle}`}
-                        className="group block rounded-3xl border border-cyan-300/20 bg-[#08236b] p-6 text-white shadow-xl shadow-blue-950/15 transition hover:-translate-y-1 hover:border-cyan-300/55 hover:bg-[#0a2b7a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
+                        className="services-catalogue-card group flex h-full min-h-[18.5rem] flex-col rounded-3xl border border-cyan-300/20 bg-[#08236b] p-6 text-white shadow-xl shadow-blue-950/15 transition hover:-translate-y-1 hover:border-cyan-300/55 hover:bg-[#0a2b7a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
                       >
                         {serviceCardBody}
                       </Link>
