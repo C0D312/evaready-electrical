@@ -278,15 +278,18 @@ export default function SolarBatteriesPage() {
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.22em] text-cyan-200">
-              Electrical-side scope
+              Electrical planning
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight text-white sm:text-5xl">
-              What Evaready can review before solar or battery work proceeds.
+              Electrical checks before solar or battery work
             </h2>
             <p className="mt-5 text-base font-semibold leading-7 text-slate-300 sm:text-lg sm:leading-8">
-              The page position follows the solar and battery scope audit:
-              electrical support, capacity checks, supply review and specialist
-              coordination rather than unverified installation claims.
+              Before solar or battery work proceeds, Evaready can review
+              switchboard capacity, electrical load, consumer mains, metering,
+              dedicated circuits, isolators and supply requirements. The
+              electrical scope can then be confirmed, including whether an
+              appropriately accredited solar or battery specialist is also
+              required.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
