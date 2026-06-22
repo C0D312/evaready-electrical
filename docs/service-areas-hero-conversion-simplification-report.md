@@ -81,4 +81,12 @@ The `/service-areas/` hero was simplified so the first screen focuses on the H1,
 
 ## Deployment Status
 
-Pending.
+- Source website commit: `82b1c27dc1ac87d394bbb49200aecac860696ae4`
+- Deployed `gh-pages` commit: `2b070662cb6d7d3dc1475a339c97b4a297f32bcd`
+- Normal public URL: PASS
+- Cache-busted public URL: PASS
+- Live build marker: `_next/static/chunks/13ts96qe_1thi.css`
+- Live browser QA: PASS at 390x844 and 1366x768 for both normal and cache-busted URLs
+- Live checks confirmed: HTTP 200, one H1, short hero copy visible, suburb search visible in the first screen, Call Now visible, Get a Quote visible, popular local links retained, service shortcuts retained, no horizontal overflow, Google Ads and CTA tracking preserved.
+- Live QA artifact: `reports/service-areas-hero-conversion-qa/live-qa-results.json`
+- Final result: LIVE PASS
