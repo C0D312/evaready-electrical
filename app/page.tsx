@@ -627,8 +627,8 @@ export default function HomePage() {
 
       <section className="issue-selector-section border-y border-cyan-300/15 bg-[#061E72] py-12 text-white sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-[0.76fr_1.24fr] lg:items-start">
-            <div>
+          <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
+            <div className="rounded-2xl border border-cyan-300/18 bg-white/[0.045] p-5 shadow-2xl shadow-blue-950/20 sm:p-6 lg:p-7">
               <p className="text-sm font-black uppercase tracking-[0.2em] text-cyan-200">
                 Choose your electrical issue
               </p>
@@ -638,12 +638,12 @@ export default function HomePage() {
               <p className="mt-4 text-base font-semibold leading-7 text-slate-300 sm:text-lg sm:leading-8">
                 We&apos;ll point you to the safest next action.
               </p>
-              <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
+              <div className="mt-6 grid gap-3 sm:max-w-sm">
                 <a
                   href={business.phoneHref}
                   data-conversion-action="phone-click"
                   aria-label={business.callCta}
-                  className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-red-600 px-5 py-3 font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
+                  className="inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-lg bg-red-600 px-5 py-3 font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
                 >
                   <Phone className="h-5 w-5 shrink-0" />
                   <span className="whitespace-nowrap">{business.callCta}</span>
@@ -654,7 +654,7 @@ export default function HomePage() {
                   data-quote-trigger="true"
                   data-conversion-action="quote-click"
                   aria-haspopup="dialog"
-                  className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-blue-700 px-5 py-3 font-black text-white shadow-xl shadow-blue-700/20 transition hover:bg-blue-600"
+                  className="inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-lg bg-blue-700 px-5 py-3 font-black text-white shadow-xl shadow-blue-700/20 transition hover:bg-blue-600"
                 >
                   {business.quoteCta}
                   <ArrowRight className="h-5 w-5 shrink-0" />
@@ -670,23 +670,21 @@ export default function HomePage() {
                   <Link
                     key={issue.title}
                     href={issue.href}
-                    className="group rounded-lg border border-cyan-300/18 bg-white/[0.06] p-4 shadow-xl shadow-blue-950/20 transition hover:-translate-y-1 hover:border-cyan-300/45 hover:bg-white/[0.09]"
+                    className="group grid min-h-[118px] grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-4 rounded-2xl border border-cyan-300/18 bg-white/[0.06] p-4 shadow-xl shadow-blue-950/20 transition hover:-translate-y-1 hover:border-cyan-300/45 hover:bg-white/[0.09]"
                   >
-                    <div className="flex items-start gap-3">
-                      <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue-500/16 text-cyan-200">
-                        <Icon className="h-5 w-5" />
+                    <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-cyan-300/18 bg-blue-500/16 text-cyan-200 transition group-hover:border-cyan-200/45 group-hover:bg-cyan-300/14">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block text-base font-black leading-6 text-white">
+                        {issue.title}
                       </span>
-                      <span>
-                        <span className="block font-black leading-6 text-white">
-                          {issue.title}
-                        </span>
-                        <span className="mt-1 block text-sm font-semibold leading-6 text-slate-300">
-                          {issue.text}
-                        </span>
+                      <span className="mt-1 block text-sm font-semibold leading-6 text-slate-200">
+                        {issue.text}
                       </span>
-                    </div>
+                    </span>
                     <span
-                      className="mt-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-cyan-200/25 bg-cyan-300/10 text-cyan-100 transition group-hover:translate-x-1 group-hover:border-cyan-200/50 group-hover:bg-cyan-300/18"
+                      className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-cyan-200/25 bg-cyan-300/10 text-cyan-100 transition group-hover:translate-x-1 group-hover:border-cyan-200/50 group-hover:bg-cyan-300/18"
                       aria-hidden="true"
                     >
                       <ArrowRight className="h-4 w-4" />
