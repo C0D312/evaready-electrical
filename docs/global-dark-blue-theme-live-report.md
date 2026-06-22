@@ -53,11 +53,21 @@ Targeted Playwright QA checked 13 routes across 10 viewports for horizontal over
 
 ## Deployment
 
-- Main SHA: pending
-- gh-pages SHA: pending
-- Normal live verified: pending
-- Cache-busted live verified: pending
+- Theme source commit: `d2aaaf3c8b115327c2a8bdf9815ec66f2c68f1e0`
+- gh-pages SHA: `7ee018193c2ac667668f81f92f2ae43075461b0b`
+- Normal live verified: yes
+- Cache-busted live verified: yes
+
+## Live Public Proof
+
+- Normal public home URL served the new build marker `13ncqxxot-y52.css`.
+- Cache-busted public home URL served the new build marker `13ncqxxot-y52.css`.
+- Normal routes checked: 16
+- Cache-busted routes checked: 16
+- Live visual checks: 40
+- Live visual failures: 0
+- Live visual report: `reports/global-dark-blue-theme-qa/live-verify.json`
 
 ## Final Result
 
-Pending deployment.
+LIVE PASS

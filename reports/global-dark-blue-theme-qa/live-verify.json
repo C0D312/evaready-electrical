@@ -1,0 +1,1006 @@
+{
+  "checked": 40,
+  "failures": [],
+  "rows": [
+    {
+      "mode": "normal",
+      "route": "/",
+      "viewport": "390x844",
+      "url": "https://c0d312.github.io/evaready-electrical/",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "normal",
+      "route": "/",
+      "viewport": "1366x768",
+      "url": "https://c0d312.github.io/evaready-electrical/",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 1366,
+        "scrollWidth": 1366,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "normal",
+      "route": "/about/",
+      "viewport": "390x844",
+      "url": "https://c0d312.github.io/evaready-electrical/about/",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": false,
+        "heroImageStyle": null,
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "normal",
+      "route": "/about/",
+      "viewport": "1366x768",
+      "url": "https://c0d312.github.io/evaready-electrical/about/",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 1366,
+        "scrollWidth": 1366,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": false,
+        "heroImageStyle": null,
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "normal",
+      "route": "/contact/",
+      "viewport": "390x844",
+      "url": "https://c0d312.github.io/evaready-electrical/contact/",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": false,
+        "heroImageStyle": null,
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "normal",
+      "route": "/contact/",
+      "viewport": "1366x768",
+      "url": "https://c0d312.github.io/evaready-electrical/contact/",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 1366,
+        "scrollWidth": 1366,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": false,
+        "heroImageStyle": null,
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "normal",
+      "route": "/solar-batteries/",
+      "viewport": "390x844",
+      "url": "https://c0d312.github.io/evaready-electrical/solar-batteries/",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "normal",
+      "route": "/solar-batteries/",
+      "viewport": "1366x768",
+      "url": "https://c0d312.github.io/evaready-electrical/solar-batteries/",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 1366,
+        "scrollWidth": 1366,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "normal",
+      "route": "/emergency-electrician-sydney/",
+      "viewport": "390x844",
+      "url": "https://c0d312.github.io/evaready-electrical/emergency-electrician-sydney/",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "normal",
+      "route": "/emergency-electrician-sydney/",
+      "viewport": "1366x768",
+      "url": "https://c0d312.github.io/evaready-electrical/emergency-electrician-sydney/",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 1366,
+        "scrollWidth": 1366,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "normal",
+      "route": "/level-2-electrician-sydney/",
+      "viewport": "390x844",
+      "url": "https://c0d312.github.io/evaready-electrical/level-2-electrician-sydney/",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "normal",
+      "route": "/level-2-electrician-sydney/",
+      "viewport": "1366x768",
+      "url": "https://c0d312.github.io/evaready-electrical/level-2-electrician-sydney/",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 1366,
+        "scrollWidth": 1366,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "normal",
+      "route": "/services/",
+      "viewport": "390x844",
+      "url": "https://c0d312.github.io/evaready-electrical/services/",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "normal",
+      "route": "/services/",
+      "viewport": "1366x768",
+      "url": "https://c0d312.github.io/evaready-electrical/services/",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 1366,
+        "scrollWidth": 1366,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "normal",
+      "route": "/service-areas/",
+      "viewport": "390x844",
+      "url": "https://c0d312.github.io/evaready-electrical/service-areas/",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "normal",
+      "route": "/service-areas/",
+      "viewport": "1366x768",
+      "url": "https://c0d312.github.io/evaready-electrical/service-areas/",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 1366,
+        "scrollWidth": 1366,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "normal",
+      "route": "/privacy-policy/",
+      "viewport": "390x844",
+      "url": "https://c0d312.github.io/evaready-electrical/privacy-policy/",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": false,
+        "heroImageStyle": null,
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "normal",
+      "route": "/privacy-policy/",
+      "viewport": "1366x768",
+      "url": "https://c0d312.github.io/evaready-electrical/privacy-policy/",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 1366,
+        "scrollWidth": 1366,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": false,
+        "heroImageStyle": null,
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "normal",
+      "route": "/terms/",
+      "viewport": "390x844",
+      "url": "https://c0d312.github.io/evaready-electrical/terms/",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": false,
+        "heroImageStyle": null,
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "normal",
+      "route": "/terms/",
+      "viewport": "1366x768",
+      "url": "https://c0d312.github.io/evaready-electrical/terms/",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 1366,
+        "scrollWidth": 1366,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": false,
+        "heroImageStyle": null,
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "cache",
+      "route": "/",
+      "viewport": "390x844",
+      "url": "https://c0d312.github.io/evaready-electrical/?v=7ee018193c2ac667668f81f92f2ae43075461b0b",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "cache",
+      "route": "/",
+      "viewport": "1366x768",
+      "url": "https://c0d312.github.io/evaready-electrical/?v=7ee018193c2ac667668f81f92f2ae43075461b0b",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 1366,
+        "scrollWidth": 1366,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "cache",
+      "route": "/about/",
+      "viewport": "390x844",
+      "url": "https://c0d312.github.io/evaready-electrical/about/?v=7ee018193c2ac667668f81f92f2ae43075461b0b",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": false,
+        "heroImageStyle": null,
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "cache",
+      "route": "/about/",
+      "viewport": "1366x768",
+      "url": "https://c0d312.github.io/evaready-electrical/about/?v=7ee018193c2ac667668f81f92f2ae43075461b0b",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 1366,
+        "scrollWidth": 1366,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": false,
+        "heroImageStyle": null,
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "cache",
+      "route": "/contact/",
+      "viewport": "390x844",
+      "url": "https://c0d312.github.io/evaready-electrical/contact/?v=7ee018193c2ac667668f81f92f2ae43075461b0b",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": false,
+        "heroImageStyle": null,
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "cache",
+      "route": "/contact/",
+      "viewport": "1366x768",
+      "url": "https://c0d312.github.io/evaready-electrical/contact/?v=7ee018193c2ac667668f81f92f2ae43075461b0b",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 1366,
+        "scrollWidth": 1366,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": false,
+        "heroImageStyle": null,
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "cache",
+      "route": "/solar-batteries/",
+      "viewport": "390x844",
+      "url": "https://c0d312.github.io/evaready-electrical/solar-batteries/?v=7ee018193c2ac667668f81f92f2ae43075461b0b",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "cache",
+      "route": "/solar-batteries/",
+      "viewport": "1366x768",
+      "url": "https://c0d312.github.io/evaready-electrical/solar-batteries/?v=7ee018193c2ac667668f81f92f2ae43075461b0b",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 1366,
+        "scrollWidth": 1366,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "cache",
+      "route": "/emergency-electrician-sydney/",
+      "viewport": "390x844",
+      "url": "https://c0d312.github.io/evaready-electrical/emergency-electrician-sydney/?v=7ee018193c2ac667668f81f92f2ae43075461b0b",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "cache",
+      "route": "/emergency-electrician-sydney/",
+      "viewport": "1366x768",
+      "url": "https://c0d312.github.io/evaready-electrical/emergency-electrician-sydney/?v=7ee018193c2ac667668f81f92f2ae43075461b0b",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 1366,
+        "scrollWidth": 1366,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "cache",
+      "route": "/level-2-electrician-sydney/",
+      "viewport": "390x844",
+      "url": "https://c0d312.github.io/evaready-electrical/level-2-electrician-sydney/?v=7ee018193c2ac667668f81f92f2ae43075461b0b",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "cache",
+      "route": "/level-2-electrician-sydney/",
+      "viewport": "1366x768",
+      "url": "https://c0d312.github.io/evaready-electrical/level-2-electrician-sydney/?v=7ee018193c2ac667668f81f92f2ae43075461b0b",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 1366,
+        "scrollWidth": 1366,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "cache",
+      "route": "/services/",
+      "viewport": "390x844",
+      "url": "https://c0d312.github.io/evaready-electrical/services/?v=7ee018193c2ac667668f81f92f2ae43075461b0b",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "cache",
+      "route": "/services/",
+      "viewport": "1366x768",
+      "url": "https://c0d312.github.io/evaready-electrical/services/?v=7ee018193c2ac667668f81f92f2ae43075461b0b",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 1366,
+        "scrollWidth": 1366,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "cache",
+      "route": "/service-areas/",
+      "viewport": "390x844",
+      "url": "https://c0d312.github.io/evaready-electrical/service-areas/?v=7ee018193c2ac667668f81f92f2ae43075461b0b",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "cache",
+      "route": "/service-areas/",
+      "viewport": "1366x768",
+      "url": "https://c0d312.github.io/evaready-electrical/service-areas/?v=7ee018193c2ac667668f81f92f2ae43075461b0b",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 1366,
+        "scrollWidth": 1366,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": true,
+        "heroImageStyle": {
+          "opacity": "1",
+          "filter": "none",
+          "mixBlendMode": "normal",
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "cache",
+      "route": "/privacy-policy/",
+      "viewport": "390x844",
+      "url": "https://c0d312.github.io/evaready-electrical/privacy-policy/?v=7ee018193c2ac667668f81f92f2ae43075461b0b",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": false,
+        "heroImageStyle": null,
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "cache",
+      "route": "/privacy-policy/",
+      "viewport": "1366x768",
+      "url": "https://c0d312.github.io/evaready-electrical/privacy-policy/?v=7ee018193c2ac667668f81f92f2ae43075461b0b",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 1366,
+        "scrollWidth": 1366,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": false,
+        "heroImageStyle": null,
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "cache",
+      "route": "/terms/",
+      "viewport": "390x844",
+      "url": "https://c0d312.github.io/evaready-electrical/terms/?v=7ee018193c2ac667668f81f92f2ae43075461b0b",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": false,
+        "heroImageStyle": null,
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    },
+    {
+      "mode": "cache",
+      "route": "/terms/",
+      "viewport": "1366x768",
+      "url": "https://c0d312.github.io/evaready-electrical/terms/?v=7ee018193c2ac667668f81f92f2ae43075461b0b",
+      "status": 200,
+      "metrics": {
+        "viewportWidth": 1366,
+        "scrollWidth": 1366,
+        "horizontalOverflow": false,
+        "headerFits": true,
+        "stripVisible": true,
+        "heroImagePresent": false,
+        "heroImageStyle": null,
+        "phoneVisible": true,
+        "quoteVisible": true,
+        "adsPresent": true,
+        "phoneClickPresent": true,
+        "quoteClickPresent": true
+      },
+      "ok": true
+    }
+  ]
+}
