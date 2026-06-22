@@ -553,7 +553,7 @@ export default function AreasPage() {
             },
             {
               title: "Emergency",
-              text: "Power loss and circuit tripping and electrical issues that should be checked quickly.",
+              text: "Power loss, circuit tripping and electrical issues that should be checked quickly.",
               icon: Zap,
             },
             {

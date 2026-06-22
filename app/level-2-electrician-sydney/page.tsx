@@ -268,7 +268,6 @@ function buildSchema() {
         url: pageUrl,
         image: [absoluteUrl(business.brandImage), absoluteUrl(business.heroImage)],
         logo: absoluteUrl(business.logoImage),
-        priceRange: "$$",
         areaServed: [
           { "@type": "AdministrativeArea", name: "Sydney" },
           { "@type": "AdministrativeArea", name: "Sydney and surrounding regions" },

@@ -333,7 +333,7 @@ const faqs = [
   {
     question: "Do you offer 24/7 emergency electrician call-outs?",
     answer:
-      "Yes. Call Evaready Electrical any time for power outages and circuit tripping and burning smells, sparking or electrical issues that feel unsafe. Emergency call-outs can be on site within 60 minutes in core service areas, with 90-minute response for greater regions.",
+      "Yes. Call Evaready Electrical any time for power outages, circuit tripping, burning smells, sparking or other electrical issues that feel unsafe. Emergency call-outs can be on site within 60 minutes in core service areas, with 90-minute response for greater regions.",
   },
   {
     question: "Can you help with Level 2 electrical work?",

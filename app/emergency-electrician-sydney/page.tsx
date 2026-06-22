@@ -362,7 +362,6 @@ function buildSchema() {
         email: business.email,
         image: [absoluteUrl(business.brandImage), absoluteUrl(business.heroImage)],
         logo: absoluteUrl(business.logoImage),
-        priceRange: "$$",
         contactPoint: {
           "@type": "ContactPoint",
           telephone: business.phoneDisplay,

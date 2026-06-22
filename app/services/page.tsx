@@ -68,7 +68,7 @@ const services = [
   {
     title: "Emergency Electrician",
     description:
-      "Urgent fault support for outages and burning smells and circuit tripping and electrical issues that need a direct call.",
+      "Urgent fault support for outages, circuit tripping, burning smells and electrical issues that need a direct call.",
     icon: Flame,
     includes: [
       "Power outages",

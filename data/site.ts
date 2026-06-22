@@ -158,7 +158,7 @@ export const services = [
     title: "Emergency Electrician",
     slug: "emergency-electrician-sydney",
     description:
-      "Open 24/7 for power faults, outages and burning smells and circuit tripping and electrical hazards that need a phone call first.",
+      "Open 24/7 for power faults, outages, circuit tripping, burning smells and electrical hazards that need a phone call first.",
     icon: Zap,
     intent: "Emergency",
   },
