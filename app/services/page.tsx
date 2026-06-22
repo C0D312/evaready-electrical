@@ -234,6 +234,20 @@ const services = [
     ],
   },
   {
+    title: "EV Charger Installation",
+    description:
+      "Electrical support for EV charger planning, load-capacity checks, dedicated circuits and switchboard readiness.",
+    icon: Bolt,
+    includes: [
+      "EV charger planning",
+      "Dedicated circuits",
+      "Load-capacity checks",
+      "Switchboard readiness",
+      "Circuit protection",
+      "Supply review",
+    ],
+  },
+  {
     title: "CCTV & Security Cameras",
     description:
       "CCTV and security camera cabling, camera installation and neat setup support for homes and businesses.",
@@ -486,6 +500,20 @@ const services = [
     ],
   },
   {
+    title: "Private Power Pole",
+    description:
+      "Private pole electrical support for storm damage, defect notices, damaged service connections and supply-side planning.",
+    icon: Bolt,
+    includes: [
+      "Private pole enquiries",
+      "Storm damage review",
+      "Defect notice support",
+      "Overhead supply issues",
+      "Point of attachment checks",
+      "Level 2 coordination",
+    ],
+  },
+  {
     title: "Overhead Service Lines",
     description:
       "Overhead service line support for damaged supply connections, private poles, point of attachment issues and defects.",
@@ -699,6 +727,7 @@ const servicePageLinks: Record<string, string> = {
   "Hot Water System Electrical": "/services/hot-water-system-electrician-sydney",
   "Air Conditioning Electrical": "/services/split-system-air-conditioning-sydney",
   "Solar & Battery Electrical Support": "/solar-batteries",
+  "EV Charger Installation": "/services/ev-charger-installation-sydney",
   "CCTV & Security Cameras": "/services/cctv-security-camera-installation-sydney",
   "Data Cabling & Internet Points": "/services/data-cabling-electrician-sydney",
   "Ceiling & Exhaust Fans": "/services/ceiling-fan-installation-sydney",
@@ -717,6 +746,7 @@ const servicePageLinks: Record<string, string> = {
   "Storm Damage & Appliance Disconnects": "/services/storm-damage-electrician-sydney",
   "Load Balancing & Capacity Checks": "/services/electrical-load-capacity-checks-sydney",
   "Point of Attachment Repairs": "/services/point-of-attachment-repairs-sydney",
+  "Private Power Pole": "/services/private-power-pole-sydney",
   "Overhead Service Lines": "/services/overhead-service-lines-sydney",
   "Underground Service Mains": "/services/underground-service-mains-sydney",
   "Disconnect & Reconnect": "/services/disconnect-reconnect-electrician-sydney",
@@ -746,6 +776,7 @@ const leadValueServiceTitles = [
   "Solar & Battery Electrical Support",
   "CCTV & Security Cameras",
   "Commercial Electrician",
+  "Pre-Purchase & Rental Inspections",
   "Safety Switches & RCDs",
 ];
 
@@ -926,8 +957,196 @@ const serviceProblemSelectorItems = [
   },
 ];
 
+type ServiceCatalogueRelatedLink = {
+  title: string;
+  label?: string;
+};
+
+type ServiceCatalogueItem = {
+  title: string;
+  helper?: string;
+  related?: ServiceCatalogueRelatedLink[];
+};
+
+type ServiceCatalogueCategory = {
+  id: string;
+  title: string;
+  intro: string;
+  items: ServiceCatalogueItem[];
+};
+
+const serviceDisplayTitleOverrides: Record<string, string> = {
+  "Hot Water System Electrical": "Hot Water Electrical",
+  "CCTV & Security Cameras": "CCTV & Security",
+  "Pre-Purchase & Rental Inspections":
+    "Pre-Purchase & Rental Electrical Inspections",
+};
+
+const serviceCatalogueCategories: ServiceCatalogueCategory[] = [
+  {
+    id: "emergency-faults",
+    title: "Emergency Faults",
+    intro:
+      "Urgent electrical problems, unsafe faults and fault-finding pathways when the issue needs attention quickly.",
+    items: [
+      { title: "Emergency Electrician" },
+      { title: "Electrical Fault Finding" },
+      { title: "Storm Damage & Appliance Disconnects" },
+      { title: "Hot Power Point" },
+      { title: "Electric Shock Faults" },
+      { title: "Circuit Breaker Electrician" },
+    ],
+  },
+  {
+    id: "level-2-electrical-supply",
+    title: "Level 2 & Electrical Supply",
+    intro:
+      "Supply-side electrical work, consumer mains, metering, defect notices and Level 2 enquiries.",
+    items: [
+      { title: "Level 2 Electrician" },
+      { title: "Consumer Mains" },
+      { title: "Defect Notice Repairs" },
+      { title: "Point of Attachment Repairs" },
+      { title: "Private Power Pole" },
+      { title: "Overhead Service Lines" },
+      { title: "Underground Service Mains" },
+      { title: "Disconnect & Reconnect" },
+      { title: "Meters & Service Equipment" },
+      { title: "Smart Meter Electrician" },
+    ],
+  },
+  {
+    id: "switchboards-safety-inspections",
+    title: "Switchboards, Safety & Inspections",
+    intro:
+      "Switchboard upgrades, safety protection, inspection work and grouped testing/reporting services.",
+    items: [
+      { title: "Switchboard Upgrades" },
+      {
+        title: "Safety Switches & RCDs",
+        helper: "Main safety-switch installation and protection pathway.",
+        related: [
+          {
+            title: "RCD Safety Switch Repairs",
+            label: "RCD repair specialist page",
+          },
+        ],
+      },
+      { title: "Surge Protection" },
+      { title: "Pre-Purchase & Rental Inspections" },
+      { title: "Electrical Safety Inspections" },
+      {
+        title: "Testing, Tagging & Reports",
+        helper: "Broader testing, tagging and reporting support.",
+        related: [
+          {
+            title: "Testing and Tagging",
+            label: "Portable-equipment testing page",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "home-electrical",
+    title: "Home Electrical",
+    intro:
+      "Everyday residential electrical repairs, additions, renovation wiring and practical home upgrades.",
+    items: [
+      { title: "Residential Electrician" },
+      { title: "Lighting Electrician" },
+      { title: "Power Points" },
+      { title: "Smoke Alarms" },
+      { title: "Ceiling & Exhaust Fans" },
+      { title: "Appliance, Cooktop & Rangehood" },
+      { title: "Electrical Rewiring" },
+      { title: "New Builds & Renovations" },
+      { title: "Home Automation & Smart Wiring" },
+    ],
+  },
+  {
+    id: "commercial-strata-property",
+    title: "Commercial, Strata & Property",
+    intro:
+      "Electrical support for shops, offices, strata, builders, managed sites and commercial lighting needs.",
+    items: [
+      { title: "Commercial Electrician" },
+      { title: "Emergency & Exit Lighting" },
+    ],
+  },
+  {
+    id: "heating-cooling-hot-water",
+    title: "Heating, Cooling & Hot Water",
+    intro:
+      "Electrical support for hot water faults, heat pumps, air-conditioning circuits and isolators.",
+    items: [
+      { title: "Hot Water System Electrical" },
+      { title: "Air Conditioning Electrical" },
+    ],
+  },
+  {
+    id: "solar-batteries-ev",
+    title: "Solar, Batteries & EV Charging",
+    intro:
+      "Electrical supply planning for solar, battery, EV charging and larger electrical loads.",
+    items: [
+      { title: "Solar & Battery Electrical Support" },
+      { title: "EV Charger Installation" },
+      { title: "Load Balancing & Capacity Checks" },
+      { title: "3 Phase Power" },
+    ],
+  },
+  {
+    id: "security-data-communications",
+    title: "Security, Data & Communications",
+    intro:
+      "CCTV, data, communications, intercom and TV cabling services grouped for cleaner routing.",
+    items: [
+      { title: "CCTV & Security Cameras" },
+      { title: "Data Cabling & Internet Points" },
+      { title: "Phone Line Electrician" },
+      {
+        title: "Intercoms & Access Control",
+        helper: "Broader entry, access control and security wiring support.",
+        related: [
+          {
+            title: "Intercom Installation",
+            label: "Intercom installation page",
+          },
+        ],
+      },
+      {
+        title: "TV, Antenna & Wall Cabling",
+        helper: "Broader TV, antenna, wall power and media cabling support.",
+        related: [
+          {
+            title: "TV Points & Antenna",
+            label: "TV point specialist page",
+          },
+        ],
+      },
+    ],
+  },
+];
+
+const serviceByTitle = new Map(services.map((service) => [service.title, service]));
+
 function getServiceHref(title: string) {
   return servicePageLinks[title] ?? business.bookingUrl;
+}
+
+function getServiceByTitle(title: string) {
+  const service = serviceByTitle.get(title);
+
+  if (!service) {
+    throw new Error(`Missing service catalogue item: ${title}`);
+  }
+
+  return service;
+}
+
+function getServiceDisplayTitle(title: string) {
+  return serviceDisplayTitleOverrides[title] ?? title;
 }
 
 function isExternalServiceLink(title: string) {
@@ -988,7 +1207,7 @@ export default function ServicesPage() {
   );
 
   return (
-    <main className="min-h-screen bg-white text-[#061E72]">
+    <main className="min-h-screen bg-[var(--ev-black)] text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(schema)}
@@ -1099,18 +1318,289 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <TrustSymbolBand className="border-b border-slate-200" />
-
-      <section className="bg-slate-50 py-12 sm:py-16">
+      <section className="bg-[var(--ev-midnight)] py-16 text-white sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.22em] text-blue-700">
+            <p className="text-sm font-black uppercase tracking-[0.22em] text-cyan-200">
+              Most requested
+            </p>
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+              Fast paths for the electrical jobs people call about first.
+            </h2>
+            <p className="mt-5 text-lg font-semibold leading-8 text-slate-200">
+              Start with one of the main service types below, or keep browsing
+              the full service list for more specific electrical work.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {featuredServices.map((service) => {
+              const Icon = service.icon;
+              const href = getServiceHref(service.title);
+
+              return (
+                <Link
+                  key={service.title}
+                  href={href}
+                  className="group overflow-hidden rounded-2xl border border-cyan-300/20 bg-[#061E72] p-6 text-white shadow-xl shadow-blue-950/10 transition hover:-translate-y-1 hover:border-cyan-300/55 hover:shadow-cyan-500/15"
+                >
+                  <div className="flex items-start gap-4">
+                    <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-blue-500/20 text-cyan-200">
+                      <Icon className="h-7 w-7" />
+                    </span>
+                    <div>
+                      <h3 className="text-xl font-black leading-7">
+                        {getServiceDisplayTitle(service.title)}
+                      </h3>
+                      <p className="mt-2 text-sm font-semibold leading-6 text-slate-300">
+                        {service.description}
+                      </p>
+                    </div>
+                  </div>
+                  <span className="mt-5 inline-flex items-center gap-2 font-black text-cyan-200">
+                    View service
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <TrustSymbolBand className="border-y border-cyan-300/15" />
+
+      <section
+        id="service-catalogue"
+        className="bg-[var(--ev-dark-blue)] py-16 text-white sm:py-20"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-4xl">
+              <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-200">
+                Electrical services
+              </p>
+
+              <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+                Choose the electrical service that best matches the job.
+              </h2>
+
+              <p className="mt-5 text-lg font-semibold leading-8 text-slate-200">
+                Call directly if the issue feels unsafe. For planned work,
+                choose the closest category and send the details through the
+                quote form so the job can be reviewed.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-3 sm:flex-row lg:shrink-0">
+              <a
+                href={business.phoneHref}
+                data-conversion-action="phone-click"
+                aria-label={business.callCta}
+                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-red-700 to-red-500 px-5 py-3 text-sm font-black text-white shadow-lg shadow-red-600/25 transition hover:from-red-600 hover:to-red-400"
+              >
+                <Phone className="h-4 w-4" />
+                <span className="whitespace-nowrap">{business.callCta}</span>
+              </a>
+              <a
+                href={business.bookingUrl}
+                data-quote-trigger="true"
+                data-conversion-action="quote-click"
+                aria-haspopup="dialog"
+                aria-label="Get a quote from Evaready Electrical"
+                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-400 px-5 py-3 text-sm font-black text-white shadow-lg shadow-cyan-500/20 transition hover:from-blue-500 hover:to-cyan-300"
+              >
+                {business.quoteCta}
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+
+          <nav
+            aria-label="Service category shortcuts"
+            className="mt-8 flex gap-2 overflow-x-auto pb-2"
+          >
+            {serviceCatalogueCategories.map((category) => (
+              <a
+                key={category.id}
+                href={`#${category.id}`}
+                className="inline-flex min-h-10 shrink-0 items-center rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 py-2 text-xs font-black uppercase tracking-[0.14em] text-white transition hover:border-cyan-200 hover:bg-cyan-300/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
+              >
+                {category.title}
+              </a>
+            ))}
+          </nav>
+
+          <div className="mt-10 grid gap-8">
+            {serviceCatalogueCategories.map((category) => (
+              <section
+                key={category.id}
+                id={category.id}
+                className="scroll-mt-36 rounded-[2rem] border border-cyan-300/18 bg-[var(--ev-panel-blue)] p-5 shadow-2xl shadow-blue-950/20 sm:p-7"
+              >
+                <div className="max-w-4xl">
+                  <h3 className="text-2xl font-black tracking-tight text-white sm:text-3xl">
+                    {category.title}
+                  </h3>
+                  <p className="mt-3 text-base font-semibold leading-7 text-slate-200">
+                    {category.intro}
+                  </p>
+                </div>
+
+                <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                  {category.items.map((item) => {
+                    const service = getServiceByTitle(item.title);
+                    const Icon = service.icon;
+                    const href = getServiceHref(service.title);
+                    const isExternal = isExternalServiceLink(service.title);
+                    const displayTitle = getServiceDisplayTitle(service.title);
+                    const visibleIncludes = service.includes.slice(0, 4);
+                    const relatedLinks = item.related ?? [];
+                    const serviceCardBody = (
+                      <>
+                        <div className="flex items-start gap-4">
+                          <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-cyan-300/20 bg-cyan-300/10 text-cyan-200">
+                            <Icon className="h-5 w-5" />
+                          </span>
+                          <div className="min-w-0">
+                            <h4 className="text-lg font-black leading-6 text-white">
+                              {displayTitle}
+                            </h4>
+                            <p className="mt-2 text-sm font-semibold leading-6 text-slate-200">
+                              {item.helper ?? service.description}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="mt-4 grid gap-2">
+                          {visibleIncludes.map((include) => (
+                            <div
+                              key={include}
+                              className="flex items-start gap-2 text-sm font-bold leading-5 text-slate-100"
+                            >
+                              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-cyan-200" />
+                              <span>{include}</span>
+                            </div>
+                          ))}
+                        </div>
+
+                        <span className="mt-5 inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.12em] text-cyan-100">
+                          View service
+                          <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                        </span>
+                      </>
+                    );
+
+                    if (relatedLinks.length > 0) {
+                      return (
+                        <article
+                          key={service.title}
+                          className="rounded-3xl border border-cyan-300/20 bg-[#08236b] p-4 shadow-xl shadow-blue-950/15"
+                        >
+                          {isExternal ? (
+                            <a
+                              href={href}
+                              data-catalog-href={href}
+                              data-quote-trigger="true"
+                              data-conversion-action="quote-click"
+                              aria-haspopup="dialog"
+                              aria-label={`Get a quote for ${displayTitle}`}
+                              className="group block rounded-2xl p-2 text-white transition hover:bg-cyan-300/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
+                            >
+                              {serviceCardBody}
+                            </a>
+                          ) : (
+                            <Link
+                              href={href}
+                              data-catalog-href={href}
+                              aria-label={`View ${displayTitle}`}
+                              className="group block rounded-2xl p-2 text-white transition hover:bg-cyan-300/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
+                            >
+                              {serviceCardBody}
+                            </Link>
+                          )}
+
+                          <div className="mt-4 border-t border-cyan-300/15 pt-4">
+                            <p className="text-xs font-black uppercase tracking-[0.16em] text-cyan-100">
+                              Related specialist links
+                            </p>
+                            <div className="mt-3 grid gap-2">
+                              {relatedLinks.map((related) => {
+                                const relatedService = getServiceByTitle(
+                                  related.title,
+                                );
+                                const relatedHref = getServiceHref(
+                                  relatedService.title,
+                                );
+
+                                return (
+                                  <Link
+                                    key={relatedService.title}
+                                    href={relatedHref}
+                                    data-catalog-href={relatedHref}
+                                    aria-label={`View ${getServiceDisplayTitle(
+                                      relatedService.title,
+                                    )}`}
+                                    className="group inline-flex min-h-11 items-center justify-between gap-3 rounded-xl border border-cyan-300/20 bg-cyan-300/10 px-3 py-2 text-sm font-black text-white transition hover:border-cyan-200 hover:bg-cyan-300/18 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
+                                  >
+                                    <span>
+                                      {related.label ??
+                                        getServiceDisplayTitle(
+                                          relatedService.title,
+                                        )}
+                                    </span>
+                                    <ArrowRight className="h-4 w-4 shrink-0 text-cyan-100 transition group-hover:translate-x-1" />
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        </article>
+                      );
+                    }
+
+                    return isExternal ? (
+                      <a
+                        key={service.title}
+                        href={href}
+                        data-catalog-href={href}
+                        data-quote-trigger="true"
+                        data-conversion-action="quote-click"
+                        aria-haspopup="dialog"
+                        aria-label={`Get a quote for ${displayTitle}`}
+                        className="group block rounded-3xl border border-cyan-300/20 bg-[#08236b] p-6 text-white shadow-xl shadow-blue-950/15 transition hover:-translate-y-1 hover:border-cyan-300/55 hover:bg-[#0a2b7a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
+                      >
+                        {serviceCardBody}
+                      </a>
+                    ) : (
+                      <Link
+                        key={service.title}
+                        href={href}
+                        data-catalog-href={href}
+                        aria-label={`View ${displayTitle}`}
+                        className="group block rounded-3xl border border-cyan-300/20 bg-[#08236b] p-6 text-white shadow-xl shadow-blue-950/15 transition hover:-translate-y-1 hover:border-cyan-300/55 hover:bg-[#0a2b7a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
+                      >
+                        {serviceCardBody}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </section>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[var(--ev-section-blue)] py-12 text-white sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-black uppercase tracking-[0.22em] text-cyan-200">
               Problem selector
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               What do you need help with?
             </h2>
-            <p className="mt-4 text-base font-semibold leading-7 text-slate-600 sm:text-lg">
+            <p className="mt-4 text-base font-semibold leading-7 text-slate-200 sm:text-lg">
               Choose the closest issue first, then call for urgent faults or
               send photos and job details for planned work.
             </p>
@@ -1120,9 +1610,9 @@ export default function ServicesPage() {
             {serviceProblemSelectorItems.map((item) => (
               <article
                 key={item.problem}
-                className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+                className="rounded-2xl border border-cyan-300/18 bg-[#08236b] p-4 shadow-xl shadow-blue-950/15"
               >
-                <h3 className="text-base font-black leading-6 text-[#061E72]">
+                <h3 className="text-base font-black leading-6 text-white">
                   {item.problem}
                 </h3>
                 <div className="mt-3 flex flex-wrap gap-2">
@@ -1159,134 +1649,6 @@ export default function ServicesPage() {
         className="border-b border-cyan-300/15"
         serviceName="electrical services"
       />
-
-      <section className="bg-white py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.22em] text-blue-700">
-              Most requested
-            </p>
-            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Fast paths for the electrical jobs people call about first.
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">
-              Start with one of the main service types below, or keep browsing
-              the full service list for more specific electrical work.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {featuredServices.map((service) => {
-              const Icon = service.icon;
-              const href = getServiceHref(service.title);
-
-              return (
-                <Link
-                  key={service.title}
-                  href={href}
-                  className="group overflow-hidden rounded-2xl border border-cyan-300/20 bg-[#061E72] p-6 text-white shadow-xl shadow-blue-950/10 transition hover:-translate-y-1 hover:border-cyan-300/55 hover:shadow-cyan-500/15"
-                >
-                  <div className="flex items-start gap-4">
-                    <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-blue-500/20 text-cyan-200">
-                      <Icon className="h-7 w-7" />
-                    </span>
-                    <div>
-                      <h3 className="text-xl font-black leading-7">
-                        {service.title}
-                      </h3>
-                      <p className="mt-2 text-sm font-semibold leading-6 text-slate-300">
-                        {service.description}
-                      </p>
-                    </div>
-                  </div>
-                  <span className="mt-5 inline-flex items-center gap-2 font-black text-cyan-200">
-                    View service
-                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Service cards */}
-      <section className="bg-slate-50 py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
-            Electrical services
-          </p>
-
-          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-            Choose the electrical service that best matches the job.
-          </h2>
-
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-            Call directly if the issue feels unsafe. For planned work, choose
-            the closest service and send the details so it can be reviewed.
-          </p>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {orderedServices.map((service) => {
-              const Icon = service.icon;
-              const href = getServiceHref(service.title);
-              const isExternal = isExternalServiceLink(service.title);
-              const cardContent = (
-                <>
-                  <div className="w-fit rounded-2xl bg-blue-50 p-4">
-                    <Icon className="h-8 w-8 text-blue-700" />
-                  </div>
-
-                  <h3 className="mt-6 text-2xl font-black">{service.title}</h3>
-
-                  <p className="mt-3 leading-7 text-slate-600">
-                    {service.description}
-                  </p>
-
-                  <div className="mt-6 grid gap-2">
-                    {service.includes.map((item) => (
-                      <div key={item} className="flex items-center gap-2">
-                        <CheckCircle2 className="h-4 w-4 shrink-0 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-700">
-                          {item}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <span className="mt-7 inline-flex items-center gap-2 font-black text-blue-700">
-                    {isExternal ? business.quoteCta : "Learn more"}
-                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                  </span>
-                </>
-              );
-
-              return isExternal ? (
-                <a
-                  key={service.title}
-                  href={href}
-                  data-quote-trigger="true"
-                  data-conversion-action="quote-click"
-                  aria-haspopup="dialog"
-                  aria-label={`Get a quote for ${service.title}`}
-                  className="group block rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-blue-500 hover:bg-blue-50 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
-                >
-                  {cardContent}
-                </a>
-              ) : (
-                <Link
-                  key={service.title}
-                  href={href}
-                  aria-label={`Learn more about ${service.title}`}
-                  className="group block rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-blue-500 hover:bg-blue-50 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
-                >
-                  {cardContent}
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="bg-gradient-to-r from-[#082A86] via-[#061E72] to-[#43040e] py-24 text-white">
