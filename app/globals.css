@@ -7742,7 +7742,9 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
   max-width: 100% !important;
   align-self: center !important;
   line-height: 1.35 !important;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
 }
 
 .emergency-link-card__arrow,
@@ -7794,7 +7796,9 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
   min-width: 0 !important;
   max-width: 100% !important;
   align-self: center !important;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
 }
 
 .service-credential-card {
@@ -7829,7 +7833,9 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
   min-width: 0 !important;
   align-self: center !important;
   line-height: 1.35 !important;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
 }
 
 .action-button-row {
@@ -7971,7 +7977,7 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
 
 .home-brand-hero .home-hero-copy-panel .hero-credential-badges {
   display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  grid-template-columns: minmax(0, 1fr) !important;
   align-items: stretch !important;
   gap: clamp(0.65rem, 1.5vw, 0.9rem) !important;
 }
@@ -7998,6 +8004,12 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
   .home-brand-hero .home-hero-copy-panel .hero-cta-grid,
   .home-brand-hero .home-hero-copy-panel .hero-credential-badges {
     grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+@media (min-width: 430px) {
+  .home-brand-hero .home-hero-copy-panel .hero-credential-badges {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
 

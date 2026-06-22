@@ -104,7 +104,7 @@ export function EmergencyTrustPanel({ className = "" }: { className?: string }) 
           </div>
 
           <div className="grid gap-3">
-            <div className="grid gap-3 md:grid-cols-3">
+            <div className="emergency-feature-grid grid gap-3 sm:grid-cols-2">
               {emergencyCards.map((card) => {
                 const Icon = card.icon;
                 const tone =
