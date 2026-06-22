@@ -192,13 +192,13 @@ export function ServiceAreaHero({
         className="brand-internal-hero-image object-cover object-[68%_center]"
       />
 
-      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+      <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-14">
         <div className="internal-hero-copy-panel max-w-4xl">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-blue-200">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-blue-200">
             <MapPin className="h-4 w-4" />
             {eyebrow}
           </div>
-          <h1 className="text-4xl font-black tracking-tight sm:text-6xl lg:text-7xl">
+          <h1 className="text-3xl font-black tracking-tight sm:text-5xl lg:text-6xl">
             {title}
           </h1>
           {children}

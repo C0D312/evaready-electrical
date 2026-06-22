@@ -209,104 +209,20 @@ export default function AreasPage() {
         title="Electricians Across Sydney & Surrounding Regions"
       >
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
-          Evaready Electrical helps homes, strata, shops, offices and
-          commercial sites across Sydney and surrounding regions with emergency
-          faults, Level 2 work, switchboards, hot water, air conditioning,
-          CCTV/data, lighting and power. Emergency call-outs can be on site
-          within 60 minutes in core service areas, with 90-minute response for
-          greater regions. Extended areas may depend on job type, urgency and
-          availability.
+          Search your suburb or postcode for local emergency, Level 2 and
+          planned electrical service information.
         </p>
 
-        <div className="mt-6 grid max-w-4xl gap-3 lg:grid-cols-2">
-          <div className="rounded-lg border border-red-300/30 bg-red-500/15 p-4 shadow-lg shadow-blue-950/20">
-            <p className="text-xs font-black uppercase tracking-[0.2em] text-red-100">
-              Emergency fault
-            </p>
-            <p className="mt-2 text-sm font-bold leading-6 text-white sm:text-base">
-              Call now for no power, burning smells, sparking, repeated
-              safety-switch tripping, switchboard faults, storm damage or
-              unsafe electrical equipment.
-            </p>
-          </div>
-          <div className="rounded-lg border border-cyan-300/25 bg-white/10 p-4 shadow-lg shadow-blue-950/20">
-            <p className="text-xs font-black uppercase tracking-[0.2em] text-cyan-100">
-              Planned work
-            </p>
-            <p className="mt-2 text-sm font-bold leading-6 text-white sm:text-base">
-              Search your suburb or postcode, choose the closest service area,
-              then send photos, job notes and access details.
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-5 max-w-4xl rounded-lg border border-cyan-300/25 bg-white/10 p-4 shadow-lg shadow-blue-950/20">
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              `${business.emergencyResponse.coreMinutes}-minute emergency response in core service areas`,
-              `${business.emergencyResponse.greaterRegionMinutes}-minute emergency response for greater regions`,
-              "Call first for urgent electrical faults",
-              "Search your suburb to check local service information",
-              "Send photos and job details for planned work",
-            ].map((item) => (
-              <div
-                key={item}
-                className="flex items-start gap-2 text-sm font-bold leading-6 text-white"
-              >
-                <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-cyan-200" />
-                <span>{item}</span>
-              </div>
-            ))}
-          </div>
-          <p className="mt-4 text-sm font-semibold leading-6 text-slate-200">
-            Response timing depends on location, access, traffic, safety
-            conditions, job type and current availability.
-          </p>
-          <p className="mt-2 text-sm font-semibold leading-6 text-slate-200">
-            {business.emergencyResponse.emergencyOnlyNote}
+        <div id="find-suburb" className="mt-5 max-w-3xl">
+          <ServiceAreaSearch items={coverageSearchItems} />
+          <p className="mt-3 text-sm font-semibold leading-6 text-slate-200">
+            Start typing a suburb, postcode, area or region. If the job is
+            urgent, call first. For planned work, open the quote form and
+            include photos, access details and any defect notice or paperwork.
           </p>
         </div>
 
-        <div className="mt-5 grid max-w-4xl gap-3 lg:grid-cols-2">
-          {responseRegionGroups.map((group) => (
-            <section
-              key={group.heading}
-              className="rounded-lg border border-cyan-300/25 bg-[#0A349E]/80 p-4 shadow-lg shadow-blue-950/20"
-              aria-label={group.heading}
-            >
-              <p
-                className={
-                  group.tone === "core"
-                    ? "text-sm font-black leading-6 text-red-100"
-                    : "text-sm font-black leading-6 text-cyan-100"
-                }
-              >
-                {group.heading}
-              </p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {group.regions.map((region) => (
-                  <span
-                    key={region}
-                    className={
-                      group.tone === "core"
-                        ? "rounded-full border border-red-300/25 bg-red-500/10 px-3 py-1 text-xs font-bold leading-5 text-red-50"
-                        : "rounded-full border border-cyan-300/25 bg-cyan-400/10 px-3 py-1 text-xs font-bold leading-5 text-cyan-50"
-                    }
-                  >
-                    {region}
-                  </span>
-                ))}
-              </div>
-            </section>
-          ))}
-          <p className="rounded-lg border border-cyan-300/25 bg-white/10 p-4 text-sm font-semibold leading-6 text-slate-200 shadow-lg shadow-blue-950/20 lg:col-span-2">
-            Search your suburb or postcode for the local page. Core and
-            greater-region timing applies to emergency electrical call-outs
-            only.
-          </p>
-        </div>
-
-        <div className="mt-7 grid max-w-xl gap-3 sm:flex sm:flex-wrap">
+        <div className="mt-5 grid max-w-xl gap-3 sm:flex sm:flex-wrap">
           <a
             href={business.phoneHref}
             data-conversion-action="phone-click"
@@ -329,34 +245,105 @@ export default function AreasPage() {
           </a>
         </div>
 
+        <div className="mt-5 max-w-4xl rounded-lg border border-cyan-300/25 bg-white/10 p-4 shadow-lg shadow-blue-950/20">
+          <div className="grid gap-3 sm:grid-cols-3">
+            {[
+              `${business.emergencyResponse.coreMinutes}-minute emergency response in core service areas`,
+              `${business.emergencyResponse.greaterRegionMinutes}-minute emergency response for greater regions`,
+              "Ausgrid & Endeavour Energy Accredited Level 2 ASP",
+            ].map((item) => (
+              <div
+                key={item}
+                className="flex items-start gap-2 text-sm font-bold leading-6 text-white"
+              >
+                <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-cyan-200" />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </ServiceAreaHero>
 
-      <section id="find-suburb" className="bg-slate-50 py-12 sm:py-16">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
-          <div>
+      <section className="bg-slate-50 py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
             <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
-              Search suburb or postcode
+              Response guidance
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Find your suburb or postcode.
+              Core and greater-region emergency areas.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              Start typing a suburb, postcode, area or region. If the job is
-              urgent, call first. For planned work, open the quote form and
-              include photos, access details and any defect notice or
-              paperwork.
-            </p>
-            <p className="mt-5 text-lg leading-8 text-slate-600">
               Evaready Electrical provides fast electrical support across
-              Sydney and surrounding regions. Extended service areas may depend
-              on job type, urgency and availability. Call first for urgent
-              faults such as power loss and burning smells, sparking, tripping
-              safety switches or unsafe wiring. For planned work, open the
-              booking form and send your suburb, job details and photos.
+              Sydney and surrounding regions. Call first for urgent faults such
+              as power loss, burning smells, sparking, tripping safety switches
+              or unsafe wiring. For planned work, open the quote form and send
+              your suburb, job details and photos.
             </p>
           </div>
 
-          <ServiceAreaSearch items={coverageSearchItems} />
+          <div className="mt-8 grid gap-4 lg:grid-cols-2">
+            {responseRegionGroups.map((group) => (
+              <section
+                key={group.heading}
+                className="rounded-lg border border-cyan-300/25 bg-[#0A349E] p-5 text-white shadow-lg shadow-blue-950/20"
+                aria-label={group.heading}
+              >
+                <p
+                  className={
+                    group.tone === "core"
+                      ? "text-sm font-black leading-6 text-red-100"
+                      : "text-sm font-black leading-6 text-cyan-100"
+                  }
+                >
+                  {group.heading}
+                </p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {group.regions.map((region) => (
+                    <span
+                      key={region}
+                      className={
+                        group.tone === "core"
+                          ? "rounded-full border border-red-300/25 bg-red-500/10 px-3 py-1 text-xs font-bold leading-5 text-red-50"
+                          : "rounded-full border border-cyan-300/25 bg-cyan-400/10 px-3 py-1 text-xs font-bold leading-5 text-cyan-50"
+                      }
+                    >
+                      {region}
+                    </span>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+
+          <div className="mt-4 grid gap-4 lg:grid-cols-2">
+            <div className="rounded-lg border border-cyan-300/25 bg-white p-5 shadow-sm">
+              <p className="text-sm font-black uppercase tracking-[0.2em] text-red-600">
+                Emergency fault
+              </p>
+              <p className="mt-2 text-base font-bold leading-7 text-slate-700">
+                Call now for no power, burning smells, sparking, repeated
+                safety-switch tripping, switchboard faults, storm damage or
+                unsafe electrical equipment.
+              </p>
+            </div>
+            <div className="rounded-lg border border-cyan-300/25 bg-white p-5 shadow-sm">
+              <p className="text-sm font-black uppercase tracking-[0.2em] text-blue-700">
+                Planned work
+              </p>
+              <p className="mt-2 text-base font-bold leading-7 text-slate-700">
+                Search your suburb or postcode, choose the closest service
+                area, then send photos, job notes and access details.
+              </p>
+            </div>
+            <p className="rounded-lg border border-cyan-300/25 bg-white p-5 text-base font-semibold leading-7 text-slate-700 shadow-sm lg:col-span-2">
+              Search your suburb or postcode for the local page. Core and
+              greater-region timing applies to emergency electrical call-outs
+              only. Response timing depends on location, access, traffic,
+              safety conditions, job type and current availability.{" "}
+              {business.emergencyResponse.emergencyOnlyNote}
+            </p>
+          </div>
         </div>
       </section>
 
