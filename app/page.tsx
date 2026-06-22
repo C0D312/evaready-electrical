@@ -450,12 +450,12 @@ export default function HomePage() {
               {business.level2Asp.display}.
             </p>
 
-            <div className="mt-7 grid gap-3 sm:flex sm:flex-wrap">
+            <div className="hero-cta-grid mt-7 grid gap-3">
               <a
                 href={business.phoneHref}
                 data-conversion-action="phone-click"
                 aria-label={business.callCta}
-                className="inline-flex min-h-16 items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-5 text-center text-lg font-black text-white shadow-2xl shadow-red-600/35 ring-2 ring-red-200/20 transition hover:bg-red-500 sm:px-8 sm:text-xl"
+                className="hero-cta-button hero-cta-button--call inline-flex min-h-16 items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-5 text-center text-lg font-black text-white shadow-2xl shadow-red-600/35 ring-2 ring-red-200/20 transition hover:bg-red-500 sm:px-8 sm:text-xl"
               >
                 <Phone className="h-5 w-5 shrink-0" />
                 <span className="whitespace-nowrap">
@@ -468,7 +468,7 @@ export default function HomePage() {
                 data-quote-trigger="true"
                 data-conversion-action="quote-click"
                 aria-haspopup="dialog"
-                className="inline-flex min-h-14 items-center justify-center gap-3 rounded-lg border border-cyan-300/35 bg-[#0A349E]/80 px-6 py-4 text-center text-base font-black text-cyan-50 shadow-xl shadow-blue-700/15 transition hover:border-cyan-200 hover:bg-blue-700 sm:px-7"
+                className="hero-cta-button hero-cta-button--quote inline-flex min-h-14 items-center justify-center gap-3 rounded-lg border border-cyan-300/35 bg-[#0A349E]/80 px-6 py-4 text-center text-base font-black text-cyan-50 shadow-xl shadow-blue-700/15 transition hover:border-cyan-200 hover:bg-blue-700 sm:px-7"
               >
                 {business.quoteCta}
                 <ArrowRight className="h-5 w-5 shrink-0" />
