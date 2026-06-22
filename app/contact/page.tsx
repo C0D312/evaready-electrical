@@ -231,16 +231,45 @@ export default function ContactPage() {
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.95fr_1.05fr]">
             <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-6 sm:p-8">
               <p className="text-xs font-black uppercase tracking-[0.22em] text-blue-700">
-                Address and map
+                Mobile service
               </p>
               <h2 className="mt-3 text-3xl font-black tracking-tight">
-                Servicing Sydney and surrounding regions
+                Mobile electrical service across Sydney and surrounding regions
               </h2>
               <p className="mt-4 text-base font-semibold leading-7 text-slate-700">
-                No public address is shown because a verified public address is
-                not configured in the current site constants. No map is embedded
-                on this page.
+                Evaready Electrical travels to homes, strata properties, shops,
+                offices and commercial sites across Sydney and surrounding
+                regions. Call or send your job details to confirm availability
+                for your suburb and electrical work.
               </p>
+              <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                <Link
+                  href="/service-areas"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-blue-200 bg-white px-4 py-3 text-sm font-black text-blue-950 transition hover:border-blue-400 hover:bg-blue-50"
+                >
+                  Check Service Areas
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+                <a
+                  href={business.phoneHref}
+                  data-conversion-action="phone-click"
+                  aria-label={business.callCta}
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-red-200/50 bg-gradient-to-r from-[#b90816] via-red-600 to-[#ff2637] px-4 py-3 text-sm font-black text-white shadow-lg shadow-red-950/25 transition hover:border-red-100 hover:from-red-700 hover:via-red-500 hover:to-red-400"
+                >
+                  <Phone className="h-4 w-4" aria-hidden="true" />
+                  {business.callCta}
+                </a>
+                <a
+                  href={business.bookingUrl}
+                  data-quote-trigger="true"
+                  data-conversion-action="quote-click"
+                  aria-haspopup="dialog"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-blue-700 to-cyan-400 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:from-blue-600 hover:to-cyan-300"
+                >
+                  {business.quoteCta}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </div>
             </div>
 
             <div className="rounded-[2rem] border border-blue-100 bg-blue-950 p-6 text-white sm:p-8">
@@ -277,8 +306,8 @@ export default function ContactPage() {
                   Contact details are kept simple and direct.
                 </h2>
                 <p className="mt-4 text-sm font-semibold leading-6 text-slate-300">
-                  Evaready uses the verified phone number, email address and
-                  ServiceM8 quote link from the site constants.
+                  Call, email or send job details through the secure quote form.
+                  For urgent electrical faults, call first.
                 </p>
               </div>
               <div className="grid gap-3 sm:grid-cols-2">
