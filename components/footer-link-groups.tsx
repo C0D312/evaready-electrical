@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState, type FormEvent } from "react";
 import { ArrowRight, ChevronDown, Mail, Phone, Search } from "lucide-react";
-import { business } from "@/data/site";
+import { business, deploymentBasePath } from "@/data/site";
 
 export type FooterLink = {
   href: string;
@@ -172,9 +172,10 @@ function FooterRegionSearch({ isVisible }: { isVisible: boolean }) {
     event.preventDefault();
 
     const trimmedQuery = query.trim();
+    const serviceAreasPath = `${deploymentBasePath}/service-areas/`;
     const searchTarget = trimmedQuery
-      ? `/service-areas/?q=${encodeURIComponent(trimmedQuery)}#find-suburb`
-      : "/service-areas/#find-suburb";
+      ? `${serviceAreasPath}?q=${encodeURIComponent(trimmedQuery)}#find-suburb`
+      : `${serviceAreasPath}#find-suburb`;
 
     window.location.href = searchTarget;
   }
