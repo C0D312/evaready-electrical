@@ -508,6 +508,17 @@ export default function HomePage() {
                   <Phone className="h-5 w-5 shrink-0" />
                   <span className="whitespace-nowrap">Call Now {business.phoneDisplay}</span>
                 </a>
+                <a
+                  href={business.bookingUrl}
+                  data-quote-trigger="true"
+                  data-conversion-action="quote-click"
+                  aria-haspopup="dialog"
+                  aria-label="Get a quote from Evaready Electrical"
+                  className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg border border-cyan-300/35 bg-blue-600 px-5 py-3 font-black text-white shadow-xl shadow-blue-700/20 transition hover:border-cyan-200 hover:bg-blue-500"
+                >
+                  <span className="whitespace-nowrap">{business.quoteCta}</span>
+                  <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+                </a>
                 <Link
                   href="/emergency-electrician-sydney"
                   className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg border border-red-200 bg-white px-5 py-3 font-black text-red-700 transition hover:border-red-300 hover:bg-red-100"
