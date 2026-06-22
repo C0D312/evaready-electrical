@@ -16,14 +16,11 @@ import {
   Zap,
 } from "lucide-react";
 import { HeroCredentialBadges } from "@/components/credential-badges";
-import { EmergencyTrustPanel } from "@/components/emergency-trust-panel";
 import { GoogleReviewProof } from "@/components/google-review-proof";
 import { HeroGoogleReviewBadge } from "@/components/hero-google-review-badge";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
 import { QuoteProcessGraphic } from "@/components/quote-process-graphic";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
-import { TrustProcessProof } from "@/components/trust-process-proof";
-import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import {
   assetPath,
   business,
@@ -330,21 +327,6 @@ const homepageTrustProof = [
         },
       ]
     : []),
-  {
-    title: "Call-first emergency triage",
-    text: "Unsafe faults go to phone first so the next action can be triaged.",
-    icon: Phone,
-  },
-  {
-    title: "Photos and paperwork reviewed",
-    text: "Send defect notices, switchboard photos, meter photos and job notes for planned work.",
-    icon: Wrench,
-  },
-  {
-    title: "Sydney and surrounding regions",
-    text: "Emergency and planned electrical enquiries are routed by area, urgency and access.",
-    icon: MapPin,
-  },
 ];
 
 const faqs = [
@@ -500,8 +482,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <EmergencyTrustPanel className="border-y border-cyan-300/15" />
-
       <section className="bg-white py-10 sm:py-12" aria-labelledby="call-first-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 rounded-lg border border-red-100 bg-red-50 p-4 shadow-xl shadow-red-950/5 sm:p-6 lg:grid-cols-[0.74fr_1.26fr] lg:items-start">
@@ -625,9 +605,14 @@ export default function HomePage() {
         eyebrow="Free photo review"
         heading="Jobs we can often review from photos."
         intro="Send job notes, switchboard photos or affected-area photos through the quote form for planned electrical work across Sydney and surrounding regions. For urgent faults in core service areas or greater regions, call first."
+        compact
+        items={[
+          "Free photo review for planned electrical work",
+          "Upload switchboard, meter box or affected-area photos through the quote form",
+          "Send defect notices, access notes or job documents for review",
+          "Clear next steps before work starts",
+        ]}
       />
-
-      <TrustProcessProof className="border-b border-cyan-300/15" />
 
       <section className="issue-selector-section border-y border-cyan-300/15 bg-[#061E72] py-12 text-white sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -763,8 +748,6 @@ export default function HomePage() {
           <QuoteProcessGraphic className="mt-6 sm:mt-8" />
         </div>
       </section>
-
-      <TrustSymbolBand className="border-y border-slate-200" />
 
       <section id="services" className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
