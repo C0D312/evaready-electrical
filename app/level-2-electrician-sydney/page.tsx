@@ -436,7 +436,7 @@ export default function Level2ElectricianSydneyPage() {
             </p>
 
             <h2 className="mt-3 text-3xl font-black">
-              What to send for a Level 2 enquiry
+              Send these details through the quote form
             </h2>
 
             <ul className="mt-6 grid gap-3">
