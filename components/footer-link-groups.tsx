@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { ArrowRight, ChevronDown, Mail, Phone } from "lucide-react";
+import { useEffect, useState, type FormEvent } from "react";
+import { ArrowRight, ChevronDown, Mail, Phone, Search } from "lucide-react";
 import { business } from "@/data/site";
 
 export type FooterLink = {
@@ -40,6 +40,7 @@ const footerColumns: FooterColumn[] = [
   {
     title: "Regions Covered",
     links: [
+      { href: "/service-areas", label: "All regions and suburb search" },
       { href: "/service-areas/canterbury-bankstown-and-inner-south-west", label: "Canterbury-Bankstown & Inner South West" },
       { href: "/service-areas/st-george-and-bayside", label: "St George & Bayside" },
       { href: "/service-areas/sutherland-shire", label: "Sutherland Shire" },
@@ -65,15 +66,6 @@ const footerColumns: FooterColumn[] = [
       { href: "/electrical-faults/safety-switch-keeps-tripping", label: "Safety switch tripping" },
       { href: "/electrical-faults/burning-smell-from-switchboard", label: "Burning smell from switchboard" },
       { href: "/electrical-faults/no-power-to-house", label: "No power to house" },
-    ],
-  },
-  {
-    title: "Service Areas",
-    links: [
-      { href: "/service-areas", label: "All service areas" },
-      { href: "/service-areas/sutherland-shire", label: "Sutherland Shire" },
-      { href: "/service-areas/st-george-and-bayside", label: "St George and Bayside" },
-      { href: "/service-areas/wollongong-and-illawarra", label: "Wollongong and Illawarra" },
     ],
   },
   {
@@ -173,6 +165,54 @@ function FooterNavLink({ link, isVisible }: { link: FooterLink; isVisible: boole
   );
 }
 
+function FooterRegionSearch({ isVisible }: { isVisible: boolean }) {
+  const [query, setQuery] = useState("");
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const trimmedQuery = query.trim();
+    const searchTarget = trimmedQuery
+      ? `/service-areas/?q=${encodeURIComponent(trimmedQuery)}#find-suburb`
+      : "/service-areas/#find-suburb";
+
+    window.location.href = searchTarget;
+  }
+
+  return (
+    <form
+      className="footer-region-search"
+      role="search"
+      aria-label="Search suburb or postcode"
+      onSubmit={handleSubmit}
+    >
+      <label htmlFor="footer-suburb-search" className="footer-region-search-label">
+        Suburb / postcode search
+      </label>
+      <div className="footer-region-search-control">
+        <Search className="h-4 w-4 shrink-0" aria-hidden="true" />
+        <input
+          id="footer-suburb-search"
+          type="search"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          placeholder="Enter suburb or postcode"
+          className="footer-region-search-input"
+          tabIndex={isVisible ? 0 : -1}
+        />
+        <button
+          type="submit"
+          className="footer-region-search-button"
+          aria-label="Open suburb and postcode search"
+          tabIndex={isVisible ? 0 : -1}
+        >
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        </button>
+      </div>
+    </form>
+  );
+}
+
 export function FooterLinkGroups() {
   const [openPanel, setOpenPanel] = useState<string | null>(toPanelId("Contact"));
   const [isDesktop, setIsDesktop] = useState(false);
@@ -233,6 +273,9 @@ export function FooterLinkGroups() {
                   </li>
                 ))}
               </ul>
+              {column.title === "Regions Covered" ? (
+                <FooterRegionSearch isVisible={isOpen} />
+              ) : null}
             </div>
           </section>
         );

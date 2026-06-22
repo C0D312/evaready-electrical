@@ -11,7 +11,14 @@ type ServiceAreaSearchProps = {
 };
 
 export function ServiceAreaSearch({ items }: ServiceAreaSearchProps) {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(() => {
+    if (typeof window === "undefined") {
+      return "";
+    }
+
+    return new URLSearchParams(window.location.search).get("q") ?? "";
+  });
+
   const normalizedQuery = query.trim().toLowerCase();
 
   const matches = normalizedQuery
