@@ -531,16 +531,16 @@ export default function HomePage() {
                   <Link
                     key={item.title}
                     href={item.href}
-                    className="group flex min-h-14 items-start gap-3 rounded-lg border border-red-100 bg-white px-3 py-3 shadow-sm transition hover:border-red-300 hover:bg-red-50"
+                    className="emergency-link-card emergency-link-card--triage group flex min-h-14 items-start gap-3 rounded-lg border border-red-100 bg-white px-3 py-3 shadow-sm transition hover:border-red-300 hover:bg-red-50"
                   >
-                    <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-red-50 text-red-700 ring-1 ring-red-100 transition group-hover:bg-red-100">
+                    <span className="emergency-link-card__icon mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-red-50 text-red-700 ring-1 ring-red-100 transition group-hover:bg-red-100">
                       <Icon className="h-4 w-4" aria-hidden="true" />
                     </span>
-                    <span className="min-w-0 flex-1 text-sm font-black leading-6 text-slate-900">
+                    <span className="emergency-link-card__text min-w-0 flex-1 text-sm font-black leading-6 text-slate-900">
                       {item.title}
                     </span>
                     <span
-                      className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-50 text-red-700 ring-1 ring-red-100 transition group-hover:translate-x-0.5 group-hover:bg-red-100"
+                      className="emergency-link-card__arrow mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-50 text-red-700 ring-1 ring-red-100 transition group-hover:translate-x-0.5 group-hover:bg-red-100"
                       aria-hidden="true"
                     >
                       <ArrowRight className="h-3.5 w-3.5 shrink-0" />

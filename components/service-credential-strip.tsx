@@ -174,15 +174,15 @@ export function ServiceCredentialStrip({
         return (
           <div
             key={`${item.title}-${item.text ?? ""}`}
-            className={`inline-flex min-h-12 min-w-0 flex-1 basis-[12rem] items-center gap-2.5 rounded-2xl border px-3 py-2 shadow-lg shadow-blue-950/10 backdrop-blur-md sm:flex-none ${stripTone[tone]}`}
+            className={`service-credential-card inline-flex min-h-12 min-w-0 flex-1 basis-[12rem] items-center gap-2.5 rounded-2xl border px-3 py-2 shadow-lg shadow-blue-950/10 backdrop-blur-md sm:flex-none ${stripTone[tone]}`}
           >
             <span
-              className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${iconTone[tone]}`}
+              className={`service-credential-icon inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${iconTone[tone]}`}
               aria-hidden="true"
             >
               <Icon className="h-4.5 w-4.5" strokeWidth={2.1} />
             </span>
-            <span className="min-w-0">
+            <span className="service-credential-text min-w-0">
               <span className="block text-xs font-black leading-4 text-white">
                 {item.title}
               </span>

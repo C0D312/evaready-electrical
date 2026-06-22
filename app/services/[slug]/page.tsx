@@ -402,13 +402,13 @@ export default async function ServiceLandingPage({
               {service.heroBullets.map((item) => (
                 <article
                   key={item}
-                  className="rounded-lg border border-cyan-300/15 bg-white/10 p-4 shadow-sm transition hover:border-cyan-200/35 hover:bg-white/15"
+                  className="service-action-card service-action-card--hero rounded-lg border border-cyan-300/15 bg-white/10 p-4 shadow-sm transition hover:border-cyan-200/35 hover:bg-white/15"
                 >
-                  <span className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-cyan-300" />
-                    <span className="font-bold text-slate-100">{item}</span>
+                  <span className="service-action-card__summary flex items-start gap-3">
+                    <CheckCircle2 className="service-action-card__icon mt-0.5 h-5 w-5 shrink-0 text-cyan-300" />
+                    <span className="service-action-card__title font-bold text-slate-100">{item}</span>
                   </span>
-                  <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                  <div className="action-button-row mt-4 grid gap-2 sm:grid-cols-2">
                     <a
                       href={business.phoneHref}
                       data-conversion-action="phone-click"
@@ -761,13 +761,13 @@ export default async function ServiceLandingPage({
             {service.services.map((item) => (
               <article
                 key={item}
-                className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+                className="service-action-card rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
               >
-                <span className="flex items-start gap-3">
-                  <Wrench className="mt-0.5 h-5 w-5 shrink-0 text-blue-700" />
-                  <span className="font-bold text-slate-800">{item}</span>
+                <span className="service-action-card__summary flex items-start gap-3">
+                  <Wrench className="service-action-card__icon mt-0.5 h-5 w-5 shrink-0 text-blue-700" />
+                  <span className="service-action-card__title font-bold text-slate-800">{item}</span>
                 </span>
-                <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                <div className="action-button-row mt-4 grid gap-2 sm:grid-cols-2">
                   <a
                     href={business.phoneHref}
                     data-conversion-action="phone-click"
@@ -816,13 +816,13 @@ export default async function ServiceLandingPage({
               {service.warningSigns.map((item) => (
                 <article
                   key={item}
-                  className="rounded-lg border border-red-200/30 bg-white p-4 shadow-sm transition hover:border-red-300/50 hover:bg-red-50/60"
+                  className="warning-action-card rounded-lg border border-red-200/30 bg-white p-4 shadow-sm transition hover:border-red-300/50 hover:bg-red-50/60"
                 >
-                  <span className="flex gap-3">
-                    <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" />
-                    <span className="font-semibold leading-7 text-slate-800">{item}</span>
+                  <span className="warning-action-card__summary flex gap-3">
+                    <AlertTriangle className="warning-action-card__icon mt-1 h-5 w-5 shrink-0 text-red-600" />
+                    <span className="warning-action-card__title font-semibold leading-7 text-slate-800">{item}</span>
                   </span>
-                  <div className="ml-8 mt-4 grid gap-2 sm:grid-cols-2">
+                  <div className="action-button-row ml-8 mt-4 grid gap-2 sm:grid-cols-2">
                     <a
                       href={business.phoneHref}
                       data-conversion-action="phone-click"

@@ -73,7 +73,7 @@ function CredentialBadgeIcon({
 }) {
   return (
     <span
-      className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ring-1 ${iconToneClasses[tone ?? "cyan"]}`}
+      className={`credential-card-icon inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ring-1 ${iconToneClasses[tone ?? "cyan"]}`}
       aria-hidden="true"
     >
       <Icon className="h-5 w-5" strokeWidth={2.1} />
@@ -90,7 +90,7 @@ function FooterBadgeIcon({
 }) {
   return (
     <span
-      className={`inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg ring-1 ${iconToneClasses[tone ?? "cyan"]}`}
+      className={`footer-badge-icon inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg ring-1 ${iconToneClasses[tone ?? "cyan"]}`}
       aria-hidden="true"
     >
       <Icon className="h-3.5 w-3.5" strokeWidth={2.2} />
@@ -112,11 +112,11 @@ export function HeroCredentialBadges({
       {items.map((item) => (
         <div
           key={`${item.title}-${item.text}`}
-          className={`group rounded-2xl border p-3 shadow-xl backdrop-blur-md transition hover:border-cyan-200/45 hover:bg-white/12 ${toneClasses[item.tone ?? "cyan"]}`}
+          className={`credential-card group rounded-2xl border p-3 shadow-xl backdrop-blur-md transition hover:border-cyan-200/45 hover:bg-white/12 ${toneClasses[item.tone ?? "cyan"]}`}
         >
-          <div className="flex min-w-0 items-center gap-2.5">
+          <div className="credential-card-inner flex min-w-0 items-center gap-2.5">
             <CredentialBadgeIcon icon={item.icon} tone={item.tone} />
-            <div className="min-w-0">
+            <div className="credential-card-text min-w-0">
               <p className="text-sm font-black leading-5 text-white">
                 {item.title}
               </p>
@@ -138,12 +138,12 @@ export function FooterCredentialStrip({ className = "" }: { className?: string }
         <div
           key={`${item.title}-${item.text}`}
           aria-label={item.altText}
-          className="rounded-xl border border-cyan-300/15 bg-white/[0.045] px-3 py-2"
+          className="footer-credential-card rounded-xl border border-cyan-300/15 bg-white/[0.045] px-3 py-2"
         >
           <dt className="font-black uppercase tracking-[0.12em] text-cyan-200">
             {item.title}
           </dt>
-          <dd className="mt-1 flex min-w-0 items-center gap-2 font-semibold leading-5 text-slate-300">
+          <dd className="footer-credential-card-body mt-1 flex min-w-0 items-center gap-2 font-semibold leading-5 text-slate-300">
             <FooterBadgeIcon icon={footerIconMap[item.icon]} tone={item.tone} />
             <span className="min-w-0 break-words">{item.text}</span>
           </dd>

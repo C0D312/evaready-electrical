@@ -116,22 +116,24 @@ export function EmergencyTrustPanel({ className = "" }: { className?: string }) 
                   <Link
                     href={card.href}
                     key={card.title}
-                    className={`group rounded-[1.35rem] border p-5 shadow-xl shadow-blue-950/20 transition hover:-translate-y-0.5 hover:border-cyan-200/45 hover:shadow-cyan-500/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200 ${tone}`}
+                    className={`emergency-feature-card group rounded-[1.35rem] border p-5 shadow-xl shadow-blue-950/20 transition hover:-translate-y-0.5 hover:border-cyan-200/45 hover:shadow-cyan-500/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200 ${tone}`}
                   >
                     <span
-                      className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10"
+                      className="emergency-feature-card__icon inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10"
                       aria-hidden="true"
                     >
                       <Icon className="h-6 w-6" strokeWidth={2.05} />
                     </span>
-                    <h3 className="mt-4 text-lg font-black text-white">
-                      {card.title}
-                    </h3>
-                    <p className="mt-2 text-sm font-semibold leading-6 text-slate-300">
-                      {card.text}
-                    </p>
+                    <span className="emergency-feature-card__body">
+                      <h3 className="text-lg font-black text-white">
+                        {card.title}
+                      </h3>
+                      <p className="mt-2 text-sm font-semibold leading-6 text-slate-300">
+                        {card.text}
+                      </p>
+                    </span>
                     <span
-                      className="mt-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-cyan-200/25 bg-cyan-300/10 text-cyan-100 transition group-hover:translate-x-1 group-hover:border-cyan-200/50 group-hover:bg-cyan-300/18"
+                      className="emergency-feature-card__arrow mt-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-cyan-200/25 bg-cyan-300/10 text-cyan-100 transition group-hover:translate-x-1 group-hover:border-cyan-200/50 group-hover:bg-cyan-300/18"
                       aria-hidden="true"
                     >
                       <ArrowRight
@@ -149,18 +151,18 @@ export function EmergencyTrustPanel({ className = "" }: { className?: string }) 
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="group flex min-h-11 items-center gap-3 rounded-xl bg-white/[0.055] px-3 py-2 transition hover:bg-cyan-300/12 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
+                    className="emergency-link-card group flex min-h-11 items-center gap-3 rounded-xl bg-white/[0.055] px-3 py-2 transition hover:bg-cyan-300/12 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
                   >
                     <Zap
-                      className="h-4 w-4 shrink-0 text-cyan-200"
+                      className="emergency-link-card__icon h-4 w-4 shrink-0 text-cyan-200"
                       strokeWidth={2.1}
                       aria-hidden="true"
                     />
-                    <span className="min-w-0 flex-1 text-sm font-black text-white">
+                    <span className="emergency-link-card__text min-w-0 flex-1 text-sm font-black text-white">
                       {item.label}
                     </span>
                     <span
-                      className="ml-auto inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-cyan-200/25 bg-cyan-300/10 text-cyan-100 transition group-hover:translate-x-0.5 group-hover:border-cyan-200/50 group-hover:bg-cyan-300/18"
+                      className="emergency-link-card__arrow ml-auto inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-cyan-200/25 bg-cyan-300/10 text-cyan-100 transition group-hover:translate-x-0.5 group-hover:border-cyan-200/50 group-hover:bg-cyan-300/18"
                       aria-hidden="true"
                     >
                       <ArrowRight className="h-4 w-4" />
