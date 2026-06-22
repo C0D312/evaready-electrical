@@ -3415,7 +3415,6 @@ a[data-quote-trigger="true"].site-header-quote {
 }
 
 .mobile-sticky-cta--footer-visible,
-.mobile-sticky-cta--home-hero-visible,
 body.quote-modal-open .mobile-sticky-cta {
   pointer-events: none;
   opacity: 0;
@@ -7612,4 +7611,68 @@ main section [data-suburb-action-card="call-first"] a:not(.bg-red-600):not([data
   li
 ):is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50):not(a):not(button) :is(h1, h2, h3, h4, h5, h6, p, li, dt, dd, summary, label, a, span, strong, small) {
   color: #ffffff !important;
+}
+
+/* Global dark-blue consistency pass. Keep the visual system dark, varied and
+   readable without touching generated HTML or tinting the van artwork. */
+main {
+  background:
+    radial-gradient(circle at 78% 0%, rgba(98, 216, 255, 0.065), transparent 30%),
+    linear-gradient(180deg, var(--ev-black) 0%, var(--ev-midnight) 42%, var(--ev-black) 100%) !important;
+  color: var(--ev-white) !important;
+}
+
+main > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee) {
+  border-color: rgba(98, 216, 255, 0.16) !important;
+  background:
+    radial-gradient(circle at 88% 0%, rgba(98, 216, 255, 0.055), transparent 30%),
+    linear-gradient(180deg, var(--ev-black) 0%, var(--ev-dark-blue) 100%) !important;
+  color: var(--ev-white) !important;
+}
+
+main > section:nth-of-type(even):not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee) {
+  background:
+    radial-gradient(circle at 14% 4%, rgba(7, 156, 255, 0.07), transparent 28%),
+    linear-gradient(180deg, var(--ev-midnight) 0%, var(--ev-section-blue) 100%) !important;
+}
+
+main :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-gray-50, .bg-gray-100, .bg-blue-50):not(.quote-modal-frame-shell):not(.quote-modal-iframe):not(input):not(textarea):not(select) {
+  border-color: rgba(98, 216, 255, 0.22) !important;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(98, 216, 255, 0.055), transparent 34%),
+    linear-gradient(180deg, rgba(13, 43, 92, 0.9), rgba(9, 29, 66, 0.92)) !important;
+  color: var(--ev-white) !important;
+}
+
+main :is(.border-slate-200, .border-slate-300, .border-gray-200, .border-gray-300) {
+  border-color: rgba(98, 216, 255, 0.24) !important;
+}
+
+main :is([class*="text-[#061E72]"], .text-slate-950, .text-slate-900, .text-slate-800, .text-gray-950, .text-gray-900, .text-gray-800) {
+  color: var(--ev-white) !important;
+}
+
+main :is(.text-slate-700, .text-slate-600, .text-slate-500, .text-gray-700, .text-gray-600, .text-gray-500) {
+  color: rgba(214, 231, 242, 0.9) !important;
+}
+
+main :is(.text-blue-900, .text-blue-800, .text-blue-700, .text-blue-600) {
+  color: var(--ev-cyan) !important;
+}
+
+main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):focus-visible {
+  outline: 3px solid rgba(98, 216, 255, 0.42) !important;
+  outline-offset: 3px !important;
+}
+
+.home-brand-hero .brand-hero-image,
+.brand-internal-hero > img.brand-internal-hero-image,
+.brand-internal-hero > img.absolute,
+.brand-internal-hero::before {
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  background-blend-mode: normal !important;
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
 }
