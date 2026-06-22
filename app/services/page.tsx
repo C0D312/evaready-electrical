@@ -1323,7 +1323,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--ev-midnight)] py-16 text-white sm:py-20">
+      <section className="services-featured-section bg-[var(--ev-midnight)] py-16 text-white sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-black uppercase tracking-[0.22em] text-cyan-200">
@@ -1338,7 +1338,7 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <div className="services-featured-grid mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {featuredServices.map((service) => {
               const Icon = service.icon;
               const href = getServiceHref(service.title);
@@ -1347,22 +1347,22 @@ export default function ServicesPage() {
                 <Link
                   key={service.title}
                   href={href}
-                  className="group overflow-hidden rounded-2xl border border-cyan-300/20 bg-[#061E72] p-6 text-white shadow-xl shadow-blue-950/10 transition hover:-translate-y-1 hover:border-cyan-300/55 hover:shadow-cyan-500/15"
+                  className="services-featured-card group flex h-full min-h-[17rem] flex-col overflow-hidden rounded-2xl border border-cyan-300/20 bg-[#061E72] p-6 text-white shadow-xl shadow-blue-950/10 transition hover:-translate-y-1 hover:border-cyan-300/55 hover:shadow-cyan-500/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
                 >
-                  <div className="flex items-start gap-4">
-                    <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-blue-500/20 text-cyan-200">
+                  <div className="services-featured-card__body grid min-w-0 grid-cols-[3.75rem_minmax(0,1fr)] items-start gap-4">
+                    <span className="services-featured-card__icon inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-blue-500/20 text-cyan-200">
                       <Icon className="h-7 w-7" />
                     </span>
-                    <div>
-                      <h3 className="text-xl font-black leading-7">
+                    <div className="min-w-0">
+                      <h3 className="services-featured-card__title text-xl font-black leading-7">
                         {getServiceDisplayTitle(service.title)}
                       </h3>
-                      <p className="mt-2 text-sm font-semibold leading-6 text-slate-300">
+                      <p className="services-featured-card__copy mt-2 text-sm font-semibold leading-6 text-slate-200">
                         {service.description}
                       </p>
                     </div>
                   </div>
-                  <span className="mt-5 inline-flex items-center gap-2 font-black text-cyan-200">
+                  <span className="services-card-action mt-auto inline-flex items-center gap-2 pt-5 font-black text-cyan-200">
                     View service
                     <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                   </span>
@@ -1423,13 +1423,13 @@ export default function ServicesPage() {
 
           <nav
             aria-label="Service category shortcuts"
-            className="mt-8 flex gap-2 overflow-x-auto pb-2"
+            className="services-category-shortcuts mt-8 flex flex-wrap gap-2"
           >
             {serviceCatalogueCategories.map((category) => (
               <a
                 key={category.id}
                 href={`#${category.id}`}
-                className="inline-flex min-h-10 shrink-0 items-center rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 py-2 text-xs font-black uppercase tracking-[0.14em] text-white transition hover:border-cyan-200 hover:bg-cyan-300/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
+                className="inline-flex min-h-10 max-w-full min-w-0 items-center justify-center rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 py-2 text-center text-xs font-black uppercase leading-4 tracking-[0.14em] text-white transition hover:border-cyan-200 hover:bg-cyan-300/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
               >
                 {category.title}
               </a>
