@@ -8,6 +8,7 @@ import {
   Building2,
   CheckCircle2,
   ClipboardList,
+  Clock3,
   Flame,
   Home,
   Lightbulb,
@@ -18,7 +19,6 @@ import {
 } from "lucide-react";
 import {
   ServiceCredentialStrip,
-  serviceCredentialPresets,
 } from "@/components/service-credential-strip";
 import { GoogleReviewProof } from "@/components/google-review-proof";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
@@ -799,14 +799,33 @@ const serviceLandingPageBySlug = new Map(
   serviceLandingPages.map((service) => [service.slug, service]),
 );
 
-const servicesIndexProofItems = [
-  "60-minute emergency response in core service areas",
-  "90-minute emergency response for greater regions",
-  ...(business.level2Asp.enabled && business.level2Asp.display
-    ? [business.level2Asp.display]
+const servicesHeroCredentialItems = [
+  { icon: ShieldCheck, title: "NSW Licensed", text: business.licence },
+  { icon: Clock3, title: "60-Min Response", text: "Core emergencies", tone: "red" as const },
+  { icon: Clock3, title: "90-Min Response", text: "Greater regions" },
+  ...(business.level2Asp.enabled
+    ? [
+        {
+          icon: BadgeCheck,
+          title: business.level2Asp.shortDisplay,
+          text: "Ausgrid & Endeavour Energy",
+        },
+      ]
     : []),
-  "Call first for urgent electrical faults",
-  "Send photos and job details for planned work",
+  { icon: ClipboardList, title: "Quote Details & Photos", text: "Secure quote form" },
+];
+
+const servicesHeroIntentCards = [
+  {
+    label: "Emergency fault",
+    copy: "Call first for no power, burning smells, sparking, repeated safety-switch tripping, switchboard faults, storm damage or unsafe electrical equipment.",
+    tone: "emergency",
+  },
+  {
+    label: "Planned work",
+    copy: "Choose the closest service below and send photos, job notes and access details through the quote form.",
+    tone: "planned",
+  },
 ];
 
 const serviceProblemSelectorItems = [
@@ -1224,7 +1243,7 @@ export default function ServicesPage() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
+      <section className="brand-internal-hero services-index-hero relative overflow-hidden bg-[#061E72] text-white">
         <Image
           src={assetPath(business.heroImage)}
           alt={business.brandImageAlt}
@@ -1234,14 +1253,14 @@ export default function ServicesPage() {
           className="brand-internal-hero-image object-cover object-[68%_center]"
         />
 
-        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-          <div className="internal-hero-copy-panel max-w-4xl">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-blue-200">
+        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+          <div className="internal-hero-copy-panel services-index-hero-panel max-w-5xl">
+            <div className="services-index-hero-eyebrow mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-blue-200">
               <CheckCircle2 className="h-4 w-4" />
               Electrical Services
             </div>
 
-            <h1 className="text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
+            <h1 className="max-w-4xl text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
               Electrical Services Sydney & Surrounding Regions
             </h1>
 
@@ -1252,34 +1271,32 @@ export default function ServicesPage() {
               and surrounding regions.
             </p>
 
-            <div className="mt-6 grid gap-3 md:grid-cols-2">
-              <div className="rounded-2xl border border-red-300/25 bg-red-500/12 p-4">
-                <p className="text-xs font-black uppercase tracking-[0.18em] text-red-100">
-                  Emergency fault
-                </p>
-                <p className="mt-2 text-sm font-bold leading-6 text-slate-100">
-                  Call now for no power, burning smells, sparking, repeated
-                  safety-switch tripping, switchboard faults, storm damage or
-                  unsafe electrical equipment.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-cyan-300/25 bg-cyan-300/10 p-4">
-                <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan-100">
-                  Planned work
-                </p>
-                <p className="mt-2 text-sm font-bold leading-6 text-slate-100">
-                  Choose the closest service below and send photos, job notes
-                  and access details for review.
-                </p>
-              </div>
+            <div className="services-index-intent-grid mt-6 grid gap-3 md:grid-cols-2">
+              {servicesHeroIntentCards.map((card) => (
+                <div
+                  key={card.label}
+                  className={`services-index-intent-card rounded-2xl border p-4 ${
+                    card.tone === "emergency"
+                      ? "services-index-intent-card--emergency border-red-300/25 bg-red-500/12"
+                      : "services-index-intent-card--planned border-cyan-300/25 bg-cyan-300/10"
+                  }`}
+                >
+                  <p className="text-xs font-black uppercase tracking-[0.18em]">
+                    {card.label}
+                  </p>
+                  <p className="mt-2 text-sm font-bold leading-6 text-slate-100">
+                    {card.copy}
+                  </p>
+                </div>
+              ))}
             </div>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <div className="services-index-hero-cta-grid mt-8 grid gap-3 sm:grid-cols-2">
               <a
                 href={business.phoneHref}
                 data-conversion-action="phone-click"
                 aria-label={business.callCta}
-                className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
+                className="services-index-hero-cta services-index-hero-cta--call inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 text-base font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
               >
                 <Phone className="h-5 w-5" />
                 <span className="whitespace-nowrap">{business.callCta}</span>
@@ -1291,7 +1308,7 @@ export default function ServicesPage() {
                 data-conversion-action="quote-click"
                 aria-haspopup="dialog"
                 aria-label="Get a quote from Evaready Electrical"
-                className="inline-flex items-center justify-center gap-3 rounded-2xl border border-cyan-300/35 bg-white/10 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-950/20 transition hover:bg-white/15"
+                className="services-index-hero-cta services-index-hero-cta--quote inline-flex items-center justify-center gap-3 rounded-2xl border border-cyan-300/35 bg-white/10 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-950/20 transition hover:bg-white/15"
               >
                 {business.quoteCta}
                 <ArrowRight className="h-5 w-5" />
@@ -1299,21 +1316,9 @@ export default function ServicesPage() {
             </div>
 
             <ServiceCredentialStrip
-              items={serviceCredentialPresets.general}
-              className="mt-6 max-w-4xl"
+              items={servicesHeroCredentialItems}
+              className="services-index-hero-credentials mt-6"
             />
-
-            <div className="mt-4 grid max-w-4xl gap-2 sm:grid-cols-2 lg:grid-cols-3">
-              {servicesIndexProofItems.map((item) => (
-                <div
-                  key={item}
-                  className="flex items-start gap-2 rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-sm font-bold leading-6 text-slate-100"
-                >
-                  <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-cyan-200" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>

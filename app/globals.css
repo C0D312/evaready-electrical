@@ -8060,6 +8060,100 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
   align-self: center !important;
 }
 
+.services-index-hero .services-index-hero-panel {
+  width: min(100%, 61rem);
+}
+
+.services-index-hero .services-index-intent-grid,
+.services-index-hero .services-index-hero-credentials {
+  width: min(100%, 58.5rem);
+  max-width: 100%;
+}
+
+.services-index-hero .services-index-hero-cta-grid {
+  width: min(100%, 34rem);
+  max-width: 100%;
+  align-items: stretch;
+}
+
+.services-index-hero .services-index-intent-card {
+  display: flex;
+  min-height: 8.1rem;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.services-index-hero .services-index-intent-card--emergency > p:first-child {
+  color: #ffe5eb;
+}
+
+.services-index-hero .services-index-intent-card--planned > p:first-child {
+  color: var(--ev-cyan);
+}
+
+.services-index-hero .services-index-hero-cta {
+  min-height: 3.75rem;
+  width: 100%;
+  min-width: 0;
+  justify-self: stretch;
+  border-radius: 0.95rem;
+  line-height: 1.1;
+}
+
+.services-index-hero .services-index-hero-cta--call {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: linear-gradient(135deg, var(--ev-red-dark), var(--ev-red), #ff3545);
+  box-shadow:
+    0 18px 42px rgba(233, 17, 30, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.services-index-hero .services-index-hero-cta--quote {
+  border: 1px solid rgba(98, 216, 255, 0.34);
+  background: linear-gradient(135deg, var(--ev-bright-blue), var(--ev-electric-blue), #42c8f4);
+  box-shadow:
+    0 18px 36px rgba(7, 156, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.services-index-hero .services-index-hero-credentials {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.7rem;
+}
+
+.services-index-hero .services-index-hero-credentials .service-credential-card {
+  min-height: 4.8rem !important;
+  border-radius: 1rem;
+  padding: 0.78rem 0.9rem !important;
+}
+
+.services-index-hero .services-index-hero-credentials .service-credential-icon {
+  width: 2.55rem !important;
+  height: 2.55rem !important;
+}
+
+@media (min-width: 640px) {
+  .services-index-hero .services-index-hero-credentials {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-index-hero .services-index-hero-credentials {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 639px) {
+  .services-index-hero .services-index-hero-panel {
+    border-radius: 1.15rem;
+  }
+
+  .services-index-hero .services-index-intent-card {
+    min-height: 0;
+  }
+}
+
 .home-brand-hero .home-hero-copy-panel .hero-credential-badges {
   display: grid !important;
   grid-template-columns: minmax(0, 1fr) !important;
