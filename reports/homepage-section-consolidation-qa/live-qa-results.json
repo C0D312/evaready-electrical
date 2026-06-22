@@ -1,0 +1,238 @@
+[
+  {
+    "target": "normal",
+    "viewport": "mobile",
+    "width": 390,
+    "height": 844,
+    "status": "complete",
+    "title": "Emergency Electrician & Level 2 Electrician Sydney",
+    "h1Count": 1,
+    "h1s": [
+      "Emergency & Level 2 Electrician Sydney"
+    ],
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "bodyScrollWidth": 390,
+    "noHorizontalOverflow": true,
+    "phoneVisible": true,
+    "quoteVisible": true,
+    "phoneCount": 12,
+    "quoteCount": 9,
+    "ads": true,
+    "googleProof": true,
+    "response60": true,
+    "response90": true,
+    "level2": true,
+    "removedEmergencyPanel": true,
+    "removedTrustProcess": true,
+    "removedTrustBand": true,
+    "heroBackgroundFilter": "none",
+    "heroBackgroundOpacity": "1",
+    "images": [
+      {
+        "src": "https://c0d312.github.io/evaready-electrical/images/evareadyelectrical-logo.webp",
+        "complete": true,
+        "width": 1426,
+        "height": 503,
+        "filter": "drop-shadow(rgba(0, 200, 255, 0.44) 0px 0px 16px) drop-shadow(rgba(0, 91, 255, 0.2) 0px 0px 34px)",
+        "opacity": "1",
+        "mixBlendMode": "normal"
+      },
+      {
+        "src": "https://c0d312.github.io/evaready-electrical/images/evaready-electrical-sydney-service-van.webp",
+        "complete": true,
+        "width": 1448,
+        "height": 1086,
+        "filter": "none",
+        "opacity": "1",
+        "mixBlendMode": "normal"
+      },
+      {
+        "src": "https://c0d312.github.io/evaready-electrical/images/evareadyelectrical-logo.webp",
+        "complete": false,
+        "width": 1426,
+        "height": 503,
+        "filter": "drop-shadow(rgba(0, 200, 255, 0.52) 0px 0px 12px) drop-shadow(rgba(0, 91, 255, 0.28) 0px 0px 28px)",
+        "opacity": "1",
+        "mixBlendMode": "normal"
+      }
+    ]
+  },
+  {
+    "target": "normal",
+    "viewport": "desktop",
+    "width": 1366,
+    "height": 768,
+    "status": "complete",
+    "title": "Emergency Electrician & Level 2 Electrician Sydney",
+    "h1Count": 1,
+    "h1s": [
+      "Emergency & Level 2 Electrician Sydney"
+    ],
+    "scrollWidth": 1366,
+    "clientWidth": 1366,
+    "bodyScrollWidth": 1366,
+    "noHorizontalOverflow": true,
+    "phoneVisible": true,
+    "quoteVisible": true,
+    "phoneCount": 12,
+    "quoteCount": 9,
+    "ads": true,
+    "googleProof": true,
+    "response60": true,
+    "response90": true,
+    "level2": true,
+    "removedEmergencyPanel": true,
+    "removedTrustProcess": true,
+    "removedTrustBand": true,
+    "heroBackgroundFilter": "none",
+    "heroBackgroundOpacity": "1",
+    "images": [
+      {
+        "src": "https://c0d312.github.io/evaready-electrical/images/evareadyelectrical-logo.webp",
+        "complete": true,
+        "width": 1426,
+        "height": 503,
+        "filter": "drop-shadow(rgba(0, 200, 255, 0.44) 0px 0px 16px) drop-shadow(rgba(0, 91, 255, 0.2) 0px 0px 34px)",
+        "opacity": "1",
+        "mixBlendMode": "normal"
+      },
+      {
+        "src": "https://c0d312.github.io/evaready-electrical/images/evaready-electrical-sydney-service-van.webp",
+        "complete": true,
+        "width": 1448,
+        "height": 1086,
+        "filter": "none",
+        "opacity": "1",
+        "mixBlendMode": "normal"
+      },
+      {
+        "src": "https://c0d312.github.io/evaready-electrical/images/evareadyelectrical-logo.webp",
+        "complete": false,
+        "width": 1426,
+        "height": 503,
+        "filter": "drop-shadow(rgba(0, 200, 255, 0.52) 0px 0px 12px) drop-shadow(rgba(0, 91, 255, 0.28) 0px 0px 28px)",
+        "opacity": "1",
+        "mixBlendMode": "normal"
+      }
+    ]
+  },
+  {
+    "target": "cache",
+    "viewport": "mobile",
+    "width": 390,
+    "height": 844,
+    "status": "complete",
+    "title": "Emergency Electrician & Level 2 Electrician Sydney",
+    "h1Count": 1,
+    "h1s": [
+      "Emergency & Level 2 Electrician Sydney"
+    ],
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "bodyScrollWidth": 390,
+    "noHorizontalOverflow": true,
+    "phoneVisible": true,
+    "quoteVisible": true,
+    "phoneCount": 12,
+    "quoteCount": 9,
+    "ads": true,
+    "googleProof": true,
+    "response60": true,
+    "response90": true,
+    "level2": true,
+    "removedEmergencyPanel": true,
+    "removedTrustProcess": true,
+    "removedTrustBand": true,
+    "heroBackgroundFilter": "none",
+    "heroBackgroundOpacity": "1",
+    "images": [
+      {
+        "src": "https://c0d312.github.io/evaready-electrical/images/evareadyelectrical-logo.webp",
+        "complete": true,
+        "width": 1426,
+        "height": 503,
+        "filter": "drop-shadow(rgba(0, 200, 255, 0.44) 0px 0px 16px) drop-shadow(rgba(0, 91, 255, 0.2) 0px 0px 34px)",
+        "opacity": "1",
+        "mixBlendMode": "normal"
+      },
+      {
+        "src": "https://c0d312.github.io/evaready-electrical/images/evaready-electrical-sydney-service-van.webp",
+        "complete": true,
+        "width": 1448,
+        "height": 1086,
+        "filter": "none",
+        "opacity": "1",
+        "mixBlendMode": "normal"
+      },
+      {
+        "src": "https://c0d312.github.io/evaready-electrical/images/evareadyelectrical-logo.webp",
+        "complete": false,
+        "width": 1426,
+        "height": 503,
+        "filter": "drop-shadow(rgba(0, 200, 255, 0.52) 0px 0px 12px) drop-shadow(rgba(0, 91, 255, 0.28) 0px 0px 28px)",
+        "opacity": "1",
+        "mixBlendMode": "normal"
+      }
+    ]
+  },
+  {
+    "target": "cache",
+    "viewport": "desktop",
+    "width": 1366,
+    "height": 768,
+    "status": "complete",
+    "title": "Emergency Electrician & Level 2 Electrician Sydney",
+    "h1Count": 1,
+    "h1s": [
+      "Emergency & Level 2 Electrician Sydney"
+    ],
+    "scrollWidth": 1366,
+    "clientWidth": 1366,
+    "bodyScrollWidth": 1366,
+    "noHorizontalOverflow": true,
+    "phoneVisible": true,
+    "quoteVisible": true,
+    "phoneCount": 12,
+    "quoteCount": 9,
+    "ads": true,
+    "googleProof": true,
+    "response60": true,
+    "response90": true,
+    "level2": true,
+    "removedEmergencyPanel": true,
+    "removedTrustProcess": true,
+    "removedTrustBand": true,
+    "heroBackgroundFilter": "none",
+    "heroBackgroundOpacity": "1",
+    "images": [
+      {
+        "src": "https://c0d312.github.io/evaready-electrical/images/evareadyelectrical-logo.webp",
+        "complete": true,
+        "width": 1426,
+        "height": 503,
+        "filter": "drop-shadow(rgba(0, 200, 255, 0.44) 0px 0px 16px) drop-shadow(rgba(0, 91, 255, 0.2) 0px 0px 34px)",
+        "opacity": "1",
+        "mixBlendMode": "normal"
+      },
+      {
+        "src": "https://c0d312.github.io/evaready-electrical/images/evaready-electrical-sydney-service-van.webp",
+        "complete": true,
+        "width": 1448,
+        "height": 1086,
+        "filter": "none",
+        "opacity": "1",
+        "mixBlendMode": "normal"
+      },
+      {
+        "src": "https://c0d312.github.io/evaready-electrical/images/evareadyelectrical-logo.webp",
+        "complete": false,
+        "width": 1426,
+        "height": 503,
+        "filter": "drop-shadow(rgba(0, 200, 255, 0.52) 0px 0px 12px) drop-shadow(rgba(0, 91, 255, 0.28) 0px 0px 28px)",
+        "opacity": "1",
+        "mixBlendMode": "normal"
+      }
+    ]
+  }
+]

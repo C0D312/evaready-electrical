@@ -110,4 +110,11 @@ The homepage moves from roughly 16 major visible blocks to 13, and several repea
 
 ## Deployment Status
 
-Pending.
+- Source website commit: `f0fa7120e2d8416b95cb061def91ecd25792d832`
+- Deployed `gh-pages` commit: `df9ddaff1b36971fcb73ee706ad24e73feab1aa6`
+- Normal public homepage: PASS
+- Cache-busted public homepage: PASS
+- Live CSS/build marker: `_next/static/chunks/0p010l-967tqf.css`
+- Live checks confirmed: HTTP 200, one H1, Call Now visible, Get a Quote visible, Google proof visible, 60/90-minute response wording visible, Level 2 ASP proof visible, duplicate emergency/trust/process sections absent and no horizontal overflow at 390x844 or 1366x768.
+- Live QA artifacts: `reports/homepage-section-consolidation-qa/live-qa-results.json`
+- Final result: LIVE PASS
