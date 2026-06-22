@@ -166,7 +166,7 @@ export function ServiceCredentialStrip({
   items: ServiceCredentialItem[];
 }) {
   return (
-    <div className={`service-credential-strip flex flex-wrap gap-2 ${className}`}>
+    <div className={`service-credential-strip grid gap-3 ${className}`}>
       {items.map((item) => {
         const Icon = item.icon;
         const tone = item.tone ?? "cyan";
@@ -174,10 +174,10 @@ export function ServiceCredentialStrip({
         return (
           <div
             key={`${item.title}-${item.text ?? ""}`}
-            className={`service-credential-card inline-flex min-h-12 min-w-0 flex-1 basis-[12rem] items-center gap-2.5 rounded-2xl border px-3 py-2 shadow-lg shadow-blue-950/10 backdrop-blur-md sm:flex-none ${stripTone[tone]}`}
+            className={`service-credential-card min-h-[4.5rem] min-w-0 rounded-2xl border px-4 py-3 shadow-lg shadow-blue-950/10 backdrop-blur-md ${stripTone[tone]}`}
           >
             <span
-              className={`service-credential-icon inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${iconTone[tone]}`}
+              className={`service-credential-icon inline-flex shrink-0 items-center justify-center rounded-xl ${iconTone[tone]}`}
               aria-hidden="true"
             >
               <Icon className="h-4.5 w-4.5" strokeWidth={2.1} />

@@ -7842,6 +7842,14 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
   min-height: clamp(4.8rem, 10vw, 5.7rem) !important;
 }
 
+.service-credential-strip {
+  display: grid !important;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+  align-items: stretch;
+  gap: 0.75rem;
+}
+
 .credential-card-inner,
 .service-credential-card,
 .footer-credential-card-body {
