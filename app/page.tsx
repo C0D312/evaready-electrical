@@ -697,11 +697,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="quote" className="bg-white py-16 sm:py-20">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="quote-home-card overflow-hidden rounded-lg border border-cyan-300/35 bg-[#061E72] text-white shadow-2xl shadow-blue-950/15">
-            <div className="grid gap-0 lg:grid-cols-[1fr_auto] lg:items-center">
-              <div className="p-5 sm:p-8 lg:p-10">
+      <section
+        id="quote"
+        className="scroll-mt-40 bg-[#06142f] py-16 sm:py-20"
+      >
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="quote-home-card overflow-hidden rounded-[1.35rem] border border-cyan-300/25 bg-[#061E72] text-white shadow-2xl shadow-blue-950/25">
+            <div className="grid gap-0 lg:grid-cols-[1fr_0.66fr] lg:items-stretch">
+              <div className="flex flex-col justify-center p-5 sm:p-8 lg:p-10">
                 <p className="text-sm font-black uppercase tracking-[0.2em] text-cyan-200">
                   Job details
                 </p>
@@ -712,44 +715,62 @@ export default function HomePage() {
                   Add your contact details, address and photos so Evaready can
                   review the job and reply with what to do next.
                 </p>
-                <p className="mt-4 rounded-lg border border-red-400/25 bg-red-500/10 px-4 py-3 text-sm font-black leading-6 text-white">
-                  Urgent electrical fault?{" "}
+                <p className="mt-5 rounded-2xl border border-red-300/25 bg-[#132b69] px-4 py-3 text-sm font-black leading-6 text-white shadow-lg shadow-blue-950/15">
+                  Urgent electrical fault? Call first:{" "}
                   <a
                     href={business.phoneHref}
                     data-conversion-action="phone-click"
                     aria-label={business.callCta}
-                    className="underline underline-offset-2"
+                    className="text-white underline decoration-red-200/70 underline-offset-4"
                   >
                     {business.callCta}
-                  </a>{" "}
-                  first.
+                  </a>
                 </p>
               </div>
 
-              <div className="border-t border-white/10 bg-white/10 p-5 sm:p-8 lg:min-w-[24rem] lg:border-l lg:border-t-0 lg:p-10">
-                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-                  <a
-                    href={business.phoneHref}
-                    data-conversion-action="phone-click"
-                    aria-label={business.callCta}
-                    className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-red-600 px-5 py-3 font-black text-white shadow-lg shadow-red-600/25 transition hover:bg-red-500"
-                  >
-                    <Phone className="h-4 w-4" />
-                    <span className="whitespace-nowrap">
-                      {business.callCta}
+              <div className="border-t border-cyan-300/18 bg-white/[0.045] p-4 sm:p-5 lg:border-l lg:border-t-0">
+                <div className="flex h-full flex-col justify-center rounded-[1.1rem] border border-cyan-300/20 bg-[#0a2a63] p-5 shadow-xl shadow-blue-950/20 sm:p-6">
+                  <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan-200">
+                    Fastest next step
+                  </p>
+                  <p className="mt-2 text-sm font-semibold leading-6 text-slate-200">
+                    Call for unsafe faults or send photos through the quote form.
+                  </p>
+                  <div className="mt-5 grid gap-3">
+                    <a
+                      href={business.phoneHref}
+                      data-conversion-action="phone-click"
+                      aria-label={business.callCta}
+                      className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#b90816] via-red-600 to-[#ff2637] px-5 py-3 font-black text-white shadow-lg shadow-red-600/25 transition hover:from-red-700 hover:via-red-500 hover:to-red-400"
+                    >
+                      <Phone className="h-4 w-4" />
+                      <span className="whitespace-nowrap">
+                        {business.callCta}
+                      </span>
+                    </a>
+                    <a
+                      href={business.bookingUrl}
+                      aria-label="Get a quote from Evaready Electrical"
+                      data-quote-trigger="true"
+                      data-conversion-action="quote-click"
+                      aria-haspopup="dialog"
+                      className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-700 to-cyan-400 px-5 py-3 font-black text-white shadow-lg shadow-blue-700/20 transition hover:from-blue-600 hover:to-cyan-300"
+                    >
+                      {business.quoteCta}
+                      <ArrowRight className="h-4 w-4" />
+                    </a>
+                  </div>
+                  <div className="mt-4 grid grid-cols-3 gap-2 text-center text-[0.68rem] font-black uppercase tracking-[0.08em] text-cyan-100">
+                    <span className="rounded-lg border border-cyan-300/15 bg-white/[0.055] px-2 py-2">
+                      Photos
                     </span>
-                  </a>
-                  <a
-                    href={business.bookingUrl}
-                    aria-label="Get a quote from Evaready Electrical"
-                    data-quote-trigger="true"
-                    data-conversion-action="quote-click"
-                    aria-haspopup="dialog"
-                    className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-blue-700 px-5 py-3 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
-                  >
-                    {business.quoteCta}
-                    <ArrowRight className="h-4 w-4" />
-                  </a>
+                    <span className="rounded-lg border border-cyan-300/15 bg-white/[0.055] px-2 py-2">
+                      Address
+                    </span>
+                    <span className="rounded-lg border border-cyan-300/15 bg-white/[0.055] px-2 py-2">
+                      Notes
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
