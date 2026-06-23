@@ -1,2 +1,2 @@
-:HL["/evaready-electrical/_next/static/chunks/0_9j8uc53utuh.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"services","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"electrical-safety-inspection-sydney","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"2yqiBnGwD9hYX1l5yXwrN"}
+:HL["/evaready-electrical/_next/static/chunks/02pczmmvstjpw.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"services","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"electrical-safety-inspection-sydney","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"jiUDsDBtLLUcG9okTbg-Y"}
