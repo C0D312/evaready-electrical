@@ -8243,14 +8243,15 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
 .services-catalogue-card__head {
   display: grid;
   grid-template-columns: 3.35rem minmax(0, 1fr);
-  align-items: center;
+  align-items: start;
   gap: 1rem;
+  min-height: 9.15rem;
   min-width: 0;
 }
 
 .services-catalogue-card__text {
   display: grid;
-  align-content: center;
+  align-content: start;
   min-width: 0;
 }
 
@@ -8260,7 +8261,8 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
   height: 3.05rem;
   align-items: center;
   justify-content: center;
-  align-self: center;
+  align-self: start;
+  margin-top: 0.1rem;
   border-radius: 0.9rem;
   border: 1px solid rgba(98, 216, 255, 0.24);
   background: rgba(7, 156, 255, 0.14);
@@ -8410,10 +8412,6 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
 @media (min-width: 1280px) {
   .services-catalogue-grid[data-balance-xl="1"] > :last-child {
     grid-column: 2;
-  }
-
-  .services-catalogue-card__head {
-    min-height: 8rem;
   }
 }
 
