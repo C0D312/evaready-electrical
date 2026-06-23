@@ -408,30 +408,30 @@ export default async function ServiceLandingPage({
                     <CheckCircle2 className="service-action-card__icon mt-0.5 h-5 w-5 shrink-0 text-cyan-300" />
                     <span className="service-action-card__title font-bold text-slate-100">{item}</span>
                   </span>
-                  <div className="action-button-row mt-4 grid gap-2 sm:grid-cols-2">
-                    <a
-                      href={business.phoneHref}
-                      data-conversion-action="phone-click"
-                      aria-label={`Call Evaready Electrical about ${item}`}
-                      className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-red-200/35 bg-gradient-to-r from-[#b90816] via-red-600 to-[#ff2637] px-3 py-2 text-center text-xs font-black uppercase tracking-[0.08em] text-white shadow-md shadow-red-950/25 transition hover:border-red-100 hover:from-red-700 hover:via-red-500 hover:to-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-100"
-                    >
-                      <Phone className="h-4 w-4" />
-                      Call Now
-                    </a>
-                    <a
-                      href={business.bookingUrl}
-                      data-quote-trigger="true"
-                      data-conversion-action="quote-click"
-                      aria-haspopup="dialog"
-                      aria-label={`Get a quote for ${item}`}
-                      className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-cyan-200/30 bg-gradient-to-r from-blue-700 to-cyan-400 px-3 py-2 text-center text-xs font-black uppercase tracking-[0.08em] text-white shadow-md shadow-blue-950/20 transition hover:border-cyan-100 hover:from-blue-600 hover:to-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-100"
-                    >
-                      Get a Quote
-                      <ArrowRight className="h-4 w-4" />
-                    </a>
-                  </div>
                 </article>
               ))}
+            </div>
+            <div className="action-button-row mt-5 grid gap-3 sm:grid-cols-2">
+              <a
+                href={business.phoneHref}
+                data-conversion-action="phone-click"
+                aria-label={business.callCta}
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-red-200/45 bg-gradient-to-r from-[#b90816] via-red-600 to-[#ff2637] px-4 py-3 text-center text-sm font-black text-white shadow-lg shadow-red-950/30 transition hover:border-red-100 hover:from-red-700 hover:via-red-500 hover:to-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-100"
+              >
+                <Phone className="h-4 w-4" />
+                <span className="whitespace-nowrap">Call Now 0461 247 247</span>
+              </a>
+              <a
+                href={business.bookingUrl}
+                data-quote-trigger="true"
+                data-conversion-action="quote-click"
+                aria-haspopup="dialog"
+                aria-label={`${quoteCtaLabel} from Evaready Electrical`}
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-cyan-200/35 bg-gradient-to-r from-blue-700 to-cyan-400 px-4 py-3 text-center text-sm font-black text-white shadow-lg shadow-blue-950/25 transition hover:border-cyan-100 hover:from-blue-600 hover:to-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-100"
+              >
+                {business.quoteCta}
+                <ArrowRight className="h-4 w-4" />
+              </a>
             </div>
             <div className="mt-6 rounded-lg border border-red-300/30 bg-gradient-to-br from-[#7A0713]/72 via-[#0d2b5c] to-[#091d42] p-5 shadow-xl shadow-red-950/20">
               <p className="text-sm font-black uppercase tracking-[0.16em] text-red-100">
