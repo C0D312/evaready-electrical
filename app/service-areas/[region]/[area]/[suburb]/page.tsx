@@ -600,16 +600,16 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         </div>
       </section>
 
-      <section className="bg-white py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+      <section className="service-related-section py-16">
+        <div className="service-related-shell mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="service-related-eyebrow text-sm font-black uppercase tracking-[0.35em]">
             Quick links
           </p>
           <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
             Fast electrical help for {suburb.name}.
           </h2>
 
-          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="service-related-grid service-related-grid--with-copy mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {[
               {
                 href: "/emergency-electrician-sydney",
@@ -626,48 +626,24 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                 label: "Switchboard Upgrades",
                 text: "Safety switches, RCBOs, ceramic fuses and switchboard faults.",
               },
-              {
-                href: business.bookingUrl,
-                label: business.quoteCta,
-                text: "Open the secure booking form to send photos, notes and the job address.",
-                quote: true,
-              },
-            ].map((item) =>
-              item.quote ? (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  data-quote-trigger="true"
-                  data-conversion-action="quote-click"
-                  aria-haspopup="dialog"
-                  className="group rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-600 hover:bg-blue-50"
-                >
-                  <h3 className="text-xl font-black text-[#061E72]">
-                    {item.label}
-                  </h3>
-                  <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
-                  <span className="mt-5 inline-flex items-center gap-2 font-black text-blue-600">
-                    Open Booking Form
-                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                  </span>
-                </a>
-              ) : (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="group rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-600 hover:bg-blue-50"
-                >
-                  <h3 className="text-xl font-black text-[#061E72]">
-                    {item.label}
-                  </h3>
-                  <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
-                  <span className="mt-5 inline-flex items-center gap-2 font-black text-red-600">
-                    Learn more
-                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                  </span>
-                </Link>
-              ),
-            )}
+            ].map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="service-related-card service-related-card--with-copy group"
+              >
+                <span className="service-related-card__title text-xl font-black">
+                  {item.label}
+                </span>
+                <span className="service-related-card__copy">
+                  {item.text}
+                </span>
+                <span className="service-related-card__action">
+                  Learn more
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

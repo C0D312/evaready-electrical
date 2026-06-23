@@ -234,7 +234,7 @@ export default async function ServiceLandingPage({
   });
 
   const faqSchema = buildFaqSchema(service.faqs, `/services/${service.slug}`);
-  const coreRelatedLinks: { href: string; label: string; quote?: boolean }[] = [
+  const coreRelatedLinks: { href: string; label: string }[] = [
     {
       href: "/emergency-electrician-sydney",
       label: "Emergency Electrician Sydney & Surrounding Regions",
@@ -248,9 +248,8 @@ export default async function ServiceLandingPage({
       label: "Switchboard Upgrades",
     },
     { href: "/service-areas", label: "Service Areas" },
-    { href: business.bookingUrl, label: business.quoteCta, quote: true },
   ];
-  const relatedLinks: { href: string; label: string; quote?: boolean }[] = [
+  const relatedLinks: { href: string; label: string }[] = [
     ...coreRelatedLinks,
     ...(serviceClusterLinksBySlug[service.slug] ?? []),
     ...service.relatedServices.map((relatedSlug) => ({
@@ -942,11 +941,11 @@ export default async function ServiceLandingPage({
         </div>
       </section>
 
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+      <section className="service-related-section py-20">
+        <div className="service-related-shell mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="service-related-header flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.28em] text-blue-700">
+              <p className="service-related-eyebrow text-sm font-black uppercase tracking-[0.28em]">
                 Related services
               </p>
               <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
@@ -955,44 +954,29 @@ export default async function ServiceLandingPage({
             </div>
             <Link
               href="/services"
-              className="inline-flex w-fit items-center gap-2 rounded-lg border border-slate-300 px-5 py-3 font-black text-slate-900 transition hover:border-blue-700 hover:text-blue-700"
+              className="service-related-all-link"
             >
               View all services
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
 
-          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {relatedLinks.map((link) =>
-              link.quote ? (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  data-quote-trigger="true"
-                  data-conversion-action="quote-click"
-                  aria-haspopup="dialog"
-                  className="group rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-600 hover:bg-blue-50"
-                >
-                  <h3 className="font-black text-[#061E72]">{link.label}</h3>
-                  <span className="mt-4 inline-flex items-center gap-2 font-black text-blue-600">
-                    Open Booking Form
-                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                  </span>
-                </a>
-              ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="group rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-600 hover:bg-blue-50"
-                >
-                  <h3 className="font-black text-[#061E72]">{link.label}</h3>
-                  <span className="mt-4 inline-flex items-center gap-2 font-black text-red-600">
-                    Learn more
-                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                  </span>
-                </Link>
-              ),
-            )}
+          <div className="service-related-grid mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {relatedLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="service-related-card group"
+              >
+                <span className="service-related-card__title font-black">
+                  {link.label}
+                </span>
+                <span className="service-related-card__action">
+                  Learn more
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

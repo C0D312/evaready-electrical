@@ -8049,6 +8049,122 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
   color: var(--ev-white) !important;
 }
 
+.service-related-section {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(7, 156, 255, 0.12), transparent 34rem),
+    linear-gradient(180deg, var(--ev-black), var(--ev-midnight));
+  color: var(--ev-white);
+}
+
+.service-related-shell {
+  width: min(100%, 84rem);
+}
+
+.service-related-header {
+  align-items: flex-start;
+}
+
+.service-related-section :is(h2, p) {
+  color: var(--ev-white);
+}
+
+.service-related-section .service-related-eyebrow {
+  color: var(--ev-cyan);
+}
+
+.service-related-all-link {
+  display: inline-grid;
+  width: fit-content;
+  min-height: 4.5rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.9rem;
+  border: 1px solid var(--ev-blue-border);
+  border-radius: 0.9rem;
+  background: rgba(9, 29, 66, 0.72);
+  box-shadow: 0 1rem 2.25rem rgba(0, 0, 0, 0.22);
+  color: var(--ev-white);
+  font-weight: 900;
+  line-height: 1.25;
+  padding: 0.95rem 1.25rem;
+  text-decoration: none;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.service-related-grid {
+  align-items: stretch;
+}
+
+.service-related-card {
+  min-height: 8.75rem;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-content: stretch;
+  gap: 1.2rem;
+  border: 1px solid var(--ev-blue-border);
+  border-radius: 0.95rem;
+  background: linear-gradient(145deg, rgba(9, 29, 66, 0.96), rgba(13, 43, 92, 0.78));
+  box-shadow: 0 1.1rem 2.4rem rgba(0, 0, 0, 0.22);
+  color: var(--ev-white);
+  padding: 1.2rem;
+  text-decoration: none;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.service-related-card:hover,
+.service-related-all-link:hover {
+  border-color: rgba(98, 216, 255, 0.55);
+  background: linear-gradient(145deg, rgba(13, 43, 92, 0.98), rgba(8, 118, 255, 0.22));
+  color: var(--ev-white);
+  transform: translateY(-1px);
+}
+
+.service-related-card__title {
+  display: block;
+  min-width: 0;
+  color: var(--ev-white);
+  line-height: 1.32;
+  overflow-wrap: break-word;
+}
+
+.service-related-card__copy {
+  display: block;
+  color: var(--ev-silver);
+  line-height: 1.65;
+}
+
+.service-related-card__action {
+  display: inline-flex;
+  min-height: 2.45rem;
+  align-items: center;
+  justify-self: start;
+  gap: 0.55rem;
+  color: var(--ev-cyan);
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.service-related-card--with-copy {
+  min-height: 12.25rem;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+@media (max-width: 640px) {
+  .service-related-header {
+    align-items: stretch;
+  }
+
+  .service-related-all-link,
+  .service-related-card {
+    width: 100%;
+  }
+
+  .service-related-card {
+    min-height: 7.5rem;
+    padding: 1rem;
+  }
+}
+
 .action-button-row {
   margin-left: 0 !important;
   align-items: stretch !important;
