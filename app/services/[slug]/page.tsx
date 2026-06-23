@@ -346,7 +346,7 @@ export default async function ServiceLandingPage({
 
       <SiteHeader />
 
-      <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
+      <section className="brand-internal-hero service-detail-hero relative overflow-hidden bg-[#061E72] text-white">
         <Image
           src={assetPath(business.heroImage)}
           alt={business.brandImageAlt}
@@ -356,24 +356,24 @@ export default async function ServiceLandingPage({
           className="brand-internal-hero-image object-cover object-[68%_center]"
         />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_0.85fr] lg:px-8 lg:py-24">
-          <div className="internal-hero-copy-panel">
+        <div className="service-detail-hero-layout relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_0.85fr] lg:px-8 lg:py-24">
+          <div className="internal-hero-copy-panel service-detail-hero-panel">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-blue-200">
               <ShieldCheck className="h-4 w-4" />
               Electrical service
             </div>
 
-            <h1 className="max-w-5xl text-4xl font-black tracking-tight sm:text-6xl lg:text-7xl">
+            <h1 className="service-detail-hero-title max-w-5xl text-4xl font-black tracking-tight sm:text-6xl lg:text-7xl">
               {service.title}
             </h1>
 
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
+            <p className="service-detail-hero-copy mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
               {service.intro}
             </p>
 
             <ServiceCredentialStrip
               items={getServiceCredentialItems(service.slug)}
-              className="mt-6 max-w-4xl"
+              className="service-detail-hero-credentials mt-6 max-w-4xl"
             />
 
             {isLevel2ResponseService ? (
@@ -388,13 +388,13 @@ export default async function ServiceLandingPage({
               </p>
             ) : null}
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="service-detail-hero-cta mt-8 flex flex-col gap-3 sm:flex-row">
               {phoneCta}
               {quoteCta}
             </div>
           </div>
 
-          <aside className="rounded-lg border border-white/10 bg-white/10 p-6 shadow-2xl backdrop-blur">
+          <aside className="service-detail-hero-aside rounded-lg border border-white/10 bg-white/10 p-6 shadow-2xl backdrop-blur">
             <p className="text-sm font-black uppercase tracking-[0.2em] text-red-200">
               Common jobs
             </p>
