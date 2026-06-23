@@ -776,9 +776,9 @@ export default async function ServiceLandingPage({
         </div>
       </section>
 
-      <section className="bg-white py-20">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_0.95fr] lg:px-8">
-          <div>
+      <section className="service-detail-warning-section bg-white py-20">
+        <div className="service-detail-warning-layout mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_0.95fr] lg:px-8">
+          <div className="service-detail-warning-copy">
             <p className="text-sm font-black uppercase tracking-[0.28em] text-red-600">
               Warning signs
             </p>
@@ -790,41 +790,41 @@ export default async function ServiceLandingPage({
               unsafe. These are the details worth checking before the problem
               grows.
             </p>
+            <div className="service-detail-warning-cta mt-7 grid gap-3 sm:grid-cols-2">
+              <a
+                href={business.phoneHref}
+                data-conversion-action="phone-click"
+                aria-label={business.callCta}
+                className="inline-flex items-center justify-center gap-3 rounded-lg border border-red-200/40 bg-gradient-to-r from-red-700 to-red-500 px-6 py-4 font-black text-white shadow-lg shadow-red-900/25 transition hover:border-red-100 hover:from-red-600 hover:to-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-100"
+              >
+                <Phone className="h-5 w-5" />
+                <span className="whitespace-nowrap">{business.callCta}</span>
+              </a>
+              <a
+                href={business.bookingUrl}
+                data-quote-trigger="true"
+                data-conversion-action="quote-click"
+                aria-haspopup="dialog"
+                aria-label="Get a quote from Evaready Electrical"
+                className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
+              >
+                {quoteCtaLabel}
+                <ArrowRight className="h-5 w-5" />
+              </a>
+            </div>
           </div>
 
-          <div className="rounded-lg border border-slate-200 bg-slate-50 p-6">
-            <div className="grid gap-4">
+          <div className="service-detail-warning-panel rounded-lg border border-slate-200 bg-slate-50 p-6">
+            <div className="service-detail-warning-grid grid gap-4">
               {service.warningSigns.map((item) => (
                 <article
                   key={item}
-                  className="warning-action-card rounded-lg border border-red-200/30 bg-white p-4 shadow-sm transition hover:border-red-300/50 hover:bg-red-50/60"
+                  className="warning-action-card warning-action-card--compact rounded-lg border border-red-200/30 bg-white p-4 shadow-sm transition hover:border-red-300/50 hover:bg-red-50/60"
                 >
                   <span className="warning-action-card__summary flex gap-3">
                     <AlertTriangle className="warning-action-card__icon mt-1 h-5 w-5 shrink-0 text-red-600" />
                     <span className="warning-action-card__title font-semibold leading-7 text-slate-800">{item}</span>
                   </span>
-                  <div className="action-button-row ml-8 mt-4 grid gap-2 sm:grid-cols-2">
-                    <a
-                      href={business.phoneHref}
-                      data-conversion-action="phone-click"
-                      aria-label={`Call Evaready Electrical about ${item}`}
-                      className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-red-200/45 bg-gradient-to-r from-[#b90816] via-red-600 to-[#ff2637] px-3 py-2 text-center text-xs font-black uppercase tracking-[0.08em] text-white shadow-md shadow-red-950/20 transition hover:border-red-100 hover:from-red-700 hover:via-red-500 hover:to-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-100"
-                    >
-                      <Phone className="h-4 w-4" />
-                      Call Now
-                    </a>
-                    <a
-                      href={business.bookingUrl}
-                      data-quote-trigger="true"
-                      data-conversion-action="quote-click"
-                      aria-haspopup="dialog"
-                      aria-label={`Get a quote for ${item}`}
-                      className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-cyan-200/35 bg-gradient-to-r from-blue-700 to-cyan-400 px-3 py-2 text-center text-xs font-black uppercase tracking-[0.08em] text-white shadow-md shadow-blue-950/20 transition hover:border-cyan-100 hover:from-blue-600 hover:to-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-100"
-                    >
-                      Get a Quote
-                      <ArrowRight className="h-4 w-4" />
-                    </a>
-                  </div>
                 </article>
               ))}
             </div>

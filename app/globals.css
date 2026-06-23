@@ -7975,6 +7975,80 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
   justify-self: center !important;
 }
 
+.service-detail-warning-section {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(233, 17, 30, 0.11), transparent 24rem),
+    linear-gradient(180deg, var(--ev-midnight), var(--ev-black)) !important;
+  color: var(--ev-white) !important;
+}
+
+.service-detail-warning-layout {
+  align-items: center !important;
+}
+
+.service-detail-warning-copy {
+  max-width: 42rem !important;
+}
+
+.service-detail-warning-section :is(h2, p) {
+  color: var(--ev-white) !important;
+}
+
+.service-detail-warning-cta {
+  width: min(100%, 36rem) !important;
+}
+
+.service-detail-warning-cta > a {
+  min-width: 0 !important;
+  min-height: 3.35rem !important;
+  width: 100% !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 0.85rem !important;
+  line-height: 1.12 !important;
+}
+
+.service-detail-warning-cta > a[data-conversion-action="phone-click"] {
+  border-color: rgba(255, 255, 255, 0.24) !important;
+  background: linear-gradient(90deg, var(--ev-red-dark), var(--ev-red), #ff2b38) !important;
+  box-shadow: 0 1rem 2rem rgba(233, 17, 30, 0.24) !important;
+}
+
+.service-detail-warning-cta > a[data-conversion-action="quote-click"] {
+  border: 1px solid rgba(98, 216, 255, 0.35) !important;
+  background: linear-gradient(90deg, var(--ev-bright-blue), var(--ev-electric-blue), var(--ev-cyan)) !important;
+  box-shadow: 0 1rem 2rem rgba(7, 156, 255, 0.2) !important;
+}
+
+.service-detail-warning-panel {
+  border-color: rgba(233, 17, 30, 0.32) !important;
+  background:
+    linear-gradient(135deg, rgba(122, 7, 19, 0.28), rgba(9, 29, 66, 0.9)) !important;
+  box-shadow: 0 1.25rem 3rem rgba(0, 0, 0, 0.22) !important;
+}
+
+.warning-action-card--compact {
+  min-height: 5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  border-color: rgba(233, 17, 30, 0.3) !important;
+  background:
+    linear-gradient(90deg, rgba(122, 7, 19, 0.33), rgba(7, 60, 255, 0.2) 46%, rgba(9, 29, 66, 0.94)) !important;
+}
+
+.warning-action-card--compact .warning-action-card__summary {
+  width: 100% !important;
+  align-items: center !important;
+}
+
+.warning-action-card--compact .warning-action-card__icon {
+  color: #ffb4bc !important;
+}
+
+.warning-action-card--compact .warning-action-card__title {
+  color: var(--ev-white) !important;
+}
+
 .action-button-row {
   margin-left: 0 !important;
   align-items: stretch !important;
