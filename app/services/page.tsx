@@ -1467,11 +1467,11 @@ export default function ServicesPage() {
                     const relatedLinks = item.related ?? [];
                     const serviceCardBody = (
                       <>
-                        <div className="services-catalogue-card__head grid min-w-0 grid-cols-[3.35rem_minmax(0,1fr)] items-start gap-4">
+                        <div className="services-catalogue-card__head">
                           <span className="services-catalogue-card__icon inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-cyan-300/20 bg-cyan-300/10 text-cyan-200">
                             <Icon className="h-5 w-5" />
                           </span>
-                          <div className="min-w-0">
+                          <div className="services-catalogue-card__text min-w-0">
                             <h4 className="services-catalogue-card__title text-lg font-black leading-6 text-white">
                               {displayTitle}
                             </h4>
@@ -1481,11 +1481,11 @@ export default function ServicesPage() {
                           </div>
                         </div>
 
-                        <div className="services-catalogue-card__includes mt-5 grid gap-2">
+                        <div className="services-catalogue-card__includes">
                           {visibleIncludes.map((include) => (
                             <div
                               key={include}
-                              className="services-catalogue-card__include grid grid-cols-[1.1rem_minmax(0,1fr)] items-start gap-2 text-sm font-bold leading-5 text-white"
+                              className="services-catalogue-card__include"
                             >
                               <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-cyan-200" />
                               <span>{include}</span>
@@ -1493,7 +1493,7 @@ export default function ServicesPage() {
                           ))}
                         </div>
 
-                        <span className="services-catalogue-card__action mt-auto inline-flex items-center gap-2 pt-5 text-sm font-black uppercase tracking-[0.12em] text-cyan-100">
+                        <span className="services-catalogue-card__action">
                           View service
                           <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                         </span>
@@ -1529,8 +1529,8 @@ export default function ServicesPage() {
                             </Link>
                           )}
 
-                          <div className="mt-4 border-t border-cyan-300/15 pt-4">
-                            <p className="text-xs font-black uppercase tracking-[0.16em] text-cyan-100">
+                          <div className="services-catalogue-related-card__links">
+                            <p className="services-catalogue-related-card__label">
                               Related specialist links
                             </p>
                             <div className="mt-3 grid gap-2">
@@ -1550,7 +1550,7 @@ export default function ServicesPage() {
                                     aria-label={`View ${getServiceDisplayTitle(
                                       relatedService.title,
                                     )}`}
-                                    className="group inline-flex min-h-11 items-center justify-between gap-3 rounded-xl border border-cyan-300/20 bg-cyan-300/10 px-3 py-2 text-sm font-black text-white transition hover:border-cyan-200 hover:bg-cyan-300/18 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
+                                    className="services-catalogue-related-card__link group"
                                   >
                                     <span>
                                       {related.label ??
