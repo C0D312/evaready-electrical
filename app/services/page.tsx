@@ -1454,6 +1454,7 @@ export default function ServicesPage() {
 
                 <div
                   className="services-catalogue-grid mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3"
+                  data-item-count={category.items.length}
                   data-balance-md={category.items.length % 2}
                   data-balance-xl={category.items.length % 3}
                 >

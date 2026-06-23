@@ -8410,6 +8410,10 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
 }
 
 @media (min-width: 1280px) {
+  .services-catalogue-grid[data-item-count="2"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .services-catalogue-grid[data-balance-xl="1"] > :last-child {
     grid-column: 2;
   }
