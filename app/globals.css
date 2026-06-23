@@ -7912,13 +7912,15 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
 }
 
 .service-detail-scope-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)) !important;
   align-items: stretch !important;
 }
 
 .service-action-card--scope {
-  display: flex !important;
-  min-height: clamp(7.25rem, 10vw, 8.75rem) !important;
+  display: grid !important;
+  min-height: clamp(5.75rem, 8vw, 6.75rem) !important;
   align-items: center !important;
+  padding: clamp(1rem, 1.7vw, 1.25rem) !important;
   border-color: var(--ev-blue-border) !important;
   background:
     linear-gradient(135deg, rgba(7, 60, 255, 0.24), rgba(9, 29, 66, 0.92)) !important;
@@ -8029,8 +8031,9 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
 
 .warning-action-card--compact {
   min-height: 5rem !important;
-  display: flex !important;
+  display: grid !important;
   align-items: center !important;
+  padding: clamp(1rem, 1.7vw, 1.25rem) !important;
   border-color: rgba(233, 17, 30, 0.3) !important;
   background:
     linear-gradient(90deg, rgba(122, 7, 19, 0.33), rgba(7, 60, 255, 0.2) 46%, rgba(9, 29, 66, 0.94)) !important;
@@ -8381,6 +8384,9 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
 .services-featured-card {
   position: relative;
   isolation: isolate;
+  display: grid !important;
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-content: stretch;
   background:
     radial-gradient(circle at 18% 0%, rgba(7, 156, 255, 0.12), transparent 34%),
     linear-gradient(145deg, rgba(4, 11, 28, 0.98), rgba(6, 20, 47, 0.98));
@@ -8406,7 +8412,11 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
 }
 
 .services-featured-card__body {
+  display: grid !important;
+  grid-template-columns: 3.5rem minmax(0, 1fr) !important;
   align-items: start;
+  gap: 1.15rem;
+  min-width: 0;
 }
 
 .services-featured-card__icon {
@@ -8428,6 +8438,7 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
 .services-card-action {
   min-height: 2rem;
   align-self: flex-start;
+  margin-top: auto;
   line-height: 1.2;
 }
 
@@ -8452,9 +8463,10 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
 .services-problem-card {
   position: relative;
   isolation: isolate;
-  display: flex;
+  display: grid !important;
+  grid-template-rows: auto minmax(0, 1fr);
   min-height: 9.5rem;
-  flex-direction: column;
+  align-content: stretch;
   overflow: hidden;
   border-color: rgba(98, 216, 255, 0.24);
   background:
@@ -8538,8 +8550,9 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
 }
 
 .services-catalogue-card {
-  display: grid;
-  grid-template-rows: auto minmax(5.85rem, auto) auto;
+  display: grid !important;
+  height: 100%;
+  grid-template-rows: auto minmax(5.25rem, 1fr) auto;
   align-content: stretch;
   gap: 1.15rem;
   padding: clamp(1.15rem, 1.8vw, 1.55rem);
@@ -8566,7 +8579,7 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
   grid-template-columns: 3.35rem minmax(0, 1fr);
   align-items: start;
   gap: 1rem;
-  min-height: 9.15rem;
+  min-height: clamp(7.4rem, 8.5vw, 8.85rem);
   min-width: 0;
 }
 
@@ -8632,7 +8645,7 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
   width: fit-content;
   max-width: 100%;
   min-height: 2.65rem;
-  align-self: flex-start;
+  align-self: end;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
@@ -8660,6 +8673,7 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
 }
 
 .services-catalogue-related-card > .services-catalogue-card {
+  height: auto;
   min-height: 0;
   border-radius: 1.25rem 1.25rem 0 0;
   background: transparent;
@@ -8755,7 +8769,13 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
 @media (min-width: 1280px) {
   .services-catalogue-grid[data-item-count="2"],
   .services-catalogue-grid[data-item-count="4"] {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, min(100%, 27rem)));
+    justify-content: center;
+  }
+
+  .services-catalogue-grid[data-item-count="2"] > *,
+  .services-catalogue-grid[data-item-count="4"] > * {
+    grid-column: auto !important;
   }
 
   .services-catalogue-grid[data-item-count="5"] {
