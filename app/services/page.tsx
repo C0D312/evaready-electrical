@@ -1601,7 +1601,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--ev-section-blue)] py-12 text-white sm:py-16">
+      <section className="services-problem-selector bg-[var(--ev-section-blue)] py-12 text-white sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-black uppercase tracking-[0.22em] text-cyan-200">
@@ -1616,23 +1616,26 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div
+            className="services-problem-selector-grid mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3"
+            data-balance-lg={serviceProblemSelectorItems.length % 3}
+          >
             {serviceProblemSelectorItems.map((item) => (
               <article
                 key={item.problem}
-                className="rounded-2xl border border-cyan-300/18 bg-[#08236b] p-4 shadow-xl shadow-blue-950/15"
+                className="services-problem-card rounded-2xl border border-cyan-300/18 bg-[#08236b] p-4 shadow-xl shadow-blue-950/15"
               >
-                <h3 className="text-base font-black leading-6 text-white">
+                <h3 className="services-problem-card__title text-base font-black leading-6 text-white">
                   {item.problem}
                 </h3>
-                <div className="mt-3 flex flex-wrap gap-2">
+                <div className="services-problem-card__links mt-3 flex flex-wrap gap-2">
                   {item.links.map((link) => (
                     <Link
                       key={link.label}
                       href={link.href}
-                      className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-cyan-300/35 bg-cyan-300/10 px-3 py-2 text-sm font-black text-white shadow-sm shadow-cyan-950/20 transition hover:border-cyan-200 hover:bg-cyan-300/20 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
+                      className="services-problem-card__link inline-flex min-h-10 items-center gap-2 rounded-lg border border-cyan-300/35 bg-cyan-300/10 px-3 py-2 text-sm font-black text-white shadow-sm shadow-cyan-950/20 transition hover:border-cyan-200 hover:bg-cyan-300/20 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
                     >
-                      {link.label}
+                      <span>{link.label}</span>
                       <ArrowRight className="h-4 w-4 text-cyan-200" />
                     </Link>
                   ))}
