@@ -7896,12 +7896,47 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
   min-width: 0 !important;
 }
 
+.service-detail-scope-section {
+  background:
+    radial-gradient(circle at 16% 10%, rgba(7, 156, 255, 0.13), transparent 30rem),
+    linear-gradient(180deg, var(--ev-dark-blue), var(--ev-midnight)) !important;
+  color: var(--ev-white) !important;
+}
+
+.service-detail-scope-layout {
+  align-items: start !important;
+}
+
+.service-detail-scope-copy {
+  max-width: 42rem !important;
+}
+
+.service-detail-scope-grid {
+  align-items: stretch !important;
+}
+
+.service-action-card--scope {
+  display: flex !important;
+  min-height: clamp(7.25rem, 10vw, 8.75rem) !important;
+  align-items: center !important;
+  border-color: var(--ev-blue-border) !important;
+  background:
+    linear-gradient(135deg, rgba(7, 60, 255, 0.24), rgba(9, 29, 66, 0.92)) !important;
+  box-shadow: 0 1rem 2.2rem rgba(1, 8, 28, 0.2) !important;
+}
+
 .service-action-card__summary,
 .warning-action-card__summary {
   display: grid !important;
   grid-template-columns: var(--ev-card-icon-size) minmax(0, 1fr) !important;
   column-gap: var(--ev-card-gap) !important;
   min-height: var(--ev-card-icon-size) !important;
+}
+
+.service-action-card__summary--with-end {
+  width: 100% !important;
+  grid-template-columns: var(--ev-card-icon-size) minmax(0, 1fr) var(--ev-card-arrow-size) !important;
+  align-items: center !important;
 }
 
 .service-action-card__icon,
@@ -7921,6 +7956,23 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
   overflow-wrap: break-word;
   word-break: normal;
   hyphens: none;
+}
+
+.service-action-card--scope .service-action-card__title {
+  color: var(--ev-white) !important;
+}
+
+.service-action-card__end-icon {
+  display: inline-flex !important;
+  width: var(--ev-card-arrow-size) !important;
+  height: var(--ev-card-arrow-size) !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid rgba(98, 216, 255, 0.38) !important;
+  border-radius: 999px !important;
+  background: rgba(7, 156, 255, 0.13) !important;
+  color: var(--ev-cyan) !important;
+  justify-self: center !important;
 }
 
 .action-button-row {

@@ -719,9 +719,9 @@ export default async function ServiceLandingPage({
         variant={processProofVariant}
       />
 
-      <section className="bg-slate-50 py-20">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
-          <div>
+      <section className="service-detail-scope-section bg-slate-50 py-20">
+        <div className="service-detail-scope-layout mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+          <div className="service-detail-scope-copy">
             <p className="text-sm font-black uppercase tracking-[0.28em] text-blue-700">
               What we handle
             </p>
@@ -757,38 +757,19 @@ export default async function ServiceLandingPage({
             </div>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="service-detail-scope-grid grid gap-4 sm:grid-cols-2">
             {service.services.map((item) => (
               <article
                 key={item}
-                className="service-action-card rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+                className="service-action-card service-action-card--scope rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
               >
-                <span className="service-action-card__summary flex items-start gap-3">
+                <span className="service-action-card__summary service-action-card__summary--with-end flex items-start gap-3">
                   <Wrench className="service-action-card__icon mt-0.5 h-5 w-5 shrink-0 text-blue-700" />
                   <span className="service-action-card__title font-bold text-slate-800">{item}</span>
+                  <span className="service-action-card__end-icon" aria-hidden="true">
+                    <CheckCircle2 className="h-5 w-5" />
+                  </span>
                 </span>
-                <div className="action-button-row mt-4 grid gap-2 sm:grid-cols-2">
-                  <a
-                    href={business.phoneHref}
-                    data-conversion-action="phone-click"
-                    aria-label={`Call Evaready Electrical about ${item}`}
-                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-red-200/45 bg-gradient-to-r from-[#b90816] via-red-600 to-[#ff2637] px-3 py-2 text-center text-xs font-black uppercase tracking-[0.06em] text-white shadow-md shadow-red-950/20 transition hover:border-red-100 hover:from-red-700 hover:via-red-500 hover:to-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-100"
-                  >
-                    <Phone className="h-4 w-4" />
-                    Call Now
-                  </a>
-                  <a
-                    href={business.bookingUrl}
-                    data-quote-trigger="true"
-                    data-conversion-action="quote-click"
-                    aria-haspopup="dialog"
-                    aria-label={`Get a quote for ${item}`}
-                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-cyan-200/35 bg-gradient-to-r from-blue-700 to-cyan-400 px-3 py-2 text-center text-xs font-black uppercase tracking-[0.06em] text-white shadow-md shadow-blue-950/20 transition hover:border-cyan-100 hover:from-blue-600 hover:to-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-100"
-                  >
-                    Get a Quote
-                    <ArrowRight className="h-4 w-4" />
-                  </a>
-                </div>
               </article>
             ))}
           </div>
