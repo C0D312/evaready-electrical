@@ -8197,10 +8197,15 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
   align-items: stretch;
 }
 
+.services-catalogue-grid > * {
+  min-width: 0;
+}
+
 .services-catalogue-card,
 .services-catalogue-related-card {
   position: relative;
   isolation: isolate;
+  min-width: 0;
   background:
     radial-gradient(circle at 14% 0%, rgba(7, 156, 255, 0.1), transparent 34%),
     linear-gradient(145deg, rgba(7, 24, 62, 0.98), rgba(4, 11, 28, 0.98));
@@ -8210,6 +8215,8 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
 }
 
 .services-catalogue-card {
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
 }
 
@@ -8231,6 +8238,7 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
 
 .services-catalogue-card__head {
   align-items: start;
+  min-width: 0;
 }
 
 .services-catalogue-card__icon {
@@ -8246,10 +8254,12 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
 
 .services-catalogue-card__copy {
   max-width: 30rem;
+  color: var(--ev-white);
 }
 
 .services-catalogue-card__includes {
   min-height: 6.75rem;
+  align-content: start;
 }
 
 .services-catalogue-card__include {
@@ -8261,13 +8271,33 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
 }
 
 .services-catalogue-card__action {
+  width: 100%;
   min-height: 2rem;
   align-self: flex-start;
+  border-top: 1px solid rgba(98, 216, 255, 0.12);
   line-height: 1.2;
 }
 
 .services-catalogue-card__action svg {
   flex: 0 0 auto;
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .services-catalogue-grid[data-balance-md="1"] > :last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(100%, calc((100% - 1rem) / 2));
+  }
+}
+
+@media (min-width: 1280px) {
+  .services-catalogue-grid[data-balance-xl="1"] > :last-child {
+    grid-column: 2;
+  }
+
+  .services-catalogue-card__head {
+    min-height: 7.85rem;
+  }
 }
 
 @media (max-width: 639px) {
@@ -8299,6 +8329,7 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
   .services-catalogue-card__head {
     grid-template-columns: 3.05rem minmax(0, 1fr);
     gap: 0.85rem;
+    min-height: 0;
   }
 
   .services-catalogue-card__icon {
@@ -8308,6 +8339,10 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
 
   .services-catalogue-card__includes {
     min-height: 0;
+  }
+
+  .services-catalogue-card__action {
+    padding-top: 1rem;
   }
 }
 

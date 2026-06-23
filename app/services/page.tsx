@@ -1452,7 +1452,11 @@ export default function ServicesPage() {
                   </p>
                 </div>
 
-                <div className="services-catalogue-grid mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                <div
+                  className="services-catalogue-grid mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3"
+                  data-balance-md={category.items.length % 2}
+                  data-balance-xl={category.items.length % 3}
+                >
                   {category.items.map((item) => {
                     const service = getServiceByTitle(item.title);
                     const Icon = service.icon;
