@@ -1,19 +1,19 @@
-base,route,runs,status,medianDomContentLoadedMs,medianLoadMs,medianTransferBytes,medianEncodedBytes,medianDecodedBytes,medianResourceCount,horizontalOverflow,h1Count,ctasAndAdsPresent,errors
-live-before,/,3,200|200|200,27,131,908424,903324,2055114,20,no,1|1|1,yes,
-live-before,/emergency-electrician-sydney/,3,200|200|200,82,124,911999,905999,2047760,23,no,1|1|1,yes,
-live-before,/level-2-electrician-sydney/,3,200|200|200,81,107,907095,901395,2019217,22,no,1|1|1,yes,
-live-before,/services/,3,200|200|200,28,132,923044,917344,2368324,22,no,1|1|1,yes,
-live-before,/service-areas/,3,200|200|200,107,136,946668,940368,2333264,24,no,1|1|1,yes,
-live-before,/about/,3,200|200|200,27,91,882294,876594,1802533,22,no,1|1|1,yes,
-live-before,/contact/,3,200|200|200,33,89,878493,872793,1774753,22,no,1|1|1,yes,
-live-before,/solar-batteries/,3,200|200|200,26,130,915036,909036,1965336,23,no,1|1|1,yes,
-live-before,/services/pre-purchase-rental-electrical-inspections-sydney/,3,200|200|200,27,117,908677,902977,2122484,22,no,1|1|1,yes,
-local-after,/,3,200|200|200,14,113,2056368,2051268,2055112,20,no,1|1|1,yes,
-local-after,/emergency-electrician-sydney/,3,200|200|200,70,117,2049891,2043891,2047774,23,no,1|1|1,yes,
-local-after,/level-2-electrician-sydney/,3,200|200|200,65,93,2021003,2015303,2019177,22,no,1|1|1,yes,
-local-after,/services/,3,200|200|200,105,115,2370154,2364454,2368344,22,no,1|1|1,yes,
-local-after,/service-areas/,3,200|200|200,14,93,2335711,2329411,2333302,24,no,1|1|1,yes,
-local-after,/about/,3,200|200|200,47,74,1804357,1798657,1802513,22,no,1|1|1,yes,
-local-after,/contact/,3,200|200|200,40,65,1776592,1770892,1774759,22,no,1|1|1,yes,
-local-after,/solar-batteries/,3,200|200|200,53,119,1967435,1961435,1965314,23,no,1|1|1,yes,
-local-after,/services/pre-purchase-rental-electrical-inspections-sydney/,3,200|200|200,72,103,2124223,2118523,2122460,22,no,1|1|1,yes,
+phase,profile,url,runs,performance score,accessibility score,best practices score,seo score,median LCP ms,median CLS,median INP ms,median load ms,median JS bytes,median CSS bytes,median image bytes,median transfer bytes,median request count,notes
+before,mobile,/,3,not-run,not-run,not-run,not-run,124,0,not-measured,106,165218,42383,623032,900347,21,Playwright timing fallback; Lighthouse not installed.
+before,mobile,/emergency-electrician-sydney/,3,not-run,not-run,not-run,not-run,160,0,not-measured,141,165242,45021,623032,913643,24,Playwright timing fallback; Lighthouse not installed.
+before,mobile,/level-2-electrician-sydney/,3,not-run,not-run,not-run,not-run,116,0,not-measured,113,165248,42383,623032,908471,23,Playwright timing fallback; Lighthouse not installed.
+before,mobile,/services/,3,not-run,not-run,not-run,not-run,376,0,not-measured,378,165245,42383,623032,927309,23,Playwright timing fallback; Lighthouse not installed.
+before,mobile,/service-areas/,3,not-run,not-run,not-run,not-run,124,0,not-measured,120,186927,42383,623032,947784,25,Playwright timing fallback; Lighthouse not installed.
+before,mobile,/about/,3,not-run,not-run,not-run,not-run,92,0,not-measured,94,165226,328125,623032,883919,23,Playwright timing fallback; Lighthouse not installed.
+before,mobile,/contact/,3,not-run,not-run,not-run,not-run,104,0,not-measured,83,165224,328125,623032,880174,23,Playwright timing fallback; Lighthouse not installed.
+before,mobile,/solar-batteries/,3,not-run,not-run,not-run,not-run,732,0,not-measured,1204,185214,42383,623032,916766,24,Playwright timing fallback; Lighthouse not installed.
+before,mobile,/services/pre-purchase-rental-electrical-inspections-sydney/,3,not-run,not-run,not-run,not-run,124,0,not-measured,124,165263,42383,623032,908141,23,Playwright timing fallback; Lighthouse not installed.
+before,desktop,/,3,not-run,not-run,not-run,not-run,120,0,not-measured,105,165231,42383,623032,900360,21,Playwright timing fallback; Lighthouse not installed.
+before,desktop,/emergency-electrician-sydney/,3,not-run,not-run,not-run,not-run,176,0,not-measured,130,165237,45021,623032,913638,24,Playwright timing fallback; Lighthouse not installed.
+before,desktop,/level-2-electrician-sydney/,3,not-run,not-run,not-run,not-run,140,0,not-measured,115,165236,42383,623032,908459,23,Playwright timing fallback; Lighthouse not installed.
+before,desktop,/services/,3,not-run,not-run,not-run,not-run,148,0,not-measured,131,165241,42383,623032,927305,23,Playwright timing fallback; Lighthouse not installed.
+before,desktop,/service-areas/,3,not-run,not-run,not-run,not-run,176,0,not-measured,138,186927,42383,623032,947784,25,Playwright timing fallback; Lighthouse not installed.
+before,desktop,/about/,3,not-run,not-run,not-run,not-run,176,0,not-measured,294,165218,328125,623032,883911,23,Playwright timing fallback; Lighthouse not installed.
+before,desktop,/contact/,3,not-run,not-run,not-run,not-run,164,0,not-measured,112,165212,328125,623032,880167,23,Playwright timing fallback; Lighthouse not installed.
+before,desktop,/solar-batteries/,3,not-run,not-run,not-run,not-run,116,0,not-measured,108,185206,42383,623032,916758,24,Playwright timing fallback; Lighthouse not installed.
+before,desktop,/services/pre-purchase-rental-electrical-inspections-sydney/,3,not-run,not-run,not-run,not-run,196,0,not-measured,157,165250,42383,623032,908128,23,Playwright timing fallback; Lighthouse not installed.

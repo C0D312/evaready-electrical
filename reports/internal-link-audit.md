@@ -1,16 +1,16 @@
 # Internal Link Audit
 
-Generated: 2026-06-19T04:30:16.100Z
+Generated: 2026-06-25T19:14:27.221Z
 
 ## Route Inventory
 
 - Static routes: 13
-- Service routes: 46
+- Service routes: 47
 - Electrical fault routes: 15
 - Region routes: 16
 - Area routes: 39
 - Suburb routes: 873
-- Total known routes: 1000
+- Total known routes: 1002
 
 ## Link Sources Checked
 
@@ -21,7 +21,7 @@ Generated: 2026-06-19T04:30:16.100Z
 - Generated service-area search links
 - Generated suburb service links
 
-Internal links checked: 20034
+Internal links checked: 20089
 
 ## Broken Links
 
@@ -29,8 +29,8 @@ No broken internal links found.
 
 ## Generated HTML Crawl
 
-- HTML routes checked: 999
-- Anchors checked: 96639
+- HTML routes checked: 1001
+- Anchors checked: 106529
 - Generated HTML link issues: 0
 
 

@@ -44,7 +44,7 @@ export const business = {
   name: "Evaready Electrical",
   brandImage: "/images/evaready-electrical-sydney-service-van.png",
   heroImage: "/images/evaready-electrical-sydney-service-van.webp",
-  logoImage: "/images/evareadyelectrical-logo.webp",
+  logoImage: "/images/evareadyelectrical-logo-perf-1000.webp",
   brandImageAlt: "Evaready Electrical 24/7 service van in Sydney",
   phoneDisplay: "0461 247 247",
   phoneHref: "tel:+61461247247",
