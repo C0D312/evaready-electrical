@@ -236,7 +236,11 @@ function classifyHref(
     const targetPath = href.slice(basePath.length).split(/[?#]/)[0] || "/";
     const route = normalizeRoute(targetPath);
 
-    if (/^\/(?:_next|images|favicon\.ico|apple-icon\.png|icon\.png)/.test(route)) {
+    if (
+      /^\/(?:_next|images|favicon\.ico|apple-icon\.png|icon\.png|evaready-(?:favicon|icon|apple-icon)[^/]*\.(?:ico|png))/.test(
+        route,
+      )
+    ) {
       return {
         issue: outputFileExists(route) ? "" : "base-path asset missing",
         status: outputFileExists(route) ? ("pass" as const) : ("fail" as const),
@@ -256,7 +260,11 @@ function classifyHref(
   if (href.startsWith("/")) {
     const routeOrAsset = href.split(/[?#]/)[0];
 
-    if (/^\/(?:_next|images|favicon\.ico|apple-icon\.png|icon\.png)/.test(routeOrAsset)) {
+    if (
+      /^\/(?:_next|images|favicon\.ico|apple-icon\.png|icon\.png|evaready-(?:favicon|icon|apple-icon)[^/]*\.(?:ico|png))/.test(
+        routeOrAsset,
+      )
+    ) {
       return {
         issue: outputFileExists(routeOrAsset) ? "" : "root asset missing",
         status: outputFileExists(routeOrAsset)

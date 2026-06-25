@@ -378,7 +378,7 @@ function generatedRouteForHref(href: string, sourceRoute: string) {
 
     if (href.startsWith("/")) {
       if (
-        /^\/(?:_next|images|favicon|apple-icon|icon|robots\.txt|sitemap\.xml)/i.test(
+        /^\/(?:_next|images|favicon|apple-icon|icon|evaready-(?:favicon|icon|apple-icon)|robots\.txt|sitemap\.xml)/i.test(
           href,
         )
       ) {

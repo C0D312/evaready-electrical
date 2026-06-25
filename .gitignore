@@ -24,6 +24,7 @@
 /.next/
 /out/
 /.deploy-gh-pages/
+/public/site-version.json
 
 # production
 /build
