@@ -35,7 +35,7 @@ const contactOptions = [
   },
   {
     title: "Quote form",
-    text: "Send photos, job details, access notes and paperwork.",
+    text: "Use the secure online quote form to send photos, job details, access notes and paperwork.",
     href: business.bookingUrl,
     icon: ClipboardCheck,
   },
@@ -182,9 +182,8 @@ export default function ContactPage() {
                 Send the job details through the quote form.
               </h2>
               <p className="mt-4 text-base font-semibold leading-7 text-slate-700 sm:text-lg">
-                Use the quote form to send photos, job details, access notes
-                and paperwork. This keeps planned enquiries in the approved
-                ServiceM8 quote path.
+                Use the secure online quote form to send photos, job details,
+                access notes and paperwork.
               </p>
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
                 <a
