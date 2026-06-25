@@ -3,6 +3,7 @@
   "site": "Evaready Electrical",
   "deployTarget": "GitHub Pages",
   "basePath": "/evaready-electrical",
-  "buildDate": "2026-06-22T02:02:47+10:00",
-  "versionNote": "Final all-updates deployment gate with full generated-route, responsive and public live verification."
+  "buildDate": "2026-06-25T18:41:05.149Z",
+  "mainCommit": "c8254fe0a757c3b93eafc05436f5eb18cc08658e",
+  "versionNote": "Favicon v2 and automatic site-version build marker."
 }
