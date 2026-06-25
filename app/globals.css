@@ -4,7 +4,7 @@
   /* Evaready dark-blue logo theme. Legacy variable names are kept for compatibility. */
   --ev-black: #02050d;
   --ev-void: #040b1c;
-  --ev-midnight: #06142f;
+  --ev-midnight: #040b1c;
   --ev-dark-blue: #06142f;
   --ev-panel: #091d42;
   --ev-panel-strong: #0d2b5c;
@@ -23,7 +23,7 @@
   --ev-steel: #737581;
   --ev-white: #FFFFFF;
   --ev-muted: #AFC3D5;
-  --ev-red: #E2101D;
+  --ev-red: #e9111e;
   --ev-red-bright: #FF2637;
   --ev-red-dark: #7A0713;
   --ev-red-glow: rgba(233, 17, 30, 0.34);
