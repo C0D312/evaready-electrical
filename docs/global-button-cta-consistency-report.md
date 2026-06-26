@@ -126,6 +126,21 @@ Full visibility audit:
 
 None for this button/CTA consistency pass.
 
+## Deployment result
+
+- Main commit pushed: `d83cc42cca143b458548d81dde05845e1eb10443`
+- GitHub Pages commit pushed: `9a41e293ea7327b52012dc17e0a3f9c5b01e799c`
+- Public `site-version.json` updated on normal URL: yes
+- Public `site-version.json` updated on cache-busted URL: yes
+- Normal public URLs verified: yes
+- Cache-busted public URLs verified: yes
+- Live pages checked: 14 HTML pages plus `sitemap.xml`, `robots.txt` and `site-version.json`
+- Live viewport checks: 390x844 and 1366x768
+- Live horizontal overflow failures: 0
+- Live clipped-button failures: 0
+- Live CTA tracking failures: 0
+- Live stale CTA wording failures: 0
+
 ## Final status
 
-PASS for deployment after clean local validation.
+LIVE PASS.
