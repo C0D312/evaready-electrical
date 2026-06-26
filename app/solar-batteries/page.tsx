@@ -263,7 +263,7 @@ export default function SolarBatteriesPage() {
                 className="solar-quote-cta inline-flex min-h-14 w-full min-w-0 items-center justify-center gap-3 rounded-lg bg-gradient-to-r from-blue-700 to-cyan-400 px-5 py-4 text-center text-base font-black text-white shadow-xl shadow-blue-600/25 transition hover:from-blue-600 hover:to-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-100"
               >
                 <span className="solar-quote-cta__label">
-                  Get a Solar & Battery Quote
+                  {business.quoteCta}
                 </span>
                 <ArrowRight className="h-5 w-5 shrink-0" />
               </a>
@@ -404,7 +404,7 @@ export default function SolarBatteriesPage() {
                 className="solar-quote-cta inline-flex min-h-14 w-full min-w-0 items-center justify-center gap-3 rounded-lg bg-gradient-to-r from-blue-700 to-cyan-400 px-5 py-4 text-center font-black text-white shadow-lg shadow-blue-600/20 transition hover:from-blue-600 hover:to-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-100"
               >
                 <span className="solar-quote-cta__label">
-                  Get a Solar & Battery Quote
+                  {business.quoteCta}
                 </span>
                 <ArrowRight className="h-5 w-5 shrink-0" />
               </a>
@@ -511,7 +511,7 @@ export default function SolarBatteriesPage() {
               className="solar-quote-cta inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-gradient-to-r from-blue-700 to-cyan-400 px-6 py-4 font-black text-white shadow-xl shadow-blue-600/25 transition hover:from-blue-600 hover:to-cyan-300"
             >
               <span className="solar-quote-cta__label">
-                Get a Solar & Battery Quote
+                {business.quoteCta}
               </span>
               <ArrowRight className="h-5 w-5 shrink-0" />
             </a>

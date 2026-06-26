@@ -9050,3 +9050,271 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
     grid-template-columns: minmax(0, 1fr) !important;
   }
 }
+
+/* Final shared action system. This is the winning layer for all public CTAs,
+   card actions and sticky buttons so older page-level utility classes cannot
+   drift into different colours, heights or alignment. */
+:root {
+  --ev-red-hot: #ff3247;
+  --ev-blue: #0876ff;
+  --ev-electric: #079cff;
+  --ev-action-radius: 0.95rem;
+  --ev-action-height: 3.25rem;
+  --ev-action-gap: 0.65rem;
+}
+
+.ev-btn,
+:where(main, .site-header, .site-footer, #mobile-site-menu) :is(a, button)[data-conversion-action],
+:where(main, .site-header, .site-footer, #mobile-site-menu) a[href*="book.servicem8.com"],
+.mobile-sticky-cta__link {
+  display: inline-flex !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  min-height: var(--ev-action-height) !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: var(--ev-action-gap) !important;
+  box-sizing: border-box !important;
+  border-radius: var(--ev-action-radius) !important;
+  padding: 0.85rem clamp(0.95rem, 2vw, 1.55rem) !important;
+  color: var(--ev-white) !important;
+  font-weight: 900 !important;
+  line-height: 1.12 !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease !important;
+}
+
+:where(main, .site-header, .site-footer, #mobile-site-menu) :is(a, button)[data-conversion-action] > :is(span, svg),
+:where(main, .site-header, .site-footer, #mobile-site-menu) a[href*="book.servicem8.com"] > :is(span, svg),
+.mobile-sticky-cta__link > :is(span, svg) {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  align-self: center !important;
+  color: currentColor !important;
+  line-height: 1.12 !important;
+}
+
+:where(main, .site-header, .site-footer, #mobile-site-menu) :is(a, button)[data-conversion-action] svg,
+:where(main, .site-header, .site-footer, #mobile-site-menu) a[href*="book.servicem8.com"] svg,
+.mobile-sticky-cta__link svg {
+  width: 1.15em !important;
+  height: 1.15em !important;
+  flex: 0 0 auto !important;
+}
+
+.ev-btn--call,
+:where(main, .site-header, .site-footer, #mobile-site-menu) :is(a, button)[data-conversion-action="phone-click"],
+.mobile-sticky-cta__call,
+.footer-action-call {
+  order: 1 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  background:
+    linear-gradient(135deg, var(--ev-red-dark) 0%, var(--ev-red) 48%, var(--ev-red-hot) 100%) !important;
+  box-shadow:
+    0 1rem 2.25rem rgba(233, 17, 30, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22) !important;
+  color: var(--ev-white) !important;
+}
+
+.ev-btn--quote,
+:where(main, .site-header, .site-footer, #mobile-site-menu) :is(a, button)[data-conversion-action="quote-click"],
+:where(main, .site-header, .site-footer, #mobile-site-menu) a[href*="book.servicem8.com"],
+.mobile-sticky-cta__quote,
+.footer-action-quote {
+  order: 2 !important;
+  border: 1px solid rgba(98, 216, 255, 0.38) !important;
+  background:
+    linear-gradient(135deg, var(--ev-blue) 0%, var(--ev-electric) 58%, var(--ev-cyan) 100%) !important;
+  box-shadow:
+    0 1rem 2.1rem rgba(7, 156, 255, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24) !important;
+  color: var(--ev-white) !important;
+}
+
+.ev-btn:hover,
+:where(main, .site-header, .site-footer, #mobile-site-menu) :is(a, button)[data-conversion-action]:hover,
+:where(main, .site-header, .site-footer, #mobile-site-menu) a[href*="book.servicem8.com"]:hover,
+.mobile-sticky-cta__link:hover {
+  transform: translateY(-1px) !important;
+  color: var(--ev-white) !important;
+}
+
+:where(main, .site-header, .site-footer, #mobile-site-menu) :is(a, button)[data-conversion-action]:focus-visible,
+:where(main, .site-header, .site-footer, #mobile-site-menu) a[href*="book.servicem8.com"]:focus-visible,
+.mobile-sticky-cta__link:focus-visible,
+.ev-card-link:focus-visible {
+  outline: 3px solid rgba(98, 216, 255, 0.58) !important;
+  outline-offset: 3px !important;
+}
+
+:where(main, .site-footer, #mobile-site-menu) :is(
+  div,
+  nav,
+  section,
+  article
+):not(.mobile-sticky-cta):has(> a[data-conversion-action="phone-click"]):has(> a[data-conversion-action="quote-click"]) {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  align-items: stretch !important;
+  gap: clamp(0.65rem, 1.6vw, 0.95rem) !important;
+  width: min(100%, 38rem) !important;
+  max-width: 100% !important;
+}
+
+:where(main, .site-footer, #mobile-site-menu) :is(
+  div,
+  nav,
+  section,
+  article
+):not(.mobile-sticky-cta):has(> a[data-conversion-action="phone-click"]):has(> a[data-conversion-action="quote-click"]) > a[data-conversion-action] {
+  width: 100% !important;
+  justify-self: stretch !important;
+}
+
+.ev-btn--secondary,
+.ev-btn--card,
+.ev-card-link,
+.services-card-action,
+.services-problem-card__link,
+.service-related-card__action,
+.service-related-all-link,
+.emergency-link-card {
+  display: grid !important;
+  min-width: 0 !important;
+  align-items: center !important;
+  color: var(--ev-white) !important;
+  text-decoration: none !important;
+}
+
+.ev-card-link,
+.services-problem-card__link,
+.emergency-link-card {
+  grid-template-columns: auto minmax(0, 1fr) auto !important;
+  gap: clamp(0.75rem, 1.5vw, 1rem) !important;
+}
+
+.services-card-action,
+.service-related-card__action,
+.service-related-all-link {
+  grid-template-columns: minmax(0, auto) auto !important;
+  gap: 0.55rem !important;
+}
+
+.warning-action-card__summary {
+  display: grid !important;
+  grid-template-columns: auto minmax(0, 1fr) !important;
+  align-items: center !important;
+  gap: clamp(0.75rem, 1.5vw, 1rem) !important;
+  min-width: 0 !important;
+  color: var(--ev-white) !important;
+}
+
+.ev-card-link :is(svg, .ev-arrow-chip),
+.services-card-action svg,
+.services-problem-card__link svg,
+.service-related-card__action svg,
+.service-related-all-link svg,
+.emergency-link-card svg,
+.warning-action-card__summary svg {
+  flex: 0 0 auto !important;
+  align-self: center !important;
+  justify-self: center !important;
+  color: var(--ev-cyan) !important;
+}
+
+.ev-arrow-chip,
+.services-problem-card__link svg:last-child,
+.service-related-all-link svg:last-child,
+.emergency-link-card > span:last-child {
+  width: 2.45rem !important;
+  height: 2.45rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(98, 216, 255, 0.28) !important;
+  background: rgba(7, 156, 255, 0.16) !important;
+  color: var(--ev-cyan) !important;
+}
+
+.mobile-sticky-cta {
+  left: max(0.75rem, env(safe-area-inset-left)) !important;
+  right: max(0.75rem, env(safe-area-inset-right)) !important;
+  bottom: max(0.65rem, env(safe-area-inset-bottom)) !important;
+  width: auto !important;
+  max-width: min(42rem, calc(100vw - 1.5rem)) !important;
+  margin-inline: auto !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  align-items: stretch !important;
+  justify-items: stretch !important;
+  gap: 0.5rem !important;
+  padding: 0.48rem !important;
+  border: 1px solid rgba(98, 216, 255, 0.28) !important;
+  background:
+    linear-gradient(180deg, rgba(9, 29, 66, 0.96), rgba(4, 11, 28, 0.96)) !important;
+  box-shadow:
+    0 1.25rem 3rem rgba(0, 0, 0, 0.44),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+.mobile-sticky-cta__link {
+  width: 100% !important;
+  min-height: 3.25rem !important;
+  padding: 0.78rem clamp(0.55rem, 2.6vw, 0.95rem) !important;
+  font-size: clamp(0.72rem, 3.1vw, 0.9rem) !important;
+}
+
+.mobile-sticky-cta__link span {
+  white-space: normal !important;
+  overflow-wrap: normal !important;
+}
+
+@media (min-width: 1024px) and (max-width: 1180px) {
+  .brand-internal-hero > .grid,
+  .brand-internal-hero .service-detail-hero-layout,
+  .brand-internal-hero [class*="heroInner"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+    justify-items: center !important;
+  }
+
+  .brand-internal-hero > .grid > :is(div, aside),
+  .brand-internal-hero .service-detail-hero-panel,
+  .brand-internal-hero .service-detail-hero-aside,
+  .brand-internal-hero [class*="heroCopyPanel"],
+  .brand-internal-hero [class*="heroPanel"] {
+    width: min(100%, 48rem) !important;
+    max-width: 100% !important;
+    justify-self: center !important;
+  }
+}
+
+@media (max-width: 360px) {
+  :where(main, .site-footer, #mobile-site-menu) :is(
+    div,
+    nav,
+    section,
+    article
+  ):not(.mobile-sticky-cta):has(> a[data-conversion-action="phone-click"]):has(> a[data-conversion-action="quote-click"]) {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .mobile-sticky-cta {
+    max-width: calc(100vw - 1rem) !important;
+    gap: 0.42rem !important;
+    padding: 0.38rem !important;
+  }
+
+  .mobile-sticky-cta__link {
+    min-height: 3.1rem !important;
+    font-size: clamp(0.66rem, 3.35vw, 0.76rem) !important;
+    gap: 0.35rem !important;
+    padding-inline: 0.45rem !important;
+  }
+}

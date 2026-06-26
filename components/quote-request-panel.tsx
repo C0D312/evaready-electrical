@@ -118,7 +118,7 @@ export function QuoteRequestPanel({
               aria-label="Open booking form for planned electrical work"
               className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
             >
-              Open Booking Form
+              {business.quoteCta}
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
@@ -151,7 +151,7 @@ export function QuoteRequestPanel({
                 aria-label="Open booking form for planned electrical work"
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-blue-700 to-cyan-400 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:from-blue-600 hover:to-cyan-300"
               >
-                Open Booking Form
+                {business.quoteCta}
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>
