@@ -41,21 +41,16 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: assetPath("/evaready-favicon-v2.ico"), sizes: "any" },
+      { url: assetPath("/evaready-full-logo-favicon-v2.ico"), sizes: "any" },
       {
-        url: assetPath("/evaready-icon-v2.png"),
+        url: assetPath("/evaready-full-logo-square-512.png"),
         sizes: "512x512",
-        type: "image/png",
-      },
-      {
-        url: assetPath("/evaready-icon-192-v2.png"),
-        sizes: "192x192",
         type: "image/png",
       },
     ],
     apple: [
       {
-        url: assetPath("/evaready-apple-icon-v2.png"),
+        url: assetPath("/evaready-full-logo-square-180.png"),
         sizes: "180x180",
         type: "image/png",
       },
@@ -81,5 +76,4 @@ export default function RootLayout({
     </html>
   );
 }
-
 
