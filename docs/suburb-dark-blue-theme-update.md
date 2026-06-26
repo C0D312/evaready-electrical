@@ -41,6 +41,23 @@ Generated output checks:
 - Phone and quote conversion markers remained present.
 - No stale or risky wording matched the requested detector set.
 
+## Deployment And Live Verification
+
+- Source changes were committed and pushed to `main`.
+- A fresh GitHub Pages export was built from the pushed source.
+- The `gh-pages` worktree was cleaned, refreshed from `out/`, committed and pushed.
+- Live `site-version.json` updated successfully on the public GitHub Pages site.
+- Normal and cache-busted public URLs were verified for:
+  - `/service-areas/`
+  - Panania
+  - Coogee
+  - Blacktown
+  - Camden
+  - Wollongong
+  - Katoomba as the Blue Mountains sample
+  - Gosford as the Central Coast sample
+- Live browser checks confirmed no horizontal overflow and safe sticky CTA width at 360, 390, 412, 430, 768, 1366 and 1920 viewport widths for the checked service-area routes.
+
 ## Final Result
 
-Pending GitHub Pages deployment and public live verification.
+LIVE PASS.
