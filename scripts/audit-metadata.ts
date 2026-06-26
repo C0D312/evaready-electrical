@@ -50,6 +50,18 @@ function csvEscape(value: number | string) {
   return text;
 }
 
+function normalizeDescription(value: string) {
+  return value.toLowerCase().replace(/\s+/g, " ").trim();
+}
+
+function firstDescriptionWords(value: string, count: number) {
+  return normalizeDescription(value).split(/\s+/).slice(0, count).join(" ");
+}
+
+function isSuburbMetadata(metadata: RouteSeoMetadata) {
+  return /\/service-areas\/[^/]+\/[^/]+\/[^/]+$/.test(metadata.path);
+}
+
 function toRow(metadata: RouteSeoMetadata, duplicateWarnings: string[] = []) {
   const warnings = [...duplicateWarnings];
 
@@ -145,12 +157,62 @@ function collectMetadata() {
 const metadataByUrl = collectMetadata();
 const sitemapUrls = new Set(sitemap().map((entry) => entry.url));
 const rows: AuditRow[] = [];
+const descriptionCounts = new Map<string, number>();
+const suburbOpeningCounts = new Map<string, number>();
+
+for (const metadata of metadataByUrl.values()) {
+  const descriptionKey = normalizeDescription(metadata.description);
+  descriptionCounts.set(
+    descriptionKey,
+    (descriptionCounts.get(descriptionKey) ?? 0) + 1,
+  );
+
+  if (isSuburbMetadata(metadata)) {
+    const openingKey = firstDescriptionWords(metadata.description, 4);
+    suburbOpeningCounts.set(
+      openingKey,
+      (suburbOpeningCounts.get(openingKey) ?? 0) + 1,
+    );
+  }
+}
 
 for (const metadata of metadataByUrl.values()) {
   const duplicateWarnings =
     metadata.duplicateCount > 1
       ? [`duplicate metadata source x${metadata.duplicateCount}`]
       : [];
+  const descriptionKey = normalizeDescription(metadata.description);
+  const descriptionDuplicateCount = descriptionCounts.get(descriptionKey) ?? 1;
+
+  if (descriptionDuplicateCount > 1 && isSuburbMetadata(metadata)) {
+    duplicateWarnings.push(
+      `duplicate meta description shared by ${descriptionDuplicateCount} pages`,
+    );
+  }
+
+  if (isSuburbMetadata(metadata)) {
+    const openingKey = firstDescriptionWords(metadata.description, 4);
+    const openingCount = suburbOpeningCounts.get(openingKey) ?? 1;
+
+    if (/^(need|evaready|electrical|for)\b/i.test(openingKey) && openingCount > 20) {
+      duplicateWarnings.push(
+        `same generic suburb meta opening shared by ${openingCount} pages`,
+      );
+    }
+
+    if (
+      /^(need an electrician|need electrical help|evaready helps)\b/i.test(
+        metadata.description,
+      )
+    ) {
+      duplicateWarnings.push("generic suburb meta description opening");
+    }
+
+    if (!/\b\d{4}\b/.test(metadata.description)) {
+      duplicateWarnings.push("suburb meta description missing postcode");
+    }
+  }
+
   const row = toRow(metadata, duplicateWarnings);
 
   if (!sitemapUrls.has(row.URL)) {

@@ -15626,6 +15626,581 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
   },
 };
 
+type PrioritySuburbProfile = {
+  accessContext: string;
+  auditSignals: string[];
+  emergencyContext: string;
+  jobs: string;
+  level2Context: string;
+  metaFocus: string;
+  name: string;
+  postcode: string;
+  propertyMix: string;
+};
+
+const prioritySuburbProfiles: Record<string, PrioritySuburbProfile> = {
+  bankstown: {
+    accessContext:
+      "parking notes, shop or tenancy access, switchboard photos and strata contact details",
+    auditSignals: ["busy retail strips", "light-commercial sites", "strata access"],
+    emergencyContext:
+      "partial power loss, hot power points, tripping safety switches, buzzing fixtures or business outages",
+    jobs:
+      "older switchboard checks, strata repairs, shop maintenance, lighting, power, data cabling and Level 2 supply questions",
+    level2Context:
+      "Level 2 enquiries can involve consumer mains, metering, service equipment and defect notice responses for mixed residential and commercial sites.",
+    metaFocus:
+      "apartments, shop faults, older-home switchboards, lighting, power and Level 2 support",
+    name: "Bankstown",
+    postcode: "2200",
+    propertyMix:
+      "homes, apartments, retail strips, strata buildings and light-commercial sites",
+  },
+  panania: {
+    accessContext:
+      "photos of villa boards, duplex switchboards, work areas and local street access",
+    auditSignals: ["duplex upgrades", "villa switchboards", "older brick homes"],
+    emergencyContext:
+      "tripping safety switches, partial power loss, hot power points, failed hot water circuits or storm-related faults",
+    jobs:
+      "safety switch faults, old fuse upgrades, kitchen and laundry power, hot water electrical faults, smoke alarms and Level 2 support",
+    level2Context:
+      "Level 2 enquiries can include consumer mains, service equipment checks, metering support and defect notice paperwork.",
+    metaFocus:
+      "older boards, hot water circuits, safety switches, duplex or villa power and Level 2 support",
+    name: "Panania",
+    postcode: "2213",
+    propertyMix:
+      "older brick homes, duplexes, villas, units, strata buildings and small shopfronts",
+  },
+  revesby: {
+    accessContext:
+      "operating hours, workshop details, switchboard photos and driveway or warehouse access notes",
+    auditSignals: ["small industrial units", "warehouses", "workshops"],
+    emergencyContext:
+      "warehouse outages, circuit tripping, hot fittings, partial power loss or damaged equipment circuits",
+    jobs:
+      "home fault finding, warehouse lighting, equipment power, switchboards, smoke alarms, CCTV/data and Level 2 enquiries",
+    level2Context:
+      "Level 2 support can involve service equipment, metering, consumer mains, defect notices and supply-side planning.",
+    metaFocus:
+      "home, duplex and warehouse faults, switchboards, lighting, power, CCTV/data and Level 2 support",
+    name: "Revesby",
+    postcode: "2212",
+    propertyMix:
+      "family homes, duplexes, villas, warehouses, workshops and local businesses",
+  },
+  padstow: {
+    accessContext:
+      "narrow-street access, renovation photos, shop timing, switchboard photos and job notes",
+    auditSignals: ["narrow-street access", "renovation photos", "shop timing"],
+    emergencyContext:
+      "power loss, burning smells, sparking, hot fittings, circuit tripping or storm damage",
+    jobs:
+      "safety switch testing, old board upgrades, lighting repairs, extra power, smoke alarms, appliance circuits and Level 2 guidance",
+    level2Context:
+      "Level 2 enquiries can include consumer mains, metering, service equipment and defect notice guidance.",
+    metaFocus:
+      "older switchboards, renovation wiring, hot water circuits, shop power and Level 2 support",
+    name: "Padstow",
+    postcode: "2211",
+    propertyMix:
+      "homes, units, duplexes, shopfronts, small commercial sites and renovation properties",
+  },
+  coogee: {
+    accessContext:
+      "apartment entry, strata details, parking notes and photos of outdoor or weather-exposed fittings",
+    auditSignals: ["weather-rated power", "weather-exposed fittings", "apartment entry"],
+    emergencyContext:
+      "water-damaged fixtures, storm faults, tripping safety switches, hot power points or unsafe outdoor power",
+    jobs:
+      "coastal fault finding, outdoor lighting, apartment repairs, smoke alarms, switchboards, CCTV/data and weather-rated power",
+    level2Context:
+      "Level 2 support can involve consumer mains, point of attachment issues, service equipment and defect notice questions.",
+    metaFocus:
+      "coastal faults, outdoor lighting, switchboards, smoke alarms, power and Level 2 support",
+    name: "Coogee",
+    postcode: "2034",
+    propertyMix:
+      "coastal homes, apartments, strata buildings, terraces and local businesses",
+  },
+  "bondi-junction": {
+    accessContext:
+      "loading-zone notes, strata contacts, shop trading hours, apartment entry and photos",
+    auditSignals: ["loading-zone", "shop trading hours", "strata contacts"],
+    emergencyContext:
+      "business outages, hot power points, circuit tripping, apartment faults or switchboard concerns",
+    jobs:
+      "shop lighting, office power, apartment repairs, smoke alarms, data cabling, CCTV, switchboards and service equipment questions",
+    level2Context:
+      "Level 2 enquiries can include metering, consumer mains, service equipment and defect notice planning for busier buildings.",
+    metaFocus:
+      "apartments, shops, offices, strata access, lighting, switchboards and Level 2 support",
+    name: "Bondi Junction",
+    postcode: "2022",
+    propertyMix:
+      "apartments, shops, offices, strata buildings and renovated homes",
+  },
+  randwick: {
+    accessContext:
+      "apartment access, strata notes, school or clinic timing, parking notes and switchboard photos",
+    auditSignals: ["schools", "medical suites", "older terraces"],
+    emergencyContext:
+      "hot fixtures, power loss, circuit tripping, apartment outages or unsafe shop and clinic faults",
+    jobs:
+      "apartment fault finding, safety switch issues, smoke alarms, school or clinic lighting, data points, CCTV and switchboard upgrades",
+    level2Context:
+      "Level 2 support can include consumer mains, metering, service equipment and defect notice enquiries.",
+    metaFocus:
+      "apartments, terraces, schools, medical suites, switchboards, power and Level 2 support",
+    name: "Randwick",
+    postcode: "2031",
+    propertyMix:
+      "apartments, terraces, homes, schools, medical suites and strata buildings",
+  },
+  parramatta: {
+    accessContext:
+      "loading docks, building access, strata contacts, business hours and parking notes",
+    auditSignals: ["loading docks", "business operating hours", "office power"],
+    emergencyContext:
+      "apartment outages, commercial faults, circuit tripping, hot outlets or after-hours business interruptions",
+    jobs:
+      "tenancy changes, office power, lighting repairs, strata faults, data cabling, switchboards, smoke alarms and Level 2 support",
+    level2Context:
+      "Level 2 enquiries can include metering, consumer mains, service equipment, defect notices and supply changes for larger sites.",
+    metaFocus:
+      "offices, apartments, strata faults, shop power, switchboards, data and Level 2 support",
+    name: "Parramatta",
+    postcode: "2150",
+    propertyMix:
+      "apartments, offices, shops, strata buildings, homes and larger commercial sites",
+  },
+  merrylands: {
+    accessContext:
+      "unit entry, retail access, parking notes, switchboard photos and any defect notice paperwork",
+    auditSignals: ["unit entry", "retail access", "older boards"],
+    emergencyContext:
+      "home power loss, unit faults, retail outages, safety switch trips or hot fittings",
+    jobs:
+      "home and unit repairs, shop lighting, switchboards, hot water circuits, smoke alarms, CCTV/data and Level 2 enquiries",
+    level2Context:
+      "Level 2 support can include consumer mains, metering, service equipment and defect notice paperwork.",
+    metaFocus:
+      "homes, units, shop faults, switchboards, hot water, CCTV/data and Level 2 support",
+    name: "Merrylands",
+    postcode: "2160",
+    propertyMix:
+      "homes, units, townhouses, strata sites, local shops and mixed residential streets",
+  },
+  blacktown: {
+    accessContext:
+      "workshop access, shop timing, parking notes, switchboard photos and equipment details",
+    auditSignals: ["workshops", "shop maintenance", "older boards"],
+    emergencyContext:
+      "power loss, burning smells, sparking, circuit tripping, storm damage or workshop power faults",
+    jobs:
+      "switchboard upgrades, extra power points, lighting, smoke alarms, CCTV, data cabling, safety switch trips and hot water electrical faults",
+    level2Context:
+      "Level 2 enquiries can include consumer mains, metering, service equipment, supply capacity and defect notices.",
+    metaFocus:
+      "homes, townhouses, workshops, shop faults, switchboards, hot water and Level 2 support",
+    name: "Blacktown",
+    postcode: "2148",
+    propertyMix:
+      "homes, townhouses, units, workshops, shops and commercial properties",
+  },
+  "seven-hills": {
+    accessContext:
+      "industrial-unit access, workshop equipment notes, operating hours and switchboard photos",
+    auditSignals: ["industrial units", "workshop power", "operating hours"],
+    emergencyContext:
+      "equipment power loss, workshop outages, tripping circuits, hot isolators or damaged outlets",
+    jobs:
+      "home electrical repairs, industrial unit maintenance, workshop power, switchboards, safety switches and Level 2 enquiries",
+    level2Context:
+      "Level 2 support can involve consumer mains, service equipment, metering and defect notice enquiries.",
+    metaFocus:
+      "homes, industrial units, workshop power, switchboards, safety switches and Level 2 support",
+    name: "Seven Hills",
+    postcode: "2147",
+    propertyMix:
+      "homes, units, industrial pockets, workshops, warehouses and small businesses",
+  },
+  camden: {
+    accessContext:
+      "driveway or gate details, shed photos, outdoor circuit notes and switchboard photos",
+    auditSignals: ["larger blocks", "new estates", "sheds"],
+    emergencyContext:
+      "storm faults, shed power issues, outdoor circuit hazards, power loss or tripping safety switches",
+    jobs:
+      "shed power, outdoor lighting, renovation wiring, switchboards, smoke alarms, extra circuits and Level 2 enquiries",
+    level2Context:
+      "Level 2 enquiries can involve consumer mains, point of attachment, private pole and supply upgrade planning.",
+    metaFocus:
+      "larger blocks, new estates, sheds, outdoor power, switchboards and Level 2 support",
+    name: "Camden",
+    postcode: "2570",
+    propertyMix:
+      "larger blocks, family homes, new estates, acreage-style properties, sheds and local shops",
+  },
+  campbelltown: {
+    accessContext:
+      "estate access, builder timing, shop hours, hot water details and switchboard photos",
+    auditSignals: ["growing estates", "builder work", "hot water circuits"],
+    emergencyContext:
+      "power loss, hot water circuit faults, tripping safety switches, sparking or shop outages",
+    jobs:
+      "switchboard upgrades, hot water electrical faults, smoke alarms, lighting, power points, CCTV and renovation wiring",
+    level2Context:
+      "Level 2 support can include consumer mains, metering, service equipment and defect notice enquiries.",
+    metaFocus:
+      "homes, units, shops, hot water circuits, switchboards, CCTV/data and Level 2 support",
+    name: "Campbelltown",
+    postcode: "2560",
+    propertyMix:
+      "homes, units, growing estates, shops, workshops, builders and commercial properties",
+  },
+  wollongong: {
+    accessContext:
+      "apartment entry, warehouse access, coastal exposure notes, business hours and outdoor circuit photos",
+    auditSignals: ["coastal exposure", "industrial sites", "apartment access"],
+    emergencyContext:
+      "coastal storm faults, apartment outages, warehouse faults, hot water circuit issues or water-affected fittings",
+    jobs:
+      "hot water electrical faults, outdoor lighting, switchboards, data cabling, commercial maintenance, safety switch trips and smoke alarms",
+    level2Context:
+      "Level 2 support can include consumer mains, metering, service equipment and defect notice enquiries.",
+    metaFocus:
+      "coastal homes, apartments, shops, warehouses, hot water faults and Level 2 support",
+    name: "Wollongong",
+    postcode: "2500",
+    propertyMix:
+      "coastal homes, apartments, shops, warehouses, strata properties and commercial sites",
+  },
+  gosford: {
+    accessContext:
+      "apartment entry, coastal weather notes, parking details and photos of the switchboard or affected circuit",
+    auditSignals: ["coastal weather notes", "Central Coast access sites", "apartment entry"],
+    emergencyContext:
+      "no power, smoke, heat, sparking, repeated tripping or hot water electrical faults",
+    jobs:
+      "safety switch tripping, hot water electrical faults, switchboards, lighting, data points, CCTV, smoke alarms and Level 2 supply questions",
+    level2Context:
+      "Level 2 enquiries can include consumer mains, point of attachment, metering and supply-side upgrade questions.",
+    metaFocus:
+      "apartments, shops, switchboards, hot water circuits, outdoor lighting and Level 2 support",
+    name: "Gosford",
+    postcode: "2250",
+    propertyMix:
+      "homes, apartments, shops, offices, strata properties and Central Coast access sites",
+  },
+  sutherland: {
+    accessContext:
+      "unit entry, shop timing, renovation notes, parking details and switchboard photos",
+    auditSignals: ["older homes", "units near transport", "renovation wiring"],
+    emergencyContext:
+      "power loss, safety switch trips, burning smells, hot fittings or storm-related faults",
+    jobs:
+      "switchboard upgrades, safety switch trips, renovation wiring, lighting, power points, data cabling, smoke alarms and Level 2 questions",
+    level2Context:
+      "Level 2 support can include consumer mains, metering, service equipment and defect notice enquiries.",
+    metaFocus:
+      "older homes, units, shop faults, renovation wiring, switchboards and Level 2 support",
+    name: "Sutherland",
+    postcode: "2232",
+    propertyMix:
+      "homes, units, strata properties, offices, local businesses and renovation properties",
+  },
+  liverpool: {
+    accessContext:
+      "apartment access, commercial building contacts, estate access, warehouse entry and parking notes",
+    auditSignals: ["medical suites", "warehouses", "new estates"],
+    emergencyContext:
+      "business outages, hot fixtures, circuit tripping, apartment faults or warehouse power loss",
+    jobs:
+      "commercial maintenance, apartment repairs, switchboards, emergency fault finding, data cabling, CCTV, smoke alarms and Level 2 questions",
+    level2Context:
+      "Level 2 support can include consumer mains, supply capacity, metering, service equipment and defect notices.",
+    metaFocus:
+      "apartments, retail, warehouses, switchboards, commercial faults and Level 2 support",
+    name: "Liverpool",
+    postcode: "2170",
+    propertyMix:
+      "homes, apartments, medical suites, retail spaces, warehouses and growing residential areas",
+  },
+  fairfield: {
+    accessContext:
+      "shop timing, strata access, community-site notes, parking details and switchboard photos",
+    auditSignals: ["busy shopping strips", "community facilities", "commercial tenancy"],
+    emergencyContext:
+      "burning smells, sparking, power loss, retail faults or safety switch trips",
+    jobs:
+      "shop lighting, home fault finding, switchboards, smoke alarms, CCTV, data cabling, safety switches and Level 2 support",
+    level2Context:
+      "Level 2 support can include consumer mains, metering, service equipment and defect notice enquiries.",
+    metaFocus:
+      "homes, retail shops, commercial faults, switchboards, CCTV/data and Level 2 support",
+    name: "Fairfield",
+    postcode: "2165",
+    propertyMix:
+      "homes, apartments, retail shops, community facilities and commercial sites",
+  },
+  hurstville: {
+    accessContext:
+      "unit access, clinic or shop hours, strata approvals, parking notes and switchboard photos",
+    auditSignals: ["medical suites", "busy commercial streets", "unit access"],
+    emergencyContext:
+      "apartment outages, clinic or shop faults, hot fittings, safety switch trips or power loss",
+    jobs:
+      "apartment fault finding, shop lighting, data cabling, switchboards, safety switch trips, smoke alarms and commercial maintenance",
+    level2Context:
+      "Level 2 support can include consumer mains, metering, service equipment and defect notice enquiries.",
+    metaFocus:
+      "apartments, shopfronts, medical suites, strata faults, switchboards and Level 2 support",
+    name: "Hurstville",
+    postcode: "2220",
+    propertyMix:
+      "apartments, houses, shopfronts, medical suites and strata properties",
+  },
+  rockdale: {
+    accessContext:
+      "unit entry, shop timing, main-road parking notes, strata details and switchboard photos",
+    auditSignals: ["main-road parking", "strata buildings", "shop timing"],
+    emergencyContext:
+      "apartment outages, shop faults, hot switches, tripping circuits or storm-affected outdoor power",
+    jobs:
+      "unit repairs, shop lighting, switchboards, smoke alarms, power points, CCTV/data and Level 2 enquiries",
+    level2Context:
+      "Level 2 support can include consumer mains, metering, service equipment and defect notice work.",
+    metaFocus:
+      "units, shops, strata access, switchboards, smoke alarms, power and Level 2 support",
+    name: "Rockdale",
+    postcode: "2216",
+    propertyMix:
+      "units, older homes, shops, strata buildings and mixed residential streets",
+  },
+  cronulla: {
+    accessContext:
+      "strata entry, coastal exposure notes, outdoor power photos, parking details and switchboard photos",
+    auditSignals: ["salt air exposure", "weather-aware checks", "outdoor power"],
+    emergencyContext:
+      "storm damage, water-affected fixtures, outdoor power faults, safety switch trips or coastal corrosion concerns",
+    jobs:
+      "outdoor lighting, apartment repairs, pool-area power enquiries, switchboards, safety switches, smoke alarms and CCTV cabling",
+    level2Context:
+      "Level 2 support can include consumer mains, point of attachment, service equipment and defect notice questions.",
+    metaFocus:
+      "coastal homes, apartments, outdoor power, switchboards, smoke alarms and Level 2 support",
+    name: "Cronulla",
+    postcode: "2230",
+    propertyMix:
+      "homes, apartments, coastal townhouses, shops and strata sites",
+  },
+  miranda: {
+    accessContext:
+      "retail access, office contacts, apartment entry, business hours and switchboard photos",
+    auditSignals: ["busy retail buildings", "shopping-area faults", "office power"],
+    emergencyContext:
+      "shopping-area faults, business outages, apartment faults, safety switch trips or hot fittings",
+    jobs:
+      "shop lighting, office power, apartment repairs, switchboards, CCTV, data cabling, safety switches and hot water circuits",
+    level2Context:
+      "Level 2 support can include consumer mains, metering, service equipment and defect notice enquiries.",
+    metaFocus:
+      "retail spaces, offices, apartments, switchboards, hot water and Level 2 support",
+    name: "Miranda",
+    postcode: "2228",
+    propertyMix:
+      "houses, apartments, retail spaces, offices and commercial properties",
+  },
+  katoomba: {
+    accessContext:
+      "driveway notes, weather exposure details, outbuilding photos, private pole photos and switchboard photos",
+    auditSignals: ["Blue Mountains", "private poles", "outbuildings"],
+    emergencyContext:
+      "storm damage, power loss, repeated safety switch trips, unsafe outdoor power or detached-area faults",
+    jobs:
+      "storm fault checks, outdoor lighting, shed circuits, switchboards, smoke alarms, hot water electrical faults and private pole enquiries",
+    level2Context:
+      "Level 2 support can involve consumer mains, point of attachment, private poles, overhead service work, service equipment and defect notices.",
+    metaFocus:
+      "storm faults, switchboards, outdoor circuits, private poles, hot water and Level 2 support across the Blue Mountains",
+    name: "Katoomba",
+    postcode: "2780",
+    propertyMix:
+      "homes, village shops, guest accommodation, larger blocks and Blue Mountains properties",
+  },
+  springwood: {
+    accessContext:
+      "long driveway details, outbuilding photos, private pole notes, storm exposure and switchboard photos",
+    auditSignals: ["long driveways", "outbuildings", "larger blocks"],
+    emergencyContext:
+      "storm damage, power loss, repeated safety switch trips, unsafe outdoor power or shed faults",
+    jobs:
+      "storm fault checks, shed and outbuilding power, outdoor lighting, switchboards, smoke alarms and Level 2 supply enquiries",
+    level2Context:
+      "Level 2 enquiries can involve point of attachment, private pole, consumer mains, service equipment and defect notice concerns.",
+    metaFocus:
+      "larger blocks, storm faults, shed power, outdoor circuits, switchboards and Level 2 support",
+    name: "Springwood",
+    postcode: "2777",
+    propertyMix:
+      "homes, larger blocks, shops, outbuildings and Blue Mountains properties",
+  },
+  penrith: {
+    accessContext:
+      "shed photos, workshop details, outdoor area notes, equipment information and switchboard photos",
+    auditSignals: ["larger blocks", "workshops", "shed power"],
+    emergencyContext:
+      "power loss, storm faults, workshop circuit issues, hot fittings or unsafe outdoor circuits",
+    jobs:
+      "shed power, outdoor lighting, switchboards, three-phase questions, CCTV, data points, smoke alarms and fault finding",
+    level2Context:
+      "Level 2 support can include consumer mains, metering, service equipment, supply capacity and defect notices.",
+    metaFocus:
+      "larger blocks, workshops, shed power, outdoor circuits, switchboards and Level 2 support",
+    name: "Penrith",
+    postcode: "2750",
+    propertyMix:
+      "homes, larger blocks, shops, workshops, warehouses and commercial properties",
+  },
+  hornsby: {
+    accessContext:
+      "apartment entry, shop timing, larger-block access, parking notes and switchboard photos",
+    auditSignals: ["larger residential blocks", "shop maintenance", "apartment access"],
+    emergencyContext:
+      "power faults, apartment outages, shop faults, hot fittings, safety switch trips or storm damage",
+    jobs:
+      "switchboard upgrades, power faults, lighting, smoke alarms, CCTV cabling, data points, hot water circuits and Level 2 enquiries",
+    level2Context:
+      "Level 2 support can include consumer mains, metering, service equipment and defect notice enquiries.",
+    metaFocus:
+      "homes, apartments, shops, larger blocks, switchboards and Level 2 support",
+    name: "Hornsby",
+    postcode: "2077",
+    propertyMix:
+      "homes, apartments, shops, offices and larger residential blocks",
+  },
+  ryde: {
+    accessContext:
+      "apartment entry, office access, strata notes, parking details and switchboard photos",
+    auditSignals: ["office lighting", "office access", "apartment entry"],
+    emergencyContext:
+      "apartment or business faults, hot fittings, power loss, safety switch trips or damaged wiring",
+    jobs:
+      "apartment repairs, office lighting, power points, switchboards, smoke alarms, data cabling, CCTV and Level 2 enquiries",
+    level2Context:
+      "Level 2 support can include consumer mains, metering, service equipment and defect notice enquiries.",
+    metaFocus:
+      "homes, units, offices, shops, strata faults, switchboards and Level 2 support",
+    name: "Ryde",
+    postcode: "2112",
+    propertyMix:
+      "homes, units, apartments, offices, shops and strata buildings",
+  },
+  chatswood: {
+    accessContext:
+      "apartment entry, retail timing, office fit-out details, parking constraints and site contacts",
+    auditSignals: ["retail trading hours", "office fit-out", "high-use switchboards"],
+    emergencyContext:
+      "apartment faults, shop outages, office power issues, hot fittings or switchboard concerns",
+    jobs:
+      "office power, shop lighting, apartment faults, data cabling, CCTV, smoke alarms, switchboards and metering questions",
+    level2Context:
+      "Level 2 support can include consumer mains, metering, service equipment and defect notice enquiries.",
+    metaFocus:
+      "apartments, retail spaces, offices, shop lighting, switchboards and Level 2 support",
+    name: "Chatswood",
+    postcode: "2067",
+    propertyMix:
+      "apartments, houses, retail spaces, offices and strata buildings",
+  },
+  manly: {
+    accessContext:
+      "apartment entry, shop trading hours, coastal exposure notes, parking details and outdoor fixture photos",
+    auditSignals: ["coastal exposure", "hospitality venues", "weather-rated solutions"],
+    emergencyContext:
+      "outdoor faults, circuit tripping, apartment faults, business outages or coastal weather exposure",
+    jobs:
+      "outdoor lighting, apartment repairs, switchboards, safety switch faults, smoke alarms, CCTV cabling and shop maintenance",
+    level2Context:
+      "Level 2 support can include consumer mains, point of attachment, service equipment and defect notice questions.",
+    metaFocus:
+      "coastal apartments, hospitality venues, outdoor lighting, switchboards and Level 2 support",
+    name: "Manly",
+    postcode: "2095",
+    propertyMix:
+      "apartments, coastal homes, strata buildings, hospitality venues and shops",
+  },
+  "dee-why": {
+    accessContext:
+      "apartment entry, strata coordination, shop trading hours, outdoor fixture photos and parking notes",
+    auditSignals: ["coastal exposure", "strata coordination", "shop trading hours"],
+    emergencyContext:
+      "outdoor faults, circuit tripping, apartment issues, shop outages or water-affected fixtures",
+    jobs:
+      "apartment repairs, outdoor lighting, safety switch trips, smoke alarms, switchboards, CCTV, data cabling and shop maintenance",
+    level2Context:
+      "Level 2 support can include consumer mains, service equipment, point of attachment issues and defect notice questions.",
+    metaFocus:
+      "apartments, coastal homes, shops, outdoor lighting, switchboards and Level 2 support",
+    name: "Dee Why",
+    postcode: "2099",
+    propertyMix:
+      "apartments, coastal homes, shops, strata buildings and hospitality venues",
+  },
+};
+
+export const prioritySuburbLocalSignals: Record<string, string[]> = Object.fromEntries(
+  Object.entries(prioritySuburbProfiles).map(([slug, profile]) => [
+    slug,
+    profile.auditSignals,
+  ]),
+);
+
+const prioritySuburbCopyOverrides: Record<string, SuburbCopyOverride> =
+  Object.fromEntries(
+    Object.entries(prioritySuburbProfiles).map(([slug, profile]) => [
+      slug,
+      {
+        heroDescription: `Evaready Electrical supports ${profile.name} ${profile.postcode} ${profile.propertyMix} with ${profile.jobs}. Emergency calls often involve ${profile.emergencyContext}; planned work is clearer with ${profile.accessContext}.`,
+        heroNote: `${profile.name} jobs are scoped around ${profile.propertyMix}, ${profile.accessContext} and the electrical risk before the next action is confirmed.`,
+        metaDescription: `Electrician ${profile.name} ${profile.postcode} for ${profile.metaFocus}.`,
+        processDescription: `For ${profile.name}, call first for ${profile.emergencyContext}. Planned work is reviewed from photos, job notes, address details, access notes and relevant paperwork.`,
+        serviceIntro: `${profile.name} electrical enquiries commonly involve ${profile.jobs}. ${profile.level2Context}`,
+      } satisfies SuburbCopyOverride,
+    ]),
+  );
+
+function mergeSuburbCopyOverrides(
+  baseOverride?: SuburbCopyOverride,
+  priorityOverride?: SuburbCopyOverride,
+): SuburbCopyOverride | undefined {
+  if (!baseOverride && !priorityOverride) {
+    return undefined;
+  }
+
+  return {
+    ...baseOverride,
+    ...priorityOverride,
+    faqAnswers:
+      baseOverride?.faqAnswers || priorityOverride?.faqAnswers
+        ? {
+            ...baseOverride?.faqAnswers,
+            ...priorityOverride?.faqAnswers,
+          }
+        : undefined,
+    serviceSummaryText:
+      baseOverride?.serviceSummaryText || priorityOverride?.serviceSummaryText
+        ? {
+            ...baseOverride?.serviceSummaryText,
+            ...priorityOverride?.serviceSummaryText,
+          }
+        : undefined,
+    trustItems: priorityOverride?.trustItems ?? baseOverride?.trustItems,
+  };
+}
+
 function countWords(value: string) {
   return value.trim().split(/\s+/).filter(Boolean).length;
 }
@@ -15741,7 +16316,10 @@ function applySuburbCopyOverride(
   copy: SuburbPageCopy,
   suburbSlug: string,
 ): SuburbPageCopy {
-  const override = topSuburbCopyOverrides[suburbSlug];
+  const override = mergeSuburbCopyOverrides(
+    topSuburbCopyOverrides[suburbSlug],
+    prioritySuburbCopyOverrides[suburbSlug],
+  );
 
   if (!override) {
     return copy;

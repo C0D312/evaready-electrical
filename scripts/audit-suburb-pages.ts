@@ -4,6 +4,7 @@ import path from "node:path";
 import {
   coverageRegions,
   coverageSearchItems,
+  prioritySuburbLocalSignals,
   type CoverageArea,
   type CoverageRegion,
   type CoverageSuburb,
@@ -35,13 +36,17 @@ type AuditRow = {
   "local examples present": "yes" | "no";
   "local property mix present": "yes" | "no";
   "meta description": string;
+  "meta description duplicate count": number;
   "meta description length": number;
+  "meta description opening duplicate count": number;
   "meta title": string;
   "meta title length": number;
   "nearby suburbs count": number;
   "nearby suburb section present": "yes" | "no";
   "phone CTA present": "yes" | "no";
   "process heading": string;
+  "priority local context present": "yes" | "no" | "n/a";
+  "priority suburb": "yes" | "no";
   "quote-photo guidance present": "yes" | "no";
   "quote CTA present": "yes" | "no";
   "response-time wording present": "yes" | "no";
@@ -86,6 +91,14 @@ function normalizeText(value: string) {
     .replace(/\b[a-z]+(?:-[a-z]+)*\b(?=\s(?:homes|businesses|strata|properties|jobs|customers))/g, "suburb")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+function normalizeExactText(value: string) {
+  return value.toLowerCase().replace(/\s+/g, " ").trim();
+}
+
+function firstWords(value: string, count: number) {
+  return normalizeExactText(value).split(/\s+/).slice(0, count).join(" ");
 }
 
 function textHash(parts: string[]) {
@@ -160,6 +173,9 @@ function buildAuditRows(records: SuburbRecord[]) {
   const sitemapUrlSet = new Set(coverageSearchItems.map((item) => item.href));
   const slugCountsByArea = new Map<string, Map<string, number>>();
   const hashCounts = new Map<string, number>();
+  const heroDescriptionCounts = new Map<string, number>();
+  const metaDescriptionCounts = new Map<string, number>();
+  const metaOpeningCounts = new Map<string, number>();
 
   for (const { area, region, suburb } of records) {
     const url = pageUrl(region, area, suburb);
@@ -171,6 +187,9 @@ function buildAuditRows(records: SuburbRecord[]) {
     slugCountsByArea.set(areaKey, areaSlugCounts);
 
     const copy = getSuburbPageCopy(region, area, suburb);
+    const heroDescriptionKey = normalizeExactText(copy.heroDescription);
+    const metaDescriptionKey = normalizeExactText(copy.metaDescription);
+    const metaOpeningKey = firstWords(copy.metaDescription, 4);
     const hash = textHash([
       copy.heroDescription,
       copy.heroNote,
@@ -179,6 +198,18 @@ function buildAuditRows(records: SuburbRecord[]) {
       ...Object.values(copy.faqAnswers),
     ]);
     hashCounts.set(hash, (hashCounts.get(hash) ?? 0) + 1);
+    heroDescriptionCounts.set(
+      heroDescriptionKey,
+      (heroDescriptionCounts.get(heroDescriptionKey) ?? 0) + 1,
+    );
+    metaDescriptionCounts.set(
+      metaDescriptionKey,
+      (metaDescriptionCounts.get(metaDescriptionKey) ?? 0) + 1,
+    );
+    metaOpeningCounts.set(
+      metaOpeningKey,
+      (metaOpeningCounts.get(metaOpeningKey) ?? 0) + 1,
+    );
   }
 
   const rows = records.map(({ area, region, suburb }) => {
@@ -270,6 +301,32 @@ function buildAuditRows(records: SuburbRecord[]) {
         ) <
       170;
     const repeatedPhraseRisk = (hashCounts.get(hash) ?? 0) > 1;
+    const heroDescriptionDuplicateCount =
+      heroDescriptionCounts.get(normalizeExactText(copy.heroDescription)) ?? 1;
+    const metaDescriptionDuplicateCount =
+      metaDescriptionCounts.get(normalizeExactText(copy.metaDescription)) ?? 1;
+    const metaOpeningDuplicateCount =
+      metaOpeningCounts.get(firstWords(copy.metaDescription, 4)) ?? 1;
+    const prioritySignals = prioritySuburbLocalSignals[suburb.slug] ?? [];
+    const isPrioritySuburb = prioritySignals.length > 0;
+    const priorityLocalContextPresent =
+      !isPrioritySuburb ||
+      prioritySignals.some((signal) =>
+        normalizeExactText(allCopy).includes(normalizeExactText(signal)),
+      );
+    const metaSuburbNamePresent = normalizeExactText(
+      copy.metaDescription,
+    ).includes(normalizeExactText(suburb.name));
+    const metaPostcodePresent =
+      !suburb.postcode || copy.metaDescription.includes(suburb.postcode);
+    const metaDescriptionTooGeneric =
+      /^(need an electrician|need electrical help|evaready helps)\b/i.test(
+        copy.metaDescription,
+      ) ||
+      (isPrioritySuburb &&
+        !/\b(apartment|apartments|coastal|commercial|duplex|factory|home|homes|industrial|office|retail|shop|shops|strata|terrace|unit|units|warehouse|workshop|larger blocks|older boards|storm|outdoor|switchboard|consumer mains|Level 2)\b/i.test(
+          copy.metaDescription,
+        ));
     const nearbySuburbSectionPresent = nearbySuburbsCount > 0;
     const warnings: string[] = [];
     const areaKey = `${region.slug}/${area.slug}`;
@@ -301,6 +358,36 @@ function buildAuditRows(records: SuburbRecord[]) {
     }
     if (copy.metaDescription.length > 160) {
       warnings.push("meta description over 160 characters");
+    }
+    if (!metaSuburbNamePresent) {
+      warnings.push("meta description missing suburb name");
+    }
+    if (!metaPostcodePresent) {
+      warnings.push("meta description missing postcode");
+    }
+    if (metaDescriptionDuplicateCount > 1) {
+      warnings.push(
+        `duplicate meta description shared by ${metaDescriptionDuplicateCount} pages`,
+      );
+    }
+    if (heroDescriptionDuplicateCount > 1) {
+      warnings.push(
+        `identical hero description shared by ${heroDescriptionDuplicateCount} pages`,
+      );
+    }
+    if (
+      metaOpeningDuplicateCount > 20 &&
+      /^(need|evaready|electrical|for)\b/i.test(firstWords(copy.metaDescription, 4))
+    ) {
+      warnings.push(
+        `same generic meta opening shared by ${metaOpeningDuplicateCount} pages`,
+      );
+    }
+    if (metaDescriptionTooGeneric) {
+      warnings.push("meta description too generic");
+    }
+    if (isPrioritySuburb && !priorityLocalContextPresent) {
+      warnings.push("priority suburb missing local context signal");
     }
     if (wordCount(copy.heroDescription) < 32) {
       warnings.push("hero description too short");
@@ -383,11 +470,17 @@ function buildAuditRows(records: SuburbRecord[]) {
       "meta title length": title.length,
       "meta description": copy.metaDescription,
       "meta description length": copy.metaDescription.length,
+      "meta description duplicate count": metaDescriptionDuplicateCount,
+      "meta description opening duplicate count": metaOpeningDuplicateCount,
       H1: `Electrician ${suburb.name} ${suburb.postcode}`,
       "hero description": copy.heroDescription,
       "hero description word count": wordCount(copy.heroDescription),
       "hero note": copy.heroNote,
       "process heading": copy.processHeading,
+      "priority suburb": yesNo(isPrioritySuburb),
+      "priority local context present": isPrioritySuburb
+        ? yesNo(priorityLocalContextPresent)
+        : "n/a",
       "service intro": copy.serviceIntro,
       "local property mix present": yesNo(localPropertyMixPresent),
       "quote-photo guidance present": yesNo(quotePhotoGuidancePresent),
@@ -438,11 +531,15 @@ const columns: (keyof AuditRow)[] = [
   "meta title length",
   "meta description",
   "meta description length",
+  "meta description duplicate count",
+  "meta description opening duplicate count",
   "H1",
   "hero description",
   "hero description word count",
   "hero note",
   "process heading",
+  "priority suburb",
+  "priority local context present",
   "service intro",
   "local property mix present",
   "quote-photo guidance present",
