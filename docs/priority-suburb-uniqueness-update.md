@@ -73,8 +73,12 @@ Panania, Bankstown, Revesby, Padstow, Coogee, Bondi Junction, Randwick, Parramat
 
 ## Deployment
 
-Pending final main and gh-pages deployment verification.
+- Source changes were committed and pushed to `main`.
+- A clean GitHub Pages export was rebuilt from the pushed source.
+- The fresh export was copied into `.deploy-gh-pages`, committed and pushed to `gh-pages`.
+- Normal and cache-busted live URLs were verified after GitHub Pages served the new build marker.
+- Live verification covered the homepage, service areas index, sitemap, robots, site-version marker and all 30 priority suburb URLs listed above.
 
 ## Final Result
 
-Pending live verification.
+LIVE PASS.
