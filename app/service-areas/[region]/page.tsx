@@ -154,7 +154,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
   });
 
   return (
-    <main className="min-h-screen bg-white text-[#061E72]">
+    <main className="min-h-screen bg-[#02050d] text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(electricianSchema)}
@@ -209,7 +209,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
         </div>
       </ServiceAreaHero>
 
-      <section className="border-b border-slate-200 bg-white">
+      <section className="border-b border-cyan-300/15 bg-[#06142f]">
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           {[
             `Licensed electrician ${business.licence}`,
@@ -220,22 +220,22 @@ export default async function RegionPage({ params }: RegionPageProps) {
             "Booking details and photos",
           ].map((item) => (
             <div key={item} className="flex items-center gap-3">
-              <CheckCircle2 className="h-6 w-6 shrink-0 text-blue-600" />
-              <span className="font-bold text-slate-800">{item}</span>
+              <CheckCircle2 className="h-6 w-6 shrink-0 text-cyan-300" />
+              <span className="font-bold text-slate-100">{item}</span>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="bg-[#040b1c] py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
+          <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
             Local electrical help
           </p>
           <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
             Emergency, Level 2 and planned electrical work in {region.name}.
           </h2>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
             Start with the service that matches the job, then call for unsafe
             faults or send photos and job notes for planned work.
           </p>
@@ -257,12 +257,12 @@ export default async function RegionPage({ params }: RegionPageProps) {
             ].map((item) => (
               <article
                 key={item.title}
-                className="rounded-lg border border-slate-200 bg-slate-50 p-5"
+                className="rounded-lg border border-cyan-300/20 bg-[#091d42] p-5 shadow-lg shadow-blue-950/20"
               >
-                <h3 className="text-lg font-black text-[#061E72]">
+                <h3 className="text-lg font-black text-white">
                   {item.title}
                 </h3>
-                <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
+                <p className="mt-3 leading-7 text-slate-300">{item.text}</p>
               </article>
             ))}
           </div>
@@ -272,11 +272,11 @@ export default async function RegionPage({ params }: RegionPageProps) {
               <Link
                 key={card.title}
                 href={card.href}
-                className="group rounded-lg border border-slate-200 bg-slate-50 p-6 transition hover:-translate-y-1 hover:border-blue-600 hover:bg-blue-50 hover:shadow-xl"
+                className="group rounded-lg border border-cyan-300/20 bg-[#091d42] p-6 shadow-lg shadow-blue-950/20 transition hover:-translate-y-1 hover:border-cyan-200 hover:bg-[#0d2b5c] hover:shadow-xl"
               >
                 <h3 className="text-2xl font-black">{card.title}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{card.text}</p>
-                <span className="mt-5 inline-flex items-center gap-2 font-black text-blue-700">
+                <p className="mt-3 leading-7 text-slate-300">{card.text}</p>
+                <span className="mt-5 inline-flex items-center gap-2 font-black text-cyan-200">
                   View service
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 </span>
@@ -286,9 +286,9 @@ export default async function RegionPage({ params }: RegionPageProps) {
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20">
+      <section className="bg-[#06142f] py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+          <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
             Areas
           </p>
           <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
@@ -297,7 +297,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
           <div className="mt-5">
             <Link
               href="/service-areas"
-              className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-black text-slate-800 transition hover:border-blue-600 hover:text-blue-700"
+              className="rounded-full border border-cyan-300/25 bg-[#091d42] px-4 py-2 text-sm font-black text-slate-100 transition hover:border-cyan-200 hover:text-cyan-100"
             >
               All service areas
             </Link>
@@ -308,23 +308,23 @@ export default async function RegionPage({ params }: RegionPageProps) {
               <Link
                 key={area.slug}
                 href={`/service-areas/${region.slug}/${area.slug}`}
-                className="group rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-blue-600 hover:bg-blue-50 hover:shadow-xl"
+                className="group rounded-lg border border-cyan-300/20 bg-[#091d42] p-6 shadow-lg shadow-blue-950/20 transition hover:-translate-y-1 hover:border-cyan-200 hover:bg-[#0d2b5c] hover:shadow-xl"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="rounded-lg bg-blue-700 p-3 text-white">
                     <MapPin className="h-7 w-7" />
                   </div>
-                  <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-slate-700">
+                  <span className="rounded-full border border-cyan-300/20 bg-[#0d2b5c] px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-slate-100">
                     {area.suburbs.length} suburbs
                   </span>
                 </div>
 
                 <h3 className="mt-6 text-2xl font-black">{area.name}</h3>
-                <p className="mt-3 leading-7 text-slate-600">
+                <p className="mt-3 leading-7 text-slate-300">
                   {area.description}
                 </p>
 
-                <span className="mt-6 inline-flex items-center gap-2 font-black text-red-600">
+                <span className="mt-6 inline-flex items-center gap-2 font-black text-cyan-200">
                   View suburbs
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 </span>
@@ -333,7 +333,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
           </div>
 
           {topSuburbs.length > 0 && (
-            <div className="mt-14 rounded-lg border border-slate-200 bg-white p-6">
+            <div className="mt-14 rounded-lg border border-cyan-300/20 bg-[#091d42] p-6 shadow-lg shadow-blue-950/20">
               <h3 className="text-2xl font-black">
                 Top suburbs in {region.name}
               </h3>
@@ -342,7 +342,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
                   <Link
                     key={`${suburb.areaSlug}-${suburb.slug}`}
                     href={`/service-areas/${region.slug}/${suburb.areaSlug}/${suburb.slug}`}
-                    className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-black text-slate-800 transition hover:border-blue-600 hover:text-blue-700"
+                    className="rounded-full border border-cyan-300/20 bg-[#06142f] px-4 py-2 text-sm font-black text-slate-100 transition hover:border-cyan-200 hover:text-cyan-100"
                   >
                     {suburb.name} {suburb.postcode}
                   </Link>
@@ -353,10 +353,10 @@ export default async function RegionPage({ params }: RegionPageProps) {
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="bg-[#040b1c] py-20">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
               Region FAQs
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
@@ -368,10 +368,10 @@ export default async function RegionPage({ params }: RegionPageProps) {
             {faqItems.map((item) => (
               <div
                 key={item.question}
-                className="rounded-lg border border-slate-200 bg-slate-50 p-6"
+                className="rounded-lg border border-cyan-300/20 bg-[#091d42] p-6 shadow-lg shadow-blue-950/20"
               >
                 <h3 className="text-xl font-black">{item.question}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{item.answer}</p>
+                <p className="mt-3 leading-7 text-slate-300">{item.answer}</p>
               </div>
             ))}
           </div>

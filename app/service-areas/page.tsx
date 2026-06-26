@@ -184,7 +184,7 @@ export default function AreasPage() {
   });
 
   return (
-    <main className="min-h-screen bg-white text-[#061E72]">
+    <main className="min-h-screen bg-[#02050d] text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(schema)}
@@ -264,16 +264,16 @@ export default function AreasPage() {
         </div>
       </ServiceAreaHero>
 
-      <section className="bg-slate-50 py-12 sm:py-16">
+      <section className="bg-[#06142f] py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
               Response guidance
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Core and greater-region emergency areas.
             </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">
+            <p className="mt-5 text-lg leading-8 text-slate-300">
               Evaready Electrical provides fast electrical support across
               Sydney and surrounding regions. Call first for urgent faults such
               as power loss, burning smells, sparking, tripping safety switches
@@ -317,26 +317,26 @@ export default function AreasPage() {
           </div>
 
           <div className="mt-4 grid gap-4 lg:grid-cols-2">
-            <div className="rounded-lg border border-cyan-300/25 bg-white p-5 shadow-sm">
-              <p className="text-sm font-black uppercase tracking-[0.2em] text-red-600">
+            <div className="rounded-lg border border-red-300/25 bg-[#091d42] p-5 shadow-lg shadow-blue-950/20">
+              <p className="text-sm font-black uppercase tracking-[0.2em] text-red-200">
                 Emergency fault
               </p>
-              <p className="mt-2 text-base font-bold leading-7 text-slate-700">
+              <p className="mt-2 text-base font-bold leading-7 text-slate-100">
                 Call now for no power, burning smells, sparking, repeated
                 safety-switch tripping, switchboard faults, storm damage or
                 unsafe electrical equipment.
               </p>
             </div>
-            <div className="rounded-lg border border-cyan-300/25 bg-white p-5 shadow-sm">
-              <p className="text-sm font-black uppercase tracking-[0.2em] text-blue-700">
+            <div className="rounded-lg border border-cyan-300/25 bg-[#091d42] p-5 shadow-lg shadow-blue-950/20">
+              <p className="text-sm font-black uppercase tracking-[0.2em] text-cyan-300">
                 Planned work
               </p>
-              <p className="mt-2 text-base font-bold leading-7 text-slate-700">
+              <p className="mt-2 text-base font-bold leading-7 text-slate-100">
                 Search your suburb or postcode, choose the closest service
                 area, then send photos, job notes and access details.
               </p>
             </div>
-            <p className="rounded-lg border border-cyan-300/25 bg-white p-5 text-base font-semibold leading-7 text-slate-700 shadow-sm lg:col-span-2">
+            <p className="rounded-lg border border-cyan-300/25 bg-[#091d42] p-5 text-base font-semibold leading-7 text-slate-200 shadow-lg shadow-blue-950/20 lg:col-span-2">
               Search your suburb or postcode for the local page. Core and
               greater-region timing applies to emergency electrical call-outs
               only. Response timing depends on location, access, traffic,
@@ -368,7 +368,7 @@ export default function AreasPage() {
         </div>
       </section>
 
-      <section className="border-b border-slate-200 bg-white">
+      <section className="border-b border-cyan-300/15 bg-[#06142f]">
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           {[
             `NSW Licence ${business.licence}`,
@@ -377,8 +377,8 @@ export default function AreasPage() {
             "Emergency and Level 2",
           ].map((item) => (
             <div key={item} className="flex items-center gap-3">
-              <CheckCircle2 className="h-6 w-6 shrink-0 text-blue-600" />
-              <span className="font-bold text-slate-800">{item}</span>
+              <CheckCircle2 className="h-6 w-6 shrink-0 text-cyan-300" />
+              <span className="font-bold text-slate-100">{item}</span>
             </div>
           ))}
         </div>
@@ -406,16 +406,16 @@ export default function AreasPage() {
         ]}
       />
 
-      <section className="bg-white py-14">
+      <section className="bg-[#040b1c] py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
               Service shortcuts
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Need a specific electrical service?
             </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">
+            <p className="mt-5 text-lg leading-8 text-slate-300">
               Choose the closest service path, then call first for unsafe
               faults or send photos and job details for planned work.
             </p>
@@ -426,15 +426,15 @@ export default function AreasPage() {
               <Link
                 key={shortcut.href}
                 href={shortcut.href}
-                className="group rounded-lg border border-slate-200 bg-slate-50 p-4 transition hover:-translate-y-0.5 hover:border-blue-600 hover:bg-blue-50 hover:shadow-lg"
+                className="group rounded-lg border border-cyan-300/20 bg-[#091d42] p-4 shadow-lg shadow-blue-950/20 transition hover:-translate-y-0.5 hover:border-cyan-200 hover:bg-[#0d2b5c]"
               >
-                <span className="block text-base font-black text-[#061E72]">
+                <span className="block text-base font-black text-white">
                   {shortcut.label}
                 </span>
-                <span className="mt-2 block text-sm font-semibold leading-6 text-slate-600">
+                <span className="mt-2 block text-sm font-semibold leading-6 text-slate-300">
                   {shortcut.text}
                 </span>
-                <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-blue-700">
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-cyan-200">
                   View service
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 </span>
@@ -444,16 +444,16 @@ export default function AreasPage() {
         </div>
       </section>
 
-      <section className="bg-white py-16">
+      <section className="bg-[#06142f] py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
               Popular local pages
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Popular local electrical service areas
             </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">
+            <p className="mt-5 text-lg leading-8 text-slate-300">
               Quick links to high-intent suburb pages. Use the search above for
               every listed suburb, postcode, area or region.
             </p>
@@ -464,15 +464,15 @@ export default function AreasPage() {
               <Link
                 key={`${item.regionSlug}-${item.areaSlug}-${item.suburbSlug}`}
                 href={item.href}
-                className="group rounded-lg border border-slate-200 bg-slate-50 p-4 transition hover:-translate-y-0.5 hover:border-blue-600 hover:bg-blue-50 hover:shadow-lg"
+                className="group rounded-lg border border-cyan-300/20 bg-[#091d42] p-4 shadow-lg shadow-blue-950/20 transition hover:-translate-y-0.5 hover:border-cyan-200 hover:bg-[#0d2b5c]"
               >
-                <span className="block text-base font-black text-[#061E72]">
+                <span className="block text-base font-black text-white">
                   Electrician {item.suburbName} {item.postcode}
                 </span>
-                <span className="mt-2 block text-sm font-semibold leading-6 text-slate-600">
+                <span className="mt-2 block text-sm font-semibold leading-6 text-slate-300">
                   {item.areaName} - {item.regionName}
                 </span>
-                <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-blue-700">
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-cyan-200">
                   View local page
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 </span>
@@ -488,9 +488,9 @@ export default function AreasPage() {
         serviceName="service-area electrical enquiries"
       />
 
-      <section className="bg-white py-20">
+      <section className="bg-[#040b1c] py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
+          <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
             Major regions
           </p>
           <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
@@ -508,26 +508,26 @@ export default function AreasPage() {
                 <Link
                   key={region.slug}
                   href={`/service-areas/${region.slug}`}
-                  className="group rounded-lg border border-slate-200 bg-slate-50 p-6 shadow-sm transition hover:-translate-y-1 hover:border-blue-600 hover:bg-blue-50 hover:shadow-xl"
+                  className="group rounded-lg border border-cyan-300/20 bg-[#091d42] p-6 shadow-lg shadow-blue-950/20 transition hover:-translate-y-1 hover:border-cyan-200 hover:bg-[#0d2b5c] hover:shadow-xl"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="rounded-lg bg-blue-700 p-3 text-white">
                       <MapPin className="h-7 w-7" />
                     </div>
-                    <span className="rounded-full bg-white px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-slate-700">
+                    <span className="rounded-full border border-cyan-300/20 bg-[#0d2b5c] px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-slate-100">
                       {region.areas.length} areas
                     </span>
                   </div>
 
                   <h3 className="mt-6 text-2xl font-black">{region.name}</h3>
-                  <p className="mt-3 leading-7 text-slate-600">
+                  <p className="mt-3 leading-7 text-slate-300">
                     {region.description}
                   </p>
-                  <p className="mt-4 text-sm font-black text-blue-700">
+                  <p className="mt-4 text-sm font-black text-cyan-200">
                     {suburbCount} suburbs covered
                   </p>
 
-                  <span className="mt-6 inline-flex items-center gap-2 font-black text-red-600">
+                  <span className="mt-6 inline-flex items-center gap-2 font-black text-cyan-200">
                     View region
                     <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                   </span>
@@ -538,7 +538,7 @@ export default function AreasPage() {
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20">
+      <section className="bg-[#06142f] py-20">
         <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-4 lg:px-8">
           {[
             {
@@ -567,11 +567,11 @@ export default function AreasPage() {
             return (
               <div
                 key={item.title}
-                className="rounded-lg border border-slate-200 bg-white p-7"
+                className="rounded-lg border border-cyan-300/20 bg-[#091d42] p-7 shadow-lg shadow-blue-950/20"
               >
-                <Icon className="h-8 w-8 text-blue-700" />
+                <Icon className="h-8 w-8 text-cyan-300" />
                 <h3 className="mt-5 text-2xl font-black">{item.title}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
+                <p className="mt-3 leading-7 text-slate-300">{item.text}</p>
               </div>
             );
           })}

@@ -174,7 +174,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
   );
 
   return (
-    <main className="min-h-screen bg-white text-[#061E72]">
+    <main className="min-h-screen bg-[#02050d] text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(schema)}
@@ -238,7 +238,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         </div>
       </ServiceAreaHero>
 
-      <TrustSymbolBand className="border-b border-slate-200" />
+      <TrustSymbolBand className="border-b border-cyan-300/15" />
 
       <section className="bg-[#061E72] py-14 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -328,7 +328,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
               href={business.phoneHref}
               data-suburb-action-link="call-first"
               data-conversion-action="phone-click"
-              className="mt-7 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 text-center text-sm font-black uppercase tracking-[0.2em] text-red-800 shadow-lg shadow-red-950/25 transition hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-950"
+              className="mt-7 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-5 py-3 text-center text-sm font-black uppercase tracking-[0.2em] text-white shadow-lg shadow-red-950/25 transition hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-200 focus:ring-offset-2 focus:ring-offset-red-950"
             >
               <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
               Call 0461 247 247
@@ -366,7 +366,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
               data-quote-trigger="true"
               data-conversion-action="quote-click"
               aria-haspopup="dialog"
-              className="mt-7 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-cyan-300 px-5 py-3 text-center text-sm font-black uppercase tracking-[0.2em] text-[#061E72] shadow-lg shadow-cyan-950/20 transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+              className="mt-7 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-[#0876ff] px-5 py-3 text-center text-sm font-black uppercase tracking-[0.2em] text-white shadow-lg shadow-cyan-950/20 transition hover:bg-[#079cff] focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
             >
               Open quote form
               <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
@@ -419,7 +419,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                   data-quote-trigger="true"
                   data-conversion-action="quote-click"
                   aria-haspopup="dialog"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white px-4 py-3 text-center text-sm font-black uppercase tracking-[0.18em] text-[#061E72] transition hover:bg-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#0876ff] px-4 py-3 text-center text-sm font-black uppercase tracking-[0.18em] text-white transition hover:bg-[#079cff] focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
                 >
                   Send details
                 </a>
@@ -429,15 +429,15 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         </div>
       </section>
 
-      <section className="border-b border-slate-200 bg-white">
+      <section className="border-b border-cyan-300/15 bg-[#06142f]">
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           {[
             `NSW Licence ${business.licence}`,
             ...copy.trustItems,
           ].map((item) => (
             <div key={item} className="flex items-center gap-3">
-              <CheckCircle2 className="h-6 w-6 shrink-0 text-blue-600" />
-              <span className="font-bold text-slate-800">{item}</span>
+              <CheckCircle2 className="h-6 w-6 shrink-0 text-cyan-300" />
+              <span className="font-bold text-slate-100">{item}</span>
             </div>
           ))}
         </div>
@@ -472,16 +472,16 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         variant="suburb"
       />
 
-      <section className="bg-white py-20">
+      <section className="bg-[#040b1c] py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
               Local site notes
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Practical electrical support around {suburb.name}.
             </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">
+            <p className="mt-5 text-lg leading-8 text-slate-300">
               These local notes help separate urgent call-first faults from
               planned work that can be reviewed through the secure booking
               form with photos and job details.
@@ -492,28 +492,28 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
             {copy.localHighlights.map((item) => (
               <article
                 key={item.title}
-                className="rounded-lg border border-slate-200 bg-slate-50 p-6"
+                className="rounded-lg border border-cyan-300/20 bg-[#091d42] p-6 shadow-lg shadow-blue-950/20"
               >
-                <h3 className="text-xl font-black text-[#061E72]">
+                <h3 className="text-xl font-black text-white">
                   {item.title}
                 </h3>
-                <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
+                <p className="mt-3 leading-7 text-slate-300">{item.text}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20">
+      <section className="bg-[#06142f] py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
               {copy.processLabel}
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               {copy.processHeading}
             </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">
+            <p className="mt-5 text-lg leading-8 text-slate-300">
               {copy.processDescription}
             </p>
           </div>
@@ -522,26 +522,26 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
             {copy.processSteps.map((item) => (
               <article
                 key={item.title}
-                className="rounded-lg border border-slate-200 bg-white p-6"
+                className="rounded-lg border border-cyan-300/20 bg-[#091d42] p-6 shadow-lg shadow-blue-950/20"
               >
-                <CheckCircle2 className="h-7 w-7 text-blue-700" />
+                <CheckCircle2 className="h-7 w-7 text-cyan-300" />
                 <h3 className="mt-5 text-xl font-black">{item.title}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
+                <p className="mt-3 leading-7 text-slate-300">{item.text}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="bg-[#040b1c] py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+          <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
             Electrical services
           </p>
           <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
             {copy.servicesHeading}
           </h2>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
             {copy.serviceIntro}
           </p>
 
@@ -554,12 +554,12 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                   key={item.title}
                   href={item.href}
                   data-suburb-service-card={item.intent}
-                  className="group flex h-full flex-col rounded-lg border border-slate-200 bg-slate-50 p-6 transition hover:-translate-y-1 hover:border-blue-600 hover:bg-white hover:shadow-xl hover:shadow-blue-950/10 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+                  className="group flex h-full flex-col rounded-lg border border-cyan-300/20 bg-[#091d42] p-6 shadow-lg shadow-blue-950/20 transition hover:-translate-y-1 hover:border-cyan-200 hover:bg-[#0d2b5c] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
                 >
-                  <Icon className="h-8 w-8 text-blue-700" />
+                  <Icon className="h-8 w-8 text-cyan-300" />
                   <h3 className="mt-5 text-xl font-black">{item.title}</h3>
-                  <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
-                  <span className="mt-5 inline-flex items-center gap-2 font-black text-red-600">
+                  <p className="mt-3 leading-7 text-slate-300">{item.text}</p>
+                  <span className="mt-5 inline-flex items-center gap-2 font-black text-cyan-200">
                     View service
                     <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                   </span>
@@ -570,9 +570,9 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20">
+      <section className="bg-[#06142f] py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
+          <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
             Related electrical services
           </p>
           <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
@@ -584,13 +584,13 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
               <Link
                 key={item.href}
                 href={item.href}
-                className="group rounded-lg border border-slate-200 bg-white p-6 transition hover:border-blue-600 hover:bg-blue-50"
+                className="group rounded-lg border border-cyan-300/20 bg-[#091d42] p-6 shadow-lg shadow-blue-950/20 transition hover:border-cyan-200 hover:bg-[#0d2b5c]"
               >
-                <h3 className="text-xl font-black text-[#061E72]">
+                <h3 className="text-xl font-black text-white">
                   {item.title}
                 </h3>
-                <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
-                <span className="mt-5 inline-flex items-center gap-2 font-black text-red-600">
+                <p className="mt-3 leading-7 text-slate-300">{item.text}</p>
+                <span className="mt-5 inline-flex items-center gap-2 font-black text-cyan-200">
                   Learn more
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 </span>
@@ -648,16 +648,16 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20">
+      <section className="bg-[#06142f] py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
               Local FAQ
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               {copy.faqHeading}
             </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">
+            <p className="mt-5 text-lg leading-8 text-slate-300">
               {copy.faqIntro}
             </p>
           </div>
@@ -666,20 +666,20 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
             {suburbFaqs.map((faq) => (
               <article
                 key={faq.question}
-                className="rounded-lg border border-slate-200 bg-white p-6"
+                className="rounded-lg border border-cyan-300/20 bg-[#091d42] p-6 shadow-lg shadow-blue-950/20"
               >
                 <h3 className="text-xl font-black">{faq.question}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.answer}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.answer}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="bg-[#040b1c] py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
               Nearby suburbs
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
@@ -692,12 +692,12 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
               <Link
                 key={nearbySuburb.slug}
                 href={`/service-areas/${region.slug}/${nearbySuburb.areaSlug}/${nearbySuburb.slug}`}
-                className="flex items-center justify-between gap-4 rounded-lg border border-slate-200 bg-white px-4 py-3 font-bold text-slate-800 transition hover:border-blue-600 hover:bg-blue-50"
+                className="flex items-center justify-between gap-4 rounded-lg border border-cyan-300/20 bg-[#091d42] px-4 py-3 font-bold text-slate-100 transition hover:border-cyan-200 hover:bg-[#0d2b5c]"
               >
                 <span>
                   {nearbySuburb.name} {nearbySuburb.postcode}
                 </span>
-                <ArrowRight className="h-4 w-4 text-red-600" />
+                <ArrowRight className="h-4 w-4 text-cyan-200" />
               </Link>
             ))}
           </div>
