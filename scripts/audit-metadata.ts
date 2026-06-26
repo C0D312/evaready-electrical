@@ -26,6 +26,7 @@ import {
   switchboardSeoMetadata,
   type RouteSeoMetadata,
 } from "../lib/seo-metadata";
+import { getMetaDescriptionWarnings } from "../lib/meta-description";
 
 type AuditRow = {
   canonical: string;
@@ -67,6 +68,8 @@ function toRow(metadata: RouteSeoMetadata, duplicateWarnings: string[] = []) {
   if (metadata.description.length > 160) {
     warnings.push("description over 160 chars");
   }
+
+  warnings.push(...getMetaDescriptionWarnings(metadata.description));
 
   if (!metadata.canonical.trim()) {
     warnings.push("missing canonical");

@@ -1,5 +1,9 @@
 import { business, getEmergencyResponseForRegion } from "./site";
 import { generatedCoverageRegions } from "./service-area-region-data";
+import {
+  buildSentenceAwareMetaDescription,
+  clampMetaDescription,
+} from "../lib/meta-description";
 
 export type CoverageSuburb = {
   name: string;
@@ -15591,26 +15595,102 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
   },
 };
 
-function clampMetaDescription(description: string) {
-  if (description.length <= 155) {
-    return description;
-  }
-
-  const trimmed = description.slice(0, 152).trimEnd();
-  const lastSpace = trimmed.lastIndexOf(" ");
-  const shortened = trimmed
-    .slice(0, lastSpace > 120 ? lastSpace : trimmed.length)
-    .replace(/[,\s;:]+$/, "")
-    .replace(/\b(?:and|or)$/i, "")
-    .trimEnd()
-    .replace(/[,\s;:]+$/, "")
-    .replace(/\.+$/, "");
-
-  return `${shortened}.`;
-}
-
 function countWords(value: string) {
   return value.trim().split(/\s+/).filter(Boolean).length;
+}
+
+function getRegionMetaSuffix(coverageRegion: CoverageRegion) {
+  if (coverageRegion.slug === "blue-mountains") {
+    return " across the Blue Mountains";
+  }
+
+  if (coverageRegion.slug === "central-coast-south") {
+    return " across the Central Coast";
+  }
+
+  if (coverageRegion.slug === "southern-highlands") {
+    return " across the Southern Highlands";
+  }
+
+  return "";
+}
+
+function getSuburbMetaServicePhrases(
+  coverageRegion: CoverageRegion,
+  context: LocalPageContext,
+  seed: number,
+) {
+  const contextText = `${context.commonJobs} ${context.propertyMix} ${context.setting}`.toLowerCase();
+
+  if (contextText.includes("coastal") || contextText.includes("beachside")) {
+    return [
+      "coastal electrical faults, outdoor lighting, switchboards, smoke alarms, power and Level 2 support",
+      "coastal faults, outdoor power, switchboards, hot water, CCTV/data and Level 2 support",
+      "outdoor lighting, smoke alarms, switchboards, power, hot water and Level 2 support",
+    ];
+  }
+
+  if (coverageRegion.slug === "blue-mountains") {
+    return [
+      "emergency faults, switchboards, hot water, aircon, CCTV/data and Level 2 support",
+      "faults, switchboards, hot water, aircon, CCTV/data and Level 2 support",
+      "switchboards, hot water, aircon, CCTV/data and Level 2 support",
+    ];
+  }
+
+  if (
+    contextText.includes("commercial") ||
+    contextText.includes("shop") ||
+    contextText.includes("office")
+  ) {
+    return [
+      "emergency faults, switchboards, lighting, power, data, CCTV and Level 2 support",
+      "faults, switchboards, shop power, lighting, CCTV/data and Level 2 support",
+      "switchboards, lighting, power, data, CCTV and Level 2 support",
+    ];
+  }
+
+  return pick(
+    [
+      [
+        "emergency faults, switchboards, hot water circuits, power, lighting and Level 2 support",
+        "faults, switchboards, hot water, aircon, CCTV/data and Level 2 support",
+        "switchboards, hot water, lighting, power and Level 2 support",
+      ],
+      [
+        "urgent faults, switchboards, hot water, aircon, CCTV/data and Level 2 support",
+        "faults, safety switches, switchboards, lighting, power and Level 2 support",
+        "switchboards, fault finding, hot water, aircon and Level 2 support",
+      ],
+    ],
+    seed,
+    83,
+  );
+}
+
+function buildSuburbMetaDescription(
+  coverageRegion: CoverageRegion,
+  coverageSuburb: CoverageSuburb,
+  context: LocalPageContext,
+  seed: number,
+) {
+  const suburbLabel = `${coverageSuburb.name} ${coverageSuburb.postcode}`;
+  const suffix = getRegionMetaSuffix(coverageRegion);
+  const servicePhrases = getSuburbMetaServicePhrases(
+    coverageRegion,
+    context,
+    seed,
+  );
+  const candidates = servicePhrases.flatMap((phrase) => [
+    `Electrician ${suburbLabel} for ${phrase}${suffix}.`,
+    `Electrician ${suburbLabel} for ${phrase}.`,
+  ]);
+
+  return (
+    candidates.find((candidate) => candidate.length <= 155) ??
+    candidates.find((candidate) => candidate.length <= 160) ??
+    buildSentenceAwareMetaDescription(candidates)
+  );
 }
 
 function ensureSuburbHeroDepth(
@@ -15624,28 +15704,6 @@ function ensureSuburbHeroDepth(
   }
 
   return `${description} Common local enquiries include ${context.commonJobs}, with call-first support for ${context.emergencySignals} and planned booking details for ${context.plannedWork} across ${coverageArea.name}.`;
-}
-
-function buildOverrideMetaDescription(
-  copy: SuburbPageCopy,
-  override: SuburbCopyOverride,
-) {
-  const questionIndex = copy.metaDescription.indexOf("?");
-  const prefix =
-    questionIndex >= 0
-      ? `${copy.metaDescription.slice(0, questionIndex + 1)} `
-      : "";
-  const detail = (override.heroDescription ?? override.serviceIntro ?? copy.heroDescription)
-    .replace(
-      /^Evaready Electrical (?:helps|supports|services|works across|works) .+? with /,
-      "Evaready Electrical helps with ",
-    )
-    .replace(
-      /^(?:Common|Typical) .+? requests include /,
-      "Evaready Electrical helps with ",
-    );
-
-  return clampMetaDescription(`${prefix}${detail}`);
 }
 
 function applySuburbCopyOverride(
@@ -15662,7 +15720,9 @@ function applySuburbCopyOverride(
     ...copy,
     ...override,
     metaDescription:
-      override.metaDescription ?? buildOverrideMetaDescription(copy, override),
+      override.metaDescription
+        ? clampMetaDescription(override.metaDescription, 160)
+        : copy.metaDescription,
     faqAnswers: {
       ...copy.faqAnswers,
       ...override.faqAnswers,
@@ -16093,16 +16153,11 @@ export function getSuburbPageCopy(
       "access, parking, strata or gate notes",
     ],
     localHighlights,
-    metaDescription: clampMetaDescription(
-      pick(
-        [
-          `Need an electrician in ${coverageSuburb.name}? Evaready helps with emergency faults, Level 2 ASP work, switchboards, hot water, aircon, CCTV/data and general electrical work.`,
-          `Need electrical help in ${suburbLabel}? Emergency faults, Level 2 ASP, switchboards, hot water, aircon, CCTV/data and general electrical work across ${areaLabel}.`,
-          `Evaready helps ${coverageSuburb.name} with urgent faults, Level 2 ASP work, switchboards, hot water electrical, aircon, CCTV/data and planned electrical work.`,
-        ],
-        seed,
-        45,
-      ),
+    metaDescription: buildSuburbMetaDescription(
+      coverageRegion,
+      coverageSuburb,
+      context,
+      seed,
     ),
     processDescription: pick(
       [

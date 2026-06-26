@@ -8,6 +8,10 @@ import type {
 } from "../data/service-area-coverage";
 import type { ServiceLandingPage } from "../data/service-pages";
 import { absoluteUrl, business } from "../data/site";
+import {
+  clampMetaDescription,
+  maxMetaDescriptionLength,
+} from "./meta-description";
 
 export const sitemapLastModified = new Date("2026-06-01T00:00:00+10:00");
 
@@ -19,23 +23,8 @@ export type RouteSeoMetadata = {
 };
 
 const maxTitleLength = 65;
-const maxDescriptionLength = 160;
-
 export function clampDescription(description: string) {
-  if (description.length <= maxDescriptionLength) {
-    return description;
-  }
-
-  const trimmed = description.slice(0, maxDescriptionLength - 3).trimEnd();
-  const lastSpace = trimmed.lastIndexOf(" ");
-  const shortened = trimmed
-    .slice(0, lastSpace > 120 ? lastSpace : trimmed.length)
-    .replace(/[,\s;:]+$/, "")
-    .replace(/\b(?:and|or|for|with)$/i, "")
-    .trimEnd()
-    .replace(/\.+$/, "");
-
-  return `${shortened}.`;
+  return clampMetaDescription(description, maxMetaDescriptionLength);
 }
 
 export function chooseTitle(candidates: string[]) {
