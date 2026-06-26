@@ -51,11 +51,12 @@ The previous suburb metadata path used character slicing in `data/service-area-c
 
 ## Deployment
 
-- Main SHA: pending
-- gh-pages SHA: pending
-- Normal public URLs verified: pending
-- Cache-busted public URLs verified: pending
+- Source fix committed and pushed to `main`.
+- Fresh static export deployed to `gh-pages`.
+- Normal public URLs verified.
+- Cache-busted public URLs verified.
+- Exact deployment SHAs are recorded in the final task response.
 
 ## Final Result
 
-Pending deployment.
+LIVE PASS after public verification.
