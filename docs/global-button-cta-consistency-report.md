@@ -128,8 +128,9 @@ None for this button/CTA consistency pass.
 
 ## Deployment result
 
-- Main commit pushed: `d83cc42cca143b458548d81dde05845e1eb10443`
-- GitHub Pages commit pushed: `9a41e293ea7327b52012dc17e0a3f9c5b01e799c`
+- Main commit pushed: yes
+- GitHub Pages commit pushed: yes
+- Exact final SHAs: recorded in the final deployment response and public `site-version.json`
 - Public `site-version.json` updated on normal URL: yes
 - Public `site-version.json` updated on cache-busted URL: yes
 - Normal public URLs verified: yes
