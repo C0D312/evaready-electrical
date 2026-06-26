@@ -3,7 +3,7 @@
   "site": "Evaready Electrical",
   "deployTarget": "GitHub Pages",
   "basePath": "/evaready-electrical",
-  "buildDate": "2026-06-25T19:54:36.860Z",
-  "mainCommit": "9488fb3258596acc7a4314a685a7e022ffae2139",
-  "versionNote": "Final launch validation with performance logo optimisation."
+  "buildDate": "2026-06-26T07:40:54.797Z",
+  "mainCommit": "d917c4cf25826e574b96c9ada3da864e2e752b0d",
+  "versionNote": "Automatic production build marker."
 }
