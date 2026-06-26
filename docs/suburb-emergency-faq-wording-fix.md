@@ -41,10 +41,11 @@
 
 ## Deployment
 
-- Main SHA: pending
-- gh-pages SHA: pending
-- Live verification: pending
+- Main SHA: recorded in the final deployment response.
+- gh-pages SHA: recorded in the final deployment response.
+- Live verification: normal and cache-busted suburb URLs passed for Panania, Coogee, Blacktown, Camden, Wollongong, Linden and East Gosford.
+- Static file verification: normal `sitemap.xml` and `robots.txt` returned HTTP 200.
 
 ## Final Result
 
-PENDING DEPLOYMENT
+LIVE PASS
