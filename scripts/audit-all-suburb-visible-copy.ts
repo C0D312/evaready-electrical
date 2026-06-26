@@ -362,6 +362,17 @@ function awkwardWordingWarnings(text: string) {
     ["combined footer CTA", /Call 0461 247 247\s+Get a Quote\s+Email/i],
     ["old booking CTA", /Request a Booking or Quote/i],
     ["old request quote CTA", /\bRequest Quote\b/],
+    ["old suburb emergency symptom wording", /\bpower loss and burning smells\b/i],
+    ["old suburb sparking/tripping wording", /\bsparking and circuit tripping\b/i],
+    ["old response region wording", /\bcall-outs in this region use\b/i],
+    [
+      "old 60-minute response wording",
+      /\buse 60-minute emergency response\b/i,
+    ],
+    [
+      "old 90-minute response wording",
+      /\buse 90-minute emergency response\b/i,
+    ],
     [
       "chopped phrase fragment",
       /\b(?:ripping circuits|ipping circuits|ping circuits|ng circuits|g circuits|d fittings|ed fittings|ted fittings|ittings|ttings|ot outlets|t outlets|utlets|ets)\b|(?:^|\s),\s*(?:tripping circuits|burning smells|hot outlets)\b/i,

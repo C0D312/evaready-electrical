@@ -156,6 +156,37 @@ function pick<T>(items: T[], seed: number, offset = 0) {
   return items[mixedSeed % items.length];
 }
 
+const suburbEmergencySymptomPhrase =
+  "power loss, burning smells, sparking, circuit tripping or storm damage";
+
+const suburbEmergencyTimingLimitation =
+  "Timing depends on location, access, traffic, safety conditions, job type and current availability.";
+
+function normalizeSuburbEmergencyAnswer(
+  answer: string,
+  response: ReturnType<typeof getEmergencyResponseForRegion>,
+) {
+  const normalizedAnswer = answer
+    .replace(
+      /power loss and burning smells,\s*sparking and circuit tripping,\s*storm damage/gi,
+      suburbEmergencySymptomPhrase,
+    )
+    .replace(
+      /\s*Emergency call-outs in this region use (?:60|90)-minute emergency response\./gi,
+      "",
+    )
+    .trim();
+  const withResponse = /\bcan be on site within (?:60|90) minutes\b/i.test(
+    normalizedAnswer,
+  )
+    ? normalizedAnswer
+    : `${normalizedAnswer} ${response.regionDisplay}`;
+
+  return withResponse.includes(suburbEmergencyTimingLimitation)
+    ? withResponse
+    : `${withResponse} ${suburbEmergencyTimingLimitation}`;
+}
+
 const canterburyBankstownCommercialSuburbs = new Set([
   "bankstown",
   "birrong",
@@ -277,8 +308,8 @@ function getCanterburyBankstownLocalContext(
       "address details, parking or access notes, switchboard photos and any photos of the affected electrical area",
     commonJobs:
       "emergency faults, Level 2 enquiries, switchboards, hot water electrical, aircon electrical, CCTV/data and planned electrical work",
-    emergencySignals:
-      "power loss and burning smells, sparking, safety switch tripping, storm damage and water-damaged electrical equipment",
+      emergencySignals:
+        "power loss, burning smells, sparking, circuit tripping or storm damage, plus water-damaged electrical equipment",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices and supply-side electrical questions",
     plannedWork:
@@ -314,8 +345,8 @@ const baysideAirportLocalContexts: Record<string, LocalPageContext> = {
       "switchboard, meter box and affected fitting photos, shopfront access notes, warehouse entry details, parking notes and any defect notice or paperwork",
     commonJobs:
       "older-home fault finding, shopfront maintenance, warehouse lighting, strata repairs, hot water circuits, CCTV/data and Level 2 enquiries",
-    emergencySignals:
-      "home or shop power loss and burning smells and heat at outlets, safety switch tripping, warehouse circuit faults and water-damaged electrical equipment",
+      emergencySignals:
+        "home or shop power loss, burning smells, heat at outlets, circuit tripping, warehouse circuit faults and water-damaged electrical equipment",
     level2Detail:
       "consumer mains, metering, service equipment, defect notices, point of attachment concerns and supply-side questions",
     plannedWork:
@@ -14898,7 +14929,7 @@ function getLocalPageContext(
     commonJobs:
       "fault finding, lighting, power points, smoke alarms, switchboards and general repairs",
     emergencySignals:
-      "power loss and burning smells and circuit tripping, sparking and unsafe outlets",
+      "power loss, burning smells, circuit tripping, sparking or unsafe outlets",
     level2Detail:
       "consumer mains, service equipment, supply upgrades and defect notice enquiries",
     plannedWork:
@@ -15421,7 +15452,7 @@ const topSuburbCopyOverrides: Record<string, SuburbCopyOverride> = {
     heroNote:
       "Blacktown jobs often include family homes, older boards, new circuits, shop maintenance, strata access, workshops and power faults that need clear testing.",
     processDescription:
-      "Blacktown work is triaged by hazard and property type. Power loss and burning smells and sparking are call-first issues; upgrades are clearer with switchboard photos and job details.",
+      "Blacktown work is triaged by hazard and property type. Power loss, burning smells, sparking, circuit tripping or storm damage are call-first issues; upgrades are clearer with switchboard photos and job details.",
     serviceIntro:
       "Typical Blacktown requests include switchboard upgrades, extra power points, lighting, smoke alarms, CCTV, data cabling, safety switch trips and hot water electrical faults.",
   },
@@ -15774,7 +15805,7 @@ export function getSuburbPageCopy(
     [
       `${coverageArea.description} This ${context.setting} often needs clear job details, photos and safe fault testing before work begins.`,
       `${coverageSuburb.name} is part of the ${areaLabel} area in ${regionLabel}. Planned enquiries are easier to assess when they include ${context.accessDetail}.`,
-      `${coverageRegion.travelNote} For ${coverageSuburb.name}, emergency call-outs use ${response.shortDisplay}; call for unsafe faults, or send photos and details for planned work.`,
+      `${coverageRegion.travelNote} For ${coverageSuburb.name}, call for unsafe faults, or send photos and details for planned work.`,
       `${coverageArea.description} Typical enquiries in this pocket include ${context.plannedWork}, along with urgent fault checks when something feels unsafe.`,
     ],
     seed,
@@ -15857,7 +15888,7 @@ export function getSuburbPageCopy(
       ),
       text: pick(
         [
-          `Call first in ${coverageSuburb.name} for power outages and burning smells, sparking, safety switch tripping, storm damage, water-damaged fixtures or anything electrical that feels unsafe. Evaready provides ${response.shortDisplay} for emergency call-outs in this region.`,
+          `Call first in ${coverageSuburb.name} for ${suburbEmergencySymptomPhrase}, water-damaged fixtures or anything electrical that feels unsafe.`,
           `Emergency enquiries in ${suburbLabel} often involve ${context.emergencySignals}. Stop using the affected circuit where safe and call before touching the area again.`,
           `When ${coverageSuburb.name} homes, shops or strata properties have power loss, smoke, heat, sparking or repeated tripping, the first step is a direct phone call so the risk and response time can be triaged.`,
         ],
@@ -16077,7 +16108,7 @@ export function getSuburbPageCopy(
   ),
     faqAnswers: {
       combined: `Yes. Evaready Electrical can help with switchboards, fault finding, hot water electrical circuits, split-system electrical support, CCTV and data cabling, and general electrical work in ${coverageSuburb.name} under the relevant licence scope.`,
-      emergency: `Yes. Call first for power loss and burning smells, sparking and circuit tripping, storm damage or any fault in ${coverageSuburb.name} that feels unsafe. Emergency call-outs in this region use ${response.shortDisplay}.`,
+      emergency: `Yes. Call first for ${suburbEmergencySymptomPhrase} or any other fault in ${coverageSuburb.name} that feels unsafe. ${response.regionDisplay} ${suburbEmergencyTimingLimitation}`,
       level2: `Evaready Electrical is an ${business.level2Asp.display} and can assist with Level 2 electrical work in ${coverageSuburb.name}, including consumer mains, metering, defect notices, point of attachment issues and supply-side electrical issues.`,
       quote: `Yes. For planned work in ${suburbLabel}, use the secure booking form to send your address, contact details, job notes and photos. If there is heat, smoke, sparking or power loss, call first.`,
       service: `Yes. Evaready Electrical provides emergency, Level 2 and general electrical support across ${coverageSuburb.name} and nearby suburbs.`,
@@ -16100,13 +16131,14 @@ export function getSuburbPageCopy(
         href: "/emergency-electrician-sydney",
         intent: "emergency",
         title: `Emergency electrician in ${coverageSuburb.name}`,
-        text: `Call first for burning smells, power loss, sparking, safety switch tripping, storm or water-damaged electrical equipment. For this suburb, urgent call-outs follow ${response.shortDisplay}.`,
+        text: `Call first for ${suburbEmergencySymptomPhrase}, water-damaged electrical equipment or any fault that feels unsafe.`,
         items: [
           "Power loss",
           "Burning smells",
           "Sparking",
-          "Safety switch tripping",
-          "Storm or water-damaged electrical",
+          "Circuit tripping",
+          "Storm damage",
+          "Water-damaged electrical",
           response.shortDisplay,
         ],
       },
@@ -16192,7 +16224,7 @@ export function getSuburbPageCopy(
       {
         title: `Emergency electrician ${coverageSuburb.name}`,
         href: "/emergency-electrician-sydney",
-        text: `Urgent help for ${context.emergencySignals} in ${coverageSuburb.name}, with ${response.shortDisplay}.`,
+        text: `Urgent help for ${context.emergencySignals} in ${coverageSuburb.name}.`,
       },
       {
         title: `Level 2 electrician ${coverageSuburb.name}`,
@@ -16252,7 +16284,7 @@ export function getSuburbPageCopy(
       {
         title: `Electrical fault guides for ${coverageSuburb.name}`,
         href: "/electrical-faults",
-        text: `Read practical fault guides for power loss and burning smells, sparking outlets and tripping safety switches.`,
+        text: `Read practical fault guides for ${suburbEmergencySymptomPhrase}.`,
       },
       {
         title: `Electrical services ${coverageSuburb.name}`,
@@ -16320,11 +16352,10 @@ export function getSuburbPageCopy(
   )
     ? copyWithOverrides.heroDescription
     : `${copyWithOverrides.heroDescription} ${response.suburbDisplay}`;
-  const emergencyFaq = copyWithOverrides.faqAnswers.emergency.includes(
-    response.shortDisplay,
-  )
-    ? copyWithOverrides.faqAnswers.emergency
-    : `${copyWithOverrides.faqAnswers.emergency} Emergency call-outs in this region use ${response.shortDisplay}.`;
+  const emergencyFaq = normalizeSuburbEmergencyAnswer(
+    copyWithOverrides.faqAnswers.emergency,
+    response,
+  );
   const level2Faq = copyWithOverrides.faqAnswers.level2.includes(
     business.level2Asp.shortDisplay,
   )
