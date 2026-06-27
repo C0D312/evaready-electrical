@@ -9080,11 +9080,15 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
   padding: 0.85rem clamp(0.95rem, 2vw, 1.55rem) !important;
   color: var(--ev-white) !important;
   font-weight: 900 !important;
+  letter-spacing: 0 !important;
   line-height: 1.12 !important;
   text-align: center !important;
   text-decoration: none !important;
   white-space: normal !important;
+  text-wrap: balance !important;
   overflow: visible !important;
+  overflow-wrap: normal !important;
+  flex-wrap: wrap !important;
   transition:
     border-color 160ms ease,
     background 160ms ease,
@@ -9100,6 +9104,19 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
   align-self: center !important;
   color: currentColor !important;
   line-height: 1.12 !important;
+  letter-spacing: 0 !important;
+}
+
+:where(main, .site-header, .site-footer, #mobile-site-menu) :is(a, button)[data-conversion-action] span,
+:where(main, .site-header, .site-footer, #mobile-site-menu) a[href*="book.servicem8.com"] span,
+.mobile-sticky-cta__link span {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  white-space: normal !important;
+  text-wrap: balance !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  letter-spacing: 0 !important;
 }
 
 :where(main, .site-header, .site-footer, #mobile-site-menu) :is(a, button)[data-conversion-action] svg,
@@ -9108,6 +9125,8 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
   width: 1.15em !important;
   height: 1.15em !important;
   flex: 0 0 auto !important;
+  margin: 0 !important;
+  transform: none !important;
 }
 
 .ev-btn--call,
@@ -9167,6 +9186,7 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
   gap: clamp(0.65rem, 1.6vw, 0.95rem) !important;
   width: min(100%, 38rem) !important;
   max-width: 100% !important;
+  min-width: 0 !important;
 }
 
 :where(main, .site-footer, #mobile-site-menu) :is(
@@ -9177,6 +9197,7 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
 ):not(.mobile-sticky-cta):has(> a[data-conversion-action="phone-click"]):has(> a[data-conversion-action="quote-click"]) > a[data-conversion-action] {
   width: 100% !important;
   justify-self: stretch !important;
+  min-width: 0 !important;
 }
 
 .ev-btn--secondary,
@@ -9277,6 +9298,25 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
   overflow-wrap: normal !important;
 }
 
+@media (max-width: 430px) {
+  :where(main, .site-footer, #mobile-site-menu) :is(
+    div,
+    nav,
+    section,
+    article
+  ):not(.mobile-sticky-cta):has(> a[data-conversion-action="phone-click"]):has(> a[data-conversion-action="quote-click"]) {
+    gap: 0.62rem !important;
+  }
+
+  :where(main, .site-footer, #mobile-site-menu) :is(a, button)[data-conversion-action],
+  :where(main, .site-footer, #mobile-site-menu) a[href*="book.servicem8.com"] {
+    min-height: 3.15rem !important;
+    padding-inline: clamp(0.55rem, 2.4vw, 0.8rem) !important;
+    font-size: clamp(0.76rem, 3.35vw, 0.92rem) !important;
+    gap: 0.45rem !important;
+  }
+}
+
 @media (min-width: 1024px) and (max-width: 1180px) {
   .brand-internal-hero > .grid,
   .brand-internal-hero .service-detail-hero-layout,
@@ -9366,5 +9406,72 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
     flex: 0 0 auto !important;
     overflow: visible !important;
     pointer-events: auto !important;
+  }
+}
+
+/* Final CTA text-fit guard. This deliberately uses higher specificity than
+   utility classes so every conversion action keeps its icon and text inside
+   the button without hiding overflow. */
+main a[data-conversion-action],
+main button[data-conversion-action],
+.site-footer a[data-conversion-action],
+.site-footer button[data-conversion-action],
+#mobile-site-menu a[data-conversion-action],
+#mobile-site-menu button[data-conversion-action],
+.mobile-sticky-cta a[data-conversion-action] {
+  display: inline-flex !important;
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: clamp(0.38rem, 1.35vw, 0.65rem) !important;
+  overflow: visible !important;
+  text-align: center !important;
+  white-space: normal !important;
+  text-wrap: balance !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  letter-spacing: 0 !important;
+  line-height: 1.12 !important;
+}
+
+main a[data-conversion-action] *,
+main button[data-conversion-action] *,
+.site-footer a[data-conversion-action] *,
+.site-footer button[data-conversion-action] *,
+#mobile-site-menu a[data-conversion-action] *,
+#mobile-site-menu button[data-conversion-action] *,
+.mobile-sticky-cta a[data-conversion-action] * {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  white-space: normal !important;
+  text-wrap: balance !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  letter-spacing: 0 !important;
+}
+
+main a[data-conversion-action] svg,
+main button[data-conversion-action] svg,
+.site-footer a[data-conversion-action] svg,
+.site-footer button[data-conversion-action] svg,
+#mobile-site-menu a[data-conversion-action] svg,
+#mobile-site-menu button[data-conversion-action] svg,
+.mobile-sticky-cta a[data-conversion-action] svg {
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  transform: none !important;
+}
+
+@media (max-width: 430px) {
+  main a[data-conversion-action],
+  main button[data-conversion-action],
+  .site-footer a[data-conversion-action],
+  .site-footer button[data-conversion-action],
+  #mobile-site-menu a[data-conversion-action],
+  #mobile-site-menu button[data-conversion-action] {
+    padding-inline: clamp(0.55rem, 2.4vw, 0.85rem) !important;
   }
 }
