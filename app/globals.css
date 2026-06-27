@@ -9475,3 +9475,189 @@ main button[data-conversion-action] svg,
     padding-inline: clamp(0.55rem, 2.4vw, 0.85rem) !important;
   }
 }
+
+/* Final desktop header fit contract: compact full navigation only when the row
+   has enough width; otherwise the header remains logo + hamburger only. */
+@media (max-width: 1359px) {
+  header.site-header .site-header-actions,
+  header.site-header nav {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+  }
+
+  header.site-header .site-header-top {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 0.75rem !important;
+  }
+
+  header.site-header .mobile-nav-trigger,
+  header.site-header .mobile-nav-trigger button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 auto !important;
+  }
+}
+
+@media (min-width: 1360px) {
+  :root {
+    --site-header-height: calc(76px + env(safe-area-inset-top));
+  }
+
+  header.site-header .mx-auto {
+    width: 100% !important;
+    max-width: min(100%, 120rem) !important;
+    padding-inline: clamp(0.85rem, 1.15vw, 1.6rem) !important;
+    padding-block: 0.48rem !important;
+  }
+
+  header.site-header .site-header-top {
+    display: grid !important;
+    grid-template-columns: minmax(9.75rem, 12.25rem) minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    justify-content: stretch !important;
+    gap: clamp(0.55rem, 0.78vw, 0.95rem) !important;
+    min-height: 60px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+  }
+
+  header.site-header .site-logo-link {
+    width: clamp(9.75rem, 11.6vw, 12.25rem) !important;
+    max-width: clamp(9.75rem, 11.6vw, 12.25rem) !important;
+    height: 58px !important;
+    min-height: 58px !important;
+    max-height: 58px !important;
+    justify-self: start !important;
+  }
+
+  header.site-header .site-logo-image,
+  header.site-header .site-logo-image.logo-img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 58px !important;
+    max-height: 58px !important;
+    object-fit: contain !important;
+  }
+
+  header.site-header nav {
+    display: flex !important;
+    visibility: visible !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(0.34rem, 0.46vw, 0.64rem) !important;
+    overflow: hidden !important;
+    color: rgba(214, 232, 240, 0.92) !important;
+    font-size: clamp(0.61rem, 0.57vw, 0.78rem) !important;
+    line-height: 1.08 !important;
+  }
+
+  header.site-header nav a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    white-space: nowrap !important;
+    letter-spacing: 0 !important;
+  }
+
+  header.site-header .site-header-actions {
+    display: flex !important;
+    visibility: visible !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: auto !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: clamp(0.48rem, 0.58vw, 0.72rem) !important;
+    overflow: visible !important;
+    pointer-events: auto !important;
+  }
+
+  header.site-header .site-header-actions > a {
+    min-height: 44px !important;
+    height: 44px !important;
+    max-height: 44px !important;
+    border-radius: 0.78rem !important;
+    padding-block: 0 !important;
+    line-height: 1.05 !important;
+  }
+
+  header.site-header .site-header-actions > a[href^="tel:"] {
+    width: clamp(10.35rem, 10.8vw, 12.4rem) !important;
+    min-width: clamp(10.35rem, 10.8vw, 12.4rem) !important;
+    padding-inline: clamp(0.72rem, 0.8vw, 1rem) !important;
+    font-size: clamp(0.72rem, 0.62vw, 0.88rem) !important;
+  }
+
+  header.site-header .site-header-actions > a[href^="tel:"] .lg\:inline {
+    display: inline !important;
+  }
+
+  header.site-header .site-header-quote {
+    width: clamp(7.75rem, 8vw, 9.65rem) !important;
+    min-width: clamp(7.75rem, 8vw, 9.65rem) !important;
+    padding-inline: clamp(0.72rem, 0.8vw, 1rem) !important;
+    font-size: clamp(0.72rem, 0.62vw, 0.88rem) !important;
+  }
+
+  header.site-header .mobile-nav-trigger,
+  header.site-header .mobile-nav-trigger button {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1360px) and (max-width: 1439px) {
+  header.site-header nav a[href*="/about"],
+  header.site-header nav a[href*="/contact"],
+  header.site-header nav a[href*="/services/hot-water-system-electrician-sydney"],
+  header.site-header nav a[href*="/services/split-system-air-conditioning-sydney"] {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1536px) {
+  header.site-header .site-header-top {
+    grid-template-columns: minmax(11.25rem, 14rem) minmax(0, 1fr) auto !important;
+  }
+
+  header.site-header .site-logo-link {
+    width: clamp(11.25rem, 11.2vw, 14rem) !important;
+    max-width: clamp(11.25rem, 11.2vw, 14rem) !important;
+  }
+
+  header.site-header nav {
+    gap: clamp(0.5rem, 0.55vw, 0.85rem) !important;
+    font-size: clamp(0.68rem, 0.58vw, 0.86rem) !important;
+  }
+}
+
+@media (min-width: 1920px) {
+  header.site-header .site-header-top {
+    grid-template-columns: minmax(13rem, 16.5rem) minmax(0, 1fr) auto !important;
+  }
+
+  header.site-header .site-logo-link {
+    width: clamp(13rem, 10.2vw, 16.5rem) !important;
+    max-width: clamp(13rem, 10.2vw, 16.5rem) !important;
+  }
+
+  header.site-header nav {
+    gap: clamp(0.72rem, 0.6vw, 1rem) !important;
+    font-size: clamp(0.74rem, 0.56vw, 0.92rem) !important;
+  }
+}

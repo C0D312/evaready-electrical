@@ -1,0 +1,761 @@
+[
+  {
+    "width": 1024,
+    "height": 768,
+    "scrollWidth": 1024,
+    "navVisible": false,
+    "actionsVisible": false,
+    "triggerVisible": true,
+    "stickyVisible": true,
+    "links": [],
+    "rects": [
+      {
+        "text": "",
+        "left": 16.890625,
+        "right": 240.890625,
+        "width": 224
+      },
+      {
+        "text": "",
+        "left": 958.703125,
+        "right": 1006.703125,
+        "width": 48
+      }
+    ],
+    "failures": []
+  },
+  {
+    "width": 1180,
+    "height": 820,
+    "scrollWidth": 1180,
+    "navVisible": false,
+    "actionsVisible": false,
+    "triggerVisible": true,
+    "stickyVisible": true,
+    "links": [],
+    "rects": [
+      {
+        "text": "",
+        "left": 19.46875,
+        "right": 243.46875,
+        "width": 224
+      },
+      {
+        "text": "",
+        "left": 1112.125,
+        "right": 1160.125,
+        "width": 48
+      }
+    ],
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "height": 720,
+    "scrollWidth": 1280,
+    "navVisible": false,
+    "actionsVisible": false,
+    "triggerVisible": true,
+    "stickyVisible": false,
+    "links": [],
+    "rects": [
+      {
+        "text": "",
+        "left": 21.109375,
+        "right": 261.109375,
+        "width": 240
+      },
+      {
+        "text": "",
+        "left": 1210.484375,
+        "right": 1258.484375,
+        "width": 48
+      }
+    ],
+    "failures": []
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "scrollWidth": 1366,
+    "navVisible": true,
+    "actionsVisible": true,
+    "triggerVisible": false,
+    "stickyVisible": false,
+    "links": [
+      "Home",
+      "Emergency Electrician",
+      "Level 2 Electrician",
+      "Electrical Services",
+      "Solar & Batteries",
+      "Service Areas"
+    ],
+    "rects": [
+      {
+        "text": "",
+        "left": 15.703125,
+        "right": 174.15625,
+        "width": 158.453125
+      },
+      {
+        "text": "Home",
+        "left": 341.46875,
+        "right": 368.59375,
+        "width": 27.125
+      },
+      {
+        "text": "Emergency Electrician",
+        "left": 374.875,
+        "right": 479.578125,
+        "width": 104.703125
+      },
+      {
+        "text": "Level 2 Electrician",
+        "left": 485.859375,
+        "right": 571.046875,
+        "width": 85.1875
+      },
+      {
+        "text": "Electrical Services",
+        "left": 577.328125,
+        "right": 663.609375,
+        "width": 86.28125
+      },
+      {
+        "text": "Solar & Batteries",
+        "left": 669.890625,
+        "right": 748.546875,
+        "width": 78.65625
+      },
+      {
+        "text": "Service Areas",
+        "left": 754.828125,
+        "right": 819.046875,
+        "width": 64.21875
+      },
+      {
+        "text": "Call Now 0461 247 247",
+        "left": 948.828125,
+        "right": 1141.96875,
+        "width": 193.140625
+      },
+      {
+        "text": "Get a Quote",
+        "left": 1157.15625,
+        "right": 1350.296875,
+        "width": 193.140625
+      }
+    ],
+    "failures": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "scrollWidth": 1440,
+    "navVisible": true,
+    "actionsVisible": true,
+    "triggerVisible": false,
+    "stickyVisible": false,
+    "links": [
+      "Home",
+      "Emergency Electrician",
+      "Level 2 Electrician",
+      "Electrical Services",
+      "Hot Water",
+      "Aircon",
+      "Solar & Batteries",
+      "Service Areas",
+      "About Evaready",
+      "Contact"
+    ],
+    "rects": [
+      {
+        "text": "",
+        "left": 16.546875,
+        "right": 183.578125,
+        "width": 167.03125
+      },
+      {
+        "text": "Home",
+        "left": 270.78125,
+        "right": 297.90625,
+        "width": 27.125
+      },
+      {
+        "text": "Emergency Electrician",
+        "left": 304.515625,
+        "right": 409.21875,
+        "width": 104.703125
+      },
+      {
+        "text": "Level 2 Electrician",
+        "left": 415.828125,
+        "right": 501.015625,
+        "width": 85.1875
+      },
+      {
+        "text": "Electrical Services",
+        "left": 507.625,
+        "right": 593.90625,
+        "width": 86.28125
+      },
+      {
+        "text": "Hot Water",
+        "left": 600.515625,
+        "right": 646.25,
+        "width": 45.734375
+      },
+      {
+        "text": "Aircon",
+        "left": 652.859375,
+        "right": 683.78125,
+        "width": 30.921875
+      },
+      {
+        "text": "Solar & Batteries",
+        "left": 690.390625,
+        "right": 769.046875,
+        "width": 78.65625
+      },
+      {
+        "text": "Service Areas",
+        "left": 775.65625,
+        "right": 839.875,
+        "width": 64.21875
+      },
+      {
+        "text": "About Evaready",
+        "left": 846.484375,
+        "right": 920.796875,
+        "width": 74.3125
+      },
+      {
+        "text": "Contact",
+        "left": 927.40625,
+        "right": 963.75,
+        "width": 36.34375
+      },
+      {
+        "text": "Call Now 0461 247 247",
+        "left": 1021.984375,
+        "right": 1215.125,
+        "width": 193.140625
+      },
+      {
+        "text": "Get a Quote",
+        "left": 1230.3125,
+        "right": 1423.453125,
+        "width": 193.140625
+      }
+    ],
+    "failures": []
+  },
+  {
+    "width": 1536,
+    "height": 864,
+    "scrollWidth": 1536,
+    "navVisible": true,
+    "actionsVisible": true,
+    "triggerVisible": false,
+    "stickyVisible": false,
+    "links": [
+      "Home",
+      "Emergency Electrician",
+      "Level 2 Electrician",
+      "Electrical Services",
+      "Hot Water",
+      "Aircon",
+      "Solar & Batteries",
+      "Service Areas",
+      "About Evaready",
+      "Contact"
+    ],
+    "rects": [
+      {
+        "text": "",
+        "left": 17.65625,
+        "right": 197.65625,
+        "width": 180
+      },
+      {
+        "text": "Home",
+        "left": 286.671875,
+        "right": 316.90625,
+        "width": 30.234375
+      },
+      {
+        "text": "Emergency Electrician",
+        "left": 325.34375,
+        "right": 442.0625,
+        "width": 116.71875
+      },
+      {
+        "text": "Level 2 Electrician",
+        "left": 450.5,
+        "right": 545.453125,
+        "width": 94.953125
+      },
+      {
+        "text": "Electrical Services",
+        "left": 553.890625,
+        "right": 650.078125,
+        "width": 96.1875
+      },
+      {
+        "text": "Hot Water",
+        "left": 658.515625,
+        "right": 709.5,
+        "width": 50.984375
+      },
+      {
+        "text": "Aircon",
+        "left": 717.9375,
+        "right": 752.40625,
+        "width": 34.46875
+      },
+      {
+        "text": "Solar & Batteries",
+        "left": 760.84375,
+        "right": 848.53125,
+        "width": 87.6875
+      },
+      {
+        "text": "Service Areas",
+        "left": 856.96875,
+        "right": 928.5625,
+        "width": 71.59375
+      },
+      {
+        "text": "About Evaready",
+        "left": 937,
+        "right": 1019.84375,
+        "width": 82.84375
+      },
+      {
+        "text": "Contact",
+        "left": 1028.28125,
+        "right": 1068.78125,
+        "width": 40.5
+      },
+      {
+        "text": "Call Now 0461 247 247",
+        "left": 1113.8125,
+        "right": 1308.484375,
+        "width": 194.671875
+      },
+      {
+        "text": "Get a Quote",
+        "left": 1323.671875,
+        "right": 1518.34375,
+        "width": 194.671875
+      }
+    ],
+    "failures": []
+  },
+  {
+    "width": 1600,
+    "height": 900,
+    "scrollWidth": 1600,
+    "navVisible": true,
+    "actionsVisible": true,
+    "triggerVisible": false,
+    "stickyVisible": false,
+    "links": [
+      "Home",
+      "Emergency Electrician",
+      "Level 2 Electrician",
+      "Electrical Services",
+      "Hot Water",
+      "Aircon",
+      "Solar & Batteries",
+      "Service Areas",
+      "About Evaready",
+      "Contact"
+    ],
+    "rects": [
+      {
+        "text": "",
+        "left": 18.390625,
+        "right": 198.390625,
+        "width": 180
+      },
+      {
+        "text": "Home",
+        "left": 316.03125,
+        "right": 346.265625,
+        "width": 30.234375
+      },
+      {
+        "text": "Emergency Electrician",
+        "left": 355.0625,
+        "right": 471.78125,
+        "width": 116.71875
+      },
+      {
+        "text": "Level 2 Electrician",
+        "left": 480.578125,
+        "right": 575.53125,
+        "width": 94.953125
+      },
+      {
+        "text": "Electrical Services",
+        "left": 584.328125,
+        "right": 680.515625,
+        "width": 96.1875
+      },
+      {
+        "text": "Hot Water",
+        "left": 689.3125,
+        "right": 740.296875,
+        "width": 50.984375
+      },
+      {
+        "text": "Aircon",
+        "left": 749.09375,
+        "right": 783.5625,
+        "width": 34.46875
+      },
+      {
+        "text": "Solar & Batteries",
+        "left": 792.359375,
+        "right": 880.046875,
+        "width": 87.6875
+      },
+      {
+        "text": "Service Areas",
+        "left": 888.84375,
+        "right": 960.4375,
+        "width": 71.59375
+      },
+      {
+        "text": "About Evaready",
+        "left": 969.234375,
+        "right": 1052.078125,
+        "width": 82.84375
+      },
+      {
+        "text": "Contact",
+        "left": 1060.875,
+        "right": 1101.375,
+        "width": 40.5
+      },
+      {
+        "text": "Call Now 0461 247 247",
+        "left": 1175.015625,
+        "right": 1370.71875,
+        "width": 195.703125
+      },
+      {
+        "text": "Get a Quote",
+        "left": 1385.90625,
+        "right": 1581.609375,
+        "width": 195.703125
+      }
+    ],
+    "failures": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "scrollWidth": 1920,
+    "navVisible": true,
+    "actionsVisible": true,
+    "triggerVisible": false,
+    "stickyVisible": false,
+    "links": [
+      "Home",
+      "Emergency Electrician",
+      "Level 2 Electrician",
+      "Electrical Services",
+      "Hot Water",
+      "Aircon",
+      "Solar & Batteries",
+      "Service Areas",
+      "About Evaready",
+      "Contact"
+    ],
+    "rects": [
+      {
+        "text": "",
+        "left": 22.078125,
+        "right": 230.078125,
+        "width": 208
+      },
+      {
+        "text": "Home",
+        "left": 442.296875,
+        "right": 475.203125,
+        "width": 32.90625
+      },
+      {
+        "text": "Emergency Electrician",
+        "left": 486.71875,
+        "right": 613.734375,
+        "width": 127.015625
+      },
+      {
+        "text": "Level 2 Electrician",
+        "left": 625.25,
+        "right": 728.59375,
+        "width": 103.34375
+      },
+      {
+        "text": "Electrical Services",
+        "left": 740.109375,
+        "right": 844.78125,
+        "width": 104.671875
+      },
+      {
+        "text": "Hot Water",
+        "left": 856.296875,
+        "right": 911.78125,
+        "width": 55.484375
+      },
+      {
+        "text": "Aircon",
+        "left": 923.296875,
+        "right": 960.796875,
+        "width": 37.5
+      },
+      {
+        "text": "Solar & Batteries",
+        "left": 972.3125,
+        "right": 1067.734375,
+        "width": 95.421875
+      },
+      {
+        "text": "Service Areas",
+        "left": 1079.25,
+        "right": 1157.15625,
+        "width": 77.90625
+      },
+      {
+        "text": "About Evaready",
+        "left": 1168.671875,
+        "right": 1258.828125,
+        "width": 90.15625
+      },
+      {
+        "text": "Contact",
+        "left": 1270.34375,
+        "right": 1314.421875,
+        "width": 44.078125
+      },
+      {
+        "text": "Call Now 0461 247 247",
+        "left": 1470.640625,
+        "right": 1676.6875,
+        "width": 206.046875
+      },
+      {
+        "text": "Get a Quote",
+        "left": 1691.875,
+        "right": 1897.921875,
+        "width": 206.046875
+      }
+    ],
+    "failures": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "scrollWidth": 2560,
+    "navVisible": true,
+    "actionsVisible": true,
+    "triggerVisible": false,
+    "stickyVisible": false,
+    "links": [
+      "Home",
+      "Emergency Electrician",
+      "Level 2 Electrician",
+      "Electrical Services",
+      "Hot Water",
+      "Aircon",
+      "Solar & Batteries",
+      "Service Areas",
+      "About Evaready",
+      "Contact"
+    ],
+    "rects": [
+      {
+        "text": "",
+        "left": 345.59375,
+        "right": 606.703125,
+        "width": 261.109375
+      },
+      {
+        "text": "Home",
+        "left": 633.078125,
+        "right": 672.90625,
+        "width": 39.828125
+      },
+      {
+        "text": "Emergency Electrician",
+        "left": 688.265625,
+        "right": 842,
+        "width": 153.734375
+      },
+      {
+        "text": "Level 2 Electrician",
+        "left": 857.359375,
+        "right": 982.421875,
+        "width": 125.0625
+      },
+      {
+        "text": "Electrical Services",
+        "left": 997.78125,
+        "right": 1124.46875,
+        "width": 126.6875
+      },
+      {
+        "text": "Hot Water",
+        "left": 1139.828125,
+        "right": 1206.96875,
+        "width": 67.140625
+      },
+      {
+        "text": "Aircon",
+        "left": 1222.328125,
+        "right": 1267.71875,
+        "width": 45.390625
+      },
+      {
+        "text": "Solar & Batteries",
+        "left": 1283.078125,
+        "right": 1398.5625,
+        "width": 115.484375
+      },
+      {
+        "text": "Service Areas",
+        "left": 1413.921875,
+        "right": 1508.203125,
+        "width": 94.28125
+      },
+      {
+        "text": "About Evaready",
+        "left": 1523.5625,
+        "right": 1632.671875,
+        "width": 109.109375
+      },
+      {
+        "text": "Contact",
+        "left": 1648.03125,
+        "right": 1701.375,
+        "width": 53.34375
+      },
+      {
+        "text": "Call Now 0461 247 247",
+        "left": 1724.875,
+        "right": 1962.046875,
+        "width": 237.171875
+      },
+      {
+        "text": "Get a Quote",
+        "left": 1977.234375,
+        "right": 2214.40625,
+        "width": 237.171875
+      }
+    ],
+    "failures": []
+  },
+  {
+    "width": 360,
+    "height": 800,
+    "scrollWidth": 360,
+    "navVisible": false,
+    "actionsVisible": false,
+    "triggerVisible": true,
+    "stickyVisible": true,
+    "links": [],
+    "rects": [
+      {
+        "text": "",
+        "left": 9.90625,
+        "right": 224.296875,
+        "width": 214.390625
+      },
+      {
+        "text": "",
+        "left": 306.09375,
+        "right": 350.09375,
+        "width": 44
+      }
+    ],
+    "failures": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "scrollWidth": 390,
+    "navVisible": false,
+    "actionsVisible": false,
+    "triggerVisible": true,
+    "stickyVisible": true,
+    "links": [],
+    "rects": [
+      {
+        "text": "",
+        "left": 9.90625,
+        "right": 239.5,
+        "width": 229.59375
+      },
+      {
+        "text": "",
+        "left": 331.6875,
+        "right": 379.6875,
+        "width": 48
+      }
+    ],
+    "failures": []
+  },
+  {
+    "width": 412,
+    "height": 915,
+    "scrollWidth": 412,
+    "navVisible": false,
+    "actionsVisible": false,
+    "triggerVisible": true,
+    "stickyVisible": true,
+    "links": [],
+    "rects": [
+      {
+        "text": "",
+        "left": 9.90625,
+        "right": 239.5,
+        "width": 229.59375
+      },
+      {
+        "text": "",
+        "left": 353.6875,
+        "right": 401.6875,
+        "width": 48
+      }
+    ],
+    "failures": []
+  },
+  {
+    "width": 430,
+    "height": 932,
+    "scrollWidth": 430,
+    "navVisible": false,
+    "actionsVisible": false,
+    "triggerVisible": true,
+    "stickyVisible": true,
+    "links": [],
+    "rects": [
+      {
+        "text": "",
+        "left": 9.90625,
+        "right": 239.5,
+        "width": 229.59375
+      },
+      {
+        "text": "",
+        "left": 371.6875,
+        "right": 419.6875,
+        "width": 48
+      }
+    ],
+    "failures": []
+  }
+]
