@@ -11,6 +11,8 @@
 
 The live QA found that the desktop header still collapsed to the hamburger layout at 1280px. The shared header CSS now switches the full desktop header on from 1280px, while mobile and tablet widths up to 1279px retain the logo + hamburger-only header.
 
+A follow-up live pass also found tight mid-width Call Now buttons on the header and a small set of content pages. Shared CTA sizing now keeps those phone labels inside the button without hiding the phone number.
+
 ## Local Validation
 
 - `audit:suburbs`: pass, 873 suburb pages, 0 warnings.
@@ -37,6 +39,7 @@ The live QA found that the desktop header still collapsed to the hamburger layou
 - Mobile top Quote button: removed by shared mobile/tablet header contract.
 - Mobile top Call Now button: removed by shared mobile/tablet header contract.
 - Desktop header at 1280px and wider: corrected to show desktop navigation and CTAs.
+- Mid-width Call Now buttons: corrected so the phone number no longer clips in the header or compact page CTA rows.
 - Quote popup emergency CTA: unchanged during this pass; previous modal checks showed no fit or close-button failures.
 
 Live normal and cache-busted URL verification is completed after the gh-pages deployment and recorded in the final deployment response.

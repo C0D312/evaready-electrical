@@ -9716,10 +9716,12 @@ main button[data-conversion-action] svg,
   }
 
   header.site-header .site-header-actions > a[href^="tel:"] {
-    width: clamp(10.35rem, 10.8vw, 12.4rem) !important;
-    min-width: clamp(10.35rem, 10.8vw, 12.4rem) !important;
+    width: clamp(11.75rem, 14vw, 12.6rem) !important;
+    min-width: clamp(11.75rem, 14vw, 12.6rem) !important;
     padding-inline: clamp(0.72rem, 0.8vw, 1rem) !important;
     font-size: clamp(0.72rem, 0.62vw, 0.88rem) !important;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
   }
 
   header.site-header .site-header-actions > a[href^="tel:"] .lg\:inline {
@@ -9731,11 +9733,29 @@ main button[data-conversion-action] svg,
     min-width: clamp(7.75rem, 8vw, 9.65rem) !important;
     padding-inline: clamp(0.72rem, 0.8vw, 1rem) !important;
     font-size: clamp(0.72rem, 0.62vw, 0.88rem) !important;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+  }
+
+  header.site-header .site-header-actions > a *,
+  header.site-header .site-header-quote * {
+    white-space: nowrap !important;
+    text-wrap: nowrap !important;
   }
 
   header.site-header .mobile-nav-trigger,
   header.site-header .mobile-nav-trigger button {
     display: none !important;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1440px) {
+  main a[data-conversion-action="phone-click"]:not(.quote-modal-emergency),
+  main button[data-conversion-action="phone-click"]:not(.quote-modal-emergency),
+  .site-footer a[data-conversion-action="phone-click"],
+  .site-footer button[data-conversion-action="phone-click"] {
+    font-size: clamp(0.78rem, 0.92vw, 0.86rem) !important;
+    padding-inline: clamp(0.78rem, 1vw, 1rem) !important;
   }
 }
 
