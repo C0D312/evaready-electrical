@@ -237,7 +237,7 @@ function classifyHref(
     const route = normalizeRoute(targetPath);
 
     if (
-      /^\/(?:_next|images|favicon\.ico|apple-icon\.png|icon\.png|evaready-(?:favicon|icon|apple-icon)[^/]*\.(?:ico|png))/.test(
+      /^\/(?:_next|images|favicon\.ico|apple-icon\.png|icon\.png|evaready-(?:favicon|icon|apple-icon|full-logo)[^/]*\.(?:ico|png|webp))/.test(
         route,
       )
     ) {

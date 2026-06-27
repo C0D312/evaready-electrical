@@ -3493,6 +3493,7 @@ a[data-quote-trigger="true"].site-header-quote {
 
 .mobile-sticky-cta--footer-visible,
 body.quote-modal-open .mobile-sticky-cta {
+  visibility: hidden;
   pointer-events: none;
   opacity: 0;
   transform: translateY(0.75rem) scale(0.98);
@@ -9316,5 +9317,54 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
     font-size: clamp(0.66rem, 3.35vw, 0.76rem) !important;
     gap: 0.35rem !important;
     padding-inline: 0.45rem !important;
+  }
+}
+
+/* Final mobile/tablet header contract: hamburger layout is logo + menu only.
+   Header CTAs return only when the full desktop nav has enough room. */
+@media (max-width: 1180px) {
+  header.site-header .site-header-actions {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    height: 0 !important;
+    flex: 0 0 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+  }
+
+  header.site-header .site-header-actions > * {
+    display: none !important;
+  }
+
+  header.site-header .site-header-top {
+    justify-content: space-between !important;
+  }
+
+  header.site-header .mobile-nav-trigger,
+  header.site-header .mobile-nav-trigger button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .mobile-sticky-cta {
+    display: grid !important;
+  }
+}
+
+@media (min-width: 1181px) {
+  header.site-header .site-header-actions {
+    display: flex !important;
+    visibility: visible !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: auto !important;
+    flex: 0 0 auto !important;
+    overflow: visible !important;
+    pointer-events: auto !important;
   }
 }

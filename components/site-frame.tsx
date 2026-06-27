@@ -77,7 +77,7 @@ export function SiteHeader() {
               })}
             </nav>
 
-            <div className="site-header-actions flex min-w-0 shrink-0 items-center gap-1 sm:gap-2">
+            <div className="site-header-actions hidden min-w-0 shrink-0 items-center gap-1 min-[1181px]:flex sm:gap-2">
               <a
                 href={business.phoneHref}
                 data-conversion-action="phone-click"

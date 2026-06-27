@@ -15,6 +15,17 @@ export function MobileStickyCta() {
       return;
     }
 
+    let frame = 0;
+    const updateFooterVisibility = () => {
+      window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(() => {
+        const footerRect = footer.getBoundingClientRect();
+        setFooterVisible(
+          footerRect.top < window.innerHeight - 8 && footerRect.bottom > 0,
+        );
+      });
+    };
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         setFooterVisible(entry.isIntersecting);
@@ -23,8 +34,16 @@ export function MobileStickyCta() {
     );
 
     observer.observe(footer);
+    updateFooterVisibility();
+    window.addEventListener("scroll", updateFooterVisibility, { passive: true });
+    window.addEventListener("resize", updateFooterVisibility);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", updateFooterVisibility);
+      window.removeEventListener("resize", updateFooterVisibility);
+    };
   }, []);
 
   useEffect(() => {
