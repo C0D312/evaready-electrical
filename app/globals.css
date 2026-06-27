@@ -3525,7 +3525,7 @@ body.quote-modal-open .mobile-sticky-cta {
 
 /* Quote modal call bar: compact dark strip with the booking form directly below. */
 .quote-modal-backdrop {
-  --quote-modal-header-height: 44px !important;
+  --quote-modal-header-height: 50px !important;
   --quote-modal-safe-top: 0px !important;
   position: fixed !important;
   inset: 0 !important;
@@ -3541,7 +3541,7 @@ body.quote-modal-open .mobile-sticky-cta {
 }
 
 .quote-modal-panel {
-  --quote-modal-header-height: 44px !important;
+  --quote-modal-header-height: 50px !important;
   --quote-modal-safe-top: 0px !important;
   position: fixed !important;
   inset: 0 !important;
@@ -3573,7 +3573,7 @@ body.quote-modal-open .mobile-sticky-cta {
   min-height: var(--quote-modal-header-height) !important;
   max-height: var(--quote-modal-header-height) !important;
   margin: 0 !important;
-  padding: 5px 56px 5px 10px !important;
+  padding: 6px 70px 6px 10px !important;
   border: 0 !important;
   background:
     linear-gradient(
@@ -3594,11 +3594,11 @@ body.quote-modal-open .mobile-sticky-cta {
 
 .quote-modal-emergency {
   display: inline-flex !important;
-  flex: 1 1 auto !important;
+  flex: 0 1 auto !important;
   min-height: 0 !important;
-  height: 34px !important;
-  width: 100% !important;
-  max-width: 100% !important;
+  height: 38px !important;
+  width: min(100%, 19rem) !important;
+  max-width: calc(100% - 0.25rem) !important;
   align-items: center !important;
   justify-content: center !important;
   gap: 0.5rem !important;
@@ -3622,7 +3622,8 @@ body.quote-modal-open .mobile-sticky-cta {
   min-width: 0 !important;
   overflow: visible !important;
   text-overflow: clip !important;
-  white-space: nowrap !important;
+  white-space: normal !important;
+  text-wrap: balance !important;
 }
 
 .quote-modal-close {
@@ -3700,15 +3701,17 @@ body.quote-modal-open .mobile-sticky-cta {
 
 @media (max-width: 360px) {
   .quote-modal-action-bar {
-    padding-right: 52px !important;
+    padding-right: 64px !important;
     padding-left: 8px !important;
   }
 
   .quote-modal-emergency {
     gap: 0.35rem !important;
+    width: min(100%, 16.25rem) !important;
     padding-left: 0.52rem !important;
     padding-right: 0.52rem !important;
-    font-size: 0.72rem !important;
+    font-size: 0.69rem !important;
+    line-height: 1.05 !important;
   }
 
   .quote-modal-close {
@@ -3722,7 +3725,7 @@ body.quote-modal-open .mobile-sticky-cta {
 
 @media (min-width: 640px) {
   .quote-modal-backdrop {
-    --quote-modal-header-height: 44px !important;
+    --quote-modal-header-height: 50px !important;
     --quote-modal-safe-top: 0px !important;
     display: grid !important;
     place-items: center !important;
@@ -3732,7 +3735,7 @@ body.quote-modal-open .mobile-sticky-cta {
   }
 
   .quote-modal-panel {
-    --quote-modal-header-height: 44px !important;
+    --quote-modal-header-height: 50px !important;
     --quote-modal-safe-top: 0px !important;
     position: relative !important;
     inset: auto !important;
@@ -3749,12 +3752,13 @@ body.quote-modal-open .mobile-sticky-cta {
     height: var(--quote-modal-header-height) !important;
     min-height: var(--quote-modal-header-height) !important;
     max-height: var(--quote-modal-header-height) !important;
-    padding: 5px 56px 5px 10px !important;
+    padding: 6px 70px 6px 12px !important;
   }
 
   .quote-modal-emergency {
-    height: 34px !important;
+    height: 38px !important;
     min-height: 0 !important;
+    width: min(100%, 22rem) !important;
     border-radius: 0.5rem !important;
     font-size: 0.95rem !important;
   }
@@ -9659,5 +9663,69 @@ main button[data-conversion-action] svg,
   header.site-header nav {
     gap: clamp(0.72rem, 0.6vw, 1rem) !important;
     font-size: clamp(0.74rem, 0.56vw, 0.92rem) !important;
+  }
+}
+
+/* Quote popup emergency CTA: keep the modal header compact and clear of the
+   close control after the global button system has normalised site CTAs. */
+.quote-modal-action-bar {
+  --quote-modal-header-height: 50px !important;
+  height: var(--quote-modal-header-height) !important;
+  min-height: var(--quote-modal-header-height) !important;
+  max-height: var(--quote-modal-header-height) !important;
+  padding: 6px 70px 6px 10px !important;
+}
+
+.quote-modal-emergency,
+.quote-modal-action-bar .quote-modal-emergency[data-conversion-action="phone-click"] {
+  flex: 0 1 auto !important;
+  width: min(100%, 19rem) !important;
+  max-width: 100% !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  max-height: 38px !important;
+  border-radius: 0.65rem !important;
+  padding: 0 0.8rem !important;
+  flex-wrap: nowrap !important;
+  gap: 0.5rem !important;
+  white-space: normal !important;
+  line-height: 1.05 !important;
+}
+
+.quote-modal-emergency span {
+  white-space: normal !important;
+  line-height: 1.05 !important;
+}
+
+.quote-modal-close {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+}
+
+@media (max-width: 360px) {
+  .quote-modal-action-bar {
+    padding-right: 64px !important;
+    padding-left: 8px !important;
+  }
+
+  .quote-modal-emergency,
+  .quote-modal-action-bar .quote-modal-emergency[data-conversion-action="phone-click"] {
+    width: min(100%, 16.25rem) !important;
+    padding-inline: 0.5rem !important;
+    font-size: 0.69rem !important;
+  }
+}
+
+@media (min-width: 640px) {
+  .quote-modal-action-bar {
+    padding: 6px 70px 6px 12px !important;
+  }
+
+  .quote-modal-emergency,
+  .quote-modal-action-bar .quote-modal-emergency[data-conversion-action="phone-click"] {
+    width: min(100%, 22rem) !important;
+    font-size: 0.95rem !important;
   }
 }

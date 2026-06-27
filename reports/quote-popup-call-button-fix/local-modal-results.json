@@ -1,0 +1,2328 @@
+{
+  "checkedAt": "2026-06-27T20:17:08.599Z",
+  "results": [
+    {
+      "route": "/",
+      "width": 320,
+      "height": 568,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 8,
+        "right": 256,
+        "top": 6,
+        "bottom": 44,
+        "width": 248,
+        "height": 38
+      },
+      "close": {
+        "left": 272,
+        "right": 316,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 320,
+        "top": 0,
+        "bottom": 568,
+        "width": 320,
+        "height": 568
+      },
+      "span": {
+        "left": 37.6875,
+        "right": 247,
+        "top": 12.640625,
+        "bottom": 37.359375,
+        "width": 209.3125,
+        "height": 24.71875
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/",
+      "width": 360,
+      "height": 800,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 8,
+        "right": 296,
+        "top": 6,
+        "bottom": 44,
+        "width": 288,
+        "height": 38
+      },
+      "close": {
+        "left": 312,
+        "right": 356,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 360,
+        "top": 0,
+        "bottom": 800,
+        "width": 360,
+        "height": 800
+      },
+      "span": {
+        "left": 54.109375,
+        "right": 270.5625,
+        "top": 18.8125,
+        "bottom": 31.171875,
+        "width": 216.453125,
+        "height": 12.359375
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "height": 844,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 10,
+        "right": 320,
+        "top": 6,
+        "bottom": 44,
+        "width": 310,
+        "height": 38
+      },
+      "close": {
+        "left": 342,
+        "right": 386,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 390,
+        "top": 0,
+        "bottom": 844,
+        "width": 390,
+        "height": 844
+      },
+      "span": {
+        "left": 48.484375,
+        "right": 304.53125,
+        "top": 17.6875,
+        "bottom": 32.3125,
+        "width": 256.046875,
+        "height": 14.625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/",
+      "width": 412,
+      "height": 915,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 10,
+        "right": 342,
+        "top": 6,
+        "bottom": 44,
+        "width": 332,
+        "height": 38
+      },
+      "close": {
+        "left": 364,
+        "right": 408,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 412,
+        "top": 0,
+        "bottom": 915,
+        "width": 412,
+        "height": 915
+      },
+      "span": {
+        "left": 52.65625,
+        "right": 323.203125,
+        "top": 17.28125,
+        "bottom": 32.71875,
+        "width": 270.546875,
+        "height": 15.4375
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/",
+      "width": 430,
+      "height": 932,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 10,
+        "right": 360,
+        "top": 6,
+        "bottom": 44,
+        "width": 350,
+        "height": 38
+      },
+      "close": {
+        "left": 382,
+        "right": 426,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 430,
+        "top": 0,
+        "bottom": 932,
+        "width": 430,
+        "height": 932
+      },
+      "span": {
+        "left": 56.109375,
+        "right": 338.4375,
+        "top": 16.9375,
+        "bottom": 33.0625,
+        "width": 282.328125,
+        "height": 16.125
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "height": 1024,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 28,
+        "right": 380,
+        "top": 82.796875,
+        "bottom": 120.796875,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 704,
+        "right": 748,
+        "top": 76.796875,
+        "bottom": 120.796875,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 16,
+        "right": 752,
+        "top": 76.796875,
+        "bottom": 947.1875,
+        "width": 736,
+        "height": 870.390625
+      },
+      "span": {
+        "left": 67.734375,
+        "right": 365.734375,
+        "top": 93.28125,
+        "bottom": 110.296875,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/",
+      "width": 820,
+      "height": 1180,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 42,
+        "right": 394,
+        "top": 94.5,
+        "bottom": 132.5,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 742,
+        "right": 786,
+        "top": 88.5,
+        "bottom": 132.5,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 30,
+        "right": 790,
+        "top": 88.5,
+        "bottom": 1091.5,
+        "width": 760,
+        "height": 1003
+      },
+      "span": {
+        "left": 81.734375,
+        "right": 379.734375,
+        "top": 104.984375,
+        "bottom": 122,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/",
+      "width": 1366,
+      "height": 768,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 315,
+        "right": 667,
+        "top": 63.59375,
+        "bottom": 101.59375,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 1015,
+        "right": 1059,
+        "top": 57.59375,
+        "bottom": 101.59375,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 303,
+        "right": 1063,
+        "top": 57.59375,
+        "bottom": 710.390625,
+        "width": 760,
+        "height": 652.796875
+      },
+      "span": {
+        "left": 354.734375,
+        "right": 652.734375,
+        "top": 74.078125,
+        "bottom": 91.09375,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/",
+      "width": 1920,
+      "height": 1080,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 592,
+        "right": 944,
+        "top": 87,
+        "bottom": 125,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 1292,
+        "right": 1336,
+        "top": 81,
+        "bottom": 125,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 580,
+        "right": 1340,
+        "top": 81,
+        "bottom": 999,
+        "width": 760,
+        "height": 918
+      },
+      "span": {
+        "left": 631.734375,
+        "right": 929.734375,
+        "top": 97.484375,
+        "bottom": 114.5,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/emergency-electrician-sydney/",
+      "width": 320,
+      "height": 568,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 8,
+        "right": 256,
+        "top": 6,
+        "bottom": 44,
+        "width": 248,
+        "height": 38
+      },
+      "close": {
+        "left": 272,
+        "right": 316,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 320,
+        "top": 0,
+        "bottom": 568,
+        "width": 320,
+        "height": 568
+      },
+      "span": {
+        "left": 37.6875,
+        "right": 247,
+        "top": 12.640625,
+        "bottom": 37.359375,
+        "width": 209.3125,
+        "height": 24.71875
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/emergency-electrician-sydney/",
+      "width": 360,
+      "height": 800,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 8,
+        "right": 296,
+        "top": 6,
+        "bottom": 44,
+        "width": 288,
+        "height": 38
+      },
+      "close": {
+        "left": 312,
+        "right": 356,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 360,
+        "top": 0,
+        "bottom": 800,
+        "width": 360,
+        "height": 800
+      },
+      "span": {
+        "left": 54.109375,
+        "right": 270.5625,
+        "top": 18.8125,
+        "bottom": 31.171875,
+        "width": 216.453125,
+        "height": 12.359375
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/emergency-electrician-sydney/",
+      "width": 390,
+      "height": 844,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 10,
+        "right": 320,
+        "top": 6,
+        "bottom": 44,
+        "width": 310,
+        "height": 38
+      },
+      "close": {
+        "left": 342,
+        "right": 386,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 390,
+        "top": 0,
+        "bottom": 844,
+        "width": 390,
+        "height": 844
+      },
+      "span": {
+        "left": 48.484375,
+        "right": 304.53125,
+        "top": 17.6875,
+        "bottom": 32.3125,
+        "width": 256.046875,
+        "height": 14.625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/emergency-electrician-sydney/",
+      "width": 412,
+      "height": 915,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 10,
+        "right": 342,
+        "top": 6,
+        "bottom": 44,
+        "width": 332,
+        "height": 38
+      },
+      "close": {
+        "left": 364,
+        "right": 408,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 412,
+        "top": 0,
+        "bottom": 915,
+        "width": 412,
+        "height": 915
+      },
+      "span": {
+        "left": 52.65625,
+        "right": 323.203125,
+        "top": 17.28125,
+        "bottom": 32.71875,
+        "width": 270.546875,
+        "height": 15.4375
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/emergency-electrician-sydney/",
+      "width": 430,
+      "height": 932,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 10,
+        "right": 360,
+        "top": 6,
+        "bottom": 44,
+        "width": 350,
+        "height": 38
+      },
+      "close": {
+        "left": 382,
+        "right": 426,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 430,
+        "top": 0,
+        "bottom": 932,
+        "width": 430,
+        "height": 932
+      },
+      "span": {
+        "left": 56.109375,
+        "right": 338.4375,
+        "top": 16.9375,
+        "bottom": 33.0625,
+        "width": 282.328125,
+        "height": 16.125
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/emergency-electrician-sydney/",
+      "width": 768,
+      "height": 1024,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 28,
+        "right": 380,
+        "top": 82.796875,
+        "bottom": 120.796875,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 704,
+        "right": 748,
+        "top": 76.796875,
+        "bottom": 120.796875,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 16,
+        "right": 752,
+        "top": 76.796875,
+        "bottom": 947.1875,
+        "width": 736,
+        "height": 870.390625
+      },
+      "span": {
+        "left": 67.734375,
+        "right": 365.734375,
+        "top": 93.28125,
+        "bottom": 110.296875,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/emergency-electrician-sydney/",
+      "width": 820,
+      "height": 1180,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 42,
+        "right": 394,
+        "top": 94.5,
+        "bottom": 132.5,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 742,
+        "right": 786,
+        "top": 88.5,
+        "bottom": 132.5,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 30,
+        "right": 790,
+        "top": 88.5,
+        "bottom": 1091.5,
+        "width": 760,
+        "height": 1003
+      },
+      "span": {
+        "left": 81.734375,
+        "right": 379.734375,
+        "top": 104.984375,
+        "bottom": 122,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/emergency-electrician-sydney/",
+      "width": 1366,
+      "height": 768,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 315,
+        "right": 667,
+        "top": 63.59375,
+        "bottom": 101.59375,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 1015,
+        "right": 1059,
+        "top": 57.59375,
+        "bottom": 101.59375,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 303,
+        "right": 1063,
+        "top": 57.59375,
+        "bottom": 710.390625,
+        "width": 760,
+        "height": 652.796875
+      },
+      "span": {
+        "left": 354.734375,
+        "right": 652.734375,
+        "top": 74.078125,
+        "bottom": 91.09375,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/emergency-electrician-sydney/",
+      "width": 1920,
+      "height": 1080,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 592,
+        "right": 944,
+        "top": 87,
+        "bottom": 125,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 1292,
+        "right": 1336,
+        "top": 81,
+        "bottom": 125,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 580,
+        "right": 1340,
+        "top": 81,
+        "bottom": 999,
+        "width": 760,
+        "height": 918
+      },
+      "span": {
+        "left": 631.734375,
+        "right": 929.734375,
+        "top": 97.484375,
+        "bottom": 114.5,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/level-2-electrician-sydney/",
+      "width": 320,
+      "height": 568,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 8,
+        "right": 256,
+        "top": 6,
+        "bottom": 44,
+        "width": 248,
+        "height": 38
+      },
+      "close": {
+        "left": 272,
+        "right": 316,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 320,
+        "top": 0,
+        "bottom": 568,
+        "width": 320,
+        "height": 568
+      },
+      "span": {
+        "left": 37.6875,
+        "right": 247,
+        "top": 12.640625,
+        "bottom": 37.359375,
+        "width": 209.3125,
+        "height": 24.71875
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/level-2-electrician-sydney/",
+      "width": 360,
+      "height": 800,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 8,
+        "right": 296,
+        "top": 6,
+        "bottom": 44,
+        "width": 288,
+        "height": 38
+      },
+      "close": {
+        "left": 312,
+        "right": 356,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 360,
+        "top": 0,
+        "bottom": 800,
+        "width": 360,
+        "height": 800
+      },
+      "span": {
+        "left": 54.109375,
+        "right": 270.5625,
+        "top": 18.8125,
+        "bottom": 31.171875,
+        "width": 216.453125,
+        "height": 12.359375
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/level-2-electrician-sydney/",
+      "width": 390,
+      "height": 844,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 10,
+        "right": 320,
+        "top": 6,
+        "bottom": 44,
+        "width": 310,
+        "height": 38
+      },
+      "close": {
+        "left": 342,
+        "right": 386,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 390,
+        "top": 0,
+        "bottom": 844,
+        "width": 390,
+        "height": 844
+      },
+      "span": {
+        "left": 48.484375,
+        "right": 304.53125,
+        "top": 17.6875,
+        "bottom": 32.3125,
+        "width": 256.046875,
+        "height": 14.625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/level-2-electrician-sydney/",
+      "width": 412,
+      "height": 915,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 10,
+        "right": 342,
+        "top": 6,
+        "bottom": 44,
+        "width": 332,
+        "height": 38
+      },
+      "close": {
+        "left": 364,
+        "right": 408,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 412,
+        "top": 0,
+        "bottom": 915,
+        "width": 412,
+        "height": 915
+      },
+      "span": {
+        "left": 52.65625,
+        "right": 323.203125,
+        "top": 17.28125,
+        "bottom": 32.71875,
+        "width": 270.546875,
+        "height": 15.4375
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/level-2-electrician-sydney/",
+      "width": 430,
+      "height": 932,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 10,
+        "right": 360,
+        "top": 6,
+        "bottom": 44,
+        "width": 350,
+        "height": 38
+      },
+      "close": {
+        "left": 382,
+        "right": 426,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 430,
+        "top": 0,
+        "bottom": 932,
+        "width": 430,
+        "height": 932
+      },
+      "span": {
+        "left": 56.109375,
+        "right": 338.4375,
+        "top": 16.9375,
+        "bottom": 33.0625,
+        "width": 282.328125,
+        "height": 16.125
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/level-2-electrician-sydney/",
+      "width": 768,
+      "height": 1024,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 28,
+        "right": 380,
+        "top": 82.796875,
+        "bottom": 120.796875,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 704,
+        "right": 748,
+        "top": 76.796875,
+        "bottom": 120.796875,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 16,
+        "right": 752,
+        "top": 76.796875,
+        "bottom": 947.1875,
+        "width": 736,
+        "height": 870.390625
+      },
+      "span": {
+        "left": 67.734375,
+        "right": 365.734375,
+        "top": 93.28125,
+        "bottom": 110.296875,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/level-2-electrician-sydney/",
+      "width": 820,
+      "height": 1180,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 42,
+        "right": 394,
+        "top": 94.5,
+        "bottom": 132.5,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 742,
+        "right": 786,
+        "top": 88.5,
+        "bottom": 132.5,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 30,
+        "right": 790,
+        "top": 88.5,
+        "bottom": 1091.5,
+        "width": 760,
+        "height": 1003
+      },
+      "span": {
+        "left": 81.734375,
+        "right": 379.734375,
+        "top": 104.984375,
+        "bottom": 122,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/level-2-electrician-sydney/",
+      "width": 1366,
+      "height": 768,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 315,
+        "right": 667,
+        "top": 63.59375,
+        "bottom": 101.59375,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 1015,
+        "right": 1059,
+        "top": 57.59375,
+        "bottom": 101.59375,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 303,
+        "right": 1063,
+        "top": 57.59375,
+        "bottom": 710.390625,
+        "width": 760,
+        "height": 652.796875
+      },
+      "span": {
+        "left": 354.734375,
+        "right": 652.734375,
+        "top": 74.078125,
+        "bottom": 91.09375,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/level-2-electrician-sydney/",
+      "width": 1920,
+      "height": 1080,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 592,
+        "right": 944,
+        "top": 87,
+        "bottom": 125,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 1292,
+        "right": 1336,
+        "top": 81,
+        "bottom": 125,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 580,
+        "right": 1340,
+        "top": 81,
+        "bottom": 999,
+        "width": 760,
+        "height": 918
+      },
+      "span": {
+        "left": 631.734375,
+        "right": 929.734375,
+        "top": 97.484375,
+        "bottom": 114.5,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/services/",
+      "width": 320,
+      "height": 568,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 8,
+        "right": 256,
+        "top": 6,
+        "bottom": 44,
+        "width": 248,
+        "height": 38
+      },
+      "close": {
+        "left": 272,
+        "right": 316,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 320,
+        "top": 0,
+        "bottom": 568,
+        "width": 320,
+        "height": 568
+      },
+      "span": {
+        "left": 37.6875,
+        "right": 247,
+        "top": 12.640625,
+        "bottom": 37.359375,
+        "width": 209.3125,
+        "height": 24.71875
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/services/",
+      "width": 360,
+      "height": 800,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 8,
+        "right": 296,
+        "top": 6,
+        "bottom": 44,
+        "width": 288,
+        "height": 38
+      },
+      "close": {
+        "left": 312,
+        "right": 356,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 360,
+        "top": 0,
+        "bottom": 800,
+        "width": 360,
+        "height": 800
+      },
+      "span": {
+        "left": 54.109375,
+        "right": 270.5625,
+        "top": 18.8125,
+        "bottom": 31.171875,
+        "width": 216.453125,
+        "height": 12.359375
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/services/",
+      "width": 390,
+      "height": 844,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 10,
+        "right": 320,
+        "top": 6,
+        "bottom": 44,
+        "width": 310,
+        "height": 38
+      },
+      "close": {
+        "left": 342,
+        "right": 386,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 390,
+        "top": 0,
+        "bottom": 844,
+        "width": 390,
+        "height": 844
+      },
+      "span": {
+        "left": 48.484375,
+        "right": 304.53125,
+        "top": 17.6875,
+        "bottom": 32.3125,
+        "width": 256.046875,
+        "height": 14.625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/services/",
+      "width": 412,
+      "height": 915,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 10,
+        "right": 342,
+        "top": 6,
+        "bottom": 44,
+        "width": 332,
+        "height": 38
+      },
+      "close": {
+        "left": 364,
+        "right": 408,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 412,
+        "top": 0,
+        "bottom": 915,
+        "width": 412,
+        "height": 915
+      },
+      "span": {
+        "left": 52.65625,
+        "right": 323.203125,
+        "top": 17.28125,
+        "bottom": 32.71875,
+        "width": 270.546875,
+        "height": 15.4375
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/services/",
+      "width": 430,
+      "height": 932,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 10,
+        "right": 360,
+        "top": 6,
+        "bottom": 44,
+        "width": 350,
+        "height": 38
+      },
+      "close": {
+        "left": 382,
+        "right": 426,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 430,
+        "top": 0,
+        "bottom": 932,
+        "width": 430,
+        "height": 932
+      },
+      "span": {
+        "left": 56.109375,
+        "right": 338.4375,
+        "top": 16.9375,
+        "bottom": 33.0625,
+        "width": 282.328125,
+        "height": 16.125
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/services/",
+      "width": 768,
+      "height": 1024,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 28,
+        "right": 380,
+        "top": 82.796875,
+        "bottom": 120.796875,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 704,
+        "right": 748,
+        "top": 76.796875,
+        "bottom": 120.796875,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 16,
+        "right": 752,
+        "top": 76.796875,
+        "bottom": 947.1875,
+        "width": 736,
+        "height": 870.390625
+      },
+      "span": {
+        "left": 67.734375,
+        "right": 365.734375,
+        "top": 93.28125,
+        "bottom": 110.296875,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/services/",
+      "width": 820,
+      "height": 1180,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 42,
+        "right": 394,
+        "top": 94.5,
+        "bottom": 132.5,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 742,
+        "right": 786,
+        "top": 88.5,
+        "bottom": 132.5,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 30,
+        "right": 790,
+        "top": 88.5,
+        "bottom": 1091.5,
+        "width": 760,
+        "height": 1003
+      },
+      "span": {
+        "left": 81.734375,
+        "right": 379.734375,
+        "top": 104.984375,
+        "bottom": 122,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/services/",
+      "width": 1366,
+      "height": 768,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 315,
+        "right": 667,
+        "top": 63.59375,
+        "bottom": 101.59375,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 1015,
+        "right": 1059,
+        "top": 57.59375,
+        "bottom": 101.59375,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 303,
+        "right": 1063,
+        "top": 57.59375,
+        "bottom": 710.390625,
+        "width": 760,
+        "height": 652.796875
+      },
+      "span": {
+        "left": 354.734375,
+        "right": 652.734375,
+        "top": 74.078125,
+        "bottom": 91.09375,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/services/",
+      "width": 1920,
+      "height": 1080,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 592,
+        "right": 944,
+        "top": 87,
+        "bottom": 125,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 1292,
+        "right": 1336,
+        "top": 81,
+        "bottom": 125,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 580,
+        "right": 1340,
+        "top": 81,
+        "bottom": 999,
+        "width": 760,
+        "height": 918
+      },
+      "span": {
+        "left": 631.734375,
+        "right": 929.734375,
+        "top": 97.484375,
+        "bottom": 114.5,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/service-areas/",
+      "width": 320,
+      "height": 568,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 8,
+        "right": 256,
+        "top": 6,
+        "bottom": 44,
+        "width": 248,
+        "height": 38
+      },
+      "close": {
+        "left": 272,
+        "right": 316,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 320,
+        "top": 0,
+        "bottom": 568,
+        "width": 320,
+        "height": 568
+      },
+      "span": {
+        "left": 37.6875,
+        "right": 247,
+        "top": 12.640625,
+        "bottom": 37.359375,
+        "width": 209.3125,
+        "height": 24.71875
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/service-areas/",
+      "width": 360,
+      "height": 800,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 8,
+        "right": 296,
+        "top": 6,
+        "bottom": 44,
+        "width": 288,
+        "height": 38
+      },
+      "close": {
+        "left": 312,
+        "right": 356,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 360,
+        "top": 0,
+        "bottom": 800,
+        "width": 360,
+        "height": 800
+      },
+      "span": {
+        "left": 54.109375,
+        "right": 270.5625,
+        "top": 18.8125,
+        "bottom": 31.171875,
+        "width": 216.453125,
+        "height": 12.359375
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/service-areas/",
+      "width": 390,
+      "height": 844,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 10,
+        "right": 320,
+        "top": 6,
+        "bottom": 44,
+        "width": 310,
+        "height": 38
+      },
+      "close": {
+        "left": 342,
+        "right": 386,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 390,
+        "top": 0,
+        "bottom": 844,
+        "width": 390,
+        "height": 844
+      },
+      "span": {
+        "left": 48.484375,
+        "right": 304.53125,
+        "top": 17.6875,
+        "bottom": 32.3125,
+        "width": 256.046875,
+        "height": 14.625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/service-areas/",
+      "width": 412,
+      "height": 915,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 10,
+        "right": 342,
+        "top": 6,
+        "bottom": 44,
+        "width": 332,
+        "height": 38
+      },
+      "close": {
+        "left": 364,
+        "right": 408,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 412,
+        "top": 0,
+        "bottom": 915,
+        "width": 412,
+        "height": 915
+      },
+      "span": {
+        "left": 52.65625,
+        "right": 323.203125,
+        "top": 17.28125,
+        "bottom": 32.71875,
+        "width": 270.546875,
+        "height": 15.4375
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/service-areas/",
+      "width": 430,
+      "height": 932,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 10,
+        "right": 360,
+        "top": 6,
+        "bottom": 44,
+        "width": 350,
+        "height": 38
+      },
+      "close": {
+        "left": 382,
+        "right": 426,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 430,
+        "top": 0,
+        "bottom": 932,
+        "width": 430,
+        "height": 932
+      },
+      "span": {
+        "left": 56.109375,
+        "right": 338.4375,
+        "top": 16.9375,
+        "bottom": 33.0625,
+        "width": 282.328125,
+        "height": 16.125
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/service-areas/",
+      "width": 768,
+      "height": 1024,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 28,
+        "right": 380,
+        "top": 82.796875,
+        "bottom": 120.796875,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 704,
+        "right": 748,
+        "top": 76.796875,
+        "bottom": 120.796875,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 16,
+        "right": 752,
+        "top": 76.796875,
+        "bottom": 947.1875,
+        "width": 736,
+        "height": 870.390625
+      },
+      "span": {
+        "left": 67.734375,
+        "right": 365.734375,
+        "top": 93.28125,
+        "bottom": 110.296875,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/service-areas/",
+      "width": 820,
+      "height": 1180,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 42,
+        "right": 394,
+        "top": 94.5,
+        "bottom": 132.5,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 742,
+        "right": 786,
+        "top": 88.5,
+        "bottom": 132.5,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 30,
+        "right": 790,
+        "top": 88.5,
+        "bottom": 1091.5,
+        "width": 760,
+        "height": 1003
+      },
+      "span": {
+        "left": 81.734375,
+        "right": 379.734375,
+        "top": 104.984375,
+        "bottom": 122,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/service-areas/",
+      "width": 1366,
+      "height": 768,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 315,
+        "right": 667,
+        "top": 63.59375,
+        "bottom": 101.59375,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 1015,
+        "right": 1059,
+        "top": 57.59375,
+        "bottom": 101.59375,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 303,
+        "right": 1063,
+        "top": 57.59375,
+        "bottom": 710.390625,
+        "width": 760,
+        "height": 652.796875
+      },
+      "span": {
+        "left": 354.734375,
+        "right": 652.734375,
+        "top": 74.078125,
+        "bottom": 91.09375,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/service-areas/",
+      "width": 1920,
+      "height": 1080,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 592,
+        "right": 944,
+        "top": 87,
+        "bottom": 125,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 1292,
+        "right": 1336,
+        "top": 81,
+        "bottom": 125,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 580,
+        "right": 1340,
+        "top": 81,
+        "bottom": 999,
+        "width": 760,
+        "height": 918
+      },
+      "span": {
+        "left": 631.734375,
+        "right": 929.734375,
+        "top": 97.484375,
+        "bottom": 114.5,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+      "width": 320,
+      "height": 568,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 8,
+        "right": 256,
+        "top": 6,
+        "bottom": 44,
+        "width": 248,
+        "height": 38
+      },
+      "close": {
+        "left": 272,
+        "right": 316,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 320,
+        "top": 0,
+        "bottom": 568,
+        "width": 320,
+        "height": 568
+      },
+      "span": {
+        "left": 37.6875,
+        "right": 247,
+        "top": 12.640625,
+        "bottom": 37.359375,
+        "width": 209.3125,
+        "height": 24.71875
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+      "width": 360,
+      "height": 800,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 8,
+        "right": 296,
+        "top": 6,
+        "bottom": 44,
+        "width": 288,
+        "height": 38
+      },
+      "close": {
+        "left": 312,
+        "right": 356,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 360,
+        "top": 0,
+        "bottom": 800,
+        "width": 360,
+        "height": 800
+      },
+      "span": {
+        "left": 54.109375,
+        "right": 270.5625,
+        "top": 18.8125,
+        "bottom": 31.171875,
+        "width": 216.453125,
+        "height": 12.359375
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+      "width": 390,
+      "height": 844,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 10,
+        "right": 320,
+        "top": 6,
+        "bottom": 44,
+        "width": 310,
+        "height": 38
+      },
+      "close": {
+        "left": 342,
+        "right": 386,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 390,
+        "top": 0,
+        "bottom": 844,
+        "width": 390,
+        "height": 844
+      },
+      "span": {
+        "left": 48.484375,
+        "right": 304.53125,
+        "top": 17.6875,
+        "bottom": 32.3125,
+        "width": 256.046875,
+        "height": 14.625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+      "width": 412,
+      "height": 915,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 10,
+        "right": 342,
+        "top": 6,
+        "bottom": 44,
+        "width": 332,
+        "height": 38
+      },
+      "close": {
+        "left": 364,
+        "right": 408,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 412,
+        "top": 0,
+        "bottom": 915,
+        "width": 412,
+        "height": 915
+      },
+      "span": {
+        "left": 52.65625,
+        "right": 323.203125,
+        "top": 17.28125,
+        "bottom": 32.71875,
+        "width": 270.546875,
+        "height": 15.4375
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+      "width": 430,
+      "height": 932,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 10,
+        "right": 360,
+        "top": 6,
+        "bottom": 44,
+        "width": 350,
+        "height": 38
+      },
+      "close": {
+        "left": 382,
+        "right": 426,
+        "top": 0,
+        "bottom": 44,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 0,
+        "right": 430,
+        "top": 0,
+        "bottom": 932,
+        "width": 430,
+        "height": 932
+      },
+      "span": {
+        "left": 56.109375,
+        "right": 338.4375,
+        "top": 16.9375,
+        "bottom": 33.0625,
+        "width": 282.328125,
+        "height": 16.125
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+      "width": 768,
+      "height": 1024,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 28,
+        "right": 380,
+        "top": 82.796875,
+        "bottom": 120.796875,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 704,
+        "right": 748,
+        "top": 76.796875,
+        "bottom": 120.796875,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 16,
+        "right": 752,
+        "top": 76.796875,
+        "bottom": 947.1875,
+        "width": 736,
+        "height": 870.390625
+      },
+      "span": {
+        "left": 67.734375,
+        "right": 365.734375,
+        "top": 93.28125,
+        "bottom": 110.296875,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+      "width": 820,
+      "height": 1180,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 42,
+        "right": 394,
+        "top": 94.5,
+        "bottom": 132.5,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 742,
+        "right": 786,
+        "top": 88.5,
+        "bottom": 132.5,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 30,
+        "right": 790,
+        "top": 88.5,
+        "bottom": 1091.5,
+        "width": 760,
+        "height": 1003
+      },
+      "span": {
+        "left": 81.734375,
+        "right": 379.734375,
+        "top": 104.984375,
+        "bottom": 122,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+      "width": 1366,
+      "height": 768,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 315,
+        "right": 667,
+        "top": 63.59375,
+        "bottom": 101.59375,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 1015,
+        "right": 1059,
+        "top": 57.59375,
+        "bottom": 101.59375,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 303,
+        "right": 1063,
+        "top": 57.59375,
+        "bottom": 710.390625,
+        "width": 760,
+        "height": 652.796875
+      },
+      "span": {
+        "left": 354.734375,
+        "right": 652.734375,
+        "top": 74.078125,
+        "bottom": 91.09375,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    },
+    {
+      "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+      "width": 1920,
+      "height": 1080,
+      "text": "Emergency? Call Now 0461 247 247",
+      "emergency": {
+        "left": 592,
+        "right": 944,
+        "top": 87,
+        "bottom": 125,
+        "width": 352,
+        "height": 38
+      },
+      "close": {
+        "left": 1292,
+        "right": 1336,
+        "top": 81,
+        "bottom": 125,
+        "width": 44,
+        "height": 44
+      },
+      "panel": {
+        "left": 580,
+        "right": 1340,
+        "top": 81,
+        "bottom": 999,
+        "width": 760,
+        "height": 918
+      },
+      "span": {
+        "left": 631.734375,
+        "right": 929.734375,
+        "top": 97.484375,
+        "bottom": 114.5,
+        "width": 298,
+        "height": 17.015625
+      },
+      "iframeVisible": true,
+      "bodyOverflow": 0,
+      "hasPhoneTracking": true,
+      "overlap": false,
+      "failures": []
+    }
+  ],
+  "failures": []
+}
