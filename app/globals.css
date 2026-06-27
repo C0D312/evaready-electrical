@@ -9482,7 +9482,7 @@ main button[data-conversion-action] svg,
 
 /* Final desktop header fit contract: compact full navigation only when the row
    has enough width; otherwise the header remains logo + hamburger only. */
-@media (max-width: 1359px) {
+@media (max-width: 1279px) {
   header.site-header .site-header-actions,
   header.site-header nav {
     display: none !important;
@@ -9508,6 +9508,120 @@ main button[data-conversion-action] svg,
     align-items: center !important;
     justify-content: center !important;
     flex: 0 0 auto !important;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1359px) {
+  :root {
+    --site-header-height: calc(76px + env(safe-area-inset-top));
+  }
+
+  header.site-header .mx-auto {
+    width: 100% !important;
+    max-width: min(100%, 120rem) !important;
+    padding-inline: clamp(0.75rem, 1vw, 1.2rem) !important;
+    padding-block: 0.44rem !important;
+  }
+
+  header.site-header .site-header-top {
+    display: grid !important;
+    grid-template-columns: minmax(9rem, 10.5rem) minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    justify-content: stretch !important;
+    gap: clamp(0.45rem, 0.62vw, 0.72rem) !important;
+    min-height: 60px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+  }
+
+  header.site-header .site-logo-link {
+    width: clamp(9rem, 11vw, 10.5rem) !important;
+    max-width: clamp(9rem, 11vw, 10.5rem) !important;
+    height: 58px !important;
+    min-height: 58px !important;
+    max-height: 58px !important;
+    justify-self: start !important;
+  }
+
+  header.site-header .site-logo-image,
+  header.site-header .site-logo-image.logo-img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 58px !important;
+    max-height: 58px !important;
+    object-fit: contain !important;
+  }
+
+  header.site-header nav {
+    display: flex !important;
+    visibility: visible !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(0.28rem, 0.36vw, 0.48rem) !important;
+    overflow: hidden !important;
+    color: rgba(214, 232, 240, 0.92) !important;
+    font-size: clamp(0.56rem, 0.52vw, 0.68rem) !important;
+    line-height: 1.08 !important;
+  }
+
+  header.site-header nav a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    white-space: nowrap !important;
+    letter-spacing: 0 !important;
+  }
+
+  header.site-header .site-header-actions {
+    display: flex !important;
+    visibility: visible !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: auto !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: clamp(0.38rem, 0.48vw, 0.55rem) !important;
+    overflow: visible !important;
+    pointer-events: auto !important;
+  }
+
+  header.site-header .site-header-actions > a {
+    min-height: 42px !important;
+    height: 42px !important;
+    max-height: 42px !important;
+    border-radius: 0.74rem !important;
+    padding-block: 0 !important;
+    line-height: 1.05 !important;
+  }
+
+  header.site-header .site-header-actions > a[href^="tel:"] {
+    width: clamp(9rem, 9.6vw, 10.35rem) !important;
+    min-width: clamp(9rem, 9.6vw, 10.35rem) !important;
+    padding-inline: clamp(0.55rem, 0.65vw, 0.78rem) !important;
+    font-size: clamp(0.66rem, 0.58vw, 0.74rem) !important;
+  }
+
+  header.site-header .site-header-actions > a[href^="tel:"] .lg\:inline {
+    display: none !important;
+  }
+
+  header.site-header .site-header-quote {
+    width: clamp(6.6rem, 7.1vw, 7.5rem) !important;
+    min-width: clamp(6.6rem, 7.1vw, 7.5rem) !important;
+    padding-inline: clamp(0.55rem, 0.65vw, 0.78rem) !important;
+    font-size: clamp(0.66rem, 0.58vw, 0.74rem) !important;
+  }
+
+  header.site-header .mobile-nav-trigger,
+  header.site-header .mobile-nav-trigger button {
+    display: none !important;
   }
 }
 
