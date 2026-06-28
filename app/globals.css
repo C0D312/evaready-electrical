@@ -9957,3 +9957,60 @@ main button[data-conversion-action] svg,
     grid-template-columns: minmax(0, 1fr) !important;
   }
 }
+
+/* Public page CTA sizing. Keep this separate from the quote-popup modal CTA. */
+html body :is(main, .site-header, #mobile-site-menu) :is(a, button)[data-conversion-action]:not(.quote-modal-emergency):not(.quote-home-action),
+html body :is(main, .site-header, #mobile-site-menu) a[href*="book.servicem8.com"]:not(.quote-modal-emergency):not(.quote-home-action),
+html body main .ev-btn:not(.quote-modal-emergency):not(.quote-home-action) {
+  min-height: 3rem !important;
+  height: 3rem !important;
+  max-height: none !important;
+  padding: 0.58rem clamp(0.78rem, 1.2vw, 1.05rem) !important;
+  gap: 0.5rem !important;
+  border-radius: 0.85rem !important;
+  font-size: clamp(0.8rem, 0.82vw, 0.92rem) !important;
+  line-height: 1.05 !important;
+  letter-spacing: 0 !important;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+  text-wrap: nowrap !important;
+}
+
+html body :is(main, .site-header, #mobile-site-menu) :is(a, button)[data-conversion-action]:not(.quote-modal-emergency):not(.quote-home-action) > :is(span, svg),
+html body :is(main, .site-header, #mobile-site-menu) a[href*="book.servicem8.com"]:not(.quote-modal-emergency):not(.quote-home-action) > :is(span, svg),
+html body main .ev-btn:not(.quote-modal-emergency):not(.quote-home-action) > :is(span, svg) {
+  flex: 0 0 auto !important;
+  white-space: nowrap !important;
+  text-wrap: nowrap !important;
+  letter-spacing: 0 !important;
+}
+
+html body :is(main, .site-header, #mobile-site-menu) :is(a, button)[data-conversion-action]:not(.quote-modal-emergency):not(.quote-home-action) svg,
+html body :is(main, .site-header, #mobile-site-menu) a[href*="book.servicem8.com"]:not(.quote-modal-emergency):not(.quote-home-action) svg,
+html body main .ev-btn:not(.quote-modal-emergency):not(.quote-home-action) svg {
+  width: 1rem !important;
+  height: 1rem !important;
+}
+
+html body .site-footer a.footer-action[data-conversion-action] {
+  min-height: 2.7rem !important;
+  height: 2.7rem !important;
+  padding: 0.52rem 0.74rem !important;
+  border-radius: 0.72rem !important;
+  font-size: 0.84rem !important;
+  line-height: 1.05 !important;
+  letter-spacing: 0 !important;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+  text-wrap: nowrap !important;
+}
+
+html body .mobile-sticky-cta a[data-conversion-action] {
+  min-height: 2.9rem !important;
+  height: 2.9rem !important;
+  padding: 0.55rem clamp(0.42rem, 1.85vw, 0.68rem) !important;
+  font-size: clamp(0.66rem, 2.65vw, 0.82rem) !important;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+  text-wrap: nowrap !important;
+}
