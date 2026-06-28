@@ -9759,6 +9759,18 @@ main button[data-conversion-action] svg,
   }
 }
 
+@media (min-width: 900px) and (max-width: 1100px) {
+  main :is(div, section, article, aside):not(.mobile-sticky-cta):has(> a[data-conversion-action="phone-click"]):has(> a[data-conversion-action="quote-click"]) {
+    grid-template-columns: minmax(0, 1fr) !important;
+    align-items: stretch !important;
+  }
+
+  main :is(div, section, article, aside):not(.mobile-sticky-cta):has(> a[data-conversion-action="phone-click"]):has(> a[data-conversion-action="quote-click"]) > a[data-conversion-action] {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+}
+
 @media (min-width: 1360px) and (max-width: 1439px) {
   header.site-header nav a[href*="/about"],
   header.site-header nav a[href*="/contact"],
@@ -9854,12 +9866,13 @@ main button[data-conversion-action] svg,
 
 @media (min-width: 640px) {
   .quote-modal-action-bar {
-    padding: 6px 70px 6px 12px !important;
+    justify-content: flex-start !important;
+    padding: 6px 92px 6px 12px !important;
   }
 
   .quote-modal-emergency,
   .quote-modal-action-bar .quote-modal-emergency[data-conversion-action="phone-click"] {
-    width: min(100%, 22rem) !important;
+    width: min(100%, 20rem) !important;
     font-size: 0.95rem !important;
   }
 }
