@@ -3523,7 +3523,7 @@ body.quote-modal-open .mobile-sticky-cta {
   }
 }
 
-/* Quote modal call bar: compact dark strip with the booking form directly below. */
+/* Quote modal call bar: compact red emergency strip with the booking form directly below. */
 .quote-modal-backdrop {
   --quote-modal-header-height: 50px !important;
   --quote-modal-safe-top: 0px !important;
@@ -3578,13 +3578,13 @@ body.quote-modal-open .mobile-sticky-cta {
   background:
     linear-gradient(
       135deg,
-      var(--ee-black, #061E72) 0%,
-      var(--ee-deep, #0A349E) 68%,
-      var(--ee-black, #061E72) 100%
+      var(--ev-red-dark, #750713) 0%,
+      var(--ev-red, #e9111e) 46%,
+      var(--ev-red-hot, #ff3247) 100%
     ) !important;
   box-shadow:
-    inset 0 -1px 0 rgba(0, 200, 255, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    inset 0 -1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22) !important;
   overflow: visible !important;
 }
 
@@ -3606,8 +3606,8 @@ body.quote-modal-open .mobile-sticky-cta {
   padding: 0 0.7rem !important;
   border: 0 !important;
   border-radius: 0.5rem !important;
-  background: linear-gradient(135deg, #ff1d2d 0%, #ff453c 100%) !important;
-  box-shadow: 0 6px 16px rgba(255, 34, 45, 0.28) !important;
+  background: transparent !important;
+  box-shadow: none !important;
   font-size: clamp(0.76rem, 3.25vw, 0.9rem) !important;
   font-weight: 900 !important;
   line-height: 1 !important;
