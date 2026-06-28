@@ -9880,3 +9880,38 @@ main button[data-conversion-action] svg,
     font-size: 0.95rem !important;
   }
 }
+
+/* Footer contact actions live inside a narrow link card, so they need the
+   shared colours without inheriting the larger hero/sticky CTA footprint. */
+.site-footer .footer-link-groups .footer-action,
+.site-footer .footer-link-groups a.footer-action[data-conversion-action],
+.site-footer .footer-link-groups a.footer-action[href*="book.servicem8.com"],
+.site-footer .footer-action.footer-action-call,
+.site-footer .footer-action.footer-action-quote,
+.site-footer .footer-action.footer-action-email {
+  min-height: 42px !important;
+  max-height: 44px !important;
+  height: auto !important;
+  border-radius: 0.8rem !important;
+  padding: 0.58rem 0.74rem !important;
+  gap: 0.44rem !important;
+  flex-wrap: nowrap !important;
+  font-size: clamp(0.73rem, 0.72vw, 0.82rem) !important;
+  line-height: 1.08 !important;
+  text-wrap: nowrap !important;
+}
+
+.site-footer .footer-link-groups .footer-action > :is(span, svg),
+.site-footer .footer-link-groups a.footer-action[data-conversion-action] > :is(span, svg),
+.site-footer .footer-link-groups a.footer-action[href*="book.servicem8.com"] > :is(span, svg),
+.site-footer .footer-action.footer-action-call > :is(span, svg),
+.site-footer .footer-action.footer-action-quote > :is(span, svg),
+.site-footer .footer-action.footer-action-email > :is(span, svg) {
+  white-space: nowrap !important;
+  text-wrap: nowrap !important;
+}
+
+.site-footer .footer-link-groups .footer-action svg {
+  width: 1rem !important;
+  height: 1rem !important;
+}
