@@ -310,7 +310,9 @@ const faqs = [
   },
   {
     question: "How do I request a quote?",
-    answer: `Call ${business.phoneDisplay} or open the secure booking form to send your address, contact details, photos and a short note about what needs attention.`,
+    answer:
+      "For urgent faults, call first. For planned work, open the secure quote form to send your address, contact details, photos and a short note about what needs attention.",
+    showActions: true,
   },
 ];
 
@@ -844,6 +846,30 @@ export default function HomePage() {
                   <p className="mt-3 leading-7 text-slate-600">
                     <PhoneLinkedText text={faq.answer} />
                   </p>
+                  {faq.showActions ? (
+                    <div className="mt-5 grid max-w-lg gap-3 sm:grid-cols-2">
+                      <a
+                        href={business.phoneHref}
+                        data-conversion-action="phone-click"
+                        aria-label={business.callCta}
+                        className="ev-btn ev-btn--call"
+                      >
+                        <Phone className="h-5 w-5 shrink-0" />
+                        <span>{business.callCta}</span>
+                      </a>
+                      <a
+                        href={business.bookingUrl}
+                        aria-label="Get a quote from Evaready Electrical"
+                        data-quote-trigger="true"
+                        data-conversion-action="quote-click"
+                        aria-haspopup="dialog"
+                        className="ev-btn ev-btn--quote"
+                      >
+                        <span>Get a Quote</span>
+                        <ArrowRight className="h-5 w-5 shrink-0" />
+                      </a>
+                    </div>
+                  ) : null}
                 </article>
               ))}
             </div>
