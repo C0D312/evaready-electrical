@@ -3594,11 +3594,11 @@ body.quote-modal-open .mobile-sticky-cta {
 
 .quote-modal-emergency {
   display: inline-flex !important;
-  flex: 0 1 auto !important;
+  flex: 1 1 auto !important;
   min-height: 0 !important;
   height: 38px !important;
-  width: min(100%, 19rem) !important;
-  max-width: calc(100% - 0.25rem) !important;
+  width: 100% !important;
+  max-width: 100% !important;
   align-items: center !important;
   justify-content: center !important;
   gap: 0.5rem !important;
@@ -3707,7 +3707,8 @@ body.quote-modal-open .mobile-sticky-cta {
 
   .quote-modal-emergency {
     gap: 0.35rem !important;
-    width: min(100%, 16.25rem) !important;
+    width: 100% !important;
+    max-width: 100% !important;
     padding-left: 0.52rem !important;
     padding-right: 0.52rem !important;
     font-size: 0.69rem !important;
@@ -3758,7 +3759,8 @@ body.quote-modal-open .mobile-sticky-cta {
   .quote-modal-emergency {
     height: 38px !important;
     min-height: 0 !important;
-    width: min(100%, 22rem) !important;
+    width: 100% !important;
+    max-width: 100% !important;
     border-radius: 0.5rem !important;
     font-size: 0.95rem !important;
   }
@@ -9824,8 +9826,8 @@ main button[data-conversion-action] svg,
 
 .quote-modal-emergency,
 .quote-modal-action-bar .quote-modal-emergency[data-conversion-action="phone-click"] {
-  flex: 0 1 auto !important;
-  width: min(100%, 19rem) !important;
+  flex: 1 1 auto !important;
+  width: 100% !important;
   max-width: 100% !important;
   height: 38px !important;
   min-height: 38px !important;
@@ -9858,7 +9860,8 @@ main button[data-conversion-action] svg,
 
   .quote-modal-emergency,
   .quote-modal-action-bar .quote-modal-emergency[data-conversion-action="phone-click"] {
-    width: min(100%, 16.25rem) !important;
+    width: 100% !important;
+    max-width: 100% !important;
     padding-inline: 0.5rem !important;
     font-size: 0.69rem !important;
   }
@@ -9872,7 +9875,8 @@ main button[data-conversion-action] svg,
 
   .quote-modal-emergency,
   .quote-modal-action-bar .quote-modal-emergency[data-conversion-action="phone-click"] {
-    width: min(100%, 20rem) !important;
+    width: 100% !important;
+    max-width: 100% !important;
     font-size: 0.95rem !important;
   }
 }
