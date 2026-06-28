@@ -9915,3 +9915,45 @@ main button[data-conversion-action] svg,
   width: 1rem !important;
   height: 1rem !important;
 }
+
+/* Compact homepage quote card actions. These live in a small side panel and
+   should read like quick actions, not oversized hero buttons. */
+.quote-home-card .quote-home-action-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 0.7rem !important;
+  width: 100% !important;
+}
+
+.quote-home-card .quote-home-action,
+.quote-home-card .quote-home-action[data-conversion-action] {
+  min-height: 44px !important;
+  max-height: 46px !important;
+  height: 44px !important;
+  border-radius: 0.8rem !important;
+  padding: 0.56rem clamp(0.62rem, 1.1vw, 0.85rem) !important;
+  gap: 0.42rem !important;
+  flex-wrap: nowrap !important;
+  font-size: clamp(0.72rem, 0.78vw, 0.86rem) !important;
+  line-height: 1.05 !important;
+  text-wrap: nowrap !important;
+  white-space: nowrap !important;
+}
+
+.quote-home-card .quote-home-action > :is(span, svg),
+.quote-home-card .quote-home-action[data-conversion-action] > :is(span, svg) {
+  flex: 0 0 auto !important;
+  white-space: nowrap !important;
+  text-wrap: nowrap !important;
+}
+
+.quote-home-card .quote-home-action svg {
+  width: 0.98rem !important;
+  height: 0.98rem !important;
+}
+
+@media (max-width: 420px) {
+  .quote-home-card .quote-home-action-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}

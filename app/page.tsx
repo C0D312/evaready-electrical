@@ -622,12 +622,12 @@ export default function HomePage() {
                   <p className="mt-2 text-sm font-semibold leading-6 text-slate-200">
                     Call for unsafe faults or send photos through the quote form.
                   </p>
-                  <div className="mt-5 grid gap-3">
+                  <div className="quote-home-action-grid mt-5 grid gap-3">
                     <a
                       href={business.phoneHref}
                       data-conversion-action="phone-click"
                       aria-label={business.callCta}
-                      className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#b90816] via-red-600 to-[#ff2637] px-5 py-3 font-black text-white shadow-lg shadow-red-600/25 transition hover:from-red-700 hover:via-red-500 hover:to-red-400"
+                      className="quote-home-action quote-home-action--call inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#b90816] via-red-600 to-[#ff2637] px-5 py-3 font-black text-white shadow-lg shadow-red-600/25 transition hover:from-red-700 hover:via-red-500 hover:to-red-400"
                     >
                       <Phone className="h-4 w-4" />
                       <span className="whitespace-nowrap">
@@ -640,7 +640,7 @@ export default function HomePage() {
                       data-quote-trigger="true"
                       data-conversion-action="quote-click"
                       aria-haspopup="dialog"
-                      className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-700 to-cyan-400 px-5 py-3 font-black text-white shadow-lg shadow-blue-700/20 transition hover:from-blue-600 hover:to-cyan-300"
+                      className="quote-home-action quote-home-action--quote inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-700 to-cyan-400 px-5 py-3 font-black text-white shadow-lg shadow-blue-700/20 transition hover:from-blue-600 hover:to-cyan-300"
                     >
                       {business.quoteCta}
                       <ArrowRight className="h-4 w-4" />
