@@ -10014,3 +10014,35 @@ html body .mobile-sticky-cta a[data-conversion-action] {
   white-space: nowrap !important;
   text-wrap: nowrap !important;
 }
+
+html body :is(main, .site-header, #mobile-site-menu) :is(a, button)[data-conversion-action="quote-click"]:not(.quote-modal-emergency):not(.quote-home-action),
+html body :is(main, .site-header, #mobile-site-menu) a[href*="book.servicem8.com"]:not(.quote-modal-emergency):not(.quote-home-action),
+html body main .ev-btn--quote:not(.quote-modal-emergency):not(.quote-home-action) {
+  border-color: rgba(98, 216, 255, 0.44) !important;
+  background:
+    linear-gradient(135deg, var(--ev-bright-blue) 0%, var(--ev-electric-blue) 58%, var(--ev-cyan) 100%) !important;
+  box-shadow:
+    0 0.9rem 1.9rem rgba(7, 156, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24) !important;
+  color: var(--ev-white) !important;
+}
+
+html body main a.urgent-inline-phone[data-conversion-action="phone-click"] {
+  display: inline !important;
+  min-height: 0 !important;
+  height: auto !important;
+  width: auto !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: inherit !important;
+  font: inherit !important;
+  font-weight: 900 !important;
+  line-height: inherit !important;
+  text-decoration: underline !important;
+  text-underline-offset: 0.16em !important;
+  white-space: normal !important;
+  text-wrap: inherit !important;
+}

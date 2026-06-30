@@ -37,22 +37,19 @@ export function QuoteRequestPanel({
                   Electrical issue feels unsafe?
                 </p>
                 <p className="mt-1 text-sm font-semibold leading-6 text-slate-600">
-                  Call first for smoke, heat, sparking, exposed wiring or
-                  repeated tripping.
+                  For urgent electrical faults,{" "}
+                  <a
+                    href={business.phoneHref}
+                    data-conversion-action="phone-click"
+                    aria-label={business.callCta}
+                    className="urgent-inline-phone font-black text-red-700 underline underline-offset-2"
+                  >
+                    {business.callCta}
+                  </a>{" "}
+                  first.
                 </p>
               </div>
             </div>
-            <a
-              href={business.phoneHref}
-              data-conversion-action="phone-click"
-              aria-label={business.callCta}
-              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-3 py-4 text-center text-[clamp(0.9rem,4vw,1.05rem)] font-black leading-6 text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 sm:gap-3 sm:px-5"
-            >
-              <Phone className="h-5 w-5 shrink-0" />
-              <span className="whitespace-nowrap">
-                {business.callCta}
-              </span>
-            </a>
           </div>
         </div>
 
@@ -91,14 +88,14 @@ export function QuoteRequestPanel({
               href={business.phoneHref}
               data-conversion-action="phone-click"
               aria-label={business.callCta}
-              className="font-black text-white underline underline-offset-2"
+              className="urgent-inline-phone font-black text-white underline underline-offset-2"
             >
               {business.callCta}
             </a>{" "}
             first.
           </p>
 
-          <div className="mt-5 grid gap-3 sm:hidden">
+          <div className="mt-5 grid gap-3 sm:grid-cols-2">
             <a
               href={business.phoneHref}
               data-conversion-action="phone-click"
@@ -128,33 +125,18 @@ export function QuoteRequestPanel({
               Secure booking form
             </p>
             <p className="mt-2 text-sm font-semibold leading-6 text-slate-300">
-              Open the booking form to send your address, photos and job notes.
-              For unsafe faults, call first.
-            </p>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              Use the Get a Quote button above to send your address, photos and job notes.
+              For urgent electrical faults,{" "}
               <a
                 href={business.phoneHref}
                 data-conversion-action="phone-click"
                 aria-label={business.callCta}
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-red-200/40 bg-gradient-to-r from-[#b90816] via-red-600 to-[#ff2637] px-4 py-3 text-sm font-black text-white shadow-lg shadow-red-950/30 transition hover:border-red-100 hover:from-red-700 hover:via-red-500 hover:to-red-400"
+                className="urgent-inline-phone font-black text-white underline underline-offset-2"
               >
-                <Phone className="h-4 w-4 shrink-0" />
-                <span className="whitespace-nowrap">
-                  {business.callCta}
-                </span>
-              </a>
-              <a
-                href={business.bookingUrl}
-                data-quote-trigger="true"
-                data-conversion-action="quote-click"
-                aria-haspopup="dialog"
-                aria-label="Open booking form for planned electrical work"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-blue-700 to-cyan-400 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:from-blue-600 hover:to-cyan-300"
-              >
-                {business.quoteCta}
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
+                {business.callCta}
+              </a>{" "}
+              first.
+            </p>
           </div>
         </div>
       </div>
