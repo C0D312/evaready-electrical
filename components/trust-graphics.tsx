@@ -23,7 +23,7 @@ const trustGraphicItems: TrustGraphicItem[] = [
   {
     icon: Clock3,
     title: "24/7 Emergency Electrical Help",
-    text: "Call first for power loss, burning smells, sparking, circuit tripping or storm damage.",
+    text: "Urgent fault support for power loss, burning smells, sparking, tripping circuits or storm damage.",
     tone: "red",
   },
   {

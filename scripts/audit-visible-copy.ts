@@ -227,6 +227,30 @@ function complianceWarnings(text: string) {
   return warnings;
 }
 
+function suburbWordingWarnings(text: string, pageType: string) {
+  if (pageType !== "suburb page") {
+    return [];
+  }
+
+  const checks: [string, RegExp][] = [
+    ["old suburb emergency symptom wording", /\bpower loss and burning smells\b/i],
+    ["old suburb sparking/tripping wording", /\bsparking and circuit tripping\b/i],
+    ["old response region wording", /\bcall-outs in this region use\b/i],
+    [
+      "old 60-minute response wording",
+      /\buse 60-minute emergency response\b/i,
+    ],
+    [
+      "old 90-minute response wording",
+      /\buse 90-minute emergency response\b/i,
+    ],
+  ];
+
+  return checks
+    .filter(([, pattern]) => pattern.test(text))
+    .map(([label]) => label);
+}
+
 function isEmergencyContext(text: string, pageType: string) {
   return (
     pageType.includes("emergency") ||
@@ -270,6 +294,7 @@ function auditRoute(url: string): AuditRow {
   const staleFound = [
     ...findPhrases(visibleText, stalePhraseChecks),
     ...exactCaseStalePhrases.filter((phrase) => visibleText.includes(phrase)),
+    ...suburbWordingWarnings(visibleText, pageType),
   ];
   const suspiciousFound = [
     ...findPhrases(visibleText, suspiciousPhrases),

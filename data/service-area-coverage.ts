@@ -159,17 +159,34 @@ const suburbEmergencySymptomPhrase =
 const suburbEmergencyTimingLimitation =
   "Timing depends on location, access, traffic, safety conditions, job type and current availability.";
 
+function normalizeSuburbEmergencySymptoms(answer: string) {
+  return answer
+    .replace(
+      /power loss and burning smells,\s*sparking and circuit tripping(?:,\s*storm damage|\s+or\s+storm damage)?/gi,
+      suburbEmergencySymptomPhrase,
+    )
+    .replace(/\bpower loss and burning smells\b/gi, "power loss, burning smells")
+    .replace(
+      /\bsparking and circuit tripping(?:\s+or\s+storm damage)?\b/gi,
+      "sparking, circuit tripping or storm damage",
+    )
+    .replace(
+      /\bpower loss, burning smells, sparking, circuit tripping or storm damage or any other fault in ([^.]+?) that feels unsafe\./gi,
+      `${suburbEmergencySymptomPhrase}. If another fault in $1 feels unsafe, call first.`,
+    );
+}
+
 function normalizeSuburbEmergencyAnswer(
   answer: string,
   response: ReturnType<typeof getEmergencyResponseForRegion>,
 ) {
-  const normalizedAnswer = answer
+  const normalizedAnswer = normalizeSuburbEmergencySymptoms(answer)
     .replace(
-      /power loss and burning smells,\s*sparking and circuit tripping,\s*storm damage/gi,
-      suburbEmergencySymptomPhrase,
+      /\s*Emergency call-outs in this region use (?:60|90)-minute emergency response\.?/gi,
+      "",
     )
     .replace(
-      /\s*Emergency call-outs in this region use (?:60|90)-minute emergency response\./gi,
+      /\s*Use (?:60|90)-minute emergency response\.?/gi,
       "",
     )
     .trim();
@@ -16679,7 +16696,7 @@ export function getSuburbPageCopy(
   ),
     faqAnswers: {
       combined: `Yes. Evaready Electrical can help with switchboards, fault finding, hot water electrical circuits, split-system electrical support, CCTV and data cabling, and general electrical work in ${coverageSuburb.name} under the relevant licence scope.`,
-      emergency: `Yes. Call first for ${suburbEmergencySymptomPhrase} or any other fault in ${coverageSuburb.name} that feels unsafe. ${response.regionDisplay} ${suburbEmergencyTimingLimitation}`,
+      emergency: `Yes. Call first for ${suburbEmergencySymptomPhrase}. If another fault in ${coverageSuburb.name} feels unsafe, call first. ${response.regionDisplay} ${suburbEmergencyTimingLimitation}`,
       level2: `Evaready Electrical is an ${business.level2Asp.display} and can assist with Level 2 electrical work in ${coverageSuburb.name}, including consumer mains, metering, defect notices, point of attachment issues and supply-side electrical issues.`,
       quote: `Yes. For planned work in ${suburbLabel}, use the secure booking form to send your address, contact details, job notes and photos. If there is heat, smoke, sparking or power loss, call first.`,
       service: `Yes. Evaready Electrical provides emergency, Level 2 and general electrical support across ${coverageSuburb.name} and nearby suburbs.`,
@@ -16702,7 +16719,7 @@ export function getSuburbPageCopy(
         href: "/emergency-electrician-sydney",
         intent: "emergency",
         title: `Emergency electrician in ${coverageSuburb.name}`,
-        text: `Call first for ${suburbEmergencySymptomPhrase}, water-damaged electrical equipment or any fault that feels unsafe.`,
+        text: `Unsafe faults can include ${suburbEmergencySymptomPhrase}, water-damaged electrical equipment or anything that feels unsafe. Call first.`,
         items: [
           "Power loss",
           "Burning smells",
