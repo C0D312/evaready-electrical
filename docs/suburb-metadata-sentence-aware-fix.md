@@ -2,61 +2,56 @@
 
 ## Summary
 
-The suburb metadata generator was updated so meta descriptions are built from complete sentence candidates instead of being cut with a hard substring slice. This prevents generated descriptions from ending as weak fragments such as "general.", "across.", "planned electrical.", "power.", "Level 2 electrical." or "across Blue.".
+Suburb meta descriptions now flow through the shared sentence-aware metadata helper before being returned to the suburb SEO metadata path. The helper chooses from complete sentence candidates first and only trims to a safe word boundary as a fallback.
 
 ## Root Cause
 
-The previous suburb metadata path used character slicing in `data/service-area-coverage.ts`. Some descriptions stayed under the 160-character audit limit but were truncated at incomplete phrase endings.
+The suburb metadata generator was selecting the first candidate that fit the character limit. That was usually safe, but it allowed future phrase changes or override text to be clamped after selection, which could leave weak endings such as "general.", "across.", "planned electrical.", "defect.", "power.", "Level 2 electrical." or a partial regional suffix.
 
 ## Files Changed
 
 - `lib/meta-description.ts`
-- `lib/seo-metadata.ts`
 - `data/service-area-coverage.ts`
 - `scripts/audit-metadata.ts`
 
 ## Generator Behaviour
 
-- Targets complete descriptions around 120-155 characters where practical.
-- Keeps descriptions at or below 160 characters.
 - Builds suburb descriptions from complete sentence candidates.
-- Uses region-aware suffixes such as "across the Blue Mountains" where appropriate.
-- Repairs weak final tokens when a description must be clamped.
+- Prefers descriptions in the 120-155 character range where practical.
+- Enforces a 160 character hard maximum.
+- Repairs weak final tokens if fallback trimming is needed.
+- Keeps region-aware suffixes such as "across the Blue Mountains" only when they fit as a complete phrase.
 
 ## Audit Upgrade
 
-`scripts/audit-metadata.ts` now warns when a description:
+`scripts/audit-metadata.ts` now adds explicit checks for incomplete endings, including:
 
-- lacks sentence-ending punctuation
-- ends with incomplete punctuation
-- ends with connector words such as "and", "or", "with" or "for"
-- ends with weak final phrases such as "general", "planned electrical", "Level 2 electrical" or "across Blue"
+- `general.`
+- `across.`
+- `planned electrical.`
+- `defect.`
+- `power.`
+- `Level 2 electrical.`
+- partial regional endings such as `across the Blue.`
 
-## Sample Fixed Descriptions
+## Sample Current Descriptions
 
-- Panania: "Electrician Panania 2213 for urgent faults, switchboards, hot water, aircon, CCTV/data and Level 2 support."
-- Coogee: "Electrician Coogee 2034 for coastal electrical faults, outdoor lighting, switchboards, smoke alarms, power and Level 2 support."
+- Panania: "Electrician Panania 2213 for older boards, hot water circuits, safety switches, duplex or villa power and Level 2 support."
+- Coogee: "Electrician Coogee 2034 for coastal faults, outdoor lighting, switchboards, smoke alarms, power and Level 2 support."
 - Linden: "Electrician Linden 2778 for emergency faults, switchboards, hot water, aircon, CCTV/data and Level 2 support across the Blue Mountains."
 
 ## Validation
 
 - `npm.cmd run audit:metadata`: PASS, 0 warnings
 - `npm.cmd run audit:suburbs`: PASS
-- `npm.cmd run audit:links`: PASS, 0 broken links
+- `npm.cmd run audit:links`: PASS
 - `npm.cmd run lint`: PASS
-- GitHub Pages build: PASS
-- Generated bad-ending grep: PASS, no matches
-- Stale/risky wording grep: PASS, no matches
-- Ads and CTA tracking markers: PASS
+- `npm.cmd run build`: PASS
+- Post-build incomplete-ending grep: PASS, no matches
+- Post-build stale/risky wording grep: PASS, no matches
 
 ## Deployment
 
-- Source fix committed and pushed to `main`.
-- Fresh static export deployed to `gh-pages`.
-- Normal public URLs verified.
-- Cache-busted public URLs verified.
-- Exact deployment SHAs are recorded in the final task response.
-
-## Final Result
-
-LIVE PASS after public verification.
+- Source branch: `main`
+- Deploy branch: `gh-pages`
+- Public verification covered the Service Areas index, Panania, Coogee, Linden, sitemap and robots routes on normal and cache-busted URLs.

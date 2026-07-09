@@ -1,9 +1,6 @@
 import { business, getEmergencyResponseForRegion } from "./site";
 import { generatedCoverageRegions } from "./service-area-region-data";
-import {
-  buildSentenceAwareMetaDescription,
-  clampMetaDescription,
-} from "../lib/meta-description";
+import { clampMetaDescription } from "../lib/meta-description";
 
 export type CoverageSuburb = {
   name: string;
@@ -16292,11 +16289,7 @@ function buildSuburbMetaDescription(
     `Electrician ${suburbLabel} for ${phrase}.`,
   ]);
 
-  return (
-    candidates.find((candidate) => candidate.length <= 155) ??
-    candidates.find((candidate) => candidate.length <= 160) ??
-    buildSentenceAwareMetaDescription(candidates)
-  );
+  return clampMetaDescription(candidates, 160);
 }
 
 function ensureSuburbHeroDepth(

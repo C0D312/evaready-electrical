@@ -7,6 +7,9 @@ const weakFinalPhrases = [
   "across Sydney and surrounding",
   "planned electrical",
   "Level 2 electrical",
+  "across the Southern",
+  "across the Central",
+  "across the Blue",
   "across Blue",
   "general",
   "across",
@@ -81,23 +84,54 @@ function finishSentence(value: string) {
   return repaired ? `${repaired}.` : normalized;
 }
 
-export function clampMetaDescription(
-  description: string,
-  maxLength = maxMetaDescriptionLength,
-) {
-  const normalized = normalizeWhitespace(description);
+function trimToSafeMetaSentence(value: string, maxLength: number) {
+  const normalized = normalizeWhitespace(value);
 
   if (normalized.length <= maxLength) {
     return finishSentence(normalized);
   }
 
   const available = Math.max(0, maxLength - 1);
-  const trimmed = normalized.slice(0, available).trimEnd();
-  const lastSpace = trimmed.lastIndexOf(" ");
-  const candidate = trimmed.slice(0, lastSpace > 90 ? lastSpace : trimmed.length);
-  const repaired = removeWeakEnding(candidate);
+  const trimmed = stripSentencePunctuation(normalized.slice(0, available).trimEnd());
+  const lastSentenceEnd = Math.max(
+    trimmed.lastIndexOf("."),
+    trimmed.lastIndexOf("!"),
+    trimmed.lastIndexOf("?"),
+  );
 
-  return finishSentence(repaired || candidate);
+  if (lastSentenceEnd > 90) {
+    return finishSentence(trimmed.slice(0, lastSentenceEnd + 1));
+  }
+
+  const lastSpace = trimmed.lastIndexOf(" ");
+  const wordBoundary =
+    lastSpace > 90 ? trimmed.slice(0, lastSpace) : trimmed;
+  const repaired = removeWeakEnding(wordBoundary);
+
+  return finishSentence(repaired || wordBoundary);
+}
+
+export function clampMetaDescription(
+  description: string | string[],
+  maxLength = maxMetaDescriptionLength,
+) {
+  const candidates = (Array.isArray(description) ? description : [description])
+    .map((candidate) => finishSentence(candidate))
+    .filter(Boolean);
+  const safeCandidates = candidates
+    .map((candidate) => trimToSafeMetaSentence(candidate, maxLength))
+    .filter((candidate) => candidate.length <= maxLength)
+    .filter((candidate) => !endsWithWeakPhrase(candidate));
+  const preferredCandidate =
+    safeCandidates.find(
+      (candidate) =>
+        candidate.length >= 120 &&
+        candidate.length <= targetMetaDescriptionLength,
+    ) ??
+    safeCandidates.find((candidate) => candidate.length <= maxLength) ??
+    trimToSafeMetaSentence(candidates[0] ?? "", maxLength);
+
+  return preferredCandidate;
 }
 
 export function buildSentenceAwareMetaDescription(
@@ -133,7 +167,7 @@ export function buildSentenceAwareMetaDescription(
     return accepted.join(" ");
   }
 
-  return clampMetaDescription(sentences[0] ?? "", maxLength);
+  return clampMetaDescription(sentences, maxLength);
 }
 
 export function getMetaDescriptionWarnings(description: string) {

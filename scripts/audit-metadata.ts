@@ -58,6 +58,39 @@ function firstDescriptionWords(value: string, count: number) {
   return normalizeDescription(value).split(/\s+/).slice(0, count).join(" ");
 }
 
+function getAuditSpecificDescriptionWarnings(value: string) {
+  const normalized = value.trim();
+  const warnings: string[] = [];
+  const incompleteEndings = [
+    "general",
+    "across",
+    "planned electrical",
+    "defect",
+    "power",
+    "Level 2 electrical",
+    "and general",
+    "across the Southern",
+    "across the Central",
+    "across the Blue",
+    "across Blue",
+  ];
+
+  for (const ending of incompleteEndings) {
+    const escapedEnding = ending.split(" ").join("\\s+");
+
+    if (new RegExp(`\\b${escapedEnding}\\.$`, "i").test(normalized)) {
+      warnings.push(`description ends with incomplete phrase: ${ending}`);
+      break;
+    }
+  }
+
+  if (/[,&/]$/.test(normalized) || /\b(?:and|or|with|for)$/i.test(normalized)) {
+    warnings.push("description ends before a complete phrase");
+  }
+
+  return warnings;
+}
+
 function isSuburbMetadata(metadata: RouteSeoMetadata) {
   return /\/service-areas\/[^/]+\/[^/]+\/[^/]+$/.test(metadata.path);
 }
@@ -82,6 +115,7 @@ function toRow(metadata: RouteSeoMetadata, duplicateWarnings: string[] = []) {
   }
 
   warnings.push(...getMetaDescriptionWarnings(metadata.description));
+  warnings.push(...getAuditSpecificDescriptionWarnings(metadata.description));
 
   if (!metadata.canonical.trim()) {
     warnings.push("missing canonical");
