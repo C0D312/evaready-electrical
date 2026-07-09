@@ -649,7 +649,7 @@ export default function EmergencyElectricianSydneyPage() {
                   data-conversion-action={
                     item.href === business.phoneHref ? "phone-click" : undefined
                   }
-                  className={cx(styles.hazardCard, "group flex min-h-28 gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-red-300 hover:bg-red-50")}
+                  className={cx(styles.hazardCard, "group min-h-28 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-red-300 hover:bg-red-50")}
                 >
                   <Zap className="mt-1 h-5 w-5 shrink-0 text-red-600" aria-hidden="true" />
                   <span>
@@ -669,7 +669,7 @@ export default function EmergencyElectricianSydneyPage() {
                 <Link
                   key={item.title}
                   href={item.href}
-                  className={cx(styles.hazardCard, "group flex min-h-28 gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-red-300 hover:bg-red-50")}
+                  className={cx(styles.hazardCard, "group min-h-28 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-red-300 hover:bg-red-50")}
                 >
                   <Zap className="mt-1 h-5 w-5 shrink-0 text-red-600" aria-hidden="true" />
                   <span>
@@ -722,7 +722,7 @@ export default function EmergencyElectricianSydneyPage() {
                   href={item.href}
                   className={cx(styles.warningCard, "group rounded-xl p-3 transition hover:bg-red-50")}
                 >
-                  <span className="flex gap-3">
+                  <span className="min-w-0">
                     <AlertTriangle
                       className="mt-1 h-5 w-5 shrink-0 text-red-600"
                       aria-hidden="true"
@@ -773,7 +773,7 @@ export default function EmergencyElectricianSydneyPage() {
                   data-conversion-action={
                     item.href === business.phoneHref ? "phone-click" : undefined
                   }
-                  className={cx(styles.safetyCard, "group flex gap-3 rounded-lg border border-red-100 bg-white p-5 transition hover:border-red-300 hover:bg-red-50")}
+                  className={cx(styles.safetyCard, "group rounded-lg border border-red-100 bg-white p-5 transition hover:border-red-300 hover:bg-red-50")}
                 >
                   <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" aria-hidden="true" />
                   <span>
@@ -793,7 +793,7 @@ export default function EmergencyElectricianSydneyPage() {
                 <Link
                   key={item.title}
                   href={item.href}
-                  className={cx(styles.safetyCard, "group flex gap-3 rounded-lg border border-red-100 bg-white p-5 transition hover:border-red-300 hover:bg-red-50")}
+                  className={cx(styles.safetyCard, "group rounded-lg border border-red-100 bg-white p-5 transition hover:border-red-300 hover:bg-red-50")}
                 >
                   <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" aria-hidden="true" />
                   <span>
