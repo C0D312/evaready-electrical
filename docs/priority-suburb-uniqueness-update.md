@@ -79,6 +79,19 @@ Panania, Bankstown, Revesby, Padstow, Coogee, Bondi Junction, Randwick, Parramat
 - Normal and cache-busted live URLs were verified after GitHub Pages served the new build marker.
 - Live verification covered the homepage, service areas index, sitemap, robots, site-version marker and all 30 priority suburb URLs listed above.
 
+## Current Revalidation - 2026-07-10
+
+- Existing priority suburb profiles and audit rules were rechecked against the current source.
+- `npm.cmd run audit:suburbs`: PASS, 873 suburb pages, 0 warning rows.
+- `npm.cmd run audit:metadata`: PASS, 999 metadata rows, 0 warnings.
+- `npm.cmd run audit:all-suburb-copy`: PASS, 873 suburb pages checked, 0 warnings.
+- `npm.cmd run audit:links`: PASS, 1,001 generated HTML routes, 20,089 internal links, 0 broken links.
+- `npm.cmd run audit:visible-copy`: PASS, 999 pages, 0 warning rows.
+- `npm.cmd run lint`: PASS.
+- GitHub Pages export build: PASS, 1,003 static pages generated.
+- Priority suburb metadata markers were found in the generated output.
+- Risky local claims such as fake offices, local depots, guaranteed arrival, fake reviews and fake ratings were absent from generated service-area output.
+
 ## Final Result
 
 LIVE PASS.
