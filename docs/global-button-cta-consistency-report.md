@@ -1,39 +1,30 @@
-# Global Button, CTA, Link-Card And Action Colour Consistency Report
+# Global Button, CTA And Sticky Mobile Bar Consistency Report
 
 ## Files changed
 
 - `app/globals.css`
-- `app/solar-batteries/page.tsx`
-- `components/quote-request-panel.tsx`
+- `components/mobile-sticky-cta.tsx`
 - `docs/global-button-cta-consistency-report.md`
 
-## Shared button classes/components created or updated
+## Shared button system updated
 
-Updated the shared CSS action layer for:
+- Removed the final `inline-size: auto` CTA guard that could override `width: 100%` inside paired Call Now / Get a Quote grids.
+- Added a shared paired-action grid rule for action rows and direct phone/quote CTA pairs so buttons stretch evenly inside their own columns.
+- Kept the quote-popup modal CTA excluded from this pass.
+- Kept Call Now on the red gradient and Get a Quote on the blue/electric-cyan gradient.
+- Kept secondary/card links on dark navy with cyan accents.
 
-- `.ev-btn`
-- `.ev-btn--call`
-- `.ev-btn--quote`
-- `.ev-btn--secondary`
-- `.ev-btn--card`
-- `.ev-card-link`
-- `.mobile-sticky-cta`
-- `.mobile-sticky-cta__link`
-- service card actions
-- related service actions
-- emergency link cards
-- warning action summaries
+## Sticky mobile CTA
 
-## Old inconsistent styles removed or neutralised
-
-- Replaced visible `Open Booking Form` labels in the quote request panel with `Get a Quote`.
-- Replaced visible `Get a Solar & Battery Quote` labels with `Get a Quote`.
-- Added one shared winning CTA layer so legacy page-level blue/red button classes resolve to the same red Call Now and blue Get a Quote system.
-- Added a 1024-1180px internal hero guard so laptop-width hero side panels do not clip CTAs.
+- Preserved the sticky mobile bottom CTA.
+- Changed only the sticky bottom phone label to `Call 0461 247 247` so the phone number fits at 320px without clipping.
+- Kept the standard public CTA label `Call Now 0461 247 247` everywhere else.
+- Kept sticky Call red and sticky Get a Quote blue.
+- Confirmed mobile header top CTAs are hidden where the hamburger layout is active.
 
 ## Pages checked
 
-Focused responsive CTA checks covered:
+Targeted browser QA covered:
 
 - `/`
 - `/emergency-electrician-sydney/`
@@ -49,99 +40,57 @@ Focused responsive CTA checks covered:
 - `/services/switchboard-upgrades-sydney/`
 - `/services/hot-water-system-electrician-sydney/`
 - `/services/split-system-air-conditioning-sydney/`
-- Panania, Coogee and Blacktown suburb pages
+- `/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/`
+- `/service-areas/sydney-city-and-eastern-suburbs/randwick/coogee/`
 - `/privacy-policy/`
 - `/terms/`
 
-Full visibility audit covered 1002 generated routes.
-
 ## Viewports checked
 
-Focused responsive CTA check:
+- `320x568`
+- `360x800`
+- `375x812`
+- `390x844`
+- `412x915`
+- `430x932`
+- `768x1024`
+- `820x1180`
+- `1024x768`
+- `1366x768`
+- `1440x900`
+- `1920x1080`
 
-- 320x568
-- 360x800
-- 375x812
-- 390x844
-- 412x915
-- 430x932
-- 768x1024
-- 820x1180
-- 834x1194
-- 1024x1366
-- 1024x768
-- 1280x720
-- 1366x768
-- 1440x900
-- 1600x900
-- 1920x1080
+## Audit result
 
-Full visibility audit:
+- `audit:all-suburb-copy`: pass, 873 suburb pages checked.
+- `audit:suburbs`: pass, 0 warnings.
+- `audit:metadata`: pass, 0 warnings.
+- `audit:links`: pass, 0 broken links across 1001 generated HTML routes.
+- `audit:visible-copy`: pass, 0 warnings.
+- `audit:page-health`: pass, 0 critical warnings.
+- `audit:response-times`: pass, 0 hard mismatches.
+- `lint`: pass.
+- `build`: pass, 1003 static pages generated.
+- `audit:live-links-and-ctas`: pass, 0 broken links and 0 CTA failures across 1002 HTML routes.
+- `audit:visibility`: started, but timed out after 15 minutes while crawling all generated routes. Targeted browser QA was completed for the requested CTA/header viewports.
 
-- 360x800
-- 390x844
-- 412x915
-- 430x932
-- 768x1024
-- 1366x768
-- 1440x900
+## Responsive result
 
-## Validation result
+- Broken links: 0.
+- CTA failures: 0.
+- Horizontal overflow failures in targeted browser QA: 0.
+- Clipped button failures in targeted browser QA: 0.
+- Mobile header top Call/Quote failures: 0.
+- Sticky CTA offscreen failures: 0.
 
-- `audit:all-suburb-copy`: PASS, 873 suburb pages checked, 0 warnings
-- `audit:suburbs`: PASS, 873 suburb pages, 0 warnings
-- `audit:metadata`: PASS, 999 rows, 0 warnings
-- `audit:links`: PASS, 0 broken links
-- `audit:visible-copy`: PASS, 0 warning rows
-- `audit:page-health`: PASS, 0 critical warnings
-- `audit:response-times`: PASS, 0 hard mismatches
-- `audit:live-links-and-ctas`: PASS, 0 broken links, 0 CTA failures
-- `audit:visibility`: PASS, 1002 routes, 7014 rows, 0 critical issues
-- Focused responsive CTA check: PASS, 304 checks, 0 failures
-- `lint`: PASS
-- `build`: PASS, 1003 static pages generated
+## Required markers
 
-## Post-build checks
-
-- Google Ads marker preserved: yes
-- Phone conversion marker preserved: yes
-- Quote conversion marker preserved: yes
-- `tel:+61461247247` preserved: yes
-- `Call Now 0461 247 247` present: yes
-- `Get a Quote` present: yes
-- Stale CTA wording absent: yes
-- Risky/fake wording absent: yes
-
-## Template results
-
-- Mobile sticky CTA: PASS
-- Desktop header CTA: PASS
-- Hero CTAs: PASS
-- Footer CTAs: PASS
-- Suburb template CTAs: PASS
-- Service template CTAs: PASS
-- Secondary/card links: PASS
-
-## Remaining owner-review items
-
-None for this button/CTA consistency pass.
-
-## Deployment result
-
-- Main commit pushed: yes
-- GitHub Pages commit pushed: yes
-- Exact final SHAs: recorded in the final deployment response and public `site-version.json`
-- Public `site-version.json` updated on normal URL: yes
-- Public `site-version.json` updated on cache-busted URL: yes
-- Normal public URLs verified: yes
-- Cache-busted public URLs verified: yes
-- Live pages checked: 14 HTML pages plus `sitemap.xml`, `robots.txt` and `site-version.json`
-- Live viewport checks: 390x844 and 1366x768
-- Live horizontal overflow failures: 0
-- Live clipped-button failures: 0
-- Live CTA tracking failures: 0
-- Live stale CTA wording failures: 0
+- Google Ads marker `AW-18165545331`: present.
+- `data-conversion-action` markers: present.
+- `phone-click` and `quote-click`: present.
+- `tel:+61461247247`: present.
+- Stale/risky public wording check: no matches.
 
 ## Final status
 
-LIVE PASS.
+Ready for GitHub Pages deployment after final source commit and fresh export.

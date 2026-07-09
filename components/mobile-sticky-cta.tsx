@@ -7,6 +7,7 @@ import { business } from "@/data/site";
 export function MobileStickyCta() {
   const [footerVisible, setFooterVisible] = useState(false);
   const [homeHeroVisible, setHomeHeroVisible] = useState(false);
+  const mobileCallLabel = `Call ${business.phoneDisplay}`;
 
   useEffect(() => {
     const footer = document.querySelector("[data-site-footer]");
@@ -83,7 +84,7 @@ export function MobileStickyCta() {
         className="mobile-sticky-cta__link mobile-sticky-cta__call"
       >
         <Phone aria-hidden="true" />
-        <span>{business.callCta}</span>
+        <span>{mobileCallLabel}</span>
       </a>
       <a
         href={business.bookingUrl}

@@ -9442,7 +9442,33 @@ main button[data-conversion-action],
   word-break: normal !important;
   letter-spacing: 0 !important;
   line-height: 1.12 !important;
-  inline-size: auto !important;
+}
+
+.action-button-row,
+:where(main, .site-footer, #mobile-site-menu) :is(
+  div,
+  nav,
+  section,
+  article
+):not(.mobile-sticky-cta):has(> a[data-conversion-action="phone-click"]):has(> a[data-conversion-action="quote-click"]) {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13.75rem), 1fr)) !important;
+  align-items: stretch !important;
+  gap: clamp(0.65rem, 1.45vw, 0.95rem) !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+.action-button-row > a[data-conversion-action],
+:where(main, .site-footer, #mobile-site-menu) :is(
+  div,
+  nav,
+  section,
+  article
+):not(.mobile-sticky-cta):has(> a[data-conversion-action="phone-click"]):has(> a[data-conversion-action="quote-click"]) > a[data-conversion-action] {
+  width: 100% !important;
+  inline-size: 100% !important;
+  justify-self: stretch !important;
 }
 
 main a[data-conversion-action] *,
@@ -10035,14 +10061,19 @@ html body .site-footer a.footer-action[data-conversion-action] {
 }
 
 html body .mobile-sticky-cta a[data-conversion-action] {
-  min-height: 2.9rem !important;
+  min-height: 3.05rem !important;
   height: auto !important;
   padding: 0.55rem clamp(0.42rem, 1.85vw, 0.68rem) !important;
-  font-size: clamp(0.66rem, 2.65vw, 0.82rem) !important;
+  font-size: clamp(0.68rem, 2.7vw, 0.84rem) !important;
   line-height: 1.05 !important;
-  flex-wrap: wrap !important;
-  white-space: normal !important;
-  text-wrap: balance !important;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+  text-wrap: nowrap !important;
+}
+
+html body .mobile-sticky-cta a[data-conversion-action] span {
+  white-space: nowrap !important;
+  text-wrap: nowrap !important;
 }
 
 html body :is(main, .site-header, #mobile-site-menu) :is(a, button)[data-conversion-action="quote-click"]:not(.quote-modal-emergency):not(.quote-home-action),
