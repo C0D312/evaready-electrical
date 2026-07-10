@@ -22,7 +22,13 @@ import {
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
-import { level2ClusterLinks, serviceClusterLinksBySlug } from "@/data/internal-links";
+import {
+  level2ClusterLinks,
+  serviceClusterLinksBySlug,
+  switchboardSafetyCallFirstWarnings,
+  switchboardSafetyClusterLinks,
+  switchboardSafetyQuoteChecklist,
+} from "@/data/internal-links";
 import { absoluteUrl, assetPath, business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
@@ -129,6 +135,10 @@ const switchboardFaqs = [
 
 const relatedLinks =
   serviceClusterLinksBySlug["switchboard-upgrades-sydney"] ?? [];
+
+const switchboardSafetyRelatedLinks = switchboardSafetyClusterLinks.filter(
+  (link) => link.href !== "/services/switchboard-upgrades-sydney",
+);
 
 const level2PathwayDescriptions: Record<string, string> = {
   "/level-2-electrician-sydney":
@@ -383,6 +393,85 @@ export default function SwitchboardUpgradesSydneyPage() {
           "Clear next actions before work starts",
         ]}
       />
+
+      <section className="border-b border-cyan-300/15 bg-[#040b1c] py-14 text-white">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.28em] text-cyan-300">
+              Switchboard, safety and protection
+            </p>
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+              Choose the right switchboard or safety path.
+            </h2>
+            <p className="mt-5 text-base font-semibold leading-7 text-slate-200 sm:text-lg sm:leading-8">
+              Switchboard work can connect with old ceramic fuses, safety
+              switch tripping, burnt switchboard smells, RCD upgrades, surge
+              protection, inspections, load capacity checks and supply-side
+              review. Use the links below to choose the closest next step.
+            </p>
+            <div className="mt-6 grid gap-4">
+              <div className="rounded-lg border border-cyan-300/20 bg-[#091d42] p-5 shadow-lg shadow-blue-950/25">
+                <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">
+                  Quote checklist
+                </p>
+                <ul className="mt-4 grid gap-3">
+                  {switchboardSafetyQuoteChecklist.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-3 text-sm font-bold leading-6 text-slate-100"
+                    >
+                      <ClipboardList className="mt-0.5 h-5 w-5 shrink-0 text-cyan-300" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-lg border border-red-300/30 bg-gradient-to-br from-[#750713]/70 via-[#091d42] to-[#06142f] p-5 shadow-lg shadow-red-950/20">
+                <p className="text-sm font-black uppercase tracking-[0.18em] text-red-100">
+                  Call first if unsafe
+                </p>
+                <ul className="mt-4 grid gap-3">
+                  {switchboardSafetyCallFirstWarnings.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-3 text-sm font-bold leading-6 text-red-50"
+                    >
+                      <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-red-200" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {switchboardSafetyRelatedLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="group grid min-h-28 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-lg border border-cyan-300/20 bg-[#091d42] p-4 shadow-lg shadow-blue-950/20 transition hover:-translate-y-0.5 hover:border-cyan-200 hover:bg-[#0d2b5c]"
+              >
+                <span className="min-w-0">
+                  <span className="block text-base font-black leading-6 text-white">
+                    {link.label}
+                  </span>
+                  {link.description ? (
+                    <span className="mt-2 block text-sm font-semibold leading-6 text-slate-300">
+                      {link.description}
+                    </span>
+                  ) : null}
+                </span>
+                <span
+                  className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-cyan-300/25 bg-[#0d2b5c] text-cyan-200 transition group-hover:translate-x-1"
+                  aria-hidden="true"
+                >
+                  <ArrowRight className="h-4 w-4" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="border-b border-cyan-300/15 bg-[#06142f] py-14 text-white">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">

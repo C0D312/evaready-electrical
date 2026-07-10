@@ -177,6 +177,95 @@ export const level2ClusterLinks: InternalLink[] = [
   },
 ];
 
+export const switchboardSafetyClusterLinks: InternalLink[] = [
+  {
+    href: "/services/switchboard-upgrades-sydney",
+    label: "Old ceramic fuses and switchboard upgrades",
+    description:
+      "Modern switchboard upgrades, ceramic fuse replacement, RCBOs and clearer circuit protection.",
+  },
+  {
+    href: "/services/safety-switch-rcd-installation-sydney",
+    label: "Safety switch and RCD installation",
+    description:
+      "Safety switch installation, RCD upgrades and protection planning for upgraded circuits.",
+  },
+  {
+    href: "/services/rcd-safety-switch-repairs-sydney",
+    label: "RCD repairs for tripping safety switches",
+    description:
+      "Fault support when safety switches or RCDs trip repeatedly and need testing.",
+  },
+  {
+    href: "/services/circuit-breaker-electrician-sydney",
+    label: "Circuit breaker fault support",
+    description:
+      "Circuit breaker checks for nuisance tripping, overloaded circuits and protection faults.",
+  },
+  {
+    href: "/services/surge-protection-electrician-sydney",
+    label: "Surge protection at the switchboard",
+    description:
+      "Surge protection planning for appliances, electronics and sensitive equipment.",
+  },
+  {
+    href: "/services/electrical-safety-inspection-sydney",
+    label: "Electrical safety inspection",
+    description:
+      "Visible safety checks for switchboards, circuits, power points, lighting and electrical concerns.",
+  },
+  {
+    href: "/services/electrical-testing-tagging-reports-sydney",
+    label: "Electrical testing, tagging and reports",
+    description:
+      "Broader electrical testing and reporting support for property, workplace and safety documentation.",
+  },
+  {
+    href: "/services/testing-and-tagging-sydney",
+    label: "Portable testing and tagging",
+    description:
+      "Portable workplace equipment testing and tagging for businesses and managed properties.",
+  },
+  {
+    href: "/services/pre-purchase-rental-electrical-inspections-sydney",
+    label: "Pre-purchase and rental inspections",
+    description:
+      "Electrical condition checks for buyers, landlords, property managers and managed rentals.",
+  },
+  {
+    href: "/services/electrical-load-capacity-checks-sydney",
+    label: "Load capacity checks",
+    description:
+      "Capacity checks before larger loads, EV chargers, air conditioning, solar support or upgrades.",
+  },
+  {
+    href: "/services/three-phase-power-sydney",
+    label: "Three phase power planning",
+    description:
+      "Three phase supply planning for larger homes, workshops and higher electrical demand.",
+  },
+  {
+    href: "/services/consumer-mains-sydney",
+    label: "Consumer mains supply checks",
+    description:
+      "Consumer mains checks where switchboard capacity or supply-side work needs review.",
+  },
+];
+
+export const switchboardSafetyQuoteChecklist = [
+  "Switchboard photo, including labels, breakers, fuses and safety switches.",
+  "Meter box photo showing service equipment and access where relevant.",
+  "Issue description, including when it started and what changed recently.",
+  "Tripping pattern, such as the circuit, appliance, weather or time of day.",
+  "Defect notice, inspection note or retailer paperwork if any has been issued.",
+];
+
+export const switchboardSafetyCallFirstWarnings = [
+  "Heat, smoke or a burning smell near the switchboard or fittings.",
+  "Sparking, buzzing, exposed wiring or damaged electrical equipment.",
+  "Water damage around circuits, outlets, the meter box or switchboard.",
+];
+
 export const serviceClusterLinksBySlug: Record<string, InternalLink[]> = {
   "residential-electrician-sydney": [
     { href: "/service-areas", label: "Residential electrician service areas" },
