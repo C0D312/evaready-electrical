@@ -1,3 +1,3 @@
-:HL["/evaready-electrical/_next/static/chunks/0zw76e9ivw96u.css","style"]
+:HL["/evaready-electrical/_next/static/chunks/083ts5cixici3.css","style"]
 :HL["/evaready-electrical/_next/static/chunks/0vahxbzflamb..css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"emergency-electrician-sydney","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"skO5ZZPP1OhUUCpLRc8qj"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"emergency-electrician-sydney","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"8OXuvUO9Z83RxkKjAFCjC"}
