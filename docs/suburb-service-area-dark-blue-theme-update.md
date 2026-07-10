@@ -56,4 +56,24 @@ Responsive QA:
 
 ## Result
 
-Local validation passed. Deployment and public live verification pending.
+LIVE PASS.
+
+Deployment verification:
+
+- Main branch pushed.
+- Fresh `out/` export copied to `gh-pages`.
+- Remote `gh-pages` confirmed.
+- Normal and cache-busted public URLs verified for all listed service-area targets plus `sitemap.xml`, `robots.txt` and `site-version.json`.
+- Public URL checks: 22 normal/cache-busted HTTP checks, 0 failures.
+- Public browser checks: 8 service-area/suburb pages across 5 viewport sizes, 40 checks, 0 failures.
+
+Live verification confirmed:
+
+- HTTP 200 responses.
+- CSS assets load.
+- Dark-blue service-area theme markers are present.
+- Old light-theme service-area wrappers are absent.
+- Stale/risky wording is absent.
+- Google Ads marker remains.
+- Phone and quote conversion attributes remain.
+- No horizontal overflow detected in the live browser pass.
