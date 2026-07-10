@@ -18,6 +18,7 @@ import {
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
+import { emergencyFaultClusterLinks } from "@/data/electrical-faults";
 import { absoluteUrl, assetPath, business } from "@/data/site";
 import { emergencySeoMetadata, toMetadata } from "@/lib/seo-metadata";
 import styles from "./emergency-theme.module.css";
@@ -226,56 +227,7 @@ const process = [
   },
 ];
 
-const relatedLinks = [
-  {
-    label: "No power fault finding",
-    href: "/electrical-faults/no-power-to-house",
-  },
-  {
-    label: "Safety switch tripping help",
-    href: "/electrical-faults/safety-switch-keeps-tripping",
-  },
-  {
-    label: "Burning smell from switchboard",
-    href: "/electrical-faults/burning-smell-from-switchboard",
-  },
-  {
-    label: "Storm and water-damage electrical faults",
-    href: "/electrical-faults/power-outage-after-storm",
-  },
-  {
-    label: "Sparking power point help",
-    href: "/electrical-faults/power-point-sparking",
-  },
-  {
-    label: "Urgent lighting faults",
-    href: "/electrical-faults/lights-flickering",
-  },
-  {
-    label: "Commercial emergency faults",
-    href: "/services/commercial-electrician-sydney",
-  },
-  {
-    label: "Switchboard upgrades",
-    href: "/services/switchboard-upgrades-sydney",
-  },
-  {
-    label: "Level 2 electrician Sydney",
-    href: "/level-2-electrician-sydney",
-  },
-  {
-    label: "Defect notice repairs",
-    href: "/services/defect-notice-repairs-sydney",
-  },
-  {
-    label: "Consumer mains electrical work",
-    href: "/services/consumer-mains-sydney",
-  },
-  {
-    label: "Point of attachment repairs",
-    href: "/services/point-of-attachment-repairs-sydney",
-  },
-];
+const relatedLinks = emergencyFaultClusterLinks;
 
 const emergencyProofItems = [
   `NSW Electrical Licence ${business.licence}`,
@@ -871,10 +823,10 @@ export default function EmergencyElectricianSydneyPage() {
       <section className={cx(styles.blueSection, "bg-slate-50 py-20")}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className={cx(styles.blueEyebrow, "text-sm font-black uppercase tracking-[0.35em] text-blue-700")}>
-            Helpful fault guides
+            Related emergency fault guides
           </p>
           <h2 className={cx(styles.sectionTitle, "mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl")}>
-            Read more about common emergency electrical faults.
+            Choose the closest fault guide, then call first if it feels unsafe.
           </h2>
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {relatedLinks.map((link) => (

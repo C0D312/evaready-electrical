@@ -2718,7 +2718,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Damaged outlets or switches",
       "Heat damage or burning marks",
       "Old or overcrowded switchboards",
-      "Unsafe DIY alterations",
+      "Unsafe unlicensed alterations",
       "Deteriorated outdoor electrical equipment",
       "Tripping circuits",
       "Exposed or damaged accessible wiring",

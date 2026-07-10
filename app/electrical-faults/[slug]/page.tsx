@@ -31,6 +31,21 @@ import {
 
 export const dynamicParams = false;
 
+const callFirstSafetyGuidance = [
+  {
+    title: "Keep clear of the affected area.",
+    text: "Move people away from exposed wires, smoke, burning smells, sparking, wet fittings or damaged electrical equipment.",
+  },
+  {
+    title: "Do not touch damaged, wet or live equipment.",
+    text: "Avoid switchboards, outlets, appliances, service equipment and fittings that look damaged, wet, hot or unsafe.",
+  },
+  {
+    title: "Call emergency services first for life-threatening danger.",
+    text: "For fire, electric shock injury, fallen powerlines or immediate danger to people, keep clear and call 000 first.",
+  },
+];
+
 export function generateStaticParams() {
   return electricalFaultPages.map((fault) => ({
     slug: fault.slug,
@@ -188,6 +203,73 @@ export default async function ElectricalFaultDetailPage({
               <span className="font-bold text-slate-800">{item}</span>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="bg-[#040b1c] py-16 text-white sm:py-20">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.28em] text-red-300">
+              When to call first
+            </p>
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+              Treat an active or unsafe fault as a phone-first job.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-slate-300">
+              If the issue is happening now, feels unsafe or involves heat,
+              smoke, sparking, shock risk, water damage or power loss, call
+              first so the risk can be triaged. For planned inspection or
+              repair, send photos and job details through the quote form.
+            </p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={business.phoneHref}
+                data-conversion-action="phone-click"
+                aria-label={business.callCta}
+                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-red-600 px-6 py-3 font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500"
+              >
+                <Phone className="h-5 w-5 shrink-0" />
+                <span>{business.callCta}</span>
+              </a>
+              <a
+                href={business.bookingUrl}
+                data-quote-trigger="true"
+                data-conversion-action="quote-click"
+                aria-haspopup="dialog"
+                aria-label="Get a quote from Evaready Electrical"
+                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-blue-600 px-6 py-3 font-black text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-500"
+              >
+                {business.quoteCta}
+                <ArrowRight className="h-5 w-5 shrink-0" />
+              </a>
+            </div>
+          </div>
+
+          <div className="grid gap-4">
+            {callFirstSafetyGuidance.map((item) => (
+              <article
+                key={item.title}
+                className="grid gap-4 rounded-lg border border-red-300/20 bg-white/5 p-5 sm:grid-cols-[auto_minmax(0,1fr)] sm:items-center"
+              >
+                <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-red-500/15 text-red-200">
+                  <AlertTriangle className="h-6 w-6" aria-hidden="true" />
+                </span>
+                <span className="min-w-0">
+                  <h3 className="text-lg font-black text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 leading-7 text-slate-300">{item.text}</p>
+                </span>
+              </article>
+            ))}
+            <Link
+              href="/emergency-electrician-sydney"
+              className="inline-flex min-h-12 items-center justify-between gap-4 rounded-lg border border-cyan-300/30 bg-[#091d42] px-5 py-3 font-black text-white transition hover:border-cyan-200 hover:bg-[#0d2b5c]"
+            >
+              Emergency Electrician Sydney
+              <ArrowRight className="h-5 w-5 shrink-0 text-cyan-200" />
+            </Link>
+          </div>
         </div>
       </section>
 

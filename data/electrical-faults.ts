@@ -853,4 +853,35 @@ export function getElectricalFaultPage(slug: string) {
   return electricalFaultPages.find((page) => page.slug === slug);
 }
 
+const emergencyFaultClusterSlugs = [
+  "no-power-to-house",
+  "no-power-in-one-room",
+  "safety-switch-keeps-tripping",
+  "rcd-trips-when-raining",
+  "burning-smell-from-outlet",
+  "burning-smell-from-switchboard",
+  "power-point-sparking",
+  "smoke-from-electrical-panel",
+  "electric-shock-from-outlet",
+  "hot-power-point",
+  "power-surge-damage",
+  "power-outage-after-storm",
+  "lights-flickering",
+  "circuit-breaker-keeps-tripping",
+];
+
+export const emergencyFaultClusterLinks: FaultRelatedLink[] =
+  emergencyFaultClusterSlugs.flatMap((slug) => {
+    const page = getElectricalFaultPage(slug);
+
+    return page
+      ? [
+          {
+            href: `/electrical-faults/${page.slug}`,
+            label: page.title,
+          },
+        ]
+      : [];
+  });
+
 
