@@ -120,11 +120,11 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
   };
   const landingCardStyles = {
     emergency:
-      "border-red-400/30 bg-gradient-to-br from-red-950 via-[#082A86] to-[#061E72] text-red-100",
+      "border-red-400/30 bg-gradient-to-br from-[#750713]/45 via-[#091d42] to-[#06142f] text-red-100",
     general:
-      "border-cyan-300/25 bg-gradient-to-br from-[#061E72] via-[#0A349E] to-blue-950 text-cyan-100",
+      "border-cyan-300/25 bg-gradient-to-br from-[#091d42] via-[#0a234d] to-[#06142f] text-cyan-100",
     level2:
-      "border-blue-300/30 bg-gradient-to-br from-blue-950 via-[#082A86] to-[#061E72] text-blue-100",
+      "border-blue-300/30 bg-gradient-to-br from-[#091d42] via-[#0a234d] to-[#06142f] text-blue-100",
   };
   const suburbFaqs = [
     {
@@ -230,7 +230,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
             data-quote-trigger="true"
             data-conversion-action="quote-click"
             aria-haspopup="dialog"
-            className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-7 py-4 text-base font-black text-white shadow-xl shadow-blue-700/25 transition hover:bg-blue-600"
+            className="inline-flex items-center justify-center gap-3 rounded-lg bg-[#0876ff] px-7 py-4 text-base font-black text-white shadow-xl shadow-cyan-950/25 transition hover:bg-[#079cff]"
           >
             {business.quoteCta}
             <ArrowRight className="h-5 w-5" />
@@ -240,7 +240,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
 
       <TrustSymbolBand className="border-b border-cyan-300/15" />
 
-      <section className="bg-[#061E72] py-14 text-white">
+      <section className="bg-[#0a234d] py-14 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-200">
             Suburb electrical support
@@ -260,7 +260,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                   className={`group min-w-0 rounded-2xl border p-5 shadow-lg shadow-blue-950/20 transition hover:-translate-y-1 hover:border-cyan-300/60 sm:p-6 ${landingCardStyles[card.intent]}`}
                 >
                   <div className="flex min-w-0 items-start gap-4">
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-cyan-300/20 bg-white/10 text-cyan-100">
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-cyan-300/25 bg-[#0d2b5c] text-cyan-100">
                       <Icon className="h-6 w-6" aria-hidden="true" />
                     </span>
                     <div className="min-w-0">
@@ -296,7 +296,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         </div>
       </section>
 
-      <section className="border-b border-cyan-300/15 bg-[#061E72] py-12 text-white sm:py-16">
+      <section className="border-b border-cyan-300/15 bg-[#0a234d] py-12 text-white sm:py-16">
         <div className="mx-auto grid max-w-7xl gap-5 px-4 sm:px-6 lg:grid-cols-[1fr_1fr_1.1fr] lg:px-8">
           <article
             data-suburb-action-card="call-first"
@@ -704,10 +704,10 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-[#082A86] via-[#061E72] to-[#43040e] py-20 text-white">
+      <section className="bg-gradient-to-r from-[#06142f] via-[#0a234d] to-[#040b1c] py-20 text-white">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-red-300">
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
               Electrician {suburb.name}
             </p>
             <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
@@ -732,7 +732,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
               data-quote-trigger="true"
               data-conversion-action="quote-click"
               aria-haspopup="dialog"
-              className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
+              className="inline-flex items-center justify-center gap-3 rounded-lg bg-[#0876ff] px-7 py-4 font-black text-white shadow-lg shadow-cyan-950/20 transition hover:bg-[#079cff]"
             >
               {business.quoteCta}
               <ArrowRight className="h-5 w-5" />

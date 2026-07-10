@@ -238,14 +238,14 @@ export default function AreasPage() {
             data-quote-trigger="true"
             data-conversion-action="quote-click"
             aria-haspopup="dialog"
-            className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-blue-700 px-5 py-3 text-center text-sm font-black text-white shadow-xl shadow-blue-700/20 transition hover:bg-blue-600 sm:text-base"
+            className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-[#0876ff] px-5 py-3 text-center text-sm font-black text-white shadow-xl shadow-cyan-950/25 transition hover:bg-[#079cff] sm:text-base"
           >
             {business.quoteCta}
             <ArrowRight className="h-5 w-5 shrink-0" />
           </a>
         </div>
 
-        <div className="mt-5 max-w-4xl rounded-lg border border-cyan-300/25 bg-white/10 p-4 shadow-lg shadow-blue-950/20">
+        <div className="mt-5 max-w-4xl rounded-lg border border-cyan-300/25 bg-[#091d42] p-4 shadow-lg shadow-blue-950/20">
           <div className="grid gap-3 sm:grid-cols-3">
             {[
               `${business.emergencyResponse.coreMinutes}-minute emergency response in core service areas`,
@@ -286,7 +286,7 @@ export default function AreasPage() {
             {responseRegionGroups.map((group) => (
               <section
                 key={group.heading}
-                className="rounded-lg border border-cyan-300/25 bg-[#0A349E] p-5 text-white shadow-lg shadow-blue-950/20"
+                className="rounded-lg border border-cyan-300/25 bg-[#091d42] p-5 text-white shadow-lg shadow-blue-950/20"
                 aria-label={group.heading}
               >
                 <p
@@ -347,19 +347,19 @@ export default function AreasPage() {
         </div>
       </section>
 
-      <section className="border-y border-cyan-300/15 bg-[#061E72] text-white">
+      <section className="border-y border-cyan-300/15 bg-[#0a234d] text-white">
         <div className="mx-auto grid max-w-7xl gap-3 px-4 py-4 sm:grid-cols-3 sm:px-6 lg:px-8">
-          <div className="rounded-lg border border-cyan-300/25 bg-[#0A349E] p-4 shadow-lg shadow-blue-950/30">
+          <div className="rounded-lg border border-cyan-300/25 bg-[#091d42] p-4 shadow-lg shadow-blue-950/30">
             <p className="text-3xl font-black">{coverageStats.regionCount}</p>
             <p className="mt-1 text-sm font-semibold text-slate-300">
               Regions
             </p>
           </div>
-          <div className="rounded-lg border border-cyan-300/25 bg-[#0A349E] p-4 shadow-lg shadow-blue-950/30">
+          <div className="rounded-lg border border-cyan-300/25 bg-[#091d42] p-4 shadow-lg shadow-blue-950/30">
             <p className="text-3xl font-black">{coverageStats.areaCount}</p>
             <p className="mt-1 text-sm font-semibold text-slate-300">Areas</p>
           </div>
-          <div className="rounded-lg border border-cyan-300/25 bg-[#0A349E] p-4 shadow-lg shadow-blue-950/30">
+          <div className="rounded-lg border border-cyan-300/25 bg-[#091d42] p-4 shadow-lg shadow-blue-950/30">
             <p className="text-3xl font-black">{coverageStats.suburbCount}</p>
             <p className="mt-1 text-sm font-semibold text-slate-300">
               Suburbs
@@ -511,7 +511,7 @@ export default function AreasPage() {
                   className="group rounded-lg border border-cyan-300/20 bg-[#091d42] p-6 shadow-lg shadow-blue-950/20 transition hover:-translate-y-1 hover:border-cyan-200 hover:bg-[#0d2b5c] hover:shadow-xl"
                 >
                   <div className="flex items-start justify-between gap-4">
-                    <div className="rounded-lg bg-blue-700 p-3 text-white">
+                    <div className="rounded-lg border border-cyan-300/25 bg-[#0d2b5c] p-3 text-cyan-100">
                       <MapPin className="h-7 w-7" />
                     </div>
                     <span className="rounded-full border border-cyan-300/20 bg-[#0d2b5c] px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-slate-100">
@@ -578,10 +578,10 @@ export default function AreasPage() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-[#082A86] via-[#061E72] to-[#43040e] py-20 text-white">
+      <section className="bg-gradient-to-r from-[#06142f] via-[#0a234d] to-[#040b1c] py-20 text-white">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-red-300">
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
               Electrical help in your area.
             </p>
             <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
@@ -606,7 +606,7 @@ export default function AreasPage() {
               data-conversion-action="quote-click"
               aria-haspopup="dialog"
               aria-label="Get a quote from Evaready Electrical"
-              className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
+              className="inline-flex items-center justify-center gap-3 rounded-lg bg-[#0876ff] px-7 py-4 font-black text-white shadow-lg shadow-cyan-950/20 transition hover:bg-[#079cff]"
             >
               {business.quoteCta}
               <ArrowRight className="h-5 w-5" />
@@ -614,7 +614,7 @@ export default function AreasPage() {
 
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-3 rounded-lg border border-cyan-300/35 bg-white/10 px-7 py-4 font-black text-white transition hover:bg-white/15"
+              className="inline-flex items-center justify-center gap-3 rounded-lg border border-cyan-300/35 bg-[#091d42] px-7 py-4 font-black text-white transition hover:bg-[#0d2b5c]"
             >
               Contact
               <ArrowRight className="h-5 w-5" />
