@@ -153,7 +153,7 @@ export const level2ClusterLinks: InternalLink[] = [
   },
   {
     href: "/services/three-phase-power-sydney",
-    label: "Three-phase power",
+    label: "Three phase power",
   },
   {
     href: "/services/ev-charger-installation-sydney",

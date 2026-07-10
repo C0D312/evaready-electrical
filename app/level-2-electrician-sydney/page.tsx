@@ -89,6 +89,11 @@ const serviceCards = [
     href: "/services/electrical-load-capacity-checks-sydney",
   },
   {
+    title: "Smart meter electrical support",
+    text: "Smart meter enquiries can involve switchboard preparation, meter area checks and service equipment review.",
+    href: "/services/smart-meter-electrician-sydney",
+  },
+  {
     title: "EV charger load upgrade checks",
     text: "EV chargers can trigger switchboard, load capacity, consumer mains or supply upgrade discussions.",
     href: "/services/ev-charger-installation-sydney",
