@@ -34,4 +34,12 @@
 - `npm.cmd run build`: pass, 1003 static routes generated
 - Generated-output risky wording check: pass
 
-Pending deploy and public live verification.
+## Public live verification
+
+- `main` source commit: `c6993dffd9b94b20430b2b4f330b0abf5727d1f5`
+- `gh-pages` deploy commit: `6ca20cdbd516badea51201fc1bf7057641192893`
+- Normal public URLs checked: pass
+- Cache-busted public URLs checked using the `gh-pages` SHA: pass
+- Live routes checked: emergency hub, fault index, no power, safety switch, burning smell, sparking, electric shock, storm outage, sitemap, robots and site-version
+- Live risky wording check: pass
+- Live Google Ads and phone/quote conversion markers: pass
