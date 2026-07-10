@@ -25,6 +25,7 @@ Strengthened internal routing between the Level 2 hub and existing supply-side s
 ## Changes made
 
 - Added a shared Level 2 service-pathway cluster to relevant generated service pages.
+- Added the same Level 2 service-pathway cluster to the dedicated switchboard upgrades page, which uses its own static template.
 - Added contextual links back to the Level 2 hub from each relevant service page.
 - Added compact next-step guidance for defect notice photos, meter box photos, point-of-attachment/service photos and call-first unsafe faults.
 - Added smart meter electrical support to the Level 2 hub service-card set.

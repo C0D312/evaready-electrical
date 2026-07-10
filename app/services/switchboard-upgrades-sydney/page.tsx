@@ -7,6 +7,7 @@ import {
   BadgeCheck,
   Bolt,
   CheckCircle2,
+  ClipboardList,
   Gauge,
   Phone,
   ShieldCheck,
@@ -21,7 +22,7 @@ import {
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
-import { serviceClusterLinksBySlug } from "@/data/internal-links";
+import { level2ClusterLinks, serviceClusterLinksBySlug } from "@/data/internal-links";
 import { absoluteUrl, assetPath, business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
@@ -128,6 +129,53 @@ const switchboardFaqs = [
 
 const relatedLinks =
   serviceClusterLinksBySlug["switchboard-upgrades-sydney"] ?? [];
+
+const level2PathwayDescriptions: Record<string, string> = {
+  "/level-2-electrician-sydney":
+    "Hub for consumer mains, metering, service equipment and defect notice pathways.",
+  "/services/consumer-mains-sydney":
+    "Supply cable checks, repairs, upgrades and defect-related consumer mains work.",
+  "/services/defect-notice-repairs-sydney":
+    "Defect notice photos, deadline details and repair scope review.",
+  "/services/point-of-attachment-repairs-sydney":
+    "Overhead attachment concerns, pulled-away fixings and service-line issues.",
+  "/services/private-power-pole-sydney":
+    "Private pole, overhead service and storm-related supply-side planning.",
+  "/services/overhead-service-lines-sydney":
+    "Overhead service line, clearance and damaged supply connection support.",
+  "/services/underground-service-mains-sydney":
+    "Underground mains, route access, service equipment and supply upgrade review.",
+  "/services/metering-services-sydney":
+    "Metering, service equipment and retailer or network paperwork support.",
+  "/services/disconnect-reconnect-electrician-sydney":
+    "Planned isolation and reconnection steps for renovations or supply changes.",
+  "/services/smart-meter-electrician-sydney":
+    "Switchboard preparation, meter area checks and smart meter related enquiries.",
+  "/services/electrical-load-capacity-checks-sydney":
+    "Load capacity checks for larger equipment, EV chargers and supply upgrades.",
+  "/services/three-phase-power-sydney":
+    "Three phase supply planning for larger homes, workshops and equipment.",
+};
+
+const level2SwitchboardLinks = [
+  {
+    href: "/level-2-electrician-sydney",
+    label: "Level 2 electrician Sydney",
+  },
+  ...level2ClusterLinks.filter(
+    (link) => link.href !== "/services/switchboard-upgrades-sydney",
+  ),
+].map((link) => ({
+  ...link,
+  description: level2PathwayDescriptions[link.href],
+}));
+
+const level2SwitchboardNextSteps = [
+  "Send switchboard and meter box photos, including labels and service equipment.",
+  "Send any defect notice, retailer paperwork or network deadline if available.",
+  "Send point-of-attachment, overhead service or underground service photos where relevant.",
+  "Call first if the board, service equipment or wiring is damaged, hot, wet, sparking or unsafe.",
+];
 
 export default function SwitchboardUpgradesSydneyPage() {
   const pagePath = "/services/switchboard-upgrades-sydney";
@@ -335,6 +383,67 @@ export default function SwitchboardUpgradesSydneyPage() {
           "Clear next actions before work starts",
         ]}
       />
+
+      <section className="border-b border-cyan-300/15 bg-[#06142f] py-14 text-white">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.28em] text-cyan-300">
+              Level 2 service pathway
+            </p>
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+              Related Level 2 electrical support.
+            </h2>
+            <p className="mt-5 text-base font-semibold leading-7 text-slate-200 sm:text-lg sm:leading-8">
+              {business.level2Asp.display}. Switchboard upgrades can connect
+              with consumer mains, defect notices, metering, load capacity and
+              supply-side service equipment, so Evaready can review the photos
+              and explain the practical next action.
+            </p>
+            <div className="mt-6 rounded-lg border border-cyan-300/20 bg-[#091d42] p-5 shadow-lg shadow-blue-950/25">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">
+                What to send
+              </p>
+              <ul className="mt-4 grid gap-3">
+                {level2SwitchboardNextSteps.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 text-sm font-bold leading-6 text-slate-100"
+                  >
+                    <ClipboardList className="mt-0.5 h-5 w-5 shrink-0 text-cyan-300" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {level2SwitchboardLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="group grid min-h-28 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-lg border border-cyan-300/20 bg-[#091d42] p-4 shadow-lg shadow-blue-950/20 transition hover:-translate-y-0.5 hover:border-cyan-200 hover:bg-[#0d2b5c]"
+              >
+                <span className="min-w-0">
+                  <span className="block text-base font-black leading-6 text-white">
+                    {link.label}
+                  </span>
+                  {link.description ? (
+                    <span className="mt-2 block text-sm font-semibold leading-6 text-slate-300">
+                      {link.description}
+                    </span>
+                  ) : null}
+                </span>
+                <span
+                  className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-cyan-300/25 bg-[#0d2b5c] text-cyan-200 transition group-hover:translate-x-1"
+                  aria-hidden="true"
+                >
+                  <ArrowRight className="h-4 w-4" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <TrustProcessProof
         className="border-b border-cyan-300/15"
