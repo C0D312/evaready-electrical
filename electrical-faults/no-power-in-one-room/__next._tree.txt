@@ -1,2 +1,2 @@
-:HL["/evaready-electrical/_next/static/chunks/17ukeb6pifde-.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"electrical-faults","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"no-power-in-one-room","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"SyVMcaZ42HMFLvqbztXUz"}
+:HL["/evaready-electrical/_next/static/chunks/0zw76e9ivw96u.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"electrical-faults","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"no-power-in-one-room","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"HIChwuxYGKQsrMdqKG0TV"}
