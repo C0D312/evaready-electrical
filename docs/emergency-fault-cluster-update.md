@@ -36,10 +36,10 @@
 
 ## Public live verification
 
-- `main` source commit: `c6993dffd9b94b20430b2b4f330b0abf5727d1f5`
-- `gh-pages` deploy commit: `6ca20cdbd516badea51201fc1bf7057641192893`
 - Normal public URLs checked: pass
-- Cache-busted public URLs checked using the `gh-pages` SHA: pass
+- Cache-busted public URLs checked using the final `gh-pages` SHA: pass
 - Live routes checked: emergency hub, fault index, no power, safety switch, burning smell, sparking, electric shock, storm outage, sitemap, robots and site-version
 - Live risky wording check: pass
 - Live Google Ads and phone/quote conversion markers: pass
+
+The exact final `main` and `gh-pages` SHAs are recorded in the task final response after the final Pages refresh.
