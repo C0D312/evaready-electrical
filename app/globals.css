@@ -10850,14 +10850,35 @@ header.site-header.ev-electric-header .site-logo-link.ev-electric-header-brand .
 
 .ev-electric-header-banner-row .mobile-nav-trigger {
   position: absolute !important;
-  z-index: 3 !important;
+  z-index: 4 !important;
   inset-inline-end: max(0.75rem, env(safe-area-inset-right)) !important;
   top: 50% !important;
   display: inline-flex !important;
+  width: 58px !important;
+  height: 58px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  isolation: isolate !important;
   transform: translateY(-50%) !important;
 }
 
+.ev-electric-header-banner-row .mobile-nav-trigger::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  border-radius: 999px !important;
+  background:
+    radial-gradient(circle, rgba(2, 5, 13, 0.98) 0 48%, rgba(6, 20, 47, 0.88) 62%, rgba(2, 5, 13, 0) 72%) !important;
+  box-shadow:
+    0 0 0 1px rgba(98, 216, 255, 0.34),
+    0 0 26px rgba(98, 216, 255, 0.3) !important;
+  pointer-events: none !important;
+}
+
 .ev-electric-header-banner-row .mobile-nav-trigger button {
+  position: relative !important;
+  z-index: 1 !important;
   display: inline-flex !important;
   width: 48px !important;
   height: 48px !important;
@@ -10865,9 +10886,9 @@ header.site-header.ev-electric-header .site-logo-link.ev-electric-header-brand .
   min-height: 48px !important;
   align-items: center !important;
   justify-content: center !important;
-  border: 2px solid rgba(98, 216, 255, 0.62) !important;
+  border: 2px solid rgba(98, 216, 255, 0.78) !important;
   border-radius: 999px !important;
-  background: rgba(4, 11, 28, 0.78) !important;
+  background: rgba(4, 11, 28, 0.92) !important;
   color: var(--ev-cyan, #62d8ff) !important;
   box-shadow:
     0 0 0 4px rgba(8, 118, 255, 0.13),
@@ -11000,6 +11021,18 @@ header.site-header.ev-electric-header .site-logo-link.ev-electric-header-brand .
     display: none !important;
   }
 
+  .ev-electric-header-banner-row::after {
+    content: "" !important;
+    position: absolute !important;
+    inset-block: 0 !important;
+    inset-inline-end: 0 !important;
+    z-index: 2 !important;
+    width: clamp(5rem, 20vw, 7rem) !important;
+    background:
+      linear-gradient(90deg, rgba(2, 5, 13, 0), rgba(2, 5, 13, 0.76) 42%, rgba(2, 5, 13, 0.94)) !important;
+    pointer-events: none !important;
+  }
+
   .ev-electric-header-banner {
     object-position: 48% center !important;
   }
@@ -11016,6 +11049,8 @@ header.site-header.ev-electric-header .site-logo-link.ev-electric-header-brand .
 
   .ev-electric-header-banner-row .mobile-nav-trigger {
     inset-inline-end: 0.62rem !important;
+    width: 56px !important;
+    height: 56px !important;
   }
 
   .ev-electric-header-banner-row .mobile-nav-trigger button {
