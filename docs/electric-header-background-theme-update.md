@@ -92,4 +92,38 @@ Confirmed in generated output:
 
 ## Live Verification
 
-Pending deployment at the time this report was created. Final live normal and cache-busted verification will be recorded after `main` and `gh-pages` are pushed.
+Completed against GitHub Pages after the fresh `gh-pages` deployment.
+
+Verified normal and cache-busted URLs for:
+- homepage
+- Emergency
+- Level 2
+- Services
+- Service Areas
+- About
+- Contact
+- Solar & Batteries
+- Panania
+- `sitemap.xml`
+- `robots.txt`
+- `site-version.json`
+
+Result:
+- HTTP 200 on checked URLs
+- CSS loaded
+- electric header banner visible
+- electric background theme present
+- desktop navigation and CTAs visible under the banner
+- mobile hamburger visible on the right
+- mobile top Call/Quote buttons absent
+- sticky mobile CTA preserved
+- Google Ads marker present
+- phone and quote conversion attributes present
+- normal and cache-busted pages current
+- 0 live visual failures in the Playwright public spot check
+
+Live verification artifacts:
+- `reports/electric-header-background-theme-qa/live-verification.json`
+- `reports/electric-header-background-theme-qa/live-visual-check.json`
+- `reports/electric-header-background-theme-qa/live-home-mobile-playwright-390x844.png`
+- `reports/electric-header-background-theme-qa/live-home-desktop-1440x900.png`
