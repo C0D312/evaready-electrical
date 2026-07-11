@@ -65,15 +65,15 @@ export default function RootLayout({
 }>) {
   const brandStyle = {
     "--ee-van-image": `url("${assetPath(business.heroImage)}")`,
+    "--ee-electric-bg-image": `url("${assetPath("/images/evaready-electric-storm-background-v1.webp")}")`,
   } as CSSProperties;
 
   return (
     <html lang="en-AU">
-      <body style={brandStyle}>
+      <body className="ev-electric-theme-bg" style={brandStyle}>
         <GoogleAdsTag />
         {children}
       </body>
     </html>
   );
 }
-

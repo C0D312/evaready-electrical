@@ -3523,7 +3523,7 @@ body.quote-modal-open .mobile-sticky-cta {
   }
 }
 
-/* Quote modal call bar: compact red emergency strip with the booking form directly below. */
+/* Quote modal call bar: slim navy-to-red rail with a compact emergency pill. */
 .quote-modal-backdrop {
   --quote-modal-header-height: 50px !important;
   --quote-modal-safe-top: 0px !important;
@@ -3576,15 +3576,11 @@ body.quote-modal-open .mobile-sticky-cta {
   padding: 6px 70px 6px 10px !important;
   border: 0 !important;
   background:
-    linear-gradient(
-      135deg,
-      var(--ev-red-dark, #750713) 0%,
-      var(--ev-red, #e9111e) 46%,
-      var(--ev-red-hot, #ff3247) 100%
-    ) !important;
+    radial-gradient(circle at 16% 50%, rgba(7, 156, 255, 0.18), transparent 34%),
+    linear-gradient(90deg, rgba(2, 5, 13, 0.98) 0%, rgba(6, 20, 47, 0.98) 66%, rgba(9, 29, 66, 0.96) 82%, rgba(117, 7, 19, 0.42) 100%) !important;
   box-shadow:
-    inset 0 -1px 0 rgba(255, 255, 255, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22) !important;
+    inset 0 -1px 0 rgba(98, 216, 255, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
   overflow: visible !important;
 }
 
@@ -3593,21 +3589,29 @@ body.quote-modal-open .mobile-sticky-cta {
 }
 
 .quote-modal-emergency {
-  display: inline-flex !important;
-  flex: 1 1 auto !important;
+  position: absolute !important;
+  top: 6px !important;
+  left: 10px !important;
+  right: auto !important;
+  display: inline-grid !important;
+  grid-template-columns: auto minmax(0, 1fr) !important;
+  flex: 0 1 auto !important;
   min-height: 0 !important;
   height: 38px !important;
-  width: 100% !important;
-  max-width: 100% !important;
+  width: 250px !important;
+  max-width: calc(100% - 86px) !important;
   align-items: center !important;
   justify-content: center !important;
   gap: 0.5rem !important;
   margin: 0 !important;
   padding: 0 0.7rem !important;
-  border: 0 !important;
+  border: 1px solid rgba(255, 181, 189, 0.42) !important;
   border-radius: 0.5rem !important;
-  background: transparent !important;
-  box-shadow: none !important;
+  background:
+    linear-gradient(100deg, rgba(6, 20, 47, 0.98) 0%, rgba(8, 118, 255, 0.86) 56%, rgba(233, 17, 30, 0.92) 88%, var(--ev-red-hot, #ff3247) 100%) !important;
+  box-shadow:
+    0 10px 24px rgba(233, 17, 30, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
   font-size: clamp(0.76rem, 3.25vw, 0.9rem) !important;
   font-weight: 900 !important;
   line-height: 1 !important;
@@ -3620,10 +3624,17 @@ body.quote-modal-open .mobile-sticky-cta {
 .quote-modal-emergency span {
   display: block !important;
   min-width: 0 !important;
+  max-width: 100% !important;
   overflow: visible !important;
   text-overflow: clip !important;
   white-space: normal !important;
   text-wrap: balance !important;
+}
+
+.quote-modal-emergency .quote-modal-emergency-label {
+  display: grid !important;
+  gap: 0 !important;
+  text-align: center !important;
 }
 
 .quote-modal-close {
@@ -3654,7 +3665,9 @@ body.quote-modal-open .mobile-sticky-cta {
   z-index: 0 !important;
   border-radius: inherit !important;
   background: #ffffff !important;
-  box-shadow: 0 3px 10px rgba(6, 30, 114, 0.28) !important;
+  box-shadow:
+    0 0 0 3px rgba(98, 216, 255, 0.16),
+    0 3px 10px rgba(6, 30, 114, 0.28) !important;
 }
 
 .quote-modal-close svg {
@@ -9854,9 +9867,15 @@ main button[data-conversion-action] svg,
 
 .quote-modal-emergency,
 .quote-modal-action-bar .quote-modal-emergency[data-conversion-action="phone-click"] {
-  flex: 1 1 auto !important;
-  width: 100% !important;
-  max-width: 100% !important;
+  position: absolute !important;
+  top: 6px !important;
+  left: 10px !important;
+  right: auto !important;
+  display: inline-grid !important;
+  grid-template-columns: auto minmax(0, 1fr) !important;
+  flex: 0 1 auto !important;
+  width: 250px !important;
+  max-width: calc(100% - 86px) !important;
   height: 38px !important;
   min-height: 38px !important;
   max-height: 38px !important;
@@ -9869,8 +9888,16 @@ main button[data-conversion-action] svg,
 }
 
 .quote-modal-emergency span {
+  min-width: 0 !important;
+  max-width: 100% !important;
   white-space: normal !important;
   line-height: 1.05 !important;
+}
+
+.quote-modal-emergency .quote-modal-emergency-label {
+  display: grid !important;
+  gap: 0 !important;
+  text-align: center !important;
 }
 
 .quote-modal-close {
@@ -9888,8 +9915,10 @@ main button[data-conversion-action] svg,
 
   .quote-modal-emergency,
   .quote-modal-action-bar .quote-modal-emergency[data-conversion-action="phone-click"] {
-    width: 100% !important;
-    max-width: 100% !important;
+    left: 8px !important;
+    right: auto !important;
+    width: 240px !important;
+    max-width: calc(100% - 80px) !important;
     padding-inline: 0.5rem !important;
     font-size: 0.69rem !important;
   }
@@ -9903,8 +9932,10 @@ main button[data-conversion-action] svg,
 
   .quote-modal-emergency,
   .quote-modal-action-bar .quote-modal-emergency[data-conversion-action="phone-click"] {
-    width: 100% !important;
-    max-width: 100% !important;
+    left: 12px !important;
+    right: auto !important;
+    width: 384px !important;
+    max-width: 384px !important;
     font-size: 0.95rem !important;
   }
 }
@@ -10231,4 +10262,796 @@ html body main a[class*="warningCard"][data-conversion-action] > span > svg:last
   .mobile-sticky-cta {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
+}
+
+/* Route service strip hardening. Earlier mobile and overflow guards can leave
+   the strip relative/absolute in some route stacks; this final shared layer
+   keeps the ticker visible and pinned below the fixed header everywhere. */
+.site-header-spacer {
+  height: calc(var(--site-header-height) + var(--site-route-strip-height)) !important;
+  min-height: calc(var(--site-header-height) + var(--site-route-strip-height)) !important;
+  flex: 0 0 auto !important;
+}
+
+.emergency-issue-marquee {
+  --strip-rail-height: 2px;
+  --strip-chip-gap: 0.55rem;
+  display: block !important;
+  position: fixed !important;
+  inset-inline: 0 !important;
+  top: var(--site-header-height) !important;
+  z-index: 49 !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  height: var(--site-route-strip-height) !important;
+  min-height: var(--site-route-strip-height) !important;
+  padding-block: var(--strip-rail-height) !important;
+  overflow: hidden !important;
+  overflow: clip !important;
+  contain: layout paint !important;
+  pointer-events: none;
+}
+
+.emergency-issue-marquee__viewport {
+  display: block !important;
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  overscroll-behavior-x: none !important;
+  touch-action: pan-y !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.emergency-issue-marquee__viewport::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.emergency-issue-marquee__track {
+  display: flex !important;
+  position: relative !important;
+  inset: auto !important;
+  width: max-content !important;
+  min-width: max-content !important;
+  max-width: none !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  align-items: center !important;
+  gap: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  animation: routeChipTicker 44s linear infinite !important;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+.emergency-issue-marquee__group {
+  display: flex !important;
+  flex: 0 0 auto !important;
+  align-items: center !important;
+  gap: var(--strip-chip-gap) !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0.3rem calc(var(--strip-chip-gap) / 2) !important;
+  list-style: none !important;
+}
+
+.emergency-issue-chip {
+  display: inline-flex !important;
+  flex: 0 0 auto !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.38rem !important;
+  min-height: 1.78rem !important;
+  max-height: 2rem !important;
+  padding: 0.28rem 0.68rem !important;
+  font-size: clamp(0.72rem, 0.78vw, 0.9rem) !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+.emergency-issue-chip svg {
+  flex: 0 0 auto !important;
+  width: 0.95rem !important;
+  height: 0.95rem !important;
+}
+
+.emergency-issue-chip__text {
+  display: inline-block !important;
+  white-space: nowrap !important;
+}
+
+.emergency-issue-chip__text::before {
+  content: attr(data-label) !important;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --site-route-strip-height: 42px;
+  }
+
+  .emergency-issue-marquee {
+    --strip-chip-gap: 0.45rem;
+  }
+
+  .emergency-issue-marquee__track {
+    animation-duration: 38s !important;
+  }
+
+  .emergency-issue-chip {
+    min-height: 1.62rem !important;
+    max-height: 1.82rem !important;
+    padding: 0.24rem 0.56rem !important;
+    font-size: clamp(0.66rem, 3vw, 0.78rem) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .emergency-issue-marquee {
+    pointer-events: auto;
+  }
+
+  .emergency-issue-marquee__viewport {
+    overflow-x: auto !important;
+    overscroll-behavior-x: contain !important;
+  }
+
+  .emergency-issue-marquee__track {
+    animation: none !important;
+  }
+}
+
+/* Quote modal top rail restore. The call pill sits in a fixed slot so the
+   wider site CTA rules cannot stretch it into the close button. */
+.quote-modal-action-bar {
+  background:
+    radial-gradient(circle at 16% 50%, rgba(7, 156, 255, 0.2), transparent 34%),
+    linear-gradient(90deg, rgba(2, 5, 13, 0.98) 0%, rgba(6, 20, 47, 0.98) 66%, rgba(9, 29, 66, 0.96) 82%, rgba(117, 7, 19, 0.42) 100%) !important;
+  box-shadow:
+    inset 0 -1px 0 rgba(98, 216, 255, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+}
+
+.quote-modal-action-bar > .quote-modal-call-slot {
+  position: absolute !important;
+  inset-block-start: 6px !important;
+  inset-inline-start: 10px !important;
+  inset-inline-end: auto !important;
+  top: 6px !important;
+  right: auto !important;
+  left: 10px !important;
+  inline-size: calc(100% - 86px) !important;
+  width: calc(100% - 86px) !important;
+  max-inline-size: 340px !important;
+  max-width: 340px !important;
+  min-inline-size: 0 !important;
+  min-width: 0 !important;
+  block-size: 38px !important;
+  height: 38px !important;
+  z-index: 1 !important;
+}
+
+.quote-modal-action-bar > .quote-modal-call-slot > .quote-modal-call-pill[data-conversion-action="phone-click"] {
+  position: static !important;
+  inset: auto !important;
+  inset-block-start: auto !important;
+  inset-inline-start: auto !important;
+  inset-inline-end: auto !important;
+  top: auto !important;
+  right: auto !important;
+  left: auto !important;
+  display: inline-grid !important;
+  inline-size: 100% !important;
+  width: 100% !important;
+  max-inline-size: 100% !important;
+  max-width: 100% !important;
+  min-inline-size: 0 !important;
+  min-width: 0 !important;
+  block-size: 38px !important;
+  height: 38px !important;
+  min-block-size: 38px !important;
+  min-height: 38px !important;
+  max-block-size: 38px !important;
+  max-height: 38px !important;
+  grid-template-columns: auto minmax(0, 1fr) !important;
+  align-items: center !important;
+  justify-content: center !important;
+  justify-self: start !important;
+  place-self: start !important;
+  gap: 0.5rem !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 0.74rem !important;
+  border: 1px solid rgba(255, 181, 189, 0.42) !important;
+  border-radius: 0.68rem !important;
+  background:
+    linear-gradient(100deg, rgba(6, 20, 47, 0.98) 0%, rgba(8, 118, 255, 0.86) 56%, rgba(233, 17, 30, 0.92) 88%, var(--ev-red-hot, #ff3247) 100%) !important;
+  box-shadow:
+    0 10px 24px rgba(233, 17, 30, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+  font-size: clamp(0.76rem, 3.25vw, 0.9rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.03 !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  white-space: normal !important;
+  flex: none !important;
+  flex-basis: auto !important;
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+  overflow: visible !important;
+}
+
+.quote-modal-action-bar > .quote-modal-call-slot > .quote-modal-call-pill[data-conversion-action="phone-click"] svg {
+  width: 1rem !important;
+  height: 1rem !important;
+  min-width: 1rem !important;
+  flex: 0 0 auto !important;
+}
+
+.quote-modal-action-bar > .quote-modal-call-slot > .quote-modal-call-pill[data-conversion-action="phone-click"] span {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  white-space: normal !important;
+}
+
+.quote-modal-action-bar > .quote-modal-call-slot > .quote-modal-call-pill[data-conversion-action="phone-click"] .quote-modal-emergency-label {
+  display: grid !important;
+  gap: 0 !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+@media (max-width: 360px) {
+  .quote-modal-action-bar > .quote-modal-call-slot {
+    inset-inline-start: 8px !important;
+    left: 8px !important;
+    inline-size: calc(100% - 80px) !important;
+    width: calc(100% - 80px) !important;
+    max-inline-size: 300px !important;
+    max-width: 300px !important;
+  }
+
+  .quote-modal-action-bar > .quote-modal-call-slot > .quote-modal-call-pill[data-conversion-action="phone-click"] {
+    padding-inline: 0.54rem !important;
+    font-size: 0.69rem !important;
+  }
+}
+
+@media (min-width: 640px) {
+  .quote-modal-action-bar > .quote-modal-call-slot {
+    inset-inline-start: 12px !important;
+    left: 12px !important;
+    inline-size: 384px !important;
+    width: 384px !important;
+    max-inline-size: 384px !important;
+    max-width: 384px !important;
+  }
+
+  .quote-modal-action-bar > .quote-modal-call-slot > .quote-modal-call-pill[data-conversion-action="phone-click"] {
+    font-size: 0.95rem !important;
+  }
+}
+
+/* The modal renders inside main, so it must explicitly beat the public-page
+   CTA normaliser while keeping the popup rail compact. */
+html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar > .quote-modal-call-slot {
+  display: block !important;
+  position: absolute !important;
+  inset-block-start: 6px !important;
+  inset-inline-start: 10px !important;
+  inset-inline-end: auto !important;
+  top: 6px !important;
+  right: auto !important;
+  left: 10px !important;
+  inline-size: calc(100% - 86px) !important;
+  width: calc(100% - 86px) !important;
+  max-inline-size: 340px !important;
+  max-width: 340px !important;
+  min-inline-size: 0 !important;
+  min-width: 0 !important;
+  block-size: 38px !important;
+  height: 38px !important;
+  min-block-size: 38px !important;
+  min-height: 38px !important;
+  max-block-size: 38px !important;
+  max-height: 38px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: 1 !important;
+}
+
+html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar > .quote-modal-call-slot > a.quote-modal-call-pill[data-conversion-action="phone-click"] {
+  display: inline-grid !important;
+  position: static !important;
+  inset: auto !important;
+  inset-block-start: auto !important;
+  inset-inline: auto !important;
+  top: auto !important;
+  right: auto !important;
+  left: auto !important;
+  inline-size: 100% !important;
+  width: 100% !important;
+  max-inline-size: 100% !important;
+  max-width: 100% !important;
+  min-inline-size: 0 !important;
+  min-width: 0 !important;
+  block-size: 38px !important;
+  height: 38px !important;
+  min-block-size: 38px !important;
+  min-height: 38px !important;
+  max-block-size: 38px !important;
+  max-height: 38px !important;
+  grid-template-columns: auto minmax(0, 1fr) !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.44rem !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 0.7rem !important;
+  border: 1px solid rgba(255, 181, 189, 0.42) !important;
+  border-radius: 0.68rem !important;
+  background:
+    linear-gradient(100deg, rgba(6, 20, 47, 0.98) 0%, rgba(8, 118, 255, 0.86) 56%, rgba(233, 17, 30, 0.92) 88%, var(--ev-red-hot, #ff3247) 100%) !important;
+  box-shadow:
+    0 10px 24px rgba(233, 17, 30, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+  font-size: clamp(0.74rem, 3vw, 0.86rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.02 !important;
+  letter-spacing: 0 !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  white-space: normal !important;
+  text-wrap: balance !important;
+  overflow: visible !important;
+  flex: none !important;
+  flex-wrap: nowrap !important;
+}
+
+html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar > .quote-modal-call-slot > a.quote-modal-call-pill[data-conversion-action="phone-click"] :is(svg, span) {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  flex: 0 1 auto !important;
+}
+
+html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar > .quote-modal-call-slot > a.quote-modal-call-pill[data-conversion-action="phone-click"] svg {
+  width: 1rem !important;
+  height: 1rem !important;
+  min-width: 1rem !important;
+  flex: 0 0 auto !important;
+}
+
+@media (max-width: 360px) {
+  html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar > .quote-modal-call-slot {
+    inset-inline-start: 8px !important;
+    left: 8px !important;
+    inline-size: calc(100% - 80px) !important;
+    width: calc(100% - 80px) !important;
+    max-inline-size: 300px !important;
+    max-width: 300px !important;
+  }
+
+  html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar > .quote-modal-call-slot > a.quote-modal-call-pill[data-conversion-action="phone-click"] {
+    padding-inline: 0.54rem !important;
+    font-size: 0.69rem !important;
+  }
+}
+
+@media (min-width: 640px) {
+  html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar > .quote-modal-call-slot {
+    inset-inline-start: 12px !important;
+    left: 12px !important;
+    inline-size: 384px !important;
+    width: 384px !important;
+    max-inline-size: 384px !important;
+    max-width: 384px !important;
+  }
+
+  html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar > .quote-modal-call-slot > a.quote-modal-call-pill[data-conversion-action="phone-click"] {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Final desktop header CTA row. Header actions must remain side by side when
+   the desktop navigation is active; mobile keeps logo + hamburger only. */
+@media (min-width: 1280px) {
+  html body :is(#mobile-site-menu, header.site-header) .site-header-actions {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: end !important;
+    gap: clamp(0.5rem, 0.62vw, 0.82rem) !important;
+    width: max-content !important;
+    min-width: 0 !important;
+    max-width: min(100%, 26rem) !important;
+    height: auto !important;
+    overflow: visible !important;
+    flex: 0 0 auto !important;
+  }
+
+  html body :is(#mobile-site-menu, header.site-header) .site-header-actions > a[data-conversion-action]:not(.quote-modal-emergency):not(.quote-home-action) {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 40px !important;
+    height: 40px !important;
+    max-height: 40px !important;
+    box-sizing: border-box !important;
+    border-radius: 0.72rem !important;
+    padding-block: 0 !important;
+    gap: 0.45rem !important;
+    flex: 0 0 auto !important;
+    flex-wrap: nowrap !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+    white-space: nowrap !important;
+    text-wrap: nowrap !important;
+    line-height: 1 !important;
+    letter-spacing: 0 !important;
+    overflow: visible !important;
+  }
+
+  html body :is(#mobile-site-menu, header.site-header) .site-header-actions > a[href^="tel:"][data-conversion-action]:not(.quote-modal-emergency):not(.quote-home-action) {
+    width: clamp(9.25rem, 11.2vw, 12.75rem) !important;
+    min-width: clamp(9.25rem, 11.2vw, 12.75rem) !important;
+    padding-inline: clamp(0.62rem, 0.76vw, 0.95rem) !important;
+    font-size: clamp(0.7rem, 0.58vw, 0.84rem) !important;
+    background: linear-gradient(135deg, var(--ev-red-dark), var(--ev-red), var(--ev-red-hot)) !important;
+    color: var(--ev-white) !important;
+  }
+
+  html body :is(#mobile-site-menu, header.site-header) .site-header-quote,
+  html body :is(#mobile-site-menu, header.site-header) a[data-quote-trigger="true"].site-header-quote[data-conversion-action]:not(.quote-modal-emergency):not(.quote-home-action) {
+    width: clamp(7.35rem, 8.1vw, 9.45rem) !important;
+    min-width: clamp(7.35rem, 8.1vw, 9.45rem) !important;
+    padding-inline: clamp(0.62rem, 0.76vw, 0.95rem) !important;
+    font-size: clamp(0.7rem, 0.58vw, 0.84rem) !important;
+    border-color: rgba(98, 216, 255, 0.5) !important;
+    background: linear-gradient(135deg, var(--ev-bright-blue) 0%, var(--ev-electric-blue) 58%, var(--ev-cyan) 100%) !important;
+    color: var(--ev-white) !important;
+  }
+
+  html body :is(#mobile-site-menu, header.site-header) .site-header-actions > a[data-conversion-action]:not(.quote-modal-emergency):not(.quote-home-action) :is(span, svg) {
+    flex: 0 0 auto !important;
+    min-width: 0 !important;
+    white-space: nowrap !important;
+    text-wrap: nowrap !important;
+    line-height: 1 !important;
+  }
+
+  html body :is(#mobile-site-menu, header.site-header) .site-header-actions > a[data-conversion-action]:not(.quote-modal-emergency):not(.quote-home-action) svg {
+    width: 0.92rem !important;
+    height: 0.92rem !important;
+  }
+}
+
+/* Electric storm brand header and global dark background.
+   This is the shared authoritative layer for the new two-row header. */
+:root {
+  --ev-electric-header-banner-height: clamp(76px, 18vw, 108px);
+  --ev-electric-nav-height: 0px;
+  --site-header-height: calc(var(--ev-electric-header-banner-height) + env(safe-area-inset-top)) !important;
+  --site-route-strip-height: 38px;
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --ev-electric-header-banner-height: clamp(118px, 9.2vw, 156px);
+    --ev-electric-nav-height: 48px;
+    --site-header-height: calc(var(--ev-electric-header-banner-height) + var(--ev-electric-nav-height) + env(safe-area-inset-top)) !important;
+    --site-route-strip-height: 40px;
+  }
+}
+
+html,
+body.ev-electric-theme-bg {
+  background-color: var(--ev-black, #02050d) !important;
+}
+
+body.ev-electric-theme-bg {
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(8, 118, 255, 0.18), transparent 34rem),
+    linear-gradient(180deg, rgba(2, 5, 13, 0.5), rgba(2, 5, 13, 0.96) 42rem),
+    var(--ee-electric-bg-image) !important;
+  background-position: center top, center top, center top !important;
+  background-repeat: no-repeat, no-repeat, repeat-y !important;
+  background-size: auto, auto, min(1600px, 160vw) auto !important;
+  color: var(--ev-white, #ffffff);
+}
+
+body.ev-electric-theme-bg main {
+  background:
+    linear-gradient(180deg, rgba(2, 5, 13, 0.16), rgba(2, 5, 13, 0.68) 22rem, rgba(2, 5, 13, 0.92)) !important;
+}
+
+header.site-header.ev-electric-header {
+  border: 0 !important;
+  background:
+    linear-gradient(180deg, rgba(2, 5, 13, 0.98), rgba(4, 11, 28, 0.98)) !important;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.42),
+    0 1px 0 rgba(98, 216, 255, 0.25) !important;
+  overflow: visible !important;
+}
+
+header.site-header.ev-electric-header .ev-electric-header-shell {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+.ev-electric-header-banner-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  min-width: 0;
+  height: var(--ev-electric-header-banner-height);
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(2, 5, 13, 0.84), rgba(6, 20, 47, 0.7) 45%, rgba(117, 7, 19, 0.54)),
+    var(--ev-midnight, #040b1c);
+  border-bottom: 2px solid rgba(233, 17, 30, 0.78);
+}
+
+header.site-header.ev-electric-header .site-logo-link.ev-electric-header-brand,
+.ev-electric-header-brand {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  min-height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+}
+
+header.site-header.ev-electric-header .site-logo-link.ev-electric-header-brand::before,
+header.site-header.ev-electric-header .site-logo-link.ev-electric-header-brand::after,
+.ev-electric-header-brand::before,
+.ev-electric-header-brand::after {
+  content: none !important;
+}
+
+header.site-header.ev-electric-header .site-logo-link.ev-electric-header-brand .ev-electric-header-banner,
+.ev-electric-header-banner {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+  transform: none !important;
+}
+
+.ev-electric-header-banner-row .mobile-nav-trigger {
+  position: absolute !important;
+  z-index: 3 !important;
+  inset-inline-end: max(0.75rem, env(safe-area-inset-right)) !important;
+  top: 50% !important;
+  display: inline-flex !important;
+  transform: translateY(-50%) !important;
+}
+
+.ev-electric-header-banner-row .mobile-nav-trigger button {
+  display: inline-flex !important;
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
+  min-height: 48px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 2px solid rgba(98, 216, 255, 0.62) !important;
+  border-radius: 999px !important;
+  background: rgba(4, 11, 28, 0.78) !important;
+  color: var(--ev-cyan, #62d8ff) !important;
+  box-shadow:
+    0 0 0 4px rgba(8, 118, 255, 0.13),
+    0 12px 24px rgba(0, 0, 0, 0.28) !important;
+}
+
+.ev-electric-desktop-nav-row {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .ev-electric-header-banner-row {
+    display: block;
+  }
+
+  .ev-electric-header-banner-row .mobile-nav-trigger {
+    display: none !important;
+  }
+
+  .ev-electric-desktop-nav-row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(0.6rem, 0.9vw, 1rem) !important;
+    height: var(--ev-electric-nav-height) !important;
+    padding: 0 clamp(1rem, 3vw, 2.4rem) !important;
+    border-bottom: 1px solid rgba(98, 216, 255, 0.28) !important;
+    background:
+      linear-gradient(90deg, rgba(2, 5, 13, 0.98), rgba(6, 20, 47, 0.98) 50%, rgba(2, 5, 13, 0.98)),
+      var(--ev-dark-blue, #06142f) !important;
+    overflow: hidden !important;
+  }
+
+  .ev-electric-main-nav {
+    display: flex !important;
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(0.42rem, 0.68vw, 0.85rem) !important;
+    overflow: hidden !important;
+  }
+
+  .ev-electric-nav-link {
+    display: inline-flex !important;
+    min-width: 0 !important;
+    flex: 0 1 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: rgba(255, 255, 255, 0.88) !important;
+    font-size: clamp(0.59rem, 0.56vw, 0.76rem) !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+    letter-spacing: 0 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    transition: color 160ms ease, text-shadow 160ms ease !important;
+  }
+
+  .ev-electric-nav-link:hover,
+  .ev-electric-nav-link:focus-visible {
+    color: var(--ev-cyan, #62d8ff) !important;
+    text-shadow: 0 0 18px rgba(98, 216, 255, 0.42) !important;
+  }
+
+  .ev-nav-optional {
+    display: none !important;
+  }
+
+  .ev-electric-header-actions.site-header-actions {
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: clamp(0.48rem, 0.62vw, 0.75rem) !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+  }
+
+  .ev-electric-header-actions .ev-header-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    max-height: 38px !important;
+    gap: 0.45rem !important;
+    border-radius: 0.72rem !important;
+    padding: 0 clamp(0.72rem, 0.84vw, 1rem) !important;
+    box-sizing: border-box !important;
+    color: #ffffff !important;
+    font-size: clamp(0.66rem, 0.55vw, 0.78rem) !important;
+    font-weight: 950 !important;
+    line-height: 1 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+  }
+
+  .ev-electric-header-actions .ev-btn--call {
+    width: clamp(10.4rem, 11.4vw, 12.9rem) !important;
+    min-width: clamp(10.4rem, 11.4vw, 12.9rem) !important;
+    border: 1px solid rgba(255, 181, 189, 0.54) !important;
+    background: linear-gradient(135deg, var(--ev-red-dark, #750713), var(--ev-red, #e9111e), var(--ev-red-hot, #ff3247)) !important;
+    box-shadow: 0 10px 20px rgba(233, 17, 30, 0.22) !important;
+  }
+
+  .ev-electric-header-actions .ev-btn--quote {
+    width: clamp(7.9rem, 8vw, 9.5rem) !important;
+    min-width: clamp(7.9rem, 8vw, 9.5rem) !important;
+    border: 1px solid rgba(98, 216, 255, 0.6) !important;
+    background: linear-gradient(135deg, var(--ev-bright-blue, #0876ff), var(--ev-electric-blue, #079cff) 58%, var(--ev-cyan, #62d8ff)) !important;
+    box-shadow: 0 10px 20px rgba(7, 156, 255, 0.2) !important;
+  }
+}
+
+@media (min-width: 1480px) {
+  .ev-nav-optional {
+    display: inline-flex !important;
+  }
+}
+
+@media (max-width: 1279px) {
+  header.site-header.ev-electric-header .ev-electric-desktop-nav-row,
+  header.site-header.ev-electric-header .ev-electric-main-nav,
+  header.site-header.ev-electric-header .site-header-actions {
+    display: none !important;
+  }
+
+  .ev-electric-header-banner {
+    object-position: 48% center !important;
+  }
+}
+
+@media (max-width: 430px) {
+  :root {
+    --ev-electric-header-banner-height: 82px;
+  }
+
+  .ev-electric-header-banner {
+    object-position: 46% center !important;
+  }
+
+  .ev-electric-header-banner-row .mobile-nav-trigger {
+    inset-inline-end: 0.62rem !important;
+  }
+
+  .ev-electric-header-banner-row .mobile-nav-trigger button {
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    min-height: 46px !important;
+  }
+}
+
+.site-header-spacer {
+  height: calc(var(--site-header-height) + var(--site-route-strip-height)) !important;
+  min-height: calc(var(--site-header-height) + var(--site-route-strip-height)) !important;
+}
+
+.emergency-issue-marquee {
+  top: var(--site-header-height) !important;
+  height: var(--site-route-strip-height) !important;
+  min-height: var(--site-route-strip-height) !important;
+  border-top: 1px solid rgba(98, 216, 255, 0.18) !important;
+  border-bottom: 1px solid rgba(233, 17, 30, 0.7) !important;
+  background:
+    linear-gradient(90deg, rgba(8, 118, 255, 0.28), rgba(4, 11, 28, 0.94) 48%, rgba(233, 17, 30, 0.25)),
+    var(--ev-black, #02050d) !important;
+  overflow: hidden !important;
+}
+
+.emergency-issue-chip {
+  min-height: 26px !important;
+  align-items: center !important;
+  border-color: rgba(98, 216, 255, 0.32) !important;
+  background:
+    linear-gradient(90deg, rgba(7, 156, 255, 0.16), rgba(117, 7, 19, 0.7)) !important;
+  color: #ffffff !important;
+}
+
+.mobile-site-menu-overlay {
+  top: var(--site-header-height) !important;
 }

@@ -21,8 +21,8 @@ const navItems = [
   { href: "/services/split-system-air-conditioning-sydney", label: "Aircon" },
   { href: "/solar-batteries", label: "Solar & Batteries" },
   { href: "/service-areas", label: "Service Areas" },
-  { href: "/about", label: "About Evaready", desktopClassName: "hidden xl:inline" },
-  { href: "/contact", label: "Contact", desktopClassName: "hidden xl:inline" },
+  { href: "/about", label: "About Evaready", desktopClassName: "ev-nav-optional" },
+  { href: "/contact", label: "Contact", desktopClassName: "ev-nav-optional" },
 ];
 
 const legalLinks = [
@@ -36,79 +36,74 @@ const legalLinks = [
 export function SiteHeader() {
   return (
     <>
-      <header className="site-header fixed inset-x-0 top-0 z-50 border-b border-slate-200 bg-white/95 pt-[env(safe-area-inset-top)] shadow-sm backdrop-blur-xl">
-        <div className="mx-auto max-w-7xl px-2 py-2 sm:px-6 sm:py-3 lg:px-8">
-          <div className="site-header-top flex items-center justify-between gap-2 sm:gap-3">
+      <header className="site-header ev-electric-header fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)]">
+        <div className="ev-electric-header-shell">
+          <div className="ev-electric-header-banner-row">
             <HomeNavigationLink
               data-header-logo="true"
-              className="site-logo-link flex min-w-0 shrink-0 items-center justify-center overflow-visible"
+              className="site-logo-link ev-electric-header-brand"
             >
               <Image
-                src={assetPath(business.logoImage)}
+                src={assetPath("/images/evaready-electric-header-banner-v1.webp")}
                 alt="Evaready Electrical 24/7"
-                width={1426}
-                height={503}
-                priority
-                sizes="(max-width: 767px) 320px, (max-width: 1180px) 280px, 368px"
-                className="logo-img site-logo-image"
+                width={1800}
+                height={170}
+                preload
+                sizes="100vw"
+                className="ev-electric-header-banner"
               />
             </HomeNavigationLink>
 
-            <nav className="hidden items-center gap-4 text-sm font-bold text-slate-700 xl:gap-5 lg:flex">
-              {navItems.map((item) => {
-                const className = `hover:text-blue-700 ${item.desktopClassName ?? ""}`.trim();
-
-                return item.href === "/" ? (
-                  <HomeNavigationLink
-                    key={item.href}
-                    className={className}
-                  >
-                    {item.label}
-                  </HomeNavigationLink>
-                ) : (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={className}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
-            </nav>
-
-            <div className="site-header-actions hidden min-w-0 shrink-0 items-center gap-1 min-[1181px]:flex sm:gap-2">
-              <a
-                href={business.phoneHref}
-                data-conversion-action="phone-click"
-                aria-label={business.callCta}
-                className="hidden min-h-10 w-[7.15rem] shrink-0 items-center justify-center gap-1 rounded-lg bg-red-600 px-1 py-2 text-[0.52rem] font-black text-white shadow-lg shadow-red-600/20 transition hover:bg-red-500 min-[380px]:w-[7.75rem] min-[380px]:text-[0.58rem] sm:min-h-11 sm:w-auto sm:gap-2 sm:px-4 sm:text-sm md:inline-flex"
-              >
-                <Phone className="hidden h-4 w-4 shrink-0 min-[430px]:block sm:block" />
-                <span className="whitespace-nowrap">
-                  <span className="hidden lg:inline">Call Now </span>
-                  {business.phoneDisplay}
-                </span>
-              </a>
-
-              <a
-                href={business.bookingUrl}
-                data-quote-trigger="true"
-                data-conversion-action="quote-click"
-                aria-haspopup="dialog"
-                aria-label="Get a quote from Evaready Electrical"
-                className="site-header-quote inline-flex min-h-10 shrink-0 items-center justify-center gap-1 rounded-lg bg-blue-700 px-2.5 py-2 text-[0.68rem] font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 min-[380px]:px-3 sm:min-h-11 sm:gap-2 sm:px-4 sm:text-sm lg:px-4 lg:py-3"
-              >
-                <span className="whitespace-nowrap">
-                  <span className="hidden min-[480px]:inline lg:inline">Get a </span>
-                  Quote
-                </span>
-                <ArrowRight className="hidden h-4 w-4 shrink-0 min-[480px]:block lg:block" />
-              </a>
-
-            </div>
-
             <MobilePrimaryNav />
+          </div>
+
+          <div className="ev-electric-desktop-nav-row">
+            <nav className="ev-electric-main-nav" aria-label="Primary navigation">
+                {navItems.map((item) => {
+                  const className = `ev-electric-nav-link ${item.desktopClassName ?? ""}`.trim();
+
+                  return item.href === "/" ? (
+                    <HomeNavigationLink
+                      key={item.href}
+                      className={className}
+                    >
+                      {item.label}
+                    </HomeNavigationLink>
+                  ) : (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={className}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </nav>
+
+            <div className="site-header-actions ev-electric-header-actions">
+                <a
+                  href={business.phoneHref}
+                  data-conversion-action="phone-click"
+                  aria-label={business.callCta}
+                  className="ev-btn ev-btn--call ev-header-btn"
+                >
+                  <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
+                  <span>Call Now {business.phoneDisplay}</span>
+                </a>
+
+                <a
+                  href={business.bookingUrl}
+                  data-quote-trigger="true"
+                  data-conversion-action="quote-click"
+                  aria-haspopup="dialog"
+                  aria-label="Get a quote from Evaready Electrical"
+                  className="site-header-quote ev-btn ev-btn--quote ev-header-btn"
+                >
+                  <span>{business.quoteCta}</span>
+                  <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+                </a>
+              </div>
           </div>
         </div>
       </header>

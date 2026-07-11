@@ -102,7 +102,7 @@ export function MobilePrimaryNav() {
   }, [open]);
 
   const menuOverlay = open ? (
-    <div className="fixed inset-x-0 bottom-0 top-[calc(64px_+_env(safe-area-inset-top))] z-[90] sm:top-[calc(88px_+_env(safe-area-inset-top))]">
+    <div className="mobile-site-menu-overlay fixed inset-x-0 bottom-0 z-[90]">
       <button
         type="button"
         aria-label="Close navigation menu"
