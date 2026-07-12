@@ -41,7 +41,7 @@ export function SiteHeader() {
           <div className="ev-electric-header-banner-row">
             <HomeNavigationLink
               data-header-logo="true"
-              className="site-logo-link ev-electric-header-brand"
+              className="ev-electric-header-brand"
             >
               <picture className="ev-electric-header-picture">
                 <source
