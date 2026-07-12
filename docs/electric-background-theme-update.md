@@ -82,4 +82,10 @@ Included:
 
 ## Live Verification
 
-Pending gh-pages deployment in this run. Final public verification is recorded in the Codex final response after normal and cache-busted URLs are checked.
+- Normal public URLs verified: passed.
+- Cache-busted public URLs verified with the latest gh-pages SHA: passed.
+- `site-version.json` verified with current main SHA.
+- Public background asset verified at `/images/evaready-electric-storm-background-v1.webp`.
+- Public HTML verifies the shared electric background classes and background asset reference.
+- Public rendered checks confirm no mobile horizontal overflow, sticky CTA present, mobile header top CTAs hidden, and van image remains `filter: none`, `opacity: 1`, `mix-blend-mode: normal`.
+- Live screenshots saved to `reports/electric-background-theme-qa/live-final/`.
