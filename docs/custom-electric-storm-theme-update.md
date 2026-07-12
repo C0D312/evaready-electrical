@@ -89,4 +89,10 @@
 - Blue/red lightning is visible at page and panel edges without sitting directly behind long text blocks.
 
 ## Live Verification
-- Pending deployment at the time this report was created.
+- Public GitHub Pages deployment verified after `gh-pages` push.
+- Remote `main` verified at `bb630cf954edb40d7ff6a649a858821b3692baeb`.
+- Remote `gh-pages` verified at `30fa064c4157416b3ed22137d2df756b84cf9e1e`.
+- Normal and cache-busted URLs returned HTTP 200.
+- Live visual checks confirmed the storm theme is active on homepage, services, emergency, Panania and Privacy pages.
+- Live checks found 0 horizontal overflow failures, 0 missing storm theme references, 0 missing storm card references and 0 mobile top CTA leaks.
+- Live proof file: `reports/custom-electric-storm-theme-qa/live-verification.json`.
