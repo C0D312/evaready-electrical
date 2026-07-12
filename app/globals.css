@@ -11118,104 +11118,159 @@ header.site-header.ev-electric-header .site-logo-link.ev-electric-header-brand .
   top: var(--site-header-height) !important;
 }
 
-/* Electric storm background visibility pass.
-   Keep the supplied storm artwork as atmosphere behind dark readable panels. */
-body.ev-electric-theme-bg {
+/* Custom Evaready electric storm theme.
+   The supplied storm artwork drives the page, sections, and cards while panels keep copy readable. */
+body.ev-electric-theme-bg,
+body.ev-storm-page {
   position: relative;
   isolation: isolate;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 8% 12%, rgba(0, 132, 255, 0.34), transparent 30rem),
-    radial-gradient(circle at 92% 14%, rgba(233, 17, 30, 0.24), transparent 28rem),
-    linear-gradient(180deg, rgba(2, 5, 13, 0.22), rgba(2, 5, 13, 0.72) 56rem, rgba(2, 5, 13, 0.9)),
+    radial-gradient(circle at 7% 12%, rgba(0, 132, 255, 0.48), transparent 34rem),
+    radial-gradient(circle at 94% 12%, rgba(233, 17, 30, 0.36), transparent 32rem),
+    radial-gradient(circle at 50% 92%, rgba(98, 216, 255, 0.2), transparent 30rem),
+    linear-gradient(180deg, rgba(2, 5, 13, 0.08), rgba(2, 5, 13, 0.42) 54rem, rgba(2, 5, 13, 0.78)),
     var(--ee-electric-bg-image),
     linear-gradient(180deg, var(--ev-black, #02050d), var(--ev-midnight, #040b1c) 46%, var(--ev-dark-blue, #06142f)) !important;
-  background-attachment: fixed, fixed, fixed, fixed, scroll !important;
-  background-position: left top, right top, center top, center top, center top !important;
-  background-repeat: no-repeat, no-repeat, no-repeat, repeat-y, no-repeat !important;
-  background-size: auto, auto, auto, max(1280px, 100vw) auto, auto !important;
+  background-attachment: fixed, fixed, fixed, fixed, fixed, scroll !important;
+  background-position: left top, right top, center bottom, center top, center top, center top !important;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-y, no-repeat !important;
+  background-size: auto, auto, auto, auto, max(1280px, 100vw) auto, auto !important;
 }
 
-body.ev-electric-theme-bg::before {
+body.ev-electric-theme-bg::before,
+body.ev-storm-page::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(2, 5, 13, 0.1), rgba(2, 5, 13, 0.58) 44rem, rgba(2, 5, 13, 0.82)),
+    linear-gradient(90deg, rgba(0, 132, 255, 0.1), rgba(2, 5, 13, 0.18) 28%, rgba(2, 5, 13, 0.28) 58%, rgba(233, 17, 30, 0.1)),
+    linear-gradient(180deg, rgba(2, 5, 13, 0.02), rgba(2, 5, 13, 0.42) 48rem, rgba(2, 5, 13, 0.7)),
     var(--ee-electric-bg-image);
   background-position: center top;
   background-repeat: repeat-y;
   background-size: max(1280px, 100vw) auto;
-  opacity: 0.48;
+  opacity: 0.68;
   mix-blend-mode: screen;
 }
 
-body.ev-electric-theme-bg main {
+body.ev-electric-theme-bg main,
+body.ev-storm-page main {
   position: relative;
   z-index: 0;
   overflow-x: clip;
   background:
-    linear-gradient(180deg, rgba(2, 5, 13, 0.08), rgba(2, 5, 13, 0.34) 24rem, rgba(2, 5, 13, 0.62) 100%),
+    radial-gradient(circle at 5% 4%, rgba(7, 156, 255, 0.18), transparent 36rem),
+    radial-gradient(circle at 95% 6%, rgba(233, 17, 30, 0.14), transparent 34rem),
+    linear-gradient(180deg, rgba(2, 5, 13, 0.03), rgba(2, 5, 13, 0.2) 20rem, rgba(2, 5, 13, 0.52) 100%),
     var(--ee-electric-bg-image) !important;
-  background-position: center top !important;
-  background-repeat: repeat-y !important;
-  background-size: max(1280px, 100vw) auto !important;
+  background-position: left top, right top, center top, center top !important;
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat-y !important;
+  background-size: auto, auto, auto, max(1280px, 100vw) auto !important;
 }
 
+.ev-storm-section,
 .ev-electric-section,
 body.ev-electric-theme-bg main > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee),
-body.ev-electric-theme-bg .site-footer {
+body.ev-storm-page main > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee),
+body.ev-electric-theme-bg .site-footer,
+body.ev-storm-page .site-footer {
   position: relative;
   isolation: isolate;
   overflow: hidden;
   background:
-    radial-gradient(circle at 12% 12%, rgba(7, 156, 255, 0.18), transparent 24rem),
-    radial-gradient(circle at 88% 8%, rgba(233, 17, 30, 0.09), transparent 22rem),
-    linear-gradient(180deg, rgba(4, 11, 28, 0.64), rgba(6, 20, 47, 0.58)) !important;
+    radial-gradient(circle at 10% 12%, rgba(7, 156, 255, 0.28), transparent 26rem),
+    radial-gradient(circle at 90% 8%, rgba(233, 17, 30, 0.15), transparent 24rem),
+    linear-gradient(135deg, rgba(4, 11, 28, 0.78), rgba(9, 29, 66, 0.64) 58%, rgba(4, 11, 28, 0.8)) !important;
+  border-color: rgba(98, 216, 255, 0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(98, 216, 255, 0.08),
+    inset 0 -1px 0 rgba(233, 17, 30, 0.05);
 }
 
+.ev-storm-section::before,
 .ev-electric-section::before,
 body.ev-electric-theme-bg main > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee)::before,
-body.ev-electric-theme-bg .site-footer::before {
+body.ev-storm-page main > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee)::before,
+body.ev-electric-theme-bg .site-footer::before,
+body.ev-storm-page .site-footer::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(2, 5, 13, 0.5), rgba(2, 5, 13, 0.78)),
+    linear-gradient(90deg, rgba(0, 132, 255, 0.2), rgba(2, 5, 13, 0.26) 42%, rgba(233, 17, 30, 0.14)),
+    linear-gradient(180deg, rgba(2, 5, 13, 0.26), rgba(2, 5, 13, 0.58)),
     var(--ee-electric-bg-image);
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: 0.34;
+  opacity: 0.48;
   mix-blend-mode: screen;
 }
 
+.ev-storm-section::after,
+body.ev-storm-page main > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee)::after,
+body.ev-electric-theme-bg main > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 8% 50%, rgba(98, 216, 255, 0.12), transparent 26rem),
+    radial-gradient(circle at 92% 48%, rgba(233, 17, 30, 0.09), transparent 26rem);
+  opacity: 0.9;
+}
+
+.ev-storm-section--hero::before,
+.home-brand-hero + section::before,
+body.ev-storm-page .home-brand-hero ~ section:nth-of-type(-n + 4)::before {
+  opacity: 0.56 !important;
+}
+
 .ev-electric-section > *,
+.ev-storm-section > *,
 body.ev-electric-theme-bg main > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee) > *,
-body.ev-electric-theme-bg .site-footer > * {
+body.ev-storm-page main > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee) > *,
+body.ev-electric-theme-bg .site-footer > *,
+body.ev-storm-page .site-footer > * {
   position: relative;
   z-index: 1;
 }
 
+.ev-storm-section--subtle::before,
 .ev-electric-section--subtle::before,
 body.ev-electric-theme-bg .legal-page > section:not(.brand-internal-hero)::before,
+body.ev-storm-page .legal-page > section:not(.brand-internal-hero)::before,
 body.ev-electric-theme-bg .legal-content-card::before {
-  opacity: 0.08 !important;
+  opacity: 0.14 !important;
 }
 
+body.ev-storm-page .legal-page > section:not(.brand-internal-hero)::after,
+body.ev-electric-theme-bg .legal-page > section:not(.brand-internal-hero)::after {
+  opacity: 0.18 !important;
+}
+
+.ev-storm-section--emergency,
 .ev-electric-section--emergency,
-body.ev-electric-theme-bg :is(.emergency-trust-panel, .issue-selector-section) {
+body.ev-electric-theme-bg :is(.emergency-trust-panel, .issue-selector-section),
+body.ev-storm-page :is(.emergency-trust-panel, .issue-selector-section) {
   background:
-    radial-gradient(circle at 8% 18%, rgba(233, 17, 30, 0.2), transparent 24rem),
-    radial-gradient(circle at 92% 10%, rgba(7, 156, 255, 0.18), transparent 24rem),
-    linear-gradient(135deg, rgba(4, 11, 28, 0.8), rgba(9, 29, 66, 0.76)) !important;
+    radial-gradient(circle at 8% 18%, rgba(233, 17, 30, 0.34), transparent 26rem),
+    radial-gradient(circle at 92% 10%, rgba(7, 156, 255, 0.24), transparent 24rem),
+    linear-gradient(135deg, rgba(4, 11, 28, 0.82), rgba(9, 29, 66, 0.7) 48%, rgba(117, 7, 19, 0.3)) !important;
 }
 
+.ev-storm-panel,
+.ev-storm-panel--strong,
+.ev-storm-card,
 .ev-electric-card,
+body.ev-electric-theme-bg main section :is(article, aside, div, li)[class*="rounded"][class*="border"]:not(.quote-modal-frame-shell):not(.quote-modal-iframe):not(.mobile-sticky-cta):not(.mobile-nav-trigger),
+body.ev-storm-page main section :is(article, aside, div, li)[class*="rounded"][class*="border"]:not(.quote-modal-frame-shell):not(.quote-modal-iframe):not(.mobile-sticky-cta):not(.mobile-nav-trigger),
 body.ev-electric-theme-bg :is(
   .credential-card,
   .footer-credential-card,
@@ -11234,26 +11289,87 @@ body.ev-electric-theme-bg :is(
   .trust-process-proof .rounded-2xl
 ) {
   background:
-    linear-gradient(145deg, rgba(9, 29, 66, 0.9), rgba(6, 20, 47, 0.78)),
+    linear-gradient(145deg, rgba(9, 29, 66, 0.84), rgba(6, 20, 47, 0.68) 62%, rgba(4, 11, 28, 0.78)),
     var(--ee-electric-bg-image) !important;
-  background-position: center top !important;
+  background-blend-mode: normal, screen !important;
+  background-position: center, center top !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
-  border-color: rgba(98, 216, 255, 0.24) !important;
+  border-color: rgba(98, 216, 255, 0.32) !important;
   box-shadow:
-    0 18px 60px rgba(0, 0, 0, 0.28),
-    0 0 0 1px rgba(98, 216, 255, 0.04) inset !important;
+    0 18px 56px rgba(0, 0, 0, 0.34),
+    0 0 34px rgba(7, 156, 255, 0.12),
+    0 0 0 1px rgba(98, 216, 255, 0.07) inset !important;
+  backdrop-filter: blur(12px) saturate(1.08);
 }
 
+.ev-storm-card--emergency,
 .ev-electric-card--emergency,
-body.ev-electric-theme-bg :is(.emergency-link-card--triage, .emergency-card, .warning-card) {
+body.ev-electric-theme-bg :is(.emergency-link-card--triage, .emergency-card, .warning-card, [data-suburb-action-card="call-first"]),
+body.ev-storm-page :is(.emergency-link-card--triage, .emergency-card, .warning-card, [data-suburb-action-card="call-first"]) {
   background:
-    linear-gradient(145deg, rgba(117, 7, 19, 0.42), rgba(6, 20, 47, 0.84)),
+    linear-gradient(145deg, rgba(117, 7, 19, 0.48), rgba(6, 20, 47, 0.78) 58%, rgba(9, 29, 66, 0.72)),
     var(--ee-electric-bg-image) !important;
-  background-position: center top !important;
+  background-blend-mode: normal, screen !important;
+  background-position: center, center top !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
-  border-color: rgba(255, 50, 71, 0.38) !important;
+  border-color: rgba(255, 50, 71, 0.48) !important;
+  box-shadow:
+    0 18px 56px rgba(0, 0, 0, 0.36),
+    0 0 32px rgba(233, 17, 30, 0.2),
+    0 0 0 1px rgba(255, 50, 71, 0.08) inset !important;
+}
+
+.ev-storm-card--trust {
+  border-color: rgba(98, 216, 255, 0.38) !important;
+  box-shadow:
+    0 18px 56px rgba(0, 0, 0, 0.32),
+    0 0 30px rgba(98, 216, 255, 0.16) !important;
+}
+
+.ev-storm-border {
+  border-color: rgba(98, 216, 255, 0.36) !important;
+}
+
+.ev-storm-glow-blue,
+.ev-lightning-blue {
+  box-shadow: 0 0 36px rgba(7, 156, 255, 0.22) !important;
+}
+
+.ev-storm-glow-red,
+.ev-lightning-red {
+  box-shadow: 0 0 36px rgba(233, 17, 30, 0.24) !important;
+}
+
+body.ev-storm-page :is(.home-brand-hero, .brand-internal-hero) :is(.home-hero-copy-panel, .internal-hero-copy-panel, .brand-hero-card) {
+  background:
+    linear-gradient(145deg, rgba(4, 11, 28, 0.88), rgba(9, 29, 66, 0.58)),
+    var(--ee-electric-bg-image) !important;
+  background-position: center, center top !important;
+  background-size: cover !important;
+  background-blend-mode: normal, screen !important;
+  border-color: rgba(98, 216, 255, 0.28) !important;
+  box-shadow:
+    0 20px 70px rgba(0, 0, 0, 0.36),
+    0 0 48px rgba(7, 156, 255, 0.14) !important;
+}
+
+body.ev-storm-page main.legal-page,
+body.ev-electric-theme-bg main.legal-page {
+  background:
+    linear-gradient(180deg, rgba(2, 5, 13, 0.34), rgba(4, 11, 28, 0.78)),
+    var(--ee-electric-bg-image) !important;
+  background-size: cover !important;
+  background-position: center top !important;
+}
+
+.ev-storm-legal,
+body.ev-storm-page .legal-content-card,
+body.ev-electric-theme-bg .legal-content-card {
+  background:
+    linear-gradient(145deg, rgba(4, 11, 28, 0.93), rgba(9, 29, 66, 0.82)) !important;
+  border-color: rgba(98, 216, 255, 0.18) !important;
 }
 
 .ev-storm-overlay,
@@ -11267,34 +11383,44 @@ body.ev-electric-theme-bg :is(.emergency-link-card--triage, .emergency-card, .wa
     var(--ee-electric-bg-image);
   background-position: center top;
   background-size: cover;
-  opacity: 0.18;
+  opacity: 0.34;
 }
 
 .ev-storm-overlay--soft {
-  opacity: 0.1;
+  opacity: 0.18;
 }
 
 .ev-storm-overlay--hero {
-  opacity: 0.14;
+  opacity: 0.48;
 }
 
 @media (max-width: 640px) {
-  body.ev-electric-theme-bg {
+  body.ev-electric-theme-bg,
+  body.ev-storm-page {
     background-attachment: scroll !important;
-    background-size: auto, auto, auto, 100% auto, auto !important;
+    background-size: auto, auto, auto, auto, 100% auto, auto !important;
   }
 
-  body.ev-electric-theme-bg::before {
+  body.ev-electric-theme-bg::before,
+  body.ev-storm-page::before {
     background-repeat: repeat-y;
     background-size: 100% auto;
-    opacity: 0.34;
+    opacity: 0.5;
   }
 
+  .ev-storm-section::before,
   .ev-electric-section::before,
   body.ev-electric-theme-bg main > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee)::before,
+  body.ev-storm-page main > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee)::before,
   body.ev-electric-theme-bg .site-footer::before {
-    opacity: 0.28;
+    opacity: 0.4;
     background-repeat: repeat-y;
     background-size: 100% auto;
+  }
+
+  body.ev-storm-page main.legal-page::before,
+  body.ev-storm-page .legal-page > section:not(.brand-internal-hero)::before,
+  body.ev-electric-theme-bg .legal-page > section:not(.brand-internal-hero)::before {
+    opacity: 0.12 !important;
   }
 }
