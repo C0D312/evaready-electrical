@@ -1,0 +1,293 @@
+[
+  {
+    "name": "home-320x568",
+    "route": "/",
+    "width": 320,
+    "height": 568,
+    "url": "/evaready-electrical/",
+    "viewport": "320x568",
+    "scrollWidth": 320,
+    "hasOverflow": false,
+    "bannerVisible": true,
+    "bannerCurrentSrc": "http://127.0.0.1:57340/evaready-electrical/images/evaready-electric-header-banner-mobile-v1.webp",
+    "bannerNatural": "1280x427",
+    "bannerFit": "contain",
+    "bannerRect": {
+      "x": 0,
+      "y": 0,
+      "w": 249.609375,
+      "h": 104.75
+    },
+    "headerRect": {
+      "x": 0,
+      "y": 0,
+      "w": 320,
+      "h": 106.75
+    },
+    "hamburgerVisible": true,
+    "hamburgerRect": {
+      "x": 254.09375,
+      "y": 24.375,
+      "w": 56,
+      "h": 56
+    },
+    "desktopNavVisible": false,
+    "stickyVisible": true,
+    "topCtas": []
+  },
+  {
+    "name": "home-360x800",
+    "route": "/",
+    "width": 360,
+    "height": 800,
+    "url": "/evaready-electrical/",
+    "viewport": "360x800",
+    "scrollWidth": 360,
+    "hasOverflow": false,
+    "bannerVisible": true,
+    "bannerCurrentSrc": "http://127.0.0.1:57340/evaready-electrical/images/evaready-electric-header-banner-mobile-v1.webp",
+    "bannerNatural": "1280x427",
+    "bannerFit": "contain",
+    "bannerRect": {
+      "x": 0,
+      "y": 0,
+      "w": 289.609375,
+      "h": 118.09375
+    },
+    "headerRect": {
+      "x": 0,
+      "y": 0,
+      "w": 360,
+      "h": 120.09375
+    },
+    "hamburgerVisible": true,
+    "hamburgerRect": {
+      "x": 294.09375,
+      "y": 31.046875,
+      "w": 56,
+      "h": 56
+    },
+    "desktopNavVisible": false,
+    "stickyVisible": true,
+    "topCtas": []
+  },
+  {
+    "name": "home-390x844",
+    "route": "/",
+    "width": 390,
+    "height": 844,
+    "url": "/evaready-electrical/",
+    "viewport": "390x844",
+    "scrollWidth": 390,
+    "hasOverflow": false,
+    "bannerVisible": true,
+    "bannerCurrentSrc": "http://127.0.0.1:57340/evaready-electrical/images/evaready-electric-header-banner-mobile-v1.webp",
+    "bannerNatural": "1280x427",
+    "bannerFit": "contain",
+    "bannerRect": {
+      "x": 0,
+      "y": 0,
+      "w": 319.609375,
+      "h": 128.09375
+    },
+    "headerRect": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 130.09375
+    },
+    "hamburgerVisible": true,
+    "hamburgerRect": {
+      "x": 324.09375,
+      "y": 36.046875,
+      "w": 56,
+      "h": 56
+    },
+    "desktopNavVisible": false,
+    "stickyVisible": true,
+    "topCtas": []
+  },
+  {
+    "name": "home-430x932",
+    "route": "/",
+    "width": 430,
+    "height": 932,
+    "url": "/evaready-electrical/",
+    "viewport": "430x932",
+    "scrollWidth": 430,
+    "hasOverflow": false,
+    "bannerVisible": true,
+    "bannerCurrentSrc": "http://127.0.0.1:57340/evaready-electrical/images/evaready-electric-header-banner-mobile-v1.webp",
+    "bannerNatural": "1280x427",
+    "bannerFit": "contain",
+    "bannerRect": {
+      "x": 0,
+      "y": 0,
+      "w": 356.90625,
+      "h": 141.4375
+    },
+    "headerRect": {
+      "x": 0,
+      "y": 0,
+      "w": 430,
+      "h": 143.4375
+    },
+    "hamburgerVisible": true,
+    "hamburgerRect": {
+      "x": 364.09375,
+      "y": 42.71875,
+      "w": 56,
+      "h": 56
+    },
+    "desktopNavVisible": false,
+    "stickyVisible": true,
+    "topCtas": []
+  },
+  {
+    "name": "services-390x844",
+    "route": "/services/",
+    "width": 390,
+    "height": 844,
+    "url": "/evaready-electrical/services/",
+    "viewport": "390x844",
+    "scrollWidth": 390,
+    "hasOverflow": false,
+    "bannerVisible": true,
+    "bannerCurrentSrc": "http://127.0.0.1:57340/evaready-electrical/images/evaready-electric-header-banner-mobile-v1.webp",
+    "bannerNatural": "1280x427",
+    "bannerFit": "contain",
+    "bannerRect": {
+      "x": 0,
+      "y": 0,
+      "w": 319.609375,
+      "h": 128.09375
+    },
+    "headerRect": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 130.09375
+    },
+    "hamburgerVisible": true,
+    "hamburgerRect": {
+      "x": 324.09375,
+      "y": 36.046875,
+      "w": 56,
+      "h": 56
+    },
+    "desktopNavVisible": false,
+    "stickyVisible": true,
+    "topCtas": []
+  },
+  {
+    "name": "emergency-390x844",
+    "route": "/emergency-electrician-sydney/",
+    "width": 390,
+    "height": 844,
+    "url": "/evaready-electrical/emergency-electrician-sydney/",
+    "viewport": "390x844",
+    "scrollWidth": 390,
+    "hasOverflow": false,
+    "bannerVisible": true,
+    "bannerCurrentSrc": "http://127.0.0.1:57340/evaready-electrical/images/evaready-electric-header-banner-mobile-v1.webp",
+    "bannerNatural": "1280x427",
+    "bannerFit": "contain",
+    "bannerRect": {
+      "x": 0,
+      "y": 0,
+      "w": 319.609375,
+      "h": 128.09375
+    },
+    "headerRect": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 130.09375
+    },
+    "hamburgerVisible": true,
+    "hamburgerRect": {
+      "x": 324.09375,
+      "y": 36.046875,
+      "w": 56,
+      "h": 56
+    },
+    "desktopNavVisible": false,
+    "stickyVisible": true,
+    "topCtas": []
+  },
+  {
+    "name": "panania-390x844",
+    "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+    "width": 390,
+    "height": 844,
+    "url": "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+    "viewport": "390x844",
+    "scrollWidth": 390,
+    "hasOverflow": false,
+    "bannerVisible": true,
+    "bannerCurrentSrc": "http://127.0.0.1:57340/evaready-electrical/images/evaready-electric-header-banner-mobile-v1.webp",
+    "bannerNatural": "1280x427",
+    "bannerFit": "contain",
+    "bannerRect": {
+      "x": 0,
+      "y": 0,
+      "w": 319.609375,
+      "h": 128.09375
+    },
+    "headerRect": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 130.09375
+    },
+    "hamburgerVisible": true,
+    "hamburgerRect": {
+      "x": 324.09375,
+      "y": 36.046875,
+      "w": 56,
+      "h": 56
+    },
+    "desktopNavVisible": false,
+    "stickyVisible": true,
+    "topCtas": []
+  },
+  {
+    "name": "home-desktop-1440x900",
+    "route": "/",
+    "width": 1440,
+    "height": 900,
+    "url": "/evaready-electrical/",
+    "viewport": "1440x900",
+    "scrollWidth": 1440,
+    "hasOverflow": false,
+    "bannerVisible": true,
+    "bannerCurrentSrc": "http://127.0.0.1:57340/evaready-electrical/images/evaready-electric-header-banner-v1.webp",
+    "bannerNatural": "1800x170",
+    "bannerFit": "cover",
+    "bannerRect": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 130.46875
+    },
+    "headerRect": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 180.46875
+    },
+    "hamburgerVisible": false,
+    "hamburgerRect": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavVisible": true,
+    "stickyVisible": false,
+    "topCtas": [
+      "Call Now 0461 247 247",
+      "Get a Quote"
+    ]
+  }
+]

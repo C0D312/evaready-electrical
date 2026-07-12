@@ -43,15 +43,21 @@ export function SiteHeader() {
               data-header-logo="true"
               className="site-logo-link ev-electric-header-brand"
             >
-              <Image
-                src={assetPath("/images/evaready-electric-header-banner-v1.webp")}
-                alt="Evaready Electrical 24/7"
-                width={1800}
-                height={170}
-                preload
-                sizes="100vw"
-                className="ev-electric-header-banner"
-              />
+              <picture className="ev-electric-header-picture">
+                <source
+                  media="(max-width: 1279px)"
+                  srcSet={assetPath("/images/evaready-electric-header-banner-mobile-v1.webp")}
+                />
+                <img
+                  src={assetPath("/images/evaready-electric-header-banner-v1.webp")}
+                  alt="Evaready Electrical 24/7"
+                  width={1800}
+                  height={170}
+                  loading="eager"
+                  decoding="async"
+                  className="ev-electric-header-banner"
+                />
+              </picture>
             </HomeNavigationLink>
 
             <MobilePrimaryNav />
