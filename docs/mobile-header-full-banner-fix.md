@@ -67,4 +67,11 @@ Local browser QA confirmed:
 
 ## Live Verification
 
-Pending deployment at the time this source report was created. Final normal and cache-busted public URL verification is recorded in the deployment response after gh-pages publishes.
+Live verification passed on GitHub Pages after deployment.
+
+- Normal homepage, Services, Emergency and Panania URLs returned the current mobile header asset.
+- Cache-busted homepage, Services, Emergency and Panania URLs returned the current mobile header asset.
+- Mobile browser checks at `320x568`, `360x800`, `390x844` and `430x932` loaded `evaready-electric-header-banner-mobile-v1.webp` with `object-fit: contain`.
+- Desktop browser check at `1440x900` preserved the desktop header banner, navigation row and desktop Call Now / Get a Quote actions.
+- Public `site-version.json` reported the deployed main commit.
+- Google Ads, phone-click tracking, quote-click tracking and `tel:+61461247247` remained present.
