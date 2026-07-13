@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-07-13T10:41:35.405Z",
+  "pagesChecked": 17,
+  "viewportsChecked": 13,
+  "routeViewportChecks": 221,
+  "failureCount": 0,
+  "failures": [],
+  "counts": {
+    "horizontalOverflowFailures": 0,
+    "clippedButtonFailures": 0,
+    "headerWidthFailures": 0,
+    "mobileHeaderCallFailures": 0,
+    "mobileHeaderQuoteFailures": 0,
+    "stormThemeFailures": 0,
+    "vanTintFailures": 0
+  }
+}

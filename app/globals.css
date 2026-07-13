@@ -11211,8 +11211,8 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
   }
 
   html body :is(#mobile-site-menu, header.site-header) .site-header-actions > a[href^="tel:"][data-conversion-action]:not(.quote-modal-emergency):not(.quote-home-action) {
-    width: clamp(9.25rem, 11.2vw, 12.75rem) !important;
-    min-width: clamp(9.25rem, 11.2vw, 12.75rem) !important;
+    width: clamp(10.35rem, 12.1vw, 12.95rem) !important;
+    min-width: clamp(10.35rem, 12.1vw, 12.95rem) !important;
     padding-inline: clamp(0.62rem, 0.76vw, 0.95rem) !important;
     font-size: clamp(0.7rem, 0.58vw, 0.84rem) !important;
     background: linear-gradient(135deg, var(--ev-red-dark), var(--ev-red), var(--ev-red-hot)) !important;
