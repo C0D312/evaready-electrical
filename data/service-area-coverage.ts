@@ -15828,7 +15828,7 @@ const prioritySuburbProfiles: Record<string, PrioritySuburbProfile> = {
       "industrial-unit access, workshop equipment notes, operating hours and switchboard photos",
     auditSignals: ["industrial units", "workshop power", "operating hours"],
     emergencyContext:
-      "equipment power loss, workshop outages, tripping circuits, hot isolators or damaged outlets",
+      "equipment power loss, workshop outages, tripping circuits, overheating isolators or damaged outlets",
     jobs:
       "home electrical repairs, industrial unit maintenance, workshop power, switchboards, safety switches and Level 2 enquiries",
     level2Context:
@@ -15879,7 +15879,7 @@ const prioritySuburbProfiles: Record<string, PrioritySuburbProfile> = {
       "apartment entry, warehouse access, coastal exposure notes, business hours and outdoor circuit photos",
     auditSignals: ["coastal exposure", "industrial sites", "apartment access"],
     emergencyContext:
-      "coastal storm faults, apartment outages, warehouse faults, hot water circuit issues or water-affected fittings",
+      "coastal storm faults, apartment outages, warehouse faults, hot water circuit issues or water-damaged fittings",
     jobs:
       "hot water electrical faults, outdoor lighting, switchboards, data cabling, commercial maintenance, safety switch trips and smoke alarms",
     level2Context:
