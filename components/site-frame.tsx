@@ -45,14 +45,18 @@ export function SiteHeader() {
             >
               <picture className="ev-electric-header-picture">
                 <source
-                  media="(max-width: 1279px)"
-                  srcSet={assetPath("/images/evaready-electric-header-banner-mobile-v1.webp")}
+                  media="(max-width: 639px)"
+                  srcSet={assetPath("/images/evaready-electric-header-mobile-v2.webp")}
+                />
+                <source
+                  media="(max-width: 1023px)"
+                  srcSet={assetPath("/images/evaready-electric-header-tablet-v2.webp")}
                 />
                 <img
-                  src={assetPath("/images/evaready-electric-header-banner-v1.webp")}
+                  src={assetPath("/images/evaready-electric-header-desktop-v2.webp")}
                   alt="Evaready Electrical 24/7"
-                  width={1800}
-                  height={170}
+                  width={2560}
+                  height={520}
                   loading="eager"
                   decoding="async"
                   className="ev-electric-header-banner"

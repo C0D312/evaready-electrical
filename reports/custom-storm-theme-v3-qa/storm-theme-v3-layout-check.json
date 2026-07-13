@@ -1,0 +1,1402 @@
+[
+  {
+    "route": "/",
+    "viewport": "320x568",
+    "failures": [],
+    "scrollWidth": 320,
+    "viewportWidth": 320,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 76
+  },
+  {
+    "route": "/emergency-electrician-sydney/",
+    "viewport": "320x568",
+    "failures": [],
+    "scrollWidth": 320,
+    "viewportWidth": 320,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 124
+  },
+  {
+    "route": "/level-2-electrician-sydney/",
+    "viewport": "320x568",
+    "failures": [],
+    "scrollWidth": 320,
+    "viewportWidth": 320,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 114
+  },
+  {
+    "route": "/services/",
+    "viewport": "320x568",
+    "failures": [],
+    "scrollWidth": 320,
+    "viewportWidth": 320,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 78
+  },
+  {
+    "route": "/service-areas/",
+    "viewport": "320x568",
+    "failures": [],
+    "scrollWidth": 320,
+    "viewportWidth": 320,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 43
+  },
+  {
+    "route": "/about/",
+    "viewport": "320x568",
+    "failures": [],
+    "scrollWidth": 320,
+    "viewportWidth": 320,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 37
+  },
+  {
+    "route": "/contact/",
+    "viewport": "320x568",
+    "failures": [],
+    "scrollWidth": 320,
+    "viewportWidth": 320,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 27
+  },
+  {
+    "route": "/solar-batteries/",
+    "viewport": "320x568",
+    "failures": [],
+    "scrollWidth": 320,
+    "viewportWidth": 320,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 86
+  },
+  {
+    "route": "/services/switchboard-upgrades-sydney/",
+    "viewport": "320x568",
+    "failures": [],
+    "scrollWidth": 320,
+    "viewportWidth": 320,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 87
+  },
+  {
+    "route": "/services/consumer-mains-sydney/",
+    "viewport": "320x568",
+    "failures": [],
+    "scrollWidth": 320,
+    "viewportWidth": 320,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 105
+  },
+  {
+    "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+    "viewport": "320x568",
+    "failures": [],
+    "scrollWidth": 320,
+    "viewportWidth": 320,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 69
+  },
+  {
+    "route": "/service-areas/sydney-city-and-eastern-suburbs/randwick/coogee/",
+    "viewport": "320x568",
+    "failures": [],
+    "scrollWidth": 320,
+    "viewportWidth": 320,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 69
+  },
+  {
+    "route": "/privacy-policy/",
+    "viewport": "320x568",
+    "failures": [],
+    "scrollWidth": 320,
+    "viewportWidth": 320,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 25
+  },
+  {
+    "route": "/terms/",
+    "viewport": "320x568",
+    "failures": [],
+    "scrollWidth": 320,
+    "viewportWidth": 320,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 25
+  },
+  {
+    "route": "/",
+    "viewport": "360x800",
+    "failures": [],
+    "scrollWidth": 360,
+    "viewportWidth": 360,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 76
+  },
+  {
+    "route": "/emergency-electrician-sydney/",
+    "viewport": "360x800",
+    "failures": [],
+    "scrollWidth": 360,
+    "viewportWidth": 360,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 124
+  },
+  {
+    "route": "/level-2-electrician-sydney/",
+    "viewport": "360x800",
+    "failures": [],
+    "scrollWidth": 360,
+    "viewportWidth": 360,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 114
+  },
+  {
+    "route": "/services/",
+    "viewport": "360x800",
+    "failures": [],
+    "scrollWidth": 360,
+    "viewportWidth": 360,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 78
+  },
+  {
+    "route": "/service-areas/",
+    "viewport": "360x800",
+    "failures": [],
+    "scrollWidth": 360,
+    "viewportWidth": 360,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 43
+  },
+  {
+    "route": "/about/",
+    "viewport": "360x800",
+    "failures": [],
+    "scrollWidth": 360,
+    "viewportWidth": 360,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 37
+  },
+  {
+    "route": "/contact/",
+    "viewport": "360x800",
+    "failures": [],
+    "scrollWidth": 360,
+    "viewportWidth": 360,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 27
+  },
+  {
+    "route": "/solar-batteries/",
+    "viewport": "360x800",
+    "failures": [],
+    "scrollWidth": 360,
+    "viewportWidth": 360,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 86
+  },
+  {
+    "route": "/services/switchboard-upgrades-sydney/",
+    "viewport": "360x800",
+    "failures": [],
+    "scrollWidth": 360,
+    "viewportWidth": 360,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 87
+  },
+  {
+    "route": "/services/consumer-mains-sydney/",
+    "viewport": "360x800",
+    "failures": [],
+    "scrollWidth": 360,
+    "viewportWidth": 360,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 105
+  },
+  {
+    "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+    "viewport": "360x800",
+    "failures": [],
+    "scrollWidth": 360,
+    "viewportWidth": 360,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 69
+  },
+  {
+    "route": "/service-areas/sydney-city-and-eastern-suburbs/randwick/coogee/",
+    "viewport": "360x800",
+    "failures": [],
+    "scrollWidth": 360,
+    "viewportWidth": 360,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 69
+  },
+  {
+    "route": "/privacy-policy/",
+    "viewport": "360x800",
+    "failures": [],
+    "scrollWidth": 360,
+    "viewportWidth": 360,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 25
+  },
+  {
+    "route": "/terms/",
+    "viewport": "360x800",
+    "failures": [],
+    "scrollWidth": 360,
+    "viewportWidth": 360,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 25
+  },
+  {
+    "route": "/",
+    "viewport": "390x844",
+    "failures": [],
+    "scrollWidth": 390,
+    "viewportWidth": 390,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 76
+  },
+  {
+    "route": "/emergency-electrician-sydney/",
+    "viewport": "390x844",
+    "failures": [],
+    "scrollWidth": 390,
+    "viewportWidth": 390,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 124
+  },
+  {
+    "route": "/level-2-electrician-sydney/",
+    "viewport": "390x844",
+    "failures": [],
+    "scrollWidth": 390,
+    "viewportWidth": 390,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 114
+  },
+  {
+    "route": "/services/",
+    "viewport": "390x844",
+    "failures": [],
+    "scrollWidth": 390,
+    "viewportWidth": 390,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 78
+  },
+  {
+    "route": "/service-areas/",
+    "viewport": "390x844",
+    "failures": [],
+    "scrollWidth": 390,
+    "viewportWidth": 390,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 42
+  },
+  {
+    "route": "/about/",
+    "viewport": "390x844",
+    "failures": [],
+    "scrollWidth": 390,
+    "viewportWidth": 390,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 37
+  },
+  {
+    "route": "/contact/",
+    "viewport": "390x844",
+    "failures": [],
+    "scrollWidth": 390,
+    "viewportWidth": 390,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 27
+  },
+  {
+    "route": "/solar-batteries/",
+    "viewport": "390x844",
+    "failures": [],
+    "scrollWidth": 390,
+    "viewportWidth": 390,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 86
+  },
+  {
+    "route": "/services/switchboard-upgrades-sydney/",
+    "viewport": "390x844",
+    "failures": [],
+    "scrollWidth": 390,
+    "viewportWidth": 390,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 87
+  },
+  {
+    "route": "/services/consumer-mains-sydney/",
+    "viewport": "390x844",
+    "failures": [],
+    "scrollWidth": 390,
+    "viewportWidth": 390,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 105
+  },
+  {
+    "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+    "viewport": "390x844",
+    "failures": [],
+    "scrollWidth": 390,
+    "viewportWidth": 390,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 69
+  },
+  {
+    "route": "/service-areas/sydney-city-and-eastern-suburbs/randwick/coogee/",
+    "viewport": "390x844",
+    "failures": [],
+    "scrollWidth": 390,
+    "viewportWidth": 390,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 69
+  },
+  {
+    "route": "/privacy-policy/",
+    "viewport": "390x844",
+    "failures": [],
+    "scrollWidth": 390,
+    "viewportWidth": 390,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 25
+  },
+  {
+    "route": "/terms/",
+    "viewport": "390x844",
+    "failures": [],
+    "scrollWidth": 390,
+    "viewportWidth": 390,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 25
+  },
+  {
+    "route": "/",
+    "viewport": "412x915",
+    "failures": [],
+    "scrollWidth": 412,
+    "viewportWidth": 412,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 76
+  },
+  {
+    "route": "/emergency-electrician-sydney/",
+    "viewport": "412x915",
+    "failures": [],
+    "scrollWidth": 412,
+    "viewportWidth": 412,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 124
+  },
+  {
+    "route": "/level-2-electrician-sydney/",
+    "viewport": "412x915",
+    "failures": [],
+    "scrollWidth": 412,
+    "viewportWidth": 412,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 114
+  },
+  {
+    "route": "/services/",
+    "viewport": "412x915",
+    "failures": [],
+    "scrollWidth": 412,
+    "viewportWidth": 412,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 78
+  },
+  {
+    "route": "/service-areas/",
+    "viewport": "412x915",
+    "failures": [],
+    "scrollWidth": 412,
+    "viewportWidth": 412,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 42
+  },
+  {
+    "route": "/about/",
+    "viewport": "412x915",
+    "failures": [],
+    "scrollWidth": 412,
+    "viewportWidth": 412,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 37
+  },
+  {
+    "route": "/contact/",
+    "viewport": "412x915",
+    "failures": [],
+    "scrollWidth": 412,
+    "viewportWidth": 412,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 27
+  },
+  {
+    "route": "/solar-batteries/",
+    "viewport": "412x915",
+    "failures": [],
+    "scrollWidth": 412,
+    "viewportWidth": 412,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 86
+  },
+  {
+    "route": "/services/switchboard-upgrades-sydney/",
+    "viewport": "412x915",
+    "failures": [],
+    "scrollWidth": 412,
+    "viewportWidth": 412,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 87
+  },
+  {
+    "route": "/services/consumer-mains-sydney/",
+    "viewport": "412x915",
+    "failures": [],
+    "scrollWidth": 412,
+    "viewportWidth": 412,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 105
+  },
+  {
+    "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+    "viewport": "412x915",
+    "failures": [],
+    "scrollWidth": 412,
+    "viewportWidth": 412,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 69
+  },
+  {
+    "route": "/service-areas/sydney-city-and-eastern-suburbs/randwick/coogee/",
+    "viewport": "412x915",
+    "failures": [],
+    "scrollWidth": 412,
+    "viewportWidth": 412,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 69
+  },
+  {
+    "route": "/privacy-policy/",
+    "viewport": "412x915",
+    "failures": [],
+    "scrollWidth": 412,
+    "viewportWidth": 412,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 25
+  },
+  {
+    "route": "/terms/",
+    "viewport": "412x915",
+    "failures": [],
+    "scrollWidth": 412,
+    "viewportWidth": 412,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 25
+  },
+  {
+    "route": "/",
+    "viewport": "430x932",
+    "failures": [],
+    "scrollWidth": 430,
+    "viewportWidth": 430,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 76
+  },
+  {
+    "route": "/emergency-electrician-sydney/",
+    "viewport": "430x932",
+    "failures": [],
+    "scrollWidth": 430,
+    "viewportWidth": 430,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 124
+  },
+  {
+    "route": "/level-2-electrician-sydney/",
+    "viewport": "430x932",
+    "failures": [],
+    "scrollWidth": 430,
+    "viewportWidth": 430,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 113
+  },
+  {
+    "route": "/services/",
+    "viewport": "430x932",
+    "failures": [],
+    "scrollWidth": 430,
+    "viewportWidth": 430,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 78
+  },
+  {
+    "route": "/service-areas/",
+    "viewport": "430x932",
+    "failures": [],
+    "scrollWidth": 430,
+    "viewportWidth": 430,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 42
+  },
+  {
+    "route": "/about/",
+    "viewport": "430x932",
+    "failures": [],
+    "scrollWidth": 430,
+    "viewportWidth": 430,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 37
+  },
+  {
+    "route": "/contact/",
+    "viewport": "430x932",
+    "failures": [],
+    "scrollWidth": 430,
+    "viewportWidth": 430,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 27
+  },
+  {
+    "route": "/solar-batteries/",
+    "viewport": "430x932",
+    "failures": [],
+    "scrollWidth": 430,
+    "viewportWidth": 430,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 86
+  },
+  {
+    "route": "/services/switchboard-upgrades-sydney/",
+    "viewport": "430x932",
+    "failures": [],
+    "scrollWidth": 430,
+    "viewportWidth": 430,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 87
+  },
+  {
+    "route": "/services/consumer-mains-sydney/",
+    "viewport": "430x932",
+    "failures": [],
+    "scrollWidth": 430,
+    "viewportWidth": 430,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 105
+  },
+  {
+    "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+    "viewport": "430x932",
+    "failures": [],
+    "scrollWidth": 430,
+    "viewportWidth": 430,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 69
+  },
+  {
+    "route": "/service-areas/sydney-city-and-eastern-suburbs/randwick/coogee/",
+    "viewport": "430x932",
+    "failures": [],
+    "scrollWidth": 430,
+    "viewportWidth": 430,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 69
+  },
+  {
+    "route": "/privacy-policy/",
+    "viewport": "430x932",
+    "failures": [],
+    "scrollWidth": 430,
+    "viewportWidth": 430,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 25
+  },
+  {
+    "route": "/terms/",
+    "viewport": "430x932",
+    "failures": [],
+    "scrollWidth": 430,
+    "viewportWidth": 430,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.7",
+    "cards": 25
+  },
+  {
+    "route": "/",
+    "viewport": "768x1024",
+    "failures": [],
+    "scrollWidth": 768,
+    "viewportWidth": 768,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 75
+  },
+  {
+    "route": "/emergency-electrician-sydney/",
+    "viewport": "768x1024",
+    "failures": [],
+    "scrollWidth": 768,
+    "viewportWidth": 768,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 124
+  },
+  {
+    "route": "/level-2-electrician-sydney/",
+    "viewport": "768x1024",
+    "failures": [],
+    "scrollWidth": 768,
+    "viewportWidth": 768,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 114
+  },
+  {
+    "route": "/services/",
+    "viewport": "768x1024",
+    "failures": [],
+    "scrollWidth": 768,
+    "viewportWidth": 768,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 78
+  },
+  {
+    "route": "/service-areas/",
+    "viewport": "768x1024",
+    "failures": [],
+    "scrollWidth": 768,
+    "viewportWidth": 768,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 42
+  },
+  {
+    "route": "/about/",
+    "viewport": "768x1024",
+    "failures": [],
+    "scrollWidth": 768,
+    "viewportWidth": 768,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 37
+  },
+  {
+    "route": "/contact/",
+    "viewport": "768x1024",
+    "failures": [],
+    "scrollWidth": 768,
+    "viewportWidth": 768,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 27
+  },
+  {
+    "route": "/solar-batteries/",
+    "viewport": "768x1024",
+    "failures": [],
+    "scrollWidth": 768,
+    "viewportWidth": 768,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 85
+  },
+  {
+    "route": "/services/switchboard-upgrades-sydney/",
+    "viewport": "768x1024",
+    "failures": [],
+    "scrollWidth": 768,
+    "viewportWidth": 768,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 92
+  },
+  {
+    "route": "/services/consumer-mains-sydney/",
+    "viewport": "768x1024",
+    "failures": [],
+    "scrollWidth": 768,
+    "viewportWidth": 768,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 105
+  },
+  {
+    "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+    "viewport": "768x1024",
+    "failures": [],
+    "scrollWidth": 768,
+    "viewportWidth": 768,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 69
+  },
+  {
+    "route": "/service-areas/sydney-city-and-eastern-suburbs/randwick/coogee/",
+    "viewport": "768x1024",
+    "failures": [],
+    "scrollWidth": 768,
+    "viewportWidth": 768,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 68
+  },
+  {
+    "route": "/privacy-policy/",
+    "viewport": "768x1024",
+    "failures": [],
+    "scrollWidth": 768,
+    "viewportWidth": 768,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 25
+  },
+  {
+    "route": "/terms/",
+    "viewport": "768x1024",
+    "failures": [],
+    "scrollWidth": 768,
+    "viewportWidth": 768,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 25
+  },
+  {
+    "route": "/",
+    "viewport": "820x1180",
+    "failures": [],
+    "scrollWidth": 820,
+    "viewportWidth": 820,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 75
+  },
+  {
+    "route": "/emergency-electrician-sydney/",
+    "viewport": "820x1180",
+    "failures": [],
+    "scrollWidth": 820,
+    "viewportWidth": 820,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 124
+  },
+  {
+    "route": "/level-2-electrician-sydney/",
+    "viewport": "820x1180",
+    "failures": [],
+    "scrollWidth": 820,
+    "viewportWidth": 820,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 114
+  },
+  {
+    "route": "/services/",
+    "viewport": "820x1180",
+    "failures": [],
+    "scrollWidth": 820,
+    "viewportWidth": 820,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 78
+  },
+  {
+    "route": "/service-areas/",
+    "viewport": "820x1180",
+    "failures": [],
+    "scrollWidth": 820,
+    "viewportWidth": 820,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 42
+  },
+  {
+    "route": "/about/",
+    "viewport": "820x1180",
+    "failures": [],
+    "scrollWidth": 820,
+    "viewportWidth": 820,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 37
+  },
+  {
+    "route": "/contact/",
+    "viewport": "820x1180",
+    "failures": [],
+    "scrollWidth": 820,
+    "viewportWidth": 820,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 27
+  },
+  {
+    "route": "/solar-batteries/",
+    "viewport": "820x1180",
+    "failures": [],
+    "scrollWidth": 820,
+    "viewportWidth": 820,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 85
+  },
+  {
+    "route": "/services/switchboard-upgrades-sydney/",
+    "viewport": "820x1180",
+    "failures": [],
+    "scrollWidth": 820,
+    "viewportWidth": 820,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 92
+  },
+  {
+    "route": "/services/consumer-mains-sydney/",
+    "viewport": "820x1180",
+    "failures": [],
+    "scrollWidth": 820,
+    "viewportWidth": 820,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 105
+  },
+  {
+    "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+    "viewport": "820x1180",
+    "failures": [],
+    "scrollWidth": 820,
+    "viewportWidth": 820,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 69
+  },
+  {
+    "route": "/service-areas/sydney-city-and-eastern-suburbs/randwick/coogee/",
+    "viewport": "820x1180",
+    "failures": [],
+    "scrollWidth": 820,
+    "viewportWidth": 820,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 68
+  },
+  {
+    "route": "/privacy-policy/",
+    "viewport": "820x1180",
+    "failures": [],
+    "scrollWidth": 820,
+    "viewportWidth": 820,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 25
+  },
+  {
+    "route": "/terms/",
+    "viewport": "820x1180",
+    "failures": [],
+    "scrollWidth": 820,
+    "viewportWidth": 820,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 25
+  },
+  {
+    "route": "/",
+    "viewport": "1366x768",
+    "failures": [],
+    "scrollWidth": 1366,
+    "viewportWidth": 1366,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 74
+  },
+  {
+    "route": "/emergency-electrician-sydney/",
+    "viewport": "1366x768",
+    "failures": [],
+    "scrollWidth": 1366,
+    "viewportWidth": 1366,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 123
+  },
+  {
+    "route": "/level-2-electrician-sydney/",
+    "viewport": "1366x768",
+    "failures": [],
+    "scrollWidth": 1366,
+    "viewportWidth": 1366,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 113
+  },
+  {
+    "route": "/services/",
+    "viewport": "1366x768",
+    "failures": [],
+    "scrollWidth": 1366,
+    "viewportWidth": 1366,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 77
+  },
+  {
+    "route": "/service-areas/",
+    "viewport": "1366x768",
+    "failures": [],
+    "scrollWidth": 1366,
+    "viewportWidth": 1366,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 41
+  },
+  {
+    "route": "/about/",
+    "viewport": "1366x768",
+    "failures": [],
+    "scrollWidth": 1366,
+    "viewportWidth": 1366,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 36
+  },
+  {
+    "route": "/contact/",
+    "viewport": "1366x768",
+    "failures": [],
+    "scrollWidth": 1366,
+    "viewportWidth": 1366,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 26
+  },
+  {
+    "route": "/solar-batteries/",
+    "viewport": "1366x768",
+    "failures": [],
+    "scrollWidth": 1366,
+    "viewportWidth": 1366,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 85
+  },
+  {
+    "route": "/services/switchboard-upgrades-sydney/",
+    "viewport": "1366x768",
+    "failures": [],
+    "scrollWidth": 1366,
+    "viewportWidth": 1366,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 91
+  },
+  {
+    "route": "/services/consumer-mains-sydney/",
+    "viewport": "1366x768",
+    "failures": [],
+    "scrollWidth": 1366,
+    "viewportWidth": 1366,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 104
+  },
+  {
+    "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+    "viewport": "1366x768",
+    "failures": [],
+    "scrollWidth": 1366,
+    "viewportWidth": 1366,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 67
+  },
+  {
+    "route": "/service-areas/sydney-city-and-eastern-suburbs/randwick/coogee/",
+    "viewport": "1366x768",
+    "failures": [],
+    "scrollWidth": 1366,
+    "viewportWidth": 1366,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 67
+  },
+  {
+    "route": "/privacy-policy/",
+    "viewport": "1366x768",
+    "failures": [],
+    "scrollWidth": 1366,
+    "viewportWidth": 1366,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 24
+  },
+  {
+    "route": "/terms/",
+    "viewport": "1366x768",
+    "failures": [],
+    "scrollWidth": 1366,
+    "viewportWidth": 1366,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 24
+  },
+  {
+    "route": "/",
+    "viewport": "1440x900",
+    "failures": [],
+    "scrollWidth": 1440,
+    "viewportWidth": 1440,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 74
+  },
+  {
+    "route": "/emergency-electrician-sydney/",
+    "viewport": "1440x900",
+    "failures": [],
+    "scrollWidth": 1440,
+    "viewportWidth": 1440,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 123
+  },
+  {
+    "route": "/level-2-electrician-sydney/",
+    "viewport": "1440x900",
+    "failures": [],
+    "scrollWidth": 1440,
+    "viewportWidth": 1440,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 113
+  },
+  {
+    "route": "/services/",
+    "viewport": "1440x900",
+    "failures": [],
+    "scrollWidth": 1440,
+    "viewportWidth": 1440,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 77
+  },
+  {
+    "route": "/service-areas/",
+    "viewport": "1440x900",
+    "failures": [],
+    "scrollWidth": 1440,
+    "viewportWidth": 1440,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 41
+  },
+  {
+    "route": "/about/",
+    "viewport": "1440x900",
+    "failures": [],
+    "scrollWidth": 1440,
+    "viewportWidth": 1440,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 36
+  },
+  {
+    "route": "/contact/",
+    "viewport": "1440x900",
+    "failures": [],
+    "scrollWidth": 1440,
+    "viewportWidth": 1440,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 26
+  },
+  {
+    "route": "/solar-batteries/",
+    "viewport": "1440x900",
+    "failures": [],
+    "scrollWidth": 1440,
+    "viewportWidth": 1440,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 85
+  },
+  {
+    "route": "/services/switchboard-upgrades-sydney/",
+    "viewport": "1440x900",
+    "failures": [],
+    "scrollWidth": 1440,
+    "viewportWidth": 1440,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 91
+  },
+  {
+    "route": "/services/consumer-mains-sydney/",
+    "viewport": "1440x900",
+    "failures": [],
+    "scrollWidth": 1440,
+    "viewportWidth": 1440,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 104
+  },
+  {
+    "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+    "viewport": "1440x900",
+    "failures": [],
+    "scrollWidth": 1440,
+    "viewportWidth": 1440,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 67
+  },
+  {
+    "route": "/service-areas/sydney-city-and-eastern-suburbs/randwick/coogee/",
+    "viewport": "1440x900",
+    "failures": [],
+    "scrollWidth": 1440,
+    "viewportWidth": 1440,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 67
+  },
+  {
+    "route": "/privacy-policy/",
+    "viewport": "1440x900",
+    "failures": [],
+    "scrollWidth": 1440,
+    "viewportWidth": 1440,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 24
+  },
+  {
+    "route": "/terms/",
+    "viewport": "1440x900",
+    "failures": [],
+    "scrollWidth": 1440,
+    "viewportWidth": 1440,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 24
+  },
+  {
+    "route": "/",
+    "viewport": "1920x1080",
+    "failures": [],
+    "scrollWidth": 1920,
+    "viewportWidth": 1920,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 74
+  },
+  {
+    "route": "/emergency-electrician-sydney/",
+    "viewport": "1920x1080",
+    "failures": [],
+    "scrollWidth": 1920,
+    "viewportWidth": 1920,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 123
+  },
+  {
+    "route": "/level-2-electrician-sydney/",
+    "viewport": "1920x1080",
+    "failures": [],
+    "scrollWidth": 1920,
+    "viewportWidth": 1920,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 113
+  },
+  {
+    "route": "/services/",
+    "viewport": "1920x1080",
+    "failures": [],
+    "scrollWidth": 1920,
+    "viewportWidth": 1920,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 77
+  },
+  {
+    "route": "/service-areas/",
+    "viewport": "1920x1080",
+    "failures": [],
+    "scrollWidth": 1920,
+    "viewportWidth": 1920,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 41
+  },
+  {
+    "route": "/about/",
+    "viewport": "1920x1080",
+    "failures": [],
+    "scrollWidth": 1920,
+    "viewportWidth": 1920,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 36
+  },
+  {
+    "route": "/contact/",
+    "viewport": "1920x1080",
+    "failures": [],
+    "scrollWidth": 1920,
+    "viewportWidth": 1920,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 26
+  },
+  {
+    "route": "/solar-batteries/",
+    "viewport": "1920x1080",
+    "failures": [],
+    "scrollWidth": 1920,
+    "viewportWidth": 1920,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 85
+  },
+  {
+    "route": "/services/switchboard-upgrades-sydney/",
+    "viewport": "1920x1080",
+    "failures": [],
+    "scrollWidth": 1920,
+    "viewportWidth": 1920,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 91
+  },
+  {
+    "route": "/services/consumer-mains-sydney/",
+    "viewport": "1920x1080",
+    "failures": [],
+    "scrollWidth": 1920,
+    "viewportWidth": 1920,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 104
+  },
+  {
+    "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+    "viewport": "1920x1080",
+    "failures": [],
+    "scrollWidth": 1920,
+    "viewportWidth": 1920,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 67
+  },
+  {
+    "route": "/service-areas/sydney-city-and-eastern-suburbs/randwick/coogee/",
+    "viewport": "1920x1080",
+    "failures": [],
+    "scrollWidth": 1920,
+    "viewportWidth": 1920,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 67
+  },
+  {
+    "route": "/privacy-policy/",
+    "viewport": "1920x1080",
+    "failures": [],
+    "scrollWidth": 1920,
+    "viewportWidth": 1920,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 24
+  },
+  {
+    "route": "/terms/",
+    "viewport": "1920x1080",
+    "failures": [],
+    "scrollWidth": 1920,
+    "viewportWidth": 1920,
+    "bodyBefore": "none",
+    "bodyBeforeOpacity": "0.82",
+    "cards": 24
+  }
+]

@@ -65,7 +65,9 @@ export default function RootLayout({
 }>) {
   const brandStyle = {
     "--ee-van-image": `url("${assetPath(business.heroImage)}")`,
-    "--ee-electric-bg-image": `url("${assetPath("/images/evaready-electric-storm-theme-v2.webp")}")`,
+    "--ee-electric-bg-image": `url("${assetPath("/images/evaready-storm-theme-desktop-v3.webp")}")`,
+    "--ee-storm-bg-desktop": `url("${assetPath("/images/evaready-storm-theme-desktop-v3.webp")}")`,
+    "--ee-storm-bg-mobile": `url("${assetPath("/images/evaready-storm-theme-mobile-v3.webp")}")`,
   } as CSSProperties;
 
   return (
