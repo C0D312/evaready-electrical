@@ -224,7 +224,10 @@ export default function SwitchboardUpgradesSydneyPage() {
   );
 
   return (
-    <main className="min-h-screen bg-white text-[#061E72]">
+    <main
+      className="generated-storm-page generated-storm-service ev-storm-page min-h-screen bg-[#02050d] text-white"
+      data-storm-system="ev-storm-page ev-storm-section ev-storm-card ev-storm-panel"
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(schema)}
@@ -541,7 +544,7 @@ export default function SwitchboardUpgradesSydneyPage() {
       />
 
       {/* Services */}
-      <section className="bg-slate-50 py-24">
+      <section className="ev-storm-section py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
@@ -563,7 +566,7 @@ export default function SwitchboardUpgradesSydneyPage() {
             {upgradeServices.map((item) => (
               <div
                 key={item}
-                className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+                className="ev-storm-card flex items-center gap-3 rounded-2xl border border-cyan-300/20 p-4"
               >
                 <Bolt className="h-5 w-5 text-blue-700" />
                 <span className="font-bold text-slate-800">{item}</span>
@@ -580,7 +583,7 @@ export default function SwitchboardUpgradesSydneyPage() {
       />
 
       {/* Warning signs */}
-      <section className="bg-white py-24">
+      <section className="ev-storm-section ev-storm-section--emergency py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
@@ -597,7 +600,7 @@ export default function SwitchboardUpgradesSydneyPage() {
             </p>
           </div>
 
-          <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-7">
+          <div className="ev-storm-panel rounded-[2rem] border border-red-300/25 p-7">
             <div className="grid gap-4">
               {warningSigns.map((item) => (
                 <div key={item} className="flex gap-3">
@@ -610,7 +613,7 @@ export default function SwitchboardUpgradesSydneyPage() {
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20">
+      <section className="ev-storm-section py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
@@ -629,7 +632,7 @@ export default function SwitchboardUpgradesSydneyPage() {
             {upgradeOutcomes.map((item) => (
               <div
                 key={item}
-                className="flex gap-3 rounded-lg border border-slate-200 bg-white p-5"
+                className="ev-storm-card flex gap-3 rounded-lg border border-cyan-300/20 p-5"
               >
                 <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-blue-700" />
                 <p className="font-semibold leading-7 text-slate-800">{item}</p>
@@ -639,7 +642,7 @@ export default function SwitchboardUpgradesSydneyPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="ev-storm-section py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
             Switchboard authority
@@ -657,7 +660,7 @@ export default function SwitchboardUpgradesSydneyPage() {
             {switchboardAuthority.map((item) => (
               <article
                 key={item.title}
-                className="rounded-lg border border-slate-200 bg-slate-50 p-6"
+                className="ev-storm-card rounded-lg border border-cyan-300/20 p-6"
               >
                 <CheckCircle2 className="h-7 w-7 text-blue-700" />
                 <h3 className="mt-5 text-2xl font-black">{item.title}</h3>
@@ -669,7 +672,7 @@ export default function SwitchboardUpgradesSydneyPage() {
       </section>
 
       {/* Process */}
-      <section className="bg-[#061E72] py-24 text-white">
+      <section className="ev-storm-section py-24 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-black uppercase tracking-[0.35em] text-red-400">
             How It Works
@@ -697,7 +700,7 @@ export default function SwitchboardUpgradesSydneyPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="ev-storm-section py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
@@ -712,7 +715,7 @@ export default function SwitchboardUpgradesSydneyPage() {
             {switchboardFaqs.map((faq) => (
               <article
                 key={faq.question}
-                className="rounded-lg border border-slate-200 bg-slate-50 p-6"
+                className="ev-storm-card rounded-lg border border-cyan-300/20 p-6"
               >
                 <h3 className="text-xl font-black">{faq.question}</h3>
                 <p className="mt-3 leading-7 text-slate-600">{faq.answer}</p>
@@ -722,7 +725,7 @@ export default function SwitchboardUpgradesSydneyPage() {
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20">
+      <section className="ev-storm-section py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
             Connected electrical work
@@ -736,9 +739,9 @@ export default function SwitchboardUpgradesSydneyPage() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group rounded-lg border border-slate-200 bg-white p-5 transition hover:border-blue-600 hover:bg-blue-50"
+                className="ev-storm-card group rounded-lg border border-cyan-300/20 p-5 transition hover:border-cyan-200"
               >
-                <h3 className="font-black text-[#061E72]">{link.label}</h3>
+                <h3 className="font-black text-white">{link.label}</h3>
                 <span className="mt-4 inline-flex items-center gap-2 font-black text-blue-700">
                   View related service
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />

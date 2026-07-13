@@ -437,7 +437,10 @@ export default async function ServiceLandingPage({
   );
 
   return (
-    <main className="min-h-screen bg-white text-[#061E72]">
+    <main
+      className="generated-storm-page generated-storm-service ev-storm-page min-h-screen bg-[#02050d] text-white"
+      data-storm-system="ev-storm-page ev-storm-section ev-storm-card ev-storm-panel"
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(electricianSchema)}
@@ -736,7 +739,7 @@ export default async function ServiceLandingPage({
       ) : null}
 
       {service.audiences || service.inspectionOutcomes || service.inspectionLimitations ? (
-        <section className="border-b border-cyan-300/15 bg-slate-50 py-14">
+        <section className="ev-storm-section py-14">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             {service.audiences ? (
               <div>
@@ -750,7 +753,7 @@ export default async function ServiceLandingPage({
                   {service.audiences.map((item) => (
                     <div
                       key={item}
-                      className="flex gap-3 rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+                      className="ev-storm-card flex gap-3 rounded-lg border border-cyan-300/20 p-4"
                     >
                       <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-blue-700" />
                       <p className="font-bold leading-7 text-slate-900">{item}</p>
@@ -782,11 +785,11 @@ export default async function ServiceLandingPage({
                 ) : null}
 
                 {service.inspectionLimitations ? (
-                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <div className="ev-storm-card rounded-2xl border border-cyan-300/20 p-6">
                     <p className="text-sm font-black uppercase tracking-[0.2em] text-blue-700">
                       Inspection limitations
                     </p>
-                    <h3 className="mt-3 text-2xl font-black text-[#061E72]">
+                    <h3 className="mt-3 text-2xl font-black text-white">
                       Electrical findings apply to accessible conditions observed at the time.
                     </h3>
                     <div className="mt-5 grid gap-3">
@@ -806,7 +809,7 @@ export default async function ServiceLandingPage({
       ) : null}
 
       {service.responseTrustProof ? (
-        <section className="border-b border-cyan-100 bg-slate-50 py-14">
+        <section className="ev-storm-section py-14">
           <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.24em] text-blue-700">
@@ -816,7 +819,7 @@ export default async function ServiceLandingPage({
                 {service.responseTrustProof.heading ??
                   "Trusted hot water electrical support without overclaiming."}
               </h2>
-              <p className="mt-5 rounded-lg border border-blue-200 bg-white p-4 text-base font-bold leading-7 text-slate-800">
+              <p className="ev-storm-panel mt-5 rounded-lg border border-cyan-300/20 p-4 text-base font-bold leading-7 text-slate-100">
                 {service.responseTrustProof.note}
               </p>
             </div>
@@ -824,7 +827,7 @@ export default async function ServiceLandingPage({
               {service.responseTrustProof.items.map((item) => (
                 <div
                   key={item}
-                  className="flex gap-3 rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+                  className="ev-storm-card flex gap-3 rounded-lg border border-cyan-300/20 p-4"
                 >
                   <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-blue-700" />
                   <p className="font-bold leading-7 text-slate-900">{item}</p>
@@ -836,7 +839,7 @@ export default async function ServiceLandingPage({
       ) : null}
 
       {service.callFirstBlock ? (
-        <section className="border-b border-red-200 bg-white py-14">
+        <section className="ev-storm-section ev-storm-section--emergency py-14">
           <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.24em] text-red-600">
@@ -845,7 +848,7 @@ export default async function ServiceLandingPage({
               <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
                 {service.callFirstBlock.heading}
               </h2>
-              <p className="mt-5 rounded-lg border border-red-200 bg-red-50 p-4 text-base font-bold leading-7 text-red-950">
+              <p className="ev-storm-card ev-storm-card--emergency mt-5 rounded-lg border border-red-300/35 p-4 text-base font-bold leading-7 text-red-50">
                 {service.callFirstBlock.safetyCopy}
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -875,7 +878,7 @@ export default async function ServiceLandingPage({
               {service.callFirstBlock.items.map((item) => (
                 <div
                   key={item}
-                  className="flex gap-3 rounded-lg border border-slate-200 bg-slate-50 p-4"
+                  className="ev-storm-card ev-storm-card--emergency flex gap-3 rounded-lg border border-red-300/25 p-4"
                 >
                   <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" />
                   <p className="font-bold leading-7 text-slate-900">{item}</p>
@@ -887,7 +890,7 @@ export default async function ServiceLandingPage({
       ) : null}
 
       {service.loadCapacitySection ? (
-        <section className="border-b border-cyan-100 bg-white py-14">
+        <section className="ev-storm-section py-14">
           <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.24em] text-blue-700">
@@ -905,7 +908,7 @@ export default async function ServiceLandingPage({
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="group flex min-h-24 items-center justify-between gap-4 rounded-lg border border-slate-200 bg-slate-50 p-5 font-black text-[#061E72] shadow-sm transition hover:border-blue-500 hover:bg-blue-50 hover:text-blue-700"
+                  className="ev-storm-card group flex min-h-24 items-center justify-between gap-4 rounded-lg border border-cyan-300/20 p-5 font-black text-white transition hover:border-cyan-200 hover:text-cyan-100"
                 >
                   <span>{link.label}</span>
                   <ArrowRight className="h-5 w-5 shrink-0 text-blue-700 transition group-hover:translate-x-1" />
@@ -917,7 +920,7 @@ export default async function ServiceLandingPage({
       ) : null}
 
       {service.quoteChecklist ? (
-        <section className="border-b border-blue-100 bg-slate-50 py-14">
+        <section className="ev-storm-section py-14">
           <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.24em] text-blue-700">
@@ -926,7 +929,7 @@ export default async function ServiceLandingPage({
               <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
                 {service.quoteChecklist.heading}
               </h2>
-              <p className="mt-5 rounded-lg border border-red-200 bg-white p-4 text-base font-bold leading-7 text-red-700">
+              <p className="ev-storm-card ev-storm-card--emergency mt-5 rounded-lg border border-red-300/30 p-4 text-base font-bold leading-7 text-red-50">
                 {service.quoteChecklist.urgentNote}
               </p>
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -956,7 +959,7 @@ export default async function ServiceLandingPage({
               {service.quoteChecklist.items.map((item) => (
                 <div
                   key={item}
-                  className="flex gap-3 rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+                  className="ev-storm-card flex gap-3 rounded-lg border border-cyan-300/20 p-4"
                 >
                   <ClipboardList className="mt-1 h-5 w-5 shrink-0 text-blue-700" />
                   <p className="font-bold leading-7 text-slate-900">{item}</p>
@@ -974,7 +977,7 @@ export default async function ServiceLandingPage({
         variant={processProofVariant}
       />
 
-      <section className="service-detail-scope-section bg-slate-50 py-20">
+      <section className="service-detail-scope-section ev-storm-section py-20">
         <div className="service-detail-scope-layout mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div className="service-detail-scope-copy">
             <p className="text-sm font-black uppercase tracking-[0.28em] text-blue-700">
@@ -1016,7 +1019,7 @@ export default async function ServiceLandingPage({
             {service.services.map((item) => (
               <article
                 key={item}
-                className="service-action-card service-action-card--scope rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+                className="service-action-card service-action-card--scope ev-storm-card rounded-lg border border-cyan-300/20 p-4"
               >
                 <span className="service-action-card__summary service-action-card__summary--with-end flex items-start gap-3">
                   <Wrench className="service-action-card__icon mt-0.5 h-5 w-5 shrink-0 text-blue-700" />
@@ -1031,7 +1034,7 @@ export default async function ServiceLandingPage({
         </div>
       </section>
 
-      <section className="service-detail-warning-section bg-white py-20">
+      <section className="service-detail-warning-section ev-storm-section ev-storm-section--emergency py-20">
         <div className="service-detail-warning-layout mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_0.95fr] lg:px-8">
           <div className="service-detail-warning-copy">
             <p className="text-sm font-black uppercase tracking-[0.28em] text-red-600">
@@ -1069,12 +1072,12 @@ export default async function ServiceLandingPage({
             </div>
           </div>
 
-          <div className="service-detail-warning-panel rounded-lg border border-slate-200 bg-slate-50 p-6">
+          <div className="service-detail-warning-panel ev-storm-panel rounded-lg border border-red-300/25 p-6">
             <div className="service-detail-warning-grid grid gap-4">
               {service.warningSigns.map((item) => (
                 <article
                   key={item}
-                  className="warning-action-card warning-action-card--compact rounded-lg border border-red-200/30 bg-white p-4 shadow-sm transition hover:border-red-300/50 hover:bg-red-50/60"
+                  className="warning-action-card warning-action-card--compact ev-storm-card ev-storm-card--emergency rounded-lg border border-red-300/30 p-4 transition hover:border-red-200/55"
                 >
                   <span className="warning-action-card__summary flex gap-3">
                     <AlertTriangle className="warning-action-card__icon mt-1 h-5 w-5 shrink-0 text-red-600" />
@@ -1087,7 +1090,7 @@ export default async function ServiceLandingPage({
         </div>
       </section>
 
-      <section className="bg-[#061E72] py-20 text-white">
+      <section className="ev-storm-section py-20 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-black uppercase tracking-[0.28em] text-cyan-300">
             Process
@@ -1110,7 +1113,7 @@ export default async function ServiceLandingPage({
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="ev-storm-section py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.28em] text-blue-700">
@@ -1128,7 +1131,7 @@ export default async function ServiceLandingPage({
               {bookingTrustItems.map((item) => (
                 <div
                   key={item}
-                  className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-3"
+                  className="ev-storm-card flex items-center gap-2 rounded-lg border border-cyan-300/20 px-3 py-3"
                 >
                   <CheckCircle2 className="h-4 w-4 shrink-0 text-blue-700" />
                   <span>{item}</span>
@@ -1166,7 +1169,7 @@ export default async function ServiceLandingPage({
               "Any deadline, defect notice or safety concern",
               "Whether the power is off, intermittent or unsafe",
             ].map((item) => (
-              <div key={item} className="rounded-lg border border-slate-200 bg-slate-50 p-5">
+              <div key={item} className="ev-storm-card rounded-lg border border-cyan-300/20 p-5">
                 <ClipboardList className="h-6 w-6 text-blue-700" />
                 <p className="mt-4 font-bold leading-7 text-slate-800">{item}</p>
               </div>
@@ -1175,7 +1178,7 @@ export default async function ServiceLandingPage({
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20">
+      <section className="ev-storm-section py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.28em] text-red-600">
@@ -1188,7 +1191,7 @@ export default async function ServiceLandingPage({
 
           <div className="grid gap-4">
             {service.faqs.map((faq) => (
-              <article key={faq.question} className="rounded-lg border border-slate-200 bg-white p-6">
+              <article key={faq.question} className="ev-storm-card rounded-lg border border-cyan-300/20 p-6">
                 <h3 className="text-xl font-black">{faq.question}</h3>
                 <p className="mt-3 leading-7 text-slate-700">{faq.answer}</p>
               </article>

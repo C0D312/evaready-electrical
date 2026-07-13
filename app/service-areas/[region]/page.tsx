@@ -154,7 +154,10 @@ export default async function RegionPage({ params }: RegionPageProps) {
   });
 
   return (
-    <main className="min-h-screen bg-[#02050d] text-white">
+    <main
+      className="generated-storm-page generated-storm-region ev-storm-page min-h-screen bg-[#02050d] text-white"
+      data-storm-system="ev-storm-page ev-storm-section ev-storm-card ev-storm-panel"
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(electricianSchema)}
