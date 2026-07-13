@@ -15,11 +15,10 @@ These were corrected at the source-data level to `overheating isolators` and `wa
 
 ## Source And Deployment
 
-- Main SHA verified live: `deedbc565ddd702d64aae0ec4503687b9ed9b1f3`
-- gh-pages SHA verified live: `05b3d44bd18483df8b49b8ccf6be654794ffef77`
-- Public normal URLs: verified.
-- Public cache-busted URLs: verified using the gh-pages SHA.
+- Public normal URLs: verified after the final `gh-pages` deployment.
+- Public cache-busted URLs: verified using the final `gh-pages` SHA.
 - `site-version.json`: verified live and matched the deployed source SHA.
+- Final source and deployment SHAs are recorded in the final QA response and in the live `site-version.json` marker. The screenshot matrix below was rendered against the previous cache-busted deployment before the two generated suburb wording fixes; no layout, header, theme, CTA or visual CSS changed after that matrix.
 
 ## Audits
 
