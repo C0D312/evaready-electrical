@@ -137,7 +137,7 @@ export default function AboutPage() {
     <>
       <SiteHeader />
       <main
-        className="core-storm-page core-storm-about bg-[#061E72] text-white"
+        className="core-storm-page core-storm-about ev-storm-page min-h-screen text-white"
         data-storm-system="ev-storm-section ev-storm-card ev-storm-panel"
       >
         <script
@@ -195,7 +195,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-[#061E72] px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <section className="ev-storm-section px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
           <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-[0.82fr_1.18fr] lg:gap-8">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
@@ -218,7 +218,7 @@ export default function AboutPage() {
                 return (
                   <article
                     key={item.title}
-                    className="rounded-2xl border border-cyan-300/18 bg-white/[0.055] p-5 shadow-xl shadow-blue-950/20"
+                    className="ev-storm-card ev-storm-card--trust rounded-2xl p-5"
                   >
                     <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-300/12 text-cyan-200">
                       <Icon className="h-5 w-5" aria-hidden="true" />
@@ -236,10 +236,10 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-slate-50 px-4 py-12 text-[#061E72] sm:px-6 sm:py-16 lg:px-8">
+        <section className="ev-storm-section ev-storm-section--subtle px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <div className="max-w-3xl">
-              <p className="text-xs font-black uppercase tracking-[0.22em] text-blue-700">
+              <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
                 What Evaready helps with
               </p>
               <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-5xl">
@@ -250,13 +250,13 @@ export default function AboutPage() {
               {helpItems.map((item) => (
                 <div
                   key={item}
-                  className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+                  className="ev-storm-card rounded-2xl p-4"
                 >
                   <CheckCircle2
-                    className="h-5 w-5 text-blue-700"
+                    className="h-5 w-5 text-cyan-200"
                     aria-hidden="true"
                   />
-                  <p className="mt-3 text-sm font-black leading-6 text-slate-900">
+                  <p className="mt-3 text-sm font-black leading-6 text-slate-100">
                     {item}
                   </p>
                 </div>
@@ -265,16 +265,16 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-white px-4 py-12 text-[#061E72] sm:px-6 sm:py-16 lg:px-8">
+        <section className="ev-storm-section px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8">
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.22em] text-blue-700">
+              <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
                 Process
               </p>
               <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-5xl">
                 How the next action works.
               </h2>
-              <p className="mt-4 text-base font-semibold leading-7 text-slate-700 sm:text-lg">
+              <p className="mt-4 text-base font-semibold leading-7 text-slate-300 sm:text-lg">
                 The process is built around safety, useful job information and
                 clear communication before work begins.
               </p>
@@ -283,15 +283,15 @@ export default function AboutPage() {
               {processSteps.map((step, index) => (
                 <article
                   key={step.title}
-                  className="rounded-2xl border border-slate-200 bg-slate-50 p-5"
+                  className="ev-storm-card ev-storm-card--quote rounded-2xl p-5"
                 >
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-blue-700 text-sm font-black text-white">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-300/14 text-sm font-black text-cyan-100 ring-1 ring-cyan-200/20">
                     {index + 1}
                   </span>
-                  <h3 className="mt-4 text-xl font-black text-[#061E72]">
+                  <h3 className="mt-4 text-xl font-black text-white">
                     {step.title}
                   </h3>
-                  <p className="mt-2 text-sm font-semibold leading-6 text-slate-700">
+                  <p className="mt-2 text-sm font-semibold leading-6 text-slate-300">
                     {step.text}
                   </p>
                 </article>
@@ -300,9 +300,9 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-[#061226] px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8">
+        <section className="ev-storm-section ev-storm-section--emergency px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8">
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_0.82fr]">
-            <div className="rounded-[2rem] border border-cyan-300/18 bg-white/[0.055] p-6 sm:p-8">
+            <div className="ev-storm-panel rounded-[2rem] p-6 sm:p-8">
               <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
                 Useful links
               </p>
@@ -314,7 +314,7 @@ export default function AboutPage() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="inline-flex min-h-12 items-center justify-between gap-3 rounded-2xl border border-cyan-300/16 bg-[#061E72]/60 px-4 py-3 text-sm font-black text-white transition hover:border-cyan-200/45 hover:bg-[#082A86]"
+                    className="ev-card-link inline-flex min-h-12 items-center justify-between gap-3 rounded-2xl px-4 py-3 text-sm font-black"
                   >
                     {link.label}
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -323,7 +323,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <aside className="rounded-[2rem] border border-red-300/24 bg-red-500/10 p-6 sm:p-8">
+            <aside className="ev-storm-card ev-storm-card--emergency rounded-[2rem] p-6 sm:p-8">
               <p className="text-xs font-black uppercase tracking-[0.22em] text-red-100">
                 Contact Evaready
               </p>

@@ -78,7 +78,7 @@ export default function ContactPage() {
     <>
       <SiteHeader />
       <main
-        className="core-storm-page core-storm-contact bg-[#061E72] text-white"
+        className="core-storm-page core-storm-contact ev-storm-page min-h-screen text-white"
         data-storm-system="ev-storm-section ev-storm-card ev-storm-panel"
       >
         <script
@@ -175,16 +175,16 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <section className="bg-slate-50 px-4 py-12 text-[#061E72] sm:px-6 sm:py-16 lg:px-8">
+        <section className="ev-storm-section ev-storm-section--subtle px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8">
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.82fr_1.18fr]">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.22em] text-blue-700">
+              <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
                 Quote form
               </p>
               <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-5xl">
                 Send the job details through the quote form.
               </h2>
-              <p className="mt-4 text-base font-semibold leading-7 text-slate-700 sm:text-lg">
+              <p className="mt-4 text-base font-semibold leading-7 text-slate-300 sm:text-lg">
                 Use the secure online quote form to send photos, job details,
                 access notes and paperwork.
               </p>
@@ -214,13 +214,13 @@ export default function ContactPage() {
               {quoteDetails.map((item) => (
                 <div
                   key={item}
-                  className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+                  className="ev-storm-card ev-storm-card--quote rounded-2xl p-5"
                 >
                   <CheckCircle2
-                    className="h-5 w-5 text-blue-700"
+                    className="h-5 w-5 text-cyan-200"
                     aria-hidden="true"
                   />
-                  <p className="mt-3 text-sm font-black leading-6 text-slate-900">
+                  <p className="mt-3 text-sm font-black leading-6 text-slate-100">
                     {item}
                   </p>
                 </div>
@@ -229,16 +229,16 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <section className="bg-white px-4 py-12 text-[#061E72] sm:px-6 sm:py-16 lg:px-8">
+        <section className="ev-storm-section px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8">
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-            <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-6 sm:p-8">
-              <p className="text-xs font-black uppercase tracking-[0.22em] text-blue-700">
+            <div className="ev-storm-panel rounded-[2rem] p-6 sm:p-8">
+              <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
                 Mobile service
               </p>
               <h2 className="mt-3 text-3xl font-black tracking-tight">
                 Mobile electrical service across Sydney and surrounding regions
               </h2>
-              <p className="mt-4 text-base font-semibold leading-7 text-slate-700">
+              <p className="mt-4 text-base font-semibold leading-7 text-slate-300">
                 Evaready Electrical travels to homes, strata properties, shops,
                 offices and commercial sites across Sydney and surrounding
                 regions. Call or send your job details to confirm availability
@@ -247,7 +247,7 @@ export default function ContactPage() {
               <div className="mt-6 grid gap-3 sm:grid-cols-3">
                 <Link
                   href="/service-areas"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-blue-200 bg-white px-4 py-3 text-sm font-black text-blue-950 transition hover:border-blue-400 hover:bg-blue-50"
+                  className="ev-btn ev-btn--secondary inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-black"
                 >
                   Check Service Areas
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -274,7 +274,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="rounded-[2rem] border border-blue-100 bg-blue-950 p-6 text-white sm:p-8">
+            <div className="ev-storm-panel ev-storm-panel--strong rounded-[2rem] p-6 text-white sm:p-8">
               <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
                 Useful links
               </p>
@@ -286,7 +286,7 @@ export default function ContactPage() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="inline-flex min-h-12 items-center justify-between gap-3 rounded-2xl border border-cyan-300/16 bg-[#061E72]/55 px-4 py-3 text-sm font-black text-white transition hover:border-cyan-200/45 hover:bg-[#082A86]"
+                    className="ev-card-link inline-flex min-h-12 items-center justify-between gap-3 rounded-2xl px-4 py-3 text-sm font-black"
                   >
                     {link.label}
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -297,8 +297,8 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <section className="bg-[#061226] px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8">
-          <div className="mx-auto max-w-7xl rounded-[2rem] border border-cyan-300/18 bg-white/[0.055] p-6 sm:p-8">
+        <section className="ev-storm-section ev-storm-section--subtle px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8">
+          <div className="ev-storm-panel mx-auto max-w-7xl rounded-[2rem] p-6 sm:p-8">
             <div className="grid gap-8 lg:grid-cols-[0.86fr_1.14fr]">
               <div>
                 <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
@@ -313,7 +313,7 @@ export default function ContactPage() {
                 </p>
               </div>
               <div className="grid gap-3 sm:grid-cols-2">
-                <div className="rounded-2xl border border-cyan-300/16 bg-[#061E72]/55 p-5">
+                <div className="ev-storm-card ev-storm-card--trust rounded-2xl p-5">
                   <ShieldCheck
                     className="h-5 w-5 text-cyan-200"
                     aria-hidden="true"
@@ -322,7 +322,7 @@ export default function ContactPage() {
                     NSW Electrical Licence {business.licence}
                   </p>
                 </div>
-                <div className="rounded-2xl border border-cyan-300/16 bg-[#061E72]/55 p-5">
+                <div className="ev-storm-card ev-storm-card--trust rounded-2xl p-5">
                   <ShieldCheck
                     className="h-5 w-5 text-cyan-200"
                     aria-hidden="true"

@@ -372,7 +372,7 @@ function buildSchema() {
 export default function Level2ElectricianSydneyPage() {
   return (
     <main
-      className="core-storm-page core-storm-level2 min-h-screen bg-white text-[#061E72]"
+      className="core-storm-page core-storm-level2 ev-storm-page min-h-screen text-white"
       data-storm-system="ev-storm-section ev-storm-card ev-storm-panel"
     >
       <script
@@ -477,7 +477,7 @@ export default function Level2ElectricianSydneyPage() {
         </div>
       </section>
 
-      <TrustSymbolBand className="border-b border-slate-200" />
+      <TrustSymbolBand className="border-b border-cyan-300/16" />
 
       <GoogleReviewProof
         heading="Review Evaready Electrical before sending Level 2 details."
@@ -502,10 +502,10 @@ export default function Level2ElectricianSydneyPage() {
         variant="level2"
       />
 
-      <section className="bg-slate-50 py-20 sm:py-24">
+      <section className="ev-storm-section py-20 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-200">
               Level 2 services
             </p>
 
@@ -513,7 +513,7 @@ export default function Level2ElectricianSydneyPage() {
               Consumer mains, defects, metering and supply-side enquiries.
             </h2>
 
-            <p className="mt-5 text-lg leading-8 text-slate-600">
+            <p className="mt-5 text-lg leading-8 text-slate-300">
               Level 2 work sits around the connection between the property,
               service equipment and supply network. The right photos and
               paperwork help confirm whether the job needs a Level 2 pathway,
@@ -526,16 +526,16 @@ export default function Level2ElectricianSydneyPage() {
               <Link
                 key={item.title}
                 href={item.href}
-                className="group flex min-h-36 flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-blue-300 hover:bg-blue-50"
+                className="ev-storm-card group flex min-h-36 flex-col rounded-2xl p-5 transition hover:border-cyan-200/60"
               >
-                <Bolt className="h-6 w-6 text-blue-700" />
-                <h3 className="mt-4 text-xl font-black leading-tight text-[#061E72]">
+                <Bolt className="h-6 w-6 text-cyan-200" />
+                <h3 className="mt-4 text-xl font-black leading-tight text-white">
                   {item.title}
                 </h3>
-                <p className="mt-2 flex-1 text-sm font-semibold leading-6 text-slate-600">
+                <p className="mt-2 flex-1 text-sm font-semibold leading-6 text-slate-300">
                   {item.text}
                 </p>
-                <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-blue-700">
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-cyan-200">
                   View service
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 </span>
@@ -551,7 +551,7 @@ export default function Level2ElectricianSydneyPage() {
         description="For defect notices, consumer mains, private poles, point of attachment issues, metering or service upgrades, include clear photos, the suburb, deadline, switchboard details and any paperwork from the network, retailer or supply authority."
       />
 
-      <section className="bg-white py-20 sm:py-24">
+      <section className="ev-storm-section ev-storm-section--subtle py-20 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
@@ -562,14 +562,14 @@ export default function Level2ElectricianSydneyPage() {
               When do you need a Level 2 electrician?
             </h2>
 
-            <p className="mt-5 text-lg leading-8 text-slate-600">
+            <p className="mt-5 text-lg leading-8 text-slate-300">
               If the job involves the service connection, consumer mains,
               metering, point of attachment, private pole, defect notice or a
               supply upgrade, call or open the booking form before arranging
               other work around it.
             </p>
 
-            <p className="mt-4 text-lg leading-8 text-slate-600">
+            <p className="mt-4 text-lg leading-8 text-slate-300">
               For urgent supply faults, no power, sparking, heat or a burning
               smell, phone first so the unsafe part of the job can be triaged
               before photos and paperwork are reviewed.
@@ -581,23 +581,23 @@ export default function Level2ElectricianSydneyPage() {
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-6">
+          <div className="ev-storm-panel rounded-[2rem] p-6">
             <div className="grid gap-4">
               {whenToCall.map((item) => (
                 <Link
                   key={item.title}
                   href={item.href}
-                  className="group rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-blue-300 hover:bg-blue-50"
+                  className="ev-storm-card group rounded-xl p-4 transition hover:border-cyan-200/60"
                 >
                   <div className="flex items-start gap-3">
                     <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" />
                     <div>
-                      <h3 className="font-black text-[#061E72]">{item.title}</h3>
-                      <p className="mt-1 text-sm font-semibold leading-6 text-slate-600">
+                      <h3 className="font-black text-white">{item.title}</h3>
+                      <p className="mt-1 text-sm font-semibold leading-6 text-slate-300">
                         {item.text}
                       </p>
                     </div>
-                    <ArrowRight className="ml-auto mt-1 h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-blue-700" />
+                    <ArrowRight className="ml-auto mt-1 h-4 w-4 shrink-0 text-cyan-200 transition group-hover:translate-x-1" />
                   </div>
                 </Link>
               ))}
@@ -606,16 +606,16 @@ export default function Level2ElectricianSydneyPage() {
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20 sm:py-24">
+      <section className="ev-storm-section py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+          <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-200">
             Networks and paperwork
           </p>
           <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
             Ausgrid, Endeavour Energy and supply requirements need careful
             handling.
           </h2>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
             Some Level 2 enquiries are linked to retailer, network or supply
             authority requirements. Evaready can help review the electrical
             side, document the issue and guide the next action without promising
@@ -626,11 +626,11 @@ export default function Level2ElectricianSydneyPage() {
             {authorityTopics.map((item) => (
               <article
                 key={item.title}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+                className="ev-storm-card rounded-2xl p-6"
               >
-                <HardHat className="h-7 w-7 text-blue-700" />
+                <HardHat className="h-7 w-7 text-cyan-200" />
                 <h3 className="mt-5 text-2xl font-black">{item.title}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
+                <p className="mt-3 leading-7 text-slate-300">{item.text}</p>
               </article>
             ))}
           </div>
@@ -679,7 +679,7 @@ export default function Level2ElectricianSydneyPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="ev-storm-section ev-storm-section--subtle py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
@@ -698,19 +698,19 @@ export default function Level2ElectricianSydneyPage() {
             {level2Faqs.map((faq) => (
               <article
                 key={faq.question}
-                className="rounded-lg border border-slate-200 bg-slate-50 p-6"
+                className="ev-storm-card rounded-lg p-6"
               >
                 <h3 className="text-xl font-black">{faq.question}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{faq.answer}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.answer}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20">
+      <section className="ev-storm-section py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
+          <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-200">
             Related electrical services
           </p>
           <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
@@ -721,11 +721,11 @@ export default function Level2ElectricianSydneyPage() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group flex min-h-14 items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 font-black text-slate-900 shadow-sm transition hover:border-blue-300 hover:bg-blue-50"
+                className="ev-card-link group flex min-h-14 items-center gap-3 rounded-xl px-4 py-3 font-black"
               >
-                <Zap className="h-5 w-5 shrink-0 text-blue-700" />
+                <Zap className="h-5 w-5 shrink-0 text-cyan-200" />
                 <span>{link.label}</span>
-                <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-blue-700" />
+                <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-cyan-200 transition group-hover:translate-x-1" />
               </Link>
             ))}
           </div>

@@ -418,7 +418,7 @@ export default function EmergencyElectricianSydneyPage() {
 
   return (
     <main
-      className={cx(styles.page, "core-storm-page core-storm-emergency min-h-screen bg-white text-[#061E72]")}
+      className={cx(styles.page, "core-storm-page core-storm-emergency ev-storm-page min-h-screen text-white")}
       data-storm-system="ev-storm-section ev-storm-card ev-storm-panel"
     >
       <script
@@ -527,7 +527,7 @@ export default function EmergencyElectricianSydneyPage() {
         subheading="For urgent electrical faults, call first. You can also view Evaready Electrical on Google to read real customer feedback before booking planned work."
       />
 
-      <section className={cx(styles.calmSection, "border-b border-slate-200 bg-white py-16")}>
+      <section className={cx(styles.calmSection, "ev-storm-section ev-storm-section--subtle py-16")}>
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
             <p className={cx(styles.redEyebrow, "text-sm font-black uppercase tracking-[0.32em] text-red-600")}>
@@ -547,7 +547,7 @@ export default function EmergencyElectricianSydneyPage() {
             {emergencyProofItems.map((item) => (
               <div
                 key={item}
-                className={cx(styles.proofCard, "rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-black leading-6 text-slate-900")}
+                className={cx(styles.proofCard, "ev-storm-card ev-storm-card--trust rounded-2xl px-4 py-3 text-sm font-black leading-6 text-slate-100")}
               >
                 {item}
               </div>
@@ -574,9 +574,9 @@ export default function EmergencyElectricianSydneyPage() {
         variant="emergency"
       />
 
-      <TrustSymbolBand className="border-b border-slate-200" />
+      <TrustSymbolBand className="border-b border-cyan-300/16" />
 
-      <section className={cx(styles.blueSection, "bg-slate-50 py-24")}>
+      <section className={cx(styles.blueSection, "ev-storm-section py-24")}>
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
             <p className={cx(styles.redEyebrow, "text-sm font-black uppercase tracking-[0.35em] text-red-600")}>
@@ -604,7 +604,7 @@ export default function EmergencyElectricianSydneyPage() {
                   data-conversion-action={
                     item.href === business.phoneHref ? "phone-click" : undefined
                   }
-                  className={cx(styles.hazardCard, "group min-h-28 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-red-300 hover:bg-red-50")}
+                  className={cx(styles.hazardCard, "ev-storm-card ev-storm-card--emergency group min-h-28 rounded-2xl p-4 transition hover:border-red-200/60")}
                 >
                   <Zap className="mt-1 h-5 w-5 shrink-0 text-red-600" aria-hidden="true" />
                   <span>
@@ -624,7 +624,7 @@ export default function EmergencyElectricianSydneyPage() {
                 <Link
                   key={item.title}
                   href={item.href}
-                  className={cx(styles.hazardCard, "group min-h-28 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-red-300 hover:bg-red-50")}
+                  className={cx(styles.hazardCard, "ev-storm-card ev-storm-card--emergency group min-h-28 rounded-2xl p-4 transition hover:border-red-200/60")}
                 >
                   <Zap className="mt-1 h-5 w-5 shrink-0 text-red-600" aria-hidden="true" />
                   <span>
@@ -652,7 +652,7 @@ export default function EmergencyElectricianSydneyPage() {
         description="For unsafe faults, call first. For planned help, include the suburb, what has lost power, whether anything is hot, buzzing, wet, sparking or tripping, and photos of the switchboard or damaged fitting if available."
       />
 
-      <section className={cx(styles.calmSection, "bg-white py-24")}>
+      <section className={cx(styles.calmSection, "ev-storm-section ev-storm-section--emergency py-24")}>
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
           <div>
             <p className={cx(styles.blueEyebrow, "text-sm font-black uppercase tracking-[0.35em] text-blue-700")}>
@@ -669,7 +669,7 @@ export default function EmergencyElectricianSydneyPage() {
             </p>
           </div>
 
-          <div className={cx(styles.warningPanel, "rounded-[2rem] border border-slate-200 bg-slate-50 p-7")}>
+          <div className={cx(styles.warningPanel, "ev-storm-panel ev-storm-panel--strong rounded-[2rem] p-7")}>
             <div className="grid gap-4">
               {warningSigns.map((item) => (
                 <Link
@@ -702,7 +702,7 @@ export default function EmergencyElectricianSydneyPage() {
         </div>
       </section>
 
-      <section className={cx(styles.blueSection, "bg-slate-50 py-20")}>
+      <section className={cx(styles.blueSection, "ev-storm-section py-20")}>
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
             <p className={cx(styles.redEyebrow, "text-sm font-black uppercase tracking-[0.35em] text-red-600")}>
@@ -728,7 +728,7 @@ export default function EmergencyElectricianSydneyPage() {
                   data-conversion-action={
                     item.href === business.phoneHref ? "phone-click" : undefined
                   }
-                  className={cx(styles.safetyCard, "group rounded-lg border border-red-100 bg-white p-5 transition hover:border-red-300 hover:bg-red-50")}
+                  className={cx(styles.safetyCard, "ev-storm-card ev-storm-card--emergency group rounded-lg p-5 transition hover:border-red-200/60")}
                 >
                   <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" aria-hidden="true" />
                   <span>
@@ -748,7 +748,7 @@ export default function EmergencyElectricianSydneyPage() {
                 <Link
                   key={item.title}
                   href={item.href}
-                  className={cx(styles.safetyCard, "group rounded-lg border border-red-100 bg-white p-5 transition hover:border-red-300 hover:bg-red-50")}
+                  className={cx(styles.safetyCard, "ev-storm-card ev-storm-card--emergency group rounded-lg p-5 transition hover:border-red-200/60")}
                 >
                   <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" aria-hidden="true" />
                   <span>
@@ -798,7 +798,7 @@ export default function EmergencyElectricianSydneyPage() {
         </div>
       </section>
 
-      <section className={cx(styles.calmSection, "bg-white py-20")}>
+      <section className={cx(styles.calmSection, "ev-storm-section ev-storm-section--subtle py-20")}>
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
           <div>
             <p className={cx(styles.blueEyebrow, "text-sm font-black uppercase tracking-[0.35em] text-blue-700")}>
@@ -813,7 +813,7 @@ export default function EmergencyElectricianSydneyPage() {
             {emergencyFaqs.map((faq) => (
               <article
                 key={faq.question}
-                className={cx(styles.faqCard, "rounded-lg border border-slate-200 bg-slate-50 p-6")}
+                className={cx(styles.faqCard, "ev-storm-card rounded-lg p-6")}
               >
                 <h3 className={cx(styles.cardTitle, "text-xl font-black")}>{faq.question}</h3>
                 <p className={cx(styles.cardText, "mt-3 leading-7 text-slate-600")}>{faq.answer}</p>
@@ -823,7 +823,7 @@ export default function EmergencyElectricianSydneyPage() {
         </div>
       </section>
 
-      <section className={cx(styles.blueSection, "bg-slate-50 py-20")}>
+      <section className={cx(styles.blueSection, "ev-storm-section py-20")}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className={cx(styles.blueEyebrow, "text-sm font-black uppercase tracking-[0.35em] text-blue-700")}>
             Related emergency fault guides
@@ -836,7 +836,7 @@ export default function EmergencyElectricianSydneyPage() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={cx(styles.relatedCard, "group flex min-h-14 items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 font-black text-slate-900 transition hover:border-blue-300 hover:bg-blue-50")}
+                className={cx(styles.relatedCard, "ev-card-link group flex min-h-14 items-center justify-between gap-3 rounded-xl px-4 py-3 font-black")}
               >
                 {link.label}
                 <ArrowRight

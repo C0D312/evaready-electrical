@@ -125,7 +125,7 @@ export function SiteFooter() {
     <footer
       id="site-footer"
       data-site-footer
-      className="site-footer bg-[#061E72] px-4 pb-[calc(6rem_+_env(safe-area-inset-bottom))] pt-8 text-white sm:px-6 md:pb-8 md:pt-10 lg:px-8"
+      className="site-footer ev-storm-footer px-4 pb-[calc(6rem_+_env(safe-area-inset-bottom))] pt-8 text-white sm:px-6 md:pb-8 md:pt-10 lg:px-8"
     >
       <div className="footer-inner mx-auto max-w-7xl">
         <div className="grid gap-7 md:grid-cols-[minmax(17rem,1.15fr)_minmax(0,2fr)] lg:grid-cols-[minmax(18rem,1.05fr)_minmax(0,2.55fr)] lg:gap-8">

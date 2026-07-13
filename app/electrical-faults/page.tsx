@@ -73,7 +73,7 @@ export default function ElectricalFaultsPage() {
   );
 
   return (
-    <main className="min-h-screen bg-white text-[#061E72]">
+    <main className="core-storm-page core-storm-faults ev-storm-page min-h-screen text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(electricianSchema)}
@@ -161,19 +161,19 @@ export default function ElectricalFaultsPage() {
         </div>
       </section>
 
-      <section className="border-b border-slate-200 bg-white">
+      <section className="ev-storm-section ev-storm-section--subtle">
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-7 sm:grid-cols-3 sm:px-6 lg:px-8">
           {trustItems.map((item) => {
             const Icon = item.icon;
 
             return (
               <div key={item.title} className="flex items-start gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-700">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-cyan-300/12 text-cyan-200 ring-1 ring-cyan-200/20">
                   <Icon className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="font-black text-[#061E72]">{item.title}</p>
-                  <p className="mt-1 text-sm font-semibold leading-6 text-slate-600">
+                  <p className="font-black text-white">{item.title}</p>
+                  <p className="mt-1 text-sm font-semibold leading-6 text-slate-300">
                     {item.text}
                   </p>
                 </div>
@@ -183,16 +183,16 @@ export default function ElectricalFaultsPage() {
         </div>
       </section>
 
-      <section className="bg-slate-50 py-16 sm:py-20">
+      <section className="ev-storm-section py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.28em] text-blue-700">
+            <p className="text-sm font-black uppercase tracking-[0.28em] text-cyan-200">
               Fault guides
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Find the electrical problem and the safest next action.
             </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-700">
+            <p className="mt-5 text-lg leading-8 text-slate-300">
               These guides help customers recognise when to call immediately
               and what information to send for a faster quote or diagnosis.
             </p>
@@ -203,13 +203,13 @@ export default function ElectricalFaultsPage() {
               <Link
                 key={fault.slug}
                 href={`/electrical-faults/${fault.slug}`}
-                className="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-blue-500 hover:shadow-xl"
+                className="ev-storm-card group rounded-lg p-5 transition hover:-translate-y-1 hover:border-cyan-200"
               >
-                <Zap className="h-6 w-6 text-blue-700" />
-                <h3 className="mt-5 text-xl font-black leading-tight text-[#061E72]">
+                <Zap className="h-6 w-6 text-cyan-200" />
+                <h3 className="mt-5 text-xl font-black leading-tight text-white">
                   {fault.title}
                 </h3>
-                <p className="mt-3 line-clamp-3 text-sm font-semibold leading-6 text-slate-600">
+                <p className="mt-3 line-clamp-3 text-sm font-semibold leading-6 text-slate-300">
                   {fault.intro}
                 </p>
                 <span className="mt-5 inline-flex items-center gap-2 font-black text-red-600">
@@ -222,7 +222,7 @@ export default function ElectricalFaultsPage() {
         </div>
       </section>
 
-      <section className="bg-white py-16 sm:py-20">
+      <section className="ev-storm-section ev-storm-section--emergency py-16 sm:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.28em] text-red-600">
@@ -231,14 +231,14 @@ export default function ElectricalFaultsPage() {
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Call now or get a quote.
             </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-700">
+            <p className="mt-5 text-lg leading-8 text-slate-300">
               We&apos;ll point you to the safest next action. For hazards, phone
               first. For planned fault finding, photos and job notes help
               Evaready Electrical review the work before the next action.
             </p>
           </div>
 
-          <div className="rounded-lg border border-slate-200 bg-slate-50 p-6">
+          <div className="ev-storm-card ev-storm-card--emergency rounded-lg p-6">
             <div className="grid gap-4">
               {[
                 "Call if there is smoke, sparking, heat, shock risk or burning smell.",
@@ -248,7 +248,7 @@ export default function ElectricalFaultsPage() {
               ].map((item) => (
                 <div key={item} className="flex gap-3">
                   <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" />
-                  <p className="font-semibold leading-7 text-slate-800">{item}</p>
+                  <p className="font-semibold leading-7 text-slate-100">{item}</p>
                 </div>
               ))}
             </div>

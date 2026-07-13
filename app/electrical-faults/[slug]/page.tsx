@@ -104,7 +104,7 @@ export default async function ElectricalFaultDetailPage({
   );
 
   return (
-    <main className="min-h-screen bg-white text-[#061E72]">
+    <main className="core-storm-page core-storm-fault-detail ev-storm-page min-h-screen text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(electricianSchema)}
@@ -190,7 +190,7 @@ export default async function ElectricalFaultDetailPage({
         </div>
       </section>
 
-      <section className="border-b border-slate-200 bg-white">
+      <section className="ev-storm-section ev-storm-section--subtle">
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-7 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           {[
             `NSW Licence ${business.licence}`,
@@ -199,8 +199,8 @@ export default async function ElectricalFaultDetailPage({
             "Photos help planned quotes",
           ].map((item) => (
             <div key={item} className="flex items-center gap-3">
-              <CheckCircle2 className="h-6 w-6 shrink-0 text-blue-600" />
-              <span className="font-bold text-slate-800">{item}</span>
+              <CheckCircle2 className="h-6 w-6 shrink-0 text-cyan-200" />
+              <span className="font-bold text-slate-100">{item}</span>
             </div>
           ))}
         </div>
@@ -273,7 +273,7 @@ export default async function ElectricalFaultDetailPage({
         </div>
       </section>
 
-      <section className="bg-slate-50 py-16 sm:py-20">
+      <section className="ev-storm-section py-16 sm:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.28em] text-red-600">
@@ -282,7 +282,7 @@ export default async function ElectricalFaultDetailPage({
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Do not guess with electrical faults.
             </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-700">
+            <p className="mt-5 text-lg leading-8 text-slate-300">
               The cause can sit at the fitting, circuit, appliance, switchboard
               or supply. Proper testing keeps the next action clear.
             </p>
@@ -292,38 +292,38 @@ export default async function ElectricalFaultDetailPage({
             {fault.riskNotes.map((item) => (
               <div
                 key={item}
-                className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm"
+                className="ev-storm-card rounded-lg p-5"
               >
-                <Zap className="h-6 w-6 text-blue-700" />
-                <p className="mt-4 font-bold leading-7 text-slate-800">{item}</p>
+                <Zap className="h-6 w-6 text-cyan-200" />
+                <p className="mt-4 font-bold leading-7 text-slate-100">{item}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-16 sm:py-20">
+      <section className="ev-storm-section ev-storm-section--subtle py-16 sm:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.28em] text-blue-700">
+            <p className="text-sm font-black uppercase tracking-[0.28em] text-cyan-200">
               Check safely
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               What to do before calling.
             </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-700">
+            <p className="mt-5 text-lg leading-8 text-slate-300">
               Only check what is safe, dry and obvious. If the fault involves
               heat, water, smoke, sparking or exposed parts, keep clear and call
               first.
             </p>
           </div>
 
-          <div className="rounded-lg border border-slate-200 bg-slate-50 p-6">
+          <div className="ev-storm-card rounded-lg p-6">
             <div className="grid gap-4">
               {fault.checks.map((item) => (
                 <div key={item} className="flex gap-3">
                   <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-600" />
-                  <p className="font-semibold leading-7 text-slate-800">{item}</p>
+                  <p className="font-semibold leading-7 text-slate-100">{item}</p>
                 </div>
               ))}
             </div>
@@ -331,7 +331,7 @@ export default async function ElectricalFaultDetailPage({
         </div>
       </section>
 
-      <section className="bg-[#061E72] py-16 text-white sm:py-20">
+      <section className="ev-storm-section ev-storm-section--emergency py-16 text-white sm:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.28em] text-cyan-300">
@@ -373,7 +373,7 @@ export default async function ElectricalFaultDetailPage({
             {fault.whatToSend.map((item) => (
               <div
                 key={item}
-                className="rounded-lg border border-white/10 bg-white/5 p-5"
+                className="ev-storm-card rounded-lg p-5"
               >
                 <ClipboardList className="h-6 w-6 text-cyan-300" />
                 <p className="mt-4 font-bold leading-7 text-slate-100">{item}</p>
@@ -383,7 +383,7 @@ export default async function ElectricalFaultDetailPage({
         </div>
       </section>
 
-      <section className="bg-white py-16 sm:py-20">
+      <section className="ev-storm-section py-16 sm:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.28em] text-red-600">
@@ -398,21 +398,21 @@ export default async function ElectricalFaultDetailPage({
             {fault.faqs.map((faq) => (
               <article
                 key={faq.question}
-                className="rounded-lg border border-slate-200 bg-slate-50 p-6"
+                className="ev-storm-card rounded-lg p-6"
               >
                 <h3 className="text-xl font-black">{faq.question}</h3>
-                <p className="mt-3 leading-7 text-slate-700">{faq.answer}</p>
+                <p className="mt-3 leading-7 text-slate-300">{faq.answer}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-slate-50 py-16 sm:py-20">
+      <section className="ev-storm-section ev-storm-section--subtle py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.28em] text-blue-700">
+            <p className="text-sm font-black uppercase tracking-[0.28em] text-cyan-200">
                 Related help
               </p>
               <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
@@ -421,7 +421,7 @@ export default async function ElectricalFaultDetailPage({
             </div>
             <Link
               href="/electrical-faults"
-              className="inline-flex w-fit items-center gap-2 rounded-lg border border-slate-300 px-5 py-3 font-black text-slate-900 transition hover:border-blue-700 hover:text-blue-700"
+              className="ev-btn ev-btn--secondary inline-flex w-fit items-center gap-2 rounded-lg px-5 py-3 font-black"
             >
               View fault guides
               <ArrowRight className="h-4 w-4" />
@@ -433,9 +433,9 @@ export default async function ElectricalFaultDetailPage({
               <Link
                 key={service.href}
                 href={service.href}
-                className="group rounded-lg border border-slate-200 bg-white p-5 transition hover:border-blue-600 hover:bg-blue-50"
+                className="ev-storm-card group rounded-lg p-5 transition hover:border-cyan-200"
               >
-                <h3 className="font-black text-[#061E72]">{service.label}</h3>
+                <h3 className="font-black text-white">{service.label}</h3>
                 <span className="mt-4 inline-flex items-center gap-2 font-black text-red-600">
                   Learn more
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />

@@ -363,7 +363,7 @@ export default function HomePage() {
 
   return (
     <main
-      className="core-storm-page core-storm-home min-h-screen bg-slate-50 text-[#061E72]"
+      className="core-storm-page core-storm-home ev-storm-page min-h-screen text-white"
       data-storm-system="ev-storm-section ev-storm-card ev-storm-panel"
     >
       <script
@@ -450,20 +450,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-white py-10 sm:py-12" aria-labelledby="call-first-heading">
+      <section className="ev-storm-section ev-storm-section--emergency py-10 sm:py-12" aria-labelledby="call-first-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-6 rounded-lg border border-red-100 bg-red-50 p-4 shadow-xl shadow-red-950/5 sm:p-6 lg:grid-cols-[0.74fr_1.26fr] lg:items-start">
+          <div className="ev-storm-panel ev-storm-panel--strong grid gap-6 rounded-lg border border-red-300/30 p-4 shadow-xl sm:p-6 lg:grid-cols-[0.74fr_1.26fr] lg:items-start">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.2em] text-red-700">
+              <p className="text-sm font-black uppercase tracking-[0.2em] text-red-100">
                 Emergency triage
               </p>
               <h2
                 id="call-first-heading"
-                className="mt-3 text-3xl font-black leading-tight text-[#061E72] sm:text-4xl"
+                className="mt-3 text-3xl font-black leading-tight text-white sm:text-4xl"
               >
                 Call first if you notice
               </h2>
-              <p className="mt-4 text-base font-semibold leading-7 text-slate-700">
+              <p className="mt-4 text-base font-semibold leading-7 text-slate-100">
                 If it feels unsafe, do not keep resetting breakers or touching damaged fittings. Call first so the fault can be triaged.
               </p>
               <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -489,11 +489,11 @@ export default function HomePage() {
                 </a>
                 <Link
                   href="/emergency-electrician-sydney"
-                  className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg border border-red-200 bg-white px-5 py-3 font-black text-red-700 transition hover:border-red-300 hover:bg-red-100"
+                  className="ev-card-link inline-flex min-h-12 items-center justify-center gap-3 rounded-lg border border-red-300/35 px-5 py-3 font-black text-red-50 transition hover:border-red-200"
                 >
                   <span>Emergency electrician guide</span>
                   <span
-                    className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-50 text-red-700 ring-1 ring-red-100 transition hover:bg-red-100"
+                    className="ev-arrow-chip inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-red-50"
                     aria-hidden="true"
                   >
                     <ArrowRight className="h-3.5 w-3.5 shrink-0" />
@@ -510,16 +510,16 @@ export default function HomePage() {
                   <Link
                     key={item.title}
                     href={item.href}
-                    className="emergency-link-card emergency-link-card--triage group flex min-h-14 items-start gap-3 rounded-lg border border-red-100 bg-white px-3 py-3 shadow-sm transition hover:border-red-300 hover:bg-red-50"
+                    className="emergency-link-card emergency-link-card--triage ev-storm-card ev-storm-card--emergency group flex min-h-14 items-start gap-3 rounded-lg border border-red-300/30 px-3 py-3 shadow-sm transition hover:border-red-200/70"
                   >
-                    <span className="emergency-link-card__icon mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-red-50 text-red-700 ring-1 ring-red-100 transition group-hover:bg-red-100">
+                    <span className="emergency-link-card__icon mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-red-200/30 bg-red-500/16 text-red-100 transition group-hover:bg-red-400/18">
                       <Icon className="h-4 w-4" aria-hidden="true" />
                     </span>
-                    <span className="emergency-link-card__text min-w-0 flex-1 text-sm font-black leading-6 text-slate-900">
+                    <span className="emergency-link-card__text min-w-0 flex-1 text-sm font-black leading-6 text-white">
                       {item.title}
                     </span>
                     <span
-                      className="emergency-link-card__arrow mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-50 text-red-700 ring-1 ring-red-100 transition group-hover:translate-x-0.5 group-hover:bg-red-100"
+                      className="emergency-link-card__arrow ev-arrow-chip mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-red-50 transition group-hover:translate-x-0.5"
                       aria-hidden="true"
                     >
                       <ArrowRight className="h-3.5 w-3.5 shrink-0" />
@@ -668,24 +668,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="services" className="bg-white py-16 sm:py-24">
+      <section id="services" className="ev-storm-section py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-3xl">
-              <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-700">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">
                 High-intent services
               </p>
               <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl">
                 What do you need help with?
               </h2>
-              <p className="mt-4 text-lg leading-8 text-slate-700">
+              <p className="mt-4 text-lg leading-8 text-slate-200">
                 Choose the closest match for your electrical fault, Level 2
                 enquiry or planned quote request.
               </p>
             </div>
             <Link
               href="/services"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 font-black text-[#061E72] transition hover:border-blue-700 hover:text-blue-700"
+              className="ev-card-link inline-flex items-center justify-center gap-2 rounded-lg border border-cyan-300/30 px-5 py-3 font-black text-white transition hover:border-cyan-200"
             >
               View all services
               <ArrowRight className="h-4 w-4" />
@@ -700,18 +700,18 @@ export default function HomePage() {
                 <Link
                   key={service.title}
                   href={service.href}
-                  className="group rounded-lg border border-slate-200 bg-slate-50 p-4 transition hover:border-blue-500 hover:bg-blue-50 sm:p-5"
+                  className="ev-storm-card group rounded-lg border border-cyan-300/24 p-4 transition hover:border-cyan-200/70 sm:p-5"
                 >
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-700">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-cyan-300/20 bg-cyan-300/12 text-cyan-100">
                     <Icon className="h-5 w-5" />
                   </span>
-                  <h3 className="mt-4 text-lg font-black leading-6 text-[#061E72]">
+                  <h3 className="mt-4 text-lg font-black leading-6 text-white">
                     {service.title}
                   </h3>
-                  <p className="mt-2 text-sm font-semibold leading-6 text-slate-600">
+                  <p className="mt-2 text-sm font-semibold leading-6 text-slate-200">
                     {service.text}
                   </p>
-                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-blue-700">
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-cyan-100">
                     Open {service.title}
                     <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                   </span>
@@ -722,16 +722,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-slate-100 py-16 sm:py-24">
+      <section className="ev-storm-section py-16 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:px-8">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-700">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">
               Verified proof
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl">
               Why call Evaready first?
             </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-700">
+            <p className="mt-5 text-lg leading-8 text-slate-200">
               Evaready keeps verified licence and business details visible,
               triages unsafe faults by phone and gives a clear next action before
               work begins.
@@ -739,13 +739,13 @@ export default function HomePage() {
             <div className="mt-5 flex flex-wrap gap-3 text-sm font-black">
               <Link
                 href="/about"
-                className="inline-flex min-h-10 items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-[#061E72] transition hover:border-blue-700 hover:text-blue-700"
+                className="ev-card-link inline-flex min-h-10 items-center justify-center rounded-lg border border-cyan-300/30 px-4 py-2 text-white transition hover:border-cyan-200"
               >
                 About Evaready
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex min-h-10 items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-[#061E72] transition hover:border-blue-700 hover:text-blue-700"
+                className="ev-card-link inline-flex min-h-10 items-center justify-center rounded-lg border border-cyan-300/30 px-4 py-2 text-white transition hover:border-cyan-200"
               >
                 Contact
               </Link>
@@ -759,13 +759,13 @@ export default function HomePage() {
               return (
                 <article
                   key={item.title}
-                  className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
+                  className="ev-storm-card ev-storm-card--trust rounded-lg border border-cyan-300/24 p-6 shadow-sm"
                 >
-                  <Icon className="h-7 w-7 text-blue-700" />
-                  <h3 className="mt-5 text-xl font-black text-[#061E72]">
+                  <Icon className="h-7 w-7 text-cyan-200" />
+                  <h3 className="mt-5 text-xl font-black text-white">
                     {item.title}
                   </h3>
-                  <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
+                  <p className="mt-3 leading-7 text-slate-200">{item.text}</p>
                 </article>
               );
             })}
@@ -773,27 +773,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="areas" className="bg-white py-16 sm:py-24">
+      <section id="areas" className="ev-storm-section py-16 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:px-8">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-700">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">
               Service areas
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl">
               Sydney & Surrounding Regions.
             </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-700">
+            <p className="mt-5 text-lg leading-8 text-slate-200">
               Browse major regions or search suburb and postcode pages for local
               electrical service information.
             </p>
-            <p className="mt-4 text-base font-semibold leading-7 text-slate-600">
+            <p className="mt-4 text-base font-semibold leading-7 text-slate-300">
               Core electrical service across Sydney and surrounding regions.
               Extended service areas may depend on job type, urgency and
               availability.
             </p>
             <Link
               href="/service-areas"
-              className="mt-7 inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 font-black text-[#061E72] transition hover:border-blue-700 hover:text-blue-700"
+              className="ev-card-link mt-7 inline-flex items-center justify-center gap-2 rounded-lg border border-cyan-300/30 px-5 py-3 font-black text-white transition hover:border-cyan-200"
             >
               View service areas
               <MapPin className="h-5 w-5" />
@@ -805,15 +805,15 @@ export default function HomePage() {
               <Link
                 key={region.name}
                 href={region.href}
-                className="group rounded-lg border border-slate-200 bg-slate-50 p-4 transition hover:border-blue-600 hover:bg-blue-50"
+                className="ev-storm-card group rounded-lg border border-cyan-300/24 p-4 transition hover:border-cyan-200/70"
               >
                 <div className="flex items-start gap-3">
-                  <MapPin className="mt-1 h-5 w-5 shrink-0 text-blue-700" />
+                  <MapPin className="mt-1 h-5 w-5 shrink-0 text-cyan-200" />
                   <div>
-                    <h3 className="font-black text-[#061E72]">
+                    <h3 className="font-black text-white">
                       {region.name}
                     </h3>
-                    <p className="mt-1 text-sm font-semibold leading-6 text-slate-600">
+                    <p className="mt-1 text-sm font-semibold leading-6 text-slate-200">
                       {region.focus}
                     </p>
                   </div>
@@ -824,17 +824,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-slate-50 py-16 sm:py-24">
+      <section className="ev-storm-section ev-storm-section--subtle py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-700">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">
                 FAQ
               </p>
               <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl">
                 Common electrical questions.
               </h2>
-              <p className="mt-5 text-lg leading-8 text-slate-700">
+              <p className="mt-5 text-lg leading-8 text-slate-200">
                 Quick answers before you call or request a quote.
               </p>
             </div>
@@ -843,10 +843,10 @@ export default function HomePage() {
               {faqs.map((faq) => (
                 <article
                   key={faq.question}
-                  className="rounded-lg border border-slate-200 bg-white p-6"
+                  className="ev-storm-card rounded-lg border border-cyan-300/24 p-6"
                 >
                   <h3 className="text-xl font-black">{faq.question}</h3>
-                  <p className="mt-3 leading-7 text-slate-600">
+                  <p className="mt-3 leading-7 text-slate-200">
                     <PhoneLinkedText text={faq.answer} />
                   </p>
                   {faq.showActions ? (
@@ -880,7 +880,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[#06142f] py-12 text-white sm:py-16" aria-labelledby="home-final-cta-heading">
+      <section className="ev-storm-section py-12 text-white sm:py-16" aria-labelledby="home-final-cta-heading">
         <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
           <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">
             Ready for electrical help?

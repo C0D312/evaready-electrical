@@ -3646,6 +3646,530 @@ a[data-quote-trigger="true"].site-header-quote {
   }
 }
 
+/* Definitive final sticky CTA fit guard. Keep this at the end so legacy button rules cannot win. */
+html body .mobile-sticky-cta {
+  left: max(0.72rem, env(safe-area-inset-left)) !important;
+  right: max(0.72rem, env(safe-area-inset-right)) !important;
+  width: auto !important;
+  max-width: calc(100vw - 1.44rem) !important;
+  box-sizing: border-box !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  gap: clamp(0.38rem, 1.8vw, 0.58rem) !important;
+  overflow: visible !important;
+}
+
+html body .mobile-sticky-cta .mobile-sticky-cta__link {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  min-height: clamp(3rem, 12vw, 3.22rem) !important;
+  padding: 0.58rem clamp(0.42rem, 2.2vw, 0.72rem) !important;
+  gap: clamp(0.28rem, 1.4vw, 0.45rem) !important;
+  font-size: clamp(0.68rem, 2.55vw, 0.84rem) !important;
+  line-height: 1.06 !important;
+  text-align: center !important;
+  white-space: normal !important;
+  overflow: visible !important;
+}
+
+html body .mobile-sticky-cta .mobile-sticky-cta__link span {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  overflow-wrap: normal !important;
+  text-wrap: balance !important;
+}
+
+html body .mobile-sticky-cta .mobile-sticky-cta__link svg {
+  width: clamp(0.88rem, 3.6vw, 1.05rem) !important;
+  height: clamp(0.88rem, 3.6vw, 1.05rem) !important;
+  flex: 0 0 auto !important;
+}
+
+@media (min-width: 361px) {
+  html body .mobile-sticky-cta .mobile-sticky-cta__link span {
+    white-space: nowrap !important;
+    text-wrap: nowrap !important;
+  }
+}
+
+/* Final sticky CTA fit guard: keep the emergency lead bar usable on narrow phones. */
+html body .mobile-sticky-cta {
+  left: max(0.72rem, env(safe-area-inset-left)) !important;
+  right: max(0.72rem, env(safe-area-inset-right)) !important;
+  width: auto !important;
+  max-width: calc(100vw - 1.44rem) !important;
+  box-sizing: border-box !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  gap: clamp(0.38rem, 1.8vw, 0.58rem) !important;
+  overflow: visible !important;
+}
+
+html body .mobile-sticky-cta .mobile-sticky-cta__link {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  min-height: clamp(3rem, 12vw, 3.22rem) !important;
+  padding: 0.58rem clamp(0.42rem, 2.2vw, 0.72rem) !important;
+  gap: clamp(0.28rem, 1.4vw, 0.45rem) !important;
+  font-size: clamp(0.68rem, 2.55vw, 0.84rem) !important;
+  line-height: 1.06 !important;
+  text-align: center !important;
+  white-space: normal !important;
+  overflow: visible !important;
+}
+
+html body .mobile-sticky-cta .mobile-sticky-cta__link span {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  overflow-wrap: normal !important;
+  text-wrap: balance !important;
+}
+
+html body .mobile-sticky-cta .mobile-sticky-cta__link svg {
+  width: clamp(0.88rem, 3.6vw, 1.05rem) !important;
+  height: clamp(0.88rem, 3.6vw, 1.05rem) !important;
+  flex: 0 0 auto !important;
+}
+
+@media (min-width: 361px) {
+  html body .mobile-sticky-cta .mobile-sticky-cta__link span {
+    white-space: nowrap !important;
+    text-wrap: nowrap !important;
+  }
+}
+
+/* Real custom Evaready storm design system.
+   This final layer makes the storm assets drive the page, sections, cards and footer
+   instead of sitting faintly behind old flat wrappers. */
+body.ev-storm-page,
+body.ev-electric-theme-bg {
+  --ev-storm-section-surface:
+    radial-gradient(circle at 8% 18%, rgba(7, 156, 255, 0.42), transparent 30rem),
+    radial-gradient(circle at 92% 16%, rgba(233, 17, 30, 0.32), transparent 28rem),
+    linear-gradient(135deg, rgba(2, 5, 13, 0.76), rgba(9, 29, 66, 0.68) 52%, rgba(2, 5, 13, 0.84)),
+    var(--ev-storm-bg-active);
+  --ev-storm-card-surface:
+    linear-gradient(145deg, rgba(4, 11, 28, 0.9), rgba(9, 29, 66, 0.76) 58%, rgba(5, 18, 45, 0.92)),
+    radial-gradient(circle at 0% 20%, rgba(98, 216, 255, 0.16), transparent 18rem),
+    radial-gradient(circle at 100% 12%, rgba(255, 50, 71, 0.1), transparent 16rem),
+    var(--ev-storm-bg-active);
+  --ev-storm-panel-surface:
+    linear-gradient(135deg, rgba(2, 5, 13, 0.94), rgba(8, 35, 85, 0.82) 56%, rgba(4, 11, 28, 0.94)),
+    radial-gradient(circle at 10% 12%, rgba(98, 216, 255, 0.2), transparent 20rem),
+    radial-gradient(circle at 94% 12%, rgba(233, 17, 30, 0.13), transparent 18rem),
+    var(--ev-storm-bg-active);
+  --ev-storm-emergency-surface:
+    linear-gradient(135deg, rgba(117, 7, 19, 0.76), rgba(7, 21, 51, 0.82) 52%, rgba(2, 5, 13, 0.92)),
+    radial-gradient(circle at 8% 12%, rgba(255, 50, 71, 0.3), transparent 19rem),
+    radial-gradient(circle at 92% 22%, rgba(98, 216, 255, 0.14), transparent 18rem),
+    var(--ev-storm-bg-active);
+  color: var(--ev-white) !important;
+}
+
+body.ev-storm-page::before,
+body.ev-electric-theme-bg::before {
+  opacity: 0.86 !important;
+}
+
+body.ev-storm-page::after,
+body.ev-electric-theme-bg::after {
+  opacity: 1 !important;
+}
+
+.ev-storm-page,
+.core-storm-page,
+.generated-storm-page,
+.ev-storm-legal {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow-x: clip !important;
+  color: var(--ev-white) !important;
+  background:
+    radial-gradient(circle at 6% 12%, rgba(0, 132, 255, 0.54), transparent 32rem),
+    radial-gradient(circle at 96% 10%, rgba(233, 17, 30, 0.4), transparent 30rem),
+    linear-gradient(180deg, rgba(2, 5, 13, 0.16), rgba(2, 5, 13, 0.66) 34rem, rgba(4, 11, 28, 0.9)),
+    var(--ev-storm-bg-active) !important;
+  background-position: left top, right top, center top, center top !important;
+  background-repeat: no-repeat, no-repeat, repeat, repeat-y !important;
+  background-size: auto, auto, auto, max(1500px, 100vw) auto !important;
+}
+
+.ev-storm-page::before,
+.core-storm-page::before,
+.generated-storm-page::before,
+.ev-storm-legal::before {
+  content: "" !important;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: -2 !important;
+  pointer-events: none !important;
+  background:
+    linear-gradient(90deg, rgba(0, 132, 255, 0.28), rgba(2, 5, 13, 0.35) 43%, rgba(233, 17, 30, 0.24)),
+    linear-gradient(180deg, rgba(2, 5, 13, 0.02), rgba(2, 5, 13, 0.56)),
+    var(--ev-storm-bg-active) !important;
+  background-position: center top !important;
+  background-repeat: repeat-y !important;
+  background-size: max(1500px, 100vw) auto !important;
+  opacity: 0.74 !important;
+  mix-blend-mode: screen !important;
+}
+
+.ev-storm-page::after,
+.core-storm-page::after,
+.generated-storm-page::after,
+.ev-storm-legal::after {
+  content: "" !important;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(2, 5, 13, 0.08), rgba(2, 5, 13, 0.68) 48rem),
+    linear-gradient(180deg, rgba(2, 5, 13, 0.1), rgba(2, 5, 13, 0.42) 38%, rgba(2, 5, 13, 0.68));
+}
+
+.ev-storm-section,
+.ev-storm-section--hero,
+.ev-storm-section--emergency,
+.ev-storm-section--subtle,
+.core-storm-page > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee),
+.generated-storm-page > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee),
+.core-storm-page :is(.quote-request-panel, .services-featured-section, .services-problem-selector, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section),
+.generated-storm-page :is(.quote-request-panel, .services-featured-section, .services-problem-selector, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section) {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  color: var(--ev-white) !important;
+  background: var(--ev-storm-section-surface) !important;
+  background-position: left top, right top, center, center top !important;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat !important;
+  background-size: auto, auto, auto, cover !important;
+  background-blend-mode: normal, normal, normal, screen !important;
+  border-color: rgba(98, 216, 255, 0.25) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(98, 216, 255, 0.16),
+    inset 0 -1px 0 rgba(233, 17, 30, 0.12),
+    0 0 64px rgba(7, 156, 255, 0.11) !important;
+}
+
+.ev-storm-section::before,
+.ev-storm-section--hero::before,
+.ev-storm-section--emergency::before,
+.ev-storm-section--subtle::before,
+.core-storm-page > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee)::before,
+.generated-storm-page > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee)::before,
+.core-storm-page :is(.quote-request-panel, .services-featured-section, .services-problem-selector, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section)::before,
+.generated-storm-page :is(.quote-request-panel, .services-featured-section, .services-problem-selector, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section)::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  background:
+    linear-gradient(90deg, rgba(0, 132, 255, 0.38), rgba(2, 5, 13, 0.28) 44%, rgba(233, 17, 30, 0.28)),
+    linear-gradient(180deg, rgba(2, 5, 13, 0.04), rgba(2, 5, 13, 0.58)),
+    var(--ev-storm-bg-active) !important;
+  background-position: center top !important;
+  background-size: cover !important;
+  opacity: 0.76 !important;
+  mix-blend-mode: screen !important;
+}
+
+.ev-storm-section::after,
+.ev-storm-section--hero::after,
+.ev-storm-section--emergency::after,
+.ev-storm-section--subtle::after,
+.core-storm-page > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee)::after,
+.generated-storm-page > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee)::after,
+.core-storm-page :is(.quote-request-panel, .services-featured-section, .services-problem-selector, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section)::after,
+.generated-storm-page :is(.quote-request-panel, .services-featured-section, .services-problem-selector, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section)::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(circle at 9% 52%, rgba(98, 216, 255, 0.22), transparent 24rem),
+    radial-gradient(circle at 92% 46%, rgba(255, 50, 71, 0.16), transparent 24rem),
+    linear-gradient(180deg, rgba(2, 5, 13, 0.08), rgba(2, 5, 13, 0.34));
+}
+
+.ev-storm-section > *,
+.ev-storm-section--hero > *,
+.ev-storm-section--emergency > *,
+.ev-storm-section--subtle > *,
+.core-storm-page > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee) > *,
+.generated-storm-page > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee) > *,
+.core-storm-page :is(.quote-request-panel, .services-featured-section, .services-problem-selector, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section) > *,
+.generated-storm-page :is(.quote-request-panel, .services-featured-section, .services-problem-selector, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section) > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.ev-storm-section--hero,
+.home-brand-hero .home-hero-copy-panel,
+.brand-internal-hero .internal-hero-copy-panel {
+  box-shadow:
+    0 26px 82px rgba(0, 0, 0, 0.46),
+    0 0 58px rgba(7, 156, 255, 0.22),
+    0 0 0 1px rgba(98, 216, 255, 0.12) inset !important;
+}
+
+.ev-storm-section--emergency,
+.core-storm-emergency > section:not(.home-brand-hero):not(.brand-internal-hero),
+.core-storm-page :is(.emergency-trust-panel, .issue-selector-section, .service-detail-warning-section, .warningPanel) {
+  background: var(--ev-storm-emergency-surface) !important;
+  background-position: center, left top, right top, center top !important;
+  background-size: auto, auto, auto, cover !important;
+  border-color: rgba(255, 50, 71, 0.35) !important;
+}
+
+.ev-storm-section--subtle,
+.ev-storm-legal,
+.legal-page {
+  background:
+    linear-gradient(180deg, rgba(2, 5, 13, 0.82), rgba(4, 11, 28, 0.92)),
+    var(--ev-storm-bg-active) !important;
+  background-size: cover !important;
+  background-position: center top !important;
+}
+
+.ev-storm-section--subtle::before,
+.ev-storm-legal::before,
+.legal-page > section:not(.brand-internal-hero)::before {
+  opacity: 0.22 !important;
+}
+
+.ev-storm-panel,
+.ev-storm-panel--strong,
+.ev-storm-card,
+.ev-storm-card--emergency,
+.ev-storm-card--trust,
+.ev-storm-card--quote,
+.ev-electric-card,
+.core-storm-page main section :is(article, aside, div, li, details)[class*="rounded"][class*="border"]:not(.quote-modal-frame-shell):not(.quote-modal-iframe):not(.mobile-sticky-cta):not(.mobile-primary-nav__panel),
+.core-storm-page section :is(article, aside, div, li, details)[class*="rounded"][class*="border"]:not(.quote-modal-frame-shell):not(.quote-modal-iframe):not(.mobile-sticky-cta):not(.mobile-primary-nav__panel),
+.generated-storm-page section :is(article, aside, div, li, details)[class*="rounded"][class*="border"]:not(.quote-modal-frame-shell):not(.quote-modal-iframe):not(.mobile-sticky-cta):not(.mobile-primary-nav__panel),
+.core-storm-page :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50):not(a):not(button):not(input):not(textarea):not(select):not(.quote-modal-frame-shell):not(.quote-modal-iframe):not(.mobile-primary-nav__panel),
+.generated-storm-page :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50):not(a):not(button):not(input):not(textarea):not(select):not(.quote-modal-frame-shell):not(.quote-modal-iframe):not(.mobile-primary-nav__panel) {
+  background: var(--ev-storm-card-surface) !important;
+  background-position: center, left top, right top, center top !important;
+  background-repeat: no-repeat !important;
+  background-size: auto, auto, auto, cover !important;
+  background-blend-mode: normal, normal, normal, screen !important;
+  border-color: rgba(98, 216, 255, 0.38) !important;
+  color: var(--ev-white) !important;
+  box-shadow:
+    0 18px 56px rgba(0, 0, 0, 0.4),
+    0 0 34px rgba(7, 156, 255, 0.18),
+    0 0 0 1px rgba(98, 216, 255, 0.1) inset !important;
+  backdrop-filter: blur(12px) saturate(1.08);
+}
+
+.ev-storm-panel,
+.ev-storm-panel--strong,
+.core-storm-page :is(.home-hero-copy-panel, .internal-hero-copy-panel, .brand-hero-card, .quote-home-card, .quote-request-panel > .mx-auto, .service-area-search, .contact-card, .lead-offer-panel, .legal-content-card),
+.generated-storm-page :is(.internal-hero-copy-panel, .brand-hero-card, .quote-request-panel > .mx-auto, .service-area-search, .legal-content-card) {
+  background: var(--ev-storm-panel-surface) !important;
+  border-color: rgba(98, 216, 255, 0.42) !important;
+  box-shadow:
+    0 24px 78px rgba(0, 0, 0, 0.48),
+    0 0 56px rgba(7, 156, 255, 0.22),
+    0 0 0 1px rgba(98, 216, 255, 0.12) inset !important;
+}
+
+.ev-storm-card--emergency,
+.core-storm-page :is(.emergency-link-card--triage, .emergency-card, .warning-card, .hazardCard, .safetyCard, [data-suburb-action-card="call-first"], [class*="border-red"]):not(.ev-btn):not([href^="tel:"]),
+.generated-storm-page :is(.emergency-link-card--triage, .emergency-card, .warning-card, .hazardCard, .safetyCard, [data-suburb-action-card="call-first"], [class*="border-red"]):not(.ev-btn):not([href^="tel:"]) {
+  background: var(--ev-storm-emergency-surface) !important;
+  border-color: rgba(255, 50, 71, 0.56) !important;
+  box-shadow:
+    0 18px 58px rgba(0, 0, 0, 0.42),
+    0 0 38px rgba(233, 17, 30, 0.3),
+    0 0 0 1px rgba(255, 50, 71, 0.12) inset !important;
+}
+
+.ev-storm-card--trust,
+.core-storm-page :is(.credential-card, .footer-credential-card, .service-credential-card, .google-rating-seal, .google-review-proof__panel, .home-hero-trust-card, .proofCard, .processCard),
+.generated-storm-page :is(.credential-card, .footer-credential-card, .service-credential-card, .google-rating-seal, .google-review-proof__panel, .home-hero-trust-card, .proofCard, .processCard) {
+  background:
+    linear-gradient(145deg, rgba(6, 20, 47, 0.92), rgba(10, 50, 102, 0.76)),
+    radial-gradient(circle at 8% 12%, rgba(98, 216, 255, 0.2), transparent 18rem),
+    var(--ev-storm-bg-active) !important;
+  border-color: rgba(98, 216, 255, 0.46) !important;
+  box-shadow:
+    0 18px 58px rgba(0, 0, 0, 0.36),
+    0 0 44px rgba(98, 216, 255, 0.2),
+    0 0 0 1px rgba(98, 216, 255, 0.11) inset !important;
+}
+
+.ev-storm-card--quote,
+.core-storm-page :is(.quote-home-card, .quote-request-card, .quote-request-summary, .quote-process-graphic, .quoteSteps, .service-area-search),
+.generated-storm-page :is(.quote-home-card, .quote-request-card, .quote-request-summary, .quote-process-graphic, .quoteSteps, .service-area-search) {
+  background:
+    linear-gradient(145deg, rgba(4, 11, 28, 0.92), rgba(8, 55, 120, 0.76)),
+    radial-gradient(circle at 12% 14%, rgba(7, 156, 255, 0.24), transparent 18rem),
+    var(--ev-storm-bg-active) !important;
+  border-color: rgba(7, 156, 255, 0.5) !important;
+  box-shadow:
+    0 18px 58px rgba(0, 0, 0, 0.36),
+    0 0 46px rgba(7, 156, 255, 0.24),
+    0 0 0 1px rgba(98, 216, 255, 0.11) inset !important;
+}
+
+.ev-storm-grid {
+  display: grid;
+  gap: clamp(0.9rem, 2vw, 1.4rem);
+}
+
+.ev-storm-footer,
+.site-footer.ev-storm-footer,
+body.ev-storm-page .site-footer,
+body.ev-electric-theme-bg .site-footer {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(circle at 8% 20%, rgba(7, 156, 255, 0.36), transparent 28rem),
+    radial-gradient(circle at 92% 14%, rgba(233, 17, 30, 0.24), transparent 26rem),
+    linear-gradient(135deg, rgba(2, 5, 13, 0.94), rgba(7, 21, 51, 0.9) 58%, rgba(2, 5, 13, 0.96)),
+    var(--ev-storm-bg-active) !important;
+  background-size: auto, auto, auto, cover !important;
+  background-position: left top, right top, center, center top !important;
+  color: var(--ev-white) !important;
+  border-top: 1px solid rgba(98, 216, 255, 0.24);
+  box-shadow:
+    inset 0 1px 0 rgba(98, 216, 255, 0.14),
+    0 -24px 70px rgba(7, 156, 255, 0.12) !important;
+}
+
+.ev-storm-footer::before,
+.site-footer.ev-storm-footer::before {
+  opacity: 0.54 !important;
+}
+
+.route-marquee-strip,
+.emergency-issue-marquee {
+  background:
+    linear-gradient(90deg, rgba(4, 11, 28, 0.98), rgba(9, 29, 66, 0.9) 50%, rgba(117, 7, 19, 0.72)),
+    var(--ev-storm-bg-active) !important;
+  background-size: auto, cover !important;
+  background-position: center, center !important;
+  border-color: rgba(98, 216, 255, 0.26) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(98, 216, 255, 0.14),
+    inset 0 -1px 0 rgba(233, 17, 30, 0.16),
+    0 0 36px rgba(7, 156, 255, 0.14) !important;
+}
+
+body.ev-storm-page main :is(.text-\[\#061E72\], .text-slate-950, .text-slate-900, .text-slate-800, .text-gray-950, .text-gray-900, .text-blue-950, .text-blue-900),
+body.ev-electric-theme-bg main :is(.text-\[\#061E72\], .text-slate-950, .text-slate-900, .text-slate-800, .text-gray-950, .text-gray-900, .text-blue-950, .text-blue-900) {
+  color: var(--ev-white) !important;
+}
+
+body.ev-storm-page main :is(.text-slate-700, .text-slate-600, .text-slate-500, .text-gray-700, .text-gray-600, .text-blue-800),
+body.ev-electric-theme-bg main :is(.text-slate-700, .text-slate-600, .text-slate-500, .text-gray-700, .text-gray-600, .text-blue-800) {
+  color: var(--ev-silver) !important;
+}
+
+body.ev-storm-page main :is(.border-slate-200, .border-slate-300, .border-blue-100, .border-blue-200, .border-cyan-100),
+body.ev-electric-theme-bg main :is(.border-slate-200, .border-slate-300, .border-blue-100, .border-blue-200, .border-cyan-100) {
+  border-color: rgba(98, 216, 255, 0.32) !important;
+}
+
+body.ev-storm-page main :is(.hover\:bg-blue-50:hover, .hover\:bg-red-50:hover, .hover\:bg-white:hover, .hover\:bg-slate-50:hover),
+body.ev-electric-theme-bg main :is(.hover\:bg-blue-50:hover, .hover\:bg-red-50:hover, .hover\:bg-white:hover, .hover\:bg-slate-50:hover) {
+  background:
+    linear-gradient(145deg, rgba(13, 43, 92, 0.96), rgba(9, 29, 66, 0.9)),
+    var(--ev-storm-bg-active) !important;
+  background-blend-mode: normal, screen !important;
+}
+
+.core-storm-page > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee) > .mx-auto,
+.generated-storm-page > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee) > .mx-auto,
+.ev-storm-section > .mx-auto {
+  width: min(100% - 2rem, 1280px) !important;
+}
+
+.core-storm-page :is(.max-w-7xl, .max-w-6xl),
+.generated-storm-page :is(.max-w-7xl, .max-w-6xl) {
+  max-width: min(1280px, calc(100% - 2rem)) !important;
+}
+
+.core-storm-page,
+.core-storm-page *,
+.generated-storm-page,
+.generated-storm-page * {
+  transform-origin: center top;
+}
+
+.quote-modal-frame-shell,
+.quote-modal-iframe,
+.quote-modal-frame-shell.bg-white,
+.quote-modal-iframe.bg-white,
+body.ev-storm-page .quote-modal-frame-shell,
+body.ev-electric-theme-bg .quote-modal-frame-shell,
+body.ev-storm-page .quote-modal-iframe,
+body.ev-electric-theme-bg .quote-modal-iframe {
+  background: #ffffff !important;
+  color: #111827 !important;
+  backdrop-filter: none !important;
+}
+
+body.ev-storm-page .mobile-primary-nav__panel,
+body.ev-electric-theme-bg .mobile-primary-nav__panel {
+  background: #ffffff !important;
+  color: #111827 !important;
+}
+
+@media (max-width: 640px) {
+  .ev-storm-page,
+  .core-storm-page,
+  .generated-storm-page,
+  .ev-storm-legal {
+    background:
+      radial-gradient(circle at 0% 10%, rgba(0, 132, 255, 0.5), transparent 18rem),
+      radial-gradient(circle at 100% 8%, rgba(233, 17, 30, 0.34), transparent 18rem),
+      linear-gradient(180deg, rgba(2, 5, 13, 0.42), rgba(2, 5, 13, 0.84)),
+      var(--ev-storm-bg-active) !important;
+    background-size: auto, auto, auto, 100% auto !important;
+    background-attachment: scroll !important;
+  }
+
+  .ev-storm-page::before,
+  .core-storm-page::before,
+  .generated-storm-page::before,
+  .ev-storm-legal::before {
+    background-size: 100% auto !important;
+    opacity: 0.6 !important;
+  }
+
+  .ev-storm-section::before,
+  .ev-storm-section--hero::before,
+  .ev-storm-section--emergency::before,
+  .ev-storm-section--subtle::before,
+  .core-storm-page > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee)::before,
+  .generated-storm-page > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee)::before {
+    opacity: 0.54 !important;
+    background-size: 100% auto !important;
+  }
+
+  .ev-storm-card,
+  .ev-storm-panel,
+  .core-storm-page section :is(article, aside, div, li, details)[class*="rounded"][class*="border"]:not(.quote-modal-frame-shell):not(.quote-modal-iframe):not(.mobile-sticky-cta):not(.mobile-primary-nav__panel),
+  .generated-storm-page section :is(article, aside, div, li, details)[class*="rounded"][class*="border"]:not(.quote-modal-frame-shell):not(.quote-modal-iframe):not(.mobile-sticky-cta):not(.mobile-primary-nav__panel) {
+    backdrop-filter: blur(8px) saturate(1.05);
+  }
+}
+
 /* Final generated-template storm layer. This comes after the broader theme
    cascade so generated service, region, area and suburb templates keep the
    custom storm treatment even when older utility classes are present. */
@@ -10767,6 +11291,56 @@ html body main a[class*="warningCard"][data-conversion-action] > span > svg:last
 
   .mobile-sticky-cta {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Definitive sticky CTA fit guard. It sits after all sticky-specific legacy sizing rules. */
+html body .mobile-sticky-cta {
+  left: max(0.72rem, env(safe-area-inset-left)) !important;
+  right: max(0.72rem, env(safe-area-inset-right)) !important;
+  width: auto !important;
+  max-width: calc(100vw - 1.44rem) !important;
+  box-sizing: border-box !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  gap: clamp(0.38rem, 1.8vw, 0.58rem) !important;
+  overflow: visible !important;
+}
+
+html body .mobile-sticky-cta .mobile-sticky-cta__link {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  min-height: clamp(3rem, 12vw, 3.22rem) !important;
+  padding: 0.58rem clamp(0.42rem, 2.2vw, 0.72rem) !important;
+  gap: clamp(0.28rem, 1.4vw, 0.45rem) !important;
+  font-size: clamp(0.68rem, 2.55vw, 0.84rem) !important;
+  line-height: 1.06 !important;
+  text-align: center !important;
+  white-space: normal !important;
+  overflow: visible !important;
+}
+
+html body .mobile-sticky-cta .mobile-sticky-cta__link span {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  overflow-wrap: normal !important;
+  text-wrap: balance !important;
+}
+
+html body .mobile-sticky-cta .mobile-sticky-cta__link svg {
+  width: clamp(0.88rem, 3.6vw, 1.05rem) !important;
+  height: clamp(0.88rem, 3.6vw, 1.05rem) !important;
+  flex: 0 0 auto !important;
+}
+
+@media (min-width: 361px) {
+  html body .mobile-sticky-cta .mobile-sticky-cta__link span {
+    white-space: nowrap !important;
+    text-wrap: nowrap !important;
   }
 }
 
