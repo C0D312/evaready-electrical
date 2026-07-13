@@ -36,38 +36,30 @@ const legalLinks = [
 export function SiteHeader() {
   return (
     <>
-      <header className="site-header ev-electric-header fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)]">
-        <div className="ev-electric-header-shell">
-          <div className="ev-electric-header-banner-row">
+      <header className="site-header ev-electric-header ev-header-shell fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)]">
+        <div className="ev-electric-header-shell ev-header-layout">
+          <div className="ev-header-art-strip">
             <HomeNavigationLink
               data-header-logo="true"
-              className="ev-electric-header-brand"
+              className="ev-header-logo-wrap"
             >
-              <picture className="ev-electric-header-picture">
-                <source
-                  media="(max-width: 639px)"
-                  srcSet={assetPath("/images/evaready-electric-header-mobile-v2.webp")}
-                />
-                <source
-                  media="(max-width: 1023px)"
-                  srcSet={assetPath("/images/evaready-electric-header-tablet-v2.webp")}
-                />
-                <img
-                  src={assetPath("/images/evaready-electric-header-desktop-v2.webp")}
-                  alt="Evaready Electrical 24/7"
-                  width={2560}
-                  height={520}
-                  loading="eager"
-                  decoding="async"
-                  className="ev-electric-header-banner"
-                />
-              </picture>
+              <Image
+                src={assetPath(business.logoImage)}
+                alt="Evaready Electrical 24/7"
+                width={1000}
+                height={353}
+                priority
+                sizes="(max-width: 1023px) calc(100vw - 86px), min(58vw, 980px)"
+                className="ev-header-logo"
+              />
             </HomeNavigationLink>
 
-            <MobilePrimaryNav />
+            <div className="ev-mobile-menu-zone">
+              <MobilePrimaryNav />
+            </div>
           </div>
 
-          <div className="ev-electric-desktop-nav-row">
+          <div className="ev-desktop-nav-bar ev-electric-desktop-nav-row">
             <nav className="ev-electric-main-nav" aria-label="Primary navigation">
                 {navItems.map((item) => {
                   const className = `ev-electric-nav-link ${item.desktopClassName ?? ""}`.trim();
