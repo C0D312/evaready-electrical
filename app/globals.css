@@ -3408,6 +3408,244 @@ a[data-quote-trigger="true"].site-header-quote {
   }
 }
 
+/* Core commercial storm-theme deep pass.
+   These rules make the main conversion pages use the storm system directly,
+   while keeping the quote iframe, mobile menu and sticky CTA isolated. */
+.core-storm-page {
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+  color: var(--ev-white) !important;
+  background:
+    radial-gradient(circle at 6% 10%, rgba(0, 132, 255, 0.42), transparent 30rem),
+    radial-gradient(circle at 94% 8%, rgba(233, 17, 30, 0.34), transparent 29rem),
+    linear-gradient(180deg, rgba(2, 5, 13, 0.38), rgba(4, 11, 28, 0.8) 30rem, rgba(6, 20, 47, 0.92)),
+    var(--ev-storm-bg-active) !important;
+  background-attachment: scroll, scroll, scroll, fixed !important;
+  background-position: left top, right top, center top, center top !important;
+  background-repeat: no-repeat, no-repeat, repeat, repeat-y !important;
+  background-size: auto, auto, auto, max(1480px, 100vw) auto !important;
+}
+
+.core-storm-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(0, 132, 255, 0.2), rgba(2, 5, 13, 0.42) 44%, rgba(233, 17, 30, 0.18)),
+    linear-gradient(180deg, rgba(2, 5, 13, 0.06), rgba(2, 5, 13, 0.58)),
+    var(--ev-storm-bg-active);
+  background-position: center top;
+  background-repeat: repeat-y;
+  background-size: max(1480px, 100vw) auto;
+  opacity: 0.54;
+  mix-blend-mode: screen;
+}
+
+.core-storm-page > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee),
+.core-storm-page :is(.quote-request-panel, .services-featured-section, .services-problem-selector, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section) {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  color: var(--ev-white) !important;
+  background:
+    radial-gradient(circle at 9% 12%, rgba(7, 156, 255, 0.42), transparent 28rem),
+    radial-gradient(circle at 92% 12%, rgba(233, 17, 30, 0.2), transparent 27rem),
+    linear-gradient(135deg, rgba(2, 5, 13, 0.82), rgba(9, 29, 66, 0.72) 54%, rgba(2, 5, 13, 0.86)),
+    var(--ev-storm-bg-active) !important;
+  background-position: left top, right top, center, center top !important;
+  background-size: auto, auto, auto, cover !important;
+  background-blend-mode: normal, normal, normal, screen !important;
+  border-color: rgba(98, 216, 255, 0.24) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(98, 216, 255, 0.16),
+    inset 0 -1px 0 rgba(233, 17, 30, 0.1),
+    0 0 58px rgba(7, 156, 255, 0.1) !important;
+}
+
+.core-storm-page > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee)::before,
+.core-storm-page :is(.quote-request-panel, .services-featured-section, .services-problem-selector, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section)::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  background:
+    linear-gradient(90deg, rgba(0, 132, 255, 0.34), rgba(2, 5, 13, 0.36) 44%, rgba(233, 17, 30, 0.22)),
+    linear-gradient(180deg, rgba(2, 5, 13, 0.08), rgba(2, 5, 13, 0.58)),
+    var(--ev-storm-bg-active) !important;
+  background-size: cover !important;
+  background-position: center top !important;
+  opacity: 0.68 !important;
+  mix-blend-mode: screen !important;
+}
+
+.core-storm-page > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee)::after,
+.core-storm-page :is(.quote-request-panel, .services-featured-section, .services-problem-selector, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section)::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(circle at 10% 48%, rgba(98, 216, 255, 0.2), transparent 24rem),
+    radial-gradient(circle at 91% 46%, rgba(255, 50, 71, 0.14), transparent 24rem),
+    linear-gradient(180deg, transparent, rgba(2, 5, 13, 0.26));
+}
+
+.core-storm-page > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee) > *,
+.core-storm-page :is(.quote-request-panel, .services-featured-section, .services-problem-selector, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section) > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.core-storm-home > section[aria-labelledby="call-first-heading"],
+.core-storm-emergency > section,
+.core-storm-page :is(.emergency-trust-panel, .issue-selector-section, .warningPanel, .service-detail-warning-section) {
+  background:
+    radial-gradient(circle at 7% 16%, rgba(233, 17, 30, 0.48), transparent 29rem),
+    radial-gradient(circle at 90% 14%, rgba(7, 156, 255, 0.34), transparent 27rem),
+    linear-gradient(135deg, rgba(2, 5, 13, 0.86), rgba(117, 7, 19, 0.44) 42%, rgba(9, 29, 66, 0.74)),
+    var(--ev-storm-bg-active) !important;
+}
+
+.core-storm-page :is(.home-hero-copy-panel, .internal-hero-copy-panel, .brand-hero-card, .quote-home-card, .service-area-search, .quote-request-panel > .mx-auto, .contact-card, .lead-offer-panel, .legal-content-card),
+.core-storm-page :is(.rounded-\[2rem\], .rounded-3xl)[class*="border"]:not(.quote-modal-frame-shell):not(.quote-modal-iframe):not(.mobile-primary-nav__panel) {
+  background:
+    linear-gradient(135deg, rgba(4, 11, 28, 0.94), rgba(9, 29, 66, 0.82) 54%, rgba(4, 11, 28, 0.92)),
+    var(--ev-storm-bg-active) !important;
+  background-blend-mode: normal, screen !important;
+  border-color: rgba(98, 216, 255, 0.34) !important;
+  color: var(--ev-white) !important;
+  box-shadow:
+    0 24px 76px rgba(0, 0, 0, 0.46),
+    0 0 52px rgba(7, 156, 255, 0.2),
+    0 0 0 1px rgba(98, 216, 255, 0.1) inset !important;
+  backdrop-filter: blur(14px) saturate(1.12);
+}
+
+.core-storm-page :is(article, aside, div, li, details, a)[class*="rounded"][class*="border"]:not(.quote-modal-frame-shell):not(.quote-modal-iframe):not(.mobile-sticky-cta):not(.mobile-nav-trigger):not(.mobile-primary-nav__panel):not(.ev-btn):not(.ev-btn--call):not(.ev-btn--quote):not([data-quote-trigger="true"]):not([href^="tel:"]),
+.core-storm-page :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50):not(.quote-modal-frame-shell):not(.quote-modal-iframe):not(.mobile-primary-nav__panel):not(input):not(textarea):not(select):not(button) {
+  background:
+    linear-gradient(145deg, rgba(5, 18, 45, 0.9), rgba(8, 35, 85, 0.74)),
+    var(--ev-storm-bg-active) !important;
+  background-position: center, center top !important;
+  background-repeat: no-repeat !important;
+  background-size: auto, cover !important;
+  background-blend-mode: normal, screen !important;
+  border-color: rgba(98, 216, 255, 0.34) !important;
+  color: var(--ev-white) !important;
+  box-shadow:
+    0 18px 54px rgba(0, 0, 0, 0.38),
+    0 0 32px rgba(7, 156, 255, 0.15),
+    0 0 0 1px rgba(98, 216, 255, 0.08) inset !important;
+  backdrop-filter: blur(10px) saturate(1.08);
+}
+
+.core-storm-page :is(.emergency-link-card--triage, .emergency-card, .warning-card, .hazardCard, .safetyCard, .warningPanel, [data-suburb-action-card="call-first"], [class*="border-red"]):not(.ev-btn):not([href^="tel:"]) {
+  background:
+    linear-gradient(135deg, rgba(117, 7, 19, 0.74), rgba(9, 29, 66, 0.78) 54%, rgba(2, 5, 13, 0.9)),
+    var(--ev-storm-bg-active) !important;
+  border-color: rgba(255, 50, 71, 0.54) !important;
+  box-shadow:
+    0 18px 56px rgba(0, 0, 0, 0.4),
+    0 0 36px rgba(233, 17, 30, 0.28),
+    0 0 0 1px rgba(255, 50, 71, 0.1) inset !important;
+}
+
+.core-storm-page :is(.credential-card, .footer-credential-card, .service-credential-card, .google-rating-seal, .google-review-proof__panel, .home-hero-trust-card, .proofCard, .processCard) {
+  background:
+    linear-gradient(145deg, rgba(6, 20, 47, 0.9), rgba(10, 50, 102, 0.72)),
+    var(--ev-storm-bg-active) !important;
+  border-color: rgba(98, 216, 255, 0.44) !important;
+  box-shadow:
+    0 18px 56px rgba(0, 0, 0, 0.34),
+    0 0 42px rgba(98, 216, 255, 0.18),
+    0 0 0 1px rgba(98, 216, 255, 0.1) inset !important;
+}
+
+.core-storm-page :is(.quote-home-card, .quote-request-card, .quote-request-summary, .quote-process-graphic, .quoteSteps, .service-area-search) {
+  background:
+    linear-gradient(145deg, rgba(6, 20, 47, 0.92), rgba(8, 55, 120, 0.72)),
+    var(--ev-storm-bg-active) !important;
+  border-color: rgba(7, 156, 255, 0.48) !important;
+  box-shadow:
+    0 18px 56px rgba(0, 0, 0, 0.34),
+    0 0 42px rgba(7, 156, 255, 0.22),
+    0 0 0 1px rgba(98, 216, 255, 0.1) inset !important;
+}
+
+.core-storm-page :is(.ev-btn--quote, [data-quote-trigger="true"], .services-index-hero-cta--quote) {
+  background: linear-gradient(135deg, #0876ff 0%, #079cff 50%, #39d4ff 100%) !important;
+  border-color: rgba(98, 216, 255, 0.62) !important;
+  color: #ffffff !important;
+  box-shadow: 0 14px 34px rgba(7, 156, 255, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+}
+
+.core-storm-page :is(.ev-btn--call, [href^="tel:"].ev-btn, .services-index-hero-cta--call) {
+  background: linear-gradient(135deg, #b60410 0%, #e9111e 50%, #ff3247 100%) !important;
+  border-color: rgba(255, 125, 135, 0.48) !important;
+  color: #ffffff !important;
+  box-shadow: 0 14px 34px rgba(233, 17, 30, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+}
+
+.core-storm-page :is(h1, h2, h3, h4, h5, h6, .text-\[\#061E72\], .text-slate-950, .text-slate-900, .text-slate-800, .text-gray-950, .text-gray-900, .text-blue-950, .text-blue-900) {
+  color: var(--ev-white) !important;
+}
+
+.core-storm-page :is(p, li, dd, .text-slate-700, .text-slate-600, .text-slate-500, .text-gray-700, .text-gray-600, .text-blue-800) {
+  color: var(--ev-silver) !important;
+}
+
+.core-storm-page :is(.border-slate-200, .border-slate-300, .border-blue-100, .border-blue-200, .border-cyan-100) {
+  border-color: rgba(98, 216, 255, 0.3) !important;
+}
+
+.core-storm-page :is(.hover\:bg-blue-50:hover, .hover\:bg-red-50:hover, .hover\:bg-white:hover, .hover\:bg-slate-50:hover) {
+  background:
+    linear-gradient(145deg, rgba(13, 43, 92, 0.94), rgba(9, 29, 66, 0.84)),
+    var(--ev-storm-bg-active) !important;
+  background-blend-mode: normal, screen !important;
+}
+
+.core-storm-page :is(input, textarea, select) {
+  background: rgba(2, 5, 13, 0.78) !important;
+  border-color: rgba(98, 216, 255, 0.32) !important;
+  color: var(--ev-white) !important;
+}
+
+.core-storm-page :is(input, textarea, select)::placeholder {
+  color: rgba(214, 231, 242, 0.62) !important;
+}
+
+.core-storm-page .quote-modal-frame-shell,
+.core-storm-page .quote-modal-iframe,
+.core-storm-page .mobile-primary-nav__panel {
+  background: #ffffff !important;
+  color: #111827 !important;
+  box-shadow: none;
+}
+
+@media (max-width: 640px) {
+  .core-storm-page {
+    background-attachment: scroll !important;
+    background-size: auto, auto, auto, 100% auto !important;
+  }
+
+  .core-storm-page::before {
+    background-size: 100% auto !important;
+    opacity: 0.48;
+  }
+
+  .core-storm-page > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee)::before,
+  .core-storm-page :is(.quote-request-panel, .services-featured-section, .services-problem-selector, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section)::before {
+    opacity: 0.5 !important;
+    background-size: 100% auto !important;
+  }
+}
+
 @media (min-width: 1280px) {
   .footer-link-groups {
     gap: 1rem;
@@ -11787,5 +12025,241 @@ body.ev-electric-theme-bg .quote-modal-frame-shell {
   body.ev-storm-page .legal-page > section:not(.brand-internal-hero)::before,
   body.ev-electric-theme-bg .legal-page > section:not(.brand-internal-hero)::before {
     opacity: 0.14 !important;
+  }
+}
+
+/* Final cascade layer for the homepage and core commercial pages. */
+.core-storm-page {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow-x: clip !important;
+  color: var(--ev-white) !important;
+  background:
+    radial-gradient(circle at 6% 10%, rgba(0, 132, 255, 0.46), transparent 30rem),
+    radial-gradient(circle at 94% 8%, rgba(233, 17, 30, 0.36), transparent 29rem),
+    linear-gradient(180deg, rgba(2, 5, 13, 0.28), rgba(4, 11, 28, 0.78) 30rem, rgba(6, 20, 47, 0.94)),
+    var(--ev-storm-bg-active) !important;
+  background-attachment: scroll, scroll, scroll, fixed !important;
+  background-position: left top, right top, center top, center top !important;
+  background-repeat: no-repeat, no-repeat, repeat, repeat-y !important;
+  background-size: auto, auto, auto, max(1480px, 100vw) auto !important;
+}
+
+.core-storm-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(0, 132, 255, 0.2), rgba(2, 5, 13, 0.42) 44%, rgba(233, 17, 30, 0.18)),
+    linear-gradient(180deg, rgba(2, 5, 13, 0.06), rgba(2, 5, 13, 0.58)),
+    var(--ev-storm-bg-active);
+  background-position: center top;
+  background-repeat: repeat-y;
+  background-size: max(1480px, 100vw) auto;
+  opacity: 0.54;
+  mix-blend-mode: screen;
+}
+
+.core-storm-page > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee),
+.core-storm-page :is(.quote-request-panel, .services-featured-section, .services-problem-selector, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section) {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  color: var(--ev-white) !important;
+  background:
+    radial-gradient(circle at 9% 12%, rgba(7, 156, 255, 0.42), transparent 28rem),
+    radial-gradient(circle at 92% 12%, rgba(233, 17, 30, 0.2), transparent 27rem),
+    linear-gradient(135deg, rgba(2, 5, 13, 0.82), rgba(9, 29, 66, 0.72) 54%, rgba(2, 5, 13, 0.86)),
+    var(--ev-storm-bg-active) !important;
+  background-position: left top, right top, center, center top !important;
+  background-size: auto, auto, auto, cover !important;
+  background-blend-mode: normal, normal, normal, screen !important;
+  border-color: rgba(98, 216, 255, 0.24) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(98, 216, 255, 0.16),
+    inset 0 -1px 0 rgba(233, 17, 30, 0.1),
+    0 0 58px rgba(7, 156, 255, 0.1) !important;
+}
+
+.core-storm-page > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee)::before,
+.core-storm-page :is(.quote-request-panel, .services-featured-section, .services-problem-selector, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section)::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  background:
+    linear-gradient(90deg, rgba(0, 132, 255, 0.34), rgba(2, 5, 13, 0.36) 44%, rgba(233, 17, 30, 0.22)),
+    linear-gradient(180deg, rgba(2, 5, 13, 0.08), rgba(2, 5, 13, 0.58)),
+    var(--ev-storm-bg-active) !important;
+  background-size: cover !important;
+  background-position: center top !important;
+  opacity: 0.68 !important;
+  mix-blend-mode: screen !important;
+}
+
+.core-storm-page > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee)::after,
+.core-storm-page :is(.quote-request-panel, .services-featured-section, .services-problem-selector, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section)::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(circle at 10% 48%, rgba(98, 216, 255, 0.2), transparent 24rem),
+    radial-gradient(circle at 91% 46%, rgba(255, 50, 71, 0.14), transparent 24rem),
+    linear-gradient(180deg, transparent, rgba(2, 5, 13, 0.26));
+}
+
+.core-storm-page > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee) > *,
+.core-storm-page :is(.quote-request-panel, .services-featured-section, .services-problem-selector, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section) > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.core-storm-home > section[aria-labelledby="call-first-heading"],
+.core-storm-emergency > section,
+.core-storm-page :is(.emergency-trust-panel, .issue-selector-section, .warningPanel, .service-detail-warning-section) {
+  background:
+    radial-gradient(circle at 7% 16%, rgba(233, 17, 30, 0.48), transparent 29rem),
+    radial-gradient(circle at 90% 14%, rgba(7, 156, 255, 0.34), transparent 27rem),
+    linear-gradient(135deg, rgba(2, 5, 13, 0.86), rgba(117, 7, 19, 0.44) 42%, rgba(9, 29, 66, 0.74)),
+    var(--ev-storm-bg-active) !important;
+}
+
+.core-storm-page :is(.home-hero-copy-panel, .internal-hero-copy-panel, .brand-hero-card, .quote-home-card, .service-area-search, .quote-request-panel > .mx-auto, .contact-card, .lead-offer-panel, .legal-content-card),
+.core-storm-page :is(.rounded-\[2rem\], .rounded-3xl)[class*="border"]:not(.quote-modal-frame-shell):not(.quote-modal-iframe):not(.mobile-primary-nav__panel) {
+  background:
+    linear-gradient(135deg, rgba(4, 11, 28, 0.94), rgba(9, 29, 66, 0.82) 54%, rgba(4, 11, 28, 0.92)),
+    var(--ev-storm-bg-active) !important;
+  background-blend-mode: normal, screen !important;
+  border-color: rgba(98, 216, 255, 0.34) !important;
+  color: var(--ev-white) !important;
+  box-shadow:
+    0 24px 76px rgba(0, 0, 0, 0.46),
+    0 0 52px rgba(7, 156, 255, 0.2),
+    0 0 0 1px rgba(98, 216, 255, 0.1) inset !important;
+  backdrop-filter: blur(14px) saturate(1.12);
+}
+
+.core-storm-page :is(article, aside, div, li, details, a)[class*="rounded"][class*="border"]:not(.quote-modal-frame-shell):not(.quote-modal-iframe):not(.mobile-sticky-cta):not(.mobile-nav-trigger):not(.mobile-primary-nav__panel):not(.ev-btn):not(.ev-btn--call):not(.ev-btn--quote):not([data-quote-trigger="true"]):not([href^="tel:"]),
+.core-storm-page :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50):not(.quote-modal-frame-shell):not(.quote-modal-iframe):not(.mobile-primary-nav__panel):not(input):not(textarea):not(select):not(button) {
+  background:
+    linear-gradient(145deg, rgba(5, 18, 45, 0.9), rgba(8, 35, 85, 0.74)),
+    var(--ev-storm-bg-active) !important;
+  background-position: center, center top !important;
+  background-repeat: no-repeat !important;
+  background-size: auto, cover !important;
+  background-blend-mode: normal, screen !important;
+  border-color: rgba(98, 216, 255, 0.34) !important;
+  color: var(--ev-white) !important;
+  box-shadow:
+    0 18px 54px rgba(0, 0, 0, 0.38),
+    0 0 32px rgba(7, 156, 255, 0.15),
+    0 0 0 1px rgba(98, 216, 255, 0.08) inset !important;
+  backdrop-filter: blur(10px) saturate(1.08);
+}
+
+.core-storm-page :is(.emergency-link-card--triage, .emergency-card, .warning-card, .hazardCard, .safetyCard, .warningPanel, [data-suburb-action-card="call-first"], [class*="border-red"]):not(.ev-btn):not([href^="tel:"]) {
+  background:
+    linear-gradient(135deg, rgba(117, 7, 19, 0.74), rgba(9, 29, 66, 0.78) 54%, rgba(2, 5, 13, 0.9)),
+    var(--ev-storm-bg-active) !important;
+  border-color: rgba(255, 50, 71, 0.54) !important;
+  box-shadow:
+    0 18px 56px rgba(0, 0, 0, 0.4),
+    0 0 36px rgba(233, 17, 30, 0.28),
+    0 0 0 1px rgba(255, 50, 71, 0.1) inset !important;
+}
+
+.core-storm-page :is(.credential-card, .footer-credential-card, .service-credential-card, .google-rating-seal, .google-review-proof__panel, .home-hero-trust-card, .proofCard, .processCard) {
+  background:
+    linear-gradient(145deg, rgba(6, 20, 47, 0.9), rgba(10, 50, 102, 0.72)),
+    var(--ev-storm-bg-active) !important;
+  border-color: rgba(98, 216, 255, 0.44) !important;
+  box-shadow:
+    0 18px 56px rgba(0, 0, 0, 0.34),
+    0 0 42px rgba(98, 216, 255, 0.18),
+    0 0 0 1px rgba(98, 216, 255, 0.1) inset !important;
+}
+
+.core-storm-page :is(.quote-home-card, .quote-request-card, .quote-request-summary, .quote-process-graphic, .quoteSteps, .service-area-search) {
+  background:
+    linear-gradient(145deg, rgba(6, 20, 47, 0.92), rgba(8, 55, 120, 0.72)),
+    var(--ev-storm-bg-active) !important;
+  border-color: rgba(7, 156, 255, 0.48) !important;
+  box-shadow:
+    0 18px 56px rgba(0, 0, 0, 0.34),
+    0 0 42px rgba(7, 156, 255, 0.22),
+    0 0 0 1px rgba(98, 216, 255, 0.1) inset !important;
+}
+
+.core-storm-page :is(.ev-btn--quote, [data-quote-trigger="true"], .services-index-hero-cta--quote) {
+  background: linear-gradient(135deg, #0876ff 0%, #079cff 50%, #39d4ff 100%) !important;
+  border-color: rgba(98, 216, 255, 0.62) !important;
+  color: #ffffff !important;
+  box-shadow: 0 14px 34px rgba(7, 156, 255, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+}
+
+.core-storm-page :is(.ev-btn--call, [href^="tel:"].ev-btn, .services-index-hero-cta--call) {
+  background: linear-gradient(135deg, #b60410 0%, #e9111e 50%, #ff3247 100%) !important;
+  border-color: rgba(255, 125, 135, 0.48) !important;
+  color: #ffffff !important;
+  box-shadow: 0 14px 34px rgba(233, 17, 30, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+}
+
+.core-storm-page :is(h1, h2, h3, h4, h5, h6, .text-\[\#061E72\], .text-slate-950, .text-slate-900, .text-slate-800, .text-gray-950, .text-gray-900, .text-blue-950, .text-blue-900) {
+  color: var(--ev-white) !important;
+}
+
+.core-storm-page :is(p, li, dd, .text-slate-700, .text-slate-600, .text-slate-500, .text-gray-700, .text-gray-600, .text-blue-800) {
+  color: var(--ev-silver) !important;
+}
+
+.core-storm-page :is(.border-slate-200, .border-slate-300, .border-blue-100, .border-blue-200, .border-cyan-100) {
+  border-color: rgba(98, 216, 255, 0.3) !important;
+}
+
+.core-storm-page :is(.hover\:bg-blue-50:hover, .hover\:bg-red-50:hover, .hover\:bg-white:hover, .hover\:bg-slate-50:hover) {
+  background:
+    linear-gradient(145deg, rgba(13, 43, 92, 0.94), rgba(9, 29, 66, 0.84)),
+    var(--ev-storm-bg-active) !important;
+  background-blend-mode: normal, screen !important;
+}
+
+.core-storm-page :is(input, textarea, select) {
+  background: rgba(2, 5, 13, 0.78) !important;
+  border-color: rgba(98, 216, 255, 0.32) !important;
+  color: var(--ev-white) !important;
+}
+
+.core-storm-page :is(input, textarea, select)::placeholder {
+  color: rgba(214, 231, 242, 0.62) !important;
+}
+
+.core-storm-page .quote-modal-frame-shell,
+.core-storm-page .quote-modal-iframe,
+.core-storm-page .mobile-primary-nav__panel {
+  background: #ffffff !important;
+  color: #111827 !important;
+  box-shadow: none;
+}
+
+@media (max-width: 640px) {
+  .core-storm-page {
+    background-attachment: scroll !important;
+    background-size: auto, auto, auto, 100% auto !important;
+  }
+
+  .core-storm-page::before {
+    background-size: 100% auto !important;
+    opacity: 0.48;
+  }
+
+  .core-storm-page > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee)::before,
+  .core-storm-page :is(.quote-request-panel, .services-featured-section, .services-problem-selector, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section)::before {
+    opacity: 0.5 !important;
+    background-size: 100% auto !important;
   }
 }

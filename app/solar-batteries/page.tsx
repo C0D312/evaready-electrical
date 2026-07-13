@@ -193,7 +193,10 @@ const faqSchema = buildFaqSchema(faqs, pagePath);
 
 export default function SolarBatteriesPage() {
   return (
-    <main className="min-h-screen bg-[#06142f] text-white">
+    <main
+      className="core-storm-page core-storm-solar min-h-screen bg-[#06142f] text-white"
+      data-storm-system="ev-storm-section ev-storm-card ev-storm-panel"
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(electricianSchema)}

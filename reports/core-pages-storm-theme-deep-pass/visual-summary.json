@@ -1,0 +1,98 @@
+[
+  {
+    "file": "homepage-mobile-390x844.png",
+    "route": "/",
+    "width": 390,
+    "height": 844,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "stormRoot": true,
+    "mobileHeaderQuoteVisible": false,
+    "stickyCtaVisible": true,
+    "horizontalOverflow": false
+  },
+  {
+    "file": "homepage-desktop-1440x900.png",
+    "route": "/",
+    "width": 1440,
+    "height": 900,
+    "scrollWidth": 1440,
+    "innerWidth": 1440,
+    "stormRoot": true,
+    "mobileHeaderQuoteVisible": false,
+    "stickyCtaVisible": true,
+    "horizontalOverflow": false
+  },
+  {
+    "file": "emergency-mobile-390x844.png",
+    "route": "/emergency-electrician-sydney/",
+    "width": 390,
+    "height": 844,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "stormRoot": true,
+    "mobileHeaderQuoteVisible": false,
+    "stickyCtaVisible": true,
+    "horizontalOverflow": false
+  },
+  {
+    "file": "emergency-desktop-1440x900.png",
+    "route": "/emergency-electrician-sydney/",
+    "width": 1440,
+    "height": 900,
+    "scrollWidth": 1440,
+    "innerWidth": 1440,
+    "stormRoot": true,
+    "mobileHeaderQuoteVisible": false,
+    "stickyCtaVisible": true,
+    "horizontalOverflow": false
+  },
+  {
+    "file": "services-mobile-390x844.png",
+    "route": "/services/",
+    "width": 390,
+    "height": 844,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "stormRoot": true,
+    "mobileHeaderQuoteVisible": false,
+    "stickyCtaVisible": true,
+    "horizontalOverflow": false
+  },
+  {
+    "file": "service-areas-mobile-390x844.png",
+    "route": "/service-areas/",
+    "width": 390,
+    "height": 844,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "stormRoot": true,
+    "mobileHeaderQuoteVisible": false,
+    "stickyCtaVisible": true,
+    "horizontalOverflow": false
+  },
+  {
+    "file": "panania-mobile-390x844.png",
+    "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+    "width": 390,
+    "height": 844,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "stormRoot": false,
+    "mobileHeaderQuoteVisible": false,
+    "stickyCtaVisible": true,
+    "horizontalOverflow": false
+  },
+  {
+    "file": "contact-mobile-390x844.png",
+    "route": "/contact/",
+    "width": 390,
+    "height": 844,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "stormRoot": true,
+    "mobileHeaderQuoteVisible": false,
+    "stickyCtaVisible": true,
+    "horizontalOverflow": false
+  }
+]

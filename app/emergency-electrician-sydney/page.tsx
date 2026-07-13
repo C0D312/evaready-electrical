@@ -417,7 +417,10 @@ export default function EmergencyElectricianSydneyPage() {
   const schema = buildSchema();
 
   return (
-    <main className={cx(styles.page, "min-h-screen bg-white text-[#061E72]")}>
+    <main
+      className={cx(styles.page, "core-storm-page core-storm-emergency min-h-screen bg-white text-[#061E72]")}
+      data-storm-system="ev-storm-section ev-storm-card ev-storm-panel"
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}

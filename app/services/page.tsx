@@ -1226,7 +1226,10 @@ export default function ServicesPage() {
   );
 
   return (
-    <main className="min-h-screen bg-[var(--ev-black)] text-white">
+    <main
+      className="core-storm-page core-storm-services min-h-screen bg-[var(--ev-black)] text-white"
+      data-storm-system="ev-storm-section ev-storm-card ev-storm-panel"
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(schema)}

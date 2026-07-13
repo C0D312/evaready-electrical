@@ -371,7 +371,10 @@ function buildSchema() {
 
 export default function Level2ElectricianSydneyPage() {
   return (
-    <main className="min-h-screen bg-white text-[#061E72]">
+    <main
+      className="core-storm-page core-storm-level2 min-h-screen bg-white text-[#061E72]"
+      data-storm-system="ev-storm-section ev-storm-card ev-storm-panel"
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildSchema()) }}

@@ -77,7 +77,10 @@ export default function ContactPage() {
   return (
     <>
       <SiteHeader />
-      <main className="bg-[#061E72] text-white">
+      <main
+        className="core-storm-page core-storm-contact bg-[#061E72] text-white"
+        data-storm-system="ev-storm-section ev-storm-card ev-storm-panel"
+      >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}

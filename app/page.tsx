@@ -362,7 +362,10 @@ export default function HomePage() {
   const breadcrumbSchema = buildBreadcrumbSchema([{ name: "Home", path: "/" }], "/");
 
   return (
-    <main className="min-h-screen bg-slate-50 text-[#061E72]">
+    <main
+      className="core-storm-page core-storm-home min-h-screen bg-slate-50 text-[#061E72]"
+      data-storm-system="ev-storm-section ev-storm-card ev-storm-panel"
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(localBusinessSchema)}

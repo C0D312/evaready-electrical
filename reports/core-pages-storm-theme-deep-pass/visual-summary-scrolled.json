@@ -1,0 +1,42 @@
+[
+  {
+    "file": "homepage-emergency-triage-390x844.png",
+    "route": "/",
+    "scrollY": 920,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "horizontalOverflow": false
+  },
+  {
+    "file": "homepage-service-cards-390x844.png",
+    "route": "/",
+    "scrollY": 1650,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "horizontalOverflow": false
+  },
+  {
+    "file": "services-card-grid-390x844.png",
+    "route": "/services/",
+    "scrollY": 900,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "horizontalOverflow": false
+  },
+  {
+    "file": "service-areas-routing-390x844.png",
+    "route": "/service-areas/",
+    "scrollY": 1000,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "horizontalOverflow": false
+  },
+  {
+    "file": "level2-cards-390x844.png",
+    "route": "/level-2-electrician-sydney/",
+    "scrollY": 900,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "horizontalOverflow": false
+  }
+]
