@@ -104,4 +104,8 @@ Post-build checks confirmed storm classes and storm assets are present in `out/`
 
 ## Live Result
 
-Pending final gh-pages deployment and public cache-busted verification.
+Live public verification passed after the gh-pages deployment.
+
+- Normal and cache-busted URLs verified for the homepage, Services, Emergency, Level 2, Service Areas, Contact, Panania, Privacy and Terms pages.
+- `site-version.json` returned the expected main commit for the deployed source.
+- Storm theme classes, storm assets, CSS, Google Ads, phone tracking, quote tracking and `tel:+61461247247` were present on the checked public pages.
