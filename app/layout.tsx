@@ -3,6 +3,7 @@ import type { CSSProperties } from "react";
 import { GoogleAdsTag } from "@/components/google-ads-tag";
 import { absoluteUrl, assetPath, business } from "@/data/site";
 import "./globals.css";
+import "./footer.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(`${business.siteUrl}/`),
