@@ -109,4 +109,20 @@ Clean build validation completed locally:
 
 ## Live Verification
 
-Pending deployment in this run.
+Live verification passed after deployment.
+
+- Main SHA: `479f37934c7a61bc683c70a7f395f53f953b5d38`
+- gh-pages SHA: `39fc88c7bd01fda6bce895f177214cfd9e0681dd`
+- Normal and cache-busted public URLs checked: 22
+- Failures: 0
+- CSS loaded on checked HTML pages.
+- New footer CTA/trust markers were visible on checked HTML pages.
+- Google Ads marker, phone-click tracking, quote-click tracking and `tel:+61461247247` were preserved.
+- `site-version.json` contained the deployed main SHA.
+
+Live verification files were saved in:
+
+`reports/footer-redesign-qa/live-verification.json`
+`reports/footer-redesign-qa/live-visual-footer-check.json`
+`reports/footer-redesign-qa/live-home-footer-desktop-1440x900.png`
+`reports/footer-redesign-qa/live-home-footer-mobile-390x844.png`

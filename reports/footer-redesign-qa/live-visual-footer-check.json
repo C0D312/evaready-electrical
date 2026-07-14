@@ -1,0 +1,24 @@
+[
+  {
+    "name": "live-home-footer-desktop-1440x900",
+    "url": "https://c0d312.github.io/evaready-electrical/?v=39fc88c7bd01fda6bce895f177214cfd9e0681dd",
+    "width": 1440,
+    "height": 900,
+    "status": 200,
+    "hasFooterCta": true,
+    "hasLicence": true,
+    "bodyScrollWidth": 1440,
+    "viewportWidth": 1440
+  },
+  {
+    "name": "live-home-footer-mobile-390x844",
+    "url": "https://c0d312.github.io/evaready-electrical/?v=39fc88c7bd01fda6bce895f177214cfd9e0681dd",
+    "width": 390,
+    "height": 844,
+    "status": 200,
+    "hasFooterCta": true,
+    "hasLicence": true,
+    "bodyScrollWidth": 390,
+    "viewportWidth": 390
+  }
+]
