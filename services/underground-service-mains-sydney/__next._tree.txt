@@ -1,2 +1,3 @@
-:HL["/evaready-electrical/_next/static/chunks/17wwax70o~351.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"services","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"underground-service-mains-sydney","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"KUzdA4Q-WJL2PRXkWl0Re"}
+:HL["/evaready-electrical/_next/static/chunks/089ca1ffa4jrs.css","style"]
+:HL["/evaready-electrical/_next/static/chunks/0rtr03lc_34b6.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"services","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"underground-service-mains-sydney","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"BUmUEQ44LiDXsZn92ccKT"}
