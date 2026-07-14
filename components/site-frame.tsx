@@ -42,9 +42,9 @@ const legalLinks = [
 ];
 
 const headerImages = {
-  desktop: "/images/header/evaready-header-desktop-v5.webp",
-  tablet: "/images/header/evaready-header-tablet-v5.webp",
-  mobile: "/images/header/evaready-header-mobile-v5.webp",
+  desktop: "/images/header/evaready-header-desktop-slim-v6.webp",
+  tablet: "/images/header/evaready-header-tablet-slim-v6.webp",
+  mobile: "/images/header/evaready-header-mobile-slim-v6.webp",
 };
 
 type FooterLinkItem = {
@@ -180,11 +180,11 @@ export function SiteHeader() {
             <picture className="ev-final-header-picture">
               <source media="(max-width: 767px)" srcSet={headerMobile} />
               <source media="(max-width: 1180px)" srcSet={headerTablet} />
-              <img
-                src={headerDesktop}
-                alt="Evaready Electrical 24/7"
-                width={2048}
-                height={682}
+                <img
+                  src={headerDesktop}
+                  alt="Evaready Electrical 24/7"
+                  width={5500}
+                  height={240}
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"

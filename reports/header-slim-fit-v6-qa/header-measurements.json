@@ -1,0 +1,1094 @@
+[
+  {
+    "name": "homepage-mobile-390x844",
+    "path": "/",
+    "width": 390,
+    "height": 844,
+    "measurement": {
+      "viewportWidth": 390,
+      "bodyScrollWidth": 390,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 127.59375,
+        "bottom": 127.59375
+      },
+      "art": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 93.59375,
+        "bottom": 93.59375
+      },
+      "marquee": {
+        "x": 0,
+        "y": 93.59375,
+        "width": 390,
+        "height": 34,
+        "bottom": 127.59375
+      },
+      "nav": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "bottom": 0
+      },
+      "spacer": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 127.59375,
+        "bottom": 127.59375
+      },
+      "mobileMenuVisible": true,
+      "desktopNavVisible": false,
+      "headerTopCallVisible": false,
+      "headerTopQuoteVisible": false,
+      "stickyCtaVisible": true,
+      "headerImageSrc": "http://127.0.0.1:4147/evaready-electrical/images/header/evaready-header-mobile-slim-v6.webp"
+    },
+    "failures": []
+  },
+  {
+    "name": "homepage-desktop-1366x768",
+    "path": "/",
+    "width": 1366,
+    "height": 768,
+    "measurement": {
+      "viewportWidth": 1366,
+      "bodyScrollWidth": 1366,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1366,
+        "height": 145,
+        "bottom": 145
+      },
+      "art": {
+        "x": 0,
+        "y": 0,
+        "width": 1366,
+        "height": 82,
+        "bottom": 82
+      },
+      "marquee": {
+        "x": 0,
+        "y": 82,
+        "width": 1366,
+        "height": 27,
+        "bottom": 109
+      },
+      "nav": {
+        "x": 0,
+        "y": 109,
+        "width": 1366,
+        "height": 36,
+        "bottom": 145
+      },
+      "spacer": {
+        "x": 0,
+        "y": 0,
+        "width": 1366,
+        "height": 145,
+        "bottom": 145
+      },
+      "mobileMenuVisible": false,
+      "desktopNavVisible": true,
+      "headerTopCallVisible": true,
+      "headerTopQuoteVisible": true,
+      "stickyCtaVisible": false,
+      "headerImageSrc": "http://127.0.0.1:4147/evaready-electrical/images/header/evaready-header-desktop-slim-v6.webp"
+    },
+    "failures": []
+  },
+  {
+    "name": "homepage-desktop-1920x1080",
+    "path": "/",
+    "width": 1920,
+    "height": 1080,
+    "measurement": {
+      "viewportWidth": 1920,
+      "bodyScrollWidth": 1920,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 160.90625,
+        "bottom": 160.90625
+      },
+      "art": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 97.90625,
+        "bottom": 97.90625
+      },
+      "marquee": {
+        "x": 0,
+        "y": 97.90625,
+        "width": 1920,
+        "height": 27,
+        "bottom": 124.90625
+      },
+      "nav": {
+        "x": 0,
+        "y": 124.90625,
+        "width": 1920,
+        "height": 36,
+        "bottom": 160.90625
+      },
+      "spacer": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 160.90625,
+        "bottom": 160.90625
+      },
+      "mobileMenuVisible": false,
+      "desktopNavVisible": true,
+      "headerTopCallVisible": true,
+      "headerTopQuoteVisible": true,
+      "stickyCtaVisible": false,
+      "headerImageSrc": "http://127.0.0.1:4147/evaready-electrical/images/header/evaready-header-desktop-slim-v6.webp"
+    },
+    "failures": []
+  },
+  {
+    "name": "services-desktop-1366x768",
+    "path": "/services/",
+    "width": 1366,
+    "height": 768,
+    "measurement": {
+      "viewportWidth": 1366,
+      "bodyScrollWidth": 1366,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1366,
+        "height": 145,
+        "bottom": 145
+      },
+      "art": {
+        "x": 0,
+        "y": 0,
+        "width": 1366,
+        "height": 82,
+        "bottom": 82
+      },
+      "marquee": {
+        "x": 0,
+        "y": 82,
+        "width": 1366,
+        "height": 27,
+        "bottom": 109
+      },
+      "nav": {
+        "x": 0,
+        "y": 109,
+        "width": 1366,
+        "height": 36,
+        "bottom": 145
+      },
+      "spacer": {
+        "x": 0,
+        "y": 0,
+        "width": 1366,
+        "height": 145,
+        "bottom": 145
+      },
+      "mobileMenuVisible": false,
+      "desktopNavVisible": true,
+      "headerTopCallVisible": true,
+      "headerTopQuoteVisible": true,
+      "stickyCtaVisible": false,
+      "headerImageSrc": "http://127.0.0.1:4147/evaready-electrical/images/header/evaready-header-desktop-slim-v6.webp"
+    },
+    "failures": []
+  },
+  {
+    "name": "contact-mobile-390x844",
+    "path": "/contact/",
+    "width": 390,
+    "height": 844,
+    "measurement": {
+      "viewportWidth": 390,
+      "bodyScrollWidth": 390,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 127.59375,
+        "bottom": 127.59375
+      },
+      "art": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 93.59375,
+        "bottom": 93.59375
+      },
+      "marquee": {
+        "x": 0,
+        "y": 93.59375,
+        "width": 390,
+        "height": 34,
+        "bottom": 127.59375
+      },
+      "nav": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "bottom": 0
+      },
+      "spacer": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 127.59375,
+        "bottom": 127.59375
+      },
+      "mobileMenuVisible": true,
+      "desktopNavVisible": false,
+      "headerTopCallVisible": false,
+      "headerTopQuoteVisible": false,
+      "stickyCtaVisible": true,
+      "headerImageSrc": "http://127.0.0.1:4147/evaready-electrical/images/header/evaready-header-mobile-slim-v6.webp"
+    },
+    "failures": []
+  },
+  {
+    "name": "panania-mobile-390x844",
+    "path": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+    "width": 390,
+    "height": 844,
+    "measurement": {
+      "viewportWidth": 390,
+      "bodyScrollWidth": 390,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 127.59375,
+        "bottom": 127.59375
+      },
+      "art": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 93.59375,
+        "bottom": 93.59375
+      },
+      "marquee": {
+        "x": 0,
+        "y": 93.59375,
+        "width": 390,
+        "height": 34,
+        "bottom": 127.59375
+      },
+      "nav": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "bottom": 0
+      },
+      "spacer": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 127.59375,
+        "bottom": 127.59375
+      },
+      "mobileMenuVisible": true,
+      "desktopNavVisible": false,
+      "headerTopCallVisible": false,
+      "headerTopQuoteVisible": false,
+      "stickyCtaVisible": true,
+      "headerImageSrc": "http://127.0.0.1:4147/evaready-electrical/images/header/evaready-header-mobile-slim-v6.webp"
+    },
+    "failures": []
+  },
+  {
+    "name": "home-320",
+    "path": "/",
+    "width": 320,
+    "height": 900,
+    "measurement": {
+      "viewportWidth": 320,
+      "bodyScrollWidth": 320,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 320,
+        "height": 118,
+        "bottom": 118
+      },
+      "art": {
+        "x": 0,
+        "y": 0,
+        "width": 320,
+        "height": 84,
+        "bottom": 84
+      },
+      "marquee": {
+        "x": 0,
+        "y": 84,
+        "width": 320,
+        "height": 34,
+        "bottom": 118
+      },
+      "nav": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "bottom": 0
+      },
+      "spacer": {
+        "x": 0,
+        "y": 0,
+        "width": 320,
+        "height": 118,
+        "bottom": 118
+      },
+      "mobileMenuVisible": true,
+      "desktopNavVisible": false,
+      "headerTopCallVisible": false,
+      "headerTopQuoteVisible": false,
+      "stickyCtaVisible": true,
+      "headerImageSrc": "http://127.0.0.1:4147/evaready-electrical/images/header/evaready-header-mobile-slim-v6.webp"
+    },
+    "failures": []
+  },
+  {
+    "name": "home-360",
+    "path": "/",
+    "width": 360,
+    "height": 900,
+    "measurement": {
+      "viewportWidth": 360,
+      "bodyScrollWidth": 360,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 360,
+        "height": 120.390625,
+        "bottom": 120.390625
+      },
+      "art": {
+        "x": 0,
+        "y": 0,
+        "width": 360,
+        "height": 86.390625,
+        "bottom": 86.390625
+      },
+      "marquee": {
+        "x": 0,
+        "y": 86.390625,
+        "width": 360,
+        "height": 34,
+        "bottom": 120.390625
+      },
+      "nav": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "bottom": 0
+      },
+      "spacer": {
+        "x": 0,
+        "y": 0,
+        "width": 360,
+        "height": 120.390625,
+        "bottom": 120.390625
+      },
+      "mobileMenuVisible": true,
+      "desktopNavVisible": false,
+      "headerTopCallVisible": false,
+      "headerTopQuoteVisible": false,
+      "stickyCtaVisible": true,
+      "headerImageSrc": "http://127.0.0.1:4147/evaready-electrical/images/header/evaready-header-mobile-slim-v6.webp"
+    },
+    "failures": []
+  },
+  {
+    "name": "home-375",
+    "path": "/",
+    "width": 375,
+    "height": 900,
+    "measurement": {
+      "viewportWidth": 375,
+      "bodyScrollWidth": 375,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 124,
+        "bottom": 124
+      },
+      "art": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 90,
+        "bottom": 90
+      },
+      "marquee": {
+        "x": 0,
+        "y": 90,
+        "width": 375,
+        "height": 34,
+        "bottom": 124
+      },
+      "nav": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "bottom": 0
+      },
+      "spacer": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 124,
+        "bottom": 124
+      },
+      "mobileMenuVisible": true,
+      "desktopNavVisible": false,
+      "headerTopCallVisible": false,
+      "headerTopQuoteVisible": false,
+      "stickyCtaVisible": true,
+      "headerImageSrc": "http://127.0.0.1:4147/evaready-electrical/images/header/evaready-header-mobile-slim-v6.webp"
+    },
+    "failures": []
+  },
+  {
+    "name": "home-390",
+    "path": "/",
+    "width": 390,
+    "height": 900,
+    "measurement": {
+      "viewportWidth": 390,
+      "bodyScrollWidth": 390,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 127.59375,
+        "bottom": 127.59375
+      },
+      "art": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 93.59375,
+        "bottom": 93.59375
+      },
+      "marquee": {
+        "x": 0,
+        "y": 93.59375,
+        "width": 390,
+        "height": 34,
+        "bottom": 127.59375
+      },
+      "nav": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "bottom": 0
+      },
+      "spacer": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 127.59375,
+        "bottom": 127.59375
+      },
+      "mobileMenuVisible": true,
+      "desktopNavVisible": false,
+      "headerTopCallVisible": false,
+      "headerTopQuoteVisible": false,
+      "stickyCtaVisible": true,
+      "headerImageSrc": "http://127.0.0.1:4147/evaready-electrical/images/header/evaready-header-mobile-slim-v6.webp"
+    },
+    "failures": []
+  },
+  {
+    "name": "home-412",
+    "path": "/",
+    "width": 412,
+    "height": 900,
+    "measurement": {
+      "viewportWidth": 412,
+      "bodyScrollWidth": 412,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 412,
+        "height": 132.875,
+        "bottom": 132.875
+      },
+      "art": {
+        "x": 0,
+        "y": 0,
+        "width": 412,
+        "height": 98.875,
+        "bottom": 98.875
+      },
+      "marquee": {
+        "x": 0,
+        "y": 98.875,
+        "width": 412,
+        "height": 34,
+        "bottom": 132.875
+      },
+      "nav": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "bottom": 0
+      },
+      "spacer": {
+        "x": 0,
+        "y": 0,
+        "width": 412,
+        "height": 132.875,
+        "bottom": 132.875
+      },
+      "mobileMenuVisible": true,
+      "desktopNavVisible": false,
+      "headerTopCallVisible": false,
+      "headerTopQuoteVisible": false,
+      "stickyCtaVisible": true,
+      "headerImageSrc": "http://127.0.0.1:4147/evaready-electrical/images/header/evaready-header-mobile-slim-v6.webp"
+    },
+    "failures": []
+  },
+  {
+    "name": "home-430",
+    "path": "/",
+    "width": 430,
+    "height": 900,
+    "measurement": {
+      "viewportWidth": 430,
+      "bodyScrollWidth": 430,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 430,
+        "height": 137.1875,
+        "bottom": 137.1875
+      },
+      "art": {
+        "x": 0,
+        "y": 0,
+        "width": 430,
+        "height": 103.1875,
+        "bottom": 103.1875
+      },
+      "marquee": {
+        "x": 0,
+        "y": 103.1875,
+        "width": 430,
+        "height": 34,
+        "bottom": 137.1875
+      },
+      "nav": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "bottom": 0
+      },
+      "spacer": {
+        "x": 0,
+        "y": 0,
+        "width": 430,
+        "height": 137.1875,
+        "bottom": 137.1875
+      },
+      "mobileMenuVisible": true,
+      "desktopNavVisible": false,
+      "headerTopCallVisible": false,
+      "headerTopQuoteVisible": false,
+      "stickyCtaVisible": true,
+      "headerImageSrc": "http://127.0.0.1:4147/evaready-electrical/images/header/evaready-header-mobile-slim-v6.webp"
+    },
+    "failures": []
+  },
+  {
+    "name": "home-768",
+    "path": "/",
+    "width": 768,
+    "height": 1100,
+    "measurement": {
+      "viewportWidth": 768,
+      "bodyScrollWidth": 768,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 137.671875,
+        "bottom": 137.671875
+      },
+      "art": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 103.671875,
+        "bottom": 103.671875
+      },
+      "marquee": {
+        "x": 0,
+        "y": 103.671875,
+        "width": 768,
+        "height": 34,
+        "bottom": 137.671875
+      },
+      "nav": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "bottom": 0
+      },
+      "spacer": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 137.671875,
+        "bottom": 137.671875
+      },
+      "mobileMenuVisible": true,
+      "desktopNavVisible": false,
+      "headerTopCallVisible": false,
+      "headerTopQuoteVisible": false,
+      "stickyCtaVisible": false,
+      "headerImageSrc": "http://127.0.0.1:4147/evaready-electrical/images/header/evaready-header-tablet-slim-v6.webp"
+    },
+    "failures": []
+  },
+  {
+    "name": "home-820",
+    "path": "/",
+    "width": 820,
+    "height": 1100,
+    "measurement": {
+      "viewportWidth": 820,
+      "bodyScrollWidth": 820,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 820,
+        "height": 144.6875,
+        "bottom": 144.6875
+      },
+      "art": {
+        "x": 0,
+        "y": 0,
+        "width": 820,
+        "height": 110.6875,
+        "bottom": 110.6875
+      },
+      "marquee": {
+        "x": 0,
+        "y": 110.6875,
+        "width": 820,
+        "height": 34,
+        "bottom": 144.6875
+      },
+      "nav": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "bottom": 0
+      },
+      "spacer": {
+        "x": 0,
+        "y": 0,
+        "width": 820,
+        "height": 144.6875,
+        "bottom": 144.6875
+      },
+      "mobileMenuVisible": true,
+      "desktopNavVisible": false,
+      "headerTopCallVisible": false,
+      "headerTopQuoteVisible": false,
+      "stickyCtaVisible": false,
+      "headerImageSrc": "http://127.0.0.1:4147/evaready-electrical/images/header/evaready-header-tablet-slim-v6.webp"
+    },
+    "failures": []
+  },
+  {
+    "name": "home-1024",
+    "path": "/",
+    "width": 1024,
+    "height": 1100,
+    "measurement": {
+      "viewportWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 134,
+        "bottom": 134
+      },
+      "art": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 74,
+        "bottom": 74
+      },
+      "marquee": {
+        "x": 0,
+        "y": 74,
+        "width": 1024,
+        "height": 26,
+        "bottom": 100
+      },
+      "nav": {
+        "x": 0,
+        "y": 100,
+        "width": 1024,
+        "height": 34,
+        "bottom": 134
+      },
+      "spacer": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 134,
+        "bottom": 134
+      },
+      "mobileMenuVisible": false,
+      "desktopNavVisible": true,
+      "headerTopCallVisible": true,
+      "headerTopQuoteVisible": true,
+      "stickyCtaVisible": false,
+      "headerImageSrc": "http://127.0.0.1:4147/evaready-electrical/images/header/evaready-header-tablet-slim-v6.webp"
+    },
+    "failures": []
+  },
+  {
+    "name": "home-1280",
+    "path": "/",
+    "width": 1280,
+    "height": 900,
+    "measurement": {
+      "viewportWidth": 1280,
+      "bodyScrollWidth": 1280,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 145,
+        "bottom": 145
+      },
+      "art": {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 82,
+        "bottom": 82
+      },
+      "marquee": {
+        "x": 0,
+        "y": 82,
+        "width": 1280,
+        "height": 27,
+        "bottom": 109
+      },
+      "nav": {
+        "x": 0,
+        "y": 109,
+        "width": 1280,
+        "height": 36,
+        "bottom": 145
+      },
+      "spacer": {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 145,
+        "bottom": 145
+      },
+      "mobileMenuVisible": false,
+      "desktopNavVisible": true,
+      "headerTopCallVisible": true,
+      "headerTopQuoteVisible": true,
+      "stickyCtaVisible": false,
+      "headerImageSrc": "http://127.0.0.1:4147/evaready-electrical/images/header/evaready-header-desktop-slim-v6.webp"
+    },
+    "failures": []
+  },
+  {
+    "name": "home-1366",
+    "path": "/",
+    "width": 1366,
+    "height": 900,
+    "measurement": {
+      "viewportWidth": 1366,
+      "bodyScrollWidth": 1366,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1366,
+        "height": 145,
+        "bottom": 145
+      },
+      "art": {
+        "x": 0,
+        "y": 0,
+        "width": 1366,
+        "height": 82,
+        "bottom": 82
+      },
+      "marquee": {
+        "x": 0,
+        "y": 82,
+        "width": 1366,
+        "height": 27,
+        "bottom": 109
+      },
+      "nav": {
+        "x": 0,
+        "y": 109,
+        "width": 1366,
+        "height": 36,
+        "bottom": 145
+      },
+      "spacer": {
+        "x": 0,
+        "y": 0,
+        "width": 1366,
+        "height": 145,
+        "bottom": 145
+      },
+      "mobileMenuVisible": false,
+      "desktopNavVisible": true,
+      "headerTopCallVisible": true,
+      "headerTopQuoteVisible": true,
+      "stickyCtaVisible": false,
+      "headerImageSrc": "http://127.0.0.1:4147/evaready-electrical/images/header/evaready-header-desktop-slim-v6.webp"
+    },
+    "failures": []
+  },
+  {
+    "name": "home-1440",
+    "path": "/",
+    "width": 1440,
+    "height": 900,
+    "measurement": {
+      "viewportWidth": 1440,
+      "bodyScrollWidth": 1440,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 145,
+        "bottom": 145
+      },
+      "art": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 82,
+        "bottom": 82
+      },
+      "marquee": {
+        "x": 0,
+        "y": 82,
+        "width": 1440,
+        "height": 27,
+        "bottom": 109
+      },
+      "nav": {
+        "x": 0,
+        "y": 109,
+        "width": 1440,
+        "height": 36,
+        "bottom": 145
+      },
+      "spacer": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 145,
+        "bottom": 145
+      },
+      "mobileMenuVisible": false,
+      "desktopNavVisible": true,
+      "headerTopCallVisible": true,
+      "headerTopQuoteVisible": true,
+      "stickyCtaVisible": false,
+      "headerImageSrc": "http://127.0.0.1:4147/evaready-electrical/images/header/evaready-header-desktop-slim-v6.webp"
+    },
+    "failures": []
+  },
+  {
+    "name": "home-1600",
+    "path": "/",
+    "width": 1600,
+    "height": 900,
+    "measurement": {
+      "viewportWidth": 1600,
+      "bodyScrollWidth": 1600,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1600,
+        "height": 145,
+        "bottom": 145
+      },
+      "art": {
+        "x": 0,
+        "y": 0,
+        "width": 1600,
+        "height": 82,
+        "bottom": 82
+      },
+      "marquee": {
+        "x": 0,
+        "y": 82,
+        "width": 1600,
+        "height": 27,
+        "bottom": 109
+      },
+      "nav": {
+        "x": 0,
+        "y": 109,
+        "width": 1600,
+        "height": 36,
+        "bottom": 145
+      },
+      "spacer": {
+        "x": 0,
+        "y": 0,
+        "width": 1600,
+        "height": 145,
+        "bottom": 145
+      },
+      "mobileMenuVisible": false,
+      "desktopNavVisible": true,
+      "headerTopCallVisible": true,
+      "headerTopQuoteVisible": true,
+      "stickyCtaVisible": false,
+      "headerImageSrc": "http://127.0.0.1:4147/evaready-electrical/images/header/evaready-header-desktop-slim-v6.webp"
+    },
+    "failures": []
+  },
+  {
+    "name": "home-1920",
+    "path": "/",
+    "width": 1920,
+    "height": 900,
+    "measurement": {
+      "viewportWidth": 1920,
+      "bodyScrollWidth": 1920,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 160.90625,
+        "bottom": 160.90625
+      },
+      "art": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 97.90625,
+        "bottom": 97.90625
+      },
+      "marquee": {
+        "x": 0,
+        "y": 97.90625,
+        "width": 1920,
+        "height": 27,
+        "bottom": 124.90625
+      },
+      "nav": {
+        "x": 0,
+        "y": 124.90625,
+        "width": 1920,
+        "height": 36,
+        "bottom": 160.90625
+      },
+      "spacer": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 160.90625,
+        "bottom": 160.90625
+      },
+      "mobileMenuVisible": false,
+      "desktopNavVisible": true,
+      "headerTopCallVisible": true,
+      "headerTopQuoteVisible": true,
+      "stickyCtaVisible": false,
+      "headerImageSrc": "http://127.0.0.1:4147/evaready-electrical/images/header/evaready-header-desktop-slim-v6.webp"
+    },
+    "failures": []
+  },
+  {
+    "name": "home-2560",
+    "path": "/",
+    "width": 2560,
+    "height": 900,
+    "measurement": {
+      "viewportWidth": 2560,
+      "bodyScrollWidth": 2560,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 2560,
+        "height": 173,
+        "bottom": 173
+      },
+      "art": {
+        "x": 0,
+        "y": 0,
+        "width": 2560,
+        "height": 110,
+        "bottom": 110
+      },
+      "marquee": {
+        "x": 0,
+        "y": 110,
+        "width": 2560,
+        "height": 27,
+        "bottom": 137
+      },
+      "nav": {
+        "x": 0,
+        "y": 137,
+        "width": 2560,
+        "height": 36,
+        "bottom": 173
+      },
+      "spacer": {
+        "x": 0,
+        "y": 0,
+        "width": 2560,
+        "height": 173,
+        "bottom": 173
+      },
+      "mobileMenuVisible": false,
+      "desktopNavVisible": true,
+      "headerTopCallVisible": true,
+      "headerTopQuoteVisible": true,
+      "stickyCtaVisible": false,
+      "headerImageSrc": "http://127.0.0.1:4147/evaready-electrical/images/header/evaready-header-desktop-slim-v6.webp"
+    },
+    "failures": []
+  }
+]
