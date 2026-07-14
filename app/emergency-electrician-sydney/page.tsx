@@ -10,6 +10,7 @@ import {
 import { EmergencyTrustPanel } from "@/components/emergency-trust-panel";
 import { GoogleReviewProof } from "@/components/google-review-proof";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
+import { OffersSection } from "@/components/offers-section";
 import { QuoteRequestPanel } from "@/components/quote-request-panel";
 import {
   ServiceCredentialStrip,
@@ -19,6 +20,7 @@ import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { emergencyFaultClusterLinks } from "@/data/electrical-faults";
+import { getOffersForPlacement } from "@/data/offers";
 import { absoluteUrl, assetPath, business } from "@/data/site";
 import { emergencySeoMetadata, toMetadata } from "@/lib/seo-metadata";
 import styles from "./emergency-theme.module.css";
@@ -555,6 +557,14 @@ export default function EmergencyElectricianSydneyPage() {
           </div>
         </div>
       </section>
+
+      <OffersSection
+        id="emergency-current-offers"
+        offers={getOffersForPlacement("emergency")}
+        eyebrow="Emergency offer support"
+        heading="Current Emergency Electrical Offers"
+        intro="Safety comes first. Call immediately if the fault feels unsafe, then eligible emergency and inspection offers can be reviewed against the job scope and terms."
+      />
 
       <LeadOfferPanel
         className="border-b border-cyan-300/15"

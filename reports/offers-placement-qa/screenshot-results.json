@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "source": "out-static-server",
+  "files": [
+    "homepage-offers-desktop-1440x900.png",
+    "homepage-offers-mobile-390x844.png",
+    "services-offers-desktop-1440x900.png",
+    "emergency-offer-mobile-390x844.png",
+    "contact-offers-mobile-390x844.png",
+    "panania-compact-offer-mobile-390x844.png",
+    "switchboard-service-offer-desktop-1440x900.png",
+    "footer-current-offers-desktop-1440x900.png"
+  ]
+}

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowRight, CheckCircle2, MapPin, Phone } from "lucide-react";
+import { CompactOfferStrip } from "@/components/compact-offer-strip";
 import {
   ServiceAreaHero,
   SiteFooter,
@@ -12,6 +13,7 @@ import {
   getRegionPaths,
 } from "@/data/service-area-coverage";
 import { rankSuburbsForInternalLinks } from "@/data/internal-links";
+import { getOffersForPlacement } from "@/data/offers";
 import { absoluteUrl, business, getEmergencyResponseForRegion } from "@/data/site";
 import {
   buildBreadcrumbSchema,
@@ -60,6 +62,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
   );
   const localContext = getRegionLocalContext(region);
   const emergencyResponse = getEmergencyResponseForRegion(region.name);
+  const regionOffers = getOffersForPlacement("service-areas");
   const topSuburbs = rankSuburbsForInternalLinks(
     region.areas.flatMap((area) =>
       area.suburbs.map((suburb) => ({
@@ -380,6 +383,14 @@ export default async function RegionPage({ params }: RegionPageProps) {
           </div>
         </div>
       </section>
+
+      <CompactOfferStrip
+        id="region-current-offers"
+        offers={regionOffers}
+        heading={`Current offers for ${region.name}`}
+        intro="Eligible offers can be checked against the job scope and terms. Call first if the fault feels unsafe or active."
+        className="border-y border-cyan-300/15"
+      />
 
       <section className="bg-gradient-to-r from-[#06142f] via-[#0a234d] to-[#040b1c] py-20 text-white">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">

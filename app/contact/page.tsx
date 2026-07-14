@@ -10,7 +10,9 @@ import {
   Phone,
   ShieldCheck,
 } from "lucide-react";
+import { CompactOfferStrip } from "@/components/compact-offer-strip";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
+import { getOffersForPlacement } from "@/data/offers";
 import { assetPath, business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
@@ -238,6 +240,14 @@ export default function ContactPage() {
             </div>
           </div>
         </section>
+
+        <CompactOfferStrip
+          id="contact-current-offers"
+          offers={getOffersForPlacement("contact")}
+          heading="Current offers for planned and urgent work"
+          intro="Call first for unsafe faults. For planned work, send your job details through the quote form so eligible offers can be checked against the work scope and terms."
+          className="border-y border-cyan-300/15"
+        />
 
         <section className="ev-storm-section px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8">
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.95fr_1.05fr]">

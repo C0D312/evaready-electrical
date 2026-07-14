@@ -10,11 +10,13 @@ import {
   ShieldCheck,
   Zap,
 } from "lucide-react";
+import { CompactOfferStrip } from "@/components/compact-offer-strip";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import {
   electricalFaultPages,
   getElectricalFaultPage,
 } from "@/data/electrical-faults";
+import { getFaultPageOffers } from "@/data/offers";
 import { absoluteUrl, business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
@@ -102,6 +104,7 @@ export default async function ElectricalFaultDetailPage({
     ],
     `/electrical-faults/${fault.slug}`,
   );
+  const faultOffers = getFaultPageOffers();
 
   return (
     <main className="core-storm-page core-storm-fault-detail ev-storm-page min-h-screen text-white">
@@ -272,6 +275,14 @@ export default async function ElectricalFaultDetailPage({
           </div>
         </div>
       </section>
+
+      <CompactOfferStrip
+        id="fault-current-offers"
+        offers={faultOffers}
+        heading="Current emergency service offer"
+        intro="Call first for active, unsafe or urgent electrical faults. The emergency offer can be checked against the job scope and terms after safety is triaged."
+        className="border-y border-cyan-300/15"
+      />
 
       <section className="ev-storm-section py-16 sm:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">

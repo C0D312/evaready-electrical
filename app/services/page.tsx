@@ -22,9 +22,11 @@ import {
 } from "@/components/service-credential-strip";
 import { GoogleReviewProof } from "@/components/google-review-proof";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
+import { OffersSection } from "@/components/offers-section";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
+import { getOffersForPlacement } from "@/data/offers";
 import { serviceLandingPages } from "@/data/service-pages";
 import { absoluteUrl, assetPath, business } from "@/data/site";
 import {
@@ -1659,6 +1661,13 @@ export default function ServicesPage() {
         eyebrow="Planned work quotes"
         heading="Send photos and job notes so the right service can be scoped."
         intro="For electrical services across Sydney and surrounding regions, photos help us quote faster. If the work is urgent or unsafe, call first so the issue can be triaged by phone."
+      />
+
+      <OffersSection
+        id="services-current-electrical-offers"
+        offers={getOffersForPlacement("services")}
+        heading="Current Electrical Offers"
+        intro="Use the offer that matches the job type. Planned work can go through the quote form, while unsafe electrical faults should be handled by phone first."
       />
 
       <TrustProcessProof

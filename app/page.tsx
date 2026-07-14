@@ -19,8 +19,10 @@ import { HeroCredentialBadges } from "@/components/credential-badges";
 import { GoogleReviewProof } from "@/components/google-review-proof";
 import { HeroGoogleReviewBadge } from "@/components/hero-google-review-badge";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
+import { OffersSection } from "@/components/offers-section";
 import { QuoteProcessGraphic } from "@/components/quote-process-graphic";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
+import { getOffersForPlacement } from "@/data/offers";
 import {
   assetPath,
   business,
@@ -545,6 +547,12 @@ export default function HomePage() {
           "Upload switchboard, meter box or affected-area photos through the quote form",
           "Send defect notices, access notes or job documents for review",
         ]}
+      />
+
+      <OffersSection
+        offers={getOffersForPlacement("homepage")}
+        heading="Current Electrical Offers"
+        intro="Choose the offer that matches the work. Call first for unsafe faults, or use the quote form for planned jobs, photos and access notes."
       />
 
       <section className="issue-selector-section border-y border-cyan-300/15 bg-[#061E72] py-12 text-white sm:py-16">

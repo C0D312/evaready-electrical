@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { GoogleReviewProof } from "@/components/google-review-proof";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
+import { CompactOfferStrip } from "@/components/compact-offer-strip";
 import { QuoteRequestPanel } from "@/components/quote-request-panel";
 import {
   ServiceCredentialStrip,
@@ -29,6 +30,7 @@ import {
   switchboardSafetyClusterLinks,
   switchboardSafetyQuoteChecklist,
 } from "@/data/internal-links";
+import { getServicePageOffers } from "@/data/offers";
 import { absoluteUrl, assetPath, business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
@@ -189,6 +191,7 @@ const level2SwitchboardNextSteps = [
 
 export default function SwitchboardUpgradesSydneyPage() {
   const pagePath = "/services/switchboard-upgrades-sydney";
+  const currentServiceOffers = getServicePageOffers("switchboard-upgrades-sydney");
   const serviceTypes = [
     "Switchboard Upgrades Sydney & Surrounding Regions",
     "Safety Switch Installation",
@@ -395,6 +398,14 @@ export default function SwitchboardUpgradesSydneyPage() {
           "Photos help us quote faster",
           "Clear next actions before work starts",
         ]}
+      />
+
+      <CompactOfferStrip
+        id="service-current-offers"
+        offers={currentServiceOffers}
+        heading="Current offers for switchboard and safety work"
+        intro="Eligible switchboard, safety and inspection offers can be applied where the job scope and terms match. Call first if there is heat, smoke, sparking or repeated tripping."
+        className="border-b border-cyan-300/15"
       />
 
       <section className="border-b border-cyan-300/15 bg-[#040b1c] py-14 text-white">

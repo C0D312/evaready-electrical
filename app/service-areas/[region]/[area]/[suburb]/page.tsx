@@ -10,6 +10,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { notFound } from "next/navigation";
+import { CompactOfferStrip } from "@/components/compact-offer-strip";
 import { GoogleReviewProof } from "@/components/google-review-proof";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
 import {
@@ -31,6 +32,7 @@ import {
   getSuburbPaths,
 } from "@/data/service-area-coverage";
 import { rankSuburbsForInternalLinks } from "@/data/internal-links";
+import { getSuburbPageOffers } from "@/data/offers";
 import { absoluteUrl, business, getEmergencyResponseForRegion } from "@/data/site";
 import {
   buildBreadcrumbSchema,
@@ -98,6 +100,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
   ).slice(0, 8);
   const copy = getSuburbPageCopy(region, area, suburb);
   const emergencyResponse = getEmergencyResponseForRegion(region.name);
+  const suburbOffers = getSuburbPageOffers();
 
   const pagePath = `/service-areas/${region.slug}/${area.slug}/${suburb.slug}`;
   const schema = buildElectricianSchema({
@@ -466,6 +469,14 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
           "Call-first emergency triage",
           "No-obligation quote for planned work",
         ]}
+      />
+
+      <CompactOfferStrip
+        id="suburb-current-offers"
+        offers={suburbOffers}
+        heading={`Current offers for electrical work in ${suburb.name}`}
+        intro={`Eligible offers can be reviewed for planned electrical work in ${suburb.name}. Call first if the fault feels unsafe or active.`}
+        className="border-b border-cyan-300/15"
       />
 
       <TrustProcessProof

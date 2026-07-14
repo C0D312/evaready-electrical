@@ -389,6 +389,14 @@ export function SiteFooter() {
               <span>Find your suburb</span>
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
+            <Link
+              href="/#current-electrical-offers"
+              className="ev-footer-find-link ev-footer-current-offers"
+            >
+              <BadgeCheck className="h-4 w-4" aria-hidden="true" />
+              <span>Current offers</span>
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
           </section>
         </div>
 

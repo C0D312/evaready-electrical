@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { GoogleReviewProof } from "@/components/google-review-proof";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
+import { CompactOfferStrip } from "@/components/compact-offer-strip";
 import { ServiceAreaSearch } from "@/components/service-area-search";
 import {
   ServiceAreaHero,
@@ -24,6 +25,7 @@ import {
   coverageSearchItems,
   coverageStats,
 } from "@/data/service-area-coverage";
+import { getOffersForPlacement } from "@/data/offers";
 import { absoluteUrl, business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
@@ -407,6 +409,14 @@ export default function AreasPage() {
           "Fast callback for urgent enquiries",
           "No-obligation quote for planned work",
         ]}
+      />
+
+      <CompactOfferStrip
+        id="service-areas-current-offers"
+        offers={getOffersForPlacement("service-areas")}
+        heading="Current offers across Sydney service areas"
+        intro="Use the suburb finder first, then call for urgent faults or send planned job details through the quote form so eligible offers can be checked."
+        className="border-b border-cyan-300/15"
       />
 
       <section className="bg-[#040b1c] py-14">

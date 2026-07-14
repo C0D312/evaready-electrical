@@ -11,6 +11,7 @@ import {
   ShieldCheck,
   Wrench,
 } from "lucide-react";
+import { CompactOfferStrip } from "@/components/compact-offer-strip";
 import { GoogleReviewProof } from "@/components/google-review-proof";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
 import {
@@ -31,6 +32,7 @@ import {
   switchboardSafetyClusterLinks,
   switchboardSafetyQuoteChecklist,
 } from "@/data/internal-links";
+import { getServicePageOffers } from "@/data/offers";
 import { absoluteUrl, assetPath, business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
@@ -409,6 +411,7 @@ export default async function ServiceLandingPage({
           "Clear next actions before work starts",
         ]
       : undefined;
+  const currentServiceOffers = getServicePageOffers(service.slug);
   const quoteCtaLabel = service.quoteCtaLabel ?? business.quoteCta;
   const quoteCta = (
     <a
@@ -592,6 +595,14 @@ export default async function ServiceLandingPage({
             : `For ${service.title.toLowerCase()} across Sydney and surrounding regions, photos help us quote faster. Call first if there is heat, smoke, sparking, power loss or unsafe wiring.`
         }
         items={offerItems}
+      />
+
+      <CompactOfferStrip
+        id="service-current-offers"
+        offers={currentServiceOffers}
+        heading={`Current offers for ${service.title.toLowerCase()}`}
+        intro="Eligible offers can be checked against the job scope and terms. Call first if the electrical issue is active or unsafe."
+        className="border-b border-cyan-300/15"
       />
 
       {switchboardSafetyRelatedLinks.length ? (
