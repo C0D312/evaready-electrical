@@ -88,4 +88,15 @@ Local Playwright QA checked 135 route/viewport combinations across homepage, cor
 
 ## Live Verification
 
-Pending deployment verification.
+- `main`: `fc5370e825b112839f1fdefdbe709743922c92ec`
+- `gh-pages`: `f47b0d9fa724234cd27e2d2b03957b0083f5ddcd`
+- Normal URLs verified with HTTP 200 and CSS loaded:
+  - `https://c0d312.github.io/evaready-electrical/`
+  - `https://c0d312.github.io/evaready-electrical/services/`
+  - `https://c0d312.github.io/evaready-electrical/emergency-electrician-sydney/`
+  - `https://c0d312.github.io/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/`
+  - `https://c0d312.github.io/evaready-electrical/site-version.json`
+- Cache-busted URLs verified with `?v=f47b0d9fa724`.
+- Live DOM order verified: electric header/banner, scrolling strip, desktop menu row, page content.
+- Live mobile rendering verified: header/banner and hamburger, scrolling strip, no top Call Now or Get a Quote, sticky bottom CTA preserved.
+- Live tracking markers verified: Google Ads, phone-click, quote-click and `tel:+61461247247`.
