@@ -12139,8 +12139,8 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
   --ev-electric-header-mobile-aspect: 1280 / 427;
   --ev-electric-header-banner-height: clamp(96px, 25vw, 132px);
   --ev-electric-nav-height: 0px;
-  --site-header-height: calc(var(--ev-electric-header-banner-height) + env(safe-area-inset-top)) !important;
   --site-route-strip-height: 38px;
+  --site-header-height: calc(var(--ev-electric-header-banner-height) + var(--site-route-strip-height) + env(safe-area-inset-top)) !important;
 }
 
 @media (min-width: 640px) and (max-width: 1023px) {
@@ -12153,8 +12153,8 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
   :root {
     --ev-electric-header-banner-height: clamp(118px, 8.8vw, 170px);
     --ev-electric-nav-height: 48px;
-    --site-header-height: calc(var(--ev-electric-header-banner-height) + var(--ev-electric-nav-height) + env(safe-area-inset-top)) !important;
     --site-route-strip-height: 40px;
+    --site-header-height: calc(var(--ev-electric-header-banner-height) + var(--site-route-strip-height) + var(--ev-electric-nav-height) + env(safe-area-inset-top)) !important;
   }
 }
 
@@ -12490,14 +12490,21 @@ header.site-header.ev-electric-header .site-logo-link.ev-electric-header-brand .
 }
 
 .site-header-spacer {
-  height: calc(var(--site-header-height) + var(--site-route-strip-height)) !important;
-  min-height: calc(var(--site-header-height) + var(--site-route-strip-height)) !important;
+  height: var(--site-header-height) !important;
+  min-height: var(--site-header-height) !important;
 }
 
-.emergency-issue-marquee {
-  top: var(--site-header-height) !important;
+header.site-header.ev-header-shell .emergency-issue-marquee {
+  position: relative !important;
+  inset-inline: auto !important;
+  top: auto !important;
+  z-index: 3 !important;
+  width: 100% !important;
+  max-width: 100% !important;
   height: var(--site-route-strip-height) !important;
   min-height: var(--site-route-strip-height) !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important;
   border-top: 1px solid rgba(98, 216, 255, 0.18) !important;
   border-bottom: 1px solid rgba(233, 17, 30, 0.7) !important;
   background:

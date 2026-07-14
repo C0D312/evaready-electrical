@@ -59,6 +59,8 @@ export function SiteHeader() {
             </div>
           </div>
 
+          <RouteMarqueeStrip />
+
           <div className="ev-desktop-nav-bar ev-electric-desktop-nav-row">
             <nav className="ev-electric-main-nav" aria-label="Primary navigation">
                 {navItems.map((item) => {
@@ -109,7 +111,6 @@ export function SiteHeader() {
           </div>
         </div>
       </header>
-      <RouteMarqueeStrip />
       <div
         aria-hidden="true"
         className="site-header-spacer"
