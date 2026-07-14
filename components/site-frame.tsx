@@ -179,18 +179,18 @@ export function ServiceAreaHero({
   title: string;
 }) {
   return (
-    <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
+    <section className="brand-internal-hero ev-hero ev-hero--with-van ev-storm-section--hero relative overflow-hidden bg-[#061E72] text-white">
       <Image
         src={assetPath(business.heroImage)}
         alt={business.brandImageAlt}
         fill
         priority
         sizes="100vw"
-        className="brand-internal-hero-image object-cover object-[68%_center]"
+        className="brand-internal-hero-image ev-hero-van object-cover object-[68%_center]"
       />
 
-      <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-14">
-        <div className="internal-hero-copy-panel max-w-4xl">
+      <div className="ev-hero-grid relative mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-14">
+        <div className="internal-hero-copy-panel ev-hero-card ev-hero-content max-w-4xl">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-blue-200">
             <MapPin className="h-4 w-4" />
             {eyebrow}

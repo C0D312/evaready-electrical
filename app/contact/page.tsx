@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import {
   ArrowRight,
@@ -10,7 +11,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
-import { business } from "@/data/site";
+import { assetPath, business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
   buildContactPointSchema,
@@ -90,9 +91,18 @@ export default function ContactPage() {
           dangerouslySetInnerHTML={schemaJson(contactPointSchema)}
         />
 
-        <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
-          <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-20">
-            <div className="internal-hero-copy-panel max-w-4xl">
+        <section className="brand-internal-hero ev-hero ev-hero--with-van ev-storm-section--hero relative overflow-hidden bg-[#061E72] text-white">
+          <Image
+            src={assetPath(business.heroImage)}
+            alt={business.brandImageAlt}
+            fill
+            priority
+            sizes="100vw"
+            className="brand-internal-hero-image ev-hero-van object-cover object-[68%_center]"
+          />
+
+          <div className="ev-hero-grid relative mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-20">
+            <div className="internal-hero-copy-panel ev-hero-card ev-hero-content max-w-4xl">
               <p className="mb-5 inline-flex rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
                 Contact
               </p>

@@ -1,0 +1,313 @@
+{
+  "generatedAt": "2026-07-14T01:15:24.581Z",
+  "routesChecked": 19,
+  "viewportsChecked": [
+    "320x568",
+    "360x800",
+    "375x812",
+    "390x844",
+    "412x915",
+    "430x932",
+    "768x1024",
+    "820x1180",
+    "834x1194",
+    "1024x1366",
+    "1024x768",
+    "1280x720",
+    "1366x768",
+    "1440x900",
+    "1600x900",
+    "1920x1080",
+    "2560x1440"
+  ],
+  "screenshotCount": 18,
+  "failures": {
+    "horizontalOverflow": [],
+    "headerOverlap": [],
+    "stickyOverlap": [],
+    "buttonClipping": [],
+    "textReadability": []
+  },
+  "heroSamples": [
+    {
+      "key": "320x568 /",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "320x568 /emergency-electrician-sydney/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "320x568 /level-2-electrician-sydney/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "320x568 /services/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "320x568 /service-areas/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "320x568 /about/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "320x568 /contact/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "320x568 /solar-batteries/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "320x568 /services/switchboard-upgrades-sydney/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "320x568 /services/consumer-mains-sydney/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "320x568 /services/defect-notice-repairs-sydney/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "320x568 /services/point-of-attachment-repairs-sydney/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "320x568 /services/hot-water-system-electrician-sydney/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "320x568 /services/split-system-air-conditioning-sydney/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "320x568 /service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "320x568 /service-areas/sydney-city-and-eastern-suburbs/randwick/coogee/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "320x568 /service-areas/western-sydney-and-nepean/blacktown/blacktown/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "360x800 /",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "360x800 /emergency-electrician-sydney/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "360x800 /level-2-electrician-sydney/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "360x800 /services/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "360x800 /service-areas/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "360x800 /about/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "360x800 /contact/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "360x800 /solar-batteries/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "360x800 /services/switchboard-upgrades-sydney/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "360x800 /services/consumer-mains-sydney/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "360x800 /services/defect-notice-repairs-sydney/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "360x800 /services/point-of-attachment-repairs-sydney/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "360x800 /services/hot-water-system-electrician-sydney/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "360x800 /services/split-system-air-conditioning-sydney/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "360x800 /service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "360x800 /service-areas/sydney-city-and-eastern-suburbs/randwick/coogee/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "360x800 /service-areas/western-sydney-and-nepean/blacktown/blacktown/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "375x812 /",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "375x812 /emergency-electrician-sydney/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "375x812 /level-2-electrician-sydney/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "375x812 /services/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "375x812 /service-areas/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    },
+    {
+      "key": "375x812 /about/",
+      "objectPosition": "72% 62%",
+      "filter": "none",
+      "opacity": "1",
+      "blend": "normal"
+    }
+  ]
+}

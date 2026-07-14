@@ -3646,6 +3646,321 @@ a[data-quote-trigger="true"].site-header-quote {
   }
 }
 
+/* Full-site theme + shared van hero final guard.
+   This deliberately sits at EOF because the historical stylesheet has several
+   legacy "final" sections. It keeps About, Contact, generated pages and core
+   commercial pages on the same storm/van system without changing copy. */
+.ev-commercial-page,
+.core-storm-page,
+.generated-storm-page {
+  --ev-content-max: min(1280px, calc(100vw - clamp(2rem, 6vw, 4rem)));
+  --ev-readable-max: min(1040px, calc(100vw - clamp(2rem, 6vw, 4rem)));
+}
+
+.ev-legal-page,
+.legal-page {
+  --ev-content-max: min(1040px, calc(100vw - clamp(2rem, 6vw, 4rem)));
+}
+
+.ev-hero,
+.home-brand-hero,
+.brand-internal-hero {
+  --ev-hero-van-position-desktop: 68% center;
+  --ev-hero-van-position-mobile: 62% center;
+  --ev-hero-van-size-desktop: cover;
+  --ev-hero-van-size-mobile: cover;
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  color: var(--ev-white) !important;
+  background:
+    radial-gradient(circle at 8% 16%, rgba(7, 156, 255, 0.36), transparent 30rem),
+    radial-gradient(circle at 92% 14%, rgba(233, 17, 30, 0.24), transparent 28rem),
+    linear-gradient(135deg, rgba(2, 5, 13, 0.86), rgba(9, 29, 66, 0.74) 54%, rgba(2, 5, 13, 0.9)),
+    var(--ev-storm-bg-active) !important;
+  background-position: left top, right top, center, center top !important;
+  background-size: auto, auto, auto, cover !important;
+}
+
+.ev-hero-grid,
+.home-brand-hero > .relative.mx-auto,
+.brand-internal-hero > div.mx-auto,
+.brand-internal-hero > .relative.mx-auto {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 100% !important;
+  max-width: var(--ev-content-max, min(1280px, calc(100vw - 3rem))) !important;
+  margin-inline: auto !important;
+}
+
+.ev-storm-page main > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee) > .mx-auto,
+.ev-electric-theme-bg main > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee) > .mx-auto {
+  width: 100% !important;
+  max-width: var(--ev-content-max, min(1280px, calc(100vw - 3rem))) !important;
+}
+
+.legal-page > section:not(.brand-internal-hero) > .mx-auto,
+.ev-legal-page > section:not(.brand-internal-hero) > .mx-auto {
+  max-width: var(--ev-readable-max, min(1040px, calc(100vw - 3rem))) !important;
+}
+
+.ev-hero-card,
+.home-hero-copy-panel,
+.internal-hero-copy-panel {
+  max-width: min(100%, 56rem) !important;
+}
+
+.ev-hero-van,
+.home-brand-hero .brand-hero-image,
+.brand-internal-hero > img.brand-internal-hero-image,
+.brand-internal-hero > img.absolute {
+  object-fit: cover !important;
+  object-position: var(--ev-hero-van-position-desktop) !important;
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+  transform: none !important;
+}
+
+.brand-internal-hero::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  background-image:
+    linear-gradient(90deg, rgba(2, 5, 13, 0.98), rgba(2, 5, 13, 0.64) 42%, rgba(2, 5, 13, 0.14) 70%, rgba(2, 5, 13, 0.7)),
+    linear-gradient(180deg, rgba(2, 5, 13, 0.08), rgba(2, 5, 13, 0.78)),
+    url("/evaready-electrical/images/evaready-electrical-sydney-service-van.webp") !important;
+  background-position: center, center, var(--ev-hero-van-position-desktop) !important;
+  background-size: cover, cover, var(--ev-hero-van-size-desktop) !important;
+  background-repeat: no-repeat !important;
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
+
+.brand-internal-hero:has(.brand-internal-hero-image)::before {
+  content: none !important;
+  display: none !important;
+}
+
+.core-storm-about .brand-internal-hero,
+.core-storm-contact .brand-internal-hero {
+  min-height: clamp(34rem, 58vh, 46rem) !important;
+}
+
+.ev-storm-footer,
+.site-footer {
+  background:
+    radial-gradient(circle at 7% 20%, rgba(7, 156, 255, 0.3), transparent 28rem),
+    radial-gradient(circle at 92% 18%, rgba(233, 17, 30, 0.18), transparent 26rem),
+    linear-gradient(135deg, rgba(2, 5, 13, 0.9), rgba(9, 29, 66, 0.76) 56%, rgba(2, 5, 13, 0.94)),
+    var(--ev-storm-bg-active) !important;
+  background-blend-mode: normal, normal, normal, screen !important;
+}
+
+@media (max-width: 767px) {
+  .ev-hero,
+  .home-brand-hero,
+  .brand-internal-hero {
+    --mobile-hero-photo-height: clamp(13.25rem, 56vw, 17.5rem);
+    --ev-hero-van-position-mobile: 62% center;
+    min-height: auto !important;
+  }
+
+  .ev-hero-van,
+  .home-brand-hero .brand-hero-image,
+  .brand-internal-hero > img.brand-internal-hero-image,
+  .brand-internal-hero > img.absolute {
+    height: var(--mobile-hero-photo-height) !important;
+    object-position: var(--ev-hero-van-position-mobile) !important;
+  }
+
+  .brand-internal-hero::before {
+    inset: 0 0 auto !important;
+    height: var(--mobile-hero-photo-height) !important;
+    background-position: center, center, var(--ev-hero-van-position-mobile) !important;
+    background-size: cover, cover, var(--ev-hero-van-size-mobile) !important;
+  }
+
+  .ev-hero-grid,
+  .home-brand-hero > .relative.mx-auto,
+  .brand-internal-hero > div.mx-auto,
+  .brand-internal-hero > .relative.mx-auto {
+    max-width: calc(100vw - 2rem) !important;
+    padding-top: calc(var(--mobile-hero-photo-height) + 1rem) !important;
+  }
+
+  .ev-hero-card,
+  .home-hero-copy-panel,
+  .internal-hero-copy-panel {
+    max-width: 100% !important;
+  }
+
+  html body .mobile-sticky-cta {
+    display: grid !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .ev-hero-van,
+  .home-brand-hero .brand-hero-image,
+  .brand-internal-hero > img.brand-internal-hero-image,
+  .brand-internal-hero > img.absolute {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  html body .mobile-sticky-cta {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+}
+
+/* Full-site consistency pass: the existing home/internal hero classes now act
+   as the shared Evaready hero system, so van framing and content scale do not
+   drift between core pages, generated service pages, suburbs, About or Contact. */
+.ev-commercial-page,
+.core-storm-page,
+.generated-storm-page {
+  --ev-content-max: min(1280px, calc(100vw - clamp(2rem, 6vw, 4rem)));
+  --ev-readable-max: min(1040px, calc(100vw - clamp(2rem, 6vw, 4rem)));
+}
+
+.ev-legal-page,
+.legal-page {
+  --ev-content-max: min(1040px, calc(100vw - clamp(2rem, 6vw, 4rem)));
+}
+
+.ev-hero,
+.home-brand-hero,
+.brand-internal-hero {
+  --ev-hero-van-position-desktop: 68% center;
+  --ev-hero-van-position-mobile: 62% center;
+  --ev-hero-van-size-desktop: min(60rem, 58vw) auto;
+  --ev-hero-van-size-mobile: cover;
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(circle at 8% 16%, rgba(7, 156, 255, 0.36), transparent 30rem),
+    radial-gradient(circle at 92% 14%, rgba(233, 17, 30, 0.24), transparent 28rem),
+    linear-gradient(135deg, rgba(2, 5, 13, 0.86), rgba(9, 29, 66, 0.74) 54%, rgba(2, 5, 13, 0.9)),
+    var(--ev-storm-bg-active) !important;
+  background-position: left top, right top, center, center top !important;
+  background-size: auto, auto, auto, cover !important;
+  color: var(--ev-white) !important;
+}
+
+.ev-hero-grid,
+.home-brand-hero > .relative.mx-auto,
+.brand-internal-hero > div.mx-auto,
+.brand-internal-hero > .relative.mx-auto {
+  width: 100% !important;
+  max-width: var(--ev-content-max, min(1280px, calc(100vw - 3rem))) !important;
+  margin-inline: auto !important;
+}
+
+.ev-hero-card,
+.home-hero-copy-panel,
+.internal-hero-copy-panel {
+  max-width: min(100%, 56rem) !important;
+}
+
+.ev-hero-van,
+.home-brand-hero .brand-hero-image,
+.brand-internal-hero > img.brand-internal-hero-image,
+.brand-internal-hero > img.absolute {
+  object-fit: cover !important;
+  object-position: var(--ev-hero-van-position-desktop) !important;
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+  transform: none !important;
+}
+
+.brand-internal-hero::before {
+  background-position: var(--ev-hero-van-position-desktop) !important;
+  background-size: var(--ev-hero-van-size-desktop) !important;
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
+
+.ev-storm-page main > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee) > .mx-auto,
+.ev-electric-theme-bg main > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee) > .mx-auto {
+  width: 100% !important;
+  max-width: var(--ev-content-max, min(1280px, calc(100vw - 3rem))) !important;
+}
+
+.legal-page > section:not(.brand-internal-hero) > .mx-auto,
+.ev-legal-page > section:not(.brand-internal-hero) > .mx-auto {
+  max-width: var(--ev-readable-max, min(1040px, calc(100vw - 3rem))) !important;
+}
+
+.core-storm-about .brand-internal-hero,
+.core-storm-contact .brand-internal-hero {
+  min-height: clamp(34rem, 58vh, 46rem) !important;
+}
+
+.core-storm-about .brand-internal-hero::before,
+.core-storm-contact .brand-internal-hero::before {
+  background-size: min(62rem, 60vw) auto !important;
+}
+
+.ev-storm-footer,
+.site-footer {
+  background:
+    radial-gradient(circle at 7% 20%, rgba(7, 156, 255, 0.3), transparent 28rem),
+    radial-gradient(circle at 92% 18%, rgba(233, 17, 30, 0.18), transparent 26rem),
+    linear-gradient(135deg, rgba(2, 5, 13, 0.9), rgba(9, 29, 66, 0.76) 56%, rgba(2, 5, 13, 0.94)),
+    var(--ev-storm-bg-active) !important;
+  background-blend-mode: normal, normal, normal, screen !important;
+}
+
+@media (max-width: 767px) {
+  .ev-hero,
+  .home-brand-hero,
+  .brand-internal-hero {
+    --mobile-hero-photo-height: clamp(13.25rem, 56vw, 17.5rem);
+    --ev-hero-van-position-mobile: 62% center;
+    min-height: auto !important;
+  }
+
+  .ev-hero-van,
+  .home-brand-hero .brand-hero-image,
+  .brand-internal-hero > img.brand-internal-hero-image,
+  .brand-internal-hero > img.absolute {
+    height: var(--mobile-hero-photo-height) !important;
+    object-position: var(--ev-hero-van-position-mobile) !important;
+  }
+
+  .brand-internal-hero::before {
+    height: var(--mobile-hero-photo-height) !important;
+    background-position: var(--ev-hero-van-position-mobile) !important;
+    background-size: var(--ev-hero-van-size-mobile) !important;
+  }
+
+  .ev-hero-grid,
+  .home-brand-hero > .relative.mx-auto,
+  .brand-internal-hero > div.mx-auto,
+  .brand-internal-hero > .relative.mx-auto {
+    max-width: calc(100vw - 2rem) !important;
+    padding-top: calc(var(--mobile-hero-photo-height) + 1rem) !important;
+  }
+
+  .ev-hero-card,
+  .home-hero-copy-panel,
+  .internal-hero-copy-panel {
+    max-width: 100% !important;
+  }
+}
+
 /* Definitive final sticky CTA fit guard. Keep this at the end so legacy button rules cannot win. */
 html body .mobile-sticky-cta {
   left: max(0.72rem, env(safe-area-inset-left)) !important;
