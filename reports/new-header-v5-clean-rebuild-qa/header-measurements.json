@@ -1,0 +1,650 @@
+[
+  {
+    "name": "homepage-320x568",
+    "path": "/",
+    "width": 320,
+    "height": 568,
+    "viewport": {
+      "width": 320,
+      "height": 568
+    },
+    "bodyScrollWidth": 320,
+    "horizontalOverflow": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 134,
+      "top": 0,
+      "bottom": 134,
+      "right": 320
+    },
+    "art": {
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 96,
+      "top": 0,
+      "bottom": 96,
+      "right": 320
+    },
+    "image": {
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 94,
+      "top": 0,
+      "bottom": 94,
+      "right": 320
+    },
+    "menu": {
+      "x": 256.328125,
+      "y": 19,
+      "width": 56,
+      "height": 56,
+      "top": 19,
+      "bottom": 75,
+      "right": 312.328125
+    },
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "bottom": 0,
+      "right": 0
+    },
+    "spacer": {
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 134,
+      "top": 0,
+      "bottom": 134,
+      "right": 320
+    },
+    "mobileMenuVisible": true,
+    "desktopNavVisible": false,
+    "mobileTopCallVisible": false,
+    "mobileTopQuoteVisible": false,
+    "stickyCtaVisible": true,
+    "headerAsset": "/evaready-electrical/images/header/evaready-header-desktop-v5.webp"
+  },
+  {
+    "name": "homepage-360x800",
+    "path": "/",
+    "width": 360,
+    "height": 800,
+    "viewport": {
+      "width": 360,
+      "height": 800
+    },
+    "bodyScrollWidth": 360,
+    "horizontalOverflow": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 360,
+      "height": 140.59375,
+      "top": 0,
+      "bottom": 140.59375,
+      "right": 360
+    },
+    "art": {
+      "x": 0,
+      "y": 0,
+      "width": 360,
+      "height": 102.59375,
+      "top": 0,
+      "bottom": 102.59375,
+      "right": 360
+    },
+    "image": {
+      "x": 0,
+      "y": 0,
+      "width": 360,
+      "height": 100.59375,
+      "top": 0,
+      "bottom": 100.59375,
+      "right": 360
+    },
+    "menu": {
+      "x": 296.328125,
+      "y": 22.296875,
+      "width": 56,
+      "height": 56,
+      "top": 22.296875,
+      "bottom": 78.296875,
+      "right": 352.328125
+    },
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "bottom": 0,
+      "right": 0
+    },
+    "spacer": {
+      "x": 0,
+      "y": 0,
+      "width": 360,
+      "height": 140.59375,
+      "top": 0,
+      "bottom": 140.59375,
+      "right": 360
+    },
+    "mobileMenuVisible": true,
+    "desktopNavVisible": false,
+    "mobileTopCallVisible": false,
+    "mobileTopQuoteVisible": false,
+    "stickyCtaVisible": true,
+    "headerAsset": "/evaready-electrical/images/header/evaready-header-desktop-v5.webp"
+  },
+  {
+    "name": "homepage-390x844",
+    "path": "/",
+    "width": 390,
+    "height": 844,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "bodyScrollWidth": 390,
+    "horizontalOverflow": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 149.140625,
+      "top": 0,
+      "bottom": 149.140625,
+      "right": 390
+    },
+    "art": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 111.140625,
+      "top": 0,
+      "bottom": 111.140625,
+      "right": 390
+    },
+    "image": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 109.140625,
+      "top": 0,
+      "bottom": 109.140625,
+      "right": 390
+    },
+    "menu": {
+      "x": 326.328125,
+      "y": 26.5625,
+      "width": 56,
+      "height": 56,
+      "top": 26.5625,
+      "bottom": 82.5625,
+      "right": 382.328125
+    },
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "bottom": 0,
+      "right": 0
+    },
+    "spacer": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 149.140625,
+      "top": 0,
+      "bottom": 149.140625,
+      "right": 390
+    },
+    "mobileMenuVisible": true,
+    "desktopNavVisible": false,
+    "mobileTopCallVisible": false,
+    "mobileTopQuoteVisible": false,
+    "stickyCtaVisible": true,
+    "headerAsset": "/evaready-electrical/images/header/evaready-header-desktop-v5.webp"
+  },
+  {
+    "name": "homepage-430x932",
+    "path": "/",
+    "width": 430,
+    "height": 932,
+    "viewport": {
+      "width": 430,
+      "height": 932
+    },
+    "bodyScrollWidth": 430,
+    "horizontalOverflow": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 430,
+      "height": 160.546875,
+      "top": 0,
+      "bottom": 160.546875,
+      "right": 430
+    },
+    "art": {
+      "x": 0,
+      "y": 0,
+      "width": 430,
+      "height": 122.546875,
+      "top": 0,
+      "bottom": 122.546875,
+      "right": 430
+    },
+    "image": {
+      "x": 0,
+      "y": 0,
+      "width": 430,
+      "height": 120.546875,
+      "top": 0,
+      "bottom": 120.546875,
+      "right": 430
+    },
+    "menu": {
+      "x": 366.328125,
+      "y": 32.265625,
+      "width": 56,
+      "height": 56,
+      "top": 32.265625,
+      "bottom": 88.265625,
+      "right": 422.328125
+    },
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "bottom": 0,
+      "right": 0
+    },
+    "spacer": {
+      "x": 0,
+      "y": 0,
+      "width": 430,
+      "height": 160.546875,
+      "top": 0,
+      "bottom": 160.546875,
+      "right": 430
+    },
+    "mobileMenuVisible": true,
+    "desktopNavVisible": false,
+    "mobileTopCallVisible": false,
+    "mobileTopQuoteVisible": false,
+    "stickyCtaVisible": true,
+    "headerAsset": "/evaready-electrical/images/header/evaready-header-desktop-v5.webp"
+  },
+  {
+    "name": "services-390x844",
+    "path": "/services/",
+    "width": 390,
+    "height": 844,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "bodyScrollWidth": 390,
+    "horizontalOverflow": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 149.140625,
+      "top": 0,
+      "bottom": 149.140625,
+      "right": 390
+    },
+    "art": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 111.140625,
+      "top": 0,
+      "bottom": 111.140625,
+      "right": 390
+    },
+    "image": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 109.140625,
+      "top": 0,
+      "bottom": 109.140625,
+      "right": 390
+    },
+    "menu": {
+      "x": 326.328125,
+      "y": 26.5625,
+      "width": 56,
+      "height": 56,
+      "top": 26.5625,
+      "bottom": 82.5625,
+      "right": 382.328125
+    },
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "bottom": 0,
+      "right": 0
+    },
+    "spacer": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 149.140625,
+      "top": 0,
+      "bottom": 149.140625,
+      "right": 390
+    },
+    "mobileMenuVisible": true,
+    "desktopNavVisible": false,
+    "mobileTopCallVisible": false,
+    "mobileTopQuoteVisible": false,
+    "stickyCtaVisible": true,
+    "headerAsset": "/evaready-electrical/images/header/evaready-header-desktop-v5.webp"
+  },
+  {
+    "name": "emergency-390x844",
+    "path": "/emergency-electrician-sydney/",
+    "width": 390,
+    "height": 844,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "bodyScrollWidth": 390,
+    "horizontalOverflow": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 149.140625,
+      "top": 0,
+      "bottom": 149.140625,
+      "right": 390
+    },
+    "art": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 111.140625,
+      "top": 0,
+      "bottom": 111.140625,
+      "right": 390
+    },
+    "image": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 109.140625,
+      "top": 0,
+      "bottom": 109.140625,
+      "right": 390
+    },
+    "menu": {
+      "x": 326.328125,
+      "y": 26.5625,
+      "width": 56,
+      "height": 56,
+      "top": 26.5625,
+      "bottom": 82.5625,
+      "right": 382.328125
+    },
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "bottom": 0,
+      "right": 0
+    },
+    "spacer": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 149.140625,
+      "top": 0,
+      "bottom": 149.140625,
+      "right": 390
+    },
+    "mobileMenuVisible": true,
+    "desktopNavVisible": false,
+    "mobileTopCallVisible": false,
+    "mobileTopQuoteVisible": false,
+    "stickyCtaVisible": true,
+    "headerAsset": "/evaready-electrical/images/header/evaready-header-desktop-v5.webp"
+  },
+  {
+    "name": "panania-390x844",
+    "path": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+    "width": 390,
+    "height": 844,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "bodyScrollWidth": 390,
+    "horizontalOverflow": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 149.140625,
+      "top": 0,
+      "bottom": 149.140625,
+      "right": 390
+    },
+    "art": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 111.140625,
+      "top": 0,
+      "bottom": 111.140625,
+      "right": 390
+    },
+    "image": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 109.140625,
+      "top": 0,
+      "bottom": 109.140625,
+      "right": 390
+    },
+    "menu": {
+      "x": 326.328125,
+      "y": 26.5625,
+      "width": 56,
+      "height": 56,
+      "top": 26.5625,
+      "bottom": 82.5625,
+      "right": 382.328125
+    },
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "bottom": 0,
+      "right": 0
+    },
+    "spacer": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 149.140625,
+      "top": 0,
+      "bottom": 149.140625,
+      "right": 390
+    },
+    "mobileMenuVisible": true,
+    "desktopNavVisible": false,
+    "mobileTopCallVisible": false,
+    "mobileTopQuoteVisible": false,
+    "stickyCtaVisible": true,
+    "headerAsset": "/evaready-electrical/images/header/evaready-header-desktop-v5.webp"
+  },
+  {
+    "name": "homepage-1366x768",
+    "path": "/",
+    "width": 1366,
+    "height": 768,
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "bodyScrollWidth": 1366,
+    "horizontalOverflow": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 1366,
+      "height": 278.5,
+      "top": 0,
+      "bottom": 278.5,
+      "right": 1366
+    },
+    "art": {
+      "x": 0,
+      "y": 0,
+      "width": 1366,
+      "height": 188.5,
+      "top": 0,
+      "bottom": 188.5,
+      "right": 1366
+    },
+    "image": {
+      "x": 0,
+      "y": 0,
+      "width": 1366,
+      "height": 186.5,
+      "top": 0,
+      "bottom": 186.5,
+      "right": 1366
+    },
+    "menu": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "bottom": 0,
+      "right": 0
+    },
+    "desktopNav": {
+      "x": 0,
+      "y": 228.5,
+      "width": 1366,
+      "height": 50,
+      "top": 228.5,
+      "bottom": 278.5,
+      "right": 1366
+    },
+    "spacer": {
+      "x": 0,
+      "y": 0,
+      "width": 1366,
+      "height": 278.5,
+      "top": 0,
+      "bottom": 278.5,
+      "right": 1366
+    },
+    "mobileMenuVisible": false,
+    "desktopNavVisible": true,
+    "mobileTopCallVisible": true,
+    "mobileTopQuoteVisible": true,
+    "stickyCtaVisible": false,
+    "headerAsset": "/evaready-electrical/images/header/evaready-header-desktop-v5.webp"
+  },
+  {
+    "name": "homepage-1920x1080",
+    "path": "/",
+    "width": 1920,
+    "height": 1080,
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "bodyScrollWidth": 1920,
+    "horizontalOverflow": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 1920,
+      "height": 354.953125,
+      "top": 0,
+      "bottom": 354.953125,
+      "right": 1920
+    },
+    "art": {
+      "x": 0,
+      "y": 0,
+      "width": 1920,
+      "height": 264.953125,
+      "top": 0,
+      "bottom": 264.953125,
+      "right": 1920
+    },
+    "image": {
+      "x": 0,
+      "y": 0,
+      "width": 1920,
+      "height": 262.953125,
+      "top": 0,
+      "bottom": 262.953125,
+      "right": 1920
+    },
+    "menu": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "bottom": 0,
+      "right": 0
+    },
+    "desktopNav": {
+      "x": 0,
+      "y": 304.953125,
+      "width": 1920,
+      "height": 50,
+      "top": 304.953125,
+      "bottom": 354.953125,
+      "right": 1920
+    },
+    "spacer": {
+      "x": 0,
+      "y": 0,
+      "width": 1920,
+      "height": 354.953125,
+      "top": 0,
+      "bottom": 354.953125,
+      "right": 1920
+    },
+    "mobileMenuVisible": false,
+    "desktopNavVisible": true,
+    "mobileTopCallVisible": true,
+    "mobileTopQuoteVisible": true,
+    "stickyCtaVisible": false,
+    "headerAsset": "/evaready-electrical/images/header/evaready-header-desktop-v5.webp"
+  }
+]

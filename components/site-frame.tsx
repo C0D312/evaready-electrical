@@ -41,6 +41,12 @@ const legalLinks = [
   { href: "/sitemap.xml", label: "Sitemap" },
 ];
 
+const headerImages = {
+  desktop: "/images/header/evaready-header-desktop-v5.webp",
+  tablet: "/images/header/evaready-header-tablet-v5.webp",
+  mobile: "/images/header/evaready-header-mobile-v5.webp",
+};
+
 type FooterLinkItem = {
   href: string;
   label: string;
@@ -159,80 +165,89 @@ function FooterTextLink({ href, label }: FooterLinkItem) {
 }
 
 export function SiteHeader() {
+  const headerDesktop = assetPath(headerImages.desktop);
+  const headerTablet = assetPath(headerImages.tablet);
+  const headerMobile = assetPath(headerImages.mobile);
+
   return (
     <>
-      <header className="site-header ev-electric-header ev-header-shell fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)]">
-        <div className="ev-electric-header-shell ev-header-layout">
-          <div className="ev-header-art-strip">
-            <HomeNavigationLink
-              data-header-logo="true"
-              className="ev-header-logo-wrap"
-            >
-              <Image
-                src={assetPath(business.logoImage)}
+      <header className="site-header ev-final-header fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)]">
+        <div className="ev-final-header-art">
+          <HomeNavigationLink
+            data-header-logo="true"
+            className="ev-final-header-brand"
+          >
+            <picture className="ev-final-header-picture">
+              <source media="(max-width: 767px)" srcSet={headerMobile} />
+              <source media="(max-width: 1180px)" srcSet={headerTablet} />
+              <img
+                src={headerDesktop}
                 alt="Evaready Electrical 24/7"
-                width={1000}
-                height={353}
-                priority
-                sizes="(max-width: 1023px) calc(100vw - 86px), min(58vw, 980px)"
-                className="ev-header-logo"
+                width={2048}
+                height={682}
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+                className="ev-final-header-image"
               />
-            </HomeNavigationLink>
+            </picture>
+          </HomeNavigationLink>
 
-            <div className="ev-mobile-menu-zone">
+          <div className="ev-final-mobile-menu">
+            <div className="ev-final-mobile-menu-inner">
               <MobilePrimaryNav />
             </div>
           </div>
+        </div>
 
-          <RouteMarqueeStrip />
+        <RouteMarqueeStrip />
 
-          <div className="ev-desktop-nav-bar ev-electric-desktop-nav-row">
-            <nav className="ev-electric-main-nav" aria-label="Primary navigation">
-                {navItems.map((item) => {
-                  const className = `ev-electric-nav-link ${item.desktopClassName ?? ""}`.trim();
+        <div className="ev-final-desktop-nav">
+          <nav className="ev-final-main-nav" aria-label="Primary navigation">
+            {navItems.map((item) => {
+              const className = `ev-final-nav-link ${item.desktopClassName ?? ""}`.trim();
 
-                  return item.href === "/" ? (
-                    <HomeNavigationLink
-                      key={item.href}
-                      className={className}
-                    >
-                      {item.label}
-                    </HomeNavigationLink>
-                  ) : (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className={className}
-                    >
-                      {item.label}
-                    </Link>
-                  );
-                })}
-              </nav>
-
-            <div className="site-header-actions ev-electric-header-actions">
-                <a
-                  href={business.phoneHref}
-                  data-conversion-action="phone-click"
-                  aria-label={business.callCta}
-                  className="ev-btn ev-btn--call ev-header-btn"
+              return item.href === "/" ? (
+                <HomeNavigationLink
+                  key={item.href}
+                  className={className}
                 >
-                  <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
-                  <span>Call Now {business.phoneDisplay}</span>
-                </a>
-
-                <a
-                  href={business.bookingUrl}
-                  data-quote-trigger="true"
-                  data-conversion-action="quote-click"
-                  aria-haspopup="dialog"
-                  aria-label="Get a quote from Evaready Electrical"
-                  className="site-header-quote ev-btn ev-btn--quote ev-header-btn"
+                  {item.label}
+                </HomeNavigationLink>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={className}
                 >
-                  <span>{business.quoteCta}</span>
-                  <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
-                </a>
-              </div>
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+
+          <div className="site-header-actions ev-final-header-actions">
+            <a
+              href={business.phoneHref}
+              data-conversion-action="phone-click"
+              aria-label={business.callCta}
+              className="ev-btn ev-btn--call ev-final-header-btn"
+            >
+              <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
+              <span>Call Now {business.phoneDisplay}</span>
+            </a>
+
+            <a
+              href={business.bookingUrl}
+              data-quote-trigger="true"
+              data-conversion-action="quote-click"
+              aria-haspopup="dialog"
+              aria-label="Get a quote from Evaready Electrical"
+              className="site-header-quote ev-btn ev-btn--quote ev-final-header-btn"
+            >
+              <span>{business.quoteCta}</span>
+              <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+            </a>
           </div>
         </div>
       </header>

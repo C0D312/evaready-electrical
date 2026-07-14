@@ -12709,28 +12709,26 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
   }
 }
 
-/* Electric storm brand header and global dark background.
-   This is the shared authoritative layer for the new two-row header. */
+/* Final Evaready v5 header rebuilt from the latest uploaded banner image. */
 :root {
-  --ev-electric-header-mobile-aspect: 1280 / 427;
-  --ev-electric-header-banner-height: clamp(96px, 25vw, 132px);
-  --ev-electric-nav-height: 0px;
+  --ev-final-header-art-height: clamp(96px, 28.5vw, 136px);
+  --ev-final-nav-height: 0px;
   --site-route-strip-height: 38px;
-  --site-header-height: calc(var(--ev-electric-header-banner-height) + var(--site-route-strip-height) + env(safe-area-inset-top)) !important;
+  --site-header-height: calc(var(--ev-final-header-art-height) + var(--site-route-strip-height) + env(safe-area-inset-top)) !important;
 }
 
 @media (min-width: 640px) and (max-width: 1023px) {
   :root {
-    --ev-electric-header-banner-height: clamp(112px, 18vw, 160px);
+    --ev-final-header-art-height: clamp(118px, 18vw, 168px);
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    --ev-electric-header-banner-height: clamp(118px, 8.8vw, 170px);
-    --ev-electric-nav-height: 48px;
+    --ev-final-header-art-height: clamp(156px, 13.8vw, 292px);
+    --ev-final-nav-height: 50px;
     --site-route-strip-height: 40px;
-    --site-header-height: calc(var(--ev-electric-header-banner-height) + var(--site-route-strip-height) + var(--ev-electric-nav-height) + env(safe-area-inset-top)) !important;
+    --site-header-height: calc(var(--ev-final-header-art-height) + var(--site-route-strip-height) + var(--ev-final-nav-height) + env(safe-area-inset-top)) !important;
   }
 }
 
@@ -12755,53 +12753,41 @@ body.ev-electric-theme-bg main {
     linear-gradient(180deg, rgba(2, 5, 13, 0.16), rgba(2, 5, 13, 0.68) 22rem, rgba(2, 5, 13, 0.92)) !important;
 }
 
-header.site-header.ev-electric-header {
+header.site-header.ev-final-header {
   border: 0 !important;
-  background:
-    linear-gradient(180deg, rgba(2, 5, 13, 0.98), rgba(4, 11, 28, 0.98)) !important;
+  background: rgba(2, 5, 13, 0.98) !important;
   box-shadow:
     0 12px 30px rgba(0, 0, 0, 0.42),
     0 1px 0 rgba(98, 216, 255, 0.25) !important;
   overflow: visible !important;
 }
 
-header.site-header.ev-electric-header .ev-electric-header-shell {
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow: visible !important;
-}
-
-.ev-electric-header-banner-row {
+.ev-final-header-art {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  align-items: center;
+  display: block;
   width: 100vw !important;
   min-width: 100vw !important;
   max-width: 100vw !important;
+  height: var(--ev-final-header-art-height);
   margin-inline: calc(50% - 50vw) !important;
-  height: var(--ev-electric-header-banner-height);
-  box-sizing: border-box;
   isolation: isolate;
   overflow: hidden;
-  background:
-    linear-gradient(90deg, rgba(2, 5, 13, 0.84), rgba(6, 20, 47, 0.7) 45%, rgba(117, 7, 19, 0.54)),
-    var(--ev-midnight, #040b1c);
+  background: var(--ev-black, #02050d);
   border-bottom: 2px solid rgba(233, 17, 30, 0.78);
+  box-shadow:
+    inset 0 -1px 0 rgba(98, 216, 255, 0.22),
+    0 14px 34px rgba(0, 0, 0, 0.38);
 }
 
-header.site-header.ev-electric-header .site-logo-link.ev-electric-header-brand,
-.ev-electric-header-brand {
+.ev-final-header-brand,
+.ev-final-header-picture {
   display: block !important;
   width: 100% !important;
   height: 100% !important;
   min-width: 0 !important;
-  min-height: 100% !important;
   max-width: none !important;
-  max-height: none !important;
   padding: 0 !important;
+  margin: 0 !important;
   border: 0 !important;
   border-radius: 0 !important;
   background: transparent !important;
@@ -12809,24 +12795,12 @@ header.site-header.ev-electric-header .site-logo-link.ev-electric-header-brand,
   overflow: hidden !important;
 }
 
-header.site-header.ev-electric-header .site-logo-link.ev-electric-header-brand::before,
-header.site-header.ev-electric-header .site-logo-link.ev-electric-header-brand::after,
-.ev-electric-header-brand::before,
-.ev-electric-header-brand::after {
+.ev-final-header-brand::before,
+.ev-final-header-brand::after {
   content: none !important;
 }
 
-.ev-electric-header-picture {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  min-width: 0 !important;
-  max-width: none !important;
-  overflow: hidden !important;
-}
-
-header.site-header.ev-electric-header .site-logo-link.ev-electric-header-brand .ev-electric-header-banner,
-.ev-electric-header-banner {
+.ev-final-header-image {
   display: block !important;
   width: 100% !important;
   height: 100% !important;
@@ -12839,35 +12813,46 @@ header.site-header.ev-electric-header .site-logo-link.ev-electric-header-brand .
   transform: none !important;
 }
 
-.ev-electric-header-banner-row .mobile-nav-trigger {
+.ev-final-mobile-menu {
   position: absolute !important;
-  z-index: 4 !important;
-  inset-inline-end: max(0.75rem, env(safe-area-inset-right)) !important;
+  z-index: 10 !important;
+  inset-inline-end: max(0.68rem, env(safe-area-inset-right)) !important;
   top: 50% !important;
   display: inline-flex !important;
   width: 58px !important;
   height: 58px !important;
   align-items: center !important;
   justify-content: center !important;
-  isolation: isolate !important;
   transform: translateY(-50%) !important;
 }
 
-.ev-electric-header-banner-row .mobile-nav-trigger::before {
+.ev-final-mobile-menu-inner,
+.ev-final-mobile-menu .mobile-nav-trigger {
+  position: static !important;
+  display: inline-flex !important;
+  width: 58px !important;
+  height: 58px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  isolation: isolate !important;
+  transform: none !important;
+}
+
+.ev-final-mobile-menu .mobile-nav-trigger::before {
   content: "" !important;
   position: absolute !important;
   inset: 0 !important;
   z-index: 0 !important;
   border-radius: 999px !important;
   background:
-    radial-gradient(circle, rgba(2, 5, 13, 0.98) 0 48%, rgba(6, 20, 47, 0.88) 62%, rgba(2, 5, 13, 0) 72%) !important;
+    radial-gradient(circle, rgba(2, 5, 13, 0.98) 0 49%, rgba(6, 20, 47, 0.9) 62%, rgba(2, 5, 13, 0) 73%) !important;
   box-shadow:
-    0 0 0 1px rgba(98, 216, 255, 0.34),
-    0 0 26px rgba(98, 216, 255, 0.3) !important;
+    0 0 0 1px rgba(98, 216, 255, 0.36),
+    0 0 26px rgba(98, 216, 255, 0.32) !important;
   pointer-events: none !important;
 }
 
-.ev-electric-header-banner-row .mobile-nav-trigger button {
+.ev-final-mobile-menu .mobile-nav-trigger button {
   position: relative !important;
   z-index: 1 !important;
   display: inline-flex !important;
@@ -12879,190 +12864,15 @@ header.site-header.ev-electric-header .site-logo-link.ev-electric-header-brand .
   justify-content: center !important;
   border: 2px solid rgba(98, 216, 255, 0.78) !important;
   border-radius: 999px !important;
-  background: rgba(4, 11, 28, 0.92) !important;
+  background: rgba(4, 11, 28, 0.93) !important;
   color: var(--ev-cyan, #62d8ff) !important;
   box-shadow:
     0 0 0 4px rgba(8, 118, 255, 0.13),
     0 12px 24px rgba(0, 0, 0, 0.28) !important;
 }
 
-.ev-electric-desktop-nav-row {
+.ev-final-desktop-nav {
   display: none;
-}
-
-@media (min-width: 1024px) {
-  .ev-electric-header-banner-row {
-    display: block;
-  }
-
-  .ev-electric-header-banner-row .mobile-nav-trigger {
-    display: none !important;
-  }
-
-  .ev-electric-desktop-nav-row {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: clamp(0.6rem, 0.9vw, 1rem) !important;
-    height: var(--ev-electric-nav-height) !important;
-    padding: 0 clamp(1rem, 3vw, 2.4rem) !important;
-    border-bottom: 1px solid rgba(98, 216, 255, 0.28) !important;
-    background:
-      linear-gradient(90deg, rgba(2, 5, 13, 0.98), rgba(6, 20, 47, 0.98) 50%, rgba(2, 5, 13, 0.98)),
-      var(--ev-dark-blue, #06142f) !important;
-    overflow: hidden !important;
-  }
-
-  .ev-electric-main-nav {
-    display: flex !important;
-    min-width: 0 !important;
-    flex: 1 1 auto !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: clamp(0.42rem, 0.68vw, 0.85rem) !important;
-    overflow: hidden !important;
-  }
-
-  .ev-electric-nav-link {
-    display: inline-flex !important;
-    min-width: 0 !important;
-    flex: 0 1 auto !important;
-    align-items: center !important;
-    justify-content: center !important;
-    color: rgba(255, 255, 255, 0.88) !important;
-    font-size: clamp(0.59rem, 0.56vw, 0.76rem) !important;
-    font-weight: 900 !important;
-    line-height: 1 !important;
-    letter-spacing: 0 !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
-    transition: color 160ms ease, text-shadow 160ms ease !important;
-  }
-
-  .ev-electric-nav-link:hover,
-  .ev-electric-nav-link:focus-visible {
-    color: var(--ev-cyan, #62d8ff) !important;
-    text-shadow: 0 0 18px rgba(98, 216, 255, 0.42) !important;
-  }
-
-  .ev-nav-optional {
-    display: none !important;
-  }
-
-  .ev-electric-header-actions.site-header-actions {
-    display: inline-flex !important;
-    flex: 0 0 auto !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    gap: clamp(0.48rem, 0.62vw, 0.75rem) !important;
-    width: auto !important;
-    min-width: 0 !important;
-    max-width: none !important;
-  }
-
-  .ev-electric-header-actions .ev-header-btn {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    height: 38px !important;
-    min-height: 38px !important;
-    max-height: 38px !important;
-    gap: 0.45rem !important;
-    border-radius: 0.72rem !important;
-    padding: 0 clamp(0.72rem, 0.84vw, 1rem) !important;
-    box-sizing: border-box !important;
-    color: #ffffff !important;
-    font-size: clamp(0.66rem, 0.55vw, 0.78rem) !important;
-    font-weight: 950 !important;
-    line-height: 1 !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
-    overflow: visible !important;
-  }
-
-  .ev-electric-header-actions .ev-btn--call {
-    width: clamp(10.4rem, 11.4vw, 12.9rem) !important;
-    min-width: clamp(10.4rem, 11.4vw, 12.9rem) !important;
-    border: 1px solid rgba(255, 181, 189, 0.54) !important;
-    background: linear-gradient(135deg, var(--ev-red-dark, #750713), var(--ev-red, #e9111e), var(--ev-red-hot, #ff3247)) !important;
-    box-shadow: 0 10px 20px rgba(233, 17, 30, 0.22) !important;
-  }
-
-  .ev-electric-header-actions .ev-btn--quote {
-    width: clamp(7.9rem, 8vw, 9.5rem) !important;
-    min-width: clamp(7.9rem, 8vw, 9.5rem) !important;
-    border: 1px solid rgba(98, 216, 255, 0.6) !important;
-    background: linear-gradient(135deg, var(--ev-bright-blue, #0876ff), var(--ev-electric-blue, #079cff) 58%, var(--ev-cyan, #62d8ff)) !important;
-    box-shadow: 0 10px 20px rgba(7, 156, 255, 0.2) !important;
-  }
-}
-
-@media (min-width: 1480px) {
-  .ev-nav-optional {
-    display: inline-flex !important;
-  }
-}
-
-@media (max-width: 1023px) {
-  header.site-header.ev-electric-header .ev-electric-desktop-nav-row,
-  header.site-header.ev-electric-header .ev-electric-main-nav,
-  header.site-header.ev-electric-header .site-header-actions {
-    display: none !important;
-  }
-
-  .ev-electric-header-banner-row {
-    grid-template-columns: minmax(0, 1fr) !important;
-    width: 100vw !important;
-    min-width: 100vw !important;
-    max-width: 100vw !important;
-    margin-inline: calc(50% - 50vw) !important;
-  }
-
-  header.site-header.ev-electric-header .site-logo-link.ev-electric-header-brand,
-  .ev-electric-header-brand,
-  .ev-electric-header-picture {
-    display: block !important;
-    width: 100% !important;
-    height: 100% !important;
-    max-width: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  .ev-electric-header-banner-row::after {
-    content: "" !important;
-    position: absolute !important;
-    inset-block: 0 !important;
-    inset-inline-end: 0 !important;
-    z-index: 2 !important;
-    width: clamp(3.3rem, 12vw, 4.6rem) !important;
-    background:
-      linear-gradient(90deg, rgba(2, 5, 13, 0), rgba(2, 5, 13, 0.44) 56%, rgba(2, 5, 13, 0.82)) !important;
-    pointer-events: none !important;
-  }
-
-  header.site-header.ev-electric-header .site-logo-link.ev-electric-header-brand .ev-electric-header-banner,
-  .ev-electric-header-banner {
-    object-fit: cover !important;
-    object-position: center center !important;
-  }
-}
-
-@media (max-width: 430px) {
-  .ev-electric-header-banner-row .mobile-nav-trigger {
-    inset-inline-end: 0.62rem !important;
-    width: 56px !important;
-    height: 56px !important;
-  }
-
-  .ev-electric-header-banner-row .mobile-nav-trigger button {
-    width: 46px !important;
-    height: 46px !important;
-    min-width: 46px !important;
-    min-height: 46px !important;
-  }
 }
 
 .site-header-spacer {
@@ -13070,7 +12880,7 @@ header.site-header.ev-electric-header .site-logo-link.ev-electric-header-brand .
   min-height: var(--site-header-height) !important;
 }
 
-header.site-header.ev-header-shell .emergency-issue-marquee {
+header.site-header.ev-final-header .emergency-issue-marquee {
   position: relative !important;
   inset-inline: auto !important;
   top: auto !important;
@@ -13102,235 +12912,113 @@ header.site-header.ev-header-shell .emergency-issue-marquee {
   top: var(--site-header-height) !important;
 }
 
-/* Composed electric header: storm strip background + real transparent logo.
-   This intentionally replaces the old "banner-as-logo" crop model. */
-header.site-header.ev-header-shell {
-  overflow: visible !important;
-  background: rgba(2, 5, 13, 0.98) !important;
+@media (max-width: 430px) {
+  .ev-final-mobile-menu {
+    inset-inline-end: 0.48rem !important;
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  .ev-final-mobile-menu-inner,
+  .ev-final-mobile-menu .mobile-nav-trigger {
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  .ev-final-mobile-menu .mobile-nav-trigger button {
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    min-height: 46px !important;
+  }
 }
 
-header.site-header.ev-header-shell .ev-header-layout {
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow: visible !important;
-}
-
-.ev-header-art-strip {
-  position: relative;
-  display: block;
-  width: 100vw !important;
-  min-width: 100vw !important;
-  max-width: 100vw !important;
-  height: var(--ev-electric-header-banner-height);
-  margin-inline: calc(50% - 50vw) !important;
-  isolation: isolate;
-  overflow: hidden;
-  background:
-    linear-gradient(90deg, rgba(2, 5, 13, 0.9), rgba(4, 11, 28, 0.42) 44%, rgba(117, 7, 19, 0.58)),
-    var(--ee-storm-bg-desktop),
-    var(--ev-black, #02050d) !important;
-  background-position: center center, center 45%, center !important;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-  border-bottom: 2px solid rgba(233, 17, 30, 0.76);
-  box-shadow:
-    inset 0 -1px 0 rgba(98, 216, 255, 0.22),
-    0 14px 34px rgba(0, 0, 0, 0.38);
-}
-
-.ev-header-art-strip::before,
-.ev-header-art-strip::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.ev-header-art-strip::before {
-  background:
-    radial-gradient(circle at 10% 42%, rgba(0, 132, 255, 0.48), transparent 30%),
-    radial-gradient(circle at 92% 46%, rgba(233, 17, 30, 0.34), transparent 26%),
-    linear-gradient(180deg, rgba(2, 5, 13, 0.04), rgba(2, 5, 13, 0.34));
-  mix-blend-mode: screen;
-  opacity: 0.82;
-}
-
-.ev-header-art-strip::after {
-  background:
-    linear-gradient(90deg, rgba(2, 5, 13, 0.38), transparent 28%, transparent 72%, rgba(2, 5, 13, 0.42)),
-    linear-gradient(180deg, rgba(2, 5, 13, 0.12), rgba(2, 5, 13, 0.34));
-}
-
-.ev-header-logo-wrap {
-  position: absolute !important;
-  z-index: 2 !important;
-  inset-inline-start: clamp(0.65rem, 3vw, 1.5rem) !important;
-  inset-inline-end: clamp(4.75rem, 18vw, 6rem) !important;
-  top: 50% !important;
-  display: flex !important;
-  height: calc(100% - 1.05rem) !important;
-  min-width: 0 !important;
-  max-width: none !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  padding: 0 !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  transform: translateY(-50%) !important;
-}
-
-.ev-header-logo-wrap::before,
-.ev-header-logo-wrap::after {
-  content: none !important;
-}
-
-.ev-header-logo {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  max-height: 100% !important;
-  object-fit: contain !important;
-  object-position: left center !important;
-  filter:
-    drop-shadow(0 0 16px rgba(7, 156, 255, 0.36))
-    drop-shadow(0 8px 18px rgba(0, 0, 0, 0.34)) !important;
-  opacity: 1 !important;
-  mix-blend-mode: normal !important;
-  transform: none !important;
-}
-
-.ev-mobile-menu-zone {
-  position: absolute !important;
-  z-index: 5 !important;
-  inset-inline-end: max(0.72rem, env(safe-area-inset-right)) !important;
-  top: 50% !important;
-  display: inline-flex !important;
-  width: 58px !important;
-  height: 58px !important;
-  align-items: center !important;
-  justify-content: center !important;
-  transform: translateY(-50%) !important;
-}
-
-.ev-mobile-menu-zone .mobile-nav-trigger {
-  position: static !important;
-  display: inline-flex !important;
-  width: 58px !important;
-  height: 58px !important;
-  align-items: center !important;
-  justify-content: center !important;
-  isolation: isolate !important;
-  transform: none !important;
-}
-
-.ev-mobile-menu-zone .mobile-nav-trigger::before {
-  content: "" !important;
-  position: absolute !important;
-  inset: 0 !important;
-  z-index: 0 !important;
-  border-radius: 999px !important;
-  background:
-    radial-gradient(circle, rgba(2, 5, 13, 0.98) 0 49%, rgba(6, 20, 47, 0.9) 62%, rgba(2, 5, 13, 0) 73%) !important;
-  box-shadow:
-    0 0 0 1px rgba(98, 216, 255, 0.36),
-    0 0 26px rgba(98, 216, 255, 0.32) !important;
-  pointer-events: none !important;
-}
-
-.ev-mobile-menu-zone .mobile-nav-trigger button {
-  position: relative !important;
-  z-index: 1 !important;
-  display: inline-flex !important;
-  width: 48px !important;
-  height: 48px !important;
-  min-width: 48px !important;
-  min-height: 48px !important;
-  align-items: center !important;
-  justify-content: center !important;
-  border: 2px solid rgba(98, 216, 255, 0.78) !important;
-  border-radius: 999px !important;
-  background: rgba(4, 11, 28, 0.93) !important;
-  color: var(--ev-cyan, #62d8ff) !important;
-  box-shadow:
-    0 0 0 4px rgba(8, 118, 255, 0.13),
-    0 12px 24px rgba(0, 0, 0, 0.28) !important;
-}
-
-@media (min-width: 640px) and (max-width: 1023px) {
-  .ev-header-logo-wrap {
-    inset-inline-start: clamp(1.1rem, 5vw, 3rem) !important;
-    inset-inline-end: clamp(5.25rem, 13vw, 7rem) !important;
-    height: calc(100% - 1.35rem) !important;
+@media (max-width: 767px) {
+  .ev-final-header-image {
+    object-fit: contain !important;
+    object-position: center center !important;
   }
 }
 
 @media (min-width: 1024px) {
-  .ev-header-art-strip {
-    background-position: center center, center 42%, center !important;
-  }
-
-  .ev-header-logo-wrap {
-    inset-inline-start: 50% !important;
-    inset-inline-end: auto !important;
-    width: min(58vw, 980px) !important;
-    height: calc(100% - 1.15rem) !important;
-    justify-content: center !important;
-    transform: translate(-50%, -50%) !important;
-  }
-
-  .ev-header-logo {
-    object-position: center center !important;
-  }
-
-  .ev-mobile-menu-zone {
+  .ev-final-mobile-menu {
     display: none !important;
   }
 
-  html body header.site-header.ev-header-shell .ev-desktop-nav-bar.ev-electric-desktop-nav-row {
+  .ev-final-desktop-nav {
     display: flex !important;
     visibility: visible !important;
     width: 100% !important;
     min-width: 100% !important;
     max-width: none !important;
-    height: var(--ev-electric-nav-height) !important;
-    min-height: var(--ev-electric-nav-height) !important;
+    height: var(--ev-final-nav-height) !important;
+    min-height: var(--ev-final-nav-height) !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(0.6rem, 0.9vw, 1rem) !important;
+    padding: 0 clamp(1rem, 3vw, 2.4rem) !important;
+    border-bottom: 1px solid rgba(98, 216, 255, 0.28) !important;
+    background:
+      linear-gradient(90deg, rgba(2, 5, 13, 0.98), rgba(6, 20, 47, 0.98) 50%, rgba(2, 5, 13, 0.98)),
+      var(--ev-dark-blue, #06142f) !important;
     overflow: hidden !important;
     pointer-events: auto !important;
   }
 
-  html body header.site-header.ev-header-shell .ev-electric-main-nav {
+  .ev-final-main-nav {
     display: flex !important;
     visibility: visible !important;
-    width: auto !important;
     min-width: 0 !important;
-    max-width: none !important;
-    height: auto !important;
+    flex: 1 1 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(0.42rem, 0.68vw, 0.85rem) !important;
     overflow: hidden !important;
-    pointer-events: auto !important;
   }
 
-  html body header.site-header.ev-header-shell .ev-electric-header-actions.site-header-actions {
+  .ev-final-nav-link {
+    display: inline-flex !important;
+    min-width: 0 !important;
+    flex: 0 1 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: rgba(255, 255, 255, 0.88) !important;
+    font-size: clamp(0.59rem, 0.56vw, 0.76rem) !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+    letter-spacing: 0 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    transition: color 160ms ease, text-shadow 160ms ease !important;
+  }
+
+  .ev-final-nav-link:hover,
+  .ev-final-nav-link:focus-visible {
+    color: var(--ev-cyan, #62d8ff) !important;
+    text-shadow: 0 0 18px rgba(98, 216, 255, 0.42) !important;
+  }
+
+  .ev-nav-optional {
+    display: none !important;
+  }
+
+  .ev-final-header-actions.site-header-actions {
     display: inline-flex !important;
     visibility: visible !important;
-    width: auto !important;
-    min-width: 0 !important;
-    max-width: none !important;
-    height: auto !important;
     flex: 0 0 auto !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
     align-items: center !important;
     justify-content: flex-end !important;
     gap: clamp(0.42rem, 0.62vw, 0.72rem) !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
     overflow: visible !important;
     pointer-events: auto !important;
   }
 
-  html body header.site-header.ev-header-shell .ev-electric-header-actions.site-header-actions > a.ev-header-btn {
+  .ev-final-header-actions > a.ev-final-header-btn {
     display: inline-flex !important;
     visibility: visible !important;
     align-items: center !important;
@@ -13340,10 +13028,13 @@ header.site-header.ev-header-shell .ev-header-layout {
     max-height: 38px !important;
     min-width: 0 !important;
     max-width: none !important;
-    padding-block: 0 !important;
+    padding: 0 clamp(0.72rem, 0.84vw, 1rem) !important;
     gap: 0.42rem !important;
     border-radius: 0.72rem !important;
     box-sizing: border-box !important;
+    color: #ffffff !important;
+    font-size: clamp(0.66rem, 0.55vw, 0.78rem) !important;
+    font-weight: 950 !important;
     line-height: 1 !important;
     white-space: nowrap !important;
     text-decoration: none !important;
@@ -13351,17 +13042,23 @@ header.site-header.ev-header-shell .ev-header-layout {
     pointer-events: auto !important;
   }
 
-  html body header.site-header.ev-header-shell .ev-electric-header-actions.site-header-actions > a.ev-btn--call {
+  .ev-final-header-actions > a.ev-btn--call {
     width: clamp(10.4rem, 11.4vw, 12.9rem) !important;
     min-width: clamp(10.4rem, 11.4vw, 12.9rem) !important;
+    border: 1px solid rgba(255, 181, 189, 0.54) !important;
+    background: linear-gradient(135deg, var(--ev-red-dark, #750713), var(--ev-red, #e9111e), var(--ev-red-hot, #ff3247)) !important;
+    box-shadow: 0 10px 20px rgba(233, 17, 30, 0.22) !important;
   }
 
-  html body header.site-header.ev-header-shell .ev-electric-header-actions.site-header-actions > a.ev-btn--quote {
+  .ev-final-header-actions > a.ev-btn--quote {
     width: clamp(7.9rem, 8vw, 9.5rem) !important;
     min-width: clamp(7.9rem, 8vw, 9.5rem) !important;
+    border: 1px solid rgba(98, 216, 255, 0.6) !important;
+    background: linear-gradient(135deg, var(--ev-bright-blue, #0876ff), var(--ev-electric-blue, #079cff) 58%, var(--ev-cyan, #62d8ff)) !important;
+    box-shadow: 0 10px 20px rgba(7, 156, 255, 0.2) !important;
   }
 
-  html body header.site-header.ev-header-shell .ev-electric-header-actions.site-header-actions > a.ev-header-btn :is(span, svg) {
+  .ev-final-header-actions > a.ev-final-header-btn :is(span, svg) {
     display: inline-flex !important;
     visibility: visible !important;
     flex: 0 0 auto !important;
@@ -13370,29 +13067,9 @@ header.site-header.ev-header-shell .ev-header-layout {
   }
 }
 
-@media (max-width: 430px) {
-  .ev-header-logo-wrap {
-    inset-inline-start: 0.6rem !important;
-    inset-inline-end: 4.75rem !important;
-    height: calc(100% - 0.95rem) !important;
-  }
-
-  .ev-mobile-menu-zone {
-    inset-inline-end: 0.52rem !important;
-    width: 56px !important;
-    height: 56px !important;
-  }
-
-  .ev-mobile-menu-zone .mobile-nav-trigger {
-    width: 56px !important;
-    height: 56px !important;
-  }
-
-  .ev-mobile-menu-zone .mobile-nav-trigger button {
-    width: 46px !important;
-    height: 46px !important;
-    min-width: 46px !important;
-    min-height: 46px !important;
+@media (min-width: 1480px) {
+  .ev-nav-optional {
+    display: inline-flex !important;
   }
 }
 
