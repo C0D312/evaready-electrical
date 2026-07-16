@@ -1,21 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import {
   ArrowRight,
-  BatteryCharging,
   Bolt,
-  Droplets,
   Flame,
   Home,
-  Info,
   Mail,
   MapPin,
   Menu,
   Phone,
-  Snowflake,
   Wrench,
   X,
 } from "lucide-react";
@@ -44,29 +41,9 @@ const mobileNavItems = [
     icon: Wrench,
   },
   {
-    href: "/services/hot-water-system-electrician-sydney",
-    label: "Hot Water",
-    icon: Droplets,
-  },
-  {
-    href: "/services/split-system-air-conditioning-sydney",
-    label: "Aircon",
-    icon: Snowflake,
-  },
-  {
-    href: "/solar-batteries",
-    label: "Solar & Batteries",
-    icon: BatteryCharging,
-  },
-  {
     href: "/service-areas",
     label: "Service Areas",
     icon: MapPin,
-  },
-  {
-    href: "/about",
-    label: "About Evaready",
-    icon: Info,
   },
   {
     href: "/contact",
@@ -76,7 +53,10 @@ const mobileNavItems = [
 ];
 
 export function MobilePrimaryNav() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (!open) {
@@ -84,20 +64,55 @@ export function MobilePrimaryNav() {
     }
 
     const originalOverflow = document.body.style.overflow;
+    const trigger = triggerRef.current;
 
     document.body.style.overflow = "hidden";
 
-    function closeOnEscape(event: KeyboardEvent) {
+    function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab") {
+        return;
+      }
+
+      const panel = panelRef.current;
+
+      if (!panel) {
+        return;
+      }
+
+      const focusable = Array.from(
+        panel.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter((element) => !element.hasAttribute("disabled"));
+
+      const first = focusable.at(0);
+      const last = focusable.at(-1);
+
+      if (!first || !last) {
+        return;
+      }
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
       }
     }
 
-    window.addEventListener("keydown", closeOnEscape);
+    window.addEventListener("keydown", handleKeyDown);
+    window.setTimeout(() => panelRef.current?.querySelector<HTMLElement>("a, button")?.focus(), 0);
 
     return () => {
       document.body.style.overflow = originalOverflow;
-      window.removeEventListener("keydown", closeOnEscape);
+      window.removeEventListener("keydown", handleKeyDown);
+      trigger?.focus({ preventScroll: true });
     };
   }, [open]);
 
@@ -113,18 +128,19 @@ export function MobilePrimaryNav() {
       <nav
         id="mobile-site-menu"
         aria-label="Mobile navigation"
-        className="absolute inset-x-3 top-3 max-h-[calc(100dvh_-_84px_-_env(safe-area-inset-top))] overflow-y-auto rounded-2xl border border-slate-200 bg-white pb-[env(safe-area-inset-bottom)] shadow-2xl sm:max-h-[calc(100dvh_-_108px_-_env(safe-area-inset-top))]"
+        ref={panelRef}
+        className="absolute inset-x-3 top-3 max-h-[calc(100dvh_-_84px_-_env(safe-area-inset-top))] overflow-y-auto rounded-xl border border-cyan-300/25 bg-[#06142f] pb-[env(safe-area-inset-bottom)] text-white shadow-2xl shadow-blue-950/50 sm:max-h-[calc(100dvh_-_108px_-_env(safe-area-inset-top))]"
       >
-        <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3">
+        <div className="flex items-center justify-between border-b border-cyan-300/20 px-4 py-3">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.2em] text-blue-700">
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-cyan-100">
               Menu
             </p>
           </div>
           <button
             type="button"
             aria-label="Close menu"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 text-slate-900"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-cyan-300/25 bg-cyan-300/10 text-cyan-50"
             onClick={() => setOpen(false)}
           >
             <X className="h-5 w-5" />
@@ -134,12 +150,18 @@ export function MobilePrimaryNav() {
         <div className="grid gap-2 p-3">
           {mobileNavItems.map((item) => {
             const Icon = item.icon;
-
-            const className =
-              "flex min-h-12 items-center gap-3 rounded-lg border border-slate-200 bg-white px-4 py-3 text-left font-black text-slate-900 shadow-sm transition hover:border-blue-500 hover:bg-blue-50";
+            const current =
+              item.href === "/"
+                ? pathname === "/"
+                : pathname === item.href || pathname.startsWith(`${item.href}/`);
+            const className = `flex min-h-12 items-center gap-3 rounded-lg border px-4 py-3 text-left font-bold text-white shadow-sm transition hover:border-cyan-200 hover:bg-white/[0.09] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200 ${
+              current
+                ? "border-cyan-200/60 bg-cyan-300/15"
+                : "border-cyan-300/20 bg-white/[0.055]"
+            }`;
             const content = (
               <>
-                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-700">
+                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-cyan-300/20 bg-cyan-300/10 text-cyan-100">
                   <Icon className="h-5 w-5" />
                 </span>
                 <span className="text-base leading-tight">{item.label}</span>
@@ -151,6 +173,7 @@ export function MobilePrimaryNav() {
                 key={item.href}
                 onClick={() => setOpen(false)}
                 className={className}
+                aria-current={current ? "page" : undefined}
               >
                 {content}
               </HomeNavigationLink>
@@ -160,6 +183,7 @@ export function MobilePrimaryNav() {
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className={className}
+                aria-current={current ? "page" : undefined}
               >
                 {content}
               </Link>
@@ -167,13 +191,13 @@ export function MobilePrimaryNav() {
           })}
         </div>
 
-        <div className="grid gap-2 border-t border-slate-200 bg-slate-50 p-3">
+        <div className="grid gap-2 border-t border-cyan-300/20 bg-black/20 p-3">
           <a
             href={business.phoneHref}
             data-conversion-action="phone-click"
             aria-label={business.callCta}
             onClick={() => setOpen(false)}
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-3 text-sm font-black text-white shadow-lg shadow-red-600/20"
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-red-600/20"
           >
             <Phone className="h-4 w-4" />
             <span className="whitespace-nowrap">
@@ -187,7 +211,7 @@ export function MobilePrimaryNav() {
             aria-haspopup="dialog"
             aria-label="Get a quote from Evaready Electrical"
             onClick={() => setOpen(false)}
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-blue-700 px-4 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20"
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-blue-700/20"
           >
             {business.quoteCta}
             <ArrowRight className="h-4 w-4" />
@@ -201,6 +225,7 @@ export function MobilePrimaryNav() {
     <div className="mobile-nav-trigger shrink-0 lg:hidden">
       <button
         type="button"
+        ref={triggerRef}
         aria-controls="mobile-site-menu"
         aria-expanded={open}
         aria-label={open ? "Close navigation menu" : "Open navigation menu"}

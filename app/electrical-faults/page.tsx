@@ -73,7 +73,7 @@ export default function ElectricalFaultsPage() {
   );
 
   return (
-    <main className="core-storm-page core-storm-faults ev-storm-page min-h-screen text-white">
+    <main id="main-content" tabIndex={-1} className="core-storm-page core-storm-faults ev-storm-page min-h-screen text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(electricianSchema)}

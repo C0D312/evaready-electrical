@@ -6,7 +6,7 @@ export default function NotFoundPage() {
   return (
     <>
       <SiteHeader />
-      <main className="bg-[#061E72] text-white">
+      <main id="main-content" tabIndex={-1} className="bg-[#061E72] text-white">
         <section className="brand-internal-hero relative overflow-hidden px-4 py-14 text-white sm:px-6 sm:py-20 lg:px-8">
           <div className="internal-hero-copy-panel mx-auto max-w-5xl">
             <p className="text-sm font-black uppercase tracking-[0.24em] text-cyan-300">

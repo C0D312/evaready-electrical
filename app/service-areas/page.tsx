@@ -187,6 +187,8 @@ export default function AreasPage() {
 
   return (
     <main
+      id="main-content"
+      tabIndex={-1}
       className="core-storm-page core-storm-areas ev-storm-page min-h-screen bg-[#02050d] text-white"
       data-storm-system="ev-storm-section ev-storm-card ev-storm-panel"
     >

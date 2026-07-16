@@ -81,6 +81,8 @@ export default function ContactPage() {
     <>
       <SiteHeader />
       <main
+        id="main-content"
+        tabIndex={-1}
         className="core-storm-page core-storm-contact ev-storm-page min-h-screen text-white"
         data-storm-system="ev-storm-section ev-storm-card ev-storm-panel"
       >

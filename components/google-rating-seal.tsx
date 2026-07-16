@@ -64,23 +64,23 @@ export function GoogleRatingSeal({
 
   return (
     <aside
-      className={`google-rating-seal ${ratingCardClass} google-rating-seal--${variant} w-full max-w-[24rem] rounded-2xl border border-cyan-300/30 bg-[#061a3a]/90 p-4 text-white shadow-[0_18px_52px_rgba(5,164,255,0.16)] ring-1 ring-white/10 ${compact ? "max-w-[20rem] p-3" : ""} ${className}`}
+      className={`google-rating-seal ${ratingCardClass} google-rating-seal--${variant} w-full max-w-[24rem] rounded-lg border border-cyan-300/30 bg-[#061a3a]/90 p-4 text-white shadow-[0_18px_52px_rgba(5,164,255,0.16)] ring-1 ring-white/10 ${compact ? "max-w-[20rem] p-3" : ""} ${className}`}
       aria-label={ariaLabel}
     >
       <div className="flex min-w-0 items-center gap-3">
         <span
-          className="google-rating-seal__mark inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-xl font-black shadow-sm"
+          className="google-rating-seal__mark inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-xl font-bold shadow-sm"
           aria-hidden="true"
         >
           G
         </span>
         <div className="min-w-0">
-          <p className="text-xs font-black uppercase tracking-[0.2em] text-cyan-100">
+          <p className="text-sm font-bold text-cyan-100">
             Google Rating
           </p>
           <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
             {ratingText ? (
-              <span className="text-3xl font-black leading-none text-white">
+              <span className="text-3xl font-bold leading-none text-white">
                 {ratingText}
               </span>
             ) : null}
@@ -104,11 +104,11 @@ export function GoogleRatingSeal({
         </div>
       </div>
 
-      <p className="mt-3 text-sm font-bold leading-5 text-slate-100">
+      <p className="mt-3 text-sm leading-5 text-slate-100">
         {countText ?? business.googleReviewDisplayText ?? "Read Google Reviews"}
       </p>
 
-      <div className="mt-3 flex flex-wrap gap-2 text-xs font-black">
+      <div className="mt-3 flex flex-wrap gap-2 text-sm font-bold">
         <a
           href={reviewsHref}
           target="_blank"

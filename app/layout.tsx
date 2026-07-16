@@ -5,6 +5,7 @@ import { absoluteUrl, assetPath, business } from "@/data/site";
 import "./globals.css";
 import "./footer.css";
 import "./offers.css";
+import "./ux-overhaul.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(`${business.siteUrl}/`),
@@ -76,6 +77,9 @@ export default function RootLayout({
     <html lang="en-AU">
       <body className="ev-electric-theme-bg ev-storm-page" style={brandStyle}>
         <GoogleAdsTag />
+        <a href="#main-content" className="skip-to-content">
+          Skip to main content
+        </a>
         {children}
       </body>
     </html>

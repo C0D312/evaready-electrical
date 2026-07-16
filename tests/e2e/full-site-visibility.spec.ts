@@ -145,6 +145,7 @@ test("required screenshot routes pass mobile and desktop visibility checks", asy
       await assertRouteVisible(page, route);
       await page.screenshot({
         fullPage: true,
+        timeout: 60_000,
         path: path.join(
           screenshotDir,
           `${target.name}-${viewport.width}x${viewport.height}.png`,

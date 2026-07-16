@@ -22,6 +22,7 @@ type ScrollLockSnapshot = {
 export function QuoteFormModal() {
   const [open, setOpen] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
   const openerRef = useRef<HTMLElement | null>(null);
   const scrollLockRef = useRef<ScrollLockSnapshot | null>(null);
   const openRef = useRef(false);
@@ -198,6 +199,37 @@ export function QuoteFormModal() {
     function closeOnEscape(event: KeyboardEvent) {
       if (event.key === "Escape") {
         close();
+        return;
+      }
+
+      if (event.key !== "Tab") {
+        return;
+      }
+
+      const panel = panelRef.current;
+
+      if (!panel) {
+        return;
+      }
+
+      const focusable = Array.from(
+        panel.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter((element) => !element.hasAttribute("disabled"));
+      const first = focusable.at(0);
+      const last = focusable.at(-1);
+
+      if (!first || !last) {
+        return;
+      }
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
       }
     }
 
@@ -251,7 +283,7 @@ export function QuoteFormModal() {
       className="quote-modal-backdrop fixed inset-0 z-[100] grid h-[100dvh] w-[100vw] place-items-center overflow-hidden bg-[#061E72]/88 p-0 backdrop-blur-sm sm:w-auto sm:p-4"
       role="dialog"
       aria-modal="true"
-      aria-label="Request a quote"
+      aria-labelledby="quote-modal-title"
     >
       <button
         type="button"
@@ -260,7 +292,13 @@ export function QuoteFormModal() {
         onClick={() => close()}
       />
 
-      <div className="quote-modal-panel fixed inset-0 mx-0 flex h-[100dvh] max-h-[100dvh] min-h-0 w-[100vw] max-w-[100vw] flex-col overflow-hidden overflow-x-hidden rounded-none border-0 border-white/12 bg-[#061E72] text-white shadow-2xl shadow-blue-950/45 sm:relative sm:inset-auto sm:mx-auto sm:h-[85dvh] sm:max-h-[85dvh] sm:w-full sm:max-w-[760px] sm:rounded-[1.35rem] sm:border">
+      <div
+        ref={panelRef}
+        className="quote-modal-panel fixed inset-0 mx-0 flex h-[100dvh] max-h-[100dvh] min-h-0 w-[100vw] max-w-[100vw] flex-col overflow-hidden overflow-x-hidden rounded-none border-0 border-white/12 bg-[#061E72] text-white shadow-2xl shadow-blue-950/45 sm:relative sm:inset-auto sm:mx-auto sm:h-[85dvh] sm:max-h-[85dvh] sm:w-full sm:max-w-[760px] sm:rounded-[1.35rem] sm:border"
+      >
+        <h2 id="quote-modal-title" className="sr-only">
+          Request a quote
+        </h2>
         <div className="quote-modal-action-bar">
           <div className="quote-modal-call-slot">
             <a

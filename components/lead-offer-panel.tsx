@@ -11,13 +11,12 @@ type LeadOfferPanelProps = {
 };
 
 const defaultItems = [
-  "Free photo review for planned electrical work",
+  "Send photos for planned electrical work",
   "Send your defect notice for review",
   "Send switchboard, meter box or service equipment photos",
-  "Photos help us quote faster",
+  "Photos help explain the job clearly",
   "Clear next actions before work starts",
-  "Fast callback for urgent enquiries",
-  "No-obligation quote for planned work",
+  "Call first for urgent electrical faults",
 ];
 
 const itemIcons = [Camera, FileText, ClipboardCheck, ShieldAlert];
@@ -32,19 +31,19 @@ export function LeadOfferPanel({
 }: LeadOfferPanelProps) {
   return (
     <section
-      className={`lead-offer-panel bg-[#061E72] py-12 text-white sm:py-16 ${className}`}
+      className={`lead-offer-panel ev-storm-section py-12 text-white sm:py-16 ${className}`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="overflow-hidden rounded-[1.5rem] border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(8,42,134,0.96),rgba(8,76,196,0.9)_58%,rgba(55,5,18,0.78))] shadow-2xl shadow-blue-950/25 ring-1 ring-white/5">
+        <div className="ev-storm-panel ev-storm-panel--strong overflow-hidden rounded-lg border border-cyan-300/20 shadow-xl shadow-blue-950/25">
           <div className={`grid gap-0 ${compact ? "lg:grid-cols-[0.9fr_1.1fr]" : "lg:grid-cols-[0.82fr_1.18fr]"}`}>
             <div className="p-5 sm:p-7 lg:p-8">
-              <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
+              <p className="text-sm font-bold text-cyan-200">
                 {eyebrow}
               </p>
-              <h2 className={`${compact ? "mt-3 text-2xl sm:text-4xl" : "mt-3 text-3xl sm:text-5xl"} max-w-3xl font-black leading-tight`}>
+              <h2 className={`${compact ? "mt-3 text-2xl sm:text-3xl" : "mt-3 text-3xl sm:text-4xl"} max-w-3xl font-bold leading-tight`}>
                 {heading}
               </h2>
-              <p className="mt-4 max-w-2xl text-sm font-semibold leading-6 text-slate-300 sm:text-base sm:leading-7">
+              <p className="mt-4 max-w-[68ch] text-base leading-7 text-slate-300">
                 {intro}
               </p>
 
@@ -53,7 +52,7 @@ export function LeadOfferPanel({
                   href={business.phoneHref}
                   data-conversion-action="phone-click"
                   aria-label={business.callCta}
-                  className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-red-600 px-5 py-3 text-center font-black text-white shadow-xl shadow-red-600/25 transition hover:bg-red-500"
+                  className="ev-btn ev-btn--call inline-flex min-h-12 items-center justify-center gap-3 rounded-lg px-5 py-3 text-center font-bold text-white"
                 >
                   <Phone className="h-5 w-5 shrink-0" aria-hidden="true" />
                   <span className="whitespace-nowrap">{business.callCta}</span>
@@ -64,7 +63,7 @@ export function LeadOfferPanel({
                   data-conversion-action="quote-click"
                   aria-haspopup="dialog"
                   aria-label="Get a quote from Evaready Electrical"
-                  className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-blue-700 px-5 py-3 text-center font-black text-white shadow-xl shadow-blue-700/20 transition hover:bg-blue-600"
+                  className="ev-btn ev-btn--quote inline-flex min-h-12 items-center justify-center gap-3 rounded-lg px-5 py-3 text-center font-bold text-white"
                 >
                   {business.quoteCta}
                   <ArrowRight className="h-5 w-5 shrink-0" aria-hidden="true" />
@@ -72,20 +71,20 @@ export function LeadOfferPanel({
               </div>
             </div>
 
-            <div className="border-t border-cyan-300/15 bg-white/[0.055] p-5 sm:p-7 lg:border-l lg:border-t-0 lg:p-8">
-              <div className="grid gap-3 sm:grid-cols-2">
-                {items.map((item, index) => {
+            <div className="border-t border-cyan-300/15 bg-black/15 p-5 sm:p-7 lg:border-l lg:border-t-0 lg:p-8">
+              <div className="grid gap-3">
+                {items.slice(0, 3).map((item, index) => {
                   const Icon = itemIcons[index % itemIcons.length];
 
                   return (
                     <div
                       key={item}
-                      className="flex min-h-20 items-start gap-3 rounded-xl border border-cyan-300/18 bg-[#061E72]/45 p-4"
+                      className="ev-storm-card flex min-h-16 items-start gap-3 rounded-lg border border-cyan-300/18 p-4"
                     >
                       <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-cyan-300/12 text-cyan-200">
                         <Icon className="h-5 w-5" aria-hidden="true" />
                       </span>
-                      <span className="text-sm font-black leading-6 text-white">
+                      <span className="text-base font-bold leading-6 text-white">
                         {item}
                       </span>
                     </div>
@@ -93,11 +92,10 @@ export function LeadOfferPanel({
                 })}
               </div>
 
-              <p className="mt-4 rounded-xl border border-red-300/25 bg-red-500/10 p-4 text-sm font-bold leading-6 text-red-50">
-                Call-first emergency triage for burning smells, smoke, sparking,
-                power loss, unsafe wiring or urgent Level 2 issues across core
-                service areas and greater regions. Fast callback for urgent
-                enquiries starts with the phone.
+              <p className="mt-4 rounded-lg border border-red-300/25 bg-red-500/10 p-4 text-sm leading-6 text-red-50">
+                Call first for burning smells, smoke, sparking, power loss,
+                unsafe wiring or urgent Level 2 issues. Planned work can be
+                reviewed through the quote form.
               </p>
             </div>
           </div>

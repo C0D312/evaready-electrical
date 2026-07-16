@@ -441,6 +441,8 @@ export default async function ServiceLandingPage({
 
   return (
     <main
+      id="main-content"
+      tabIndex={-1}
       className="generated-storm-page generated-storm-service ev-storm-page min-h-screen bg-[#02050d] text-white"
       data-storm-system="ev-storm-page ev-storm-section ev-storm-card ev-storm-panel"
     >

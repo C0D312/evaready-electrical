@@ -1,0 +1,180 @@
+/* Final shared UX layer. Kept separate from legacy theme compatibility rules. */
+
+#main-content {
+  scroll-margin-top: var(--site-header-height, 8rem);
+}
+
+:where(a, button, summary, input, textarea, select):focus-visible {
+  outline: 3px solid #62d8ff;
+  outline-offset: 3px;
+}
+
+/* Prevent the desktop art banner from being re-enabled by legacy header rules. */
+@media (max-width: 1023px) {
+  header.ev-final-header .ev-final-header-brand.ev-final-header-brand--art {
+    display: none !important;
+  }
+
+  header.ev-final-header .ev-final-header-brand--mobile {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  header.ev-final-header .ev-final-header-brand--mobile {
+    display: none !important;
+  }
+}
+
+header.ev-final-header .ev-static-trust-strip {
+  min-height: 27px !important;
+  height: 27px !important;
+  overflow: hidden !important;
+}
+
+header.ev-final-header .ev-static-trust-strip::before,
+header.ev-final-header .ev-static-trust-strip::after {
+  display: none !important;
+}
+
+header.ev-final-header .ev-static-trust-strip__inner {
+  display: flex !important;
+  min-height: 27px !important;
+  height: 27px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+
+header.ev-final-header .ev-static-trust-strip__track {
+  position: static !important;
+  inset: auto !important;
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 27px !important;
+  transform: none !important;
+  animation: none !important;
+  will-change: auto !important;
+}
+
+header.ev-final-header .ev-static-trust-strip__list {
+  display: grid !important;
+  grid-template-columns: repeat(3, max-content) !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 27px !important;
+  height: 27px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: clamp(0.65rem, 3vw, 2.5rem) !important;
+  margin: 0 !important;
+  padding: 0 0.5rem !important;
+}
+
+header.ev-final-header .ev-static-trust-strip__item {
+  display: inline-flex !important;
+  min-width: 0 !important;
+  min-height: 27px !important;
+  height: 27px !important;
+  align-items: center !important;
+  gap: 0.35rem !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #eaf7ff !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+header.ev-final-header .ev-static-trust-strip__item svg {
+  width: 0.9rem !important;
+  height: 0.9rem !important;
+  color: #62d8ff !important;
+}
+
+@media (max-width: 430px) {
+  header.ev-final-header .ev-static-trust-strip__list {
+    gap: 0.5rem !important;
+    padding-inline: 0.35rem !important;
+  }
+
+  header.ev-final-header .ev-static-trust-strip__item {
+    gap: 0.2rem !important;
+    font-size: 0.625rem !important;
+  }
+
+  header.ev-final-header .ev-static-trust-strip__item svg {
+    width: 0.7rem !important;
+    height: 0.7rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .core-storm-home .home-brand-hero {
+    display: grid !important;
+    min-height: calc(100svh - var(--site-header-height)) !important;
+    padding: 0 !important;
+  }
+
+  .core-storm-home .home-brand-hero .brand-hero-image {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: 68% center !important;
+  }
+
+  .core-storm-home .home-brand-hero .ev-hero-grid {
+    min-height: calc(100svh - var(--site-header-height)) !important;
+    align-items: center !important;
+    padding: 0.75rem !important;
+  }
+
+  .core-storm-home .home-brand-hero .home-hero-copy-panel {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 1rem !important;
+    background: rgba(3, 16, 39, 0.94) !important;
+  }
+
+  .core-storm-home .home-brand-hero h1 {
+    margin-top: 0.75rem !important;
+    font-size: clamp(2.05rem, 10.5vw, 2.6rem) !important;
+    line-height: 1.02 !important;
+  }
+
+  .core-storm-home .home-brand-hero h1 + p {
+    margin-top: 0.85rem !important;
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .core-storm-home .home-brand-hero .home-hero-copy-panel > div {
+    margin-top: 1rem !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  }
+
+  .core-storm-home .home-brand-hero .ev-btn {
+    min-width: 0 !important;
+    min-height: 3rem !important;
+    padding: 0.65rem 0.5rem !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

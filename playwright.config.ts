@@ -97,7 +97,9 @@ export default defineConfig({
     ["json", { outputFile: "reports/playwright-results.json" }],
   ],
   use: {
-    baseURL: "https://c0d312.github.io/evaready-electrical/",
+    baseURL:
+      process.env.PLAYWRIGHT_BASE_URL ??
+      "https://c0d312.github.io/evaready-electrical/",
     actionTimeout: 10_000,
     navigationTimeout: 30_000,
     trace: "retain-on-failure",

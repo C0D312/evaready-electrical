@@ -16,7 +16,6 @@ import {
 } from "lucide-react";
 import { GoogleReviewProof } from "@/components/google-review-proof";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
-import { QuoteRequestPanel } from "@/components/quote-request-panel";
 import {
   ServiceCredentialStrip,
   serviceCredentialPresets,
@@ -372,6 +371,8 @@ function buildSchema() {
 export default function Level2ElectricianSydneyPage() {
   return (
     <main
+      id="main-content"
+      tabIndex={-1}
       className="core-storm-page core-storm-level2 ev-storm-page min-h-screen text-white"
       data-storm-system="ev-storm-section ev-storm-card ev-storm-panel"
     >
@@ -544,12 +545,6 @@ export default function Level2ElectricianSydneyPage() {
           </div>
         </div>
       </section>
-
-      <QuoteRequestPanel
-        eyebrow="Level 2 job details"
-        title="Send the notice, photos and site details before the job is scoped."
-        description="For defect notices, consumer mains, private poles, point of attachment issues, metering or service upgrades, include clear photos, the suburb, deadline, switchboard details and any paperwork from the network, retailer or supply authority."
-      />
 
       <section className="ev-storm-section ev-storm-section--subtle py-20 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">

@@ -107,7 +107,7 @@ export default async function ElectricalFaultDetailPage({
   const faultOffers = getFaultPageOffers();
 
   return (
-    <main className="core-storm-page core-storm-fault-detail ev-storm-page min-h-screen text-white">
+    <main id="main-content" tabIndex={-1} className="core-storm-page core-storm-fault-detail ev-storm-page min-h-screen text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(electricianSchema)}

@@ -20,7 +20,7 @@ export default function PrivacyPolicyPage() {
   return (
     <>
       <SiteHeader />
-      <main className="legal-page ev-storm-page ev-storm-legal text-white">
+      <main id="main-content" tabIndex={-1} className="legal-page ev-storm-page ev-storm-legal text-white">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}

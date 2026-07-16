@@ -509,6 +509,20 @@ function auditGeneratedHtmlLinks(knownRoutes: Set<string>) {
         continue;
       }
 
+      if (anchor.href.startsWith("#")) {
+        const fragment = decodeAttribute(internalTarget.hash);
+
+        if (fragment && !collectIdsAndNames(html).has(fragment)) {
+          issues.push({
+            href: anchor.href,
+            issue: "same-page fragment target does not exist",
+            source: sourceRoute,
+          });
+        }
+
+        continue;
+      }
+
       if (!knownRoutes.has(internalTarget.route)) {
         issues.push({
           href: anchor.href,

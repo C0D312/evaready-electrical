@@ -11,7 +11,6 @@ import { EmergencyTrustPanel } from "@/components/emergency-trust-panel";
 import { GoogleReviewProof } from "@/components/google-review-proof";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
 import { OffersSection } from "@/components/offers-section";
-import { QuoteRequestPanel } from "@/components/quote-request-panel";
 import {
   ServiceCredentialStrip,
   serviceCredentialPresets,
@@ -420,6 +419,8 @@ export default function EmergencyElectricianSydneyPage() {
 
   return (
     <main
+      id="main-content"
+      tabIndex={-1}
       className={cx(styles.page, "core-storm-page core-storm-emergency ev-storm-page min-h-screen text-white")}
       data-storm-system="ev-storm-section ev-storm-card ev-storm-panel"
     >
@@ -573,8 +574,8 @@ export default function EmergencyElectricianSydneyPage() {
         intro="Evaready Electrical supports emergency call-first triage across Sydney and surrounding regions. Planned electrical work can be reviewed from photos once the immediate safety risk is clear."
         items={[
           "Call-first emergency triage",
-          "Fast callback for urgent enquiries",
-          "Photos help us quote faster",
+          "Send photos after immediate safety risks are clear",
+          "Photos help explain follow-up work",
           "Clear next actions before work starts",
         ]}
       />
@@ -655,12 +656,6 @@ export default function EmergencyElectricianSydneyPage() {
           </div>
         </div>
       </section>
-
-      <QuoteRequestPanel
-        eyebrow="Emergency job notes"
-        title="Send the fault details that matter."
-        description="For unsafe faults, call first. For planned help, include the suburb, what has lost power, whether anything is hot, buzzing, wet, sparking or tripping, and photos of the switchboard or damaged fitting if available."
-      />
 
       <section className={cx(styles.calmSection, "ev-storm-section ev-storm-section--emergency py-24")}>
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">

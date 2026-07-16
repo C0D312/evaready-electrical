@@ -1229,6 +1229,8 @@ export default function ServicesPage() {
 
   return (
     <main
+      id="main-content"
+      tabIndex={-1}
       className="core-storm-page core-storm-services ev-storm-page min-h-screen bg-[var(--ev-black)] text-white"
       data-storm-system="ev-storm-section ev-storm-card ev-storm-panel"
     >

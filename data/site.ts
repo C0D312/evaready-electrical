@@ -42,7 +42,7 @@ export function assetPath(path: string) {
 
 export const business = {
   name: "Evaready Electrical",
-  brandImage: "/images/evaready-electrical-sydney-service-van.png",
+  brandImage: "/images/evaready-electrical-sydney-service-van.webp",
   heroImage: "/images/evaready-electrical-sydney-service-van.webp",
   logoImage: "/images/evareadyelectrical-logo-perf-1000.webp",
   brandImageAlt: "Evaready Electrical 24/7 service van in Sydney",

@@ -15,7 +15,6 @@ import {
 import { GoogleReviewProof } from "@/components/google-review-proof";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
 import { CompactOfferStrip } from "@/components/compact-offer-strip";
-import { QuoteRequestPanel } from "@/components/quote-request-panel";
 import {
   ServiceCredentialStrip,
   serviceCredentialPresets,
@@ -228,6 +227,8 @@ export default function SwitchboardUpgradesSydneyPage() {
 
   return (
     <main
+      id="main-content"
+      tabIndex={-1}
       className="generated-storm-page generated-storm-service ev-storm-page min-h-screen bg-[#02050d] text-white"
       data-storm-system="ev-storm-page ev-storm-section ev-storm-card ev-storm-panel"
     >
@@ -393,7 +394,7 @@ export default function SwitchboardUpgradesSydneyPage() {
         heading="Send switchboard photos before planned upgrade work starts."
         intro="For switchboard upgrades across Sydney and surrounding regions, send photos, tripping details, new load plans or defect notices for review. If there is heat, smoke, buzzing or sparking, call first."
         items={[
-          "Free photo review for planned electrical work",
+          "Send switchboard photos for planned electrical work",
           "Send switchboard, meter box or service equipment photos",
           "Photos help us quote faster",
           "Clear next actions before work starts",
@@ -586,12 +587,6 @@ export default function SwitchboardUpgradesSydneyPage() {
           </div>
         </div>
       </section>
-
-      <QuoteRequestPanel
-        eyebrow="Switchboard job notes"
-        title="Send the details that show what the switchboard needs."
-        description="Send the switchboard photo, any tripping issue, defect notice, renovation plan or new load such as an EV charger so the upgrade can be assessed clearly."
-      />
 
       {/* Warning signs */}
       <section className="ev-storm-section ev-storm-section--emergency py-24">

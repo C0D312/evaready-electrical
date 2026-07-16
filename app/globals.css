@@ -560,8 +560,186 @@ body.quote-modal-open .floating-call-button {
   --ee-graphite: var(--brand-panel-strong);
 }
 
+/* UX overhaul: replace animated header marquee with a compact static trust bar. */
+.ev-static-trust-strip {
+  --strip-rail-height: 1px;
+  background:
+    linear-gradient(90deg, rgba(98, 216, 255, 0.5), rgba(233, 17, 30, 0.42)) top / 100% var(--strip-rail-height) no-repeat,
+    linear-gradient(90deg, rgba(4, 11, 28, 0.98), rgba(6, 20, 47, 0.98));
+}
+
+.ev-static-trust-strip::before,
+.ev-static-trust-strip::after {
+  display: none;
+}
+
+.ev-static-trust-strip__inner {
+  width: min(100%, 76rem);
+  margin-inline: auto;
+  overflow: visible;
+}
+
+.ev-static-trust-strip__track {
+  width: 100%;
+  justify-content: center;
+  animation: none !important;
+}
+
+.ev-static-trust-strip__list {
+  width: 100%;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.24rem 0.75rem;
+}
+
+.ev-static-trust-strip__item {
+  min-height: 1.55rem;
+  border-radius: 0.45rem;
+  padding: 0.22rem 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: none;
+  box-shadow: none;
+}
+
+.ev-static-trust-strip__item svg {
+  color: var(--ev-cyan);
+}
+
+@media (max-width: 640px) {
+  .ev-static-trust-strip__list {
+    justify-content: center;
+    gap: 0.25rem;
+    overflow: hidden;
+    padding-inline: 0.3rem;
+  }
+
+  .ev-static-trust-strip__item {
+    min-width: 0;
+    padding-inline: 0.38rem;
+    font-size: 0.64rem;
+  }
+
+  .ev-static-trust-strip__item svg {
+    width: 0.78rem;
+    height: 0.78rem;
+  }
+}
+
+/* Compact mobile header actions share one reserved right-side zone. */
+.ev-final-mobile-actions {
+  position: absolute;
+  z-index: 10;
+  inset-inline-end: max(0.62rem, env(safe-area-inset-right));
+  top: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  transform: translateY(-50%);
+}
+
+.ev-final-mobile-call {
+  display: inline-flex;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 102, 112, 0.8);
+  border-radius: 999px;
+  background: rgba(191, 9, 24, 0.92);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+
+.ev-final-mobile-call:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.ev-final-mobile-actions .ev-final-mobile-menu {
+  position: relative !important;
+  inset: auto !important;
+  top: auto !important;
+  width: 56px !important;
+  height: 56px !important;
+  transform: none !important;
+}
+
+.ev-final-header-brand--mobile {
+  position: absolute;
+  inset-inline-start: max(0.7rem, env(safe-area-inset-left));
+  inset-inline-end: 7.8rem;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  height: calc(100% - 1rem);
+  align-items: center;
+  transform: translateY(-50%);
+}
+
+.ev-final-header-mobile-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left center;
+  filter: none;
+}
+
+@media (max-width: 1023px) {
+  .ev-final-header-art {
+    background:
+      linear-gradient(90deg, rgba(2, 5, 13, 0.1), rgba(2, 5, 13, 0.42) 64%, rgba(4, 11, 28, 0.94)),
+      var(--ee-storm-bg-mobile),
+      #02050d !important;
+    background-position: center !important;
+    background-size: cover !important;
+  }
+
+  .ev-final-header-brand--art {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ev-final-mobile-actions {
+    display: none;
+  }
+
+  .ev-final-header-brand--mobile {
+    display: none;
+  }
+
+  .ev-final-nav-link--current {
+    color: var(--ev-cyan, #62d8ff) !important;
+    text-decoration: underline !important;
+    text-decoration-thickness: 2px !important;
+    text-underline-offset: 0.32rem !important;
+  }
+}
+
 html {
   background: var(--ee-navy);
+}
+
+.skip-to-content {
+  position: fixed;
+  z-index: 1000;
+  inset-block-start: 0.75rem;
+  inset-inline-start: 0.75rem;
+  min-height: 44px;
+  padding: 0.7rem 1rem;
+  border-radius: 0.45rem;
+  background: #ffffff;
+  color: #06142f;
+  font-weight: 800;
+  transform: translateY(-150%);
+  transition: transform 140ms ease;
+}
+
+.skip-to-content:focus {
+  transform: translateY(0);
 }
 
 body {
@@ -3646,6 +3824,60 @@ a[data-quote-trigger="true"].site-header-quote {
   }
 }
 
+/* Final mobile homepage composition: image, message and both actions share one viewport. */
+@media (max-width: 767px) {
+  .core-storm-home .home-brand-hero {
+    display: grid !important;
+    min-height: calc(100svh - var(--site-header-height)) !important;
+    padding: 0 !important;
+  }
+
+  .core-storm-home .home-brand-hero .brand-hero-image {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: 68% center !important;
+  }
+
+  .core-storm-home .home-brand-hero .ev-hero-grid {
+    min-height: calc(100svh - var(--site-header-height)) !important;
+    align-items: center !important;
+    padding: 0.75rem !important;
+  }
+
+  .core-storm-home .home-brand-hero .home-hero-copy-panel {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 1rem !important;
+    background: rgba(3, 16, 39, 0.94) !important;
+  }
+
+  .core-storm-home .home-brand-hero h1 {
+    margin-top: 0.75rem !important;
+    font-size: clamp(2.05rem, 10.5vw, 2.6rem) !important;
+    line-height: 1.02 !important;
+  }
+
+  .core-storm-home .home-brand-hero h1 + p {
+    margin-top: 0.85rem !important;
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .core-storm-home .home-brand-hero .home-hero-copy-panel > div {
+    margin-top: 1rem !important;
+  }
+
+  .core-storm-home .home-brand-hero .ev-btn {
+    min-width: 0 !important;
+    min-height: 3rem !important;
+    padding: 0.65rem 0.5rem !important;
+    font-size: 0.9rem !important;
+  }
+}
+
 /* EOF guard for the redesigned footer. Several historical final guards target
    generic cards and links, so this keeps the footer balanced and organised. */
 .site-footer.ev-footer .ev-footer-inner {
@@ -5413,6 +5645,7 @@ body.ev-electric-theme-bg .mobile-primary-nav__panel {
 }
 
 .mobile-sticky-cta--footer-visible,
+.mobile-sticky-cta--home-hero-visible,
 body.quote-modal-open .mobile-sticky-cta {
   visibility: hidden;
   pointer-events: none;
@@ -7242,6 +7475,10 @@ main.legal-page :is(h1, h2, p, a),
     max-width: 100% !important;
     min-width: 0 !important;
     grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .home-brand-hero .mt-7.grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
   }
 
   .home-brand-hero .mt-7.grid a,
@@ -9149,7 +9386,7 @@ main a[data-conversion-action="quote-click"] .solar-quote-cta__label {
   }
 
   main div:not(.mobile-sticky-cta):has(> a[data-conversion-action="phone-click"]):has(> a[data-conversion-action="quote-click"]) {
-    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 
   main div:not(.mobile-sticky-cta):has(> a[data-conversion-action="phone-click"]) > a[data-conversion-action],
@@ -11122,7 +11359,7 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
   article
 ):not(.mobile-sticky-cta):has(> a[data-conversion-action="phone-click"]):has(> a[data-conversion-action="quote-click"]) {
   display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--ev-action-pair-min)), 1fr)) !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   align-items: stretch !important;
   gap: clamp(0.65rem, 1.6vw, 0.95rem) !important;
   width: min(100%, 38rem) !important;
@@ -11284,7 +11521,7 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
     section,
     article
   ):not(.mobile-sticky-cta):has(> a[data-conversion-action="phone-click"]):has(> a[data-conversion-action="quote-click"]) {
-    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 
   .mobile-sticky-cta {
@@ -11386,7 +11623,7 @@ main button[data-conversion-action],
   article
 ):not(.mobile-sticky-cta):has(> a[data-conversion-action="phone-click"]):has(> a[data-conversion-action="quote-click"]) {
   display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13.75rem), 1fr)) !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   align-items: stretch !important;
   gap: clamp(0.65rem, 1.45vw, 0.95rem) !important;
   max-width: 100% !important;

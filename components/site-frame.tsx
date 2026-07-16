@@ -13,6 +13,7 @@ import {
   Zap,
 } from "lucide-react";
 import { CurrentYear } from "@/components/current-year";
+import { DesktopPrimaryNav } from "@/components/desktop-primary-nav";
 import { HomeNavigationLink } from "@/components/home-navigation-link";
 import { MobileStickyCta } from "@/components/mobile-sticky-cta";
 import { MobilePrimaryNav } from "@/components/mobile-primary-nav";
@@ -24,13 +25,9 @@ const navItems = [
   { href: "/", label: "Home" },
   { href: "/emergency-electrician-sydney", label: "Emergency Electrician" },
   { href: "/level-2-electrician-sydney", label: "Level 2 Electrician" },
-  { href: "/services", label: "Electrical Services" },
-  { href: "/services/hot-water-system-electrician-sydney", label: "Hot Water" },
-  { href: "/services/split-system-air-conditioning-sydney", label: "Aircon" },
-  { href: "/solar-batteries", label: "Solar & Batteries" },
+  { href: "/services", label: "Services" },
   { href: "/service-areas", label: "Service Areas" },
-  { href: "/about", label: "About Evaready", desktopClassName: "ev-nav-optional" },
-  { href: "/contact", label: "Contact", desktopClassName: "ev-nav-optional" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const legalLinks = [
@@ -175,7 +172,7 @@ export function SiteHeader() {
         <div className="ev-final-header-art">
           <HomeNavigationLink
             data-header-logo="true"
-            className="ev-final-header-brand"
+            className="ev-final-header-brand ev-final-header-brand--art"
           >
             <picture className="ev-final-header-picture">
               <source media="(max-width: 767px)" srcSet={headerMobile} />
@@ -193,8 +190,28 @@ export function SiteHeader() {
             </picture>
           </HomeNavigationLink>
 
-          <div className="ev-final-mobile-menu">
-            <div className="ev-final-mobile-menu-inner">
+          <HomeNavigationLink className="ev-final-header-brand--mobile">
+            <Image
+              src={assetPath(business.logoImage)}
+              alt="Evaready Electrical 24/7"
+              width={1426}
+              height={503}
+              sizes="(max-width: 430px) 190px, (max-width: 1023px) 320px, 1px"
+              className="ev-final-header-mobile-logo"
+            />
+          </HomeNavigationLink>
+
+          <div className="ev-final-mobile-actions">
+            <a
+              href={business.phoneHref}
+              data-conversion-action="phone-click"
+              aria-label={business.callCta}
+              className="ev-final-mobile-call"
+            >
+              <Phone className="h-5 w-5" aria-hidden="true" />
+              <span className="sr-only">{business.callCta}</span>
+            </a>
+            <div className="ev-final-mobile-menu">
               <MobilePrimaryNav />
             </div>
           </div>
@@ -203,28 +220,7 @@ export function SiteHeader() {
         <RouteMarqueeStrip />
 
         <div className="ev-final-desktop-nav">
-          <nav className="ev-final-main-nav" aria-label="Primary navigation">
-            {navItems.map((item) => {
-              const className = `ev-final-nav-link ${item.desktopClassName ?? ""}`.trim();
-
-              return item.href === "/" ? (
-                <HomeNavigationLink
-                  key={item.href}
-                  className={className}
-                >
-                  {item.label}
-                </HomeNavigationLink>
-              ) : (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={className}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
+          <DesktopPrimaryNav items={navItems} />
 
           <div className="site-header-actions ev-final-header-actions">
             <a
@@ -377,7 +373,7 @@ export function SiteFooter() {
                 className="footer-action footer-action-call ev-footer-mini-action"
               >
                 <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
-                <span>Call {business.phoneDisplay}</span>
+                <span>{business.callCta}</span>
               </a>
               <a
                 href={business.bookingUrl}
