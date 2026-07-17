@@ -46,6 +46,37 @@ test("core routes keep one H1, landmarks, tracking and viewport-safe layouts", a
   }
 });
 
+test("homepage uses the approved H1 and a seamless reduced-motion-safe service strip", async ({ page }, testInfo) => {
+  await page.goto("./", { waitUntil: "domcontentloaded" });
+
+  await expect(page.locator("h1")).toHaveText("Electrician Sydney & Surrounding Regions");
+  await expect(page.locator(".emergency-issue-marquee__group")).toHaveCount(2);
+
+  const track = page.locator(".emergency-issue-marquee__track");
+  const initialTransform = await track.evaluate((element) => getComputedStyle(element).transform);
+  await page.waitForTimeout(350);
+  const movingTransform = await track.evaluate((element) => getComputedStyle(element).transform);
+  expect(movingTransform).not.toBe(initialTransform);
+
+  const overflow = await page.evaluate(
+    () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+  );
+  expect(overflow).toBeLessThanOrEqual(1);
+
+  if (testInfo.project.name.startsWith("mobile-")) {
+    await expect(page.locator(".ev-final-header-art [data-conversion-action='phone-click']")).toHaveCount(0);
+    const stickyCta = page.locator(".mobile-sticky-cta");
+    await expect(stickyCta).toHaveCount(1);
+    await page.locator(".home-brand-hero").evaluate((hero) =>
+      window.scrollTo({ top: hero.getBoundingClientRect().bottom + window.scrollY + 24 }),
+    );
+    await expect(stickyCta).toBeVisible();
+  }
+
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(track).toHaveCSS("animation-name", "none");
+});
+
 test("desktop navigation exposes the current route and compact contact actions", async ({ page }, testInfo) => {
   test.skip(!testInfo.project.name.startsWith("desktop-"), "Desktop navigation check.");
 
@@ -92,7 +123,7 @@ test("quote dialog is accessible, has a fallback and restores trigger focus", as
 
   await expect(dialog).toBeVisible();
   await expect(dialog).toHaveAttribute("aria-modal", "true");
-  await expect(page.getByRole("button", { name: "Close booking form" }).last()).toBeFocused();
+  await expect(page.getByRole("button", { name: "Close quote form" }).last()).toBeFocused();
   await expect(dialog.getByRole("link", { name: "Open the secure form" })).toBeVisible();
   await expect(page.locator("body")).toHaveClass(/quote-modal-open/);
   await expect(page.locator(".mobile-sticky-cta")).toBeHidden();

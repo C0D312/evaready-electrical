@@ -202,15 +202,6 @@ export function SiteHeader() {
           </HomeNavigationLink>
 
           <div className="ev-final-mobile-actions">
-            <a
-              href={business.phoneHref}
-              data-conversion-action="phone-click"
-              aria-label={business.callCta}
-              className="ev-final-mobile-call"
-            >
-              <Phone className="h-5 w-5" aria-hidden="true" />
-              <span className="sr-only">{business.callCta}</span>
-            </a>
             <div className="ev-final-mobile-menu">
               <MobilePrimaryNav />
             </div>

@@ -185,12 +185,12 @@ export default function HomePage() {
               24/7 emergency calls and Level 2 electrical work
             </p>
             <h1 className="mt-4 max-w-xl text-4xl font-bold leading-[1.02] text-white sm:text-5xl lg:text-6xl">
-              Emergency Electrician Sydney
+              Electrician Sydney &amp; Surrounding Regions
             </h1>
             <p className="mt-5 max-w-[66ch] text-base leading-7 text-slate-100 sm:text-lg sm:leading-8">
-              Licensed electrical help for urgent faults, Level 2 work,
-              switchboards, fault finding and general electrical work across
-              Sydney and surrounding regions.
+              Call Evaready Electrical for an emergency electrician, Level 2
+              work, switchboards, fault finding and general electrical work
+              across Sydney and surrounding regions.
             </p>
 
             <div className="mt-7 grid grid-cols-2 gap-3">
