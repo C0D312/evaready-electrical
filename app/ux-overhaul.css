@@ -24,6 +24,86 @@
   header.ev-final-header .ev-final-header-brand--mobile {
     display: none !important;
   }
+
+  header.site-header.ev-final-header .ev-final-main-nav {
+    display: flex !important;
+    visibility: visible !important;
+    width: auto !important;
+    max-width: none !important;
+    height: 100% !important;
+    gap: clamp(0.45rem, 0.7vw, 0.85rem) !important;
+    overflow: hidden !important;
+    pointer-events: auto !important;
+  }
+
+  header.site-header.ev-final-header .ev-final-main-nav a.ev-final-nav-link {
+    display: inline-flex !important;
+    visibility: visible !important;
+    width: auto !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
+    min-height: calc(var(--ev-final-nav-height) - 2px) !important;
+    padding-inline: 0.08rem !important;
+    font-size: clamp(0.8rem, 0.74rem + 0.18vw, 0.94rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.15 !important;
+    overflow: visible !important;
+    pointer-events: auto !important;
+  }
+
+  html body header.site-header.ev-final-header:not(#mobile-site-menu) .ev-final-header-actions.site-header-actions {
+    display: inline-flex !important;
+    visibility: visible !important;
+    width: auto !important;
+    max-width: none !important;
+    height: auto !important;
+    flex: 0 0 auto !important;
+    overflow: visible !important;
+    pointer-events: auto !important;
+  }
+
+  html body header.site-header.ev-final-header:not(#mobile-site-menu) .ev-final-header-actions > a.ev-final-header-btn[data-conversion-action] {
+    display: inline-flex !important;
+    visibility: visible !important;
+    inline-size: auto !important;
+    block-size: var(--ev-final-header-btn-height) !important;
+    height: var(--ev-final-header-btn-height) !important;
+    min-height: var(--ev-final-header-btn-height) !important;
+    max-height: var(--ev-final-header-btn-height) !important;
+    padding: 0 clamp(0.58rem, 0.66vw, 0.82rem) !important;
+    flex-wrap: nowrap !important;
+    font-size: clamp(0.72rem, 0.68rem + 0.1vw, 0.82rem) !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    pointer-events: auto !important;
+  }
+
+  html body header.site-header.ev-final-header:not(#mobile-site-menu) .ev-final-header-actions > a.ev-btn--call[data-conversion-action] {
+    inline-size: clamp(9.45rem, 10.25vw, 11.7rem) !important;
+    width: clamp(9.45rem, 10.25vw, 11.7rem) !important;
+    min-width: clamp(9.45rem, 10.25vw, 11.7rem) !important;
+  }
+
+  html body header.site-header.ev-final-header:not(#mobile-site-menu) .ev-final-header-actions > a.ev-btn--quote[data-conversion-action] {
+    inline-size: clamp(7.2rem, 7.35vw, 8.75rem) !important;
+    width: clamp(7.2rem, 7.35vw, 8.75rem) !important;
+    min-width: clamp(7.2rem, 7.35vw, 8.75rem) !important;
+  }
+
+  html body header.site-header.ev-final-header:not(#mobile-site-menu) .ev-final-header-actions > a.ev-final-header-btn[data-conversion-action] :is(span, svg) {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    text-wrap: nowrap !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  html body header.site-header.ev-final-header:not(#mobile-site-menu) .ev-final-header-actions > a.ev-btn--call[data-conversion-action] {
+    inline-size: 10.9rem !important;
+    width: 10.9rem !important;
+    min-width: 10.9rem !important;
+  }
 }
 
 header.ev-final-header .emergency-issue-marquee {
