@@ -79,4 +79,11 @@ Saved under `reports/homepage-h1-marquee-fix/`:
 
 ## Live verification
 
-Pending deployment of the reviewed source commit and fresh `gh-pages` export.
+- Normal homepage: PASS, HTTP 200 with the exact new H1 and marquee markup.
+- Cache-busted homepage: PASS, HTTP 200 with the exact new H1 and marquee markup.
+- Services and service-area routes: PASS, normal and cache-busted responses returned HTTP 200.
+- CSS: PASS, deployed marquee keyframes found in the live stylesheet.
+- Focused public Playwright suite: PASS, 12 passed with 2 intentional breakpoint skips.
+- Live route/CTA audit: PASS, 1,002 HTML routes checked with 0 broken links and 0 CTA failures.
+- Tracking: PASS, Google Ads, phone-click, quote-click and `tel:+61461247247` markers remain present.
+- `site-version.json`: PASS, matched the deployed source commit at verification.
