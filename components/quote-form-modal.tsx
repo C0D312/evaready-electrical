@@ -287,7 +287,7 @@ export function QuoteFormModal() {
     >
       <button
         type="button"
-        aria-label="Close booking form"
+        aria-label="Close quote form"
         className="absolute inset-0 hidden sm:block"
         onClick={() => close()}
       />
@@ -317,7 +317,7 @@ export function QuoteFormModal() {
 
           <button
             type="button"
-            aria-label="Close booking form"
+            aria-label="Close quote form"
             ref={closeButtonRef}
             className="quote-modal-close"
             onClick={() => close()}
@@ -329,7 +329,7 @@ export function QuoteFormModal() {
         <div className="quote-modal-frame-shell min-h-0 flex-1 overflow-hidden bg-white">
           <ServiceM8Frame
             src={business.bookingUrl}
-            title="Evaready Electrical booking form"
+            title="Evaready Electrical quote form"
             className="quote-modal-iframe h-full w-full bg-white"
           />
         </div>

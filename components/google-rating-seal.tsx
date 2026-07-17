@@ -58,8 +58,8 @@ export function GoogleRatingSeal({
   } = getGoogleRatingDetails();
   const countText = reviewCount ? `Based on ${reviewCount} Google reviews` : null;
   const ariaLabel = ratingText
-    ? `Google Rating ${ratingText}. ${countText ?? "Read Google Reviews"}.`
-    : "Read Google Reviews for Evaready Electrical.";
+    ? `Google rating ${ratingText}. ${countText ?? "Read Google reviews"}.`
+    : "Read Google reviews for Evaready Electrical.";
   const ratingCardClass = showLeaveReview ? "google-rating-card" : "";
 
   return (
@@ -76,7 +76,7 @@ export function GoogleRatingSeal({
         </span>
         <div className="min-w-0">
           <p className="text-sm font-bold text-cyan-100">
-            Google Rating
+            Google rating
           </p>
           <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
             {ratingText ? (
@@ -105,7 +105,7 @@ export function GoogleRatingSeal({
       </div>
 
       <p className="mt-3 text-sm leading-5 text-slate-100">
-        {countText ?? business.googleReviewDisplayText ?? "Read Google Reviews"}
+        {countText ?? business.googleReviewDisplayText ?? "Read Google reviews"}
       </p>
 
       <div className="mt-3 flex flex-wrap gap-2 text-sm font-bold">
@@ -115,7 +115,7 @@ export function GoogleRatingSeal({
           rel="noopener noreferrer"
           className="inline-flex min-h-10 items-center justify-center gap-1 rounded-lg border border-cyan-300/30 bg-white/[0.08] px-3 py-2 text-cyan-50 transition hover:border-cyan-200 hover:bg-white/[0.12] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
         >
-          Read Google Reviews
+          Read Google reviews
           <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
         </a>
         {showLeaveReview ? (
@@ -125,7 +125,7 @@ export function GoogleRatingSeal({
             rel="noopener noreferrer"
             className="inline-flex min-h-10 items-center justify-center gap-1 rounded-lg border border-cyan-300/20 px-3 py-2 text-cyan-100 transition hover:border-cyan-200 hover:bg-white/[0.08] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
           >
-            Leave a Review
+            Leave a review
             <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
           </a>
         ) : null}

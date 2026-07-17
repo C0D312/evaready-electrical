@@ -51,13 +51,13 @@ const featuredServices = featuredServiceRoutes.flatMap((route) => {
 const urgentIssues = [
   {
     title: "No power",
-    text: "Keep clear of damaged equipment and call if the outage is isolated to your property.",
+    text: "If nearby properties still have power and only your property is affected, call Evaready. Keep clear of damaged equipment.",
     href: "/electrical-faults/no-power-to-house",
     icon: Bolt,
   },
   {
     title: "Burning smell or heat",
-    text: "Move away from hot fittings or switchboards and call before touching anything further.",
+    text: "Do not touch hot fittings or switchboards. Move away, keep the area clear and call.",
     href: "/electrical-faults/burning-smell-from-switchboard",
     icon: Flame,
   },
@@ -69,7 +69,7 @@ const urgentIssues = [
   },
   {
     title: "Safety switch keeps tripping",
-    text: "Stop repeated resets if it trips again and arrange fault finding.",
+    text: "Do not keep resetting a safety switch that trips again. Arrange fault finding.",
     href: "/electrical-faults/safety-switch-keeps-tripping",
     icon: ShieldCheck,
   },
@@ -84,12 +84,12 @@ const urgentIssues = [
 const trustItems = [
   {
     title: `NSW Licence ${business.licence}`,
-    text: "Verified electrical licence details are available before work begins.",
+    text: `Electrical work carried out under NSW licence ${business.licence}.`,
     icon: ShieldCheck,
   },
   {
     title: "Open 24/7",
-    text: "A direct phone path for urgent electrical faults at any time.",
+    text: "Call any time for an urgent electrical fault.",
     icon: Clock3,
   },
   {
@@ -99,7 +99,7 @@ const trustItems = [
   },
   {
     title: "Residential, commercial and strata",
-    text: "Clear routing for homes, businesses, strata and property managers.",
+    text: "Electrical work for homes, businesses and strata properties.",
     icon: Building2,
   },
   {
@@ -108,8 +108,8 @@ const trustItems = [
     icon: Zap,
   },
   {
-    title: "Simple online quote requests",
-    text: "Send job details and photos for planned electrical work.",
+    title: "Online quote requests",
+    text: "Use the quote form for planned repairs, installations and upgrades.",
     icon: Wrench,
   },
 ] as const;
@@ -118,7 +118,7 @@ const faqs = [
   {
     question: "Do you offer 24/7 emergency electrician call-outs?",
     answer:
-      "Yes. Call Evaready Electrical for power outages, circuit tripping, burning smells, sparking or other electrical issues that feel unsafe. Emergency call-outs can be on site within 60 minutes in core service areas, with 90-minute response for greater regions.",
+      "Yes. Call Evaready Electrical for power outages, circuit tripping, burning smells, sparking or other electrical issues that feel unsafe. For emergency call-outs, Evaready can be on site within 60 minutes in core service areas, with a 90-minute response for greater regions.",
   },
   {
     question: "Can you help with Level 2 electrical work?",
@@ -132,7 +132,7 @@ const faqs = [
   {
     question: "How do I request a quote?",
     answer:
-      "For urgent faults, call first. For planned work, use the quote form to send your address, contact details, photos and a short description of the work.",
+      "For urgent faults, call first. For planned work, use the quote form to send your contact details, address, a short job description and photos.",
   },
 ] as const;
 
@@ -182,14 +182,14 @@ export default function HomePage() {
           <div className="home-hero-copy-panel ev-hero-card ev-hero-content max-w-2xl rounded-lg border border-cyan-300/25 bg-[#031027]/88 p-5 shadow-2xl backdrop-blur-sm sm:p-8">
             <p className="inline-flex items-center gap-2 text-sm font-bold text-cyan-100">
               <Clock3 className="h-4 w-4" aria-hidden="true" />
-              24/7 Emergency and Level 2 Electrician
+              24/7 emergency calls and Level 2 electrical work
             </p>
             <h1 className="mt-4 max-w-xl text-4xl font-bold leading-[1.02] text-white sm:text-5xl lg:text-6xl">
               Emergency Electrician Sydney
             </h1>
             <p className="mt-5 max-w-[66ch] text-base leading-7 text-slate-100 sm:text-lg sm:leading-8">
               Licensed electrical help for urgent faults, Level 2 work,
-              switchboards, fault finding and general electrical services across
+              switchboards, fault finding and general electrical work across
               Sydney and surrounding regions.
             </p>
 
@@ -218,10 +218,14 @@ export default function HomePage() {
               </a>
             </div>
 
+            <p className="mt-4 max-w-[62ch] text-sm leading-6 text-slate-200 sm:text-base">
+              Call first if it feels unsafe. For planned work, send photos and job details.
+            </p>
+
             <ul className="mt-6 hidden gap-2 text-sm text-slate-100 sm:grid sm:grid-cols-3" aria-label="Business trust details">
               <li className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-cyan-200" aria-hidden="true" />NSW Licence {business.licence}</li>
               <li className="flex items-center gap-2"><Clock3 className="h-4 w-4 text-cyan-200" aria-hidden="true" />Open 24/7</li>
-              <li className="flex items-center gap-2"><Home className="h-4 w-4 text-cyan-200" aria-hidden="true" />Homes, business and strata</li>
+              <li className="flex items-center gap-2"><Home className="h-4 w-4 text-cyan-200" aria-hidden="true" />Residential, commercial and strata</li>
             </ul>
           </div>
         </div>
@@ -232,11 +236,11 @@ export default function HomePage() {
           <div className="max-w-3xl">
             <p className="text-sm font-bold text-cyan-100">Electrical services</p>
             <h2 id="services-heading" className="mt-2 text-3xl font-bold leading-tight sm:text-4xl">
-              Help for urgent faults and planned electrical work
+              Urgent faults and planned electrical work
             </h2>
             <p className="mt-4 max-w-[68ch] text-base leading-7 text-slate-300">
-              Start with the service that best matches the job. Each guide explains
-              the next step, what information helps, and when to call first.
+              Choose a service below, or view the full service list for other
+              electrical work.
             </p>
           </div>
 
@@ -312,7 +316,7 @@ export default function HomePage() {
           <div className="max-w-3xl">
             <p className="text-sm font-bold text-cyan-100">Why Evaready</p>
             <h2 id="why-heading" className="mt-2 text-3xl font-bold leading-tight sm:text-4xl">
-              Clear credentials and a straightforward next step
+              Licences, registrations and services
             </h2>
           </div>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -330,7 +334,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      <OffersSection offers={getOffersForPlacement("homepage")} className="home-offers-section" />
+      <OffersSection
+        offers={getOffersForPlacement("homepage")}
+        heading="Current electrical offers"
+        intro="Check the terms on each offer before requesting work. Call first if an electrical fault feels unsafe."
+        className="home-offers-section"
+      />
 
       <section className="ev-storm-section py-14 sm:py-18" aria-labelledby="areas-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -341,8 +350,8 @@ export default function HomePage() {
                 Electrical help across Sydney and surrounding regions
               </h2>
               <p className="mt-4 max-w-[68ch] text-base leading-7 text-slate-300">
-                Availability depends on location, access, job type, safety conditions
-                and current workload. Call if you are unsure whether your suburb is covered.
+                Availability varies with location, access, job type, safety conditions
+                and current workload. If your suburb is not listed, call to check.
               </p>
             </div>
             <Link href="/service-areas#find-suburb" className="inline-flex min-h-12 items-center gap-2 font-bold text-cyan-100 hover:text-white">
@@ -365,8 +374,8 @@ export default function HomePage() {
       </section>
 
       <GoogleReviewProof
-        heading="Read verified Google feedback before you choose an electrician"
-        subheading="The rating and review count shown here come from Evaready Electrical's verified Google Business Profile details."
+        heading="Evaready's Google rating and reviews"
+        subheading="See the current rating and read customer feedback on Evaready Electrical's Google Business Profile."
       />
 
       <section className="ev-storm-section py-14 sm:py-18" aria-labelledby="faq-heading">
@@ -392,10 +401,10 @@ export default function HomePage() {
         <div className="ev-storm-panel ev-storm-panel--strong mx-auto grid max-w-6xl gap-6 rounded-lg border border-cyan-300/25 px-5 py-8 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
             <h2 id="final-cta-heading" className="text-3xl font-bold leading-tight text-white">
-              Need electrical help?
+              Need an electrician?
             </h2>
             <p className="mt-3 max-w-[64ch] text-base leading-7 text-slate-300">
-              Call first for urgent faults. For planned work, send job details and photos through the quote form.
+              Call for an urgent fault, or send the details of planned work through the quote form.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2 lg:min-w-[25rem]">

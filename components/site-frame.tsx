@@ -317,8 +317,8 @@ export function SiteFooter() {
               Evaready Electrical footer
             </h2>
             <p className="ev-footer-brand-text">
-              Electrical support across Sydney and surrounding regions for
-              urgent faults, homes, businesses, Level 2 work, CCTV and data.
+              Evaready handles urgent faults, Level 2 work, CCTV, data and general
+              electrical work across Sydney and surrounding regions.
             </p>
 
             <dl className="ev-footer-trust-list" aria-label="Evaready trust details">
@@ -363,7 +363,7 @@ export function SiteFooter() {
             </div>
             <p>
               Evaready is a mobile electrical service across Sydney and surrounding
-              regions. No public street address is listed.
+              regions. Call or send a quote request to discuss the job.
             </p>
             <div className="ev-footer-contact-actions">
               <a
