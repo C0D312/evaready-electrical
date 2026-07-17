@@ -44,8 +44,8 @@
     flex: 0 0 auto !important;
     min-height: calc(var(--ev-final-nav-height) - 2px) !important;
     padding-inline: 0.08rem !important;
-    font-size: clamp(0.8rem, 0.74rem + 0.18vw, 0.94rem) !important;
-    font-weight: 800 !important;
+    font-size: clamp(0.8rem, 0.74rem + 0.12vw, 0.9rem) !important;
+    font-weight: 700 !important;
     line-height: 1.15 !important;
     overflow: visible !important;
     pointer-events: auto !important;
@@ -106,17 +106,61 @@
   }
 }
 
+@media (min-width: 1280px) {
+  :root {
+    --ev-final-nav-height: 40px;
+  }
+
+  header.site-header.ev-final-header .ev-final-desktop-nav {
+    position: relative !important;
+    justify-content: center !important;
+  }
+
+  header.site-header.ev-final-header .ev-final-main-nav {
+    flex: 0 1 auto !important;
+    margin-inline: auto !important;
+  }
+
+  html body header.site-header.ev-final-header:not(#mobile-site-menu) .ev-final-header-actions.site-header-actions {
+    position: absolute !important;
+    inset-inline-end: clamp(0.75rem, 2vw, 1.75rem) !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+}
+
 header.ev-final-header .emergency-issue-marquee {
   min-height: var(--site-route-strip-height) !important;
   height: var(--site-route-strip-height) !important;
   overflow: hidden !important;
   overflow: clip !important;
   pointer-events: none;
+  border-top-color: rgba(98, 216, 255, 0.34) !important;
+  border-bottom-color: rgba(255, 50, 71, 0.72) !important;
+  background:
+    linear-gradient(90deg, rgba(4, 22, 83, 0.98), rgba(20, 5, 26, 0.98) 52%, rgba(65, 4, 16, 0.98)),
+    #02050d !important;
 }
 
 header.ev-final-header .emergency-issue-marquee::before,
 header.ev-final-header .emergency-issue-marquee::after {
-  display: none !important;
+  content: "" !important;
+  position: absolute !important;
+  inset-block: 0 !important;
+  z-index: 4 !important;
+  display: block !important;
+  width: clamp(1.5rem, 4vw, 4.5rem) !important;
+  pointer-events: none !important;
+}
+
+header.ev-final-header .emergency-issue-marquee::before {
+  inset-inline-start: 0 !important;
+  background: linear-gradient(90deg, rgba(4, 22, 83, 1), transparent) !important;
+}
+
+header.ev-final-header .emergency-issue-marquee::after {
+  inset-inline-end: 0 !important;
+  background: linear-gradient(270deg, rgba(65, 4, 16, 1), transparent) !important;
 }
 
 header.ev-final-header .emergency-issue-marquee__viewport {
@@ -139,7 +183,7 @@ header.ev-final-header .emergency-issue-marquee__track {
   margin: 0 !important;
   padding: 0 !important;
   transform: translate3d(0, 0, 0);
-  animation: ev-marquee-scroll 42s linear infinite !important;
+  animation: ev-marquee-scroll 30s linear infinite !important;
   will-change: transform;
 }
 
@@ -169,11 +213,14 @@ header.ev-final-header .emergency-issue-chip {
   border: 1px solid rgba(98, 216, 255, 0.24) !important;
   border-radius: 999px !important;
   padding: 0.24rem 0.65rem !important;
-  background: linear-gradient(180deg, rgba(8, 42, 134, 0.76), rgba(4, 22, 83, 0.72)) !important;
-  box-shadow: 0 0 14px rgba(7, 156, 255, 0.08) !important;
+  border-color: rgba(255, 90, 105, 0.52) !important;
+  background: linear-gradient(180deg, rgba(117, 7, 19, 0.94), rgba(57, 4, 16, 0.94)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 0 16px rgba(233, 17, 30, 0.18) !important;
   color: #eaf7ff !important;
   font-size: clamp(0.68rem, 0.76vw, 0.82rem) !important;
-  font-weight: 700 !important;
+  font-weight: 750 !important;
   line-height: 1 !important;
   white-space: nowrap !important;
 }
@@ -182,7 +229,8 @@ header.ev-final-header .emergency-issue-chip svg {
   width: 0.88rem !important;
   height: 0.88rem !important;
   flex: 0 0 auto !important;
-  color: #62d8ff !important;
+  color: #8de7ff !important;
+  filter: drop-shadow(0 0 5px rgba(98, 216, 255, 0.48)) !important;
 }
 
 @keyframes ev-marquee-scroll {
@@ -197,7 +245,7 @@ header.ev-final-header .emergency-issue-chip svg {
 
 @media (max-width: 430px) {
   header.ev-final-header .emergency-issue-marquee__track {
-    animation-duration: 36s !important;
+    animation-duration: 28s !important;
   }
 
   header.ev-final-header .emergency-issue-marquee__group {

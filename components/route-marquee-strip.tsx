@@ -1,21 +1,13 @@
-import {
-  BadgeCheck,
-  Camera,
-  Clock3,
-  FileText,
-  MapPin,
-  PhoneCall,
-  ShieldCheck,
-} from "lucide-react";
+import { Zap } from "lucide-react";
 
 const routeHighlights = [
-  { label: "Open 24/7 for urgent faults", icon: Clock3 },
-  { label: "NSW licensed electrical work", icon: ShieldCheck },
-  { label: "Emergency and Level 2 help", icon: BadgeCheck },
-  { label: "Sydney and surrounding regions", icon: MapPin },
-  { label: "Call first if unsafe", icon: PhoneCall },
-  { label: "Quote planned work", icon: FileText },
-  { label: "Photos and job notes", icon: Camera },
+  "Open 24/7 for urgent faults",
+  "NSW licensed electrical work",
+  "Emergency and Level 2 help",
+  "Sydney and surrounding regions",
+  "Call first if unsafe",
+  "Quote planned work",
+  "Photos and job notes",
 ] as const;
 
 export function RouteMarqueeStrip() {
@@ -35,9 +27,9 @@ export function RouteMarqueeStrip() {
               className="emergency-issue-marquee__group"
               aria-hidden={groupIndex === 1 ? "true" : undefined}
             >
-              {routeHighlights.map(({ label, icon: Icon }) => (
+              {routeHighlights.map((label) => (
                 <li key={`${groupIndex}-${label}`} className="emergency-issue-chip">
-                  <Icon aria-hidden="true" />
+                  <Zap aria-hidden="true" />
                   <span>{label}</span>
                 </li>
               ))}
