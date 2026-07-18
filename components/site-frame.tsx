@@ -38,11 +38,7 @@ const legalLinks = [
   { href: "/sitemap.xml", label: "Sitemap" },
 ];
 
-const headerImages = {
-  desktop: "/images/header/evaready-header-desktop-slim-v6.webp",
-  tablet: "/images/header/evaready-header-tablet-slim-v6.webp",
-  mobile: "/images/header/evaready-header-mobile-slim-v6.webp",
-};
+const headerImage = "/images/header/evaready-header-owner-v7.webp";
 
 type FooterLinkItem = {
   href: string;
@@ -162,9 +158,7 @@ function FooterTextLink({ href, label }: FooterLinkItem) {
 }
 
 export function SiteHeader() {
-  const headerDesktop = assetPath(headerImages.desktop);
-  const headerTablet = assetPath(headerImages.tablet);
-  const headerMobile = assetPath(headerImages.mobile);
+  const headerArtwork = assetPath(headerImage);
 
   return (
     <>
@@ -175,30 +169,17 @@ export function SiteHeader() {
             className="ev-final-header-brand ev-final-header-brand--art"
           >
             <picture className="ev-final-header-picture">
-              <source media="(max-width: 767px)" srcSet={headerMobile} />
-              <source media="(max-width: 1180px)" srcSet={headerTablet} />
-                <img
-                  src={headerDesktop}
-                  alt="Evaready Electrical 24/7"
-                  width={5500}
-                  height={240}
+              <img
+                src={headerArtwork}
+                alt="Evaready Electrical 24/7"
+                width={2048}
+                height={682}
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
                 className="ev-final-header-image"
               />
             </picture>
-          </HomeNavigationLink>
-
-          <HomeNavigationLink className="ev-final-header-brand--mobile">
-            <Image
-              src={assetPath(business.logoImage)}
-              alt="Evaready Electrical 24/7"
-              width={1426}
-              height={503}
-              sizes="(max-width: 430px) 190px, (max-width: 1023px) 320px, 1px"
-              className="ev-final-header-mobile-logo"
-            />
           </HomeNavigationLink>
 
           <div className="ev-final-mobile-actions">

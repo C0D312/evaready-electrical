@@ -9,14 +9,52 @@
   outline-offset: 3px;
 }
 
-/* Prevent the desktop art banner from being re-enabled by legacy header rules. */
+/* The owner-supplied banner is the only active header artwork at every breakpoint. */
+header.ev-final-header .ev-final-header-brand.ev-final-header-brand--art {
+  position: relative !important;
+  z-index: 1 !important;
+  display: block !important;
+}
+
+header.ev-final-header .ev-final-header-brand--mobile {
+  display: none !important;
+}
+
+header.ev-final-header .ev-final-header-art {
+  background:
+    radial-gradient(circle at 8% 50%, rgba(8, 118, 255, 0.38), transparent 32%),
+    radial-gradient(circle at 92% 50%, rgba(233, 17, 30, 0.32), transparent 32%),
+    #02050d !important;
+}
+
+header.ev-final-header .ev-final-header-image {
+  position: absolute !important;
+  inset-inline-start: 50% !important;
+  top: 50% !important;
+  width: auto !important;
+  height: 154% !important;
+  max-width: none !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  transform: translate(-50%, -50%) !important;
+}
+
 @media (max-width: 1023px) {
   header.ev-final-header .ev-final-header-brand.ev-final-header-brand--art {
-    display: none !important;
+    width: calc(100% - 4.5rem) !important;
+    max-width: calc(100% - 4.5rem) !important;
   }
 
-  header.ev-final-header .ev-final-header-brand--mobile {
-    display: flex !important;
+  header.ev-final-header .ev-final-header-picture {
+    width: 100% !important;
+  }
+
+  header.ev-final-header .ev-final-header-image {
+    position: static !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-position: center !important;
+    transform: none !important;
   }
 }
 
@@ -76,19 +114,20 @@
     font-weight: 800 !important;
     line-height: 1 !important;
     white-space: nowrap !important;
+    overflow: hidden !important;
     pointer-events: auto !important;
   }
 
   html body header.site-header.ev-final-header:not(#mobile-site-menu) .ev-final-header-actions > a.ev-btn--call[data-conversion-action] {
-    inline-size: clamp(9.45rem, 10.25vw, 11.7rem) !important;
-    width: clamp(9.45rem, 10.25vw, 11.7rem) !important;
-    min-width: clamp(9.45rem, 10.25vw, 11.7rem) !important;
+    inline-size: max-content !important;
+    width: max-content !important;
+    min-width: 12.35rem !important;
   }
 
   html body header.site-header.ev-final-header:not(#mobile-site-menu) .ev-final-header-actions > a.ev-btn--quote[data-conversion-action] {
-    inline-size: clamp(7.2rem, 7.35vw, 8.75rem) !important;
-    width: clamp(7.2rem, 7.35vw, 8.75rem) !important;
-    min-width: clamp(7.2rem, 7.35vw, 8.75rem) !important;
+    inline-size: max-content !important;
+    width: max-content !important;
+    min-width: 8.65rem !important;
   }
 
   html body header.site-header.ev-final-header:not(#mobile-site-menu) .ev-final-header-actions > a.ev-final-header-btn[data-conversion-action] :is(span, svg) {
@@ -100,9 +139,9 @@
 
 @media (min-width: 1024px) and (max-width: 1279px) {
   html body header.site-header.ev-final-header:not(#mobile-site-menu) .ev-final-header-actions > a.ev-btn--call[data-conversion-action] {
-    inline-size: 10.9rem !important;
-    width: 10.9rem !important;
-    min-width: 10.9rem !important;
+    inline-size: max-content !important;
+    width: max-content !important;
+    min-width: 12.35rem !important;
   }
 }
 
