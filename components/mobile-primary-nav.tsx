@@ -6,13 +6,17 @@ import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import {
   ArrowRight,
+  BatteryCharging,
   Bolt,
+  Droplets,
   Flame,
   Home,
+  Info,
   Mail,
   MapPin,
   Menu,
   Phone,
+  Snowflake,
   Wrench,
   X,
 } from "lucide-react";
@@ -41,9 +45,29 @@ const mobileNavItems = [
     icon: Wrench,
   },
   {
+    href: "/services/hot-water-system-electrician-sydney",
+    label: "Hot Water",
+    icon: Droplets,
+  },
+  {
+    href: "/services/split-system-air-conditioning-sydney",
+    label: "Aircon",
+    icon: Snowflake,
+  },
+  {
+    href: "/solar-batteries",
+    label: "Solar & Batteries",
+    icon: BatteryCharging,
+  },
+  {
     href: "/service-areas",
     label: "Service Areas",
     icon: MapPin,
+  },
+  {
+    href: "/about",
+    label: "About Evaready",
+    icon: Info,
   },
   {
     href: "/contact",

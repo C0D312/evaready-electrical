@@ -25,9 +25,45 @@ const navItems = [
   { href: "/", label: "Home" },
   { href: "/emergency-electrician-sydney", label: "Emergency Electrician" },
   { href: "/level-2-electrician-sydney", label: "Level 2 Electrician" },
-  { href: "/services", label: "Services" },
-  { href: "/service-areas", label: "Service Areas" },
-  { href: "/contact", label: "Contact" },
+  { href: "/services", label: "Electrical Services" },
+  {
+    href: "/services/hot-water-system-electrician-sydney",
+    label: "Hot Water",
+    desktopClassName: "ev-final-nav-link--expanded",
+    includeInMore: true,
+  },
+  {
+    href: "/services/split-system-air-conditioning-sydney",
+    label: "Aircon",
+    desktopClassName: "ev-final-nav-link--expanded",
+    includeInMore: true,
+  },
+  {
+    href: "/solar-batteries",
+    label: "Solar & Batteries",
+    desktopClassName: "ev-final-nav-link--expanded",
+    includeInMore: true,
+  },
+  {
+    href: "/service-areas",
+    label: "Service Areas",
+    desktopClassName: "ev-final-nav-link--compact-hidden",
+    includeInMore: true,
+    compactOnlyInMore: true,
+  },
+  {
+    href: "/about",
+    label: "About Evaready",
+    desktopClassName: "ev-final-nav-link--expanded",
+    includeInMore: true,
+  },
+  {
+    href: "/contact",
+    label: "Contact",
+    desktopClassName: "ev-final-nav-link--compact-hidden",
+    includeInMore: true,
+    compactOnlyInMore: true,
+  },
 ];
 
 const legalLinks = [

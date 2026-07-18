@@ -77,20 +77,74 @@ test("homepage uses the approved H1 and a seamless reduced-motion-safe service s
   await expect(track).toHaveCSS("animation-name", "none");
 });
 
-test("desktop navigation exposes the current route and compact contact actions", async ({ page }, testInfo) => {
-  test.skip(!testInfo.project.name.startsWith("desktop-"), "Desktop navigation check.");
+test("desktop navigation exposes every restored destination and compact contact actions", async ({
+  page,
+}, testInfo) => {
+  test.skip(
+    !testInfo.project.name.startsWith("desktop-"),
+    "Desktop navigation check.",
+  );
 
   await page.goto("services/", { waitUntil: "domcontentloaded" });
   const nav = page.getByRole("navigation", { name: "Primary navigation" });
 
   await expect(nav).toBeVisible();
-  await expect(nav.getByRole("link", { name: "Services", exact: true })).toHaveAttribute(
-    "aria-current",
-    "page",
-  );
+  await expect(
+    nav.getByRole("link", { name: "Electrical Services", exact: true }),
+  ).toHaveAttribute("aria-current", "page");
+  const moreMenu = nav.locator(".ev-final-nav-more");
+  await moreMenu.locator("summary").click();
+  for (const label of ["Hot Water", "Aircon", "Solar & Batteries", "About Evaready"]) {
+    await expect(moreMenu.getByRole("link", { name: label, exact: true })).toBeVisible();
+  }
   await expect(page.locator(".ev-final-mobile-actions")).toBeHidden();
-  await expect(page.locator(".ev-final-desktop-nav [data-conversion-action='phone-click']")).toBeVisible();
-  await expect(page.locator(".ev-final-desktop-nav [data-conversion-action='quote-click']")).toBeVisible();
+  await expect(
+    page.locator(".ev-final-desktop-nav [data-conversion-action='phone-click']"),
+  ).toBeVisible();
+  await expect(
+    page.locator(".ev-final-desktop-nav [data-conversion-action='quote-click']"),
+  ).toBeVisible();
+
+  for (const viewport of [
+    { width: 1024, height: 768 },
+    { width: 1440, height: 900 },
+  ]) {
+    await page.setViewportSize(viewport);
+    await expect(moreMenu).toBeVisible();
+
+    const layout = await page.locator(".ev-final-desktop-nav").evaluate((element) => {
+      const actions = element
+        .querySelector<HTMLElement>(".ev-final-header-actions")
+        ?.getBoundingClientRect();
+      const visibleNavControls = Array.from(
+        element.querySelectorAll<HTMLElement>(".ev-final-nav-link, .ev-final-nav-more > summary"),
+      ).filter((control) => {
+        const style = getComputedStyle(control);
+        return style.display !== "none" && style.visibility !== "hidden";
+      });
+
+      return {
+        overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+        navRight: Math.max(
+          ...visibleNavControls.map(
+            (control) => control.getBoundingClientRect().right,
+          ),
+        ),
+        actionsLeft: actions?.left ?? 0,
+      };
+    });
+
+    expect(layout.overflow, `${viewport.width}px navigation overflow`).toBeLessThanOrEqual(1);
+    expect(layout.navRight, `${viewport.width}px navigation/action overlap`).toBeLessThanOrEqual(
+      layout.actionsLeft + 1,
+    );
+  }
+
+  await page.setViewportSize({ width: 1920, height: 1080 });
+  await expect(moreMenu).toBeHidden();
+  for (const label of ["Hot Water", "Aircon", "Solar & Batteries", "About Evaready"]) {
+    await expect(nav.getByRole("link", { name: label, exact: true }).first()).toBeVisible();
+  }
 });
 
 test("mobile menu traps the page, closes with Escape and restores focus", async ({ page }, testInfo) => {
@@ -102,7 +156,11 @@ test("mobile menu traps the page, closes with Escape and restores focus", async 
   const trigger = page.getByRole("button", { name: "Open navigation menu" });
 
   await trigger.click();
-  await expect(page.getByRole("navigation", { name: "Mobile navigation" })).toBeVisible();
+  const mobileNav = page.getByRole("navigation", { name: "Mobile navigation" });
+  await expect(mobileNav).toBeVisible();
+  for (const label of ["Hot Water", "Aircon", "Solar & Batteries", "About Evaready"]) {
+    await expect(mobileNav.getByRole("link", { name: label, exact: true })).toBeVisible();
+  }
   await expect(page.locator("body")).toHaveCSS("overflow", "hidden");
   await expect(page.getByRole("button", { name: "Close menu" })).toBeFocused();
 
@@ -142,7 +200,9 @@ test("skip link, FAQ keyboard control and mobile sticky/footer spacing work", as
   await page.keyboard.press("Enter");
   await expect(page.locator("#main-content")).toBeFocused();
 
-  const summary = page.locator("details summary").first();
+  const summary = page
+    .locator('section[aria-labelledby="faq-heading"] details summary')
+    .first();
   await summary.focus();
   await page.keyboard.press("Enter");
   await expect(summary.locator("..")).toHaveAttribute("open", "");
