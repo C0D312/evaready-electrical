@@ -12946,9 +12946,13 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
   }
 }
 
-/* Final Evaready slim v6 header: compact strip, marquee, then desktop nav. */
+/* Responsive Evaready banner: art-directed strip, marquee, then desktop nav. */
 :root {
-  --ev-final-header-art-height: clamp(84px, 24vw, 118px);
+  --ev-header-banner-mobile-height: clamp(97px, 30.233vw, 130px);
+  --ev-header-banner-tablet-height: clamp(150px, 23.438vw, 220px);
+  --ev-header-banner-desktop-height: clamp(152px, 14.844vw, 190px);
+  --ev-header-banner-wide-height: clamp(190px, 8.594vw, 220px);
+  --ev-final-header-art-height: var(--ev-header-banner-mobile-height);
   --ev-final-nav-height: 0px;
   --ev-final-header-btn-height: 0px;
   --site-route-strip-height: 34px;
@@ -12957,14 +12961,14 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
 
 @media (min-width: 640px) and (max-width: 1023px) {
   :root {
-    --ev-final-header-art-height: clamp(92px, 13.5vw, 128px);
+    --ev-final-header-art-height: var(--ev-header-banner-tablet-height);
     --site-route-strip-height: 34px;
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    --ev-final-header-art-height: 74px;
+    --ev-final-header-art-height: var(--ev-header-banner-desktop-height);
     --ev-final-nav-height: 34px;
     --ev-final-header-btn-height: 30px;
     --site-route-strip-height: 26px;
@@ -12974,7 +12978,7 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
 
 @media (min-width: 1280px) {
   :root {
-    --ev-final-header-art-height: clamp(82px, 5.1vw, 110px);
+    --ev-final-header-art-height: var(--ev-header-banner-wide-height);
     --ev-final-nav-height: 36px;
     --ev-final-header-btn-height: 32px;
     --site-route-strip-height: 27px;

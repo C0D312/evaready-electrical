@@ -38,7 +38,12 @@ const legalLinks = [
   { href: "/sitemap.xml", label: "Sitemap" },
 ];
 
-const headerImage = "/images/header/evaready-header-owner-v7.webp";
+const headerImages = {
+  mobile: "/images/evaready-electric-header-mobile-v2.webp",
+  tablet: "/images/evaready-electric-header-tablet-v2.webp",
+  desktop: "/images/evaready-electric-header-desktop-v2.webp",
+  wide: "/images/evaready-electric-header-wide-v2.webp",
+} as const;
 
 type FooterLinkItem = {
   href: string;
@@ -158,26 +163,35 @@ function FooterTextLink({ href, label }: FooterLinkItem) {
 }
 
 export function SiteHeader() {
-  const headerArtwork = assetPath(headerImage);
+  const headerArtwork = {
+    mobile: assetPath(headerImages.mobile),
+    tablet: assetPath(headerImages.tablet),
+    desktop: assetPath(headerImages.desktop),
+    wide: assetPath(headerImages.wide),
+  };
 
   return (
     <>
-      <header className="site-header ev-final-header fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)]">
-        <div className="ev-final-header-art">
+      <header className="site-header ev-final-header ev-electric-header fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)]">
+        <div className="ev-final-header-art ev-electric-header-banner-row">
           <HomeNavigationLink
             data-header-logo="true"
             className="ev-final-header-brand ev-final-header-brand--art"
           >
             <picture className="ev-final-header-picture">
+              <source media="(min-width: 1280px)" srcSet={headerArtwork.wide} />
+              <source media="(min-width: 1024px)" srcSet={headerArtwork.desktop} />
+              <source media="(min-width: 640px)" srcSet={headerArtwork.tablet} />
               <img
-                src={headerArtwork}
+                src={headerArtwork.mobile}
                 alt="Evaready Electrical 24/7"
-                width={2048}
-                height={682}
+                width={860}
+                height={260}
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
-                className="ev-final-header-image"
+                sizes="100vw"
+                className="ev-final-header-image ev-electric-header-banner"
               />
             </picture>
           </HomeNavigationLink>

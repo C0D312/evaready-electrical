@@ -9,11 +9,13 @@
   outline-offset: 3px;
 }
 
-/* The owner-supplied banner is the only active header artwork at every breakpoint. */
+/* Responsive sources keep the owner-supplied banner full-bleed at every breakpoint. */
 header.ev-final-header .ev-final-header-brand.ev-final-header-brand--art {
   position: relative !important;
   z-index: 1 !important;
   display: block !important;
+  width: 100% !important;
+  max-width: none !important;
 }
 
 header.ev-final-header .ev-final-header-brand--mobile {
@@ -28,21 +30,19 @@ header.ev-final-header .ev-final-header-art {
 }
 
 header.ev-final-header .ev-final-header-image {
-  position: absolute !important;
-  inset-inline-start: 50% !important;
-  top: 50% !important;
-  width: auto !important;
-  height: 154% !important;
+  position: static !important;
+  width: 100% !important;
+  height: 100% !important;
   max-width: none !important;
-  object-fit: contain !important;
+  object-fit: cover !important;
   object-position: center !important;
-  transform: translate(-50%, -50%) !important;
+  transform: none !important;
 }
 
 @media (max-width: 1023px) {
   header.ev-final-header .ev-final-header-brand.ev-final-header-brand--art {
-    width: calc(100% - 4.5rem) !important;
-    max-width: calc(100% - 4.5rem) !important;
+    width: 100% !important;
+    max-width: none !important;
   }
 
   header.ev-final-header .ev-final-header-picture {
@@ -50,11 +50,7 @@ header.ev-final-header .ev-final-header-image {
   }
 
   header.ev-final-header .ev-final-header-image {
-    position: static !important;
-    width: 100% !important;
-    height: 100% !important;
     object-position: center !important;
-    transform: none !important;
   }
 }
 

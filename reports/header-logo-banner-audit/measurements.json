@@ -1,0 +1,891 @@
+{
+  "url": "https://c0d312.github.io/evaready-electrical/?v=header-audit-8b6f3afe",
+  "recordedAt": "2026-07-18T05:26:38.979Z",
+  "results": [
+    {
+      "viewport": "320x568",
+      "viewportWidth": 320,
+      "header": {
+        "x": 0,
+        "width": 320,
+        "height": 118
+      },
+      "art": {
+        "x": 0,
+        "width": 320,
+        "height": 84
+      },
+      "brand": {
+        "x": 0,
+        "width": 248,
+        "height": 83
+      },
+      "imageBox": {
+        "x": 0,
+        "y": 0,
+        "width": 248,
+        "height": 83
+      },
+      "imageContent": {
+        "x": 0,
+        "y": 0.21,
+        "width": 248,
+        "height": 82.59,
+        "visibleX": 0,
+        "visibleY": 0.21,
+        "visibleWidth": 248,
+        "visibleHeight": 82.59
+      },
+      "natural": {
+        "width": 2048,
+        "height": 682
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "source": "https://c0d312.github.io/evaready-electrical/images/header/evaready-header-owner-v7.webp",
+      "menu": {
+        "x": 254.09,
+        "width": 56,
+        "height": 56,
+        "right": 310.09
+      },
+      "marquee": {
+        "x": 0,
+        "y": 84,
+        "width": 320,
+        "height": 34,
+        "overlapsArt": false
+      },
+      "nav": {
+        "display": "none",
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "spacerHeight": 118,
+      "bodyScrollWidth": 320,
+      "documentScrollWidth": 320,
+      "horizontalOverflow": false,
+      "imageVerticalCrop": false,
+      "imageHorizontalCrop": false,
+      "emptyLeft": 0,
+      "emptyRight": 72
+    },
+    {
+      "viewport": "360x800",
+      "viewportWidth": 360,
+      "header": {
+        "x": 0,
+        "width": 360,
+        "height": 120.39
+      },
+      "art": {
+        "x": 0,
+        "width": 360,
+        "height": 86.39
+      },
+      "brand": {
+        "x": 0,
+        "width": 288,
+        "height": 85.39
+      },
+      "imageBox": {
+        "x": 0,
+        "y": 0,
+        "width": 288,
+        "height": 85.39
+      },
+      "imageContent": {
+        "x": 15.79,
+        "y": 0,
+        "width": 256.42,
+        "height": 85.39,
+        "visibleX": 15.79,
+        "visibleY": 0,
+        "visibleWidth": 256.42,
+        "visibleHeight": 85.39
+      },
+      "natural": {
+        "width": 2048,
+        "height": 682
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "source": "https://c0d312.github.io/evaready-electrical/images/header/evaready-header-owner-v7.webp",
+      "menu": {
+        "x": 294.09,
+        "width": 56,
+        "height": 56,
+        "right": 350.09
+      },
+      "marquee": {
+        "x": 0,
+        "y": 86.39,
+        "width": 360,
+        "height": 34,
+        "overlapsArt": false
+      },
+      "nav": {
+        "display": "none",
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "spacerHeight": 120.39,
+      "bodyScrollWidth": 360,
+      "documentScrollWidth": 360,
+      "horizontalOverflow": false,
+      "imageVerticalCrop": false,
+      "imageHorizontalCrop": false,
+      "emptyLeft": 15.79,
+      "emptyRight": 87.79
+    },
+    {
+      "viewport": "375x812",
+      "viewportWidth": 375,
+      "header": {
+        "x": 0,
+        "width": 375,
+        "height": 124
+      },
+      "art": {
+        "x": 0,
+        "width": 375,
+        "height": 90
+      },
+      "brand": {
+        "x": 0,
+        "width": 303,
+        "height": 89
+      },
+      "imageBox": {
+        "x": 0,
+        "y": 0,
+        "width": 303,
+        "height": 89
+      },
+      "imageContent": {
+        "x": 17.87,
+        "y": 0,
+        "width": 267.26,
+        "height": 89,
+        "visibleX": 17.87,
+        "visibleY": 0,
+        "visibleWidth": 267.26,
+        "visibleHeight": 89
+      },
+      "natural": {
+        "width": 2048,
+        "height": 682
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "source": "https://c0d312.github.io/evaready-electrical/images/header/evaready-header-owner-v7.webp",
+      "menu": {
+        "x": 309.09,
+        "width": 56,
+        "height": 56,
+        "right": 365.09
+      },
+      "marquee": {
+        "x": 0,
+        "y": 90,
+        "width": 375,
+        "height": 34,
+        "overlapsArt": false
+      },
+      "nav": {
+        "display": "none",
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "spacerHeight": 124,
+      "bodyScrollWidth": 375,
+      "documentScrollWidth": 375,
+      "horizontalOverflow": false,
+      "imageVerticalCrop": false,
+      "imageHorizontalCrop": false,
+      "emptyLeft": 17.87,
+      "emptyRight": 89.87
+    },
+    {
+      "viewport": "390x844",
+      "viewportWidth": 390,
+      "header": {
+        "x": 0,
+        "width": 390,
+        "height": 127.59
+      },
+      "art": {
+        "x": 0,
+        "width": 390,
+        "height": 93.59
+      },
+      "brand": {
+        "x": 0,
+        "width": 318,
+        "height": 92.59
+      },
+      "imageBox": {
+        "x": 0,
+        "y": 0,
+        "width": 318,
+        "height": 92.59
+      },
+      "imageContent": {
+        "x": 19.97,
+        "y": 0,
+        "width": 278.05,
+        "height": 92.59,
+        "visibleX": 19.97,
+        "visibleY": 0,
+        "visibleWidth": 278.05,
+        "visibleHeight": 92.59
+      },
+      "natural": {
+        "width": 2048,
+        "height": 682
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "source": "https://c0d312.github.io/evaready-electrical/images/header/evaready-header-owner-v7.webp",
+      "menu": {
+        "x": 324.09,
+        "width": 56,
+        "height": 56,
+        "right": 380.09
+      },
+      "marquee": {
+        "x": 0,
+        "y": 93.59,
+        "width": 390,
+        "height": 34,
+        "overlapsArt": false
+      },
+      "nav": {
+        "display": "none",
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "spacerHeight": 127.59,
+      "bodyScrollWidth": 390,
+      "documentScrollWidth": 390,
+      "horizontalOverflow": false,
+      "imageVerticalCrop": false,
+      "imageHorizontalCrop": false,
+      "emptyLeft": 19.97,
+      "emptyRight": 91.97
+    },
+    {
+      "viewport": "412x915",
+      "viewportWidth": 412,
+      "header": {
+        "x": 0,
+        "width": 412,
+        "height": 132.88
+      },
+      "art": {
+        "x": 0,
+        "width": 412,
+        "height": 98.88
+      },
+      "brand": {
+        "x": 0,
+        "width": 340,
+        "height": 97.88
+      },
+      "imageBox": {
+        "x": 0,
+        "y": 0,
+        "width": 340,
+        "height": 97.88
+      },
+      "imageContent": {
+        "x": 23.04,
+        "y": 0,
+        "width": 293.91,
+        "height": 97.88,
+        "visibleX": 23.04,
+        "visibleY": 0,
+        "visibleWidth": 293.91,
+        "visibleHeight": 97.88
+      },
+      "natural": {
+        "width": 2048,
+        "height": 682
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "source": "https://c0d312.github.io/evaready-electrical/images/header/evaready-header-owner-v7.webp",
+      "menu": {
+        "x": 346.09,
+        "width": 56,
+        "height": 56,
+        "right": 402.09
+      },
+      "marquee": {
+        "x": 0,
+        "y": 98.88,
+        "width": 412,
+        "height": 34,
+        "overlapsArt": false
+      },
+      "nav": {
+        "display": "none",
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "spacerHeight": 132.88,
+      "bodyScrollWidth": 412,
+      "documentScrollWidth": 412,
+      "horizontalOverflow": false,
+      "imageVerticalCrop": false,
+      "imageHorizontalCrop": false,
+      "emptyLeft": 23.04,
+      "emptyRight": 95.04
+    },
+    {
+      "viewport": "430x932",
+      "viewportWidth": 430,
+      "header": {
+        "x": 0,
+        "width": 430,
+        "height": 137.19
+      },
+      "art": {
+        "x": 0,
+        "width": 430,
+        "height": 103.19
+      },
+      "brand": {
+        "x": 0,
+        "width": 358,
+        "height": 102.19
+      },
+      "imageBox": {
+        "x": 0,
+        "y": 0,
+        "width": 358,
+        "height": 102.19
+      },
+      "imageContent": {
+        "x": 25.57,
+        "y": 0,
+        "width": 306.86,
+        "height": 102.19,
+        "visibleX": 25.57,
+        "visibleY": 0,
+        "visibleWidth": 306.86,
+        "visibleHeight": 102.19
+      },
+      "natural": {
+        "width": 2048,
+        "height": 682
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "source": "https://c0d312.github.io/evaready-electrical/images/header/evaready-header-owner-v7.webp",
+      "menu": {
+        "x": 364.09,
+        "width": 56,
+        "height": 56,
+        "right": 420.09
+      },
+      "marquee": {
+        "x": 0,
+        "y": 103.19,
+        "width": 430,
+        "height": 34,
+        "overlapsArt": false
+      },
+      "nav": {
+        "display": "none",
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "spacerHeight": 137.19,
+      "bodyScrollWidth": 430,
+      "documentScrollWidth": 430,
+      "horizontalOverflow": false,
+      "imageVerticalCrop": false,
+      "imageHorizontalCrop": false,
+      "emptyLeft": 25.57,
+      "emptyRight": 97.57
+    },
+    {
+      "viewport": "768x1024",
+      "viewportWidth": 768,
+      "header": {
+        "x": 0,
+        "width": 768,
+        "height": 137.67
+      },
+      "art": {
+        "x": 0,
+        "width": 768,
+        "height": 103.67
+      },
+      "brand": {
+        "x": 0,
+        "width": 696,
+        "height": 102.67
+      },
+      "imageBox": {
+        "x": 0,
+        "y": 0,
+        "width": 696,
+        "height": 102.67
+      },
+      "imageContent": {
+        "x": 193.84,
+        "y": 0,
+        "width": 308.32,
+        "height": 102.67,
+        "visibleX": 193.84,
+        "visibleY": 0,
+        "visibleWidth": 308.32,
+        "visibleHeight": 102.67
+      },
+      "natural": {
+        "width": 2048,
+        "height": 682
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "source": "https://c0d312.github.io/evaready-electrical/images/header/evaready-header-owner-v7.webp",
+      "menu": {
+        "x": 702.09,
+        "width": 56,
+        "height": 56,
+        "right": 758.09
+      },
+      "marquee": {
+        "x": 0,
+        "y": 103.67,
+        "width": 768,
+        "height": 34,
+        "overlapsArt": false
+      },
+      "nav": {
+        "display": "none",
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "spacerHeight": 137.67,
+      "bodyScrollWidth": 768,
+      "documentScrollWidth": 768,
+      "horizontalOverflow": false,
+      "imageVerticalCrop": false,
+      "imageHorizontalCrop": false,
+      "emptyLeft": 193.84,
+      "emptyRight": 265.84
+    },
+    {
+      "viewport": "820x1180",
+      "viewportWidth": 820,
+      "header": {
+        "x": 0,
+        "width": 820,
+        "height": 144.69
+      },
+      "art": {
+        "x": 0,
+        "width": 820,
+        "height": 110.69
+      },
+      "brand": {
+        "x": 0,
+        "width": 748,
+        "height": 109.69
+      },
+      "imageBox": {
+        "x": 0,
+        "y": 0,
+        "width": 748,
+        "height": 109.69
+      },
+      "imageContent": {
+        "x": 209.31,
+        "y": 0,
+        "width": 329.38,
+        "height": 109.69,
+        "visibleX": 209.31,
+        "visibleY": 0,
+        "visibleWidth": 329.38,
+        "visibleHeight": 109.69
+      },
+      "natural": {
+        "width": 2048,
+        "height": 682
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "source": "https://c0d312.github.io/evaready-electrical/images/header/evaready-header-owner-v7.webp",
+      "menu": {
+        "x": 754.09,
+        "width": 56,
+        "height": 56,
+        "right": 810.09
+      },
+      "marquee": {
+        "x": 0,
+        "y": 110.69,
+        "width": 820,
+        "height": 34,
+        "overlapsArt": false
+      },
+      "nav": {
+        "display": "none",
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "spacerHeight": 144.69,
+      "bodyScrollWidth": 820,
+      "documentScrollWidth": 820,
+      "horizontalOverflow": false,
+      "imageVerticalCrop": false,
+      "imageHorizontalCrop": false,
+      "emptyLeft": 209.31,
+      "emptyRight": 281.31
+    },
+    {
+      "viewport": "1024x768",
+      "viewportWidth": 1024,
+      "header": {
+        "x": 0,
+        "width": 1024,
+        "height": 134
+      },
+      "art": {
+        "x": 0,
+        "width": 1024,
+        "height": 74
+      },
+      "brand": {
+        "x": 0,
+        "width": 1024,
+        "height": 73
+      },
+      "imageBox": {
+        "x": 343.23,
+        "y": -19.7,
+        "width": 337.55,
+        "height": 112.41
+      },
+      "imageContent": {
+        "x": 343.23,
+        "y": -19.7,
+        "width": 337.55,
+        "height": 112.41,
+        "visibleX": 343.23,
+        "visibleY": 0,
+        "visibleWidth": 337.55,
+        "visibleHeight": 74
+      },
+      "natural": {
+        "width": 2048,
+        "height": 682
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "source": "https://c0d312.github.io/evaready-electrical/images/header/evaready-header-owner-v7.webp",
+      "menu": null,
+      "marquee": {
+        "x": 0,
+        "y": 74,
+        "width": 1024,
+        "height": 26,
+        "overlapsArt": false
+      },
+      "nav": {
+        "display": "flex",
+        "x": 0,
+        "y": 100,
+        "width": 1024,
+        "height": 34
+      },
+      "spacerHeight": 134,
+      "bodyScrollWidth": 1024,
+      "documentScrollWidth": 1024,
+      "horizontalOverflow": false,
+      "imageVerticalCrop": true,
+      "imageHorizontalCrop": false,
+      "emptyLeft": 343.23,
+      "emptyRight": 343.23
+    },
+    {
+      "viewport": "1366x768",
+      "viewportWidth": 1366,
+      "header": {
+        "x": 0,
+        "width": 1366,
+        "height": 149
+      },
+      "art": {
+        "x": 0,
+        "width": 1366,
+        "height": 82
+      },
+      "brand": {
+        "x": 0,
+        "width": 1366,
+        "height": 81
+      },
+      "imageBox": {
+        "x": 495.72,
+        "y": -21.87,
+        "width": 374.56,
+        "height": 124.73
+      },
+      "imageContent": {
+        "x": 495.72,
+        "y": -21.87,
+        "width": 374.56,
+        "height": 124.73,
+        "visibleX": 495.72,
+        "visibleY": 0,
+        "visibleWidth": 374.56,
+        "visibleHeight": 82
+      },
+      "natural": {
+        "width": 2048,
+        "height": 682
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "source": "https://c0d312.github.io/evaready-electrical/images/header/evaready-header-owner-v7.webp",
+      "menu": null,
+      "marquee": {
+        "x": 0,
+        "y": 82,
+        "width": 1366,
+        "height": 27,
+        "overlapsArt": false
+      },
+      "nav": {
+        "display": "flex",
+        "x": 0,
+        "y": 109,
+        "width": 1366,
+        "height": 40
+      },
+      "spacerHeight": 149,
+      "bodyScrollWidth": 1366,
+      "documentScrollWidth": 1366,
+      "horizontalOverflow": false,
+      "imageVerticalCrop": true,
+      "imageHorizontalCrop": false,
+      "emptyLeft": 495.72,
+      "emptyRight": 495.72
+    },
+    {
+      "viewport": "1440x900",
+      "viewportWidth": 1440,
+      "header": {
+        "x": 0,
+        "width": 1440,
+        "height": 149
+      },
+      "art": {
+        "x": 0,
+        "width": 1440,
+        "height": 82
+      },
+      "brand": {
+        "x": 0,
+        "width": 1440,
+        "height": 81
+      },
+      "imageBox": {
+        "x": 532.72,
+        "y": -21.87,
+        "width": 374.56,
+        "height": 124.73
+      },
+      "imageContent": {
+        "x": 532.72,
+        "y": -21.87,
+        "width": 374.56,
+        "height": 124.73,
+        "visibleX": 532.72,
+        "visibleY": 0,
+        "visibleWidth": 374.56,
+        "visibleHeight": 82
+      },
+      "natural": {
+        "width": 2048,
+        "height": 682
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "source": "https://c0d312.github.io/evaready-electrical/images/header/evaready-header-owner-v7.webp",
+      "menu": null,
+      "marquee": {
+        "x": 0,
+        "y": 82,
+        "width": 1440,
+        "height": 27,
+        "overlapsArt": false
+      },
+      "nav": {
+        "display": "flex",
+        "x": 0,
+        "y": 109,
+        "width": 1440,
+        "height": 40
+      },
+      "spacerHeight": 149,
+      "bodyScrollWidth": 1440,
+      "documentScrollWidth": 1440,
+      "horizontalOverflow": false,
+      "imageVerticalCrop": true,
+      "imageHorizontalCrop": false,
+      "emptyLeft": 532.72,
+      "emptyRight": 532.72
+    },
+    {
+      "viewport": "1920x1080",
+      "viewportWidth": 1920,
+      "header": {
+        "x": 0,
+        "width": 1920,
+        "height": 164.91
+      },
+      "art": {
+        "x": 0,
+        "width": 1920,
+        "height": 97.91
+      },
+      "brand": {
+        "x": 0,
+        "width": 1920,
+        "height": 96.91
+      },
+      "imageBox": {
+        "x": 735.93,
+        "y": -26.16,
+        "width": 448.14,
+        "height": 149.23
+      },
+      "imageContent": {
+        "x": 735.93,
+        "y": -26.16,
+        "width": 448.14,
+        "height": 149.23,
+        "visibleX": 735.93,
+        "visibleY": 0,
+        "visibleWidth": 448.14,
+        "visibleHeight": 97.91
+      },
+      "natural": {
+        "width": 2048,
+        "height": 682
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "source": "https://c0d312.github.io/evaready-electrical/images/header/evaready-header-owner-v7.webp",
+      "menu": null,
+      "marquee": {
+        "x": 0,
+        "y": 97.91,
+        "width": 1920,
+        "height": 27,
+        "overlapsArt": false
+      },
+      "nav": {
+        "display": "flex",
+        "x": 0,
+        "y": 124.91,
+        "width": 1920,
+        "height": 40
+      },
+      "spacerHeight": 164.91,
+      "bodyScrollWidth": 1920,
+      "documentScrollWidth": 1920,
+      "horizontalOverflow": false,
+      "imageVerticalCrop": true,
+      "imageHorizontalCrop": false,
+      "emptyLeft": 735.93,
+      "emptyRight": 735.93
+    },
+    {
+      "viewport": "2560x1440",
+      "viewportWidth": 2560,
+      "header": {
+        "x": 0,
+        "width": 2560,
+        "height": 177
+      },
+      "art": {
+        "x": 0,
+        "width": 2560,
+        "height": 110
+      },
+      "brand": {
+        "x": 0,
+        "width": 2560,
+        "height": 109
+      },
+      "imageBox": {
+        "x": 1027.97,
+        "y": -29.43,
+        "width": 504.06,
+        "height": 167.86
+      },
+      "imageContent": {
+        "x": 1027.97,
+        "y": -29.43,
+        "width": 504.06,
+        "height": 167.86,
+        "visibleX": 1027.97,
+        "visibleY": 0,
+        "visibleWidth": 504.06,
+        "visibleHeight": 110
+      },
+      "natural": {
+        "width": 2048,
+        "height": 682
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "source": "https://c0d312.github.io/evaready-electrical/images/header/evaready-header-owner-v7.webp",
+      "menu": null,
+      "marquee": {
+        "x": 0,
+        "y": 110,
+        "width": 2560,
+        "height": 27,
+        "overlapsArt": false
+      },
+      "nav": {
+        "display": "flex",
+        "x": 0,
+        "y": 137,
+        "width": 2560,
+        "height": 40
+      },
+      "spacerHeight": 177,
+      "bodyScrollWidth": 2560,
+      "documentScrollWidth": 2560,
+      "horizontalOverflow": false,
+      "imageVerticalCrop": true,
+      "imageHorizontalCrop": false,
+      "emptyLeft": 1027.97,
+      "emptyRight": 1027.97
+    }
+  ]
+}
