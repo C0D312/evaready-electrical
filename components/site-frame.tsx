@@ -74,12 +74,7 @@ const legalLinks = [
   { href: "/sitemap.xml", label: "Sitemap" },
 ];
 
-const headerImages = {
-  mobile: "/images/evaready-electric-header-mobile-v2.webp",
-  tablet: "/images/evaready-electric-header-tablet-v2.webp",
-  desktop: "/images/evaready-electric-header-desktop-v2.webp",
-  wide: "/images/evaready-electric-header-wide-v2.webp",
-} as const;
+const headerImage = "/images/header/evaready-header-original.jpg";
 
 type FooterLinkItem = {
   href: string;
@@ -199,12 +194,7 @@ function FooterTextLink({ href, label }: FooterLinkItem) {
 }
 
 export function SiteHeader() {
-  const headerArtwork = {
-    mobile: assetPath(headerImages.mobile),
-    tablet: assetPath(headerImages.tablet),
-    desktop: assetPath(headerImages.desktop),
-    wide: assetPath(headerImages.wide),
-  };
+  const headerArtwork = assetPath(headerImage);
 
   return (
     <>
@@ -215,14 +205,11 @@ export function SiteHeader() {
             className="ev-final-header-brand ev-final-header-brand--art"
           >
             <picture className="ev-final-header-picture">
-              <source media="(min-width: 1280px)" srcSet={headerArtwork.wide} />
-              <source media="(min-width: 1024px)" srcSet={headerArtwork.desktop} />
-              <source media="(min-width: 640px)" srcSet={headerArtwork.tablet} />
               <img
-                src={headerArtwork.mobile}
+                src={headerArtwork}
                 alt="Evaready Electrical 24/7"
-                width={860}
-                height={260}
+                width={1536}
+                height={512}
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"

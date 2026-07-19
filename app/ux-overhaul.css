@@ -9,56 +9,69 @@
   outline-offset: 3px;
 }
 
-/* Responsive sources keep the owner-supplied banner full-bleed at every breakpoint. */
-header.ev-final-header .ev-final-header-brand.ev-final-header-brand--art {
-  position: relative !important;
-  z-index: 1 !important;
-  display: block !important;
-  width: 100% !important;
-  max-width: none !important;
+/* The supplied artwork is the complete header; render it unmasked at its natural ratio. */
+:root {
+  --ev-final-header-art-height: calc(100vw * 427 / 1280);
 }
 
-header.ev-final-header .ev-final-header-brand--mobile {
-  display: none !important;
+html,
+body {
+  overflow-x: clip;
 }
 
 header.ev-final-header .ev-final-header-art {
-  background:
-    radial-gradient(circle at 8% 50%, rgba(8, 118, 255, 0.38), transparent 32%),
-    radial-gradient(circle at 92% 50%, rgba(233, 17, 30, 0.32), transparent 32%),
-    #02050d !important;
+  display: block !important;
+  width: 100vw !important;
+  min-width: 100vw !important;
+  max-width: none !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  line-height: 0;
+  background: none !important;
+}
+
+header.ev-final-header .ev-final-header-brand.ev-final-header-brand--art,
+header.ev-final-header .ev-final-header-picture {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+  line-height: 0;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+header.ev-final-header .ev-final-header-brand.ev-final-header-brand--art {
+  position: relative !important;
+  z-index: 1 !important;
 }
 
 header.ev-final-header .ev-final-header-image {
   position: static !important;
+  display: block !important;
   width: 100% !important;
-  height: 100% !important;
   max-width: none !important;
-  object-fit: cover !important;
-  object-position: center !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  aspect-ratio: auto 3 / 1;
+  object-fit: contain !important;
+  object-position: center center !important;
+  filter: none !important;
+  opacity: 1 !important;
   transform: none !important;
 }
 
-@media (max-width: 1023px) {
-  header.ev-final-header .ev-final-header-brand.ev-final-header-brand--art {
-    width: 100% !important;
-    max-width: none !important;
-  }
-
-  header.ev-final-header .ev-final-header-picture {
-    width: 100% !important;
-  }
-
-  header.ev-final-header .ev-final-header-image {
-    object-position: center !important;
-  }
-}
-
 @media (min-width: 1024px) {
-  header.ev-final-header .ev-final-header-brand--mobile {
-    display: none !important;
-  }
-
   header.site-header.ev-final-header .ev-final-desktop-nav {
     overflow: visible !important;
   }
