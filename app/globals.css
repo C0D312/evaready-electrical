@@ -12935,7 +12935,7 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
 
 @media (min-width: 1024px) {
   :root {
-    --ev-final-header-art-height: 135px;
+    --ev-final-header-art-height: clamp(180px, 14.5vw, 225px);
     --ev-final-nav-height: 34px;
     --ev-final-header-btn-height: 30px;
     --site-route-strip-height: 26px;
@@ -12943,15 +12943,9 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
   }
 }
 
-@media (min-width: 1440px) {
-  :root {
-    --ev-final-header-art-height: 145px;
-  }
-}
-
 @media (min-width: 2200px) {
   :root {
-    --ev-final-header-art-height: 155px;
+    --ev-final-header-art-height: 245px;
   }
 }
 

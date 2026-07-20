@@ -28,19 +28,13 @@
 
 @media (min-width: 1024px) {
   :root {
-    --ev-final-header-art-height: 135px;
-  }
-}
-
-@media (min-width: 1440px) {
-  :root {
-    --ev-final-header-art-height: 145px;
+    --ev-final-header-art-height: clamp(180px, 14.5vw, 225px);
   }
 }
 
 @media (min-width: 2200px) {
   :root {
-    --ev-final-header-art-height: 155px;
+    --ev-final-header-art-height: 245px;
   }
 }
 
