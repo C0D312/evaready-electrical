@@ -9,9 +9,39 @@
   outline-offset: 3px;
 }
 
-/* The supplied artwork is the complete header; render it unmasked at its natural ratio. */
+/* Keep the complete supplied artwork in a compact, full-width header strip. */
 :root {
-  --ev-final-header-art-height: calc(100vw * 427 / 1280);
+  --ev-final-header-art-height: 110px;
+}
+
+@media (min-width: 375px) {
+  :root {
+    --ev-final-header-art-height: 115px;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --ev-final-header-art-height: 125px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --ev-final-header-art-height: 135px;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --ev-final-header-art-height: 145px;
+  }
+}
+
+@media (min-width: 2200px) {
+  :root {
+    --ev-final-header-art-height: 155px;
+  }
 }
 
 html,
@@ -24,10 +54,11 @@ header.ev-final-header .ev-final-header-art {
   width: 100vw !important;
   min-width: 100vw !important;
   max-width: none !important;
-  height: auto !important;
+  height: var(--ev-final-header-art-height) !important;
   margin: 0 !important;
   padding: 0 !important;
-  overflow: visible !important;
+  border: 0 !important;
+  overflow: hidden !important;
   line-height: 0;
   background: none !important;
 }
@@ -37,7 +68,7 @@ header.ev-final-header .ev-final-header-picture {
   display: block !important;
   width: 100% !important;
   max-width: none !important;
-  height: auto !important;
+  height: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
   border: 0 !important;
@@ -58,13 +89,12 @@ header.ev-final-header .ev-final-header-image {
   display: block !important;
   width: 100% !important;
   max-width: none !important;
-  height: auto !important;
+  height: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
   border: 0 !important;
   border-radius: 0 !important;
-  aspect-ratio: auto 3 / 1;
-  object-fit: contain !important;
+  object-fit: fill !important;
   object-position: center center !important;
   filter: none !important;
   opacity: 1 !important;
