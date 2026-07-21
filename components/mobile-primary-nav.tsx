@@ -23,6 +23,21 @@ import {
 import { HomeNavigationLink } from "@/components/home-navigation-link";
 import { business } from "@/data/site";
 
+type ScrollLockSnapshot = {
+  scrollX: number;
+  scrollY: number;
+  htmlOverflow: string;
+  htmlOverscrollBehavior: string;
+  htmlScrollBehavior: string;
+  bodyOverflow: string;
+  bodyOverscrollBehavior: string;
+  bodyPosition: string;
+  bodyTop: string;
+  bodyLeft: string;
+  bodyRight: string;
+  bodyWidth: string;
+};
+
 const mobileNavItems = [
   {
     href: "/",
@@ -87,10 +102,35 @@ export function MobilePrimaryNav() {
       return;
     }
 
-    const originalOverflow = document.body.style.overflow;
+    const html = document.documentElement;
+    const body = document.body;
     const trigger = triggerRef.current;
+    const snapshot: ScrollLockSnapshot = {
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+      htmlOverflow: html.style.overflow,
+      htmlOverscrollBehavior: html.style.overscrollBehavior,
+      htmlScrollBehavior: html.style.scrollBehavior,
+      bodyOverflow: body.style.overflow,
+      bodyOverscrollBehavior: body.style.overscrollBehavior,
+      bodyPosition: body.style.position,
+      bodyTop: body.style.top,
+      bodyLeft: body.style.left,
+      bodyRight: body.style.right,
+      bodyWidth: body.style.width,
+    };
 
-    document.body.style.overflow = "hidden";
+    html.style.overflow = "hidden";
+    html.style.overscrollBehavior = "none";
+    html.style.scrollBehavior = "auto";
+    body.style.overflow = "hidden";
+    body.style.overscrollBehavior = "none";
+    body.style.position = "fixed";
+    body.style.top = `-${snapshot.scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
+    body.classList.add("mobile-menu-open");
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
@@ -131,17 +171,36 @@ export function MobilePrimaryNav() {
     }
 
     window.addEventListener("keydown", handleKeyDown);
-    window.setTimeout(() => panelRef.current?.querySelector<HTMLElement>("a, button")?.focus(), 0);
+    const focusTimer = window.setTimeout(() => {
+      panelRef.current?.scrollTo({ top: 0 });
+      panelRef.current?.querySelector<HTMLElement>("a, button")?.focus();
+    }, 0);
 
     return () => {
-      document.body.style.overflow = originalOverflow;
+      window.clearTimeout(focusTimer);
       window.removeEventListener("keydown", handleKeyDown);
+      html.style.overflow = snapshot.htmlOverflow;
+      html.style.overscrollBehavior = snapshot.htmlOverscrollBehavior;
+      html.style.scrollBehavior = "auto";
+      body.style.overflow = snapshot.bodyOverflow;
+      body.style.overscrollBehavior = snapshot.bodyOverscrollBehavior;
+      body.style.position = snapshot.bodyPosition;
+      body.style.top = snapshot.bodyTop;
+      body.style.left = snapshot.bodyLeft;
+      body.style.right = snapshot.bodyRight;
+      body.style.width = snapshot.bodyWidth;
+      body.classList.remove("mobile-menu-open");
+      window.scrollTo(snapshot.scrollX, snapshot.scrollY);
       trigger?.focus({ preventScroll: true });
+      window.requestAnimationFrame(() => {
+        window.scrollTo(snapshot.scrollX, snapshot.scrollY);
+        html.style.scrollBehavior = snapshot.htmlScrollBehavior;
+      });
     };
   }, [open]);
 
   const menuOverlay = open ? (
-    <div className="mobile-site-menu-overlay fixed inset-x-0 bottom-0 z-[90]">
+    <div className="mobile-site-menu-overlay fixed inset-0 z-[90]">
       <button
         type="button"
         aria-label="Close navigation menu"
@@ -153,7 +212,7 @@ export function MobilePrimaryNav() {
         id="mobile-site-menu"
         aria-label="Mobile navigation"
         ref={panelRef}
-        className="absolute inset-x-3 top-3 max-h-[calc(100dvh_-_84px_-_env(safe-area-inset-top))] overflow-y-auto rounded-xl border border-cyan-300/25 bg-[#06142f] pb-[env(safe-area-inset-bottom)] text-white shadow-2xl shadow-blue-950/50 sm:max-h-[calc(100dvh_-_108px_-_env(safe-area-inset-top))]"
+        className="mobile-site-menu-panel absolute inset-x-3 top-3 max-h-[calc(100dvh_-_24px)] overflow-y-auto rounded-xl border border-cyan-300/25 bg-[#06142f] pb-[env(safe-area-inset-bottom)] text-white shadow-2xl shadow-blue-950/50"
       >
         <div className="flex items-center justify-between border-b border-cyan-300/20 px-4 py-3">
           <div>

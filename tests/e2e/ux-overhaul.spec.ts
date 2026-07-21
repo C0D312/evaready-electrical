@@ -51,8 +51,24 @@ test("homepage uses the approved H1 and a seamless reduced-motion-safe service s
 
   await expect(page.locator("h1")).toHaveText("Electrician Sydney & Surrounding Regions");
   await expect(page.locator(".emergency-issue-marquee__group")).toHaveCount(2);
+  await expect(page.locator(".emergency-issue-chip")).toHaveCount(28);
 
   const track = page.locator(".emergency-issue-marquee__track");
+  const marqueeLayout = await track.evaluate((element) => {
+    const groups = Array.from(
+      element.querySelectorAll<HTMLElement>(".emergency-issue-marquee__group"),
+    );
+
+    return {
+      groupWidths: groups.map((group) => group.getBoundingClientRect().width),
+      viewportWidth: document.documentElement.clientWidth,
+    };
+  });
+
+  expect(marqueeLayout.groupWidths).toHaveLength(2);
+  expect(Math.abs(marqueeLayout.groupWidths[0] - marqueeLayout.groupWidths[1])).toBeLessThan(1);
+  expect(marqueeLayout.groupWidths[0]).toBeGreaterThan(marqueeLayout.viewportWidth);
+
   const initialTransform = await track.evaluate((element) => getComputedStyle(element).transform);
   await page.waitForTimeout(350);
   const movingTransform = await track.evaluate((element) => getComputedStyle(element).transform);
@@ -154,6 +170,8 @@ test("mobile menu traps the page, closes with Escape and restores focus", async 
   await page.waitForLoadState("networkidle").catch(() => undefined);
   await page.waitForTimeout(250);
   const trigger = page.getByRole("button", { name: "Open navigation menu" });
+  await page.evaluate(() => window.scrollTo(0, 500));
+  const initialScrollY = await page.evaluate(() => window.scrollY);
 
   await trigger.click();
   const mobileNav = page.getByRole("navigation", { name: "Mobile navigation" });
@@ -162,12 +180,30 @@ test("mobile menu traps the page, closes with Escape and restores focus", async 
     await expect(mobileNav.getByRole("link", { name: label, exact: true })).toBeVisible();
   }
   await expect(page.locator("body")).toHaveCSS("overflow", "hidden");
+  await expect(page.locator("body")).toHaveCSS("position", "fixed");
   await expect(page.getByRole("button", { name: "Close menu" })).toBeFocused();
+
+  const menuScroll = await mobileNav.evaluate((element) => {
+    element.scrollTop = element.scrollHeight;
+    return {
+      clientHeight: element.clientHeight,
+      scrollHeight: element.scrollHeight,
+      scrollTop: element.scrollTop,
+      bodyTop: document.body.style.top,
+      pageScrollY: window.scrollY,
+    };
+  });
+
+  expect(menuScroll.scrollHeight).toBeGreaterThan(menuScroll.clientHeight);
+  expect(menuScroll.scrollTop).toBeGreaterThan(0);
+  expect(menuScroll.bodyTop).toBe(`-${initialScrollY}px`);
+  expect(menuScroll.pageScrollY).toBe(0);
 
   await page.keyboard.press("Escape");
   await expect(page.getByRole("navigation", { name: "Mobile navigation" })).toHaveCount(0);
   await expect(trigger).toBeFocused();
   await expect(trigger).toHaveAttribute("aria-expanded", "false");
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(initialScrollY);
 });
 
 test("quote dialog is accessible, has a fallback and restores trigger focus", async ({ page }) => {
@@ -183,6 +219,10 @@ test("quote dialog is accessible, has a fallback and restores trigger focus", as
   await expect(dialog).toHaveAttribute("aria-modal", "true");
   await expect(page.getByRole("button", { name: "Close quote form" }).last()).toBeFocused();
   await expect(dialog.getByRole("link", { name: "Open the secure form" })).toBeVisible();
+  const frameHeight = await dialog
+    .locator(".quote-modal-iframe")
+    .evaluate((element) => element.getBoundingClientRect().height);
+  expect(frameHeight).toBeGreaterThan(400);
   await expect(page.locator("body")).toHaveClass(/quote-modal-open/);
   await expect(page.locator(".mobile-sticky-cta")).toBeHidden();
 

@@ -75,6 +75,7 @@ const legalLinks = [
 ];
 
 const headerImage = "/images/header/evaready-header-original.jpg";
+const desktopHeaderImage = "/images/header/evaready-header-tablet-slim-v6.webp";
 
 type FooterLinkItem = {
   href: string;
@@ -195,6 +196,7 @@ function FooterTextLink({ href, label }: FooterLinkItem) {
 
 export function SiteHeader() {
   const headerArtwork = assetPath(headerImage);
+  const desktopHeaderArtwork = assetPath(desktopHeaderImage);
 
   return (
     <>
@@ -205,6 +207,7 @@ export function SiteHeader() {
             className="ev-final-header-brand ev-final-header-brand--art"
           >
             <picture className="ev-final-header-picture">
+              <source media="(min-width: 1024px)" srcSet={desktopHeaderArtwork} />
               <img
                 src={headerArtwork}
                 alt="Evaready Electrical 24/7"

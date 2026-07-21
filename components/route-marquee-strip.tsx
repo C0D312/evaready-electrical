@@ -10,6 +10,8 @@ const routeHighlights = [
   "Photos and job notes",
 ] as const;
 
+const repeatedHighlights = [routeHighlights, routeHighlights] as const;
+
 export function RouteMarqueeStrip() {
   return (
     <section
@@ -27,12 +29,18 @@ export function RouteMarqueeStrip() {
               className="emergency-issue-marquee__group"
               aria-hidden={groupIndex === 1 ? "true" : undefined}
             >
-              {routeHighlights.map((label) => (
-                <li key={`${groupIndex}-${label}`} className="emergency-issue-chip">
-                  <Zap aria-hidden="true" />
-                  <span>{label}</span>
-                </li>
-              ))}
+              {repeatedHighlights.flatMap((highlights, repeatIndex) =>
+                highlights.map((label) => (
+                  <li
+                    key={`${groupIndex}-${repeatIndex}-${label}`}
+                    className="emergency-issue-chip"
+                    aria-hidden={groupIndex === 1 || repeatIndex > 0 ? "true" : undefined}
+                  >
+                    <Zap aria-hidden="true" />
+                    <span>{label}</span>
+                  </li>
+                )),
+              )}
             </ul>
           ))}
         </div>
