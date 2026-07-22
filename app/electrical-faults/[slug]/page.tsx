@@ -279,8 +279,8 @@ export default async function ElectricalFaultDetailPage({
       <CompactOfferStrip
         id="fault-current-offers"
         offers={faultOffers}
-        heading="Current emergency service offer"
-        intro="Call first for active, unsafe or urgent electrical faults. The emergency offer can be checked against the job scope and terms after safety is triaged."
+        heading="Current electrical offers"
+        intro="Call first for active, unsafe or urgent electrical faults. Once the immediate safety risk is clear, the current offers can be checked against the job scope and terms."
         className="border-y border-cyan-300/15"
       />
 

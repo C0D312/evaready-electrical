@@ -564,8 +564,8 @@ export default function EmergencyElectricianSydneyPage() {
         id="emergency-current-offers"
         offers={getOffersForPlacement("emergency")}
         eyebrow="Emergency offer support"
-        heading="Current Emergency Electrical Offers"
-        intro="Safety comes first. Call immediately if the fault feels unsafe, then eligible emergency and inspection offers can be reviewed against the job scope and terms."
+        heading="Current Electrical Offers"
+        intro="Safety comes first. Call immediately if the fault feels unsafe, then the current offers can be reviewed against the job scope and terms."
       />
 
       <LeadOfferPanel

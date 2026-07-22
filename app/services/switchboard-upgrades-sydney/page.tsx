@@ -190,7 +190,7 @@ const level2SwitchboardNextSteps = [
 
 export default function SwitchboardUpgradesSydneyPage() {
   const pagePath = "/services/switchboard-upgrades-sydney";
-  const currentServiceOffers = getServicePageOffers("switchboard-upgrades-sydney");
+  const currentServiceOffers = getServicePageOffers();
   const serviceTypes = [
     "Switchboard Upgrades Sydney & Surrounding Regions",
     "Safety Switch Installation",

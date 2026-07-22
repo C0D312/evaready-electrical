@@ -413,7 +413,7 @@ export default async function ServiceLandingPage({
           "Clear next actions before work starts",
         ]
       : undefined;
-  const currentServiceOffers = getServicePageOffers(service.slug);
+  const currentServiceOffers = getServicePageOffers();
   const quoteCtaLabel = service.quoteCtaLabel ?? business.quoteCta;
   const quoteCta = (
     <a
