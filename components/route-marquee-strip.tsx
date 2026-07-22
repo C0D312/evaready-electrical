@@ -10,7 +10,9 @@ const routeHighlights = [
   "Photos and job notes",
 ] as const;
 
-const repeatedHighlights = [routeHighlights, routeHighlights] as const;
+// Two sequences per group keep each half wider than an ultrawide viewport.
+// The second identical group is the seamless animation copy.
+const marqueeHighlights = [...routeHighlights, ...routeHighlights] as const;
 
 export function RouteMarqueeStrip() {
   return (
@@ -29,18 +31,16 @@ export function RouteMarqueeStrip() {
               className="emergency-issue-marquee__group"
               aria-hidden={groupIndex === 1 ? "true" : undefined}
             >
-              {repeatedHighlights.flatMap((highlights, repeatIndex) =>
-                highlights.map((label) => (
-                  <li
-                    key={`${groupIndex}-${repeatIndex}-${label}`}
-                    className="emergency-issue-chip"
-                    aria-hidden={groupIndex === 1 || repeatIndex > 0 ? "true" : undefined}
-                  >
-                    <Zap aria-hidden="true" />
-                    <span>{label}</span>
-                  </li>
-                )),
-              )}
+              {marqueeHighlights.map((label, highlightIndex) => (
+                <li
+                  key={`${groupIndex}-${highlightIndex}-${label}`}
+                  className="emergency-issue-chip"
+                  aria-hidden={groupIndex === 1 || highlightIndex >= routeHighlights.length ? "true" : undefined}
+                >
+                  <Zap aria-hidden="true" />
+                  <span>{label}</span>
+                </li>
+              ))}
             </ul>
           ))}
         </div>

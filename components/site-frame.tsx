@@ -248,6 +248,8 @@ export function SiteHeader() {
   return (
     <>
       <header className="site-header ev-final-header ev-electric-header fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)]">
+        <RouteMarqueeStrip />
+
         <div className="ev-final-header-art ev-electric-header-banner-row">
           <HomeNavigationLink
             data-header-logo="true"
@@ -275,8 +277,6 @@ export function SiteHeader() {
             </div>
           </div>
         </div>
-
-        <RouteMarqueeStrip />
 
         <div className="ev-final-desktop-nav">
           <DesktopPrimaryNav items={navItems} />

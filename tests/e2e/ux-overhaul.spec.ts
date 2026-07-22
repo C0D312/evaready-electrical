@@ -50,6 +50,12 @@ test("homepage uses the approved H1 and a seamless reduced-motion-safe service s
   await page.goto("./", { waitUntil: "domcontentloaded" });
 
   await expect(page.locator("h1")).toHaveText("Electrician Sydney & Surrounding Regions");
+  const headerChildOrder = await page.locator("header.ev-final-header").evaluate((header) =>
+    Array.from(header.children).map((child) => child.className),
+  );
+  expect(headerChildOrder[0]).toContain("emergency-issue-marquee");
+  expect(headerChildOrder[1]).toContain("ev-final-header-art");
+  expect(headerChildOrder[2]).toContain("ev-final-desktop-nav");
   await expect(page.locator(".emergency-issue-marquee__group")).toHaveCount(2);
   await expect(page.locator(".emergency-issue-chip")).toHaveCount(28);
 

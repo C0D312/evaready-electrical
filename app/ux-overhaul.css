@@ -643,7 +643,9 @@ header.ev-final-header .ev-final-header-image {
   }
 }
 
-header.ev-final-header .emergency-issue-marquee {
+header.site-header.ev-final-header .emergency-issue-marquee {
+  --ev-marquee-red: rgba(117, 7, 19, 0.98);
+  --ev-marquee-blue: rgba(4, 22, 83, 0.98);
   min-height: var(--site-route-strip-height) !important;
   height: var(--site-route-strip-height) !important;
   overflow: hidden !important;
@@ -652,12 +654,12 @@ header.ev-final-header .emergency-issue-marquee {
   border-top-color: rgba(98, 216, 255, 0.34) !important;
   border-bottom-color: rgba(255, 50, 71, 0.72) !important;
   background:
-    linear-gradient(90deg, rgba(4, 22, 83, 0.98), rgba(20, 5, 26, 0.98) 52%, rgba(65, 4, 16, 0.98)),
+    linear-gradient(90deg, var(--ev-marquee-blue), rgba(20, 5, 26, 0.98) 52%, var(--ev-marquee-red)),
     #02050d !important;
 }
 
-header.ev-final-header .emergency-issue-marquee::before,
-header.ev-final-header .emergency-issue-marquee::after {
+header.site-header.ev-final-header .emergency-issue-marquee::before,
+header.site-header.ev-final-header .emergency-issue-marquee::after {
   content: "" !important;
   position: absolute !important;
   inset-block: 0 !important;
@@ -667,14 +669,14 @@ header.ev-final-header .emergency-issue-marquee::after {
   pointer-events: none !important;
 }
 
-header.ev-final-header .emergency-issue-marquee::before {
+header.site-header.ev-final-header .emergency-issue-marquee::before {
   inset-inline-start: 0 !important;
-  background: linear-gradient(90deg, rgba(4, 22, 83, 1), transparent) !important;
+  background: linear-gradient(90deg, var(--ev-marquee-blue), transparent) !important;
 }
 
-header.ev-final-header .emergency-issue-marquee::after {
+header.site-header.ev-final-header .emergency-issue-marquee::after {
   inset-inline-end: 0 !important;
-  background: linear-gradient(270deg, rgba(65, 4, 16, 1), transparent) !important;
+  background: linear-gradient(270deg, var(--ev-marquee-red), transparent) !important;
 }
 
 header.ev-final-header .emergency-issue-marquee__viewport {
@@ -710,9 +712,9 @@ header.ev-final-header .emergency-issue-marquee__group {
   height: 100% !important;
   align-items: center !important;
   justify-content: flex-start !important;
-  gap: clamp(0.45rem, 1.2vw, 1rem) !important;
+  gap: clamp(0.22rem, 0.45vw, 0.45rem) !important;
   margin: 0 !important;
-  padding: 0.18rem clamp(0.75rem, 2vw, 1.5rem) !important;
+  padding: 0.18rem 0.15rem !important;
   list-style: none !important;
 }
 
@@ -728,11 +730,11 @@ header.ev-final-header .emergency-issue-chip {
   border: 1px solid rgba(98, 216, 255, 0.24) !important;
   border-radius: 999px !important;
   padding: 0.24rem 0.65rem !important;
-  border-color: rgba(255, 90, 105, 0.52) !important;
-  background: linear-gradient(180deg, rgba(117, 7, 19, 0.94), rgba(57, 4, 16, 0.94)) !important;
+  border-color: rgba(141, 231, 255, 0.42) !important;
+  background: linear-gradient(180deg, rgba(9, 29, 66, 0.72), rgba(2, 5, 13, 0.62)) !important;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 0 16px rgba(233, 17, 30, 0.18) !important;
+    0 0 14px rgba(7, 156, 255, 0.12) !important;
   color: #eaf7ff !important;
   font-size: clamp(0.68rem, 0.76vw, 0.82rem) !important;
   font-weight: 750 !important;
@@ -764,8 +766,8 @@ header.ev-final-header .emergency-issue-chip svg {
   }
 
   header.ev-final-header .emergency-issue-marquee__group {
-    gap: 0.4rem !important;
-    padding-inline: 0.55rem !important;
+    gap: 0.24rem !important;
+    padding-inline: 0.15rem !important;
   }
 
   header.ev-final-header .emergency-issue-chip {
