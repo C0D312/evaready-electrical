@@ -248,17 +248,23 @@ export default function HomePage() {
             {featuredServices.map((service) => {
               const Icon = service.icon;
               return (
-                <article key={service.title} className="ev-storm-card flex min-h-full flex-col rounded-lg p-5">
+                <Link
+                  key={service.title}
+                  href={service.href}
+                  aria-label={`View ${service.title}`}
+                  data-home-service-card={service.title}
+                  className="ev-storm-card group flex min-h-full flex-col rounded-lg p-5 transition hover:border-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200"
+                >
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-cyan-300/25 bg-cyan-300/10 text-cyan-100">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <h3 className="mt-4 text-xl font-bold text-white">{service.title}</h3>
                   <p className="mt-3 flex-1 text-base leading-7 text-slate-300">{service.description}</p>
-                  <Link href={service.href} className="mt-5 inline-flex min-h-11 items-center gap-2 font-bold text-cyan-100 hover:text-white">
+                  <span className="mt-5 inline-flex min-h-11 items-center gap-2 font-bold text-cyan-100 group-hover:text-white">
                     <span>{service.title} details</span>
-                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                  </Link>
-                </article>
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" aria-hidden="true" />
+                  </span>
+                </Link>
               );
             })}
           </div>

@@ -93,6 +93,38 @@ test("homepage uses the approved H1 and a seamless reduced-motion-safe service s
   await expect(track).toHaveCSS("animation-name", "none");
 });
 
+test("homepage service tiles use the full card as one accessible link", async ({
+  page,
+}) => {
+  await page.goto("./", { waitUntil: "domcontentloaded" });
+
+  const cards = page.locator("[data-home-service-card]");
+  await expect(cards).toHaveCount(8);
+  expect(
+    await cards.evaluateAll((elements) =>
+      elements.every(
+        (element) =>
+          element.tagName === "A" && element.querySelectorAll("a").length === 0,
+      ),
+    ),
+  ).toBe(true);
+
+  const emergencyCard = page.locator(
+    '[data-home-service-card="Emergency Electrician"]',
+  );
+  await expect(emergencyCard).toHaveAttribute(
+    "href",
+    /\/emergency-electrician-sydney\/?$/,
+  );
+
+  const cardBox = await emergencyCard.boundingBox();
+  expect(cardBox).not.toBeNull();
+  await emergencyCard.click({ position: { x: 12, y: 12 } });
+  await expect.poll(() => new URL(page.url()).pathname).toMatch(
+    /\/emergency-electrician-sydney\/?$/,
+  );
+});
+
 test("desktop navigation exposes every restored destination and compact contact actions", async ({
   page,
 }, testInfo) => {
