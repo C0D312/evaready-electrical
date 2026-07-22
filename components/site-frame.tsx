@@ -11,9 +11,13 @@ import {
   ShieldCheck,
   Star,
   Zap,
+  type LucideIcon,
 } from "lucide-react";
 import { CurrentYear } from "@/components/current-year";
-import { DesktopPrimaryNav } from "@/components/desktop-primary-nav";
+import {
+  DesktopPrimaryNav,
+  type PrimaryNavItem,
+} from "@/components/desktop-primary-nav";
 import { HomeNavigationLink } from "@/components/home-navigation-link";
 import { MobileStickyCta } from "@/components/mobile-sticky-cta";
 import { MobilePrimaryNav } from "@/components/mobile-primary-nav";
@@ -21,11 +25,23 @@ import { QuoteFormModal } from "@/components/quote-form-modal";
 import { RouteMarqueeStrip } from "@/components/route-marquee-strip";
 import { assetPath, business } from "@/data/site";
 
-const navItems = [
+const navItems: PrimaryNavItem[] = [
   { href: "/", label: "Home" },
-  { href: "/emergency-electrician-sydney", label: "Emergency Electrician" },
-  { href: "/level-2-electrician-sydney", label: "Level 2 Electrician" },
-  { href: "/services", label: "Electrical Services" },
+  {
+    href: "/emergency-electrician-sydney",
+    label: "Emergency Electrician",
+    serviceMenuId: "emergency",
+  },
+  {
+    href: "/level-2-electrician-sydney",
+    label: "Level 2 Electrician",
+    serviceMenuId: "level-2",
+  },
+  {
+    href: "/services",
+    label: "Electrical Services",
+    serviceMenuId: "services",
+  },
   {
     href: "/services/hot-water-system-electrician-sydney",
     label: "Hot Water",
@@ -143,6 +159,11 @@ const footerLinkGroups: FooterLinkGroup[] = [
       { href: "/services/cctv-security-camera-installation-sydney", label: "CCTV & Security" },
       { href: "/services/data-cabling-electrician-sydney", label: "Data Cabling" },
       { href: "/services/commercial-electrician-sydney", label: "Commercial Electrician" },
+      { href: "/services/strata-electrician-sydney", label: "Strata Electrician" },
+      {
+        href: "/services/property-management-electrician-sydney",
+        label: "Property Management Electrician",
+      },
       {
         href: "/services/electrical-safety-inspection-sydney",
         label: "Electrical Safety Inspections",
@@ -171,17 +192,43 @@ const footerLinkGroups: FooterLinkGroup[] = [
   },
 ];
 
-const footerTrustItems = [
-  { icon: ShieldCheck, label: "NSW Electrical Licence", value: business.licence },
-  { icon: BadgeCheck, label: "ABN", value: business.abn },
+const footerTrustItems: {
+  href?: string;
+  icon: LucideIcon;
+  label: string;
+  value: string;
+}[] = [
+  {
+    icon: ShieldCheck,
+    label: "NSW Electrical Licence",
+    value: business.licence,
+    href: business.verificationUrls.electricalLicence,
+  },
+  {
+    icon: BadgeCheck,
+    label: "ABN",
+    value: business.abn,
+    href: business.verificationUrls.abn,
+  },
   {
     icon: Zap,
     label: "Open Cabler",
     value: `Registration ${business.openCablerRegistration}`,
+    href: business.verificationUrls.openCabler,
   },
-  { icon: BadgeCheck, label: "ARCtick", value: `Licence ${business.arctickLicence}` },
+  {
+    icon: BadgeCheck,
+    label: "ARCtick",
+    value: `Licence ${business.arctickLicence}`,
+    href: business.verificationUrls.arctick,
+  },
   { icon: ShieldCheck, label: "Level 2 ASP", value: business.level2Asp.display },
-  { icon: Star, label: "Google rating", value: business.googleReviewDisplayText },
+  {
+    icon: Star,
+    label: "Google rating",
+    value: business.googleReviewDisplayText,
+    href: business.googleBusinessProfileUrl,
+  },
   { icon: MapPin, label: "Service area", value: business.serviceArea },
 ];
 
@@ -343,7 +390,21 @@ export function SiteFooter() {
                       <Icon className="h-4 w-4" aria-hidden="true" />
                       <span>{item.label}</span>
                     </dt>
-                    <dd>{item.value}</dd>
+                    <dd>
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="underline decoration-cyan-300/45 underline-offset-4 hover:text-cyan-100"
+                        >
+                          {item.value}
+                          <span className="sr-only"> (opens verification source)</span>
+                        </a>
+                      ) : (
+                        item.value
+                      )}
+                    </dd>
                   </div>
                 );
               })}

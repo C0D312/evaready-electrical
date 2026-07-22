@@ -35,10 +35,14 @@ const reportPath = path.join(
 );
 const siteHost = "c0d312.github.io";
 const approvedExternalHosts = new Set([
+  "abr.business.gov.au",
+  "www.acma.gov.au",
   "book.servicem8.com",
   "g.page",
   "www.google.com",
   "www.googletagmanager.com",
+  "www.lookforthetick.com.au",
+  "www.service.nsw.gov.au",
   "schema.org",
 ]);
 

@@ -5,11 +5,17 @@ import { ExternalLink, LoaderCircle } from "lucide-react";
 
 type ServiceM8FrameProps = {
   className: string;
+  showFallback?: boolean;
   src: string;
   title: string;
 };
 
-export function ServiceM8Frame({ className, src, title }: ServiceM8FrameProps) {
+export function ServiceM8Frame({
+  className,
+  showFallback = true,
+  src,
+  title,
+}: ServiceM8FrameProps) {
   const [frameKey, setFrameKey] = useState(0);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState(false);
@@ -98,18 +104,20 @@ export function ServiceM8Frame({ className, src, title }: ServiceM8FrameProps) {
           }}
         />
       </div>
-      <div className="flex min-h-12 items-center justify-center border-t border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-700">
-        <span>{loadError ? "The embedded form could not load. " : "Form not displaying correctly? "}</span>
-        <a
-          href={src}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="ml-1 inline-flex min-h-10 items-center gap-1 font-bold text-blue-700 underline underline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
-        >
-          Open the secure form
-          <ExternalLink className="h-4 w-4" aria-hidden="true" />
-        </a>
-      </div>
+      {showFallback ? (
+        <div className="flex min-h-12 items-center justify-center border-t border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-700">
+          <span>{loadError ? "The embedded form could not load. " : "Form not displaying correctly? "}</span>
+          <a
+            href={src}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-1 inline-flex min-h-10 items-center gap-1 font-bold text-blue-700 underline underline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+          >
+            Open the secure form
+            <ExternalLink className="h-4 w-4" aria-hidden="true" />
+          </a>
+        </div>
+      ) : null}
     </div>
   );
 }

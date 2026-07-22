@@ -7,6 +7,7 @@ type CompactOfferStripProps = {
   intro?: string;
   className?: string;
   id?: string;
+  showImages?: boolean;
 };
 
 export function CompactOfferStrip({
@@ -15,6 +16,7 @@ export function CompactOfferStrip({
   intro = "Eligible offers can be applied where the job scope and terms match. Unsafe or active faults should be handled by phone first.",
   className = "",
   id,
+  showImages = true,
 }: CompactOfferStripProps) {
   if (!offers.length) {
     return null;
@@ -42,7 +44,7 @@ export function CompactOfferStrip({
               key={offer.id}
               offer={offer}
               variant="compact"
-              showImage={false}
+              showImage={showImages}
             />
           ))}
         </div>

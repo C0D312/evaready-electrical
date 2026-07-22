@@ -62,13 +62,17 @@
 
 .ev-offers-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  align-items: stretch;
   gap: 1rem;
   margin-top: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .ev-offer-card {
+  display: flex;
+  height: 100%;
   min-width: 0;
+  flex-direction: column;
   border: 1px solid rgba(98, 216, 255, 0.28);
   border-radius: 1.25rem;
   background:
@@ -90,8 +94,14 @@
 }
 
 .ev-offer-card__media {
+  position: relative;
+  box-sizing: border-box;
   aspect-ratio: 4 / 3;
   display: grid;
+  width: 100%;
+  min-height: 0;
+  flex: 0 0 auto;
+  overflow: hidden;
   place-items: center;
   padding: 0.7rem;
   background:
@@ -100,15 +110,21 @@
 }
 
 .ev-offer-card__image {
+  display: block;
   width: 100%;
   height: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
   object-fit: contain;
+  object-position: center;
   border-radius: 0.9rem;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.38);
 }
 
 .ev-offer-card__body {
   display: flex;
+  flex: 1 1 auto;
   min-width: 0;
   flex-direction: column;
   gap: 0.82rem;
@@ -176,14 +192,15 @@
 .ev-offer-card__cta {
   width: 100%;
   min-height: 46px;
-  margin-top: 0.2rem;
+  margin-top: auto;
   padding-inline: 0.95rem;
   font-size: 0.9rem;
 }
 
 .ev-compact-offer-strip__grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  align-items: stretch;
   gap: 0.8rem;
   margin-top: 1.35rem;
 }
@@ -211,6 +228,13 @@
   .ev-offers-grid,
   .ev-compact-offer-strip__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 641px) {
+  .ev-offers-grid,
+  .ev-compact-offer-strip__grid {
+    grid-auto-rows: 1fr;
   }
 }
 

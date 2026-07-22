@@ -7,7 +7,7 @@ const emergencyCards = [
     href: "/emergency-electrician-sydney",
     icon: Flame,
     title: "Emergency Fault Help",
-    text: "60-minute response in core areas and 90 minutes for greater regions.",
+    text: business.emergencyResponse.combinedDisplay,
     tone: "red",
   },
   {
@@ -76,8 +76,9 @@ export function EmergencyTrustPanel({ className = "" }: { className?: string }) 
             </h2>
             <p className="mt-4 max-w-3xl text-base font-semibold leading-7 text-slate-300 sm:text-lg">
               Emergency call-outs can be on site within 60 minutes in core
-              service areas, with 90-minute response for greater regions. Call
-              first for unsafe faults; use the booking form for planned work.
+              service areas, with a 60–90-minute response window in selected
+              outer regions. Call first for unsafe faults; use the booking form
+              for planned work.
             </p>
             <div className="mt-7 grid gap-3 sm:flex sm:flex-wrap">
               <a

@@ -85,4 +85,26 @@ Targeted Playwright checks found no horizontal overflow in the captured pages.
 
 ## Live Verification
 
-Pending deployment.
+Live verified after deployment.
+
+- Main SHA: `c00bc23dba4dd497922dd86804976350d8e1643d`
+- `gh-pages` SHA: `6c0737daff40bc42c4b7a8c80c3adb656247bd8a`
+- Normal and cache-busted public URLs returned HTTP 200 for:
+  - `/`
+  - `/emergency-electrician-sydney/`
+  - `/level-2-electrician-sydney/`
+  - `/services/`
+  - `/service-areas/`
+  - `/contact/`
+  - `/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/`
+  - `/site-version.json`
+- Public HTML checks confirmed:
+  - storm classes present on core pages
+  - Google Ads marker present
+  - phone-click marker present
+  - quote-click marker present
+  - `tel:+61461247247` present
+  - current `site-version.json` main commit present
+- Cache-busted public screenshots saved in `reports/core-pages-storm-theme-deep-pass/live/`.
+
+Final status: `LIVE PASS`.

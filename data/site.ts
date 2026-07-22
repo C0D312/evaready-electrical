@@ -42,6 +42,7 @@ export function assetPath(path: string) {
 
 export const business = {
   name: "Evaready Electrical",
+  legalName: "EVAREADY ELECTRICAL PTY LTD",
   brandImage: "/images/evaready-electrical-sydney-service-van.webp",
   heroImage: "/images/evaready-electrical-sydney-service-van.webp",
   logoImage: "/images/evareadyelectrical-logo-perf-1000.webp",
@@ -72,13 +73,22 @@ export const business = {
   googleReviewDisplayText: "5.0 from 83 Google reviews",
   bookingUrl:
     "https://book.servicem8.com/request_booking?uuid=78c2a862-45cf-413b-8ca5-1bf6d8f8944b",
+  verificationUrls: {
+    electricalLicence:
+      "https://www.service.nsw.gov.au/transaction/check-a-builder-or-tradesperson-licence",
+    abn: "https://abr.business.gov.au/ABN/View?abn=44650697797",
+    openCabler: "https://www.acma.gov.au/find-registered-cabler",
+    arctick: "https://www.lookforthetick.com.au/",
+  },
   emergencyResponse: {
     coreMinutes: 60,
+    greaterRegionMinimumMinutes: 60,
     greaterRegionMinutes: 90,
     coreDisplay: "On site within 60 minutes for emergency call-outs",
-    greaterDisplay: "Within 90 minutes for greater regions",
+    greaterDisplay:
+      "60–90-minute emergency response in selected outer regions",
     combinedDisplay:
-      "60-minute emergency response in core areas. 90 minutes for greater regions.",
+      "60-minute emergency response in core areas. 60–90 minutes in selected outer regions.",
     disclaimer:
       "Response time depends on location, access, traffic, safety conditions, job type and current availability.",
     emergencyOnlyNote:
@@ -103,16 +113,16 @@ export const business = {
       "Sydney City & Eastern Suburbs",
       "Parramatta & Cumberland",
       "Liverpool & Fairfield",
-    ],
-    greater: [
       "Macarthur, Camden & Wollondilly",
       "Western Sydney & Nepean",
       "Hills, Hawkesbury & Hornsby",
       "Northern Sydney & Ryde",
+      "Southern Highlands",
+    ],
+    greater: [
       "Northern Beaches",
       "Blue Mountains",
       "Wollongong & Illawarra",
-      "Southern Highlands",
       "Central Coast South",
     ],
   },
@@ -130,18 +140,21 @@ export function getEmergencyResponseForRegion(regionName: string) {
   return {
     isCore,
     isGreater,
+    minimumMinutes: isCore
+      ? business.emergencyResponse.coreMinutes
+      : business.emergencyResponse.greaterRegionMinimumMinutes,
     minutes,
-    badgeTitle: isCore ? "60-Minute Response" : "90-Minute Response",
-    badgeText: isCore ? "Core emergency areas" : "Greater regions",
+    badgeTitle: isCore ? "60-Minute Response" : "60–90-Min Response",
+    badgeText: isCore ? "Core emergency areas" : "Selected outer regions",
     shortDisplay: isCore
       ? "60-minute emergency response"
-      : "90-minute emergency response",
+      : "60–90-minute emergency response",
     regionDisplay: isCore
       ? "Emergency call-outs in this core service area can be on site within 60 minutes."
-      : "Emergency call-outs across this greater region can be on site within 90 minutes.",
+      : "Emergency call-outs across this selected outer region have a 60–90-minute response window, depending on location, access, traffic and current availability.",
     suburbDisplay: isCore
       ? "60-minute response for urgent call-outs."
-      : "90-minute response for urgent call-outs across greater regions.",
+      : "60–90-minute response window for urgent call-outs in selected outer regions.",
   };
 }
 

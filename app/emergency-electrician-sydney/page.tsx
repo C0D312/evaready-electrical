@@ -183,9 +183,9 @@ const emergencyFaqs = [
       "For emergency electrical call-outs in core service areas, Evaready can be on site within 60 minutes. Timing depends on location, access, traffic, safety conditions, job type and current availability.",
   },
   {
-    question: "What areas are 90-minute greater regions?",
+    question: "Which areas use the 60–90-minute response window?",
     answer:
-      "Greater regions are areas outside the core service areas. Emergency attendance for greater regions is within 90 minutes, depending on location, access, traffic, safety conditions, job type and current availability.",
+      "The selected outer regions are Northern Beaches, Blue Mountains, Wollongong and Illawarra, and Central Coast South. Emergency attendance in these regions has a 60–90-minute response window, depending on location, access, traffic, safety conditions, job type and current availability.",
   },
   {
     question: "Should I keep resetting a tripping safety switch?",
@@ -371,14 +371,14 @@ function buildSchema() {
         name: "Emergency Electrician Sydney",
         serviceType: [
           "60-minute emergency electrician response in core service areas",
-          "90-minute emergency response for greater regions",
+          "60–90-minute emergency response in selected outer regions",
           "Emergency electrical fault finding and repairs",
         ],
         provider: { "@id": `${pageUrl}#electrician` },
         areaServed: "Sydney and surrounding regions",
         url: pageUrl,
         description:
-          "Emergency electrical help for power loss and burning smells, sparking outlets, tripping safety switches, switchboard faults and storm or water-related electrical hazards, with 60-minute response in core service areas and 90-minute response for greater regions.",
+          "Emergency electrical help for power loss and burning smells, sparking outlets, tripping safety switches, switchboard faults and storm or water-related electrical hazards, with 60-minute response in core service areas and a 60–90-minute response window in selected outer regions.",
       },
       {
         "@type": "FAQPage",
@@ -465,11 +465,12 @@ export default function EmergencyElectricianSydneyPage() {
 
             <p className={cx(styles.heroResponse, "mt-4 max-w-2xl rounded-2xl border border-red-300/25 bg-red-500/10 p-4 text-sm font-bold leading-6 text-slate-100")}>
               Evaready provides 60-minute emergency response in core service
-              areas and 90-minute emergency response for greater regions. Call
-              first so the fault, location, access and safety risk can be
-              triaged. Timing depends on location, access, traffic, safety
-              conditions, job type and current availability. Response times
-              apply to emergency electrical call-outs, not planned quote work.
+              areas and a 60–90-minute response window in selected outer
+              regions. Call first so the fault, location, access and safety risk
+              can be triaged. Timing depends on location, access, traffic,
+              safety conditions, job type and current availability. Response
+              times apply to emergency electrical call-outs, not planned quote
+              work.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">

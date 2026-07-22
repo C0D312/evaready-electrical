@@ -19,6 +19,8 @@ export type EvareadyOffer = {
   shortTitle: string;
   description: string;
   image: string;
+  imageWidth: number;
+  imageHeight: number;
   alt: string;
   ctaLabel: string;
   ctaType: OfferCtaType;
@@ -40,6 +42,8 @@ export const currentOffers: readonly EvareadyOffer[] = [
     description:
       "A visual electrical safety inspection to help identify obvious safety concerns around switchboards, power points, lighting, smoke alarms and visible wiring.",
     image: "/images/offers/evaready-offer-free-safety-inspection.webp",
+    imageWidth: 960,
+    imageHeight: 720,
     alt: "Evaready Electrical Free Electrical Safety Inspection offer artwork",
     ctaLabel: business.quoteCta,
     ctaType: "quote",
@@ -67,6 +71,8 @@ export const currentOffers: readonly EvareadyOffer[] = [
     description:
       "Save $50 on eligible planned electrical work when you send your job details through the online quote form.",
     image: "/images/offers/evaready-offer-50-off-online-booking.webp",
+    imageWidth: 960,
+    imageHeight: 720,
     alt: "Evaready Electrical $50 off when you book online offer artwork",
     ctaLabel: business.quoteCta,
     ctaType: "quote",
@@ -92,6 +98,8 @@ export const currentOffers: readonly EvareadyOffer[] = [
     description:
       "New emergency customers can receive 15% off the labour component of their first eligible emergency electrical service.",
     image: "/images/offers/evaready-offer-15-off-first-emergency.webp",
+    imageWidth: 960,
+    imageHeight: 640,
     alt: "Evaready Electrical 15% off first emergency service offer artwork",
     ctaLabel: "Call Now",
     ctaType: "call",
@@ -110,6 +118,8 @@ export const currentOffers: readonly EvareadyOffer[] = [
       "Eligible pensioners, seniors and veterans can receive 20% off the labour component of eligible electrical work.",
     image:
       "/images/offers/evaready-offer-20-off-pensioners-seniors-veterans.webp",
+    imageWidth: 960,
+    imageHeight: 640,
     alt: "Evaready Electrical 20% off pensioners, seniors and veterans discount offer artwork",
     ctaLabel: business.quoteCta,
     ctaType: "quote",

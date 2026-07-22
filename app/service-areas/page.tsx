@@ -140,7 +140,7 @@ export default function AreasPage() {
       tone: "core",
     },
     {
-      heading: `Greater regions - ${business.emergencyResponse.greaterRegionMinutes}-minute emergency response`,
+      heading: "Selected outer regions - 60–90-minute emergency response",
       regions: business.emergencyResponseRegions.greater,
       tone: "greater",
     },
@@ -256,7 +256,7 @@ export default function AreasPage() {
           <div className="grid gap-3 sm:grid-cols-3">
             {[
               `${business.emergencyResponse.coreMinutes}-minute emergency response in core service areas`,
-              `${business.emergencyResponse.greaterRegionMinutes}-minute emergency response for greater regions`,
+              business.emergencyResponse.greaterDisplay,
               "Ausgrid & Endeavour Energy Accredited Level 2 ASP",
             ].map((item) => (
               <div
@@ -271,6 +271,56 @@ export default function AreasPage() {
         </div>
       </ServiceAreaHero>
 
+      <section className="bg-[#040b1c] py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
+            Major regions
+          </p>
+          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+            Browse the regions and suburbs we service.
+          </h2>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {coverageRegions.map((region) => {
+              const suburbCount = region.areas.reduce(
+                (total, area) => total + area.suburbs.length,
+                0,
+              );
+
+              return (
+                <Link
+                  key={region.slug}
+                  href={`/service-areas/${region.slug}`}
+                  className="group rounded-lg border border-cyan-300/20 bg-[#091d42] p-6 shadow-lg shadow-blue-950/20 transition hover:-translate-y-1 hover:border-cyan-200 hover:bg-[#0d2b5c] hover:shadow-xl"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="rounded-lg border border-cyan-300/25 bg-[#0d2b5c] p-3 text-cyan-100">
+                      <MapPin className="h-7 w-7" />
+                    </div>
+                    <span className="rounded-full border border-cyan-300/20 bg-[#0d2b5c] px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-slate-100">
+                      {region.areas.length} areas
+                    </span>
+                  </div>
+
+                  <h3 className="mt-6 text-2xl font-black">{region.name}</h3>
+                  <p className="mt-3 leading-7 text-slate-300">
+                    {region.description}
+                  </p>
+                  <p className="mt-4 text-sm font-black text-cyan-200">
+                    {suburbCount} suburbs covered
+                  </p>
+
+                  <span className="mt-6 inline-flex items-center gap-2 font-black text-cyan-200">
+                    View region
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-[#06142f] py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
@@ -278,7 +328,7 @@ export default function AreasPage() {
               Response guidance
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Core and greater-region emergency areas.
+              Core and selected outer-region emergency areas.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-300">
               Evaready Electrical provides fast electrical support across
@@ -345,9 +395,9 @@ export default function AreasPage() {
             </div>
             <p className="rounded-lg border border-cyan-300/25 bg-[#091d42] p-5 text-base font-semibold leading-7 text-slate-200 shadow-lg shadow-blue-950/20 lg:col-span-2">
               Search your suburb or postcode for the local page. Core and
-              greater-region timing applies to emergency electrical call-outs
-              only. Response timing depends on location, access, traffic,
-              safety conditions, job type and current availability.{" "}
+              selected outer-region timing applies to emergency electrical
+              call-outs only. Response timing depends on location, access,
+              traffic, safety conditions, job type and current availability.{" "}
               {business.emergencyResponse.emergencyOnlyNote}
             </p>
           </div>
@@ -502,56 +552,6 @@ export default function AreasPage() {
         compact
         serviceName="service-area electrical enquiries"
       />
-
-      <section className="bg-[#040b1c] py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
-            Major regions
-          </p>
-          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-            Browse the regions and suburbs we service.
-          </h2>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {coverageRegions.map((region) => {
-              const suburbCount = region.areas.reduce(
-                (total, area) => total + area.suburbs.length,
-                0,
-              );
-
-              return (
-                <Link
-                  key={region.slug}
-                  href={`/service-areas/${region.slug}`}
-                  className="group rounded-lg border border-cyan-300/20 bg-[#091d42] p-6 shadow-lg shadow-blue-950/20 transition hover:-translate-y-1 hover:border-cyan-200 hover:bg-[#0d2b5c] hover:shadow-xl"
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="rounded-lg border border-cyan-300/25 bg-[#0d2b5c] p-3 text-cyan-100">
-                      <MapPin className="h-7 w-7" />
-                    </div>
-                    <span className="rounded-full border border-cyan-300/20 bg-[#0d2b5c] px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-slate-100">
-                      {region.areas.length} areas
-                    </span>
-                  </div>
-
-                  <h3 className="mt-6 text-2xl font-black">{region.name}</h3>
-                  <p className="mt-3 leading-7 text-slate-300">
-                    {region.description}
-                  </p>
-                  <p className="mt-4 text-sm font-black text-cyan-200">
-                    {suburbCount} suburbs covered
-                  </p>
-
-                  <span className="mt-6 inline-flex items-center gap-2 font-black text-cyan-200">
-                    View region
-                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       <section className="bg-[#06142f] py-20">
         <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-4 lg:px-8">

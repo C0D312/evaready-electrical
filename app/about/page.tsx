@@ -7,6 +7,7 @@ import {
   Camera,
   CheckCircle2,
   ClipboardCheck,
+  ExternalLink,
   Mail,
   Phone,
   ShieldCheck,
@@ -110,6 +111,33 @@ const internalLinks = [
   { href: "/privacy-policy", label: "Privacy Policy" },
   { href: "/terms", label: "Terms of Use" },
 ];
+
+const credentialVerificationLinks = [
+  {
+    title: "NSW electrical licence",
+    value: business.licence,
+    text: "Open the official Service NSW tradesperson licence checker.",
+    href: business.verificationUrls.electricalLicence,
+  },
+  {
+    title: "Australian Business Number",
+    value: business.abn,
+    text: `View the active ABN record for ${business.legalName}.`,
+    href: business.verificationUrls.abn,
+  },
+  {
+    title: "Open Cabler registration",
+    value: business.openCablerRegistration,
+    text: "Read the ACMA guidance for checking a registered cabler.",
+    href: business.verificationUrls.openCabler,
+  },
+  {
+    title: "ARCtick licence",
+    value: business.arctickLicence,
+    text: "Open the ARC-authorised Look for the Tick directory and licence checker.",
+    href: business.verificationUrls.arctick,
+  },
+] as const;
 
 export default function AboutPage() {
   const breadcrumbSchema = buildBreadcrumbSchema(
@@ -244,6 +272,48 @@ export default function AboutPage() {
                   </article>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        <section className="ev-storm-section px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8" aria-labelledby="credential-verification-heading">
+          <div className="mx-auto max-w-7xl">
+            <div className="max-w-3xl">
+              <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
+                Verify the details
+              </p>
+              <h2 id="credential-verification-heading" className="mt-3 text-3xl font-black tracking-tight sm:text-5xl">
+                Check Evaready against official sources.
+              </h2>
+              <p className="mt-4 text-base font-semibold leading-7 text-slate-300 sm:text-lg">
+                The licence and registration numbers shown on this website can be
+                checked using government or scheme-authorised sources.
+              </p>
+            </div>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {credentialVerificationLinks.map((item) => (
+                <a
+                  key={item.title}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ev-storm-card ev-storm-card--trust group rounded-2xl p-5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
+                >
+                  <span className="text-xs font-black uppercase tracking-[0.18em] text-cyan-200">
+                    {item.title}
+                  </span>
+                  <strong className="mt-3 block text-xl font-black text-white">
+                    {item.value}
+                  </strong>
+                  <span className="mt-3 block text-sm font-semibold leading-6 text-slate-300">
+                    {item.text}
+                  </span>
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-cyan-100">
+                    Open official source
+                    <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                  </span>
+                </a>
+              ))}
             </div>
           </div>
         </section>

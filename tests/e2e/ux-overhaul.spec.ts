@@ -206,7 +206,7 @@ test("mobile menu traps the page, closes with Escape and restores focus", async 
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(initialScrollY);
 });
 
-test("quote dialog is accessible, has a fallback and restores trigger focus", async ({ page }) => {
+test("quote dialog is accessible, keeps the form clear and restores trigger focus", async ({ page }) => {
   await page.goto("./", { waitUntil: "domcontentloaded" });
   await page.waitForLoadState("networkidle").catch(() => undefined);
   await page.waitForTimeout(250);
@@ -218,7 +218,7 @@ test("quote dialog is accessible, has a fallback and restores trigger focus", as
   await expect(dialog).toBeVisible();
   await expect(dialog).toHaveAttribute("aria-modal", "true");
   await expect(page.getByRole("button", { name: "Close quote form" }).last()).toBeFocused();
-  await expect(dialog.getByRole("link", { name: "Open the secure form" })).toBeVisible();
+  await expect(dialog.getByRole("link", { name: "Open the secure form" })).toHaveCount(0);
   const frameHeight = await dialog
     .locator(".quote-modal-iframe")
     .evaluate((element) => element.getBoundingClientRect().height);

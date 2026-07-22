@@ -68,6 +68,34 @@ const services = [
     ],
   },
   {
+    title: "Strata Electrician",
+    description:
+      "Common-property fault, lighting, switchboard, intercom, access and maintenance support for strata-managed sites.",
+    icon: Building2,
+    includes: [
+      "Common-area faults",
+      "Shared lighting",
+      "Switchboard enquiries",
+      "Intercom and access wiring",
+      "Emergency lighting",
+      "Strata maintenance",
+    ],
+  },
+  {
+    title: "Property Management Electrician",
+    description:
+      "Electrical faults, repairs, inspections and planned maintenance for property managers, agencies and landlords.",
+    icon: Building2,
+    includes: [
+      "Tenant-reported faults",
+      "Lighting and outlets",
+      "Smoke alarms",
+      "Switchboard enquiries",
+      "Inspection support",
+      "Work-order coordination",
+    ],
+  },
+  {
     title: "Emergency Electrician",
     description:
       "Urgent fault support for outages, circuit tripping, burning smells and electrical issues that need a direct call.",
@@ -717,6 +745,8 @@ const services = [
 const servicePageLinks: Record<string, string> = {
   "Residential Electrician": "/services/residential-electrician-sydney",
   "Commercial Electrician": "/services/commercial-electrician-sydney",
+  "Strata Electrician": "/services/strata-electrician-sydney",
+  "Property Management Electrician": "/services/property-management-electrician-sydney",
   "Emergency Electrician": "/emergency-electrician-sydney",
   "Level 2 Electrician": "/level-2-electrician-sydney",
   "Switchboard Upgrades": "/services/switchboard-upgrades-sydney",
@@ -804,7 +834,7 @@ const serviceLandingPageBySlug = new Map(
 const servicesHeroCredentialItems = [
   { icon: ShieldCheck, title: "NSW Licensed", text: business.licence },
   { icon: Clock3, title: "60-Min Response", text: "Core emergencies", tone: "red" as const },
-  { icon: Clock3, title: "90-Min Response", text: "Greater regions" },
+  { icon: Clock3, title: "60–90-Min Response", text: "Selected outer regions" },
   ...(business.level2Asp.enabled
     ? [
         {
@@ -1092,6 +1122,8 @@ const serviceCatalogueCategories: ServiceCatalogueCategory[] = [
       "Electrical support for shops, offices, strata, builders, managed sites and commercial lighting needs.",
     items: [
       { title: "Commercial Electrician" },
+      { title: "Strata Electrician" },
+      { title: "Property Management Electrician" },
       { title: "Emergency & Exit Lighting" },
     ],
   },

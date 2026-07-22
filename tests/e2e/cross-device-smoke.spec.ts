@@ -52,7 +52,7 @@ const routes: RouteCheck[] = [
     kind: "html",
     commercial: true,
     screenshot: true,
-    expects: ["60-minute", "Call Now", "Get a Quote"],
+    expects: ["Open 24/7", "Call Now", "Get a Quote"],
   },
   {
     path: "/emergency-electrician-sydney/",
@@ -237,7 +237,7 @@ test("live site route matrix has no critical browser/device regressions", async 
           if (!/google rating/i.test(ratingCardText)) {
             failures.push(`${route.name}: Google rating card missing Google Rating label`);
           }
-          for (const expected of ["5.0", "Based on 83 Google reviews", "Read Google Reviews", "Leave a Review"]) {
+          for (const expected of ["5.0", "Based on 83 Google reviews", "Read Google reviews", "Leave a review"]) {
             if (!ratingCardText.includes(expected)) {
               failures.push(`${route.name}: Google rating card missing "${expected}"`);
             }

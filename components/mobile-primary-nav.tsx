@@ -8,6 +8,7 @@ import {
   ArrowRight,
   BatteryCharging,
   Bolt,
+  ChevronDown,
   Droplets,
   Flame,
   Home,
@@ -19,8 +20,14 @@ import {
   Snowflake,
   Wrench,
   X,
+  type LucideIcon,
 } from "lucide-react";
 import { HomeNavigationLink } from "@/components/home-navigation-link";
+import {
+  getServiceNavigationLinks,
+  serviceNavigationMenus,
+  type ServiceNavigationMenuId,
+} from "@/data/service-navigation";
 import { business } from "@/data/site";
 
 type ScrollLockSnapshot = {
@@ -38,7 +45,14 @@ type ScrollLockSnapshot = {
   bodyWidth: string;
 };
 
-const mobileNavItems = [
+type MobileNavItem = {
+  href: string;
+  icon: LucideIcon;
+  label: string;
+  serviceMenuId?: ServiceNavigationMenuId;
+};
+
+const mobileNavItems: MobileNavItem[] = [
   {
     href: "/",
     label: "Home",
@@ -48,16 +62,19 @@ const mobileNavItems = [
     href: "/emergency-electrician-sydney",
     label: "Emergency Electrician",
     icon: Flame,
+    serviceMenuId: "emergency",
   },
   {
     href: "/level-2-electrician-sydney",
     label: "Level 2 Electrician",
     icon: Bolt,
+    serviceMenuId: "level-2",
   },
   {
     href: "/services",
     label: "Electrical Services",
     icon: Wrench,
+    serviceMenuId: "services",
   },
   {
     href: "/services/hot-water-system-electrician-sydney",
@@ -94,8 +111,15 @@ const mobileNavItems = [
 export function MobilePrimaryNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [openGroup, setOpenGroup] =
+    useState<ServiceNavigationMenuId | null>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLElement>(null);
+
+  function closeMenu() {
+    setOpen(false);
+    setOpenGroup(null);
+  }
 
   useEffect(() => {
     if (!open) {
@@ -135,6 +159,7 @@ export function MobilePrimaryNav() {
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setOpen(false);
+        setOpenGroup(null);
         return;
       }
 
@@ -205,7 +230,7 @@ export function MobilePrimaryNav() {
         type="button"
         aria-label="Close navigation menu"
         className="absolute inset-0 bg-[#061E72]/55"
-        onClick={() => setOpen(false)}
+        onClick={closeMenu}
       />
 
       <nav
@@ -224,7 +249,7 @@ export function MobilePrimaryNav() {
             type="button"
             aria-label="Close menu"
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-cyan-300/25 bg-cyan-300/10 text-cyan-50"
-            onClick={() => setOpen(false)}
+            onClick={closeMenu}
           >
             <X className="h-5 w-5" />
           </button>
@@ -233,10 +258,20 @@ export function MobilePrimaryNav() {
         <div className="grid gap-2 p-3">
           {mobileNavItems.map((item) => {
             const Icon = item.icon;
+            const menu = item.serviceMenuId
+              ? serviceNavigationMenus[item.serviceMenuId]
+              : null;
+            const overviewIsCurrent =
+              pathname === item.href || pathname === `${item.href}/`;
             const current =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname === item.href || pathname.startsWith(`${item.href}/`);
+              overviewIsCurrent ||
+              (item.serviceMenuId
+                ? getServiceNavigationLinks(item.serviceMenuId).some(
+                    (link) =>
+                      pathname === link.href ||
+                      pathname.startsWith(`${link.href}/`),
+                  )
+                : false);
             const className = `flex min-h-12 items-center gap-3 rounded-lg border px-4 py-3 text-left font-bold text-white shadow-sm transition hover:border-cyan-200 hover:bg-white/[0.09] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200 ${
               current
                 ? "border-cyan-200/60 bg-cyan-300/15"
@@ -251,10 +286,96 @@ export function MobilePrimaryNav() {
               </>
             );
 
+            if (menu && item.serviceMenuId) {
+              const menuId = item.serviceMenuId;
+              const expanded = openGroup === menuId;
+              const panelId = `mobile-${menuId}-services-menu`;
+
+              return (
+                <div
+                  key={item.href}
+                  className={`mobile-service-nav-group${
+                    current ? " mobile-service-nav-group--current" : ""
+                  }`}
+                >
+                  <div className="mobile-service-nav-group__primary">
+                    <Link
+                      href={item.href}
+                      onClick={closeMenu}
+                      className="mobile-service-nav-group__overview"
+                      aria-current={overviewIsCurrent ? "page" : undefined}
+                    >
+                      {content}
+                    </Link>
+                    <button
+                      type="button"
+                      className="mobile-service-nav-group__toggle"
+                      aria-label={`${expanded ? "Close" : "Open"} ${
+                        item.label
+                      } menu`}
+                      aria-expanded={expanded}
+                      aria-controls={panelId}
+                      onClick={() =>
+                        setOpenGroup((currentGroup) =>
+                          currentGroup === menuId ? null : menuId,
+                        )
+                      }
+                    >
+                      <ChevronDown aria-hidden="true" />
+                    </button>
+                  </div>
+
+                  {expanded ? (
+                    <div
+                      id={panelId}
+                      className="mobile-service-nav-group__panel"
+                    >
+                      <p className="mobile-service-nav-group__description">
+                        {menu.description}
+                      </p>
+                      {menu.sections.map((section) => (
+                        <section
+                          key={section.title}
+                          className="mobile-service-nav-group__section"
+                        >
+                          <p>{section.title}</p>
+                          <div>
+                            {section.links.map((link) => {
+                              const linkIsCurrent =
+                                pathname === link.href ||
+                                pathname.startsWith(`${link.href}/`);
+
+                              return (
+                                <Link
+                                  key={link.href}
+                                  href={link.href}
+                                  onClick={closeMenu}
+                                  aria-current={
+                                    linkIsCurrent ? "page" : undefined
+                                  }
+                                  className={
+                                    linkIsCurrent
+                                      ? "mobile-service-nav-group__link mobile-service-nav-group__link--current"
+                                      : "mobile-service-nav-group__link"
+                                  }
+                                >
+                                  {link.label}
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        </section>
+                      ))}
+                    </div>
+                  ) : null}
+                </div>
+              );
+            }
+
             return item.href === "/" ? (
               <HomeNavigationLink
                 key={item.href}
-                onClick={() => setOpen(false)}
+                onClick={closeMenu}
                 className={className}
                 aria-current={current ? "page" : undefined}
               >
@@ -264,7 +385,7 @@ export function MobilePrimaryNav() {
               <Link
                 key={item.href}
                 href={item.href}
-                onClick={() => setOpen(false)}
+                onClick={closeMenu}
                 className={className}
                 aria-current={current ? "page" : undefined}
               >
@@ -279,7 +400,7 @@ export function MobilePrimaryNav() {
             href={business.phoneHref}
             data-conversion-action="phone-click"
             aria-label={business.callCta}
-            onClick={() => setOpen(false)}
+            onClick={closeMenu}
             className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-red-600/20"
           >
             <Phone className="h-4 w-4" />
@@ -293,7 +414,7 @@ export function MobilePrimaryNav() {
             data-conversion-action="quote-click"
             aria-haspopup="dialog"
             aria-label="Get a quote from Evaready Electrical"
-            onClick={() => setOpen(false)}
+            onClick={closeMenu}
             className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-blue-700/20"
           >
             {business.quoteCta}
@@ -312,7 +433,13 @@ export function MobilePrimaryNav() {
         aria-controls="mobile-site-menu"
         aria-expanded={open}
         aria-label={open ? "Close navigation menu" : "Open navigation menu"}
-        onClick={() => setOpen((current) => !current)}
+        onClick={() => {
+          if (open) {
+            closeMenu();
+          } else {
+            setOpen(true);
+          }
+        }}
         className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-blue-200 bg-white text-blue-800 shadow-lg shadow-blue-700/10 transition hover:bg-blue-50 sm:h-11 sm:w-11"
         style={{
           display: "inline-flex",

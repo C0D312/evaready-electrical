@@ -12718,14 +12718,14 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
   position: absolute !important;
   inset-block-start: 6px !important;
   inset-inline-start: 10px !important;
-  inset-inline-end: auto !important;
+  inset-inline-end: 60px !important;
   top: 6px !important;
-  right: auto !important;
+  right: 60px !important;
   left: 10px !important;
-  inline-size: calc(100% - 86px) !important;
-  width: calc(100% - 86px) !important;
-  max-inline-size: 340px !important;
-  max-width: 340px !important;
+  inline-size: auto !important;
+  width: auto !important;
+  max-inline-size: none !important;
+  max-width: none !important;
   min-inline-size: 0 !important;
   min-width: 0 !important;
   block-size: 38px !important;
@@ -12770,7 +12770,7 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
   border: 1px solid rgba(255, 181, 189, 0.42) !important;
   border-radius: 0.68rem !important;
   background:
-    linear-gradient(100deg, rgba(6, 20, 47, 0.98) 0%, rgba(8, 118, 255, 0.86) 56%, rgba(233, 17, 30, 0.92) 88%, var(--ev-red-hot, #ff3247) 100%) !important;
+    linear-gradient(105deg, var(--ev-red-dark, #750713) 0%, #c70d1b 52%, var(--ev-red-hot, #ff3247) 100%) !important;
   box-shadow:
     0 10px 24px rgba(233, 17, 30, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
@@ -12781,9 +12781,9 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
   letter-spacing: 0 !important;
   text-align: center !important;
   text-decoration: none !important;
-  white-space: normal !important;
-  text-wrap: balance !important;
-  overflow: visible !important;
+  white-space: nowrap !important;
+  text-wrap: nowrap !important;
+  overflow: hidden !important;
   flex: none !important;
   flex-wrap: nowrap !important;
 }
@@ -12792,6 +12792,15 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
   min-width: 0 !important;
   max-width: 100% !important;
   flex: 0 1 auto !important;
+}
+
+html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar > .quote-modal-call-slot > a.quote-modal-call-pill[data-conversion-action="phone-click"] .quote-modal-emergency-label {
+  display: block !important;
+  overflow: visible !important;
+  white-space: nowrap !important;
+  text-wrap: nowrap !important;
+  line-height: 1 !important;
+  text-align: center !important;
 }
 
 html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar > .quote-modal-call-slot > a.quote-modal-call-pill[data-conversion-action="phone-click"] svg {
@@ -12805,10 +12814,12 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
   html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar > .quote-modal-call-slot {
     inset-inline-start: 8px !important;
     left: 8px !important;
-    inline-size: calc(100% - 80px) !important;
-    width: calc(100% - 80px) !important;
-    max-inline-size: 300px !important;
-    max-width: 300px !important;
+    inset-inline-end: 58px !important;
+    right: 58px !important;
+    inline-size: auto !important;
+    width: auto !important;
+    max-inline-size: none !important;
+    max-width: none !important;
   }
 
   html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar > .quote-modal-call-slot > a.quote-modal-call-pill[data-conversion-action="phone-click"] {
@@ -12821,10 +12832,12 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
   html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar > .quote-modal-call-slot {
     inset-inline-start: 12px !important;
     left: 12px !important;
-    inline-size: 384px !important;
-    width: 384px !important;
-    max-inline-size: 384px !important;
-    max-width: 384px !important;
+    inset-inline-end: 68px !important;
+    right: 68px !important;
+    inline-size: auto !important;
+    width: auto !important;
+    max-inline-size: none !important;
+    max-width: none !important;
   }
 
   html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar > .quote-modal-call-slot > a.quote-modal-call-pill[data-conversion-action="phone-click"] {

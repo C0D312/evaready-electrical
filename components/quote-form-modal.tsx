@@ -304,14 +304,11 @@ export function QuoteFormModal() {
             <a
               href={business.phoneHref}
               data-conversion-action="phone-click"
-              aria-label={business.callCta}
+              aria-label={`Emergency? ${business.callCta}`}
               className="quote-modal-call-pill quote-modal-emergency"
             >
               <Phone className="h-5 w-5 shrink-0" />
-              <span className="quote-modal-emergency-label">
-                <span>Emergency?</span>
-                <span>{business.callCta}</span>
-              </span>
+              <span className="quote-modal-emergency-label">Emergency? {business.callCta}</span>
             </a>
           </div>
 
@@ -331,6 +328,7 @@ export function QuoteFormModal() {
             src={business.bookingUrl}
             title="Evaready Electrical quote form"
             className="quote-modal-iframe h-full w-full bg-white"
+            showFallback={false}
           />
         </div>
       </div>

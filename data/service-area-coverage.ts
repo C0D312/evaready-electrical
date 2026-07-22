@@ -190,9 +190,11 @@ function normalizeSuburbEmergencyAnswer(
       "",
     )
     .trim();
-  const withResponse = /\bcan be on site within (?:60|90) minutes\b/i.test(
-    normalizedAnswer,
-  )
+  const withResponse =
+    normalizedAnswer.includes(response.regionDisplay) ||
+    /\bcan be on site within (?:60|90) minutes\b|\b60[–-]90-minute response window\b/i.test(
+      normalizedAnswer,
+    )
     ? normalizedAnswer
     : `${normalizedAnswer} ${response.regionDisplay}`;
 
@@ -11510,7 +11512,7 @@ const northernBeachesLocalContexts: Record<string, LocalPageContext> = {
     plannedFocus:
       "beachside repairs, short-stay property maintenance, outdoor lighting, private service equipment review and corrosion follow-up",
     propertyMix:
-      "beachside homes, holiday/short-stay maintenance, steep access, parking limits, private service equipment, outdoor lighting, corrosion/weather exposure and careful 90-minute wording",
+      "beachside homes, holiday/short-stay maintenance, steep access, parking limits, private service equipment, outdoor lighting, corrosion/weather exposure and careful 60–90-minute response wording",
     remoteAccess: true,
     setting:
       "Palm Beach beachside-home, short-stay, steep-access, private-service-equipment and careful-response service area",
@@ -12661,7 +12663,7 @@ const wollongongLocalContexts: Record<string, LocalPageContext> = {
     "Dapto home, shop, business-premises, lake-rural-edge and defect-notice service area",
   ),
   "darkes-forest": makeWollongongLocalContext(
-    "rural/bushland access, long driveways, storm faults, sheds, outdoor power, private service equipment and careful 90-minute response wording",
+    "rural/bushland access, long driveways, storm faults, sheds, outdoor power, private service equipment and careful 60–90-minute response wording",
     "Darkes Forest rural-bushland, long-driveway, shed and careful-response service area",
   ),
   dombarton: makeWollongongLocalContext(
@@ -12773,7 +12775,7 @@ const wollongongLocalContexts: Record<string, LocalPageContext> = {
     "North Wollongong apartment, student-area, beachside-home, cafe-shop and strata-access service area",
   ),
   otford: makeWollongongLocalContext(
-    "remote/coastal-bushland access, steep roads, storm faults, private service equipment, outdoor power and careful 90-minute response wording",
+    "remote/coastal-bushland access, steep roads, storm faults, private service equipment, outdoor power and careful 60–90-minute response wording",
     "Otford remote-coastal-bushland, steep-road, storm-fault and careful-response service area",
   ),
   "port-kembla": makeWollongongLocalContext(
@@ -12985,7 +12987,7 @@ const wingecarribeeLocalContexts: Record<string, LocalPageContext> = {
     plannedFocus:
       "outdoor power, private service equipment review, switchboards and careful access-sensitive quote work",
     propertyMix:
-      "rural/bushland-edge homes, long driveways, storm faults, private service equipment, outdoor power and careful 90-minute response wording",
+      "rural/bushland-edge homes, long driveways, storm faults, private service equipment, outdoor power and careful core-area response wording",
     setting:
       "Balmoral rural-bushland-edge, long-driveway, private-service-equipment and careful-response service area",
     switchboardFocus:
@@ -13794,7 +13796,7 @@ const centralCoastLocalContexts: Record<string, LocalPageContext> = {
     plannedFocus:
       "outdoor power, private service equipment review, switchboards and careful access-sensitive quote work",
     propertyMix:
-      "bushland/remote access, long driveways, outdoor power, storm faults, private service equipment and careful 90-minute response wording",
+      "bushland/remote access, long driveways, outdoor power, storm faults, private service equipment and careful 60–90-minute response wording",
     setting:
       "Mooney Mooney Creek bushland, remote-access, long-driveway and careful-response service area",
     switchboardFocus:

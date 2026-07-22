@@ -25,7 +25,7 @@ export function LeadOfferPanel({
   className = "",
   eyebrow = "Fast quote support",
   heading = "Send photos and job details for a clearer next action.",
-  intro = "Evaready Electrical helps with call-first emergency triage and planned electrical work across Sydney and surrounding regions, including core service areas and greater regions.",
+  intro = "Evaready Electrical helps with call-first emergency triage and planned electrical work across Sydney and surrounding regions, including core and selected outer service areas.",
   items = defaultItems,
   compact = false,
 }: LeadOfferPanelProps) {

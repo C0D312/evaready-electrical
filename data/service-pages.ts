@@ -191,10 +191,172 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
     ],
     relatedServices: [
+      "strata-electrician-sydney",
+      "property-management-electrician-sydney",
       "electrical-fault-finding-sydney",
       "switchboard-upgrades-sydney",
       "lighting-electrician-sydney",
       "power-point-installation-sydney",
+    ],
+  },
+  {
+    slug: "strata-electrician-sydney",
+    metaTitle: "Strata Electrician Sydney | Common Property Electrical Work",
+    metaDescription:
+      "Strata electrician in Sydney for common-property faults, lighting, switchboards, intercoms, access systems and planned maintenance enquiries.",
+    title: "Strata Electrician Sydney",
+    description:
+      "Electrical fault and maintenance support for strata managers, owners corporations, common areas and shared-access properties.",
+    intro:
+      "Strata electrical work often involves shared areas, access arrangements and more than one contact. Evaready Electrical can help with common-property faults, lighting, switchboards, intercom and access wiring, emergency lighting and planned electrical maintenance across Sydney and surrounding regions.",
+    audiences: [
+      "Strata managers",
+      "Owners corporations",
+      "Property managers",
+      "Apartment and townhouse complexes",
+    ],
+    heroBullets: [
+      "Common-area fault finding and repairs",
+      "Shared lighting and power",
+      "Switchboard and safety enquiries",
+      "Intercom, access and emergency lighting",
+    ],
+    warningSigns: [
+      "Common-area lighting or power has failed",
+      "A shared circuit or safety switch keeps tripping",
+      "Residents report heat, sparking or a burning smell",
+      "An intercom, gate or access system has lost electrical supply",
+    ],
+    services: [
+      "Common-area electrical fault finding",
+      "Hallway, car park and external lighting",
+      "Shared switchboard and circuit checks",
+      "Intercom and access-control electrical support",
+      "Emergency and exit lighting enquiries",
+      "Planned strata electrical maintenance",
+    ],
+    process: [
+      {
+        title: "Confirm the affected area",
+        text: "Share the building address, affected common area, access details and the best site contact.",
+      },
+      {
+        title: "Review photos and records",
+        text: "Send photos of the fitting, switchboard or access equipment, plus any work order or relevant notes.",
+      },
+      {
+        title: "Inspect the electrical issue",
+        text: "The affected circuit or equipment is checked before repair or upgrade options are confirmed.",
+      },
+      {
+        title: "Record the next action",
+        text: "Useful job notes and next actions can be provided for the strata contact or property manager.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Can Evaready work with strata managers and owners corporations?",
+        answer:
+          "Yes. Evaready can discuss common-property faults, lighting, switchboards, access systems and planned maintenance with the nominated strata contact.",
+      },
+      {
+        question: "What details help with a strata electrical quote?",
+        answer:
+          "Send the building address, affected area, access and parking notes, site contact, photos and any work order or previous electrical note.",
+      },
+      {
+        question: "What should residents do if a common-area fault feels unsafe?",
+        answer:
+          "Keep clear of the affected equipment and call first. If there is fire, smoke or an immediate threat to life, move to safety and call 000.",
+      },
+    ],
+    primaryCta: "quote",
+    relatedServices: [
+      "commercial-electrician-sydney",
+      "property-management-electrician-sydney",
+      "electrical-fault-finding-sydney",
+      "emergency-exit-lighting-sydney",
+      "intercom-access-control-electrician-sydney",
+    ],
+  },
+  {
+    slug: "property-management-electrician-sydney",
+    metaTitle: "Property Management Electrician Sydney | Rental Electrical Work",
+    metaDescription:
+      "Electrician for Sydney property managers and real estate agencies needing rental repairs, electrical faults, smoke alarms, inspections and maintenance.",
+    title: "Property Management Electrician Sydney",
+    description:
+      "Clear electrical support for property managers, real estate agencies, landlords and managed residential properties.",
+    intro:
+      "Managed-property electrical work needs the right address, access contact and job details before attendance. Evaready Electrical can help property managers, real estate agencies and landlords with urgent faults, planned repairs, smoke alarms, lighting, power points, switchboards and electrical inspection enquiries.",
+    audiences: [
+      "Property managers",
+      "Real estate agencies",
+      "Landlords",
+      "Managed homes, units and townhouses",
+    ],
+    heroBullets: [
+      "Tenant-reported electrical faults",
+      "Lighting, outlets and smoke alarms",
+      "Switchboard and safety enquiries",
+      "Photo, work-order and access coordination",
+    ],
+    warningSigns: [
+      "A tenant reports no power or repeated circuit tripping",
+      "An outlet, fitting or switchboard feels hot or smells burnt",
+      "Lighting, smoke alarms or fixed electrical equipment needs attention",
+      "A condition report identifies an electrical concern",
+    ],
+    services: [
+      "Electrical fault finding for managed properties",
+      "Power point and lighting repairs",
+      "Smoke alarm electrical support",
+      "Switchboard and safety-switch enquiries",
+      "Pre-purchase and rental inspection enquiries",
+      "Planned maintenance and repair quotes",
+    ],
+    process: [
+      {
+        title: "Send the work request",
+        text: "Provide the property address, issue summary, tenant or access contact and approval contact.",
+      },
+      {
+        title: "Add useful evidence",
+        text: "Photos, switchboard details, condition reports and previous notes help clarify the scope.",
+      },
+      {
+        title: "Separate urgent from planned",
+        text: "Unsafe faults start with a phone call. Planned repairs can move through the quote process.",
+      },
+      {
+        title: "Confirm the next action",
+        text: "The electrical issue, access requirements and practical next action are confirmed with the nominated contact.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Can Evaready take electrical enquiries from property managers?",
+        answer:
+          "Yes. Send the property address, job description, access contact, approval contact and any available photos or reports.",
+      },
+      {
+        question: "Can tenants contact Evaready about an unsafe electrical fault?",
+        answer:
+          "For an unsafe fault, call first and explain the property-management arrangement. Repair approval and access requirements may still need confirmation with the responsible contact.",
+      },
+      {
+        question: "Can I send a work order or condition report with the quote request?",
+        answer:
+          "Yes. Work orders, condition reports, switchboard photos and fault photos can help clarify the requested electrical work.",
+      },
+    ],
+    primaryCta: "quote",
+    relatedServices: [
+      "commercial-electrician-sydney",
+      "strata-electrician-sydney",
+      "pre-purchase-rental-electrical-inspections-sydney",
+      "smoke-alarm-electrician-sydney",
+      "electrical-fault-finding-sydney",
     ],
   },
   {
@@ -862,7 +1024,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     responseTrustProof: {
       items: [
         "60-minute emergency response in core service areas",
-        "90-minute emergency response for greater regions",
+        "60–90-minute emergency response in selected outer regions",
         "Ausgrid & Endeavour Energy Accredited Level 2 ASP",
         "Call first for urgent electrical faults",
         "Send photos and job details for planned work",
@@ -1006,7 +1168,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       heading: "Trusted air-conditioning electrical support without overclaiming.",
       items: [
         "60-minute emergency response in core service areas",
-        "90-minute emergency response for greater regions",
+        "60–90-minute emergency response in selected outer regions",
         "Ausgrid & Endeavour Energy Accredited Level 2 ASP",
         "Call first for urgent electrical faults",
         "Send photos and job details for planned work",

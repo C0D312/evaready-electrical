@@ -1,14 +1,14 @@
 # All-Routes Launch Sweep
 
-Date: 2026-06-19T04:48:45.668Z
+Date: 2026-07-22T06:55:19.732Z
 
 Final result: PASS
 
 ## Totals
 
-- Total generated routes checked: 1000
+- Total generated routes checked: 1004
 - Suburb pages checked: 873
-- Commercial routes checked: 995
+- Commercial routes checked: 999
 - Sitemap routes missing output: 0
 - Critical warning rows: 0
 
@@ -25,11 +25,12 @@ Final result: PASS
 - privacy policy: 1
 - region page: 16
 - robots: 1
-- service page: 44
+- service page: 47
 - service-area index: 1
 - services index: 1
 - site-version: 1
 - sitemap: 1
+- solar batteries page: 1
 - suburb page: 873
 - terms: 1
 

@@ -73,9 +73,13 @@ export function OfferCard({
           <Image
             src={assetPath(offer.image)}
             alt={offer.alt}
-            width={960}
-            height={720}
-            sizes="(max-width: 767px) 92vw, (max-width: 1279px) 45vw, 290px"
+            width={offer.imageWidth}
+            height={offer.imageHeight}
+            sizes={
+              variant === "compact"
+                ? "(max-width: 640px) 92vw, (max-width: 1180px) 45vw, 400px"
+                : "(max-width: 640px) 92vw, (max-width: 1180px) 45vw, 300px"
+            }
             loading="lazy"
             className="ev-offer-card__image"
           />

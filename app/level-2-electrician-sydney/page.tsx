@@ -313,7 +313,7 @@ function buildSchema() {
           "Point of attachment",
           "Supply-side electrical work",
           "60-minute emergency response in core service areas",
-          "90-minute emergency response for greater regions",
+          "60–90-minute emergency response in selected outer regions",
           "Level 2 electrical work",
         ],
         url: pageUrl,
@@ -412,13 +412,13 @@ export default function Level2ElectricianSydneyPage() {
 
             <p className="mt-4 max-w-2xl rounded-2xl border border-red-300/25 bg-red-500/10 p-4 text-sm font-bold leading-6 text-slate-100">
               Evaready provides 60-minute emergency response in core service
-              areas and 90-minute emergency response for greater regions. Call
-              first if a Level 2 issue involves unsafe service equipment,
-              damaged point of attachment, supply loss, storm damage, defect
-              notices with urgent deadlines or exposed service wiring. Timing
-              depends on location, access, traffic, safety conditions, job type
-              and current availability. Response times apply to emergency
-              electrical call-outs, not planned quote work.
+              areas and a 60–90-minute response window in selected outer
+              regions. Call first if a Level 2 issue involves unsafe service
+              equipment, damaged point of attachment, supply loss, storm
+              damage, defect notices with urgent deadlines or exposed service
+              wiring. Timing depends on location, access, traffic, safety
+              conditions, job type and current availability. Response times
+              apply to emergency electrical call-outs, not planned quote work.
             </p>
 
             <p className="mt-4 max-w-2xl text-sm font-semibold leading-6 text-slate-300">

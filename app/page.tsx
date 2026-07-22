@@ -118,7 +118,7 @@ const faqs = [
   {
     question: "Do you offer 24/7 emergency electrician call-outs?",
     answer:
-      "Yes. Call Evaready Electrical for power outages, circuit tripping, burning smells, sparking or other electrical issues that feel unsafe. For emergency call-outs, Evaready can be on site within 60 minutes in core service areas, with a 90-minute response for greater regions.",
+      "Yes. Call Evaready Electrical for power outages, circuit tripping, burning smells, sparking or other electrical issues that feel unsafe. For emergency call-outs, Evaready can be on site within 60 minutes in core service areas, with a 60–90-minute response window in selected outer regions.",
   },
   {
     question: "Can you help with Level 2 electrical work?",
@@ -143,7 +143,7 @@ export default function HomePage() {
     offerNames: featuredServices.map((service) => service.title),
     serviceTypes: [
       "60-minute emergency electrician response in core service areas",
-      "90-minute emergency response for greater regions",
+      "60–90-minute emergency response in selected outer regions",
       business.level2Asp.display,
       ...featuredServices.map((service) => service.title),
     ],
@@ -393,27 +393,6 @@ export default function HomePage() {
                 <p className="mt-4 max-w-[70ch] text-base leading-7 text-slate-300">{faq.answer}</p>
               </details>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="ev-storm-section py-14 sm:py-18" aria-labelledby="final-cta-heading">
-        <div className="ev-storm-panel ev-storm-panel--strong mx-auto grid max-w-6xl gap-6 rounded-lg border border-cyan-300/25 px-5 py-8 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-center">
-          <div>
-            <h2 id="final-cta-heading" className="text-3xl font-bold leading-tight text-white">
-              Need an electrician?
-            </h2>
-            <p className="mt-3 max-w-[64ch] text-base leading-7 text-slate-300">
-              Call for an urgent fault, or send the details of planned work through the quote form.
-            </p>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2 lg:min-w-[25rem]">
-            <a href={business.phoneHref} data-conversion-action="phone-click" aria-label={business.callCta} className="ev-btn ev-btn--call inline-flex min-h-12 items-center justify-center gap-2 rounded-lg px-5 py-3 font-bold text-white">
-              <Phone className="h-5 w-5" aria-hidden="true" /> Call Now
-            </a>
-            <a href={business.bookingUrl} data-quote-trigger="true" data-conversion-action="quote-click" aria-haspopup="dialog" aria-label="Request a quote from Evaready Electrical" className="ev-btn ev-btn--quote inline-flex min-h-12 items-center justify-center gap-2 rounded-lg px-5 py-3 font-bold text-white">
-              Request a Quote <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </a>
           </div>
         </div>
       </section>

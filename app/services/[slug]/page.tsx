@@ -82,6 +82,8 @@ function serviceHref(slug: string) {
 const finalCtaEyebrows: Record<string, string> = {
   "residential-electrician-sydney": "Need residential electrical work sorted?",
   "commercial-electrician-sydney": "Need commercial electrical support?",
+  "strata-electrician-sydney": "Need strata electrical support?",
+  "property-management-electrician-sydney": "Need help with a managed property?",
   "electrical-fault-finding-sydney": "Need an electrical fault checked?",
   "lighting-electrician-sydney": "Need lighting installed or repaired?",
   "power-point-installation-sydney": "Need power points installed or repaired?",
@@ -308,7 +310,7 @@ export default async function ServiceLandingPage({
         ? [
             business.level2Asp.display,
             "60-minute emergency attendance in core service areas",
-            "90-minute emergency attendance for greater regions",
+            "60–90-minute emergency attendance in selected outer regions",
           ]
         : []),
     ],
@@ -340,7 +342,7 @@ export default async function ServiceLandingPage({
           service.title,
           business.level2Asp.display,
           "60-minute emergency attendance in core service areas",
-          "90-minute emergency attendance for greater regions",
+          "60–90-minute emergency attendance in selected outer regions",
         ]
       : service.title,
     offerNames: service.services,
@@ -382,7 +384,7 @@ export default async function ServiceLandingPage({
       ? [
           business.level2Asp.display,
           "60-minute emergency response in core areas",
-          "90 minutes for greater regions",
+          "60–90 minutes in selected outer regions",
         ]
       : []),
     ...(service.credentialHighlights ?? []),
@@ -499,11 +501,12 @@ export default async function ServiceLandingPage({
               <p className="mt-5 max-w-3xl rounded-2xl border border-cyan-300/20 bg-cyan-300/10 p-4 text-sm font-bold leading-6 text-cyan-50">
                 {business.level2Asp.display}. Emergency supply-side call-outs
                 can be on site within 60 minutes in core service areas, with
-                90-minute emergency attendance for greater regions. Call first
-                for unsafe service equipment, damaged point of attachment,
-                overhead service concerns, consumer mains faults, private pole
-                damage or urgent defect notice deadlines. Network approvals and
-                distributor timing remain with the relevant parties.
+                a 60–90-minute response window in selected outer regions. Call
+                first for unsafe service equipment, damaged point of
+                attachment, overhead service concerns, consumer mains faults,
+                private pole damage or urgent defect notice deadlines. Network
+                approvals and distributor timing remain with the relevant
+                parties.
               </p>
             ) : null}
 

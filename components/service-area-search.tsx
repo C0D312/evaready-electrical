@@ -66,7 +66,7 @@ export function ServiceAreaSearch({ items }: ServiceAreaSearchProps) {
               const response = getEmergencyResponseForRegion(item.regionName);
               const responseLabel = response.isCore
                 ? `${response.minutes}-minute core emergency response`
-                : `${response.minutes}-minute greater-region emergency response`;
+                : `${response.shortDisplay} in selected outer regions`;
 
               return (
                 <Link

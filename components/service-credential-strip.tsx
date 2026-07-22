@@ -35,13 +35,13 @@ export const serviceCredentialPresets = {
   general: [
     { icon: ShieldCheck, title: "NSW Licensed", text: business.licence },
     { icon: Clock3, title: "60-Min Response", text: "Core emergencies", tone: "red" },
-    { icon: Clock3, title: "90-Min Response", text: "Greater regions" },
+    { icon: Clock3, title: "60–90-Min Response", text: "Selected outer regions" },
     { icon: Camera, title: "Booking Details & Photos", text: "Secure form" },
     { icon: BadgeCheck, title: "Safety-First Testing", text: "Checked clearly" },
   ],
   emergency: [
     { icon: Clock3, title: "60-Minute Response", text: "Core emergency areas", tone: "red" },
-    { icon: Clock3, title: "90-Minute Response", text: "Greater regions" },
+    { icon: Clock3, title: "60–90-Min Response", text: "Selected outer regions" },
     { icon: ShieldAlert, title: "Call First If Unsafe", text: "Smoke, heat or sparking", tone: "red" },
     { icon: ShieldCheck, title: `NSW Licence ${business.licence}`, text: "Licensed electrician" },
     { icon: Flame, title: "Urgent Fault Support", text: "Power loss & hazards", tone: "red" },
@@ -49,7 +49,7 @@ export const serviceCredentialPresets = {
   level2: [
     { icon: Zap, title: business.level2Asp.shortDisplay, text: "Ausgrid & Endeavour Energy" },
     { icon: Clock3, title: "60-Minute Emergency", text: "Core areas", tone: "red" },
-    { icon: Clock3, title: "90-Minute Emergency", text: "Greater regions" },
+    { icon: Clock3, title: "60–90-Min Emergency", text: "Selected outer regions" },
     { icon: Wrench, title: "Consumer Mains", text: "Repairs & upgrades" },
     {
       icon: ShieldAlert,
@@ -144,7 +144,7 @@ export function getSuburbCredentialItems(
   const response = regionName
     ? getEmergencyResponseForRegion(regionName)
     : {
-        badgeTitle: "60/90-Min Response",
+        badgeTitle: "60–90-Min Response",
         badgeText: "Emergency call-outs",
       };
 
