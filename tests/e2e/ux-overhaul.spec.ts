@@ -125,6 +125,46 @@ test("homepage service tiles use the full card as one accessible link", async ({
   );
 });
 
+test("response guidance region chips link to every matching region page", async ({
+  page,
+}) => {
+  await page.goto("service-areas/", { waitUntil: "domcontentloaded" });
+
+  const regionLinks = page.locator("[data-response-region-link]");
+  await expect(regionLinks).toHaveCount(16);
+
+  const linkDetails = await regionLinks.evaluateAll((elements) =>
+    elements.map((element) => ({
+      height: element.getBoundingClientRect().height,
+      href: element.getAttribute("href"),
+      tagName: element.tagName,
+    })),
+  );
+
+  expect(linkDetails.every(({ tagName }) => tagName === "A")).toBe(true);
+  expect(linkDetails.every(({ height }) => height >= 44)).toBe(true);
+  expect(new Set(linkDetails.map(({ href }) => href)).size).toBe(16);
+  expect(
+    linkDetails.every(({ href }) =>
+      /^\/(?:evaready-electrical\/)?service-areas\/[^/]+\/?$/.test(
+        href ?? "",
+      ),
+    ),
+  ).toBe(true);
+
+  const northernBeaches = page.locator(
+    '[data-response-region-link="northern-beaches"]',
+  );
+  await expect(northernBeaches).toHaveAttribute(
+    "href",
+    /\/service-areas\/northern-beaches\/?$/,
+  );
+  await northernBeaches.click();
+  await expect.poll(() => new URL(page.url()).pathname).toMatch(
+    /\/service-areas\/northern-beaches\/?$/,
+  );
+});
+
 test("desktop navigation exposes every restored destination and compact contact actions", async ({
   page,
 }, testInfo) => {

@@ -132,16 +132,36 @@ const serviceIntentShortcuts = [
 
 export const metadata: Metadata = toMetadata(serviceAreaIndexSeoMetadata());
 
+function getResponseRegionLinks(regionNames: readonly string[]) {
+  return regionNames.map((name) => {
+    const region = coverageRegions.find((item) => item.name === name);
+
+    if (!region) {
+      throw new Error(`Missing service-area route for response region: ${name}`);
+    }
+
+    return {
+      href: `/service-areas/${region.slug}`,
+      name: region.name,
+      slug: region.slug,
+    };
+  });
+}
+
 export default function AreasPage() {
   const responseRegionGroups = [
     {
       heading: `Core emergency areas - ${business.emergencyResponse.coreMinutes}-minute emergency response`,
-      regions: business.emergencyResponseRegions.core,
+      regions: getResponseRegionLinks(
+        business.emergencyResponseRegions.core,
+      ),
       tone: "core",
     },
     {
       heading: "Selected outer regions - 60–90-minute emergency response",
-      regions: business.emergencyResponseRegions.greater,
+      regions: getResponseRegionLinks(
+        business.emergencyResponseRegions.greater,
+      ),
       tone: "greater",
     },
   ];
@@ -357,16 +377,19 @@ export default function AreasPage() {
                 </p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {group.regions.map((region) => (
-                    <span
-                      key={region}
+                    <Link
+                      key={region.slug}
+                      href={region.href}
+                      aria-label={`View ${region.name} service area`}
+                      data-response-region-link={region.slug}
                       className={
                         group.tone === "core"
-                          ? "rounded-full border border-red-300/25 bg-red-500/10 px-3 py-1 text-xs font-bold leading-5 text-red-50"
-                          : "rounded-full border border-cyan-300/25 bg-cyan-400/10 px-3 py-1 text-xs font-bold leading-5 text-cyan-50"
+                          ? "inline-flex min-h-11 items-center justify-center rounded-full border border-red-300/25 bg-red-500/10 px-3 py-2 text-center text-xs font-bold leading-5 text-red-50 transition hover:border-red-200 hover:bg-red-500/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-200"
+                          : "inline-flex min-h-11 items-center justify-center rounded-full border border-cyan-300/25 bg-cyan-400/10 px-3 py-2 text-center text-xs font-bold leading-5 text-cyan-50 transition hover:border-cyan-200 hover:bg-cyan-400/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
                       }
                     >
-                      {region}
-                    </span>
+                      {region.name}
+                    </Link>
                   ))}
                 </div>
               </section>
