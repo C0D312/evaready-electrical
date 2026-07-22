@@ -1,3 +1,3 @@
 :HL["/evaready-electrical/_next/static/chunks/0xptujrilf~y1.css","style"]
 :HL["/evaready-electrical/_next/static/chunks/04_78k~ljmiui.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"services","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"electric-shock-electrician-sydney","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"XNaAMTFwIcYuUFpKVvxXK"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"services","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"electric-shock-electrician-sydney","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"oewz-Z2bpIVS-4eIzPz6L"}
