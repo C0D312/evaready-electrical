@@ -231,6 +231,77 @@ test("quote dialog is accessible, keeps the form clear and restores trigger focu
   await expect.poll(() => isFocused(page, ".home-hero-copy-panel [data-quote-trigger='true']")).toBe(true);
 });
 
+test("mobile browser Back closes only the quote dialog and restores page scrolling", async ({
+  page,
+}, testInfo) => {
+  test.skip(!testInfo.project.name.startsWith("mobile-"), "Mobile history and scroll-lock check.");
+
+  await page.goto("./", { waitUntil: "domcontentloaded" });
+  await page.goto("services/", { waitUntil: "domcontentloaded" });
+  await page.waitForLoadState("networkidle").catch(() => undefined);
+  await page.evaluate(() => window.scrollTo(0, 600));
+  const initialScrollY = await page.evaluate(() => window.scrollY);
+  const routeBeforeModal = new URL(page.url()).pathname;
+
+  await page.getByRole("button", { name: "Open navigation menu" }).click();
+  const mobileNav = page.getByRole("navigation", { name: "Mobile navigation" });
+  await expect(mobileNav).toBeVisible();
+  await mobileNav.locator('[data-quote-trigger="true"]').click();
+
+  const dialog = page.getByRole("dialog", { name: "Request a quote" });
+  await expect(dialog).toBeVisible();
+  await expect(mobileNav).toHaveCount(0);
+  await expect(page.locator("body")).toHaveClass(/quote-modal-open/);
+  expect(await page.evaluate(() => window.history.state?.quoteModal)).toBe(true);
+
+  await page.goBack();
+
+  await expect(dialog).toHaveCount(0);
+  await expect.poll(() => new URL(page.url()).pathname).toBe(routeBeforeModal);
+  await expect.poll(() => page.evaluate(() => window.history.state?.quoteModal === true)).toBe(false);
+  await expect.poll(() => page.evaluate(() => ({
+    bodyOverflow: document.body.style.overflow,
+    bodyPosition: document.body.style.position,
+    hasMenuLock: document.body.classList.contains("mobile-menu-open"),
+    hasQuoteLock: document.body.classList.contains("quote-modal-open"),
+    htmlOverflow: document.documentElement.style.overflow,
+  }))).toEqual({
+    bodyOverflow: "",
+    bodyPosition: "",
+    hasMenuLock: false,
+    hasQuoteLock: false,
+    htmlOverflow: "",
+  });
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(initialScrollY);
+
+  await page.evaluate(() => window.scrollBy(0, 240));
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(initialScrollY);
+  const stickyScrollY = await page.evaluate(() => window.scrollY);
+
+  const stickyQuote = page.locator(
+    '.mobile-sticky-cta [data-quote-trigger="true"]',
+  );
+  await expect(stickyQuote).toBeVisible();
+  await stickyQuote.click();
+  await expect(dialog).toBeVisible();
+  await page.goBack();
+  await expect(dialog).toHaveCount(0);
+  await expect.poll(() => new URL(page.url()).pathname).toBe(routeBeforeModal);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(stickyScrollY);
+  await expect.poll(() => page.evaluate(() => ({
+    bodyOverflow: document.body.style.overflow,
+    bodyPosition: document.body.style.position,
+    htmlOverflow: document.documentElement.style.overflow,
+  }))).toEqual({
+    bodyOverflow: "",
+    bodyPosition: "",
+    htmlOverflow: "",
+  });
+
+  await page.goBack({ waitUntil: "domcontentloaded" });
+  await expect.poll(() => new URL(page.url()).pathname).not.toBe(routeBeforeModal);
+});
+
 test("skip link, FAQ keyboard control and mobile sticky/footer spacing work", async ({ page }) => {
   await page.goto("./", { waitUntil: "domcontentloaded" });
 

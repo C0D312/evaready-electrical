@@ -28,9 +28,51 @@ export function QuoteFormModal() {
   const openRef = useRef(false);
   const modalHistoryPushedRef = useRef(false);
   const resolvingHistoryCloseRef = useRef(false);
+  const pendingOpenTimerRef = useRef<number | null>(null);
+
+  const releaseScrollLock = useCallback(() => {
+    const locked = scrollLockRef.current;
+    scrollLockRef.current = null;
+
+    if (!locked || typeof window === "undefined") {
+      return;
+    }
+
+    const html = document.documentElement;
+    const body = document.body;
+
+    html.style.overflow = locked.htmlOverflow;
+    html.style.scrollBehavior = "auto";
+    html.style.removeProperty("--quote-modal-vh");
+    body.classList.remove("quote-modal-open");
+    body.style.overflow = locked.bodyOverflow;
+    body.style.paddingRight = locked.bodyPaddingRight;
+    body.style.position = locked.bodyPosition;
+    body.style.top = locked.bodyTop;
+    body.style.left = locked.bodyLeft;
+    body.style.right = locked.bodyRight;
+    body.style.width = locked.bodyWidth;
+    window.scrollTo(locked.scrollX, locked.scrollY);
+
+    if (openerRef.current?.isConnected) {
+      openerRef.current.focus({ preventScroll: true });
+    }
+
+    window.requestAnimationFrame(() => {
+      window.scrollTo(locked.scrollX, locked.scrollY);
+      html.style.scrollBehavior = locked.htmlScrollBehavior;
+    });
+  }, []);
+
+  const finishClose = useCallback(() => {
+    openRef.current = false;
+    modalHistoryPushedRef.current = false;
+    setOpen(false);
+    releaseScrollLock();
+  }, [releaseScrollLock]);
 
   const close = useCallback((syncHistory = true) => {
-    if (!openRef.current) {
+    if (!openRef.current && !scrollLockRef.current) {
       return;
     }
 
@@ -40,9 +82,7 @@ export function QuoteFormModal() {
       typeof window !== "undefined" &&
       window.history.state?.quoteModal === true;
 
-    openRef.current = false;
-    modalHistoryPushedRef.current = false;
-    setOpen(false);
+    finishClose();
 
     if (shouldStepBack) {
       resolvingHistoryCloseRef.current = true;
@@ -51,7 +91,7 @@ export function QuoteFormModal() {
         resolvingHistoryCloseRef.current = false;
       }, 500);
     }
-  }, []);
+  }, [finishClose]);
 
   const openModal = useCallback((opener: HTMLElement) => {
     if (openRef.current) {
@@ -112,13 +152,35 @@ export function QuoteFormModal() {
       }
 
       event.preventDefault();
+      const mobileMenuTrigger = document.querySelector<HTMLElement>(
+        '[aria-controls="mobile-site-menu"]',
+      );
+
+      if (link.closest("#mobile-site-menu")) {
+        if (pendingOpenTimerRef.current !== null) {
+          window.clearTimeout(pendingOpenTimerRef.current);
+        }
+
+        pendingOpenTimerRef.current = window.setTimeout(() => {
+          pendingOpenTimerRef.current = null;
+          openModal(
+            mobileMenuTrigger?.isConnected ? mobileMenuTrigger : link,
+          );
+        }, 0);
+        return;
+      }
+
       openModal(link);
     }
 
-    document.addEventListener("click", handleClick, true);
+    document.addEventListener("click", handleClick);
 
     return () => {
-      document.removeEventListener("click", handleClick, true);
+      document.removeEventListener("click", handleClick);
+      if (pendingOpenTimerRef.current !== null) {
+        window.clearTimeout(pendingOpenTimerRef.current);
+        pendingOpenTimerRef.current = null;
+      }
     };
   }, [openModal]);
 
@@ -135,13 +197,11 @@ export function QuoteFormModal() {
         return;
       }
 
-      if (!openRef.current) {
+      if (!openRef.current && !scrollLockRef.current) {
         return;
       }
 
-      modalHistoryPushedRef.current = false;
-      openRef.current = false;
-      setOpen(false);
+      finishClose();
     }
 
     window.addEventListener("popstate", closeOnPopState);
@@ -149,7 +209,7 @@ export function QuoteFormModal() {
     return () => {
       window.removeEventListener("popstate", closeOnPopState);
     };
-  }, [open]);
+  }, [finishClose, open]);
 
   useEffect(() => {
     if (!open) {
@@ -243,36 +303,9 @@ export function QuoteFormModal() {
       window.removeEventListener("resize", syncViewportHeight);
       window.visualViewport?.removeEventListener("resize", syncViewportHeight);
       window.visualViewport?.removeEventListener("scroll", syncViewportHeight);
-      const locked = scrollLockRef.current;
-      scrollLockRef.current = null;
-
-      if (!locked) {
-        return;
-      }
-
-      html.style.overflow = locked.htmlOverflow;
-      html.style.scrollBehavior = "auto";
-      html.style.removeProperty("--quote-modal-vh");
-      body.classList.remove("quote-modal-open");
-      body.style.overflow = locked.bodyOverflow;
-      body.style.paddingRight = locked.bodyPaddingRight;
-      body.style.position = locked.bodyPosition;
-      body.style.top = locked.bodyTop;
-      body.style.left = locked.bodyLeft;
-      body.style.right = locked.bodyRight;
-      body.style.width = locked.bodyWidth;
-      window.scrollTo(locked.scrollX, locked.scrollY);
-
-      if (openerRef.current?.isConnected) {
-        openerRef.current.focus({ preventScroll: true });
-      }
-
-      window.requestAnimationFrame(() => {
-        window.scrollTo(locked.scrollX, locked.scrollY);
-        html.style.scrollBehavior = locked.htmlScrollBehavior;
-      });
+      releaseScrollLock();
     };
-  }, [close, open]);
+  }, [close, open, releaseScrollLock]);
 
   if (!open) {
     return null;
