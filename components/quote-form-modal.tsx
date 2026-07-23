@@ -27,8 +27,18 @@ export function QuoteFormModal() {
   const scrollLockRef = useRef<ScrollLockSnapshot | null>(null);
   const openRef = useRef(false);
   const modalHistoryPushedRef = useRef(false);
-  const resolvingHistoryCloseRef = useRef(false);
+  const historyCloseFallbackRef = useRef<number | null>(null);
   const pendingOpenTimerRef = useRef<number | null>(null);
+
+  const removeQuoteModalHistoryMarker = useCallback(() => {
+    if (window.history.state?.quoteModal !== true) {
+      return;
+    }
+
+    const nextState = { ...window.history.state };
+    delete nextState.quoteModal;
+    window.history.replaceState(nextState, "", window.location.href);
+  }, []);
 
   const releaseScrollLock = useCallback(() => {
     const locked = scrollLockRef.current;
@@ -65,6 +75,11 @@ export function QuoteFormModal() {
   }, []);
 
   const finishClose = useCallback(() => {
+    if (historyCloseFallbackRef.current !== null) {
+      window.clearTimeout(historyCloseFallbackRef.current);
+      historyCloseFallbackRef.current = null;
+    }
+
     openRef.current = false;
     modalHistoryPushedRef.current = false;
     setOpen(false);
@@ -82,16 +97,18 @@ export function QuoteFormModal() {
       typeof window !== "undefined" &&
       window.history.state?.quoteModal === true;
 
-    finishClose();
-
     if (shouldStepBack) {
-      resolvingHistoryCloseRef.current = true;
+      historyCloseFallbackRef.current = window.setTimeout(() => {
+        historyCloseFallbackRef.current = null;
+        removeQuoteModalHistoryMarker();
+        finishClose();
+      }, 300);
       window.history.back();
-      window.setTimeout(() => {
-        resolvingHistoryCloseRef.current = false;
-      }, 500);
+      return;
     }
-  }, [finishClose]);
+
+    finishClose();
+  }, [finishClose, removeQuoteModalHistoryMarker]);
 
   const openModal = useCallback((opener: HTMLElement) => {
     if (openRef.current) {
@@ -185,18 +202,11 @@ export function QuoteFormModal() {
   }, [openModal]);
 
   useEffect(() => {
-    if (!open) {
-      return;
+    if (!openRef.current) {
+      removeQuoteModalHistoryMarker();
     }
 
-    openRef.current = true;
-
     function closeOnPopState() {
-      if (resolvingHistoryCloseRef.current) {
-        resolvingHistoryCloseRef.current = false;
-        return;
-      }
-
       if (!openRef.current && !scrollLockRef.current) {
         return;
       }
@@ -208,8 +218,12 @@ export function QuoteFormModal() {
 
     return () => {
       window.removeEventListener("popstate", closeOnPopState);
+      if (historyCloseFallbackRef.current !== null) {
+        window.clearTimeout(historyCloseFallbackRef.current);
+        historyCloseFallbackRef.current = null;
+      }
     };
-  }, [finishClose, open]);
+  }, [finishClose, removeQuoteModalHistoryMarker]);
 
   useEffect(() => {
     if (!open) {

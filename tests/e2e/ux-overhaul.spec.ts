@@ -403,6 +403,23 @@ test("mobile browser Back closes only the quote dialog and restores page scrolli
   await expect(stickyQuote).toBeVisible();
   await stickyQuote.click();
   await expect(dialog).toBeVisible();
+  await dialog.getByRole("button", { name: "Close quote form" }).last().click();
+  await expect(dialog).toHaveCount(0);
+  await expect.poll(() => new URL(page.url()).pathname).toBe(routeBeforeModal);
+  await expect.poll(() => page.evaluate(() => window.history.state?.quoteModal === true)).toBe(false);
+  await expect.poll(() => page.evaluate(() => ({
+    bodyOverflow: document.body.style.overflow,
+    bodyPosition: document.body.style.position,
+    htmlOverflow: document.documentElement.style.overflow,
+  }))).toEqual({
+    bodyOverflow: "",
+    bodyPosition: "",
+    htmlOverflow: "",
+  });
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(stickyScrollY);
+
+  await stickyQuote.click();
+  await expect(dialog).toBeVisible();
   await page.goBack();
   await expect(dialog).toHaveCount(0);
   await expect.poll(() => new URL(page.url()).pathname).toBe(routeBeforeModal);
