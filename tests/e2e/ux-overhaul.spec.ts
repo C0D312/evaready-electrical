@@ -325,6 +325,71 @@ test("mobile menu traps the page, closes with Escape and restores focus", async 
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(initialScrollY);
 });
 
+test("mobile browser Back closes only the menu and preserves the current route", async ({
+  page,
+}, testInfo) => {
+  test.skip(!testInfo.project.name.startsWith("mobile-"), "Mobile navigation history check.");
+
+  await page.goto("./", { waitUntil: "domcontentloaded" });
+  await page.waitForLoadState("networkidle").catch(() => undefined);
+  await page.evaluate(() => window.scrollTo(0, 420));
+  const homeRoute = new URL(page.url()).pathname;
+  const homeScrollY = await page.evaluate(() => window.scrollY);
+  const trigger = page.getByRole("button", { name: "Open navigation menu" });
+
+  await trigger.click();
+  const mobileNav = page.getByRole("navigation", { name: "Mobile navigation" });
+  await expect(mobileNav).toBeVisible();
+  expect(await page.evaluate(() => window.history.state?.mobileMenu)).toBe(true);
+
+  await page.goBack();
+
+  await expect(mobileNav).toHaveCount(0);
+  await expect.poll(() => new URL(page.url()).pathname).toBe(homeRoute);
+  await expect.poll(() => page.evaluate(() => window.history.state?.mobileMenu === true)).toBe(false);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(homeScrollY);
+
+  await page.getByRole("button", { name: "Open navigation menu" }).click();
+  await expect(mobileNav).toBeVisible();
+  await mobileNav
+    .getByRole("link", { name: "Electrical Services", exact: true })
+    .click();
+  await expect.poll(() => new URL(page.url()).pathname).toMatch(
+    /\/services\/?$/,
+  );
+  const servicesRoute = new URL(page.url()).pathname;
+
+  await page.getByRole("button", { name: "Open navigation menu" }).click();
+  await expect(mobileNav).toBeVisible();
+  expect(await page.evaluate(() => window.history.state?.mobileMenu)).toBe(true);
+
+  await page.goBack();
+
+  await expect(mobileNav).toHaveCount(0);
+  await expect.poll(() => new URL(page.url()).pathname).toBe(servicesRoute);
+  await expect.poll(() => page.evaluate(() => ({
+    bodyOverflow: document.body.style.overflow,
+    bodyPosition: document.body.style.position,
+    hasMenuLock: document.body.classList.contains("mobile-menu-open"),
+    htmlOverflow: document.documentElement.style.overflow,
+  }))).toEqual({
+    bodyOverflow: "",
+    bodyPosition: "",
+    hasMenuLock: false,
+    htmlOverflow: "",
+  });
+
+  await page.getByRole("button", { name: "Open navigation menu" }).click();
+  await expect(mobileNav).toBeVisible();
+  await mobileNav.getByRole("button", { name: "Close menu" }).click();
+  await expect(mobileNav).toHaveCount(0);
+  await expect.poll(() => new URL(page.url()).pathname).toBe(servicesRoute);
+  await expect.poll(() => page.evaluate(() => window.history.state?.mobileMenu === true)).toBe(false);
+
+  await page.goBack({ waitUntil: "domcontentloaded" });
+  await expect.poll(() => new URL(page.url()).pathname).toBe(homeRoute);
+});
+
 test("quote dialog is accessible, keeps the form clear and restores trigger focus", async ({ page }) => {
   await page.goto("./", { waitUntil: "domcontentloaded" });
   await page.waitForLoadState("networkidle").catch(() => undefined);

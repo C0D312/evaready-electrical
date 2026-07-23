@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import {
   ArrowRight,
@@ -115,11 +115,107 @@ export function MobilePrimaryNav() {
     useState<ServiceNavigationMenuId | null>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLElement>(null);
+  const openRef = useRef(false);
+  const menuHistoryPushedRef = useRef(false);
+  const historyCloseFallbackRef = useRef<number | null>(null);
 
-  function closeMenu() {
+  const removeMobileMenuHistoryMarker = useCallback(() => {
+    if (window.history.state?.mobileMenu !== true) {
+      return;
+    }
+
+    const nextState = { ...window.history.state };
+    delete nextState.mobileMenu;
+    window.history.replaceState(nextState, "", window.location.href);
+  }, []);
+
+  const finishClose = useCallback(() => {
+    if (historyCloseFallbackRef.current !== null) {
+      window.clearTimeout(historyCloseFallbackRef.current);
+      historyCloseFallbackRef.current = null;
+    }
+
+    openRef.current = false;
+    menuHistoryPushedRef.current = false;
     setOpen(false);
     setOpenGroup(null);
-  }
+  }, []);
+
+  const closeMenu = useCallback(
+    (syncHistory = true) => {
+      if (!openRef.current) {
+        return;
+      }
+
+      const shouldStepBack =
+        syncHistory &&
+        menuHistoryPushedRef.current &&
+        window.history.state?.mobileMenu === true;
+
+      if (shouldStepBack) {
+        historyCloseFallbackRef.current = window.setTimeout(() => {
+          historyCloseFallbackRef.current = null;
+          removeMobileMenuHistoryMarker();
+          finishClose();
+        }, 300);
+        window.history.back();
+        return;
+      }
+
+      if (!syncHistory) {
+        removeMobileMenuHistoryMarker();
+      }
+      finishClose();
+    },
+    [finishClose, removeMobileMenuHistoryMarker],
+  );
+
+  const openMenu = useCallback(() => {
+    if (openRef.current) {
+      return;
+    }
+
+    if (window.history.state?.mobileMenu !== true) {
+      const currentState =
+        window.history.state && typeof window.history.state === "object"
+          ? window.history.state
+          : {};
+
+      window.history.pushState(
+        { ...currentState, mobileMenu: true },
+        "",
+        window.location.href,
+      );
+    }
+
+    menuHistoryPushedRef.current = true;
+    openRef.current = true;
+    setOpen(true);
+  }, []);
+
+  useEffect(() => {
+    if (!openRef.current) {
+      removeMobileMenuHistoryMarker();
+    }
+
+    function closeOnPopState() {
+      if (!openRef.current) {
+        return;
+      }
+
+      finishClose();
+    }
+
+    window.addEventListener("popstate", closeOnPopState);
+
+    return () => {
+      window.removeEventListener("popstate", closeOnPopState);
+      if (historyCloseFallbackRef.current !== null) {
+        window.clearTimeout(historyCloseFallbackRef.current);
+        historyCloseFallbackRef.current = null;
+      }
+    };
+  }, [finishClose, removeMobileMenuHistoryMarker]);
 
   useEffect(() => {
     if (!open) {
@@ -158,8 +254,7 @@ export function MobilePrimaryNav() {
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
-        setOpen(false);
-        setOpenGroup(null);
+        closeMenu();
         return;
       }
 
@@ -222,7 +317,7 @@ export function MobilePrimaryNav() {
         html.style.scrollBehavior = snapshot.htmlScrollBehavior;
       });
     };
-  }, [open]);
+  }, [closeMenu, open]);
 
   const menuOverlay = open ? (
     <div className="mobile-site-menu-overlay fixed inset-0 z-[90]">
@@ -230,7 +325,7 @@ export function MobilePrimaryNav() {
         type="button"
         aria-label="Close navigation menu"
         className="absolute inset-0 bg-[#061E72]/55"
-        onClick={closeMenu}
+        onClick={() => closeMenu()}
       />
 
       <nav
@@ -249,7 +344,7 @@ export function MobilePrimaryNav() {
             type="button"
             aria-label="Close menu"
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-cyan-300/25 bg-cyan-300/10 text-cyan-50"
-            onClick={closeMenu}
+            onClick={() => closeMenu()}
           >
             <X className="h-5 w-5" />
           </button>
@@ -301,7 +396,8 @@ export function MobilePrimaryNav() {
                   <div className="mobile-service-nav-group__primary">
                     <Link
                       href={item.href}
-                      onClick={closeMenu}
+                      replace
+                      onClick={() => closeMenu(false)}
                       className="mobile-service-nav-group__overview"
                       aria-current={overviewIsCurrent ? "page" : undefined}
                     >
@@ -349,7 +445,8 @@ export function MobilePrimaryNav() {
                                 <Link
                                   key={link.href}
                                   href={link.href}
-                                  onClick={closeMenu}
+                                  replace
+                                  onClick={() => closeMenu(false)}
                                   aria-current={
                                     linkIsCurrent ? "page" : undefined
                                   }
@@ -375,7 +472,8 @@ export function MobilePrimaryNav() {
             return item.href === "/" ? (
               <HomeNavigationLink
                 key={item.href}
-                onClick={closeMenu}
+                replace
+                onClick={() => closeMenu(false)}
                 className={className}
                 aria-current={current ? "page" : undefined}
               >
@@ -385,7 +483,8 @@ export function MobilePrimaryNav() {
               <Link
                 key={item.href}
                 href={item.href}
-                onClick={closeMenu}
+                replace
+                onClick={() => closeMenu(false)}
                 className={className}
                 aria-current={current ? "page" : undefined}
               >
@@ -400,7 +499,7 @@ export function MobilePrimaryNav() {
             href={business.phoneHref}
             data-conversion-action="phone-click"
             aria-label={business.callCta}
-            onClick={closeMenu}
+            onClick={() => closeMenu()}
             className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-red-600/20"
           >
             <Phone className="h-4 w-4" />
@@ -414,7 +513,7 @@ export function MobilePrimaryNav() {
             data-conversion-action="quote-click"
             aria-haspopup="dialog"
             aria-label="Get a quote from Evaready Electrical"
-            onClick={closeMenu}
+            onClick={() => closeMenu()}
             className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-blue-700/20"
           >
             {business.quoteCta}
@@ -437,7 +536,7 @@ export function MobilePrimaryNav() {
           if (open) {
             closeMenu();
           } else {
-            setOpen(true);
+            openMenu();
           }
         }}
         className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-blue-200 bg-white text-blue-800 shadow-lg shadow-blue-700/10 transition hover:bg-blue-50 sm:h-11 sm:w-11"
