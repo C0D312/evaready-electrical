@@ -99,6 +99,47 @@ test("homepage uses the approved H1 and a seamless reduced-motion-safe service s
   await expect(track).toHaveCSS("animation-name", "none");
 });
 
+test("wide desktop header keeps the complete banner artwork visible", async ({
+  page,
+}, testInfo) => {
+  test.skip(
+    !testInfo.project.name.startsWith("desktop-"),
+    "Wide banner regression check.",
+  );
+
+  for (const viewport of [
+    { width: 1440, height: 900, expectedBannerHeight: 150 },
+    { width: 1920, height: 1080, expectedBannerHeight: 200 },
+    { width: 2560, height: 1440, expectedBannerHeight: 267 },
+  ]) {
+    await page.setViewportSize(viewport);
+    await page.goto("./", { waitUntil: "domcontentloaded" });
+
+    const bannerLayout = await page.locator(".ev-final-header-art").evaluate((banner) => {
+      const image = banner.querySelector<HTMLImageElement>(".ev-final-header-image");
+      const bannerBox = banner.getBoundingClientRect();
+      const imageBox = image?.getBoundingClientRect();
+
+      return {
+        bannerHeight: bannerBox.height,
+        bannerWidth: bannerBox.width,
+        imageHeight: imageBox?.height ?? 0,
+        imageWidth: imageBox?.width ?? 0,
+        objectFit: image ? getComputedStyle(image).objectFit : "",
+        overflow:
+          document.documentElement.scrollWidth -
+          document.documentElement.clientWidth,
+      };
+    });
+
+    expect(bannerLayout.objectFit).toBe("fill");
+    expect(Math.abs(bannerLayout.bannerHeight - viewport.expectedBannerHeight)).toBeLessThanOrEqual(1);
+    expect(Math.abs(bannerLayout.imageHeight - bannerLayout.bannerHeight)).toBeLessThanOrEqual(1);
+    expect(Math.abs(bannerLayout.imageWidth - bannerLayout.bannerWidth)).toBeLessThanOrEqual(1);
+    expect(bannerLayout.overflow).toBeLessThanOrEqual(1);
+  }
+});
+
 test("homepage service tiles use the full card as one accessible link", async ({
   page,
 }) => {

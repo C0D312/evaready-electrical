@@ -28,13 +28,14 @@
 
 @media (min-width: 1024px) {
   :root {
-    --ev-final-header-art-height: clamp(100px, 9vw, 170px);
+    /* Match the active 2400x250 desktop artwork so its lower edge is not cropped. */
+    --ev-final-header-art-height: clamp(107px, 10.4167vw, 200px);
   }
 }
 
 @media (min-width: 1920px) {
   :root {
-    --ev-final-header-art-height: clamp(170px, 8vw, 220px);
+    --ev-final-header-art-height: clamp(200px, 10.4167vw, 267px);
   }
 }
 
@@ -97,8 +98,8 @@ header.ev-final-header .ev-final-header-image {
 
 @media (min-width: 1024px) {
   header.ev-final-header .ev-final-header-image {
-    object-fit: cover !important;
-    object-position: center top !important;
+    object-fit: fill !important;
+    object-position: center center !important;
   }
 }
 
