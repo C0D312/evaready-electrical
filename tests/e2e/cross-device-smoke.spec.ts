@@ -10,6 +10,7 @@ type RouteCheck = {
   screenshot?: boolean;
   expects?: string[];
   suburb?: boolean;
+  ratingProof?: boolean;
 };
 
 const staleText = [
@@ -80,7 +81,28 @@ const routes: RouteCheck[] = [
     commercial: true,
   },
   { path: "/services/switchboard-upgrades-sydney/", name: "switchboard", kind: "html", commercial: true },
+  {
+    path: "/electrical-faults/no-power-to-house/",
+    name: "no-power-fault",
+    kind: "html",
+    commercial: true,
+    ratingProof: false,
+  },
   { path: "/service-areas/", name: "service-areas", kind: "html", commercial: true, screenshot: true },
+  {
+    path: "/service-areas/canterbury-bankstown-and-inner-south-west/",
+    name: "canterbury-bankstown-region",
+    kind: "html",
+    commercial: true,
+    ratingProof: false,
+  },
+  {
+    path: "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/",
+    name: "canterbury-bankstown-area",
+    kind: "html",
+    commercial: true,
+    ratingProof: false,
+  },
   {
     path: "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
     name: "panania-suburb",
@@ -104,6 +126,15 @@ const routes: RouteCheck[] = [
     commercial: true,
     suburb: true,
   },
+  { path: "/about/", name: "about", kind: "html", commercial: true },
+  { path: "/contact/", name: "contact", kind: "html", commercial: true, ratingProof: false },
+  {
+    path: "/solar-batteries/",
+    name: "solar-batteries",
+    kind: "html",
+    commercial: true,
+    ratingProof: false,
+  },
   { path: "/privacy-policy/", name: "privacy", kind: "html", commercial: false, screenshot: true, expects: ["Who we are"] },
   { path: "/terms/", name: "terms", kind: "html", commercial: false, screenshot: true, expects: ["Terms of Use"] },
   { path: "/sitemap.xml", name: "sitemap", kind: "xml" },
@@ -112,6 +143,9 @@ const routes: RouteCheck[] = [
 ];
 
 const screenshotDir = join(process.cwd(), "reports", "cross-browser-screenshots");
+const testedSiteOrigin = new URL(
+  process.env.PLAYWRIGHT_BASE_URL ?? "https://evareadyelectrical.com.au/",
+).origin;
 
 test("live site route matrix has no critical browser/device regressions", async ({ page }, testInfo) => {
   test.setTimeout(240_000);
@@ -136,7 +170,7 @@ test("live site route matrix has no critical browser/device regressions", async 
 
     const responseHandler = (response: Response) => {
       const type = response.request().resourceType();
-      const sameSite = response.url().startsWith("https://c0d312.github.io/evaready-electrical");
+      const sameSite = new URL(response.url()).origin === testedSiteOrigin;
       if (sameSite && ["stylesheet", "script", "image", "font"].includes(type) && response.status() >= 400) {
         failedAssets.push(`${response.status()} ${type} ${response.url()}`);
       }
@@ -189,6 +223,42 @@ test("live site route matrix has no critical browser/device regressions", async 
         failures.push(`${route.name}: horizontal overflow ${horizontalOverflow}px`);
       }
 
+      if ((page.viewportSize()?.width ?? 0) < 768) {
+        const mobileHero = page.locator(".home-brand-hero, .brand-internal-hero").first();
+        if ((await mobileHero.count()) > 0) {
+          const heroState = await mobileHero.evaluate((hero) => {
+            const image = hero.querySelector<HTMLImageElement>(
+              "img.brand-hero-image, img.brand-internal-hero-image",
+            );
+            const panel = hero.querySelector<HTMLElement>(
+              ".home-hero-copy-panel, .internal-hero-copy-panel",
+            );
+            const imageRect = image?.getBoundingClientRect();
+            const panelRect = panel?.getBoundingClientRect();
+
+            return {
+              gap: imageRect && panelRect ? panelRect.top - imageRect.bottom : null,
+              imageLoaded: image ? image.complete && image.naturalWidth > 0 : null,
+              imageOpacity: image ? getComputedStyle(image).opacity : null,
+              imageFilter: image ? getComputedStyle(image).filter : null,
+            };
+          });
+
+          if (heroState.imageLoaded === false) {
+            failures.push(`${route.name}: mobile hero van image did not load`);
+          }
+          if (heroState.imageOpacity !== null && heroState.imageOpacity !== "1") {
+            failures.push(`${route.name}: mobile hero van image opacity is ${heroState.imageOpacity}`);
+          }
+          if (heroState.imageFilter !== null && heroState.imageFilter !== "none") {
+            failures.push(`${route.name}: mobile hero van image is filtered`);
+          }
+          if (heroState.gap !== null && heroState.gap < 8) {
+            failures.push(`${route.name}: mobile hero copy overlaps the van image by ${Math.abs(heroState.gap)}px`);
+          }
+        }
+      }
+
       for (const bad of [...staleText, ...riskyText]) {
         if (bodyText.includes(bad)) {
           failures.push(`${route.name}: found blocked wording "${bad}"`);
@@ -200,7 +270,9 @@ test("live site route matrix has no critical browser/device regressions", async 
       }
 
       const expectedYear = await page.evaluate(() => new Date().getFullYear().toString());
-      const footerText = await page.locator("#site-footer").innerText().catch(() => "");
+      const footer = page.locator("#site-footer");
+      await footer.waitFor({ state: "attached" });
+      const footerText = (await footer.textContent()) ?? "";
       if (!footerText.includes(expectedYear) || !footerText.includes("Evaready Electrical. All rights reserved.")) {
         failures.push(`${route.name}: footer year does not match current year ${expectedYear}`);
       }
@@ -229,17 +301,19 @@ test("live site route matrix has no critical browser/device regressions", async 
           failures.push(`${route.name}: missing quote conversion marker`);
         }
 
-        const ratingCard = page.locator(".google-rating-card").first();
-        if (!(await ratingCard.isVisible().catch(() => false))) {
-          failures.push(`${route.name}: Google rating card not visible on commercial page`);
-        } else {
-          const ratingCardText = await ratingCard.innerText();
-          if (!/google rating/i.test(ratingCardText)) {
-            failures.push(`${route.name}: Google rating card missing Google Rating label`);
-          }
-          for (const expected of ["5.0", "Based on 83 Google reviews", "Read Google reviews", "Leave a review"]) {
-            if (!ratingCardText.includes(expected)) {
-              failures.push(`${route.name}: Google rating card missing "${expected}"`);
+        if (route.ratingProof !== false) {
+          const ratingCard = page.locator(".google-rating-card").first();
+          if (!(await ratingCard.isVisible().catch(() => false))) {
+            failures.push(`${route.name}: Google rating card not visible on commercial page`);
+          } else {
+            const ratingCardText = await ratingCard.innerText();
+            if (!/google rating/i.test(ratingCardText)) {
+              failures.push(`${route.name}: Google rating card missing Google Rating label`);
+            }
+            for (const expected of ["5.0", "Based on 83 Google reviews", "Read Google reviews", "Leave a review"]) {
+              if (!ratingCardText.includes(expected)) {
+                failures.push(`${route.name}: Google rating card missing "${expected}"`);
+              }
             }
           }
         }

@@ -14,18 +14,29 @@ export const deploymentBasePath = (
   process.env.NEXT_PUBLIC_BASE_PATH || ""
 ).replace(/\/$/, "");
 
+export const productionSiteUrl = "https://evareadyelectrical.com.au";
+
 export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  `https://c0d312.github.io${deploymentBasePath || "/evaready-electrical"}`
+  process.env.NEXT_PUBLIC_SITE_URL || productionSiteUrl
 ).replace(/\/$/, "");
 
 export function absoluteUrl(path = "") {
-  if (!path) {
-    return siteUrl;
+  const rawPath = path || "/";
+  const hashIndex = rawPath.indexOf("#");
+  const queryIndex = rawPath.indexOf("?");
+  const suffixIndex = [hashIndex, queryIndex]
+    .filter((index) => index >= 0)
+    .sort((left, right) => left - right)[0] ?? rawPath.length;
+  const pathName = rawPath.slice(0, suffixIndex);
+  const suffix = rawPath.slice(suffixIndex);
+  const normalizedPath = `/${pathName.replace(/^\/+|\/+$/g, "")}`;
+
+  if (normalizedPath === "/") {
+    return `${siteUrl}/${suffix}`;
   }
 
-  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-  return `${siteUrl}${normalizedPath}`;
+  const isFilePath = /\/[^/]+\.[a-z0-9]+$/i.test(normalizedPath);
+  return `${siteUrl}${normalizedPath}${isFilePath ? "" : "/"}${suffix}`;
 }
 
 export function canonicalPath(path = "") {

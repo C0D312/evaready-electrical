@@ -18,6 +18,8 @@
     "audit:all-routes-visibility": "tsx scripts/audit-all-routes-visibility.ts",
     "audit:visibility": "tsx scripts/audit-page-visibility.ts",
     "audit:live-links-and-ctas": "tsx scripts/audit-live-links-and-ctas.ts",
+    "audit:production-domain": "tsx scripts/audit-production-domain.ts",
+    "audit:production-smoke": "tsx scripts/audit-production-responsive-smoke.ts",
     "audit:visible-copy": "tsx scripts/audit-visible-copy.ts",
     "test:e2e": "playwright test",
     "test:e2e:report": "playwright show-report"

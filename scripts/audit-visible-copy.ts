@@ -1,6 +1,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import sitemap from "../app/sitemap";
+import { deploymentBasePath } from "../data/site";
 
 type AuditRow = {
   "compliance warnings": string;
@@ -23,7 +24,7 @@ type AuditRow = {
 const outputPath = path.join(process.cwd(), "reports", "visible-copy-audit.csv");
 const outputDir = path.dirname(outputPath);
 const outDir = path.join(process.cwd(), "out");
-const basePath = "/evaready-electrical";
+const basePath = deploymentBasePath;
 
 const stalePhrases = [
   ["sparking", "For"].join("."),
@@ -122,7 +123,7 @@ function routeFromUrl(url: string) {
   const parsed = new URL(url);
   let route = parsed.pathname;
 
-  if (route.startsWith(basePath)) {
+  if (basePath && route.startsWith(basePath)) {
     route = route.slice(basePath.length);
   }
 

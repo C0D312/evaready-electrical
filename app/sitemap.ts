@@ -6,7 +6,6 @@ import {
 import { electricalFaultPages } from "@/data/electrical-faults";
 import { serviceLandingPages } from "@/data/service-pages";
 import { absoluteUrl } from "@/data/site";
-import { sitemapLastModified } from "@/lib/seo-metadata";
 
 export const dynamic = "force-static";
 
@@ -86,7 +85,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return Array.from(routeMap.values()).map((route) => ({
     url: absoluteUrl(route.path),
-    lastModified: sitemapLastModified,
     changeFrequency: "weekly",
     priority: route.priority,
   }));

@@ -1,6 +1,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import sitemap from "../app/sitemap";
+import { deploymentBasePath } from "../data/site";
 
 type PageHealthRow = {
   "Google Ads tag present": "yes" | "no";
@@ -26,7 +27,7 @@ type PageHealthRow = {
   "word count": number;
 };
 
-const basePath = "/evaready-electrical";
+const basePath = deploymentBasePath;
 const outDir = path.join(process.cwd(), "out");
 const reportPath = path.join(process.cwd(), "reports", "page-health-audit.csv");
 
@@ -123,7 +124,7 @@ function routeFromUrl(url: string) {
   const parsed = new URL(url);
   let route = parsed.pathname;
 
-  if (route.startsWith(basePath)) {
+  if (basePath && route.startsWith(basePath)) {
     route = route.slice(basePath.length);
   }
 
@@ -191,7 +192,11 @@ function extractAssetRefs(html: string) {
 
       if (ref.startsWith("/_next") || ref.startsWith("/images")) {
         refs.add(ref);
-      } else if (ref.startsWith(`${basePath}/_next`) || ref.startsWith(`${basePath}/images`)) {
+      } else if (
+        basePath &&
+        (ref.startsWith(`${basePath}/_next`) ||
+          ref.startsWith(`${basePath}/images`))
+      ) {
         refs.add(ref);
       }
     }
@@ -201,7 +206,8 @@ function extractAssetRefs(html: string) {
 }
 
 function outPathForAsset(ref: string) {
-  const withoutBase = ref.startsWith(basePath) ? ref.slice(basePath.length) : ref;
+  const withoutBase =
+    basePath && ref.startsWith(basePath) ? ref.slice(basePath.length) : ref;
   return path.join(outDir, withoutBase.replace(/^\/+/, ""));
 }
 
@@ -255,8 +261,12 @@ function auditRoute(url: string): PageHealthRow {
   const assetRefs = isHtmlPage ? extractAssetRefs(html) : [];
   const brokenAssets = assetRefs.filter((ref) => !existsSync(outPathForAsset(ref)));
   const cssJsRefs = assetRefs.filter((ref) => /\/_next\/static\/.*\.(css|js)$/.test(ref));
-  const cssJsMissingBase = cssJsRefs.filter((ref) => !ref.startsWith(basePath));
-  const imageMissingBase = assetRefs.filter((ref) => ref.startsWith("/images/"));
+  const cssJsMissingBase = basePath
+    ? cssJsRefs.filter((ref) => !ref.startsWith(basePath))
+    : [];
+  const imageMissingBase = basePath
+    ? assetRefs.filter((ref) => ref.startsWith("/images/"))
+    : [];
   const missingCssJsWarnings = [
     ...cssJsMissingBase.map((ref) => `missing base path: ${ref}`),
     ...imageMissingBase.map((ref) => `image missing base path: ${ref}`),

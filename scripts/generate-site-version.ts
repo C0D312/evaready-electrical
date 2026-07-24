@@ -7,6 +7,7 @@ type SiteVersion = {
   site: "Evaready Electrical";
   deployTarget: "GitHub Pages";
   basePath: string;
+  siteUrl: string;
   buildDate: string;
   mainCommit: string;
   versionNote: string;
@@ -24,7 +25,7 @@ function readGitSha() {
 }
 
 function normalizeBasePath(value: string | undefined) {
-  const basePath = (value || "/evaready-electrical").trim();
+  const basePath = (value || "").trim();
   if (!basePath || basePath === "/") {
     return "";
   }
@@ -37,6 +38,8 @@ const siteVersion: SiteVersion = {
   site: "Evaready Electrical",
   deployTarget: "GitHub Pages",
   basePath: normalizeBasePath(process.env.NEXT_PUBLIC_BASE_PATH),
+  siteUrl:
+    process.env.NEXT_PUBLIC_SITE_URL || "https://evareadyelectrical.com.au",
   buildDate: new Date().toISOString(),
   mainCommit: process.env.NEXT_PUBLIC_MAIN_SHA || readGitSha(),
   versionNote:

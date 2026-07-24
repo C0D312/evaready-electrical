@@ -31,5 +31,11 @@ jobs:
       - name: Build static site
         run: npm run build
         env:
-          NEXT_PUBLIC_BASE_PATH: /evaready-electrical
-          NEXT_PUBLIC_SITE_URL: https://c0d312.github.io/evaready-electrical
+          NEXT_PUBLIC_BASE_PATH: ""
+          NEXT_PUBLIC_SITE_URL: https://evareadyelectrical.com.au
+
+      - name: Audit production-domain output
+        run: npm run audit:production-domain
+        env:
+          NEXT_PUBLIC_BASE_PATH: ""
+          NEXT_PUBLIC_SITE_URL: https://evareadyelectrical.com.au

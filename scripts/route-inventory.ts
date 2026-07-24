@@ -7,7 +7,11 @@ import {
 } from "../data/service-area-coverage";
 import { electricalFaultPages } from "../data/electrical-faults";
 import { serviceLandingPages } from "../data/service-pages";
-import { absoluteUrl, getEmergencyResponseForRegion } from "../data/site";
+import {
+  absoluteUrl,
+  deploymentBasePath,
+  getEmergencyResponseForRegion,
+} from "../data/site";
 
 export type RouteInventoryItem = {
   areaName?: string;
@@ -43,7 +47,7 @@ const staticRoutes: RouteInventoryItem[] = [
   createRoute("/sitemap.xml", "sitemap", false, "n/a"),
 ];
 
-export const basePath = "/evaready-electrical";
+export const basePath = deploymentBasePath;
 export const outDir = path.join(process.cwd(), "out");
 
 export function normalizeRoute(route: string) {
@@ -58,7 +62,7 @@ export function routeFromUrl(url: string) {
   const parsed = new URL(url);
   let route = parsed.pathname;
 
-  if (route.startsWith(basePath)) {
+  if (basePath && route.startsWith(basePath)) {
     route = route.slice(basePath.length);
   }
 

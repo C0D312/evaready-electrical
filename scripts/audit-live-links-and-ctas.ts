@@ -33,7 +33,7 @@ const reportPath = path.join(
   "reports",
   "live-link-cta-audit.csv",
 );
-const siteHost = "c0d312.github.io";
+const siteOrigin = new URL(business.siteUrl).origin;
 const approvedExternalHosts = new Set([
   "abr.business.gov.au",
   "www.acma.gov.au",
@@ -205,8 +205,8 @@ function classifyHref(
   if (/^https?:\/\//i.test(href)) {
     const url = new URL(href);
 
-    if (url.hostname === siteHost) {
-      if (!url.pathname.startsWith(basePath)) {
+    if (url.origin === siteOrigin) {
+      if (basePath && !url.pathname.startsWith(basePath)) {
         return {
           issue: "internal absolute URL missing base path",
           status: "fail" as const,
@@ -214,7 +214,9 @@ function classifyHref(
         };
       }
 
-      const route = normalizeRoute(url.pathname.slice(basePath.length));
+      const route = normalizeRoute(
+        basePath ? url.pathname.slice(basePath.length) : url.pathname,
+      );
 
       return {
         issue: routeExists(route, knownRoutes) ? "" : "absolute internal route missing",
@@ -236,7 +238,7 @@ function classifyHref(
     };
   }
 
-  if (href.startsWith(basePath)) {
+  if (basePath && href.startsWith(basePath)) {
     const targetPath = href.slice(basePath.length).split(/[?#]/)[0] || "/";
     const route = normalizeRoute(targetPath);
 
@@ -265,7 +267,7 @@ function classifyHref(
     const routeOrAsset = href.split(/[?#]/)[0];
 
     if (
-      /^\/(?:_next|images|favicon\.ico|apple-icon\.png|icon\.png|evaready-(?:favicon|icon|apple-icon)[^/]*\.(?:ico|png))/.test(
+      /^\/(?:_next|images|favicon\.ico|apple-icon\.png|icon\.png|evaready-(?:favicon|icon|apple-icon|full-logo)[^/]*\.(?:ico|png|webp))/.test(
         routeOrAsset,
       )
     ) {

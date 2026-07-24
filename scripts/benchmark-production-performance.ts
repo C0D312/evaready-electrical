@@ -27,7 +27,7 @@ type RunMetrics = {
 };
 
 const productionBase =
-  process.env.PERF_BASE_URL || "https://c0d312.github.io/evaready-electrical";
+  process.env.PERF_BASE_URL || "https://evareadyelectrical.com.au";
 const phase = process.env.PERF_PHASE || "before";
 const reportDir = path.join(process.cwd(), "reports");
 const jsonPath = path.join(reportDir, `performance-${phase}-runs.json`);

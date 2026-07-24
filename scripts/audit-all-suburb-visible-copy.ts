@@ -6,7 +6,11 @@ import {
   coverageStats,
   getSuburbPaths,
 } from "../data/service-area-coverage";
-import { getEmergencyResponseForRegion } from "../data/site";
+import {
+  deploymentBasePath,
+  getEmergencyResponseForRegion,
+  siteUrl,
+} from "../data/site";
 
 type YesNo = "yes" | "no";
 
@@ -234,19 +238,37 @@ function escapeRegExp(value: string) {
 function countInternalLinks(html: string) {
   const hrefMatches = html.matchAll(/\bhref=["']([^"']+)["']/gi);
   const hrefs = new Set<string>();
+  const siteOrigin = new URL(siteUrl).origin;
 
   for (const match of hrefMatches) {
     const href = decodeEntities(match[1]);
+    let internalPath = href;
+
+    if (/^https?:\/\//i.test(href)) {
+      const url = new URL(href);
+
+      if (url.origin !== siteOrigin) {
+        continue;
+      }
+
+      internalPath = url.pathname;
+    }
 
     if (
-      href.startsWith("/evaready-electrical/") ||
-      href.startsWith("/service-areas/") ||
-      href.startsWith("/services/") ||
-      href.startsWith("/electrical-faults/") ||
-      href === "/evaready-electrical/" ||
-      href === "/services" ||
-      href === "/service-areas" ||
-      href === "/electrical-faults"
+      deploymentBasePath &&
+      internalPath.startsWith(deploymentBasePath)
+    ) {
+      internalPath =
+        internalPath.slice(deploymentBasePath.length) || "/";
+    }
+
+    if (
+      internalPath.startsWith("/service-areas/") ||
+      internalPath.startsWith("/services/") ||
+      internalPath.startsWith("/electrical-faults/") ||
+      internalPath === "/services" ||
+      internalPath === "/service-areas" ||
+      internalPath === "/electrical-faults"
     ) {
       hrefs.add(href);
     }

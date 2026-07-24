@@ -8,7 +8,7 @@ import "./offers.css";
 import "./ux-overhaul.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(`${business.siteUrl}/`),
+  metadataBase: new URL(absoluteUrl("/")),
   title: {
     default:
       "Emergency & Level 2 Electrician Sydney & Surrounding Regions",
@@ -29,14 +29,14 @@ export const metadata: Metadata = {
       "Emergency & Level 2 Electrician Sydney & Surrounding Regions | Evaready Electrical 24/7",
   description:
     "Electrical support for urgent faults, Level 2 work, switchboards, outages and commercial jobs across Sydney and surrounding regions.",
-    url: business.siteUrl,
+    url: absoluteUrl("/"),
     siteName: "Evaready Electrical",
     type: "website",
     locale: "en_AU",
     images: [absoluteUrl(business.brandImage)],
   },
   alternates: {
-    canonical: business.siteUrl,
+    canonical: absoluteUrl("/"),
   },
   robots: {
     index: true,

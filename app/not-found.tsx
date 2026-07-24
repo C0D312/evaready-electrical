@@ -1,6 +1,15 @@
 import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { business } from "@/data/site";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Page Not Found | Evaready Electrical",
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default function NotFoundPage() {
   return (

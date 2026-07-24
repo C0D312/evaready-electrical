@@ -48,6 +48,7 @@ type GeneratedHtmlIssue = {
 
 const workspaceRoot = process.cwd();
 const reportPath = path.join(workspaceRoot, "reports", "internal-link-audit.md");
+const siteOrigin = new URL(business.siteUrl).origin;
 
 const staticRoutes = [
   "/",
@@ -354,21 +355,23 @@ function generatedRouteForHref(href: string, sourceRoute: string) {
     if (/^https?:\/\//i.test(href)) {
       const url = new URL(href);
 
-      if (url.hostname !== "c0d312.github.io") {
+      if (url.origin !== siteOrigin) {
         return null;
       }
 
-      if (!url.pathname.startsWith(basePath)) {
+      if (basePath && !url.pathname.startsWith(basePath)) {
         return null;
       }
 
       return {
         hash: url.hash.replace(/^#/, ""),
-        route: normalizeRoute(url.pathname.slice(basePath.length)),
+        route: normalizeRoute(
+          basePath ? url.pathname.slice(basePath.length) : url.pathname,
+        ),
       };
     }
 
-    if (href.startsWith(basePath)) {
+    if (basePath && href.startsWith(basePath)) {
       const [pathPart, hashPart = ""] = href.split("#");
       return {
         hash: hashPart,

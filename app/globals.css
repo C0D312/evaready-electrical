@@ -4500,7 +4500,7 @@ a[data-quote-trigger="true"].site-header-quote {
   background-image:
     linear-gradient(90deg, rgba(2, 5, 13, 0.98), rgba(2, 5, 13, 0.64) 42%, rgba(2, 5, 13, 0.14) 70%, rgba(2, 5, 13, 0.7)),
     linear-gradient(180deg, rgba(2, 5, 13, 0.08), rgba(2, 5, 13, 0.78)),
-    url("/evaready-electrical/images/evaready-electrical-sydney-service-van.webp") !important;
+    var(--ee-van-image) !important;
   background-position: center, center, var(--ev-hero-van-position-desktop) !important;
   background-size: cover, cover, var(--ev-hero-van-size-desktop) !important;
   background-repeat: no-repeat !important;
@@ -14203,5 +14203,25 @@ body.ev-electric-theme-bg .quote-modal-frame-shell {
   .core-storm-page :is(.quote-request-panel, .services-featured-section, .services-problem-selector, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section)::before {
     opacity: 0.5 !important;
     background-size: 100% auto !important;
+  }
+}
+
+/* Keep the shared van photo fully visible above mobile hero copy. */
+@media (max-width: 767px) {
+  body.ev-storm-page main#main-content > section.home-brand-hero > img.brand-hero-image ~ div.ev-hero-grid.relative.mx-auto,
+  body.ev-storm-page main#main-content > section.brand-internal-hero > img.brand-internal-hero-image + div.relative.mx-auto {
+    padding-top: calc(var(--mobile-hero-photo-height) + 1rem) !important;
+  }
+
+  body .core-storm-home .home-brand-hero .brand-hero-image {
+    inset: 0 0 auto !important;
+    height: var(--mobile-hero-photo-height) !important;
+    object-position: var(--mobile-hero-photo-position) !important;
+  }
+
+  body .brand-internal-hero:not(:has(.brand-internal-hero-image)) > div.mx-auto > .internal-hero-copy-panel,
+  body .brand-internal-hero:not(:has(.brand-internal-hero-image)) > .internal-hero-copy-panel,
+  body .brand-internal-hero:not(:has(.brand-internal-hero-image)) > .relative.mx-auto > .internal-hero-copy-panel {
+    margin-top: 0 !important;
   }
 }

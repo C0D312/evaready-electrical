@@ -13,8 +13,6 @@ import {
   maxMetaDescriptionLength,
 } from "./meta-description";
 
-export const sitemapLastModified = new Date("2026-06-01T00:00:00+10:00");
-
 export type RouteSeoMetadata = {
   canonical: string;
   description: string;
@@ -40,7 +38,7 @@ export function chooseTitle(candidates: string[]) {
 }
 
 export function routeUrl(path: string) {
-  return !path || path === "/" ? business.siteUrl : absoluteUrl(path);
+  return absoluteUrl(path || "/");
 }
 
 export function toMetadata({
