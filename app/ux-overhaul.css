@@ -28,7 +28,7 @@
 
 @media (min-width: 1024px) {
   :root {
-    /* Match the active 2400x250 desktop artwork so its lower edge is not cropped. */
+    /* Keep the existing slim strip while the complete original artwork scales into it. */
     --ev-final-header-art-height: clamp(107px, 10.4167vw, 200px);
   }
 }

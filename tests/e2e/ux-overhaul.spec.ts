@@ -123,8 +123,11 @@ test("wide desktop header keeps the complete banner artwork visible", async ({
       return {
         bannerHeight: bannerBox.height,
         bannerWidth: bannerBox.width,
+        currentSrc: image?.currentSrc ?? "",
         imageHeight: imageBox?.height ?? 0,
         imageWidth: imageBox?.width ?? 0,
+        naturalHeight: image?.naturalHeight ?? 0,
+        naturalWidth: image?.naturalWidth ?? 0,
         objectFit: image ? getComputedStyle(image).objectFit : "",
         overflow:
           document.documentElement.scrollWidth -
@@ -133,11 +136,42 @@ test("wide desktop header keeps the complete banner artwork visible", async ({
     });
 
     expect(bannerLayout.objectFit).toBe("fill");
+    expect(bannerLayout.currentSrc).toContain(
+      "/images/header/evaready-header-original.jpg",
+    );
+    expect(bannerLayout.naturalWidth).toBe(1280);
+    expect(bannerLayout.naturalHeight).toBe(427);
     expect(Math.abs(bannerLayout.bannerHeight - viewport.expectedBannerHeight)).toBeLessThanOrEqual(1);
     expect(Math.abs(bannerLayout.imageHeight - bannerLayout.bannerHeight)).toBeLessThanOrEqual(1);
     expect(Math.abs(bannerLayout.imageWidth - bannerLayout.bannerWidth)).toBeLessThanOrEqual(1);
     expect(bannerLayout.overflow).toBeLessThanOrEqual(1);
   }
+});
+
+test("service category shortcuts show a clear link arrow at narrow mobile widths", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 320, height: 1318 });
+  await page.goto("services/#service-catalogue", {
+    waitUntil: "domcontentloaded",
+  });
+
+  const shortcuts = page.locator(".services-category-shortcuts a");
+  await expect(shortcuts).toHaveCount(8);
+
+  const shortcutLayout = await shortcuts.evaluateAll((elements) => ({
+    allHaveArrow: elements.every((element) => element.querySelector("svg")),
+    minHeight: Math.min(
+      ...elements.map((element) => element.getBoundingClientRect().height),
+    ),
+    overflow:
+      document.documentElement.scrollWidth -
+      document.documentElement.clientWidth,
+  }));
+
+  expect(shortcutLayout.allHaveArrow).toBe(true);
+  expect(shortcutLayout.minHeight).toBeGreaterThanOrEqual(40);
+  expect(shortcutLayout.overflow).toBeLessThanOrEqual(1);
 });
 
 test("homepage service tiles use the full card as one accessible link", async ({
