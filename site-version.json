@@ -3,7 +3,8 @@
   "site": "Evaready Electrical",
   "deployTarget": "GitHub Pages",
   "basePath": "/evaready-electrical",
-  "buildDate": "2026-07-23T04:24:39.555Z",
-  "mainCommit": "4e7d2109ca1c5b310601d66d7cc78bc7347e1882",
+  "siteUrl": "https://evareadyelectrical.com.au",
+  "buildDate": "2026-07-24T05:08:45.504Z",
+  "mainCommit": "64c00619a93448b1347025871c7a065fa1693918",
   "versionNote": "Automatic production build marker."
 }
