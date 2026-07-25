@@ -937,7 +937,7 @@ body.ev-storm-page main#main-content.core-storm-page.core-storm-home::before {
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
-  opacity: 0.46 !important;
+  opacity: 0.64 !important;
   mix-blend-mode: screen !important;
 }
 
@@ -1130,7 +1130,7 @@ body.ev-storm-page main#main-content:is(
   .ev-storm-legal
 )::before {
   content: "" !important;
-  position: absolute !important;
+  position: fixed !important;
   inset: 0 !important;
   z-index: 0 !important;
   pointer-events: none !important;
@@ -1142,7 +1142,7 @@ body.ev-storm-page main#main-content:is(
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
-  opacity: 0.46 !important;
+  opacity: 0.64 !important;
   mix-blend-mode: screen !important;
 }
 
@@ -1273,9 +1273,10 @@ body.ev-storm-page main#main-content.ev-storm-legal .legal-content-card {
       radial-gradient(ellipse 64% 54% at -14% 28%, rgba(8, 118, 255, 0.48), transparent 74%),
       radial-gradient(ellipse 62% 52% at 114% 72%, rgba(233, 17, 30, 0.4), transparent 74%),
       linear-gradient(90deg, rgba(8, 118, 255, 0.24), rgba(2, 6, 16, 0.52) 34%, rgba(2, 6, 16, 0.54) 66%, rgba(233, 17, 30, 0.22)),
-      var(--ee-electric-bg-image) !important;
+      var(--ee-storm-bg-mobile) !important;
     background-position: 48% center !important;
-    opacity: 0.42 !important;
+    background-size: cover !important;
+    opacity: 0.56 !important;
   }
 
   body.ev-storm-page main#main-content.ev-storm-legal::before {
