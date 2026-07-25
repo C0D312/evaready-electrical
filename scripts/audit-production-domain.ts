@@ -8,9 +8,16 @@ import path from "node:path";
 
 const workspaceRoot = process.cwd();
 const outDir = path.join(workspaceRoot, "out");
-const productionOrigin = "https://evareadyelectrical.com.au";
+const deploymentBasePath = (
+  process.env.NEXT_PUBLIC_BASE_PATH || ""
+).replace(/\/$/, "");
+const productionOrigin = (
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  "https://c0d312.github.io/evaready-electrical"
+).replace(/\/$/, "");
+const productionUrl = new URL(productionOrigin);
 const forbiddenHosts = new Set([
-  "c0d312.github.io",
+  "evareadyelectrical.com.au",
   "www.evareadyelectrical.com.au",
 ]);
 const legacyPaths = new Set([
@@ -53,14 +60,18 @@ function findTags(html: string, tagName: string) {
 
 function outputPathForUrl(url: string) {
   const { pathname } = new URL(url);
+  const outputPathname =
+    deploymentBasePath && pathname.startsWith(deploymentBasePath)
+      ? pathname.slice(deploymentBasePath.length) || "/"
+      : pathname;
 
-  if (pathname === "/") {
+  if (outputPathname === "/") {
     return path.join(outDir, "index.html");
   }
 
   return path.join(
     outDir,
-    pathname.replace(/^\/+|\/+$/g, ""),
+    outputPathname.replace(/^\/+|\/+$/g, ""),
     "index.html",
   );
 }
@@ -109,18 +120,28 @@ function extractSchemaUrls(html: string, issues: string[]) {
   return urls;
 }
 
+function withoutBasePath(value: string) {
+  return deploymentBasePath && value.startsWith(`${deploymentBasePath}/`)
+    ? value.slice(deploymentBasePath.length)
+    : value;
+}
+
 function isAssetReference(value: string) {
+  const assetPath = withoutBasePath(value);
+
   return (
-    value.startsWith("/_next/") ||
-    value.startsWith("/images/") ||
+    assetPath.startsWith("/_next/") ||
+    assetPath.startsWith("/images/") ||
     /^\/(?:favicon|apple|icon|evaready-)[^?#]*\.(?:ico|png|webp|jpg|jpeg|svg)$/i.test(
-      value,
+      assetPath,
     )
   );
 }
 
 function outputAssetExists(value: string) {
-  const cleanPath = value.split(/[?#]/)[0].replace(/^\/+/, "");
+  const cleanPath = withoutBasePath(value)
+    .split(/[?#]/)[0]
+    .replace(/^\/+/, "");
   const outputPath = path.join(outDir, cleanPath);
   return existsSync(outputPath) && statSync(outputPath).isFile();
 }
@@ -135,7 +156,7 @@ const robotsPath = path.join(outDir, "robots.txt");
 const cnamePath = path.join(outDir, "CNAME");
 const notFoundPath = path.join(outDir, "404.html");
 
-for (const requiredPath of [sitemapPath, robotsPath, cnamePath, notFoundPath]) {
+for (const requiredPath of [sitemapPath, robotsPath, notFoundPath]) {
   if (!existsSync(requiredPath)) {
     issues.push(`missing required output: ${path.relative(outDir, requiredPath)}`);
   }
@@ -185,7 +206,12 @@ for (const sitemapUrl of sitemapUrls) {
     continue;
   }
 
-  if (parsedUrl.origin !== productionOrigin) {
+  if (
+    parsedUrl.origin !== productionUrl.origin ||
+    !parsedUrl.pathname.startsWith(
+      `${productionUrl.pathname.replace(/\/$/, "")}/`,
+    )
+  ) {
     issues.push(`non-production sitemap URL: ${sitemapUrl}`);
   }
 
@@ -294,11 +320,7 @@ if (!robotsText.includes(expectedSitemapLine)) {
 }
 
 if (existsSync(cnamePath)) {
-  const cname = readFileSync(cnamePath, "utf8").trim();
-
-  if (cname !== "evareadyelectrical.com.au") {
-    issues.push(`CNAME contains ${cname || "(empty)"}`);
-  }
+  issues.push("CNAME is present while using the GitHub Pages preview");
 }
 
 if (existsSync(notFoundPath)) {
@@ -320,12 +342,22 @@ for (const filePath of generatedTextFiles) {
   const content = readFileSync(filePath, "utf8");
   const relativePath = path.relative(outDir, filePath).replace(/\\/g, "/");
 
-  if (content.includes("c0d312.github.io")) {
-    issues.push(`${relativePath} contains the GitHub Pages hostname`);
+  if (
+    /https?:\\?\/\\?\/(?:www\\?\.)?evareadyelectrical\\?\.com\\?\.au/i.test(
+      content,
+    )
+  ) {
+    issues.push(`${relativePath} contains the unfinished branded hostname`);
   }
 
-  if (content.includes('"/evaready-electrical/')) {
-    issues.push(`${relativePath} contains the obsolete GitHub Pages base path`);
+  if (
+    /\.html$/i.test(relativePath) &&
+    deploymentBasePath &&
+    /(?:^|\s)(?:href|src)=["']\/(?!evaready-electrical(?:\/|["']))/i.test(
+      content,
+    )
+  ) {
+    issues.push(`${relativePath} contains a root-relative URL without the base path`);
   }
 }
 

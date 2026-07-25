@@ -144,7 +144,8 @@ const routes: RouteCheck[] = [
 
 const screenshotDir = join(process.cwd(), "reports", "cross-browser-screenshots");
 const testedSiteOrigin = new URL(
-  process.env.PLAYWRIGHT_BASE_URL ?? "https://evareadyelectrical.com.au/",
+  process.env.PLAYWRIGHT_BASE_URL ??
+  "https://c0d312.github.io/evaready-electrical/",
 ).origin;
 
 test("live site route matrix has no critical browser/device regressions", async ({ page }, testInfo) => {

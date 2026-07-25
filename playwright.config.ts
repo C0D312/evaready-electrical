@@ -99,7 +99,7 @@ export default defineConfig({
   use: {
     baseURL:
       process.env.PLAYWRIGHT_BASE_URL ??
-      "https://evareadyelectrical.com.au/",
+      "https://c0d312.github.io/evaready-electrical/",
     actionTimeout: 10_000,
     navigationTimeout: 30_000,
     trace: "retain-on-failure",

@@ -14,7 +14,8 @@ export const deploymentBasePath = (
   process.env.NEXT_PUBLIC_BASE_PATH || ""
 ).replace(/\/$/, "");
 
-export const productionSiteUrl = "https://evareadyelectrical.com.au";
+export const productionSiteUrl =
+  "https://c0d312.github.io/evaready-electrical";
 
 export const siteUrl = (
   process.env.NEXT_PUBLIC_SITE_URL || productionSiteUrl

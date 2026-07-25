@@ -39,7 +39,8 @@ const siteVersion: SiteVersion = {
   deployTarget: "GitHub Pages",
   basePath: normalizeBasePath(process.env.NEXT_PUBLIC_BASE_PATH),
   siteUrl:
-    process.env.NEXT_PUBLIC_SITE_URL || "https://evareadyelectrical.com.au",
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://c0d312.github.io/evaready-electrical",
   buildDate: new Date().toISOString(),
   mainCommit: process.env.NEXT_PUBLIC_MAIN_SHA || readGitSha(),
   versionNote:

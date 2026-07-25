@@ -162,7 +162,11 @@ export default function ContactPage() {
                   return (
                     <a
                       key={option.title}
-                      href={option.href}
+                      href={
+                        option.href.startsWith("/")
+                          ? assetPath(option.href)
+                          : option.href
+                      }
                       className="flex min-h-16 items-center gap-4 rounded-2xl border border-cyan-300/16 bg-[#061E72]/55 p-4 text-left transition hover:border-cyan-200/45 hover:bg-[#082A86]"
                       data-conversion-action={
                         isPhone ? "phone-click" : isQuote ? "quote-click" : undefined

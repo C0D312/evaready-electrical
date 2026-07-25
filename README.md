@@ -11,24 +11,22 @@ npm run dev
 
 Open `http://localhost:3000`.
 
-## Production
+## GitHub Pages preview
 
-The intended production origin is:
+The current preview origin is:
 
 ```text
-https://evareadyelectrical.com.au/
+https://c0d312.github.io/evaready-electrical/
 ```
 
-Production exports are built at the domain root:
+Preview exports are built with the repository base path:
 
 ```powershell
-$env:NEXT_PUBLIC_BASE_PATH=''
-$env:NEXT_PUBLIC_SITE_URL='https://evareadyelectrical.com.au'
+$env:NEXT_PUBLIC_BASE_PATH='/evaready-electrical'
+$env:NEXT_PUBLIC_SITE_URL='https://c0d312.github.io/evaready-electrical'
 npm.cmd run build
 npm.cmd run audit:production-domain
 ```
 
-The GitHub workflow validates this root-hosted export. The generated `CNAME`
-identifies the branded domain for the branch-published GitHub Pages site.
-Repository Pages settings and DNS still need to point the domain at the
-verified build before the custom-domain cutover.
+The GitHub workflow validates this project-site export. No `CNAME` is
+published while the branded domain is intentionally disconnected.

@@ -4,7 +4,9 @@ import { existsSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
 
 const outDir = path.join(process.cwd(), "out");
-const productionOrigin = "https://evareadyelectrical.com.au";
+const productionOrigin =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  "https://c0d312.github.io/evaready-electrical";
 const routes = [
   "/",
   "/emergency-electrician-sydney/",
