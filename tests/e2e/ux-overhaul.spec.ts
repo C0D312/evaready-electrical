@@ -161,6 +161,26 @@ test("service category shortcuts show a clear link arrow at narrow mobile widths
 
   const shortcutLayout = await shortcuts.evaluateAll((elements) => ({
     allHaveArrow: elements.every((element) => element.querySelector("svg")),
+    allHaveVisibleArrowBadge: elements.every((element) => {
+      const arrow = element.querySelector("svg");
+      const badge = arrow?.parentElement;
+
+      if (!arrow || !badge) {
+        return false;
+      }
+
+      const arrowBounds = arrow.getBoundingClientRect();
+      const badgeBounds = badge.getBoundingClientRect();
+      const badgeStyle = getComputedStyle(badge);
+
+      return (
+        arrowBounds.width >= 16 &&
+        arrowBounds.height >= 16 &&
+        badgeBounds.width >= 28 &&
+        badgeBounds.height >= 28 &&
+        badgeStyle.borderStyle !== "none"
+      );
+    }),
     minHeight: Math.min(
       ...elements.map((element) => element.getBoundingClientRect().height),
     ),
@@ -170,6 +190,7 @@ test("service category shortcuts show a clear link arrow at narrow mobile widths
   }));
 
   expect(shortcutLayout.allHaveArrow).toBe(true);
+  expect(shortcutLayout.allHaveVisibleArrowBadge).toBe(true);
   expect(shortcutLayout.minHeight).toBeGreaterThanOrEqual(40);
   expect(shortcutLayout.overflow).toBeLessThanOrEqual(1);
 });

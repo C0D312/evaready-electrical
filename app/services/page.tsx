@@ -1468,13 +1468,15 @@ export default function ServicesPage() {
               <a
                 key={category.id}
                 href={`#${category.id}`}
-                className="group inline-flex min-h-10 max-w-full min-w-0 items-center justify-center gap-2 rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 py-2 text-center text-xs font-black uppercase leading-4 tracking-[0.14em] text-white transition hover:border-cyan-200 hover:bg-cyan-300/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
+                className="group inline-flex min-h-11 max-w-full min-w-0 items-center justify-center gap-3 rounded-full border border-cyan-300/25 bg-cyan-300/10 py-1.5 pl-4 pr-2 text-center text-xs font-black uppercase leading-4 tracking-[0.14em] text-white transition hover:border-cyan-200 hover:bg-cyan-300/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
               >
                 <span>{category.title}</span>
-                <ArrowRight
-                  className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5"
+                <span
+                  className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-cyan-200/50 bg-cyan-300/15 text-cyan-100 shadow-sm shadow-cyan-950/40"
                   aria-hidden="true"
-                />
+                >
+                  <ArrowRight className="h-4 w-4 stroke-[2.5] transition-transform group-hover:translate-x-0.5" />
+                </span>
               </a>
             ))}
           </nav>
