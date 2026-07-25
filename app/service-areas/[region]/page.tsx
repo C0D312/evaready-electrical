@@ -350,9 +350,16 @@ export default async function RegionPage({ params }: RegionPageProps) {
                   <Link
                     key={`${suburb.areaSlug}-${suburb.slug}`}
                     href={`/service-areas/${region.slug}/${suburb.areaSlug}/${suburb.slug}`}
-                    className="rounded-full border border-cyan-300/20 bg-[#06142f] px-4 py-2 text-sm font-black text-slate-100 transition hover:border-cyan-200 hover:text-cyan-100"
+                    data-region-suburb-shortcut
+                    className="group inline-flex min-h-11 items-center gap-2 rounded-full border border-cyan-300/20 bg-[#06142f] px-4 py-2 text-sm font-black text-slate-100 transition hover:border-cyan-200 hover:text-cyan-100"
                   >
-                    {suburb.name} {suburb.postcode}
+                    <span>
+                      {suburb.name} {suburb.postcode}
+                    </span>
+                    <ArrowRight
+                      className="h-3.5 w-3.5 shrink-0 transition-transform group-hover:translate-x-0.5"
+                      aria-hidden="true"
+                    />
                   </Link>
                 ))}
               </div>

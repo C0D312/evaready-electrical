@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Search } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
 import type { CoverageSearchItem } from "@/data/service-area-coverage";
 import { business, getEmergencyResponseForRegion } from "@/data/site";
 
@@ -72,7 +72,8 @@ export function ServiceAreaSearch({ items }: ServiceAreaSearchProps) {
                 <Link
                   key={`${item.regionSlug}-${item.areaSlug}-${item.suburbSlug}`}
                   href={item.href}
-                  className="grid gap-3 rounded-lg border border-cyan-300/20 bg-[#06142f] px-4 py-3 text-left transition hover:border-cyan-200 hover:bg-[#0d2b5c] sm:grid-cols-[1fr_auto] sm:items-center"
+                  data-service-area-search-result
+                  className="group grid gap-3 rounded-lg border border-cyan-300/20 bg-[#06142f] px-4 py-3 text-left transition hover:border-cyan-200 hover:bg-[#0d2b5c] sm:grid-cols-[1fr_auto] sm:items-center"
                 >
                   <span className="min-w-0">
                     <span className="block font-black text-white">
@@ -93,8 +94,12 @@ export function ServiceAreaSearch({ items }: ServiceAreaSearchProps) {
                       </span>
                     </span>
                   </span>
-                  <span className="text-sm font-black text-cyan-200 sm:text-right">
+                  <span className="inline-flex min-h-11 items-center gap-2 text-sm font-black text-cyan-200 sm:justify-end sm:text-right">
                     View local page
+                    <ArrowRight
+                      className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1"
+                      aria-hidden="true"
+                    />
                   </span>
                 </Link>
               );

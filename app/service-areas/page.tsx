@@ -384,11 +384,15 @@ export default function AreasPage() {
                       data-response-region-link={region.slug}
                       className={
                         group.tone === "core"
-                          ? "inline-flex min-h-11 items-center justify-center rounded-full border border-red-300/25 bg-red-500/10 px-3 py-2 text-center text-xs font-bold leading-5 text-red-50 transition hover:border-red-200 hover:bg-red-500/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-200"
-                          : "inline-flex min-h-11 items-center justify-center rounded-full border border-cyan-300/25 bg-cyan-400/10 px-3 py-2 text-center text-xs font-bold leading-5 text-cyan-50 transition hover:border-cyan-200 hover:bg-cyan-400/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
+                          ? "group inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-red-300/25 bg-red-500/10 px-3 py-2 text-center text-xs font-bold leading-5 text-red-50 transition hover:border-red-200 hover:bg-red-500/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-200"
+                          : "group inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-cyan-300/25 bg-cyan-400/10 px-3 py-2 text-center text-xs font-bold leading-5 text-cyan-50 transition hover:border-cyan-200 hover:bg-cyan-400/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
                       }
                     >
-                      {region.name}
+                      <span>{region.name}</span>
+                      <ArrowRight
+                        className="h-3.5 w-3.5 shrink-0 transition-transform group-hover:translate-x-0.5"
+                        aria-hidden="true"
+                      />
                     </Link>
                   ))}
                 </div>

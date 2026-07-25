@@ -174,6 +174,58 @@ test("service category shortcuts show a clear link arrow at narrow mobile widths
   expect(shortcutLayout.overflow).toBeLessThanOrEqual(1);
 });
 
+test("service-area shortcut links consistently show directional arrows", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 320, height: 1318 });
+  await page.goto("service-areas/", { waitUntil: "domcontentloaded" });
+
+  const regionLinks = page.locator("[data-response-region-link]");
+  await expect(regionLinks).toHaveCount(16);
+  expect(
+    await regionLinks.evaluateAll((elements) =>
+      elements.every(
+        (element) =>
+          element.querySelector("svg") &&
+          element.getBoundingClientRect().height >= 44,
+      ),
+    ),
+  ).toBe(true);
+
+  await page.getByLabel("Suburb / Postcode").fill("Panania");
+  const searchResults = page.locator("[data-service-area-search-result]");
+  await expect(searchResults).toHaveCount(1);
+  expect(
+    await searchResults.evaluateAll((elements) =>
+      elements.every((element) => element.querySelector("svg")),
+    ),
+  ).toBe(true);
+
+  await page.goto(
+    "service-areas/canterbury-bankstown-and-inner-south-west/",
+    { waitUntil: "domcontentloaded" },
+  );
+  const suburbShortcuts = page.locator("[data-region-suburb-shortcut]");
+  expect(await suburbShortcuts.count()).toBeGreaterThan(0);
+  expect(
+    await suburbShortcuts.evaluateAll((elements) =>
+      elements.every(
+        (element) =>
+          element.querySelector("svg") &&
+          element.getBoundingClientRect().height >= 44,
+      ),
+    ),
+  ).toBe(true);
+
+  expect(
+    await page.evaluate(
+      () =>
+        document.documentElement.scrollWidth -
+        document.documentElement.clientWidth,
+    ),
+  ).toBeLessThanOrEqual(1);
+});
+
 test("homepage service tiles use the full card as one accessible link", async ({
   page,
 }) => {
