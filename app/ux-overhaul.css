@@ -895,3 +895,390 @@ body.mobile-menu-open {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Continuous Evaready storm canvas.
+   The page carries the artwork so sections do not restart the same image. */
+.core-storm-page.core-storm-home {
+  --home-night: #020610;
+  --home-midnight: #050c18;
+  --home-steel: #091727;
+  --home-panel: rgba(5, 18, 38, 0.94);
+  --home-panel-strong: rgba(3, 13, 30, 0.97);
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse 52% 18% at -8% 13%, rgba(8, 118, 255, 0.34), transparent 76%),
+    radial-gradient(ellipse 48% 17% at 108% 27%, rgba(233, 17, 30, 0.25), transparent 78%),
+    radial-gradient(ellipse 54% 19% at -10% 47%, rgba(98, 216, 255, 0.22), transparent 78%),
+    radial-gradient(ellipse 50% 18% at 108% 64%, rgba(233, 17, 30, 0.2), transparent 78%),
+    radial-gradient(ellipse 54% 19% at -8% 81%, rgba(8, 118, 255, 0.27), transparent 78%),
+    radial-gradient(ellipse 48% 17% at 108% 94%, rgba(233, 17, 30, 0.18), transparent 78%),
+    linear-gradient(
+      180deg,
+      #020610 0%,
+      #041022 16%,
+      #050914 31%,
+      #071320 47%,
+      #020710 62%,
+      #051225 79%,
+      #020610 100%
+    ),
+    var(--home-night) !important;
+  background-attachment: scroll !important;
+}
+
+body.ev-storm-page main#main-content.core-storm-page.core-storm-home::before {
+  z-index: 0 !important;
+  background:
+    radial-gradient(ellipse 38% 68% at -8% 34%, rgba(8, 118, 255, 0.42), transparent 76%),
+    radial-gradient(ellipse 36% 66% at 108% 68%, rgba(233, 17, 30, 0.34), transparent 76%),
+    linear-gradient(90deg, rgba(8, 118, 255, 0.26), rgba(2, 6, 16, 0.58) 35%, rgba(2, 6, 16, 0.58) 65%, rgba(233, 17, 30, 0.24)),
+    var(--ee-electric-bg-image) !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  opacity: 0.46 !important;
+  mix-blend-mode: screen !important;
+}
+
+body.ev-storm-page main#main-content.core-storm-page.core-storm-home > :is(section, footer) {
+  position: relative;
+  z-index: 1;
+}
+
+body.ev-storm-page main#main-content.core-storm-home .home-theme-feature {
+  border-bottom: 0 !important;
+}
+
+body.ev-storm-page main#main-content.core-storm-home .home-brand-hero > .home-hero-readability-overlay {
+  content: normal !important;
+  display: block !important;
+  opacity: 1 !important;
+  background:
+    linear-gradient(90deg, rgba(2, 6, 16, 0.9) 0%, rgba(2, 6, 16, 0.72) 43%, rgba(2, 6, 16, 0.16) 76%, rgba(2, 6, 16, 0.06) 100%),
+    linear-gradient(180deg, rgba(2, 6, 16, 0.08), rgba(2, 6, 16, 0.28)) !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+body.ev-storm-page main#main-content.core-storm-home .home-brand-hero .home-hero-copy-panel {
+  background:
+    linear-gradient(145deg, rgba(3, 13, 30, 0.94), rgba(7, 25, 52, 0.9)) !important;
+  border-color: rgba(98, 216, 255, 0.28) !important;
+  box-shadow:
+    0 26px 72px rgba(0, 0, 0, 0.48),
+    0 0 0 1px rgba(98, 216, 255, 0.07) inset !important;
+  backdrop-filter: blur(8px) saturate(1.04) !important;
+}
+
+body.ev-storm-page main#main-content.core-storm-page.core-storm-home > section.home-theme-band {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: visible !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+body.ev-storm-page main#main-content.core-storm-page.core-storm-home > section.home-theme-band::before {
+  content: none !important;
+  display: none !important;
+}
+
+body.ev-storm-page main#main-content.core-storm-page.core-storm-home > section.home-theme-band::after {
+  content: none !important;
+  display: none !important;
+}
+
+body.ev-storm-page main#main-content.core-storm-page.core-storm-home > section.home-theme-band > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+body.ev-storm-page main#main-content.core-storm-page.core-storm-home > footer.site-footer.ev-footer {
+  overflow: visible !important;
+  background: transparent !important;
+  border-top: 0 !important;
+  box-shadow: none !important;
+}
+
+body.ev-storm-page main#main-content.core-storm-page.core-storm-home > footer.site-footer.ev-footer::before {
+  content: none !important;
+  display: none !important;
+}
+
+body.ev-storm-page main#main-content.core-storm-home .home-theme-band :is(.ev-storm-card, .google-review-proof__panel),
+body.ev-storm-page main#main-content.core-storm-home .home-theme-band--offers .ev-offer-card {
+  background:
+    linear-gradient(145deg, rgba(5, 18, 38, 0.95), rgba(7, 24, 49, 0.91)) !important;
+  border-color: rgba(98, 216, 255, 0.22) !important;
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(98, 216, 255, 0.045) inset !important;
+  backdrop-filter: blur(6px) saturate(1.02) !important;
+}
+
+body.ev-storm-page main#main-content.core-storm-home .home-theme-band--trust .ev-storm-card--trust,
+body.ev-storm-page main#main-content.core-storm-home .home-theme-band--reviews .google-review-proof__panel {
+  background:
+    linear-gradient(145deg, rgba(9, 23, 39, 0.96), rgba(8, 30, 53, 0.9)) !important;
+  border-color: rgba(98, 216, 255, 0.25) !important;
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(98, 216, 255, 0.05) inset !important;
+}
+
+body.ev-storm-page main#main-content.core-storm-home .home-theme-band--emergency .ev-storm-panel--strong,
+body.ev-storm-page main#main-content.core-storm-home .home-theme-band--emergency .ev-storm-card--emergency {
+  background:
+    linear-gradient(145deg, rgba(5, 18, 38, 0.95), rgba(7, 24, 49, 0.91)) !important;
+  border-color: rgba(255, 50, 71, 0.32) !important;
+  box-shadow:
+    0 15px 38px rgba(0, 0, 0, 0.34),
+    0 0 20px rgba(233, 17, 30, 0.08),
+    0 0 0 1px rgba(255, 50, 71, 0.06) inset !important;
+  backdrop-filter: blur(7px) saturate(1.03) !important;
+}
+
+body.ev-storm-page main#main-content.core-storm-home .home-theme-band--offers .ev-offer-card--emergency {
+  border-color: rgba(255, 50, 71, 0.3) !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.ev-storm-page main#main-content.core-storm-home .home-theme-band a.ev-storm-card:hover {
+    border-color: rgba(98, 216, 255, 0.48) !important;
+    box-shadow:
+      0 18px 42px rgba(0, 0, 0, 0.32),
+      0 0 24px rgba(7, 156, 255, 0.11) !important;
+  }
+
+  body.ev-storm-page main#main-content.core-storm-home .home-theme-band--emergency a.ev-storm-card:hover {
+    border-color: rgba(255, 50, 71, 0.5) !important;
+    box-shadow:
+      0 18px 42px rgba(0, 0, 0, 0.34),
+      0 0 24px rgba(233, 17, 30, 0.13) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  body.ev-storm-page main#main-content.core-storm-page.core-storm-home::before {
+    background:
+      radial-gradient(ellipse 64% 54% at -14% 28%, rgba(8, 118, 255, 0.48), transparent 74%),
+      radial-gradient(ellipse 62% 52% at 114% 72%, rgba(233, 17, 30, 0.4), transparent 74%),
+      linear-gradient(90deg, rgba(8, 118, 255, 0.24), rgba(2, 6, 16, 0.52) 34%, rgba(2, 6, 16, 0.54) 66%, rgba(233, 17, 30, 0.22)),
+      var(--ee-electric-bg-image) !important;
+    background-position: 48% center !important;
+    opacity: 0.42 !important;
+  }
+
+  body.ev-storm-page main#main-content.core-storm-home .home-brand-hero > .home-hero-readability-overlay {
+    background:
+      linear-gradient(180deg, rgba(2, 6, 16, 0.08) 0%, rgba(2, 6, 16, 0.18) 35%, rgba(2, 6, 16, 0.72) 62%, rgba(2, 6, 16, 0.9) 100%),
+      linear-gradient(90deg, rgba(2, 6, 16, 0.22), rgba(2, 6, 16, 0.04) 72%, rgba(2, 6, 16, 0.12));
+  }
+
+  body.ev-storm-page main#main-content.core-storm-home .home-brand-hero .home-hero-copy-panel {
+    background: rgba(3, 13, 30, 0.92) !important;
+    backdrop-filter: blur(4px) !important;
+  }
+
+  body.ev-storm-page main#main-content.core-storm-home .home-theme-band :is(.ev-storm-card, .google-review-proof__panel),
+  body.ev-storm-page main#main-content.core-storm-home .home-theme-band--offers .ev-offer-card {
+    box-shadow:
+      0 10px 26px rgba(0, 0, 0, 0.25),
+      0 0 0 1px rgba(98, 216, 255, 0.04) inset !important;
+    backdrop-filter: none !important;
+  }
+}
+
+/* Apply the approved continuous canvas to every commercial, generated and
+   legal page while preserving hero media and semantic card accents. */
+body.ev-storm-page main#main-content:is(
+  .core-storm-page,
+  .generated-storm-page,
+  .ev-storm-legal
+) {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow-x: clip !important;
+  background:
+    radial-gradient(ellipse 52% 18% at -8% 13%, rgba(8, 118, 255, 0.34), transparent 76%),
+    radial-gradient(ellipse 48% 17% at 108% 27%, rgba(233, 17, 30, 0.25), transparent 78%),
+    radial-gradient(ellipse 54% 19% at -10% 47%, rgba(98, 216, 255, 0.22), transparent 78%),
+    radial-gradient(ellipse 50% 18% at 108% 64%, rgba(233, 17, 30, 0.2), transparent 78%),
+    radial-gradient(ellipse 54% 19% at -8% 81%, rgba(8, 118, 255, 0.27), transparent 78%),
+    radial-gradient(ellipse 48% 17% at 108% 94%, rgba(233, 17, 30, 0.18), transparent 78%),
+    linear-gradient(
+      180deg,
+      #020610 0%,
+      #041022 16%,
+      #050914 31%,
+      #071320 47%,
+      #020710 62%,
+      #051225 79%,
+      #020610 100%
+    ) !important;
+  background-attachment: scroll !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+body.ev-storm-page main#main-content:is(
+  .core-storm-page,
+  .generated-storm-page,
+  .ev-storm-legal
+)::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(ellipse 38% 68% at -8% 34%, rgba(8, 118, 255, 0.42), transparent 76%),
+    radial-gradient(ellipse 36% 66% at 108% 68%, rgba(233, 17, 30, 0.34), transparent 76%),
+    linear-gradient(90deg, rgba(8, 118, 255, 0.26), rgba(2, 6, 16, 0.58) 35%, rgba(2, 6, 16, 0.58) 65%, rgba(233, 17, 30, 0.24)),
+    var(--ee-electric-bg-image) !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  opacity: 0.46 !important;
+  mix-blend-mode: screen !important;
+}
+
+body.ev-storm-page main#main-content:is(
+  .core-storm-page,
+  .generated-storm-page,
+  .ev-storm-legal
+) > :is(section, footer) {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+body.ev-storm-page main#main-content:is(
+  .core-storm-page,
+  .generated-storm-page,
+  .ev-storm-legal
+) :is(
+  .ev-storm-section,
+  .ev-storm-section--emergency,
+  .ev-storm-section--subtle,
+  .google-review-proof,
+  .lead-offer-panel,
+  .trust-process-proof,
+  .quote-request-panel,
+  .services-featured-section,
+  .services-problem-selector,
+  .service-related-section,
+  .service-detail-scope-section,
+  .service-detail-warning-section,
+  .service-detail-related-section
+),
+body.ev-storm-page main#main-content:is(
+  .core-storm-page,
+  .generated-storm-page,
+  .ev-storm-legal
+) > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee) {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: visible !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+body.ev-storm-page main#main-content:is(
+  .core-storm-page,
+  .generated-storm-page,
+  .ev-storm-legal
+) :is(
+  .ev-storm-section,
+  .ev-storm-section--emergency,
+  .ev-storm-section--subtle,
+  .google-review-proof,
+  .lead-offer-panel,
+  .trust-process-proof,
+  .quote-request-panel,
+  .services-featured-section,
+  .services-problem-selector,
+  .service-related-section,
+  .service-detail-scope-section,
+  .service-detail-warning-section,
+  .service-detail-related-section
+)::before,
+body.ev-storm-page main#main-content:is(
+  .core-storm-page,
+  .generated-storm-page,
+  .ev-storm-legal
+) :is(
+  .ev-storm-section,
+  .ev-storm-section--emergency,
+  .ev-storm-section--subtle,
+  .google-review-proof,
+  .lead-offer-panel,
+  .trust-process-proof,
+  .quote-request-panel,
+  .services-featured-section,
+  .services-problem-selector,
+  .service-related-section,
+  .service-detail-scope-section,
+  .service-detail-warning-section,
+  .service-detail-related-section
+)::after,
+body.ev-storm-page main#main-content:is(
+  .core-storm-page,
+  .generated-storm-page,
+  .ev-storm-legal
+) > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee)::before,
+body.ev-storm-page main#main-content:is(
+  .core-storm-page,
+  .generated-storm-page,
+  .ev-storm-legal
+) > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee)::after {
+  content: none !important;
+  display: none !important;
+}
+
+body.ev-storm-page .site-footer.ev-footer {
+  background:
+    linear-gradient(180deg, rgba(2, 6, 16, 0.08), rgba(2, 6, 16, 0.72)),
+    radial-gradient(ellipse 42% 90% at -8% 46%, rgba(8, 118, 255, 0.24), transparent 78%),
+    radial-gradient(ellipse 40% 88% at 108% 52%, rgba(233, 17, 30, 0.19), transparent 78%),
+    #020610 !important;
+  border-top: 0 !important;
+  box-shadow: none !important;
+}
+
+body.ev-storm-page .site-footer.ev-footer::before {
+  content: none !important;
+  display: none !important;
+}
+
+body.ev-storm-page main#main-content.ev-storm-legal::before {
+  opacity: 0.28 !important;
+}
+
+body.ev-storm-page main#main-content.ev-storm-legal .legal-content-card {
+  background: rgba(4, 17, 36, 0.96) !important;
+  backdrop-filter: none !important;
+}
+
+@media (max-width: 767px) {
+  body.ev-storm-page main#main-content:is(
+    .core-storm-page,
+    .generated-storm-page,
+    .ev-storm-legal
+  )::before {
+    background:
+      radial-gradient(ellipse 64% 54% at -14% 28%, rgba(8, 118, 255, 0.48), transparent 74%),
+      radial-gradient(ellipse 62% 52% at 114% 72%, rgba(233, 17, 30, 0.4), transparent 74%),
+      linear-gradient(90deg, rgba(8, 118, 255, 0.24), rgba(2, 6, 16, 0.52) 34%, rgba(2, 6, 16, 0.54) 66%, rgba(233, 17, 30, 0.22)),
+      var(--ee-electric-bg-image) !important;
+    background-position: 48% center !important;
+    opacity: 0.42 !important;
+  }
+
+  body.ev-storm-page main#main-content.ev-storm-legal::before {
+    opacity: 0.22 !important;
+  }
+}

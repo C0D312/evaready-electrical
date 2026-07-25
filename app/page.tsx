@@ -166,7 +166,7 @@ export default function HomePage() {
 
       <SiteHeader />
 
-      <section className="home-brand-hero ev-hero ev-hero--with-van ev-storm-section--hero relative isolate overflow-hidden text-white">
+      <section className="home-brand-hero home-theme-feature ev-hero ev-hero--with-van ev-storm-section--hero relative isolate overflow-hidden text-white">
         <Image
           src={assetPath(business.heroImage)}
           alt={business.brandImageAlt}
@@ -176,7 +176,7 @@ export default function HomePage() {
           sizes="100vw"
           className="brand-hero-image ev-hero-van object-cover object-[67%_center] sm:object-[66%_center] lg:object-center"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,5,13,.94)_0%,rgba(2,5,13,.78)_48%,rgba(2,5,13,.2)_100%)]" aria-hidden="true" />
+        <div className="home-hero-readability-overlay absolute inset-0" aria-hidden="true" />
 
         <div className="ev-hero-grid relative mx-auto flex min-h-[34rem] max-w-7xl items-center px-4 py-10 sm:min-h-[38rem] sm:px-6 sm:py-14 lg:min-h-[40rem] lg:px-8">
           <div className="home-hero-copy-panel ev-hero-card ev-hero-content max-w-2xl rounded-lg border border-cyan-300/25 bg-[#031027]/88 p-5 shadow-2xl backdrop-blur-sm sm:p-8">
@@ -231,7 +231,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="ev-storm-section py-14 sm:py-18" aria-labelledby="services-heading">
+      <section className="home-theme-band home-theme-band--services ev-storm-section py-14 sm:py-18" aria-labelledby="services-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-bold text-cyan-100">Electrical services</p>
@@ -276,7 +276,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="ev-storm-section ev-storm-section--emergency py-14 sm:py-18" aria-labelledby="emergency-heading">
+      <section className="home-theme-band home-theme-band--emergency ev-storm-section ev-storm-section--emergency py-14 sm:py-18" aria-labelledby="emergency-heading">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
           <div className="ev-storm-panel ev-storm-panel--strong rounded-lg border border-red-300/30 p-5 sm:p-7">
             <p className="text-sm font-bold text-red-100">Emergency guidance</p>
@@ -317,7 +317,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="ev-storm-section py-14 sm:py-18" aria-labelledby="why-heading">
+      <section className="home-theme-band home-theme-band--trust ev-storm-section py-14 sm:py-18" aria-labelledby="why-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-bold text-cyan-100">Why Evaready</p>
@@ -344,10 +344,10 @@ export default function HomePage() {
         offers={getOffersForPlacement("homepage")}
         heading="Current electrical offers"
         intro="Check the terms on each offer before requesting work. Call first if an electrical fault feels unsafe."
-        className="home-offers-section"
+        className="home-offers-section home-theme-band home-theme-band--offers"
       />
 
-      <section className="ev-storm-section py-14 sm:py-18" aria-labelledby="areas-heading">
+      <section className="home-theme-band home-theme-band--areas ev-storm-section py-14 sm:py-18" aria-labelledby="areas-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-3xl">
@@ -382,9 +382,10 @@ export default function HomePage() {
       <GoogleReviewProof
         heading="Evaready's Google rating and reviews"
         subheading="See the current rating and read customer feedback on Evaready Electrical's Google Business Profile."
+        className="home-theme-band home-theme-band--reviews"
       />
 
-      <section className="ev-storm-section py-14 sm:py-18" aria-labelledby="faq-heading">
+      <section className="home-theme-band home-theme-band--faq ev-storm-section py-14 sm:py-18" aria-labelledby="faq-heading">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-bold text-cyan-100">Common questions</p>
           <h2 id="faq-heading" className="mt-2 text-3xl font-bold leading-tight sm:text-4xl">
