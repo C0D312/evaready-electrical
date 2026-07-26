@@ -536,6 +536,26 @@ async function stickyFooterState(page: Page) {
   });
 }
 
+async function navigateToAuditRoute(page: Page, route: AuditableRoute) {
+  let lastError: unknown;
+
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    try {
+      return await page.goto(localUrl(route.route), {
+        timeout: 30_000,
+        waitUntil: "domcontentloaded",
+      });
+    } catch (error) {
+      lastError = error;
+      await page
+        .goto("about:blank", { timeout: 5_000, waitUntil: "commit" })
+        .catch(() => undefined);
+    }
+  }
+
+  throw lastError;
+}
+
 async function auditRouteAtViewport(
   page: Page,
   route: AuditableRoute,
@@ -571,10 +591,7 @@ async function auditRouteAtViewport(
   const critical: string[] = [];
 
   try {
-    const response = await page.goto(localUrl(route.route), {
-      timeout: 30_000,
-      waitUntil: "domcontentloaded",
-    });
+    const response = await navigateToAuditRoute(page, route);
 
     if (response?.status() !== 200) {
       critical.push(`http ${response?.status() ?? "no response"}`);

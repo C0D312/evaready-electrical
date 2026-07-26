@@ -82,3 +82,38 @@ The largest safely removable initial payload was eliminated from Service Areas, 
 was removed, and initial shared compressed payload decreased. The work does not claim a
 Core Web Vitals percentile or a Lighthouse target that was not measured in a controlled
 production environment.
+
+## Pre-launch responsive-header continuation
+
+Recorded: 2026-07-27
+
+This continuation replaced the single distorted 1280x427 JPEG delivery with five
+art-directed WebP sources. The logo is no longer forced through `object-fit: fill`, and
+the source ratio selected at each breakpoint matches the reserved banner ratio.
+
+| Header source | Intrinsic size | File size |
+| --- | ---: | ---: |
+| Mobile | 960x300 | 36,078 bytes |
+| Tablet | 1600x250 | 37,612 bytes |
+| Desktop | 2560x260 | 48,022 bytes |
+| Large desktop | 2944x230 | 36,980 bytes |
+| Wide desktop | 3840x230 | 50,548 bytes |
+
+The 1920px header decreased from 267px total to 217px total. The 2560px header
+decreased from 334px total to 220px total. Both wide banners are at or below the
+155px artwork limit and span the viewport without horizontal inset.
+
+Local static-export browser timings were captured three times per route with cache
+disabled. The same uncompressed local server and route matrix were used before and
+after, so the byte changes are comparable; the millisecond differences are normal local
+run variance and are not presented as field Core Web Vitals.
+
+| Profile | Before avg LCP | After avg LCP | Before avg image bytes | After avg image bytes | Homepage CLS |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Mobile 390x844 | 133ms | 140ms | 472,798 | 458,491 | 0 before / 0 after |
+| Desktop 1366x768 | 138ms | 144ms | 545,268 | 542,905 | 0 before / 0 after |
+
+Homepage LCP measured 132ms before and 136ms after on mobile, and 124ms before and
+after on desktop. The responsive artwork reduced average image transfer while preserving
+layout stability and natural logo proportions. No Lighthouse score was generated or
+claimed for this local continuation.

@@ -1,6 +1,6 @@
 # Launch Readiness Report
 
-Recorded: 2026-07-26
+Recorded: 2026-07-27
 
 ## Executive result
 
@@ -25,6 +25,12 @@ configuration or ServiceM8 configuration was changed.
 - Corrected the cross-device test so XML, text and JSON endpoints are checked through the
   request API rather than browser download navigation.
 - Updated Next.js and its ESLint config from 16.2.6 to 16.2.12.
+- Replaced the distorted one-image header delivery with five responsive, art-directed
+  WebP sources and matching intrinsic banner ratios.
+- Added source, natural-size, viewport-bound and wide-height assertions to the production
+  responsive smoke audit.
+- Added bounded navigation recovery to the exhaustive route-visibility runner so one
+  transient timeout cannot contaminate following routes.
 
 ## Route and SEO preservation
 
@@ -49,7 +55,7 @@ review value, response classification or approved page copy was intentionally ch
 
 ## Accessibility, responsive and browser results
 
-- Focused production-static Playwright: 27 passed, 7 intentional breakpoint skips,
+- Focused production-static Playwright: 29 passed, 7 intentional breakpoint skips,
   0 failed. The skips are assertions that are inapplicable when the corresponding mobile
   or desktop-only control is intentionally hidden.
 - Exhaustive visibility: 7,028 checks passed across every known route.
@@ -62,6 +68,8 @@ review value, response classification or approved page copy was intentionally ch
   scroll restoration, skip link, keyboard focus, sticky CTA spacing, dropdown navigation,
   offer terms and conversion links passed focused tests.
 - No horizontal-overflow, application console or hydration failures were found.
+- Wide artwork is naturally proportioned and full-width: 150px at 1920 and 153px at
+  2560, with complete header heights of 217px and 220px respectively.
 
 Two test-environment limitations remain: Firefox could not initialise its Windows
 headless SWGL compositor, and after all seven available browser projects reported passed,
@@ -112,8 +120,8 @@ releases are available. They are a launch consideration, not concealed as a pass
 3. Investigate the local Firefox headless graphics failure on a Firefox-capable CI runner.
 4. Decide whether conventional duplicate icon files and legacy branded image variants may
    be removed; they were retained safely.
-5. Review the approved wide-screen header height separately if 1920/2560 scaling is no
-   longer desired. It was intentionally not altered in this preservation-focused cleanup.
+5. Recheck the responsive header artwork with any future owner-supplied master asset
+   before replacing the current verified variants; do not return to CSS distortion.
 
 Subject to those transparent owner decisions, the application-level launch gate passes:
 all legitimate routes, conversions, responsive behaviours and SEO signals remain intact.

@@ -9,33 +9,32 @@
   outline-offset: 3px;
 }
 
-/* Keep the complete supplied artwork in a compact, full-width header strip. */
+/* Match each art-directed source ratio so the logo is never stretched or cropped. */
 :root {
-  --ev-final-header-art-height: 110px;
-}
-
-@media (min-width: 375px) {
-  :root {
-    --ev-final-header-art-height: 115px;
-  }
+  --ev-final-header-art-height: max(110px, 31.25vw);
 }
 
 @media (min-width: 768px) {
   :root {
-    --ev-final-header-art-height: 125px;
+    --ev-final-header-art-height: 15.625vw;
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    /* Keep the existing slim strip while the complete original artwork scales into it. */
-    --ev-final-header-art-height: clamp(107px, 10.4167vw, 200px);
+    --ev-final-header-art-height: 10.15625vw;
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1600px) {
   :root {
-    --ev-final-header-art-height: clamp(200px, 10.4167vw, 267px);
+    --ev-final-header-art-height: 7.8125vw;
+  }
+}
+
+@media (min-width: 2200px) {
+  :root {
+    --ev-final-header-art-height: 5.989583vw;
   }
 }
 
@@ -89,18 +88,11 @@ header.ev-final-header .ev-final-header-image {
   padding: 0 !important;
   border: 0 !important;
   border-radius: 0 !important;
-  object-fit: fill !important;
+  object-fit: contain !important;
   object-position: center center !important;
   filter: none !important;
   opacity: 1 !important;
   transform: none !important;
-}
-
-@media (min-width: 1024px) {
-  header.ev-final-header .ev-final-header-image {
-    object-fit: fill !important;
-    object-position: center center !important;
-  }
 }
 
 @media (min-width: 1024px) {

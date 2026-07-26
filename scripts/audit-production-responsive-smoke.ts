@@ -128,6 +128,9 @@ async function main() {
     ticker: number;
     navigation: number;
     total: number;
+    source: string;
+    naturalSize: string;
+    horizontalInset: number;
   }> = [];
   let checks = 0;
 
@@ -229,6 +232,18 @@ async function main() {
               const container = document.querySelector<HTMLElement>(
                 ".ev-final-header",
               );
+              const image = document.querySelector<HTMLImageElement>(
+                ".ev-final-header-image",
+              );
+              const imageRect = image?.getBoundingClientRect();
+              const naturalRatio =
+                image?.naturalWidth && image?.naturalHeight
+                  ? image.naturalWidth / image.naturalHeight
+                  : 0;
+              const contentWidth =
+                imageRect && naturalRatio
+                  ? Math.min(imageRect.width, imageRect.height * naturalRatio)
+                  : 0;
 
               return {
                 banner: Math.round(
@@ -243,12 +258,71 @@ async function main() {
                 total: Math.round(
                   container?.getBoundingClientRect().height ?? 0,
                 ),
+                source: image?.currentSrc.split("/").pop() ?? "",
+                naturalSize:
+                  image?.naturalWidth && image?.naturalHeight
+                    ? `${image.naturalWidth}x${image.naturalHeight}`
+                    : "0x0",
+                objectFit: image ? getComputedStyle(image).objectFit : "",
+                horizontalInset: Math.round(
+                  Math.max(0, ((imageRect?.width ?? 0) - contentWidth) / 2) *
+                    100,
+                ) / 100,
+                left: Math.round((imageRect?.left ?? 0) * 100) / 100,
+                right: Math.round((imageRect?.right ?? 0) * 100) / 100,
               };
             });
 
+            const expectedSource =
+              viewport.width >= 2200
+                ? "evaready-header-wide-refined-v8.webp"
+                : viewport.width >= 1600
+                  ? "evaready-header-large-refined-v8.webp"
+                  : viewport.width >= 1024
+                    ? "evaready-header-desktop-refined-v8.webp"
+                    : viewport.width >= 768
+                      ? "evaready-header-tablet-refined-v8.webp"
+                      : "evaready-header-mobile-refined-v8.webp";
+
+            if (header.source !== expectedSource) {
+              failures.push(
+                `${label}: expected header source ${expectedSource}, found ${header.source || "(missing)"}`,
+              );
+            }
+
+            if (header.objectFit !== "contain") {
+              failures.push(
+                `${label}: header object-fit is ${header.objectFit || "(missing)"}, expected contain`,
+              );
+            }
+
+            if (header.horizontalInset > 1) {
+              failures.push(
+                `${label}: header artwork has ${header.horizontalInset}px horizontal inset`,
+              );
+            }
+
+            if (Math.abs(header.left) > 1 || Math.abs(header.right - viewport.width) > 1) {
+              failures.push(
+                `${label}: header image bounds ${header.left}px-${header.right}px do not span the viewport`,
+              );
+            }
+
+            if (viewport.width >= 1920 && header.banner > 155) {
+              failures.push(
+                `${label}: wide header banner is ${header.banner}px (maximum 155px)`,
+              );
+            }
+
             homeHeaderMeasurements.push({
               viewport: `${viewport.width}x${viewport.height}`,
-              ...header,
+              banner: header.banner,
+              ticker: header.ticker,
+              navigation: header.navigation,
+              total: header.total,
+              source: header.source,
+              naturalSize: header.naturalSize,
+              horizontalInset: header.horizontalInset,
             });
           }
 

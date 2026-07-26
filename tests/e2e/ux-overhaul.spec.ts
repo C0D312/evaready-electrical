@@ -108,9 +108,30 @@ test("wide desktop header keeps the complete banner artwork visible", async ({
   );
 
   for (const viewport of [
-    { width: 1440, height: 900, expectedBannerHeight: 150 },
-    { width: 1920, height: 1080, expectedBannerHeight: 200 },
-    { width: 2560, height: 1440, expectedBannerHeight: 267 },
+    {
+      width: 1440,
+      height: 900,
+      expectedBannerHeight: 146,
+      expectedSource: "evaready-header-desktop-refined-v8.webp",
+      naturalWidth: 2560,
+      naturalHeight: 260,
+    },
+    {
+      width: 1920,
+      height: 1080,
+      expectedBannerHeight: 150,
+      expectedSource: "evaready-header-large-refined-v8.webp",
+      naturalWidth: 2944,
+      naturalHeight: 230,
+    },
+    {
+      width: 2560,
+      height: 1440,
+      expectedBannerHeight: 153,
+      expectedSource: "evaready-header-wide-refined-v8.webp",
+      naturalWidth: 3840,
+      naturalHeight: 230,
+    },
   ]) {
     await page.setViewportSize(viewport);
     await page.goto("./", { waitUntil: "domcontentloaded" });
@@ -135,12 +156,10 @@ test("wide desktop header keeps the complete banner artwork visible", async ({
       };
     });
 
-    expect(bannerLayout.objectFit).toBe("fill");
-    expect(bannerLayout.currentSrc).toContain(
-      "/images/header/evaready-header-original.jpg",
-    );
-    expect(bannerLayout.naturalWidth).toBe(1280);
-    expect(bannerLayout.naturalHeight).toBe(427);
+    expect(bannerLayout.objectFit).toBe("contain");
+    expect(bannerLayout.currentSrc).toContain(viewport.expectedSource);
+    expect(bannerLayout.naturalWidth).toBe(viewport.naturalWidth);
+    expect(bannerLayout.naturalHeight).toBe(viewport.naturalHeight);
     expect(Math.abs(bannerLayout.bannerHeight - viewport.expectedBannerHeight)).toBeLessThanOrEqual(1);
     expect(Math.abs(bannerLayout.imageHeight - bannerLayout.bannerHeight)).toBeLessThanOrEqual(1);
     expect(Math.abs(bannerLayout.imageWidth - bannerLayout.bannerWidth)).toBeLessThanOrEqual(1);

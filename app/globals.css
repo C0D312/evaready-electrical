@@ -12651,17 +12651,11 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
 
 /* Compact Evaready banner, marquee, then desktop nav. */
 :root {
-  --ev-final-header-art-height: 110px;
+  --ev-final-header-art-height: max(110px, 31.25vw);
   --ev-final-nav-height: 0px;
   --ev-final-header-btn-height: 0px;
   --site-route-strip-height: 34px;
   --site-header-height: calc(var(--ev-final-header-art-height) + var(--site-route-strip-height) + env(safe-area-inset-top)) !important;
-}
-
-@media (min-width: 375px) {
-  :root {
-    --ev-final-header-art-height: 115px;
-  }
 }
 
 @media (min-width: 640px) and (max-width: 1023px) {
@@ -12672,13 +12666,13 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
 
 @media (min-width: 768px) {
   :root {
-    --ev-final-header-art-height: 125px;
+    --ev-final-header-art-height: 15.625vw;
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    --ev-final-header-art-height: clamp(180px, 14.5vw, 225px);
+    --ev-final-header-art-height: 10.15625vw;
     --ev-final-nav-height: 34px;
     --ev-final-header-btn-height: 30px;
     --site-route-strip-height: 26px;
@@ -12686,9 +12680,15 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
   }
 }
 
+@media (min-width: 1600px) {
+  :root {
+    --ev-final-header-art-height: 7.8125vw;
+  }
+}
+
 @media (min-width: 2200px) {
   :root {
-    --ev-final-header-art-height: 245px;
+    --ev-final-header-art-height: 5.989583vw;
   }
 }
 
@@ -12772,7 +12772,7 @@ header.site-header.ev-final-header {
   width: 100% !important;
   height: 100% !important;
   max-width: none !important;
-  object-fit: fill !important;
+  object-fit: contain !important;
   object-position: center center !important;
   filter: none !important;
   opacity: 1 !important;
