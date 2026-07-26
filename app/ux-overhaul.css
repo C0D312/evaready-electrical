@@ -1283,3 +1283,183 @@ body.ev-storm-page main#main-content.ev-storm-legal .legal-content-card {
     opacity: 0.22 !important;
   }
 }
+
+/* Phone conversion actions are always the red emergency action site-wide. */
+html body :is(a, button)[data-conversion-action="phone-click"],
+html body.ev-storm-page main#main-content :is(a, button)[data-conversion-action="phone-click"] {
+  background:
+    linear-gradient(135deg, #750713 0%, #e9111e 50%, #ff3247 100%) !important;
+  background-image:
+    linear-gradient(135deg, #750713 0%, #e9111e 50%, #ff3247 100%) !important;
+  background-color: #e9111e !important;
+  border-color: rgba(255, 125, 135, 0.52) !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 14px 34px rgba(233, 17, 30, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Contact layout must win after every shared compatibility rule above. */
+html body main#main-content.core-storm-contact .contact-option-grid,
+html body main#main-content.core-storm-contact .contact-option-card,
+html body main#main-content.core-storm-contact .contact-option-card > span,
+html body main#main-content.core-storm-contact .contact-mobile-actions {
+  min-width: 0 !important;
+}
+
+html body main#main-content.core-storm-contact .contact-option-card__text {
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
+
+html body main#main-content.core-storm-contact .contact-mobile-actions {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+html body main#main-content.core-storm-contact .contact-mobile-actions > :first-child {
+  grid-column: 1 / -1 !important;
+}
+
+html body main#main-content.core-storm-contact .contact-mobile-actions > :is(a, button) {
+  width: 100% !important;
+  min-width: 0 !important;
+  white-space: normal !important;
+  text-align: center !important;
+}
+
+@media (max-width: 639px) {
+  html body main#main-content.core-storm-contact .contact-option-grid {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}
+
+/* Keep the About contact card contained after shared legacy grid rules. */
+html body main#main-content.core-storm-about .about-contact-card,
+html body main#main-content.core-storm-about .about-contact-actions,
+html body main#main-content.core-storm-about .about-contact-action {
+  min-width: 0 !important;
+}
+
+html body main#main-content.core-storm-about .about-contact-actions {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+html body main#main-content.core-storm-about .about-contact-action {
+  width: 100% !important;
+  max-width: 100% !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+
+html body main#main-content.core-storm-about .about-contact-action--email {
+  grid-column: 1 / -1 !important;
+}
+
+/* Continue the shared storm canvas through the site-wide footer. */
+html body.ev-storm-page .site-footer.ev-footer,
+html body.ev-storm-page main#main-content.core-storm-page.core-storm-home > footer.site-footer.ev-footer {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 67, 148, 0.28) 0%,
+      rgba(2, 8, 22, 0.72) 30%,
+      rgba(2, 7, 19, 0.82) 50%,
+      rgba(2, 8, 22, 0.72) 70%,
+      rgba(139, 13, 34, 0.25) 100%
+    ),
+    linear-gradient(180deg, rgba(2, 7, 18, 0.16), rgba(2, 6, 16, 0.7)),
+    var(--ee-storm-bg-desktop) !important;
+  background-position: center top, center top, center center !important;
+  background-repeat: no-repeat !important;
+  background-size: auto, auto, cover !important;
+  border-top: 0 !important;
+  box-shadow: none !important;
+}
+
+html body.ev-storm-page .site-footer.ev-footer::before,
+html body.ev-storm-page main#main-content.core-storm-page.core-storm-home > footer.site-footer.ev-footer::before {
+  content: none !important;
+  display: none !important;
+}
+
+html body.ev-storm-page .site-footer.ev-footer :is(
+  .ev-footer-cta,
+  .ev-footer-brand-card,
+  .ev-footer-column,
+  .ev-footer-contact-card
+) {
+  background:
+    linear-gradient(145deg, rgba(4, 17, 38, 0.94), rgba(5, 23, 48, 0.9)) !important;
+  border-color: rgba(98, 216, 255, 0.22) !important;
+  box-shadow:
+    0 16px 42px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(98, 216, 255, 0.045) inset !important;
+}
+
+@media (max-width: 767px) {
+  html body.ev-storm-page .site-footer.ev-footer,
+  html body.ev-storm-page main#main-content.core-storm-page.core-storm-home > footer.site-footer.ev-footer {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(4, 67, 148, 0.24),
+        rgba(2, 8, 22, 0.74) 42%,
+        rgba(110, 12, 31, 0.2)
+      ),
+      linear-gradient(180deg, rgba(2, 7, 18, 0.22), rgba(2, 6, 16, 0.76)),
+      var(--ee-storm-bg-mobile) !important;
+    background-position: center top, center top, center center !important;
+    background-size: auto, auto, cover !important;
+  }
+}
+
+/* One desktop van focal point across homepage, service, fault and location
+   heroes. Mobile keeps the dedicated shared crop from globals.css. */
+@media (min-width: 768px) {
+  html body .home-brand-hero .brand-hero-image,
+  html body .brand-internal-hero > img.brand-internal-hero-image,
+  html body .brand-internal-hero > img.absolute {
+    object-fit: cover !important;
+    object-position: 76% center !important;
+  }
+
+  html body .brand-internal-hero::before {
+    background-position: 76% center !important;
+    background-size: cover !important;
+  }
+}
+
+/* Small-screen heroes continue the shared storm canvas beneath the photo
+   band instead of falling back to the legacy flat-blue fill. */
+@media (max-width: 767px) {
+  html body.ev-storm-page main#main-content > :is(
+    .home-brand-hero,
+    .brand-internal-hero
+  ) {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(4, 67, 148, 0.28) 0%,
+        rgba(2, 8, 22, 0.62) 34%,
+        rgba(2, 7, 19, 0.7) 54%,
+        rgba(122, 12, 31, 0.26) 100%
+      ),
+      linear-gradient(180deg, rgba(2, 7, 18, 0.08), rgba(2, 6, 16, 0.46)),
+      var(--ee-storm-bg-mobile) !important;
+    background-position: center top, center top, center center !important;
+    background-repeat: no-repeat !important;
+    background-size: auto, auto, cover !important;
+  }
+
+  html body.ev-storm-page main#main-content.core-storm-home > .home-brand-hero,
+  html body.ev-storm-page main#main-content.core-storm-home > .home-brand-hero > .ev-hero-grid {
+    min-height: 0 !important;
+  }
+
+  html body.ev-storm-page main#main-content.core-storm-home > .home-brand-hero > .ev-hero-grid {
+    align-items: flex-start !important;
+    padding-bottom: 1rem !important;
+  }
+}

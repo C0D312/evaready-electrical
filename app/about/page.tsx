@@ -405,7 +405,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <aside className="ev-storm-card ev-storm-card--emergency rounded-[2rem] p-6 sm:p-8">
+            <aside className="about-contact-card ev-storm-card ev-storm-card--emergency min-w-0 rounded-[2rem] p-6 sm:p-8">
               <p className="text-xs font-black uppercase tracking-[0.22em] text-red-100">
                 Contact Evaready
               </p>
@@ -416,12 +416,12 @@ export default function AboutPage() {
                 For planned work, use the quote form to send photos, job notes,
                 access details and any defect notice or paperwork.
               </p>
-              <div className="mt-6 grid gap-3">
+              <div className="about-contact-actions mt-6 grid grid-cols-2 gap-3">
                 <a
                   href={business.phoneHref}
                   data-conversion-action="phone-click"
                   aria-label={business.callCta}
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-red-600 px-5 py-3 text-sm font-black text-white"
+                  className="about-contact-action inline-flex min-h-12 min-w-0 items-center justify-center gap-2 rounded-2xl bg-red-600 px-3 py-3 text-center text-sm font-black text-white"
                 >
                   <Phone className="h-5 w-5" aria-hidden="true" />
                   {business.callCta}
@@ -431,14 +431,14 @@ export default function AboutPage() {
                   data-quote-trigger="true"
                   data-conversion-action="quote-click"
                   aria-haspopup="dialog"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-blue-700 px-5 py-3 text-sm font-black text-white"
+                  className="about-contact-action inline-flex min-h-12 min-w-0 items-center justify-center gap-2 rounded-2xl bg-blue-700 px-3 py-3 text-center text-sm font-black text-white"
                 >
                   {business.quoteCta}
                   <ArrowRight className="h-5 w-5" aria-hidden="true" />
                 </a>
                 <a
                   href={business.emailHref}
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-cyan-300/22 bg-[#061E72]/45 px-5 py-3 text-sm font-black text-white"
+                  className="about-contact-action about-contact-action--email col-span-2 inline-flex min-h-12 min-w-0 items-center justify-center gap-2 rounded-2xl border border-cyan-300/22 bg-[#061E72]/45 px-4 py-3 text-center text-sm font-black text-white"
                 >
                   <Mail className="h-5 w-5" aria-hidden="true" />
                   {business.email}

@@ -2,12 +2,14 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowRight, CheckCircle2, MapPin, Phone } from "lucide-react";
 import { CompactOfferStrip } from "@/components/compact-offer-strip";
+import { ServiceAreaSearch } from "@/components/service-area-search";
 import {
   ServiceAreaHero,
   SiteFooter,
   SiteHeader,
 } from "@/components/site-frame";
 import {
+  coverageSearchItems,
   getRegionBySlug,
   getRegionLocalContext,
   getRegionPaths,
@@ -63,6 +65,9 @@ export default async function RegionPage({ params }: RegionPageProps) {
   const localContext = getRegionLocalContext(region);
   const emergencyResponse = getEmergencyResponseForRegion(region.name);
   const regionOffers = getOffersForPlacement("service-areas");
+  const regionSearchItems = coverageSearchItems.filter(
+    (item) => item.regionSlug === region.slug,
+  );
   const topSuburbs = rankSuburbsForInternalLinks(
     region.areas.flatMap((area) =>
       area.suburbs.map((suburb) => ({
@@ -217,6 +222,90 @@ export default async function RegionPage({ params }: RegionPageProps) {
         </div>
       </ServiceAreaHero>
 
+      <section className="bg-[#06142f] py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
+            Find your local page
+          </p>
+          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+            Search a postcode or choose an area in {region.name}.
+          </h2>
+          <p className="mt-4 max-w-3xl text-base font-semibold leading-7 text-slate-300 sm:text-lg">
+            Search for your suburb or postcode, or open an area below to browse
+            every covered suburb in that part of the region.
+          </p>
+
+          <div className="mt-8 max-w-3xl">
+            <ServiceAreaSearch items={regionSearchItems} />
+          </div>
+
+          <div className="mt-10 flex flex-wrap items-center justify-between gap-4">
+            <h3 className="text-2xl font-black text-white sm:text-3xl">
+              Areas in this region
+            </h3>
+            <Link
+              href="/service-areas"
+              className="rounded-full border border-cyan-300/25 bg-[#091d42] px-4 py-2 text-sm font-black text-slate-100 transition hover:border-cyan-200 hover:text-cyan-100"
+            >
+              All service areas
+            </Link>
+          </div>
+
+          <div className="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {region.areas.map((area) => (
+              <Link
+                key={area.slug}
+                href={`/service-areas/${region.slug}/${area.slug}`}
+                className="group rounded-lg border border-cyan-300/20 bg-[#091d42] p-6 shadow-lg shadow-blue-950/20 transition hover:-translate-y-1 hover:border-cyan-200 hover:bg-[#0d2b5c] hover:shadow-xl"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="rounded-lg border border-cyan-300/25 bg-[#0d2b5c] p-3 text-cyan-100">
+                    <MapPin className="h-7 w-7" />
+                  </div>
+                  <span className="rounded-full border border-cyan-300/20 bg-[#0d2b5c] px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-slate-100">
+                    {area.suburbs.length} suburbs
+                  </span>
+                </div>
+                <h3 className="mt-6 text-2xl font-black">{area.name}</h3>
+                <p className="mt-3 leading-7 text-slate-300">
+                  {area.description}
+                </p>
+                <span className="mt-6 inline-flex items-center gap-2 font-black text-cyan-200">
+                  View suburbs
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                </span>
+              </Link>
+            ))}
+          </div>
+
+          {topSuburbs.length > 0 && (
+            <div className="mt-10 rounded-lg border border-cyan-300/20 bg-[#091d42] p-6 shadow-lg shadow-blue-950/20">
+              <h3 className="text-2xl font-black">
+                Popular suburbs in {region.name}
+              </h3>
+              <div className="mt-5 flex flex-wrap gap-3">
+                {topSuburbs.map((suburb) => (
+                  <Link
+                    key={`${suburb.areaSlug}-${suburb.slug}`}
+                    href={`/service-areas/${region.slug}/${suburb.areaSlug}/${suburb.slug}`}
+                    data-region-suburb-shortcut
+                    className="group inline-flex min-h-11 items-center gap-2 rounded-full border border-cyan-300/20 bg-[#06142f] px-4 py-2 text-sm font-black text-slate-100 transition hover:border-cyan-200 hover:text-cyan-100"
+                  >
+                    <span>
+                      {suburb.name} {suburb.postcode}
+                    </span>
+                    <ArrowRight
+                      className="h-3.5 w-3.5 shrink-0 transition-transform group-hover:translate-x-0.5"
+                      aria-hidden="true"
+                    />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
       <section className="border-b border-cyan-300/15 bg-[#06142f]">
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           {[
@@ -291,80 +380,6 @@ export default async function RegionPage({ params }: RegionPageProps) {
               </Link>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="bg-[#06142f] py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
-            Areas
-          </p>
-          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-            Choose an area inside {region.name}.
-          </h2>
-          <div className="mt-5">
-            <Link
-              href="/service-areas"
-              className="rounded-full border border-cyan-300/25 bg-[#091d42] px-4 py-2 text-sm font-black text-slate-100 transition hover:border-cyan-200 hover:text-cyan-100"
-            >
-              All service areas
-            </Link>
-          </div>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {region.areas.map((area) => (
-              <Link
-                key={area.slug}
-                href={`/service-areas/${region.slug}/${area.slug}`}
-                className="group rounded-lg border border-cyan-300/20 bg-[#091d42] p-6 shadow-lg shadow-blue-950/20 transition hover:-translate-y-1 hover:border-cyan-200 hover:bg-[#0d2b5c] hover:shadow-xl"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="rounded-lg border border-cyan-300/25 bg-[#0d2b5c] p-3 text-cyan-100">
-                    <MapPin className="h-7 w-7" />
-                  </div>
-                  <span className="rounded-full border border-cyan-300/20 bg-[#0d2b5c] px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-slate-100">
-                    {area.suburbs.length} suburbs
-                  </span>
-                </div>
-
-                <h3 className="mt-6 text-2xl font-black">{area.name}</h3>
-                <p className="mt-3 leading-7 text-slate-300">
-                  {area.description}
-                </p>
-
-                <span className="mt-6 inline-flex items-center gap-2 font-black text-cyan-200">
-                  View suburbs
-                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                </span>
-              </Link>
-            ))}
-          </div>
-
-          {topSuburbs.length > 0 && (
-            <div className="mt-14 rounded-lg border border-cyan-300/20 bg-[#091d42] p-6 shadow-lg shadow-blue-950/20">
-              <h3 className="text-2xl font-black">
-                Top suburbs in {region.name}
-              </h3>
-              <div className="mt-5 flex flex-wrap gap-3">
-                {topSuburbs.map((suburb) => (
-                  <Link
-                    key={`${suburb.areaSlug}-${suburb.slug}`}
-                    href={`/service-areas/${region.slug}/${suburb.areaSlug}/${suburb.slug}`}
-                    data-region-suburb-shortcut
-                    className="group inline-flex min-h-11 items-center gap-2 rounded-full border border-cyan-300/20 bg-[#06142f] px-4 py-2 text-sm font-black text-slate-100 transition hover:border-cyan-200 hover:text-cyan-100"
-                  >
-                    <span>
-                      {suburb.name} {suburb.postcode}
-                    </span>
-                    <ArrowRight
-                      className="h-3.5 w-3.5 shrink-0 transition-transform group-hover:translate-x-0.5"
-                      aria-hidden="true"
-                    />
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </section>
 

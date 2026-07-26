@@ -153,7 +153,7 @@ export default function ContactPage() {
               <h2 className="mt-3 text-3xl font-black tracking-tight">
                 Call, email or send job details.
               </h2>
-              <div className="mt-6 grid gap-3">
+              <div className="contact-option-grid mt-6 grid gap-3 sm:grid-cols-2">
                 {contactOptions.map((option) => {
                   const Icon = option.icon;
                   const isPhone = option.title === "Phone";
@@ -167,7 +167,7 @@ export default function ContactPage() {
                           ? assetPath(option.href)
                           : option.href
                       }
-                      className="flex min-h-16 items-center gap-4 rounded-2xl border border-cyan-300/16 bg-[#061E72]/55 p-4 text-left transition hover:border-cyan-200/45 hover:bg-[#082A86]"
+                      className="contact-option-card flex min-h-16 min-w-0 items-center gap-4 rounded-2xl border border-cyan-300/16 bg-[#061E72]/55 p-4 text-left transition hover:border-cyan-200/45 hover:bg-[#082A86]"
                       data-conversion-action={
                         isPhone ? "phone-click" : isQuote ? "quote-click" : undefined
                       }
@@ -177,11 +177,11 @@ export default function ContactPage() {
                       <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cyan-300/12 text-cyan-200">
                         <Icon className="h-5 w-5" aria-hidden="true" />
                       </span>
-                      <span>
+                      <span className="min-w-0 flex-1">
                         <span className="block text-sm font-black uppercase tracking-[0.12em] text-cyan-100">
                           {option.title}
                         </span>
-                        <span className="mt-1 block text-sm font-semibold leading-6 text-slate-200">
+                        <span className="contact-option-card__text mt-1 block min-w-0 break-words text-sm font-semibold leading-6 text-slate-200">
                           {option.text}
                         </span>
                       </span>
@@ -270,10 +270,10 @@ export default function ContactPage() {
                 regions. Call or send your job details to confirm availability
                 for your suburb and electrical work.
               </p>
-              <div className="mt-6 grid gap-3 sm:grid-cols-3">
+              <div className="contact-mobile-actions mt-6 grid grid-cols-2 gap-3">
                 <Link
                   href="/service-areas"
-                  className="ev-btn ev-btn--secondary inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-black"
+                  className="ev-btn ev-btn--secondary col-span-2 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-black"
                 >
                   Check Service Areas
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
