@@ -25,6 +25,7 @@ import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { level2ClusterLinks } from "@/data/internal-links";
 import { absoluteUrl, assetPath, business } from "@/data/site";
+import { schemaJson } from "@/lib/schema";
 import { level2SeoMetadata, toMetadata } from "@/lib/seo-metadata";
 
 export const metadata: Metadata = toMetadata(level2SeoMetadata());
@@ -378,7 +379,7 @@ export default function Level2ElectricianSydneyPage() {
     >
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildSchema()) }}
+        dangerouslySetInnerHTML={schemaJson(buildSchema())}
       />
 
       <SiteHeader />

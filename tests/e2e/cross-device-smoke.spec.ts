@@ -181,6 +181,27 @@ test("live site route matrix has no critical browser/device regressions", async 
     page.on("response", responseHandler);
 
     try {
+      if (route.kind !== "html") {
+        const response = await page.request.get(targetPath);
+
+        if (!response.ok()) {
+          failures.push(
+            `${route.name}: load failed with status ${response.status()}`,
+          );
+          continue;
+        }
+
+        const routeText = await response.text();
+
+        for (const expected of route.expects ?? []) {
+          if (!routeText.includes(expected)) {
+            failures.push(`${route.name}: missing expected text "${expected}"`);
+          }
+        }
+
+        continue;
+      }
+
       const response = await page.goto(targetPath, { waitUntil: "domcontentloaded" });
       if (!response?.ok()) {
         failures.push(`${route.name}: load failed with status ${response?.status() ?? "unknown"}`);
@@ -188,25 +209,6 @@ test("live site route matrix has no critical browser/device regressions", async 
       }
 
       await page.waitForTimeout(600);
-
-      if (route.kind !== "html") {
-        const routeText = await page
-          .locator("body")
-          .innerText({ timeout: 2_000 })
-          .catch(async () =>
-            page
-              .locator("pre")
-              .innerText({ timeout: 2_000 })
-              .catch(async () => page.content()),
-          );
-
-        for (const expected of route.expects ?? []) {
-          if (!routeText.includes(expected)) {
-            failures.push(`${route.name}: missing expected text "${expected}"`);
-          }
-        }
-        continue;
-      }
 
       const bodyText = await page.locator("body").innerText();
       const html = await page.content();

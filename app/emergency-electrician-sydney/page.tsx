@@ -21,6 +21,7 @@ import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { emergencyFaultClusterLinks } from "@/data/electrical-faults";
 import { getOffersForPlacement } from "@/data/offers";
 import { absoluteUrl, assetPath, business } from "@/data/site";
+import { schemaJson } from "@/lib/schema";
 import { emergencySeoMetadata, toMetadata } from "@/lib/seo-metadata";
 import styles from "./emergency-theme.module.css";
 
@@ -426,7 +427,7 @@ export default function EmergencyElectricianSydneyPage() {
     >
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={schemaJson(schema)}
       />
 
       <SiteHeader />

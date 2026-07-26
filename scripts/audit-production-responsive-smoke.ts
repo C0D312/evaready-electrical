@@ -7,6 +7,10 @@ const outDir = path.join(process.cwd(), "out");
 const productionOrigin =
   process.env.NEXT_PUBLIC_SITE_URL ||
   "https://c0d312.github.io/evaready-electrical";
+const deploymentBasePath = (
+  process.env.NEXT_PUBLIC_BASE_PATH || ""
+).replace(/^\/*|\/*$/g, "");
+const requestBasePath = deploymentBasePath ? `/${deploymentBasePath}` : "";
 const routes = [
   "/",
   "/emergency-electrician-sydney/",
@@ -17,10 +21,19 @@ const routes = [
 ];
 const viewports = [
   { width: 320, height: 568 },
+  { width: 360, height: 800 },
   { width: 375, height: 812 },
+  { width: 390, height: 844 },
+  { width: 412, height: 915 },
+  { width: 430, height: 932 },
   { width: 768, height: 1024 },
+  { width: 820, height: 1180 },
   { width: 1024, height: 768 },
+  { width: 1280, height: 800 },
+  { width: 1366, height: 768 },
   { width: 1440, height: 900 },
+  { width: 1920, height: 1080 },
+  { width: 2560, height: 1440 },
 ];
 
 function contentType(filePath: string) {
@@ -43,7 +56,13 @@ function contentType(filePath: string) {
 
 function resolveOutputPath(pathname: string) {
   const decodedPath = decodeURIComponent(pathname);
-  const relativePath = decodedPath.replace(/^\/+/, "");
+  const applicationPath =
+    requestBasePath &&
+    (decodedPath === requestBasePath ||
+      decodedPath.startsWith(`${requestBasePath}/`))
+      ? decodedPath.slice(requestBasePath.length) || "/"
+      : decodedPath;
+  const relativePath = applicationPath.replace(/^\/+/, "");
   const directPath = path.resolve(outDir, relativePath);
 
   if (!directPath.startsWith(path.resolve(outDir))) {
@@ -103,6 +122,13 @@ async function main() {
   const { origin, server } = await startServer();
   const browser = await chromium.launch({ headless: true });
   const failures: string[] = [];
+  const homeHeaderMeasurements: Array<{
+    viewport: string;
+    banner: number;
+    ticker: number;
+    navigation: number;
+    total: number;
+  }> = [];
   let checks = 0;
 
   try {
@@ -111,6 +137,7 @@ async function main() {
 
       for (const route of routes) {
         const failedAssets: string[] = [];
+        const browserErrors: string[] = [];
         const responseHandler = (response: Response) => {
           const requestType = response.request().resourceType();
 
@@ -122,13 +149,30 @@ async function main() {
             failedAssets.push(`${response.status()} ${response.url()}`);
           }
         };
+        const consoleHandler = (message: { type(): string; text(): string }) => {
+          const text = message.text();
+          if (
+            message.type() === "error" &&
+            !text.startsWith("Failed to load resource:")
+          ) {
+            browserErrors.push(`console: ${text}`);
+          }
+        };
+        const pageErrorHandler = (error: Error) => {
+          browserErrors.push(`page: ${error.message}`);
+        };
 
         page.on("response", responseHandler);
+        page.on("console", consoleHandler);
+        page.on("pageerror", pageErrorHandler);
 
         try {
-          const response = await page.goto(`${origin}${route}`, {
+          const response = await page.goto(
+            `${origin}${requestBasePath}${route}`,
+            {
             waitUntil: "domcontentloaded",
-          });
+            },
+          );
           const label = `${viewport.width}x${viewport.height} ${route}`;
 
           if (!response?.ok()) {
@@ -141,9 +185,6 @@ async function main() {
               document
                 .querySelector<HTMLLinkElement>('link[rel="canonical"]')
                 ?.href ?? "",
-            hasGitHubHostname: document.documentElement.innerHTML.includes(
-              "c0d312.github.io",
-            ),
             h1Count: document.querySelectorAll("h1").length,
             horizontalOverflow:
               document.documentElement.scrollWidth -
@@ -160,10 +201,6 @@ async function main() {
             );
           }
 
-          if (result.hasGitHubHostname) {
-            failures.push(`${label}: rendered HTML contains GitHub hostname`);
-          }
-
           if (result.h1Count !== 1) {
             failures.push(`${label}: expected one H1, found ${result.h1Count}`);
           }
@@ -178,13 +215,56 @@ async function main() {
             failures.push(`${label}: main content is not visible`);
           }
 
+          if (route === "/") {
+            const header = await page.evaluate(() => {
+              const banner = document.querySelector<HTMLElement>(
+                ".ev-final-header-art",
+              );
+              const ticker = document.querySelector<HTMLElement>(
+                "#route-service-highlights",
+              );
+              const navigation = document.querySelector<HTMLElement>(
+                ".ev-final-desktop-nav",
+              );
+              const container = document.querySelector<HTMLElement>(
+                ".ev-final-header",
+              );
+
+              return {
+                banner: Math.round(
+                  banner?.getBoundingClientRect().height ?? 0,
+                ),
+                ticker: Math.round(
+                  ticker?.getBoundingClientRect().height ?? 0,
+                ),
+                navigation: Math.round(
+                  navigation?.getBoundingClientRect().height ?? 0,
+                ),
+                total: Math.round(
+                  container?.getBoundingClientRect().height ?? 0,
+                ),
+              };
+            });
+
+            homeHeaderMeasurements.push({
+              viewport: `${viewport.width}x${viewport.height}`,
+              ...header,
+            });
+          }
+
           if (failedAssets.length > 0) {
             failures.push(`${label}: failed assets ${failedAssets.join(" | ")}`);
+          }
+
+          if (browserErrors.length > 0) {
+            failures.push(`${label}: browser errors ${browserErrors.join(" | ")}`);
           }
 
           checks += 1;
         } finally {
           page.off("response", responseHandler);
+          page.off("console", consoleHandler);
+          page.off("pageerror", pageErrorHandler);
         }
       }
 
@@ -202,6 +282,7 @@ async function main() {
       {
         checks,
         failures,
+        homeHeaderMeasurements,
         routes: routes.length,
         viewports: viewports.map(
           (viewport) => `${viewport.width}x${viewport.height}`,

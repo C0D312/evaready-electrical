@@ -1,28 +1,131 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Search } from "lucide-react";
 import type { CoverageSearchItem } from "@/data/service-area-coverage";
 import { business, getEmergencyResponseForRegion } from "@/data/site";
 
-type ServiceAreaSearchProps = {
-  items: CoverageSearchItem[];
+type SearchItem = Pick<
+  CoverageSearchItem,
+  "areaName" | "href" | "postcode" | "regionName" | "suburbName"
+>;
+
+type SearchIndexRecord = {
+  a: string;
+  h: string;
+  p: string;
+  r: string;
+  s: string;
 };
 
-export function ServiceAreaSearch({ items }: ServiceAreaSearchProps) {
-  const [query, setQuery] = useState(() => {
-    if (typeof window === "undefined") {
-      return "";
+type ServiceAreaSearchProps = {
+  indexUrl?: string;
+  items?: SearchItem[];
+};
+
+function isSearchIndexRecord(value: unknown): value is SearchIndexRecord {
+  if (!value || typeof value !== "object") {
+    return false;
+  }
+
+  const record = value as Partial<SearchIndexRecord>;
+  return [record.a, record.h, record.p, record.r, record.s].every(
+    (field) => typeof field === "string",
+  );
+}
+
+export function ServiceAreaSearch({
+  indexUrl,
+  items = [],
+}: ServiceAreaSearchProps) {
+  const [query, setQuery] = useState("");
+  const [searchItems, setSearchItems] = useState<SearchItem[]>(items);
+  const [indexStatus, setIndexStatus] = useState<
+    "idle" | "loading" | "ready" | "failed"
+  >(items.length > 0 ? "ready" : "idle");
+  const indexStatusRef = useRef(indexStatus);
+  const indexRequest = useRef<Promise<void> | null>(null);
+  const initializedFromUrl = useRef(false);
+
+  const updateIndexStatus = useCallback(
+    (status: "idle" | "loading" | "ready" | "failed") => {
+      indexStatusRef.current = status;
+      setIndexStatus(status);
+    },
+    [],
+  );
+
+  const loadIndex = useCallback(() => {
+    if (
+      items.length > 0 ||
+      !indexUrl ||
+      indexStatusRef.current === "ready"
+    ) {
+      return Promise.resolve();
     }
 
-    return new URLSearchParams(window.location.search).get("q") ?? "";
-  });
+    if (indexRequest.current) {
+      return indexRequest.current;
+    }
+
+    updateIndexStatus("loading");
+    const request = fetch(indexUrl, { credentials: "same-origin" })
+      .then(async (response) => {
+        if (!response.ok) {
+          throw new Error(`Search index returned ${response.status}`);
+        }
+
+        const payload: unknown = await response.json();
+        if (!Array.isArray(payload) || !payload.every(isSearchIndexRecord)) {
+          throw new Error("Search index has an invalid format");
+        }
+
+        setSearchItems(
+          payload.map((record) => ({
+            areaName: record.a,
+            href: record.h,
+            postcode: record.p,
+            regionName: record.r,
+            suburbName: record.s,
+          })),
+        );
+        updateIndexStatus("ready");
+      })
+      .catch(() => {
+        updateIndexStatus("failed");
+      })
+      .finally(() => {
+        indexRequest.current = null;
+      });
+
+    indexRequest.current = request;
+    return request;
+  }, [indexUrl, items.length, updateIndexStatus]);
+
+  useEffect(() => {
+    if (initializedFromUrl.current) {
+      return;
+    }
+
+    initializedFromUrl.current = true;
+    const initialQuery = new URLSearchParams(window.location.search).get("q") ?? "";
+    if (!initialQuery) {
+      return;
+    }
+
+    const animationFrame = window.requestAnimationFrame(() => {
+      setQuery(initialQuery);
+      void loadIndex();
+    });
+
+    return () => window.cancelAnimationFrame(animationFrame);
+  }, [loadIndex]);
 
   const normalizedQuery = query.trim().toLowerCase();
 
   const matches = normalizedQuery
-    ? items
+    ? searchItems
         .filter((item) => {
           const searchable = [
             item.suburbName,
@@ -53,15 +156,43 @@ export function ServiceAreaSearch({ items }: ServiceAreaSearchProps) {
           id="service-area-search"
           type="search"
           value={query}
-          onChange={(event) => setQuery(event.target.value)}
+          onFocus={() => void loadIndex()}
+          onChange={(event) => {
+            const nextQuery = event.target.value;
+            setQuery(nextQuery);
+            if (nextQuery.trim()) {
+              void loadIndex();
+            }
+          }}
           placeholder="Enter suburb or postcode"
           className="h-12 w-full bg-transparent text-base font-semibold text-white outline-none placeholder:text-slate-400"
         />
       </div>
 
       {normalizedQuery ? (
-        <div className="mt-4 grid gap-2">
-          {matches.length > 0 ? (
+        <div
+          className="mt-4 grid gap-2"
+          aria-busy={indexStatus === "loading"}
+          aria-live="polite"
+        >
+          {indexStatus === "loading" || indexStatus === "idle" ? (
+            <div className="rounded-lg border border-cyan-300/25 bg-[#06142f] px-4 py-3 text-sm font-semibold text-slate-200">
+              Loading suburb and postcode search...
+            </div>
+          ) : indexStatus === "failed" ? (
+            <div className="rounded-lg border border-red-300/35 bg-red-950/45 px-4 py-3 text-sm font-semibold text-red-50">
+              The suburb search could not load. Call{" "}
+              <a
+                href={business.phoneHref}
+                data-conversion-action="phone-click"
+                aria-label={business.callCta}
+                className="font-black underline underline-offset-2"
+              >
+                {business.phoneDisplay}
+              </a>{" "}
+              and we can confirm availability.
+            </div>
+          ) : matches.length > 0 ? (
             matches.map((item) => {
               const response = getEmergencyResponseForRegion(item.regionName);
               const responseLabel = response.isCore
@@ -70,7 +201,7 @@ export function ServiceAreaSearch({ items }: ServiceAreaSearchProps) {
 
               return (
                 <Link
-                  key={`${item.regionSlug}-${item.areaSlug}-${item.suburbSlug}`}
+                  key={item.href}
                   href={item.href}
                   data-service-area-search-result
                   className="group grid gap-3 rounded-lg border border-cyan-300/20 bg-[#06142f] px-4 py-3 text-left transition hover:border-cyan-200 hover:bg-[#0d2b5c] sm:grid-cols-[1fr_auto] sm:items-center"

@@ -3277,8 +3277,7 @@ a[data-quote-trigger="true"].site-header-quote {
 }
 
 .footer-link:focus-visible,
-.footer-action:focus-visible,
-.footer-link-group-button:focus-visible {
+.footer-action:focus-visible {
   outline: 3px solid rgba(103, 232, 249, 0.48);
   outline-offset: 3px;
 }
@@ -3320,230 +3319,6 @@ a[data-quote-trigger="true"].site-header-quote {
 .footer-action-email {
   border: 1px solid rgba(103, 232, 249, 0.32);
   background: rgba(6, 30, 114, 0.54);
-}
-
-.footer-link-groups {
-  display: grid;
-  min-width: 0;
-  gap: 0.75rem;
-}
-
-.footer-link-group {
-  min-width: 0;
-  overflow: hidden;
-  border: 1px solid rgba(103, 232, 249, 0.14);
-  border-radius: 1rem;
-  background:
-    linear-gradient(180deg, rgba(13, 43, 92, 0.82), rgba(6, 20, 47, 0.78));
-  box-shadow:
-    0 18px 38px rgba(0, 0, 0, 0.12),
-    0 0 0 1px rgba(255, 255, 255, 0.035) inset;
-}
-
-.footer-link-group-button {
-  display: flex;
-  min-height: 44px;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding: 0.72rem 0.85rem;
-  color: #ffffff;
-  font-size: 0.78rem;
-  font-weight: 950;
-  letter-spacing: 0.08em;
-  line-height: 1.1;
-  text-align: left;
-  text-transform: uppercase;
-}
-
-.footer-link-group-icon {
-  color: #67e8f9;
-  transition: transform 0.2s ease;
-}
-
-.footer-link-group-open .footer-link-group-icon {
-  transform: rotate(180deg);
-}
-
-.footer-link-panel {
-  max-height: 0;
-  overflow: hidden;
-  padding-inline: 0.85rem;
-  transition: max-height 0.22s ease;
-}
-
-.footer-link-group-open .footer-link-panel {
-  max-height: 68rem;
-}
-
-.footer-link-list {
-  display: grid;
-  gap: 0.35rem;
-  margin: 0;
-  padding: 0.15rem 0 0.85rem;
-  list-style: none;
-}
-
-.footer-link-list li {
-  min-width: 0;
-}
-
-.footer-region-search {
-  display: grid;
-  gap: 0.5rem;
-  margin-top: 0.85rem;
-  padding-top: 0.85rem;
-  border-top: 1px solid rgba(103, 232, 249, 0.16);
-}
-
-.footer-region-search-label {
-  color: #ffffff;
-  font-size: 0.72rem;
-  font-weight: 950;
-  letter-spacing: 0.12em;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
-.footer-region-search-control {
-  display: grid;
-  min-height: 2.85rem;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 0.55rem;
-  border: 1px solid rgba(103, 232, 249, 0.28);
-  border-radius: 0.85rem;
-  background: rgba(4, 11, 28, 0.62);
-  padding: 0.35rem 0.4rem 0.35rem 0.75rem;
-  color: #67e8f9;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.035) inset;
-}
-
-.footer-region-search-control:focus-within {
-  border-color: rgba(98, 216, 255, 0.6);
-  box-shadow:
-    0 0 0 3px rgba(7, 156, 255, 0.18),
-    0 0 0 1px rgba(255, 255, 255, 0.045) inset;
-}
-
-.footer-region-search-input {
-  min-width: 0;
-  width: 100%;
-  border: 0;
-  background: transparent;
-  color: #ffffff;
-  font-size: 0.86rem;
-  font-weight: 800;
-  line-height: 1.2;
-  outline: 0;
-}
-
-.footer-region-search-input::placeholder {
-  color: rgba(214, 231, 242, 0.68);
-}
-
-.footer-region-search-button {
-  display: inline-flex;
-  width: 2.05rem;
-  height: 2.05rem;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(103, 232, 249, 0.32);
-  border-radius: 0.68rem;
-  background: linear-gradient(135deg, #0876ff, #62d8ff);
-  color: #ffffff;
-  transition:
-    transform 0.18s ease,
-    border-color 0.18s ease,
-    box-shadow 0.18s ease;
-}
-
-.footer-region-search-button:hover,
-.footer-region-search-button:focus-visible {
-  border-color: rgba(255, 255, 255, 0.56);
-  box-shadow: 0 0 18px rgba(98, 216, 255, 0.24);
-  transform: translateX(1px);
-}
-
-.footer-link-groups .footer-action {
-  width: 100%;
-  justify-content: center;
-}
-
-@media (min-width: 768px) {
-  .footer-link-groups {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.9rem;
-  }
-
-  .footer-link-group {
-    display: flex;
-    min-height: 100%;
-    flex-direction: column;
-    overflow: hidden;
-    border-color: rgba(103, 232, 249, 0.18);
-    border-radius: 1.15rem;
-    background:
-      linear-gradient(180deg, rgba(9, 29, 66, 0.88), rgba(6, 20, 47, 0.82));
-    padding: 1rem;
-  }
-
-  .footer-link-group-button {
-    min-height: 0;
-    cursor: default;
-    padding: 0;
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-    pointer-events: none;
-  }
-
-  .footer-link-group-icon {
-    display: none;
-  }
-
-  .footer-link-panel {
-    flex: 1;
-    max-height: none;
-    overflow: visible;
-    padding: 0;
-  }
-
-  .footer-link-list {
-    gap: 0.38rem;
-    padding: 0;
-    margin-top: 0.8rem;
-  }
-
-  .footer-link-groups .footer-action {
-    min-height: 38px;
-    justify-content: center;
-    padding: 0.64rem 0.65rem;
-    font-size: 0.72rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .footer-link-groups {
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-  }
-
-  .footer-link-group {
-    grid-column: span 4;
-  }
-
-  .footer-link-group--regions {
-    grid-column: span 8;
-  }
-
-  .footer-link-group--contact {
-    grid-column: span 4;
-  }
-
-  .footer-link-group--regions .footer-link-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 1rem;
-  }
 }
 
 /* Core commercial storm-theme deep pass.
@@ -5518,24 +5293,6 @@ body.ev-electric-theme-bg .mobile-primary-nav__panel {
   .generated-storm-page :is(.google-review-proof, .lead-offer-panel, .trust-process-proof, .service-related-section, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section)::before {
     opacity: 0.5 !important;
     background-size: 100% auto !important;
-  }
-}
-
-@media (min-width: 1366px) {
-  .footer-link-groups {
-    gap: 1rem;
-  }
-
-  .footer-link-group {
-    grid-column: span 3;
-  }
-
-  .footer-link-group--regions {
-    grid-column: span 6;
-  }
-
-  .footer-link-group--contact {
-    grid-column: span 3;
   }
 }
 
@@ -9040,24 +8797,9 @@ main > section:first-of-type:not(.home-brand-hero):not(.brand-internal-hero):not
 
 .footer-link:focus-visible,
 .footer-action:focus-visible,
-.footer-link-group-button:focus-visible,
 .site-header :is(a, button):focus-visible,
 .mobile-sticky-cta__link:focus-visible {
   outline-color: rgba(101, 216, 255, 0.72) !important;
-}
-
-.footer-link-group {
-  border-color: rgba(101, 216, 255, 0.16) !important;
-  background:
-    linear-gradient(180deg, rgba(9, 29, 66, 0.9), rgba(6, 20, 47, 0.84)) !important;
-}
-
-.footer-link-group-button {
-  color: var(--brand-white) !important;
-}
-
-.footer-link-group-icon {
-  color: var(--brand-cyan) !important;
 }
 
 .footer-action-quote,
@@ -12060,9 +11802,6 @@ main button[data-conversion-action] svg,
 
 /* Footer contact actions live inside a narrow link card, so they need the
    shared colours without inheriting the larger hero/sticky CTA footprint. */
-.site-footer .footer-link-groups .footer-action,
-.site-footer .footer-link-groups a.footer-action[data-conversion-action],
-.site-footer .footer-link-groups a.footer-action[href*="book.servicem8.com"],
 .site-footer .footer-action.footer-action-call,
 .site-footer .footer-action.footer-action-quote,
 .site-footer .footer-action.footer-action-email {
@@ -12081,9 +11820,6 @@ main button[data-conversion-action] svg,
   white-space: normal !important;
 }
 
-.site-footer .footer-link-groups .footer-action > :is(span, svg),
-.site-footer .footer-link-groups a.footer-action[data-conversion-action] > :is(span, svg),
-.site-footer .footer-link-groups a.footer-action[href*="book.servicem8.com"] > :is(span, svg),
 .site-footer .footer-action.footer-action-call > :is(span, svg),
 .site-footer .footer-action.footer-action-quote > :is(span, svg),
 .site-footer .footer-action.footer-action-email > :is(span, svg) {
@@ -12091,12 +11827,6 @@ main button[data-conversion-action] svg,
   max-width: 100% !important;
   white-space: normal !important;
   text-wrap: balance !important;
-}
-
-.site-footer .footer-link-groups .footer-action svg {
-  flex: 0 0 auto !important;
-  width: 1rem !important;
-  height: 1rem !important;
 }
 
 /* Compact homepage quote card actions. These live in a small side panel and

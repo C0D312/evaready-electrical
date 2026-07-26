@@ -26,7 +26,7 @@ import {
   coverageStats,
 } from "@/data/service-area-coverage";
 import { getOffersForPlacement } from "@/data/offers";
-import { absoluteUrl, business } from "@/data/site";
+import { absoluteUrl, assetPath, business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
   buildCollectionPageSchema,
@@ -241,7 +241,9 @@ export default function AreasPage() {
         </p>
 
         <div id="find-suburb" className="mt-5 max-w-3xl">
-          <ServiceAreaSearch items={coverageSearchItems} />
+          <ServiceAreaSearch
+            indexUrl={assetPath("/service-area-search-index.json")}
+          />
           <p className="mt-3 text-sm font-semibold leading-6 text-slate-200">
             Start typing a suburb, postcode, area or region. If the job is
             urgent, call first. For planned work, open the quote form and

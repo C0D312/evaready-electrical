@@ -73,7 +73,9 @@ export const defaultAreaServed = [
 export const businessSchemaId = `${absoluteUrl("/")}#evaready-electrical`;
 
 export function schemaJson(schema: SchemaValue) {
-  return { __html: JSON.stringify(cleanSchema(schema)) };
+  return {
+    __html: JSON.stringify(cleanSchema(schema)).replace(/</g, "\\u003c"),
+  };
 }
 
 export function businessIdentifiers() {
