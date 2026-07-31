@@ -303,13 +303,59 @@ header.ev-final-header .ev-final-header-image {
   }
 }
 
-@media (min-width: 1760px) {
-  header.site-header.ev-final-header .ev-final-main-nav a.ev-final-nav-link--expanded {
+@media (min-width: 1200px) {
+  header.site-header.ev-final-header .ev-final-main-nav a.ev-final-nav-link--expanded,
+  header.site-header.ev-final-header .ev-final-main-nav a.ev-final-nav-link--compact-hidden {
     display: inline-flex !important;
   }
 
   header.site-header.ev-final-header .ev-final-nav-more {
     display: none;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1599px) {
+  header.site-header.ev-final-header .ev-final-desktop-nav {
+    position: relative !important;
+    justify-content: flex-start !important;
+    padding-inline: 0.75rem 19.5rem !important;
+  }
+
+  header.site-header.ev-final-header .ev-final-main-nav {
+    width: 100% !important;
+    gap: 0.25rem !important;
+    margin-inline: auto !important;
+  }
+
+  header.site-header.ev-final-header .ev-final-main-nav a.ev-final-nav-link {
+    padding-inline: 0.05rem !important;
+    font-size: 0.69rem !important;
+  }
+
+  header.site-header.ev-final-header .ev-service-nav-dropdown__toggle {
+    width: 1rem !important;
+    min-width: 1rem !important;
+  }
+
+  html body header.site-header.ev-final-header:not(#mobile-site-menu) .ev-final-header-actions.site-header-actions {
+    position: absolute !important;
+    inset-inline-end: 0.75rem !important;
+    top: 50% !important;
+    gap: 0.35rem !important;
+    transform: translateY(-50%) !important;
+  }
+
+  html body header.site-header.ev-final-header:not(#mobile-site-menu) .ev-final-header-actions > a.ev-final-header-btn[data-conversion-action] {
+    padding-inline: 0.5rem !important;
+    font-size: 0.69rem !important;
+  }
+
+  html body header.site-header.ev-final-header:not(#mobile-site-menu) .ev-final-header-actions > a.ev-btn--call[data-conversion-action] {
+    min-width: 11rem !important;
+  }
+
+  html body header.site-header.ev-final-header:not(#mobile-site-menu) .ev-final-header-actions > a.ev-btn--quote[data-conversion-action] {
+    min-width: 7.5rem !important;
   }
 }
 
@@ -1292,6 +1338,12 @@ html body.ev-storm-page main#main-content :is(a, button)[data-conversion-action=
 }
 
 /* Contact layout must win after every shared compatibility rule above. */
+html body main#main-content.core-storm-contact .contact-direct-options {
+  align-self: center !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
 html body main#main-content.core-storm-contact .contact-option-grid,
 html body main#main-content.core-storm-contact .contact-option-card,
 html body main#main-content.core-storm-contact .contact-option-card > span,
@@ -1302,6 +1354,27 @@ html body main#main-content.core-storm-contact .contact-mobile-actions {
 html body main#main-content.core-storm-contact .contact-option-card__text {
   overflow-wrap: anywhere !important;
   word-break: normal !important;
+}
+
+html body main#main-content.core-storm-contact .contact-option-grid {
+  align-content: start !important;
+}
+
+html body main#main-content.core-storm-contact .contact-option-card {
+  min-height: 4.5rem !important;
+  justify-content: flex-start !important;
+  gap: 0.75rem !important;
+  padding: 0.75rem !important;
+  border-radius: 0.75rem !important;
+  text-align: left !important;
+  flex-wrap: nowrap !important;
+}
+
+html body main#main-content.core-storm-contact .contact-option-card > span:first-child {
+  width: 2.25rem !important;
+  height: 2.25rem !important;
+  flex: 0 0 2.25rem !important;
+  border-radius: 0.625rem !important;
 }
 
 html body main#main-content.core-storm-contact .contact-mobile-actions {
@@ -1445,6 +1518,17 @@ html body.ev-storm-page .site-footer.ev-footer :is(
     background-size: auto, auto, cover !important;
   }
 
+  html body :is(
+    .home-hero-copy-panel,
+    .internal-hero-copy-panel,
+    .emergency-hero-copy-panel
+  ) > :is(p.max-w-2xl, p.max-w-3xl, p.max-w-4xl) {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-wrap: break-word !important;
+  }
+
   html body.ev-storm-page main#main-content.core-storm-home > .home-brand-hero,
   html body.ev-storm-page main#main-content.core-storm-home > .home-brand-hero > .ev-hero-grid {
     min-height: 0 !important;
@@ -1453,5 +1537,328 @@ html body.ev-storm-page .site-footer.ev-footer :is(
   html body.ev-storm-page main#main-content.core-storm-home > .home-brand-hero > .ev-hero-grid {
     align-items: flex-start !important;
     padding-bottom: 1rem !important;
+  }
+}
+
+/* Hybrid phone layout: retain the approved mobile header and hero media, then
+   use a readable tablet-style density for the content below them. */
+@media (min-width: 320px) and (max-width: 767px) {
+  html body.ev-storm-page main#main-content > section:not(
+    .home-brand-hero,
+    .brand-internal-hero,
+    .emergency-issue-marquee
+  ) {
+    padding-block: clamp(2.25rem, 8vw, 3rem) !important;
+  }
+
+  html body.ev-storm-page main#main-content > section:not(
+    .home-brand-hero,
+    .brand-internal-hero,
+    .emergency-issue-marquee
+  ) > .mx-auto,
+  html body.ev-storm-page main#main-content > section.ev-offers-section > .ev-offers-section__inner {
+    width: calc(100% - 1rem) !important;
+    max-width: none !important;
+    padding-inline: 0.5rem !important;
+  }
+
+  html body.ev-storm-page main#main-content > section:not(
+    .home-brand-hero,
+    .brand-internal-hero,
+    .emergency-issue-marquee
+  ) :is(
+    .grid[class~="sm:grid-cols-2"],
+    .grid[class~="sm:grid-cols-3"],
+    .ev-storm-grid,
+    .ev-offers-grid,
+    .ev-compact-offer-strip__grid,
+    .services-featured-grid,
+    .services-catalogue-grid,
+    .services-problem-selector-grid,
+    .service-related-grid,
+    .emergency-feature-grid
+  ) {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: clamp(0.625rem, 2.5vw, 0.85rem) !important;
+  }
+
+  html body.ev-storm-page main#main-content > section:not(
+    .home-brand-hero,
+    .brand-internal-hero,
+    .emergency-issue-marquee
+  ) :is(
+    .grid[class~="md:grid-cols-2"]:has(> :nth-child(3)),
+    .grid[class~="md:grid-cols-3"]:has(> :nth-child(3)),
+    .grid[class~="lg:grid-cols-3"]:has(> :nth-child(3)),
+    .grid[class~="lg:grid-cols-4"]:has(> :nth-child(3)),
+    .grid[class~="lg:grid-cols-5"]:has(> :nth-child(3)),
+    .grid[class~="xl:grid-cols-3"]:has(> :nth-child(3)),
+    .grid[class~="xl:grid-cols-4"]:has(> :nth-child(3)),
+    .grid[class~="xl:grid-cols-5"]:has(> :nth-child(3))
+  ) {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: clamp(0.625rem, 2.5vw, 0.85rem) !important;
+  }
+
+  html body.ev-storm-page main#main-content > section:not(
+    .home-brand-hero,
+    .brand-internal-hero,
+    .emergency-issue-marquee
+  ) :is(.ev-storm-card, .ev-storm-panel) {
+    min-width: 0 !important;
+    padding: clamp(0.8rem, 3vw, 1rem) !important;
+  }
+
+  html body.ev-storm-page main#main-content > section:not(
+    .home-brand-hero,
+    .brand-internal-hero,
+    .emergency-issue-marquee
+  ) :is(h2, .ev-offers-section__intro h2) {
+    font-size: clamp(1.7rem, 7vw, 2.15rem) !important;
+    line-height: 1.08 !important;
+  }
+
+  html body.ev-storm-page main#main-content > section:not(
+    .home-brand-hero,
+    .brand-internal-hero,
+    .emergency-issue-marquee
+  ) .ev-storm-card h3 {
+    font-size: clamp(0.98rem, 4.2vw, 1.12rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  html body.ev-storm-page main#main-content > section:not(
+    .home-brand-hero,
+    .brand-internal-hero,
+    .emergency-issue-marquee
+  ) .ev-storm-card p {
+    font-size: clamp(0.875rem, 3.55vw, 0.95rem) !important;
+    line-height: 1.5 !important;
+  }
+
+  html body.ev-storm-page main#main-content > section:not(
+    .home-brand-hero,
+    .brand-internal-hero,
+    .emergency-issue-marquee
+  ) :is(.ev-storm-card, .ev-storm-panel) :is(h3, p, a, span) {
+    min-width: 0 !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  html body.ev-storm-page main#main-content > section:not(
+    .home-brand-hero,
+    .brand-internal-hero,
+    .emergency-issue-marquee
+  ) .ev-storm-card :is(a, span[class*="inline-flex"]):last-child {
+    min-height: 2.75rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  html body.ev-storm-page main#main-content > section.ev-offers-section .ev-offer-card__body {
+    gap: 0.65rem !important;
+    padding: 0.8rem !important;
+  }
+
+  html body.ev-storm-page main#main-content > section.ev-offers-section .ev-offer-card__media {
+    padding: 0.4rem !important;
+  }
+
+  html body.ev-storm-page main#main-content > section.ev-offers-section .ev-offer-card h3 {
+    font-size: clamp(1rem, 4.4vw, 1.16rem) !important;
+    line-height: 1.14 !important;
+  }
+
+  html body.ev-storm-page main#main-content > section.ev-offers-section .ev-offer-card__description {
+    font-size: 0.82rem !important;
+    line-height: 1.44 !important;
+  }
+
+  html body.ev-storm-page main#main-content > section.ev-offers-section :is(
+    .ev-offer-card__applies,
+    .ev-offer-card__terms
+  ) {
+    font-size: 0.72rem !important;
+    line-height: 1.4 !important;
+  }
+
+  html body.ev-storm-page main#main-content > section.ev-offers-section .ev-offer-card__label {
+    font-size: 0.68rem !important;
+    letter-spacing: 0.07em !important;
+  }
+
+  html body.ev-storm-page main#main-content .services-featured-card {
+    min-height: 0 !important;
+    padding: 0.9rem !important;
+  }
+
+  html body.ev-storm-page main#main-content .services-featured-card__body {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 0.7rem !important;
+  }
+
+  html body.ev-storm-page main#main-content .services-featured-card__icon {
+    width: 2.75rem !important;
+    height: 2.75rem !important;
+  }
+
+  html body.ev-storm-page main#main-content .services-featured-card__title {
+    font-size: clamp(1rem, 4.3vw, 1.15rem) !important;
+    line-height: 1.18 !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  html body.ev-storm-page main#main-content .services-featured-card__copy {
+    font-size: 0.875rem !important;
+    line-height: 1.5 !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  html body.ev-storm-page main#main-content .services-catalogue-card {
+    min-height: 0 !important;
+    padding: 0.9rem !important;
+    gap: 0.8rem !important;
+  }
+
+  html body.ev-storm-page main#main-content .services-catalogue-card__head {
+    grid-template-columns: minmax(0, 1fr) !important;
+    min-height: 0 !important;
+    gap: 0.65rem !important;
+  }
+
+  html body.ev-storm-page main#main-content .services-catalogue-card__title {
+    font-size: clamp(1rem, 4.3vw, 1.15rem) !important;
+    line-height: 1.18 !important;
+  }
+
+  html body.ev-storm-page main#main-content .services-catalogue-card__copy,
+  html body.ev-storm-page main#main-content .services-catalogue-card__include {
+    font-size: 0.875rem !important;
+    line-height: 1.45 !important;
+  }
+
+  html body.ev-storm-page main#main-content > section:not(
+    .home-brand-hero,
+    .brand-internal-hero,
+    .emergency-issue-marquee
+  ) :is(
+    .grid[class~="sm:grid-cols-2"],
+    .grid[class~="sm:grid-cols-3"],
+    .grid[class~="md:grid-cols-2"]:has(> :nth-child(3)),
+    .grid[class~="md:grid-cols-3"]:has(> :nth-child(3)),
+    .grid[class~="lg:grid-cols-3"]:has(> :nth-child(3)),
+    .grid[class~="lg:grid-cols-4"]:has(> :nth-child(3)),
+    .grid[class~="lg:grid-cols-5"]:has(> :nth-child(3)),
+    .grid[class~="xl:grid-cols-3"]:has(> :nth-child(3)),
+    .grid[class~="xl:grid-cols-4"]:has(> :nth-child(3)),
+    .grid[class~="xl:grid-cols-5"]:has(> :nth-child(3))
+  ) > :is(a, article, aside, div, li) {
+    min-width: 0 !important;
+    padding: clamp(0.75rem, 3vw, 0.95rem) !important;
+  }
+
+  html body.ev-storm-page main#main-content > section:not(
+    .home-brand-hero,
+    .brand-internal-hero,
+    .emergency-issue-marquee
+  ) :is(
+    .grid[class~="sm:grid-cols-2"],
+    .grid[class~="sm:grid-cols-3"],
+    .grid[class~="md:grid-cols-2"]:has(> :nth-child(3)),
+    .grid[class~="md:grid-cols-3"]:has(> :nth-child(3)),
+    .grid[class~="lg:grid-cols-3"]:has(> :nth-child(3)),
+    .grid[class~="lg:grid-cols-4"]:has(> :nth-child(3)),
+    .grid[class~="lg:grid-cols-5"]:has(> :nth-child(3)),
+    .grid[class~="xl:grid-cols-3"]:has(> :nth-child(3)),
+    .grid[class~="xl:grid-cols-4"]:has(> :nth-child(3)),
+    .grid[class~="xl:grid-cols-5"]:has(> :nth-child(3))
+  ) > :is(a, article, aside, div, li) :is(h3, h4, p, a, span) {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  html body.ev-storm-page main#main-content > section:not(
+    .home-brand-hero,
+    .brand-internal-hero,
+    .emergency-issue-marquee
+  ) :is(
+    .grid[class~="sm:grid-cols-2"],
+    .grid[class~="sm:grid-cols-3"],
+    .grid[class~="md:grid-cols-2"]:has(> :nth-child(3)),
+    .grid[class~="md:grid-cols-3"]:has(> :nth-child(3)),
+    .grid[class~="lg:grid-cols-3"]:has(> :nth-child(3)),
+    .grid[class~="lg:grid-cols-4"]:has(> :nth-child(3)),
+    .grid[class~="lg:grid-cols-5"]:has(> :nth-child(3)),
+    .grid[class~="xl:grid-cols-3"]:has(> :nth-child(3)),
+    .grid[class~="xl:grid-cols-4"]:has(> :nth-child(3)),
+    .grid[class~="xl:grid-cols-5"]:has(> :nth-child(3))
+  ) > :is(a, article, aside, div, li) :is(h3, h4) {
+    font-size: clamp(1rem, 4.3vw, 1.15rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  html body.ev-storm-page main#main-content .home-theme-band--services .ev-storm-card p {
+    font-size: 0.8rem !important;
+    line-height: 1.44 !important;
+  }
+
+  html body.ev-storm-page .site-footer.ev-footer .ev-footer-directory {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: clamp(0.625rem, 2.5vw, 0.85rem) !important;
+  }
+
+  html body.ev-storm-page .site-footer.ev-footer .ev-footer-column {
+    min-width: 0 !important;
+    padding: clamp(0.78rem, 3vw, 0.95rem) !important;
+  }
+
+  html body.ev-storm-page .site-footer.ev-footer .ev-footer-column-heading h3 {
+    font-size: clamp(1rem, 4.3vw, 1.15rem) !important;
+  }
+
+  html body.ev-storm-page .site-footer.ev-footer .ev-footer-link-list {
+    gap: 0.28rem !important;
+    margin-top: 0.7rem !important;
+  }
+
+  html body.ev-storm-page .site-footer.ev-footer .ev-footer-text-link {
+    min-height: 2.75rem !important;
+    font-size: 0.78rem !important;
+    line-height: 1.3 !important;
+  }
+
+  html body.ev-storm-page .site-footer.ev-footer .ev-footer-contact-card {
+    display: grid !important;
+    grid-template-columns: minmax(7.5rem, 0.72fr) minmax(0, 1.28fr) !important;
+    column-gap: 0.85rem !important;
+    align-items: start !important;
+  }
+
+  html body.ev-storm-page .site-footer.ev-footer .ev-footer-contact-card > .ev-footer-column-heading {
+    grid-column: 1 !important;
+    grid-row: 1 / span 5 !important;
+  }
+
+  html body.ev-storm-page .site-footer.ev-footer .ev-footer-contact-card > :not(.ev-footer-column-heading) {
+    grid-column: 2 !important;
+    min-width: 0 !important;
+  }
+
+  html body.ev-storm-page .site-footer.ev-footer .ev-footer-contact-card > p {
+    margin-top: 0 !important;
+    font-size: 0.82rem !important;
+    line-height: 1.48 !important;
+  }
+
+  html body.ev-storm-page .site-footer.ev-footer .ev-footer-bottom {
+    flex-flow: row wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 0.65rem 1rem !important;
+    font-size: 0.72rem !important;
+  }
+
+  html body.ev-storm-page .site-footer.ev-footer .ev-footer-legal-links {
+    justify-content: flex-end !important;
   }
 }

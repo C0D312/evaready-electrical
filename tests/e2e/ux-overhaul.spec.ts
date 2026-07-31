@@ -112,7 +112,7 @@ test("wide desktop header keeps the complete banner artwork visible", async ({
       width: 1440,
       height: 900,
       expectedBannerHeight: 146,
-      expectedSource: "evaready-header-desktop-refined-v8.webp",
+      expectedSource: "evaready-header-desktop-refined-v11.webp",
       naturalWidth: 2560,
       naturalHeight: 260,
     },
@@ -120,7 +120,7 @@ test("wide desktop header keeps the complete banner artwork visible", async ({
       width: 1920,
       height: 1080,
       expectedBannerHeight: 150,
-      expectedSource: "evaready-header-large-refined-v8.webp",
+      expectedSource: "evaready-header-large-refined-v11.webp",
       naturalWidth: 2944,
       naturalHeight: 230,
     },
@@ -128,7 +128,7 @@ test("wide desktop header keeps the complete banner artwork visible", async ({
       width: 2560,
       height: 1440,
       expectedBannerHeight: 153,
-      expectedSource: "evaready-header-wide-refined-v8.webp",
+      expectedSource: "evaready-header-wide-refined-v11.webp",
       naturalWidth: 3840,
       naturalHeight: 230,
     },
@@ -218,7 +218,7 @@ test("service-area shortcut links consistently show directional arrows", async (
   page,
 }) => {
   await page.setViewportSize({ width: 320, height: 1318 });
-  await page.goto("service-areas/", { waitUntil: "domcontentloaded" });
+  await page.goto("service-areas/", { waitUntil: "networkidle" });
 
   const regionLinks = page.locator("[data-response-region-link]");
   await expect(regionLinks).toHaveCount(16);
@@ -348,12 +348,15 @@ test("desktop navigation exposes every restored destination and compact contact 
 
   await page.goto("services/", { waitUntil: "domcontentloaded" });
   const nav = page.getByRole("navigation", { name: "Primary navigation" });
+  const moreMenu = nav.locator(".ev-final-nav-more");
 
   await expect(nav).toBeVisible();
   await expect(
     nav.getByRole("link", { name: "Electrical Services", exact: true }),
   ).toHaveAttribute("aria-current", "page");
-  const moreMenu = nav.locator(".ev-final-nav-more");
+
+  await page.setViewportSize({ width: 1024, height: 768 });
+  await expect(moreMenu).toBeVisible();
   await moreMenu.locator("summary").click();
   for (const label of ["Hot Water", "Aircon", "Solar & Batteries", "About Evaready"]) {
     await expect(moreMenu.getByRole("link", { name: label, exact: true })).toBeVisible();
@@ -366,10 +369,7 @@ test("desktop navigation exposes every restored destination and compact contact 
     page.locator(".ev-final-desktop-nav [data-conversion-action='quote-click']"),
   ).toBeVisible();
 
-  for (const viewport of [
-    { width: 1024, height: 768 },
-    { width: 1440, height: 900 },
-  ]) {
+  for (const viewport of [{ width: 1024, height: 768 }]) {
     await page.setViewportSize(viewport);
     await expect(moreMenu).toBeVisible();
 
@@ -401,10 +401,62 @@ test("desktop navigation exposes every restored destination and compact contact 
     );
   }
 
-  await page.setViewportSize({ width: 1920, height: 1080 });
-  await expect(moreMenu).toBeHidden();
-  for (const label of ["Hot Water", "Aircon", "Solar & Batteries", "About Evaready"]) {
-    await expect(nav.getByRole("link", { name: label, exact: true }).first()).toBeVisible();
+  for (const viewport of [
+    { width: 1200, height: 800 },
+    { width: 1273, height: 900 },
+    { width: 1440, height: 900 },
+    { width: 1920, height: 1080 },
+  ]) {
+    await page.setViewportSize(viewport);
+    await expect(moreMenu).toBeHidden();
+
+    for (const label of [
+      "Hot Water",
+      "Aircon",
+      "Solar & Batteries",
+      "Service Areas",
+      "About Evaready",
+      "Contact",
+    ]) {
+      await expect(
+        nav.getByRole("link", { name: label, exact: true }).first(),
+      ).toBeVisible();
+    }
+
+    const layout = await page.locator(".ev-final-desktop-nav").evaluate((element) => {
+      const actions = element
+        .querySelector<HTMLElement>(".ev-final-header-actions")
+        ?.getBoundingClientRect();
+      const visibleNavControls = Array.from(
+        element.querySelectorAll<HTMLElement>(
+          ".ev-final-nav-link, .ev-final-nav-more > summary",
+        ),
+      ).filter((control) => {
+        const style = getComputedStyle(control);
+        return style.display !== "none" && style.visibility !== "hidden";
+      });
+
+      return {
+        overflow:
+          document.documentElement.scrollWidth -
+          document.documentElement.clientWidth,
+        navRight: Math.max(
+          ...visibleNavControls.map(
+            (control) => control.getBoundingClientRect().right,
+          ),
+        ),
+        actionsLeft: actions?.left ?? 0,
+      };
+    });
+
+    expect(
+      layout.overflow,
+      `${viewport.width}px navigation overflow`,
+    ).toBeLessThanOrEqual(1);
+    expect(
+      layout.navRight,
+      `${viewport.width}px navigation/action overlap`,
+    ).toBeLessThanOrEqual(layout.actionsLeft + 1);
   }
 });
 

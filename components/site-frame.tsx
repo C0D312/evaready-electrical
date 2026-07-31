@@ -91,11 +91,11 @@ const legalLinks = [
 ];
 
 const headerArtwork = {
-  mobile: "/images/header/evaready-header-mobile-refined-v8.webp",
-  tablet: "/images/header/evaready-header-tablet-refined-v8.webp",
-  desktop: "/images/header/evaready-header-desktop-refined-v8.webp",
-  large: "/images/header/evaready-header-large-refined-v8.webp",
-  wide: "/images/header/evaready-header-wide-refined-v8.webp",
+  mobile: "/images/header/evaready-header-mobile-refined-v11.webp",
+  tablet: "/images/header/evaready-header-tablet-refined-v11.webp",
+  desktop: "/images/header/evaready-header-desktop-refined-v11.webp",
+  large: "/images/header/evaready-header-large-refined-v11.webp",
+  wide: "/images/header/evaready-header-wide-refined-v11.webp",
 } as const;
 
 type FooterLinkItem = {

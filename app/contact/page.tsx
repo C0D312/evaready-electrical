@@ -38,7 +38,7 @@ const contactOptions = [
   },
   {
     title: "Quote form",
-    text: "Use the secure online quote form to send photos, job details, access notes and paperwork.",
+    text: "Send photos and job details.",
     href: business.bookingUrl,
     icon: ClipboardCheck,
   },
@@ -146,14 +146,14 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <aside className="rounded-[2rem] border border-cyan-300/20 bg-white/[0.055] p-6 shadow-2xl shadow-blue-950/20 sm:p-8">
+            <aside className="contact-direct-options self-center rounded-3xl border border-cyan-300/20 bg-white/[0.055] p-5 shadow-2xl shadow-blue-950/20 sm:p-6">
               <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
                 Direct options
               </p>
-              <h2 className="mt-3 text-3xl font-black tracking-tight">
+              <h2 className="mt-2 text-2xl font-black tracking-tight sm:text-[1.7rem]">
                 Call, email or send job details.
               </h2>
-              <div className="contact-option-grid mt-6 grid gap-3 sm:grid-cols-2">
+              <div className="contact-option-grid mt-4 grid gap-2 sm:grid-cols-2">
                 {contactOptions.map((option) => {
                   const Icon = option.icon;
                   const isPhone = option.title === "Phone";
@@ -167,21 +167,21 @@ export default function ContactPage() {
                           ? assetPath(option.href)
                           : option.href
                       }
-                      className="contact-option-card flex min-h-16 min-w-0 items-center gap-4 rounded-2xl border border-cyan-300/16 bg-[#061E72]/55 p-4 text-left transition hover:border-cyan-200/45 hover:bg-[#082A86]"
+                      className="contact-option-card flex min-w-0 items-center gap-3 rounded-xl border border-cyan-300/16 bg-[#061E72]/55 p-3 text-left transition hover:border-cyan-200/45 hover:bg-[#082A86]"
                       data-conversion-action={
                         isPhone ? "phone-click" : isQuote ? "quote-click" : undefined
                       }
                       data-quote-trigger={isQuote ? "true" : undefined}
                       aria-haspopup={isQuote ? "dialog" : undefined}
                     >
-                      <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cyan-300/12 text-cyan-200">
-                        <Icon className="h-5 w-5" aria-hidden="true" />
+                      <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-cyan-300/12 text-cyan-200">
+                        <Icon className="h-4 w-4" aria-hidden="true" />
                       </span>
                       <span className="min-w-0 flex-1">
-                        <span className="block text-sm font-black uppercase tracking-[0.12em] text-cyan-100">
+                        <span className="block text-xs font-black uppercase tracking-[0.1em] text-cyan-100">
                           {option.title}
                         </span>
-                        <span className="contact-option-card__text mt-1 block min-w-0 break-words text-sm font-semibold leading-6 text-slate-200">
+                        <span className="contact-option-card__text mt-0.5 block min-w-0 break-words text-[0.82rem] font-semibold leading-5 text-slate-200">
                           {option.text}
                         </span>
                       </span>
