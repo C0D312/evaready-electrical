@@ -1,4 +1,11 @@
-export type ServiceNavigationMenuId = "emergency" | "level-2" | "services";
+export type ServiceNavigationMenuId =
+  | "emergency"
+  | "level-2"
+  | "services"
+  | "service-areas"
+  | "hot-water"
+  | "aircon"
+  | "solar-batteries";
 
 export type ServiceNavigationLink = {
   href: string;
@@ -13,9 +20,77 @@ export type ServiceNavigationSection = {
 export type ServiceNavigationMenu = {
   description: string;
   overviewLabel: string;
+  search?: "service-areas";
   sections: ServiceNavigationSection[];
   title: string;
 };
+
+const serviceAreaRegionLinks: ServiceNavigationLink[] = [
+  {
+    href: "/service-areas/canterbury-bankstown-and-inner-south-west",
+    label: "Canterbury-Bankstown & Inner South West",
+  },
+  {
+    href: "/service-areas/st-george-and-bayside",
+    label: "St George & Bayside",
+  },
+  {
+    href: "/service-areas/sutherland-shire",
+    label: "Sutherland Shire",
+  },
+  {
+    href: "/service-areas/liverpool-and-fairfield",
+    label: "Liverpool & Fairfield",
+  },
+  {
+    href: "/service-areas/macarthur-camden-and-wollondilly",
+    label: "Macarthur, Camden & Wollondilly",
+  },
+  {
+    href: "/service-areas/inner-west-burwood-and-canada-bay",
+    label: "Inner West, Burwood & Canada Bay",
+  },
+  {
+    href: "/service-areas/sydney-city-and-eastern-suburbs",
+    label: "Sydney City & Eastern Suburbs",
+  },
+  {
+    href: "/service-areas/parramatta-and-cumberland",
+    label: "Parramatta & Cumberland",
+  },
+  {
+    href: "/service-areas/western-sydney-and-nepean",
+    label: "Western Sydney & Nepean",
+  },
+  {
+    href: "/service-areas/hills-hawkesbury-and-hornsby",
+    label: "Hills, Hawkesbury & Hornsby",
+  },
+  {
+    href: "/service-areas/northern-sydney-and-ryde",
+    label: "Northern Sydney & Ryde",
+  },
+  {
+    href: "/service-areas/northern-beaches",
+    label: "Northern Beaches",
+  },
+  {
+    href: "/service-areas/blue-mountains",
+    label: "Blue Mountains",
+  },
+  {
+    href: "/service-areas/wollongong-and-illawarra",
+    label: "Wollongong & Illawarra",
+  },
+  {
+    href: "/service-areas/southern-highlands",
+    label: "Southern Highlands",
+  },
+  {
+    href: "/service-areas/central-coast-south",
+    label: "Central Coast South",
+  },
+];
 
 export const serviceNavigationMenus: Record<
   ServiceNavigationMenuId,
@@ -424,6 +499,125 @@ export const serviceNavigationMenus: Record<
           {
             href: "/services/rcd-safety-switch-repairs-sydney",
             label: "RCD and safety switch repairs",
+          },
+        ],
+      },
+    ],
+  },
+  "service-areas": {
+    title: "Find your local service area",
+    description:
+      "Search a suburb or postcode, or choose one of the regions Evaready services.",
+    overviewLabel: "View all service areas",
+    search: "service-areas",
+    sections: [
+      {
+        title: "All serviced regions",
+        links: serviceAreaRegionLinks,
+      },
+    ],
+  },
+  "hot-water": {
+    title: "Hot water electrical support",
+    description:
+      "Find electrical fault, circuit-protection, switchboard and load-capacity services relevant to electric hot water work.",
+    overviewLabel: "View hot water electrical overview",
+    sections: [
+      {
+        title: "Faults and protection",
+        links: [
+          {
+            href: "/services/electrical-fault-finding-sydney",
+            label: "Electrical fault finding",
+          },
+          {
+            href: "/services/safety-switch-rcd-installation-sydney",
+            label: "Safety switches and RCDs",
+          },
+        ],
+      },
+      {
+        title: "Switchboard and capacity",
+        links: [
+          {
+            href: "/services/switchboard-upgrades-sydney",
+            label: "Switchboard upgrades",
+          },
+          {
+            href: "/services/electrical-load-capacity-checks-sydney",
+            label: "Electrical load and capacity checks",
+          },
+        ],
+      },
+    ],
+  },
+  aircon: {
+    title: "Air-conditioning electrical support",
+    description:
+      "Find electrical supply, switchboard and load-capacity services relevant to air-conditioning work.",
+    overviewLabel: "View air-conditioning electrical overview",
+    sections: [
+      {
+        title: "Switchboard and capacity",
+        links: [
+          {
+            href: "/services/electrical-load-capacity-checks-sydney",
+            label: "Electrical load and capacity checks",
+          },
+          {
+            href: "/services/switchboard-upgrades-sydney",
+            label: "Switchboard upgrades",
+          },
+        ],
+      },
+      {
+        title: "Supply support",
+        links: [
+          {
+            href: "/services/consumer-mains-sydney",
+            label: "Consumer mains",
+          },
+          {
+            href: "/services/three-phase-power-sydney",
+            label: "Three-phase power",
+          },
+        ],
+      },
+    ],
+  },
+  "solar-batteries": {
+    title: "Solar, battery and EV electrical support",
+    description:
+      "Browse electrical supply, switchboard and capacity work connected to solar, battery and EV charging projects.",
+    overviewLabel: "View solar and battery overview",
+    sections: [
+      {
+        title: "Planning and capacity",
+        links: [
+          {
+            href: "/services/electrical-load-capacity-checks-sydney",
+            label: "Electrical load and capacity checks",
+          },
+          {
+            href: "/services/switchboard-upgrades-sydney",
+            label: "Switchboard upgrades",
+          },
+        ],
+      },
+      {
+        title: "Supply and charging",
+        links: [
+          {
+            href: "/services/consumer-mains-sydney",
+            label: "Consumer mains",
+          },
+          {
+            href: "/services/metering-services-sydney",
+            label: "Metering services",
+          },
+          {
+            href: "/services/ev-charger-installation-sydney",
+            label: "EV charger electrical support",
           },
         ],
       },

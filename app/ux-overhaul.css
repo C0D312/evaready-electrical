@@ -323,7 +323,7 @@ header.ev-final-header .ev-final-header-image {
 
   header.site-header.ev-final-header .ev-final-main-nav {
     width: 100% !important;
-    gap: 0.25rem !important;
+    gap: 0.14rem !important;
     margin-inline: auto !important;
   }
 
@@ -374,6 +374,15 @@ header.ev-final-header .ev-final-header-image {
     height: 100%;
     flex: 0 0 auto;
     align-items: stretch;
+  }
+
+  header.site-header.ev-final-header :is(
+    .ev-service-nav-dropdown--hot-water,
+    .ev-service-nav-dropdown--aircon,
+    .ev-service-nav-dropdown--solar-batteries,
+    .ev-service-nav-dropdown--service-areas
+  ) {
+    display: none;
   }
 
   header.site-header.ev-final-header .ev-service-nav-dropdown__toggle {
@@ -541,6 +550,52 @@ header.ev-final-header .ev-final-header-image {
   header.site-header.ev-final-header .ev-service-nav-panel__link--current {
     background: rgba(8, 118, 255, 0.22);
     color: #ffffff;
+  }
+
+  header.site-header.ev-final-header .ev-service-nav-panel__search {
+    margin-top: 0.85rem;
+  }
+
+  header.site-header.ev-final-header .service-area-search--navigation {
+    border-color: rgba(98, 216, 255, 0.3) !important;
+    background: rgba(6, 20, 47, 0.82) !important;
+    box-shadow: none !important;
+  }
+
+  header.site-header.ev-final-header :is(
+    .ev-service-nav-panel--hot-water,
+    .ev-service-nav-panel--aircon,
+    .ev-service-nav-panel--solar-batteries
+  ) {
+    width: min(52rem, calc(100vw - 2rem));
+  }
+
+  header.site-header.ev-final-header :is(
+    .ev-service-nav-panel--hot-water,
+    .ev-service-nav-panel--aircon,
+    .ev-service-nav-panel--solar-batteries
+  ) .ev-service-nav-panel__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  header.site-header.ev-final-header .ev-service-nav-panel--service-areas .ev-service-nav-panel__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  header.site-header.ev-final-header .ev-service-nav-panel--service-areas .ev-service-nav-panel__links {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.25rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  header.site-header.ev-final-header :is(
+    .ev-service-nav-dropdown--hot-water,
+    .ev-service-nav-dropdown--aircon,
+    .ev-service-nav-dropdown--solar-batteries,
+    .ev-service-nav-dropdown--service-areas
+  ) {
+    display: inline-flex;
   }
 }
 
@@ -921,6 +976,11 @@ body.mobile-menu-open {
     padding: 0.65rem 0.5rem !important;
     font-size: 0.9rem !important;
   }
+}
+
+.mobile-service-nav-group__panel .service-area-search--navigation {
+  margin-bottom: 0.85rem;
+  box-shadow: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

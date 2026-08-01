@@ -4,11 +4,13 @@ import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { ServiceAreaSearch } from "@/components/service-area-search";
 import {
   getServiceNavigationLinks,
   serviceNavigationMenus,
   type ServiceNavigationMenuId,
 } from "@/data/service-navigation";
+import { assetPath } from "@/data/site";
 
 export type PrimaryNavItem = {
   href: string;
@@ -201,6 +203,18 @@ export function DesktopPrimaryNav({ items }: { items: PrimaryNavItem[] }) {
                       {menu.overviewLabel}
                     </Link>
                   </div>
+
+                  {menu.search === "service-areas" ? (
+                    <div className="ev-service-nav-panel__search">
+                      <ServiceAreaSearch
+                        indexUrl={assetPath(
+                          "/service-area-search-index.json",
+                        )}
+                        onResultNavigate={() => setOpenMenu(null)}
+                        variant="navigation"
+                      />
+                    </div>
+                  ) : null}
 
                   <div className="ev-service-nav-panel__grid">
                     {menu.sections.map((section) => (

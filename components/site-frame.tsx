@@ -47,18 +47,21 @@ const navItems: PrimaryNavItem[] = [
     label: "Hot Water",
     desktopClassName: "ev-final-nav-link--expanded",
     includeInMore: true,
+    serviceMenuId: "hot-water",
   },
   {
     href: "/services/split-system-air-conditioning-sydney",
     label: "Aircon",
     desktopClassName: "ev-final-nav-link--expanded",
     includeInMore: true,
+    serviceMenuId: "aircon",
   },
   {
     href: "/solar-batteries",
     label: "Solar & Batteries",
     desktopClassName: "ev-final-nav-link--expanded",
     includeInMore: true,
+    serviceMenuId: "solar-batteries",
   },
   {
     href: "/service-areas",
@@ -66,6 +69,7 @@ const navItems: PrimaryNavItem[] = [
     desktopClassName: "ev-final-nav-link--compact-hidden",
     includeInMore: true,
     compactOnlyInMore: true,
+    serviceMenuId: "service-areas",
   },
   {
     href: "/about",

@@ -23,12 +23,13 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { HomeNavigationLink } from "@/components/home-navigation-link";
+import { ServiceAreaSearch } from "@/components/service-area-search";
 import {
   getServiceNavigationLinks,
   serviceNavigationMenus,
   type ServiceNavigationMenuId,
 } from "@/data/service-navigation";
-import { business } from "@/data/site";
+import { assetPath, business } from "@/data/site";
 
 type ScrollLockSnapshot = {
   scrollX: number;
@@ -80,21 +81,25 @@ const mobileNavItems: MobileNavItem[] = [
     href: "/services/hot-water-system-electrician-sydney",
     label: "Hot Water",
     icon: Droplets,
+    serviceMenuId: "hot-water",
   },
   {
     href: "/services/split-system-air-conditioning-sydney",
     label: "Aircon",
     icon: Snowflake,
+    serviceMenuId: "aircon",
   },
   {
     href: "/solar-batteries",
     label: "Solar & Batteries",
     icon: BatteryCharging,
+    serviceMenuId: "solar-batteries",
   },
   {
     href: "/service-areas",
     label: "Service Areas",
     icon: MapPin,
+    serviceMenuId: "service-areas",
   },
   {
     href: "/about",
@@ -429,6 +434,15 @@ export function MobilePrimaryNav() {
                       <p className="mobile-service-nav-group__description">
                         {menu.description}
                       </p>
+                      {menu.search === "service-areas" ? (
+                        <ServiceAreaSearch
+                          indexUrl={assetPath(
+                            "/service-area-search-index.json",
+                          )}
+                          onResultNavigate={() => closeMenu(false)}
+                          variant="navigation"
+                        />
+                      ) : null}
                       {menu.sections.map((section) => (
                         <section
                           key={section.title}

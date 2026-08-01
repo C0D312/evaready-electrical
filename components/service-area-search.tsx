@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Search } from "lucide-react";
 import type { CoverageSearchItem } from "@/data/service-area-coverage";
@@ -22,6 +22,8 @@ type SearchIndexRecord = {
 type ServiceAreaSearchProps = {
   indexUrl?: string;
   items?: SearchItem[];
+  onResultNavigate?: () => void;
+  variant?: "page" | "navigation";
 };
 
 function isSearchIndexRecord(value: unknown): value is SearchIndexRecord {
@@ -38,7 +40,11 @@ function isSearchIndexRecord(value: unknown): value is SearchIndexRecord {
 export function ServiceAreaSearch({
   indexUrl,
   items = [],
+  onResultNavigate,
+  variant = "page",
 }: ServiceAreaSearchProps) {
+  const searchId = useId();
+  const resultsId = `${searchId}-results`;
   const [query, setQuery] = useState("");
   const [searchItems, setSearchItems] = useState<SearchItem[]>(items);
   const [indexStatus, setIndexStatus] = useState<
@@ -104,7 +110,7 @@ export function ServiceAreaSearch({
   }, [indexUrl, items.length, updateIndexStatus]);
 
   useEffect(() => {
-    if (initializedFromUrl.current) {
+    if (variant === "navigation" || initializedFromUrl.current) {
       return;
     }
 
@@ -120,7 +126,7 @@ export function ServiceAreaSearch({
     });
 
     return () => window.cancelAnimationFrame(animationFrame);
-  }, [loadIndex]);
+  }, [loadIndex, variant]);
 
   const normalizedQuery = query.trim().toLowerCase();
 
@@ -138,24 +144,44 @@ export function ServiceAreaSearch({
 
           return searchable.includes(normalizedQuery);
         })
-        .slice(0, 12)
+        .slice(0, variant === "navigation" ? 6 : 12)
     : [];
 
   return (
-    <div className="service-area-search rounded-lg border border-cyan-300/25 bg-[#091d42] p-4 shadow-xl shadow-blue-950/30 sm:p-5">
+    <div
+      className={`service-area-search rounded-lg border border-cyan-300/25 bg-[#091d42] shadow-xl shadow-blue-950/30 ${
+        variant === "navigation"
+          ? "service-area-search--navigation p-3"
+          : "p-4 sm:p-5"
+      }`}
+      data-service-area-nav-search={
+        variant === "navigation" ? "true" : undefined
+      }
+    >
       <label
-        htmlFor="service-area-search"
-        className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200"
+        htmlFor={searchId}
+        className={`font-black uppercase text-cyan-200 ${
+          variant === "navigation"
+            ? "text-xs tracking-[0.12em]"
+            : "text-sm tracking-[0.18em]"
+        }`}
       >
-        Suburb / Postcode
+        {variant === "navigation"
+          ? "Find suburb or postcode"
+          : "Suburb / Postcode"}
       </label>
 
-      <div className="mt-3 flex min-h-12 items-center gap-3 rounded-lg border border-cyan-300/25 bg-[#06142f] px-4 focus-within:border-cyan-200 focus-within:bg-[#0d2b5c]">
+      <div
+        className={`flex min-h-12 items-center gap-3 rounded-lg border border-cyan-300/25 bg-[#06142f] px-4 focus-within:border-cyan-200 focus-within:bg-[#0d2b5c] ${
+          variant === "navigation" ? "mt-2" : "mt-3"
+        }`}
+      >
         <Search className="h-5 w-5 shrink-0 text-cyan-200" />
         <input
-          id="service-area-search"
+          id={searchId}
           type="search"
           value={query}
+          aria-controls={resultsId}
           onFocus={() => void loadIndex()}
           onChange={(event) => {
             const nextQuery = event.target.value;
@@ -171,7 +197,12 @@ export function ServiceAreaSearch({
 
       {normalizedQuery ? (
         <div
-          className="mt-4 grid gap-2"
+          id={resultsId}
+          className={`grid gap-2 ${
+            variant === "navigation"
+              ? "mt-2 max-h-64 overflow-y-auto overscroll-contain pr-1"
+              : "mt-4"
+          }`}
           aria-busy={indexStatus === "loading"}
           aria-live="polite"
         >
@@ -203,30 +234,52 @@ export function ServiceAreaSearch({
                 <Link
                   key={item.href}
                   href={item.href}
+                  onClick={onResultNavigate}
                   data-service-area-search-result
-                  className="group grid gap-3 rounded-lg border border-cyan-300/20 bg-[#06142f] px-4 py-3 text-left transition hover:border-cyan-200 hover:bg-[#0d2b5c] sm:grid-cols-[1fr_auto] sm:items-center"
+                  className={
+                    variant === "navigation"
+                      ? "group grid min-h-11 grid-cols-[1fr_auto] items-center gap-3 rounded-lg border border-cyan-300/20 bg-[#06142f] px-3 py-2 text-left transition hover:border-cyan-200 hover:bg-[#0d2b5c]"
+                      : "group grid gap-3 rounded-lg border border-cyan-300/20 bg-[#06142f] px-4 py-3 text-left transition hover:border-cyan-200 hover:bg-[#0d2b5c] sm:grid-cols-[1fr_auto] sm:items-center"
+                  }
                 >
-                  <span className="min-w-0">
-                    <span className="block font-black text-white">
-                      {item.suburbName} {item.postcode}
-                    </span>
-                    <span className="mt-1 block text-sm font-semibold text-slate-300">
-                      {item.areaName} - {item.regionName}
-                    </span>
-                    <span className="mt-2 flex flex-wrap gap-2 text-xs font-bold text-slate-200">
-                      <span className="rounded-full border border-cyan-300/20 bg-[#0d2b5c] px-2.5 py-1">
-                        Suburb: {item.suburbName}
+                  {variant === "navigation" ? (
+                    <span className="min-w-0">
+                      <span className="block truncate text-sm font-black text-white">
+                        {item.suburbName} {item.postcode}
                       </span>
-                      <span className="rounded-full border border-cyan-300/20 bg-[#0d2b5c] px-2.5 py-1">
-                        Postcode: {item.postcode}
-                      </span>
-                      <span className="rounded-full border border-cyan-300/30 bg-cyan-400/10 px-2.5 py-1 text-cyan-100">
-                        {responseLabel}
+                      <span className="mt-0.5 block truncate text-xs font-semibold text-slate-300">
+                        {item.areaName} - {item.regionName}
                       </span>
                     </span>
-                  </span>
-                  <span className="inline-flex min-h-11 items-center gap-2 text-sm font-black text-cyan-200 sm:justify-end sm:text-right">
-                    View local page
+                  ) : (
+                    <span className="min-w-0">
+                      <span className="block font-black text-white">
+                        {item.suburbName} {item.postcode}
+                      </span>
+                      <span className="mt-1 block text-sm font-semibold text-slate-300">
+                        {item.areaName} - {item.regionName}
+                      </span>
+                      <span className="mt-2 flex flex-wrap gap-2 text-xs font-bold text-slate-200">
+                        <span className="rounded-full border border-cyan-300/20 bg-[#0d2b5c] px-2.5 py-1">
+                          Suburb: {item.suburbName}
+                        </span>
+                        <span className="rounded-full border border-cyan-300/20 bg-[#0d2b5c] px-2.5 py-1">
+                          Postcode: {item.postcode}
+                        </span>
+                        <span className="rounded-full border border-cyan-300/30 bg-cyan-400/10 px-2.5 py-1 text-cyan-100">
+                          {responseLabel}
+                        </span>
+                      </span>
+                    </span>
+                  )}
+                  <span
+                    className={`inline-flex items-center gap-2 font-black text-cyan-200 ${
+                      variant === "navigation"
+                        ? "min-h-11 text-xs"
+                        : "min-h-11 text-sm sm:justify-end sm:text-right"
+                    }`}
+                  >
+                    {variant === "navigation" ? "View" : "View local page"}
                     <ArrowRight
                       className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1"
                       aria-hidden="true"

@@ -378,7 +378,9 @@ test("desktop navigation exposes every restored destination and compact contact 
         .querySelector<HTMLElement>(".ev-final-header-actions")
         ?.getBoundingClientRect();
       const visibleNavControls = Array.from(
-        element.querySelectorAll<HTMLElement>(".ev-final-nav-link, .ev-final-nav-more > summary"),
+        element.querySelectorAll<HTMLElement>(
+          ".ev-final-nav-link, .ev-service-nav-dropdown__toggle, .ev-final-nav-more > summary",
+        ),
       ).filter((control) => {
         const style = getComputedStyle(control);
         return style.display !== "none" && style.visibility !== "hidden";
@@ -429,7 +431,7 @@ test("desktop navigation exposes every restored destination and compact contact 
         ?.getBoundingClientRect();
       const visibleNavControls = Array.from(
         element.querySelectorAll<HTMLElement>(
-          ".ev-final-nav-link, .ev-final-nav-more > summary",
+          ".ev-final-nav-link, .ev-service-nav-dropdown__toggle, .ev-final-nav-more > summary",
         ),
       ).filter((control) => {
         const style = getComputedStyle(control);
@@ -458,6 +460,238 @@ test("desktop navigation exposes every restored destination and compact contact 
       `${viewport.width}px navigation/action overlap`,
     ).toBeLessThanOrEqual(layout.actionsLeft + 1);
   }
+});
+
+test("desktop utility-service menus keep their overview links and expose only relevant routes", async ({
+  page,
+}, testInfo) => {
+  test.skip(
+    !testInfo.project.name.startsWith("desktop-"),
+    "Desktop service navigation check.",
+  );
+
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("./", { waitUntil: "domcontentloaded" });
+  await page.waitForLoadState("networkidle").catch(() => undefined);
+  await page.waitForTimeout(250);
+
+  const nav = page.getByRole("navigation", { name: "Primary navigation" });
+  const menus = [
+    {
+      id: "hot-water",
+      label: "Hot Water",
+      overview: /\/services\/hot-water-system-electrician-sydney\/?$/,
+      links: ["Electrical fault finding", "Switchboard upgrades"],
+    },
+    {
+      id: "aircon",
+      label: "Aircon",
+      overview: /\/services\/split-system-air-conditioning-sydney\/?$/,
+      links: ["Electrical load and capacity checks", "Three-phase power"],
+    },
+    {
+      id: "solar-batteries",
+      label: "Solar & Batteries",
+      overview: /\/solar-batteries\/?$/,
+      links: ["Consumer mains", "EV charger electrical support"],
+    },
+  ];
+
+  for (const menu of menus) {
+    await expect(
+      nav.getByRole("link", { name: menu.label, exact: true }),
+    ).toHaveAttribute("href", menu.overview);
+
+    const toggle = nav.getByRole("button", {
+      name: `Open ${menu.label} menu`,
+    });
+    await toggle.click();
+
+    const panel = page.locator(`#desktop-${menu.id}-services-menu`);
+    await expect(panel).toBeVisible();
+    for (const link of menu.links) {
+      await expect(panel.getByRole("link", { name: link })).toBeVisible();
+    }
+
+    await page.keyboard.press("Escape");
+    await expect(panel).toHaveCount(0);
+    await expect(toggle).toBeFocused();
+  }
+});
+
+test("mobile utility-service menus preserve direct overview links and expandable related services", async ({
+  page,
+}, testInfo) => {
+  test.skip(
+    !testInfo.project.name.startsWith("mobile-"),
+    "Mobile service navigation check.",
+  );
+
+  await page.goto("./", { waitUntil: "domcontentloaded" });
+  await page.waitForLoadState("networkidle").catch(() => undefined);
+  await page.waitForTimeout(250);
+  await page.getByRole("button", { name: "Open navigation menu" }).click();
+
+  const mobileNav = page.getByRole("navigation", { name: "Mobile navigation" });
+  await expect(mobileNav).toBeVisible();
+  const hotWaterGroup = mobileNav
+    .locator(".mobile-service-nav-group")
+    .filter({ hasText: "Hot Water" });
+  await expect(
+    hotWaterGroup.locator(".mobile-service-nav-group__overview"),
+  ).toHaveAttribute(
+    "href",
+    /\/services\/hot-water-system-electrician-sydney\/?$/,
+  );
+
+  await hotWaterGroup
+    .getByRole("button", { name: "Open Hot Water menu" })
+    .click();
+  const hotWaterPanel = mobileNav.locator(
+    "#mobile-hot-water-services-menu",
+  );
+  await expect(hotWaterPanel).toBeVisible();
+  await expect(
+    hotWaterPanel.getByRole("link", { name: "Electrical fault finding" }),
+  ).toBeVisible();
+
+  await mobileNav.getByRole("button", { name: "Open Aircon menu" }).click();
+  await expect(
+    mobileNav.locator("#mobile-aircon-services-menu"),
+  ).toBeVisible();
+
+  await mobileNav
+    .getByRole("button", { name: "Open Solar & Batteries menu" })
+    .click();
+  await expect(
+    mobileNav.locator("#mobile-solar-batteries-services-menu"),
+  ).toBeVisible();
+
+  expect(
+    await page.evaluate(
+      () =>
+        document.documentElement.scrollWidth -
+        document.documentElement.clientWidth,
+    ),
+  ).toBeLessThanOrEqual(1);
+});
+
+test("desktop Service Areas menu searches suburbs and links every region", async ({
+  page,
+}, testInfo) => {
+  test.skip(
+    !testInfo.project.name.startsWith("desktop-"),
+    "Desktop service-area navigation check.",
+  );
+
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("./", { waitUntil: "domcontentloaded" });
+  await page.waitForLoadState("networkidle").catch(() => undefined);
+  await page.waitForTimeout(250);
+
+  const nav = page.getByRole("navigation", { name: "Primary navigation" });
+  await expect(
+    nav.getByRole("link", { name: "Service Areas", exact: true }),
+  ).toHaveAttribute("href", /\/service-areas\/?$/);
+
+  const toggle = nav.getByRole("button", {
+    name: "Open Service Areas menu",
+  });
+  await toggle.click();
+
+  const panel = page.locator("#desktop-service-areas-services-menu");
+  await expect(panel).toBeVisible();
+  await expect(panel.locator(".ev-service-nav-panel__link")).toHaveCount(16);
+  await expect(
+    panel.getByRole("link", {
+      name: "Canterbury-Bankstown & Inner South West",
+    }),
+  ).toHaveAttribute(
+    "href",
+    /\/service-areas\/canterbury-bankstown-and-inner-south-west\/?$/,
+  );
+
+  const search = panel.getByRole("searchbox", {
+    name: "Find suburb or postcode",
+  });
+  await search.fill("Panania");
+  const result = panel.locator("[data-service-area-search-result]");
+  await expect(result).toHaveCount(1);
+  await expect(result).toHaveAttribute(
+    "href",
+    /\/service-areas\/canterbury-bankstown-and-inner-south-west\/canterbury-bankstown\/panania\/?$/,
+  );
+
+  const layout = await panel.evaluate((element) => {
+    const searchBox = element
+      .querySelector<HTMLElement>("[data-service-area-nav-search]")
+      ?.getBoundingClientRect();
+    const regions = element
+      .querySelector<HTMLElement>(".ev-service-nav-panel__grid")
+      ?.getBoundingClientRect();
+
+    return {
+      overflow:
+        document.documentElement.scrollWidth -
+        document.documentElement.clientWidth,
+      panelBottom: element.getBoundingClientRect().bottom,
+      searchBeforeRegions:
+        Boolean(searchBox && regions) && searchBox!.bottom <= regions!.top,
+      viewportHeight: window.innerHeight,
+    };
+  });
+
+  expect(layout.searchBeforeRegions).toBe(true);
+  expect(layout.panelBottom).toBeLessThanOrEqual(layout.viewportHeight + 1);
+  expect(layout.overflow).toBeLessThanOrEqual(1);
+
+  await page.keyboard.press("Escape");
+  await expect(panel).toHaveCount(0);
+  await expect(toggle).toBeFocused();
+});
+
+test("mobile Service Areas group keeps search first and exposes all regions", async ({
+  page,
+}, testInfo) => {
+  test.skip(
+    !testInfo.project.name.startsWith("mobile-"),
+    "Mobile service-area navigation check.",
+  );
+
+  await page.goto("./", { waitUntil: "domcontentloaded" });
+  await page.waitForLoadState("networkidle").catch(() => undefined);
+  await page.waitForTimeout(250);
+  await page.getByRole("button", { name: "Open navigation menu" }).click();
+
+  const mobileNav = page.getByRole("navigation", { name: "Mobile navigation" });
+  const group = mobileNav
+    .locator(".mobile-service-nav-group")
+    .filter({ hasText: "Service Areas" });
+  await expect(group.locator(".mobile-service-nav-group__overview")).toHaveAttribute(
+    "href",
+    /\/service-areas\/?$/,
+  );
+
+  await group
+    .getByRole("button", { name: "Open Service Areas menu" })
+    .click();
+  const panel = mobileNav.locator("#mobile-service-areas-services-menu");
+  await expect(panel).toBeVisible();
+  await expect(panel.locator(".mobile-service-nav-group__link")).toHaveCount(16);
+
+  const search = panel.getByRole("searchbox", {
+    name: "Find suburb or postcode",
+  });
+  await search.fill("Panania");
+  await expect(panel.locator("[data-service-area-search-result]")).toHaveCount(1);
+
+  expect(
+    await page.evaluate(
+      () =>
+        document.documentElement.scrollWidth -
+        document.documentElement.clientWidth,
+    ),
+  ).toBeLessThanOrEqual(1);
 });
 
 test("mobile menu traps the page, closes with Escape and restores focus", async ({ page }, testInfo) => {
@@ -698,7 +932,7 @@ test("skip link, FAQ keyboard control and mobile sticky/footer spacing work", as
   await expect(summary.locator("..")).toHaveAttribute("open", "");
 
   await page.locator("footer[data-site-footer]").scrollIntoViewIfNeeded();
-  await page.waitForTimeout(250);
+  await expect(page.locator(".mobile-sticky-cta")).toBeHidden();
   const overlapsFooter = await page.evaluate(() => {
     const sticky = document.querySelector<HTMLElement>(".mobile-sticky-cta");
     const footer = document.querySelector<HTMLElement>("[data-site-footer]");
