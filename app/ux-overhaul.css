@@ -994,54 +994,14 @@ body.mobile-menu-open {
   }
 }
 
-/* Continuous Evaready storm canvas.
-   The page carries the artwork so sections do not restart the same image. */
+/* Homepage surface tokens. The shared page canvas below owns the artwork so
+   the homepage cannot drift from service, fault and service-area routes. */
 .core-storm-page.core-storm-home {
   --home-night: #020610;
   --home-midnight: #050c18;
   --home-steel: #091727;
   --home-panel: rgba(5, 18, 38, 0.94);
   --home-panel-strong: rgba(3, 13, 30, 0.97);
-  position: relative;
-  isolation: isolate;
-  background:
-    radial-gradient(ellipse 52% 18% at -8% 13%, rgba(8, 118, 255, 0.34), transparent 76%),
-    radial-gradient(ellipse 48% 17% at 108% 27%, rgba(233, 17, 30, 0.25), transparent 78%),
-    radial-gradient(ellipse 54% 19% at -10% 47%, rgba(98, 216, 255, 0.22), transparent 78%),
-    radial-gradient(ellipse 50% 18% at 108% 64%, rgba(233, 17, 30, 0.2), transparent 78%),
-    radial-gradient(ellipse 54% 19% at -8% 81%, rgba(8, 118, 255, 0.27), transparent 78%),
-    radial-gradient(ellipse 48% 17% at 108% 94%, rgba(233, 17, 30, 0.18), transparent 78%),
-    linear-gradient(
-      180deg,
-      #020610 0%,
-      #041022 16%,
-      #050914 31%,
-      #071320 47%,
-      #020710 62%,
-      #051225 79%,
-      #020610 100%
-    ),
-    var(--home-night) !important;
-  background-attachment: scroll !important;
-}
-
-body.ev-storm-page main#main-content.core-storm-page.core-storm-home::before {
-  z-index: 0 !important;
-  background:
-    radial-gradient(ellipse 38% 68% at -8% 34%, rgba(8, 118, 255, 0.42), transparent 76%),
-    radial-gradient(ellipse 36% 66% at 108% 68%, rgba(233, 17, 30, 0.34), transparent 76%),
-    linear-gradient(90deg, rgba(8, 118, 255, 0.26), rgba(2, 6, 16, 0.58) 35%, rgba(2, 6, 16, 0.58) 65%, rgba(233, 17, 30, 0.24)),
-    var(--ee-electric-bg-image) !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-  opacity: 0.64 !important;
-  mix-blend-mode: screen !important;
-}
-
-body.ev-storm-page main#main-content.core-storm-page.core-storm-home > :is(section, footer) {
-  position: relative;
-  z-index: 1;
 }
 
 body.ev-storm-page main#main-content.core-storm-home .home-theme-feature {
@@ -1159,16 +1119,6 @@ body.ev-storm-page main#main-content.core-storm-home .home-theme-band--offers .e
 }
 
 @media (max-width: 767px) {
-  body.ev-storm-page main#main-content.core-storm-page.core-storm-home::before {
-    background:
-      radial-gradient(ellipse 64% 54% at -14% 28%, rgba(8, 118, 255, 0.48), transparent 74%),
-      radial-gradient(ellipse 62% 52% at 114% 72%, rgba(233, 17, 30, 0.4), transparent 74%),
-      linear-gradient(90deg, rgba(8, 118, 255, 0.24), rgba(2, 6, 16, 0.52) 34%, rgba(2, 6, 16, 0.54) 66%, rgba(233, 17, 30, 0.22)),
-      var(--ee-electric-bg-image) !important;
-    background-position: 48% center !important;
-    opacity: 0.42 !important;
-  }
-
   body.ev-storm-page main#main-content.core-storm-home .home-brand-hero > .home-hero-readability-overlay {
     background:
       linear-gradient(180deg, rgba(2, 6, 16, 0.08) 0%, rgba(2, 6, 16, 0.18) 35%, rgba(2, 6, 16, 0.72) 62%, rgba(2, 6, 16, 0.9) 100%),
@@ -1482,23 +1432,11 @@ html body main#main-content.core-storm-about .about-contact-action--email {
   grid-column: 1 / -1 !important;
 }
 
-/* Continue the shared storm canvas through the site-wide footer. */
+/* Let the site-wide footer sit on the page-owned storm canvas. */
 html body.ev-storm-page .site-footer.ev-footer,
 html body.ev-storm-page main#main-content.core-storm-page.core-storm-home > footer.site-footer.ev-footer {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(4, 67, 148, 0.28) 0%,
-      rgba(2, 8, 22, 0.72) 30%,
-      rgba(2, 7, 19, 0.82) 50%,
-      rgba(2, 8, 22, 0.72) 70%,
-      rgba(139, 13, 34, 0.25) 100%
-    ),
-    linear-gradient(180deg, rgba(2, 7, 18, 0.16), rgba(2, 6, 16, 0.7)),
-    var(--ee-storm-bg-desktop) !important;
-  background-position: center top, center top, center center !important;
-  background-repeat: no-repeat !important;
-  background-size: auto, auto, cover !important;
+  background: transparent !important;
+  background-image: none !important;
   border-top: 0 !important;
   box-shadow: none !important;
 }
@@ -1521,23 +1459,6 @@ html body.ev-storm-page .site-footer.ev-footer :is(
   box-shadow:
     0 16px 42px rgba(0, 0, 0, 0.3),
     0 0 0 1px rgba(98, 216, 255, 0.045) inset !important;
-}
-
-@media (max-width: 767px) {
-  html body.ev-storm-page .site-footer.ev-footer,
-  html body.ev-storm-page main#main-content.core-storm-page.core-storm-home > footer.site-footer.ev-footer {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(4, 67, 148, 0.24),
-        rgba(2, 8, 22, 0.74) 42%,
-        rgba(110, 12, 31, 0.2)
-      ),
-      linear-gradient(180deg, rgba(2, 7, 18, 0.22), rgba(2, 6, 16, 0.76)),
-      var(--ee-storm-bg-mobile) !important;
-    background-position: center top, center top, center center !important;
-    background-size: auto, auto, cover !important;
-  }
 }
 
 /* One desktop van focal point across homepage, service, fault and location
