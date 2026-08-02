@@ -284,39 +284,53 @@
   transform: translateX(0.15rem);
 }
 
-.site-footer.ev-footer .ev-footer-contact-actions {
+#site-footer.site-footer.ev-footer .ev-footer-contact-actions {
   display: grid !important;
-  gap: 0.58rem !important;
-  margin: 1rem 0 0 !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 0.5rem !important;
+  margin: 0.85rem 0 0 !important;
 }
 
-.site-footer.ev-footer .ev-footer-mini-action.footer-action,
-.site-footer.ev-footer a.ev-footer-mini-action.footer-action[data-conversion-action],
-.site-footer.ev-footer a.ev-footer-mini-action.footer-action[href*="book.servicem8.com"] {
+#site-footer.site-footer.ev-footer .ev-footer-mini-action.footer-action,
+#site-footer.site-footer.ev-footer a.ev-footer-mini-action.footer-action[data-conversion-action],
+#site-footer.site-footer.ev-footer a.ev-footer-mini-action.footer-action[href*="book.servicem8.com"] {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   width: 100% !important;
-  min-height: 2.65rem !important;
+  min-height: 2.75rem !important;
   height: auto !important;
   min-width: 0 !important;
   max-width: 100% !important;
-  padding: 0.58rem 0.78rem !important;
-  border-radius: 0.85rem !important;
-  gap: 0.48rem !important;
-  font-size: 0.82rem !important;
-  line-height: 1.08 !important;
+  padding: 0.58rem 0.5rem !important;
+  border-radius: 0.72rem !important;
+  gap: 0.3rem !important;
+  flex-wrap: nowrap !important;
+  font-size: 0.78rem !important;
+  line-height: 1 !important;
   font-weight: 950 !important;
   text-align: center !important;
-  white-space: normal !important;
-  text-wrap: balance !important;
+  white-space: nowrap !important;
+  text-wrap: nowrap !important;
 }
 
-.site-footer.ev-footer .ev-footer-mini-action > :is(span, svg),
+#site-footer.site-footer.ev-footer .ev-footer-mini-action > :is(span, svg),
 .site-footer.ev-footer .ev-footer-primary-action > :is(span, svg) {
   min-width: 0 !important;
-  white-space: normal !important;
-  text-wrap: balance !important;
+  white-space: nowrap !important;
+  text-wrap: nowrap !important;
+}
+
+#site-footer.site-footer.ev-footer .ev-footer-contact-actions .footer-action-call {
+  order: 1 !important;
+}
+
+#site-footer.site-footer.ev-footer .ev-footer-contact-actions .footer-action-quote {
+  order: 2 !important;
+}
+
+#site-footer.site-footer.ev-footer .ev-footer-contact-actions .footer-action-email {
+  order: 3 !important;
 }
 
 .site-footer.ev-footer .ev-footer-find-link {
