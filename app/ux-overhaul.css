@@ -9,6 +9,250 @@
   outline-offset: 3px;
 }
 
+/* Shared suburb-page service and next-step cards. These selectors live in the
+   final cascade so all generated suburb routes keep one aligned presentation. */
+html body.ev-storm-page .generated-storm-suburb :is(
+  .suburb-support-section,
+  .suburb-action-section
+) {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+html body.ev-storm-page .generated-storm-suburb .suburb-section-shell {
+  width: min(100%, 80rem);
+}
+
+html body.ev-storm-page .generated-storm-suburb :is(
+  .suburb-section-eyebrow,
+  .suburb-action-card__eyebrow
+) {
+  letter-spacing: 0 !important;
+}
+
+html body.ev-storm-page .generated-storm-suburb .suburb-section-title {
+  max-width: 58rem;
+  text-wrap: balance;
+  letter-spacing: 0 !important;
+}
+
+html body.ev-storm-page .generated-storm-suburb .suburb-support-grid,
+html body.ev-storm-page .generated-storm-suburb .suburb-action-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1rem, 1.8vw, 1.35rem);
+  align-items: stretch;
+}
+
+html body.ev-storm-page .generated-storm-suburb .suburb-support-card {
+  position: relative;
+  display: grid !important;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 1rem;
+  height: 100%;
+  min-width: 0;
+  border-radius: 0.5rem !important;
+  background: linear-gradient(
+    145deg,
+    rgba(4, 18, 43, 0.94),
+    rgba(7, 30, 69, 0.88) 58%,
+    rgba(3, 11, 28, 0.94)
+  ) !important;
+  border-color: rgba(98, 216, 255, 0.34) !important;
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(98, 216, 255, 0.08) !important;
+  transform: none !important;
+}
+
+html body.ev-storm-page .generated-storm-suburb .suburb-support-card:hover {
+  border-color: rgba(98, 216, 255, 0.62) !important;
+  background: linear-gradient(
+    145deg,
+    rgba(5, 23, 54, 0.96),
+    rgba(8, 42, 92, 0.9) 58%,
+    rgba(3, 13, 31, 0.96)
+  ) !important;
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.32),
+    0 0 24px rgba(7, 156, 255, 0.12) !important;
+}
+
+html body.ev-storm-page .generated-storm-suburb .suburb-support-card[data-suburb-support-card="emergency"] {
+  border-color: rgba(255, 90, 105, 0.42) !important;
+  background: linear-gradient(
+    145deg,
+    rgba(57, 10, 25, 0.94),
+    rgba(8, 27, 65, 0.9) 58%,
+    rgba(3, 11, 28, 0.96)
+  ) !important;
+}
+
+html body.ev-storm-page .generated-storm-suburb .suburb-support-card__heading {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 0.85rem;
+  align-items: center;
+  min-height: 3.5rem;
+}
+
+html body.ev-storm-page .generated-storm-suburb .suburb-support-card__icon {
+  border-radius: 0.5rem !important;
+}
+
+html body.ev-storm-page .generated-storm-suburb .suburb-support-card h3 {
+  margin: 0 !important;
+  font-size: clamp(1.18rem, 1.7vw, 1.45rem) !important;
+  line-height: 1.18 !important;
+  text-wrap: balance;
+  letter-spacing: 0 !important;
+  overflow-wrap: anywhere;
+}
+
+html body.ev-storm-page .generated-storm-suburb .suburb-support-card__copy {
+  margin: 0 !important;
+  min-height: 6rem;
+  color: #d6e7f2 !important;
+}
+
+html body.ev-storm-page .generated-storm-suburb .suburb-support-card__list {
+  align-content: start;
+  margin: 0 !important;
+}
+
+html body.ev-storm-page .generated-storm-suburb .suburb-support-card__link {
+  align-self: end;
+  width: fit-content;
+  min-height: 2.75rem;
+  margin: 0 !important;
+}
+
+html body.ev-storm-page .generated-storm-suburb .suburb-action-card {
+  border-radius: 0.5rem !important;
+  background: linear-gradient(
+    145deg,
+    rgba(4, 18, 43, 0.96),
+    rgba(7, 31, 72, 0.88) 58%,
+    rgba(3, 11, 28, 0.96)
+  ) !important;
+  border-color: rgba(98, 216, 255, 0.36) !important;
+  box-shadow:
+    0 16px 38px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(98, 216, 255, 0.08) !important;
+}
+
+html body.ev-storm-page .generated-storm-suburb .suburb-action-card--call {
+  border-color: rgba(255, 90, 105, 0.46) !important;
+  background: linear-gradient(
+    145deg,
+    rgba(62, 9, 23, 0.94),
+    rgba(8, 27, 65, 0.9) 58%,
+    rgba(3, 11, 28, 0.96)
+  ) !important;
+}
+
+html body.ev-storm-page .generated-storm-suburb .suburb-action-card__title {
+  min-height: 3.6rem;
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem) !important;
+  line-height: 1.2 !important;
+  text-wrap: balance;
+  letter-spacing: 0 !important;
+  overflow-wrap: anywhere;
+}
+
+html body.ev-storm-page .generated-storm-suburb .suburb-action-card__copy {
+  min-height: 5.25rem;
+  color: #d6e7f2 !important;
+}
+
+html body.ev-storm-page .generated-storm-suburb .suburb-action-card__list {
+  align-content: start;
+}
+
+html body.ev-storm-page .generated-storm-suburb .suburb-action-card__text-link {
+  width: fit-content;
+  letter-spacing: 0 !important;
+}
+
+html body.ev-storm-page .generated-storm-suburb .suburb-action-card__actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+html body.ev-storm-page .generated-storm-suburb .suburb-action-card__actions--split {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+html body.ev-storm-page .generated-storm-suburb .suburb-action-card__button {
+  min-width: 0;
+  min-height: 3.5rem;
+  border-radius: 0.5rem !important;
+  letter-spacing: 0 !important;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 48rem) {
+  html body.ev-storm-page .generated-storm-suburb .suburb-support-grid,
+  html body.ev-storm-page .generated-storm-suburb .suburb-action-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  html body.ev-storm-page .generated-storm-suburb :is(
+    .suburb-support-card,
+    .suburb-action-card
+  ):nth-child(3) {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 64rem) {
+  html body.ev-storm-page .generated-storm-suburb .suburb-support-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  html body.ev-storm-page .generated-storm-suburb .suburb-action-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.08fr);
+  }
+
+  html body.ev-storm-page .generated-storm-suburb :is(
+    .suburb-support-card,
+    .suburb-action-card
+  ):nth-child(3) {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 47.999rem) {
+  html body.ev-storm-page .generated-storm-suburb .suburb-section-title {
+    font-size: clamp(1.75rem, 8vw, 2.25rem) !important;
+    line-height: 1.08 !important;
+  }
+
+  html body.ev-storm-page .generated-storm-suburb .suburb-support-card__copy,
+  html body.ev-storm-page .generated-storm-suburb .suburb-action-card__title,
+  html body.ev-storm-page .generated-storm-suburb .suburb-action-card__copy {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 25.999rem) {
+  html body.ev-storm-page .generated-storm-suburb .suburb-action-card__actions--split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body.ev-storm-page .generated-storm-suburb .suburb-support-card,
+  html body.ev-storm-page .generated-storm-suburb .suburb-support-card:hover {
+    transition: none !important;
+  }
+}
+
 /* Match each art-directed source ratio so the logo is never stretched or cropped. */
 :root {
   --ev-final-header-art-height: max(110px, 31.25vw);
@@ -1827,4 +2071,22 @@ html body.ev-storm-page .site-footer.ev-footer :is(
   html body.ev-storm-page .site-footer.ev-footer .ev-footer-legal-links {
     justify-content: flex-end !important;
   }
+}
+/* Keep the shared suburb emergency action legible after global theme accents. */
+html body.ev-storm-page main#main-content.generated-storm-suburb
+  .suburb-action-card.suburb-action-card--call[data-suburb-action-card="call-first"] {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(62, 9, 23, 0.94),
+      rgba(8, 27, 65, 0.9) 58%,
+      rgba(3, 11, 28, 0.96)
+    ) !important;
+  background-image:
+    linear-gradient(
+      145deg,
+      rgba(62, 9, 23, 0.94),
+      rgba(8, 27, 65, 0.9) 58%,
+      rgba(3, 11, 28, 0.96)
+    ) !important;
 }

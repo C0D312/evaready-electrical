@@ -248,16 +248,19 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
 
       <TrustSymbolBand className="border-b border-cyan-300/15" />
 
-      <section className="bg-[#0a234d] py-14 text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-200">
+      <section
+        className="suburb-support-section py-14 text-white sm:py-16"
+        data-suburb-section="service-support"
+      >
+        <div className="suburb-section-shell mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="suburb-section-eyebrow text-sm font-black uppercase text-cyan-200">
             Suburb electrical support
           </p>
-          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+          <h2 className="suburb-section-title mt-3 max-w-4xl text-3xl font-black leading-tight sm:text-5xl">
             Emergency, Level 2 and general electrical help in {suburb.name}.
           </h2>
 
-          <div className="mt-10 grid gap-4 lg:grid-cols-3">
+          <div className="suburb-support-grid mt-8">
             {copy.landingServiceCards.map((card) => {
               const Icon = serviceIconByIntent[card.intent];
 
@@ -265,23 +268,23 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                 <Link
                   key={card.title}
                   href={card.href}
-                  className={`group min-w-0 rounded-2xl border p-5 shadow-lg shadow-blue-950/20 transition hover:-translate-y-1 hover:border-cyan-300/60 sm:p-6 ${landingCardStyles[card.intent]}`}
+                  data-suburb-support-card={card.intent}
+                  className={`suburb-support-card group min-w-0 border p-5 transition hover:border-cyan-300/60 sm:p-6 ${landingCardStyles[card.intent]}`}
                 >
-                  <div className="flex min-w-0 items-start gap-4">
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-cyan-300/25 bg-[#0d2b5c] text-cyan-100">
+                  <div className="suburb-support-card__heading min-w-0">
+                    <span className="suburb-support-card__icon flex h-12 w-12 shrink-0 items-center justify-center border border-cyan-300/25 bg-[#0d2b5c] text-cyan-100">
                       <Icon className="h-6 w-6" aria-hidden="true" />
                     </span>
-                    <div className="min-w-0">
-                      <h3 className="text-2xl font-black leading-tight text-white">
-                        {card.title}
-                      </h3>
-                      <p className="mt-3 text-sm font-semibold leading-6 text-slate-200">
-                        {card.text}
-                      </p>
-                    </div>
+                    <h3 className="min-w-0 text-2xl font-black leading-tight text-white">
+                      {card.title}
+                    </h3>
                   </div>
 
-                  <ul className="mt-5 grid gap-2 text-sm font-bold text-slate-100">
+                  <p className="suburb-support-card__copy text-sm font-semibold leading-6 text-slate-200">
+                    {card.text}
+                  </p>
+
+                  <ul className="suburb-support-card__list grid gap-2 text-sm font-bold text-slate-100">
                     {card.items.map((item) => (
                       <li key={item} className="flex min-w-0 items-start gap-2">
                         <CheckCircle2
@@ -293,7 +296,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                     ))}
                   </ul>
 
-                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-black text-cyan-200">
+                  <span className="suburb-support-card__link inline-flex items-center gap-2 text-sm font-black text-cyan-200">
                     View details
                     <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                   </span>
@@ -304,24 +307,27 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         </div>
       </section>
 
-      <section className="border-b border-cyan-300/15 bg-[#0a234d] py-12 text-white sm:py-16">
-        <div className="mx-auto grid max-w-7xl gap-5 px-4 sm:px-6 lg:grid-cols-[1fr_1fr_1.1fr] lg:px-8">
+      <section
+        className="suburb-action-section py-12 text-white sm:py-16"
+        data-suburb-section="next-steps"
+      >
+        <div className="suburb-action-grid suburb-section-shell mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <article
             data-suburb-action-card="call-first"
-            className="flex h-full flex-col rounded-2xl border border-red-300/35 bg-[linear-gradient(135deg,rgba(127,29,29,0.96),rgba(35,7,18,0.98))] p-5 shadow-2xl shadow-red-950/20 sm:p-6"
+            className="suburb-action-card suburb-action-card--call flex h-full min-w-0 flex-col border p-5 sm:p-6"
           >
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-red-100">
+            <p className="suburb-action-card__eyebrow text-sm font-black uppercase text-red-100">
               Call first
             </p>
-            <h2 className="mt-3 text-2xl font-black text-white">
+            <h2 className="suburb-action-card__title mt-3 text-2xl font-black text-white">
               Unsafe faults in {suburb.name} need a phone call.
             </h2>
-            <p className="mt-3 leading-7 text-red-50">
+            <p className="suburb-action-card__copy mt-3 leading-7 text-red-50">
               Call first for burning smells, power loss, unsafe faults,
               sparking, shocks, storm damage or water-damaged electrical
               equipment.
             </p>
-            <ul className="mt-5 grid gap-2 text-sm font-bold text-red-50">
+            <ul className="suburb-action-card__list mt-5 grid gap-2 text-sm font-bold text-red-50">
               {copy.callQuoteGuidance.callFirst.map((item) => (
                 <li key={item} className="flex items-start gap-2">
                   <CheckCircle2
@@ -332,32 +338,34 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                 </li>
               ))}
             </ul>
-            <a
-              href={business.phoneHref}
-              data-suburb-action-link="call-first"
-              data-conversion-action="phone-click"
-              className="mt-7 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-5 py-3 text-center text-sm font-black uppercase tracking-[0.2em] text-white shadow-lg shadow-red-950/25 transition hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-200 focus:ring-offset-2 focus:ring-offset-red-950"
-            >
-              <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
-              Call 0461 247 247
-            </a>
+            <div className="suburb-action-card__actions">
+              <a
+                href={business.phoneHref}
+                data-suburb-action-link="call-first"
+                data-conversion-action="phone-click"
+                className="suburb-action-card__button inline-flex w-full items-center justify-center gap-2 bg-red-600 px-5 py-3 text-center text-sm font-black text-white transition hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-200 focus:ring-offset-2 focus:ring-offset-red-950"
+              >
+                <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
+                Call 0461 247 247
+              </a>
+            </div>
           </article>
 
           <article
             data-suburb-action-card="quote-form"
-            className="flex h-full flex-col rounded-2xl border border-cyan-300/25 bg-[linear-gradient(135deg,rgba(8,22,42,0.98),rgba(3,18,38,0.98))] p-5 shadow-2xl shadow-cyan-950/10 sm:p-6"
+            className="suburb-action-card suburb-action-card--quote flex h-full min-w-0 flex-col border p-5 sm:p-6"
           >
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
+            <p className="suburb-action-card__eyebrow text-sm font-black uppercase text-cyan-300">
               Use the quote form
             </p>
-            <h2 className="mt-3 text-2xl font-black text-white">
+            <h2 className="suburb-action-card__title mt-3 text-2xl font-black text-white">
               Planned work is clearer with photos and notes.
             </h2>
-            <p className="mt-3 leading-7 text-slate-100">
+            <p className="suburb-action-card__copy mt-3 leading-7 text-slate-100">
               Use the quote form for planned work, photos, defect notices,
               switchboard photos, meter box photos and job notes.
             </p>
-            <ul className="mt-5 grid gap-2 text-sm font-bold text-slate-100">
+            <ul className="suburb-action-card__list mt-5 grid gap-2 text-sm font-bold text-slate-100">
               {copy.callQuoteGuidance.quoteForm.map((item) => (
                 <li key={item} className="flex items-start gap-2">
                   <CheckCircle2
@@ -368,30 +376,32 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                 </li>
               ))}
             </ul>
-            <a
-              href={business.bookingUrl}
-              data-suburb-action-link="quote-form"
-              data-quote-trigger="true"
-              data-conversion-action="quote-click"
-              aria-haspopup="dialog"
-              className="mt-7 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-[#0876ff] px-5 py-3 text-center text-sm font-black uppercase tracking-[0.2em] text-white shadow-lg shadow-cyan-950/20 transition hover:bg-[#079cff] focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
-            >
-              Open quote form
-              <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
-            </a>
+            <div className="suburb-action-card__actions">
+              <a
+                href={business.bookingUrl}
+                data-suburb-action-link="quote-form"
+                data-quote-trigger="true"
+                data-conversion-action="quote-click"
+                aria-haspopup="dialog"
+                className="suburb-action-card__button inline-flex w-full items-center justify-center gap-2 bg-[#0876ff] px-5 py-3 text-center text-sm font-black text-white transition hover:bg-[#079cff] focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+              >
+                Open quote form
+                <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+              </a>
+            </div>
           </article>
 
           <article
             data-suburb-action-card="level-2-checklist"
-            className="flex h-full flex-col rounded-2xl border border-cyan-300/25 bg-[linear-gradient(135deg,rgba(9,20,35,0.98),rgba(4,17,36,0.98))] p-5 shadow-2xl shadow-cyan-950/10 sm:p-6"
+            className="suburb-action-card suburb-action-card--level2 flex h-full min-w-0 flex-col border p-5 sm:p-6"
           >
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
+            <p className="suburb-action-card__eyebrow text-sm font-black uppercase text-cyan-300">
               Level 2 quote checklist
             </p>
-            <h2 className="mt-3 text-2xl font-black text-white">
+            <h2 className="suburb-action-card__title mt-3 text-2xl font-black text-white">
               For Level 2 enquiries in {suburb.name}, send these details.
             </h2>
-            <ul className="mt-5 grid gap-2 text-sm font-bold text-slate-100">
+            <ul className="suburb-action-card__list mt-5 grid gap-2 text-sm font-bold text-slate-100">
               {copy.level2QuoteChecklist.map((item) => (
                 <li key={item} className="flex items-start gap-2">
                   <CheckCircle2
@@ -402,36 +412,38 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                 </li>
               ))}
             </ul>
-            <div className="mt-7 grid gap-3">
+            <Link
+              href="/level-2-electrician-sydney"
+              data-suburb-action-link="level-2-services"
+              className="suburb-action-card__text-link mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-black text-cyan-100 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+            >
+              View Level 2 services
+              <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+            </Link>
+            <div className="suburb-action-card__actions suburb-action-card__actions--split">
               <a
                 href={business.phoneHref}
                 data-suburb-action-link="level-2-call"
                 data-conversion-action="phone-click"
-                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-3 text-center text-sm font-black uppercase tracking-[0.18em] text-white shadow-lg shadow-red-950/25 transition hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+                className="suburb-action-card__button inline-flex w-full items-center justify-center gap-2 bg-red-600 px-4 py-3 text-center text-sm font-black text-white transition hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-200 focus:ring-offset-2 focus:ring-offset-slate-950"
               >
                 <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
-                Call Level 2 0461 247 247
+                <span>
+                  Call Level 2
+                  <span className="block">0461 247 247</span>
+                </span>
               </a>
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-                <Link
-                  href="/level-2-electrician-sydney"
-                  data-suburb-action-link="level-2-services"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-cyan-300/45 px-4 py-3 text-center text-sm font-black uppercase tracking-[0.18em] text-cyan-100 transition hover:border-cyan-200 hover:bg-cyan-300/10 focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
-                >
-                  Level 2 services
-                  <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
-                </Link>
-                <a
-                  href={business.bookingUrl}
-                  data-suburb-action-link="level-2-quote"
-                  data-quote-trigger="true"
-                  data-conversion-action="quote-click"
-                  aria-haspopup="dialog"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#0876ff] px-4 py-3 text-center text-sm font-black uppercase tracking-[0.18em] text-white transition hover:bg-[#079cff] focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
-                >
-                  Send details
-                </a>
-              </div>
+              <a
+                href={business.bookingUrl}
+                data-suburb-action-link="level-2-quote"
+                data-quote-trigger="true"
+                data-conversion-action="quote-click"
+                aria-haspopup="dialog"
+                className="suburb-action-card__button inline-flex w-full items-center justify-center gap-2 bg-[#0876ff] px-4 py-3 text-center text-sm font-black text-white transition hover:bg-[#079cff] focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+              >
+                Send details
+                <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+              </a>
             </div>
           </article>
         </div>

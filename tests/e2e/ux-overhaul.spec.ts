@@ -480,6 +480,82 @@ test("desktop navigation exposes every restored destination and compact contact 
   }
 });
 
+test("generated suburb support and next-step cards stay aligned", async ({
+  page,
+}, testInfo) => {
+  await page.goto(
+    "service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+    { waitUntil: "domcontentloaded" },
+  );
+
+  const supportSection = page.locator('[data-suburb-section="service-support"]');
+  const actionSection = page.locator('[data-suburb-section="next-steps"]');
+  const supportCards = supportSection.locator("[data-suburb-support-card]");
+  const actionCards = actionSection.locator("[data-suburb-action-card]");
+
+  await expect(supportSection).toBeVisible();
+  await expect(actionSection).toBeVisible();
+  await expect(supportCards).toHaveCount(3);
+  await expect(actionCards).toHaveCount(3);
+
+  for (const section of [supportSection, actionSection]) {
+    await expect(section).toHaveCSS("background-image", "none");
+  }
+
+  const layout = await page.evaluate(() => {
+    const rects = (selector: string) =>
+      Array.from(document.querySelectorAll<HTMLElement>(selector)).map((element) => {
+        const rect = element.getBoundingClientRect();
+        return {
+          bottom: rect.bottom,
+          height: rect.height,
+          left: rect.left,
+          right: rect.right,
+          top: rect.top,
+          width: rect.width,
+        };
+      });
+
+    return {
+      action: rects("[data-suburb-action-card]"),
+      overflow:
+        document.documentElement.scrollWidth -
+        document.documentElement.clientWidth,
+      support: rects("[data-suburb-support-card]"),
+      viewportWidth: document.documentElement.clientWidth,
+    };
+  });
+
+  expect(layout.overflow).toBeLessThanOrEqual(1);
+  for (const card of [...layout.support, ...layout.action]) {
+    expect(card.left).toBeGreaterThanOrEqual(0);
+    expect(card.right).toBeLessThanOrEqual(layout.viewportWidth + 1);
+  }
+
+  if (testInfo.project.name.startsWith("desktop-")) {
+    for (const cards of [layout.support, layout.action]) {
+      expect(Math.max(...cards.map((card) => card.top)) - Math.min(...cards.map((card) => card.top))).toBeLessThanOrEqual(1);
+      expect(Math.max(...cards.map((card) => card.height)) - Math.min(...cards.map((card) => card.height))).toBeLessThanOrEqual(1);
+    }
+  }
+
+  await expect(
+    actionSection.locator('[data-suburb-action-link="call-first"]'),
+  ).toBeVisible();
+  await expect(
+    actionSection.locator('[data-suburb-action-link="quote-form"]'),
+  ).toBeVisible();
+  await expect(
+    actionSection.locator('[data-suburb-action-link="level-2-services"]'),
+  ).toBeVisible();
+  await expect(
+    actionSection.locator('[data-suburb-action-link="level-2-call"]'),
+  ).toBeVisible();
+  await expect(
+    actionSection.locator('[data-suburb-action-link="level-2-quote"]'),
+  ).toBeVisible();
+});
+
 test("every page family uses one continuous storm canvas", async ({ page }) => {
   for (const route of continuousThemeRoutes) {
     const response = await page.goto(route, { waitUntil: "domcontentloaded" });
