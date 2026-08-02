@@ -117,7 +117,7 @@ test("homepage uses the approved H1 and a seamless reduced-motion-safe service s
   await expect(track).toHaveCSS("animation-name", "none");
 });
 
-test("wide desktop header keeps the complete banner artwork visible", async ({
+test("wide desktop header keeps proportional layered artwork visible", async ({
   page,
 }, testInfo) => {
   test.skip(
@@ -129,45 +129,50 @@ test("wide desktop header keeps the complete banner artwork visible", async ({
     {
       width: 1440,
       height: 900,
-      expectedBannerHeight: 146,
-      expectedSource: "evaready-header-desktop-refined-v14.webp",
-      naturalWidth: 2560,
-      naturalHeight: 260,
+      expectedBannerHeight: 123,
     },
     {
       width: 1920,
       height: 1080,
-      expectedBannerHeight: 150,
-      expectedSource: "evaready-header-large-refined-v14.webp",
-      naturalWidth: 2944,
-      naturalHeight: 230,
+      expectedBannerHeight: 123,
     },
     {
       width: 2560,
       height: 1440,
-      expectedBannerHeight: 153,
-      expectedSource: "evaready-header-wide-refined-v14.webp",
-      naturalWidth: 3840,
-      naturalHeight: 230,
+      expectedBannerHeight: 123,
     },
   ]) {
     await page.setViewportSize(viewport);
     await page.goto("./", { waitUntil: "domcontentloaded" });
 
     const bannerLayout = await page.locator(".ev-final-header-art").evaluate((banner) => {
-      const image = banner.querySelector<HTMLImageElement>(".ev-final-header-image");
+      const wordmark = banner.querySelector<HTMLImageElement>(".ev-final-header-wordmark");
       const bannerBox = banner.getBoundingClientRect();
-      const imageBox = image?.getBoundingClientRect();
+      const wordmarkBox = wordmark?.getBoundingClientRect();
+      const naturalRatio =
+        wordmark?.naturalWidth && wordmark?.naturalHeight
+          ? wordmark.naturalWidth / wordmark.naturalHeight
+          : 0;
+      const renderedRatio = wordmarkBox
+        ? wordmarkBox.width / wordmarkBox.height
+        : 0;
 
       return {
         bannerHeight: bannerBox.height,
         bannerWidth: bannerBox.width,
-        currentSrc: image?.currentSrc ?? "",
-        imageHeight: imageBox?.height ?? 0,
-        imageWidth: imageBox?.width ?? 0,
-        naturalHeight: image?.naturalHeight ?? 0,
-        naturalWidth: image?.naturalWidth ?? 0,
-        objectFit: image ? getComputedStyle(image).objectFit : "",
+        currentSrc: wordmark?.currentSrc ?? "",
+        naturalHeight: wordmark?.naturalHeight ?? 0,
+        naturalWidth: wordmark?.naturalWidth ?? 0,
+        objectFit: wordmark ? getComputedStyle(wordmark).objectFit : "",
+        relativeAspectError: naturalRatio
+          ? Math.abs(renderedRatio - naturalRatio) / naturalRatio
+          : 1,
+        wordmarkInsideBanner:
+          !!wordmarkBox &&
+          wordmarkBox.top >= bannerBox.top - 1 &&
+          wordmarkBox.right <= bannerBox.right + 1 &&
+          wordmarkBox.bottom <= bannerBox.bottom + 1 &&
+          wordmarkBox.left >= bannerBox.left - 1,
         overflow:
           document.documentElement.scrollWidth -
           document.documentElement.clientWidth,
@@ -175,12 +180,12 @@ test("wide desktop header keeps the complete banner artwork visible", async ({
     });
 
     expect(bannerLayout.objectFit).toBe("contain");
-    expect(bannerLayout.currentSrc).toContain(viewport.expectedSource);
-    expect(bannerLayout.naturalWidth).toBe(viewport.naturalWidth);
-    expect(bannerLayout.naturalHeight).toBe(viewport.naturalHeight);
+    expect(bannerLayout.currentSrc).toContain("evaready-header-wordmark-v15.webp");
+    expect(bannerLayout.naturalWidth).toBe(1426);
+    expect(bannerLayout.naturalHeight).toBe(245);
     expect(Math.abs(bannerLayout.bannerHeight - viewport.expectedBannerHeight)).toBeLessThanOrEqual(1);
-    expect(Math.abs(bannerLayout.imageHeight - bannerLayout.bannerHeight)).toBeLessThanOrEqual(1);
-    expect(Math.abs(bannerLayout.imageWidth - bannerLayout.bannerWidth)).toBeLessThanOrEqual(1);
+    expect(bannerLayout.relativeAspectError).toBeLessThanOrEqual(0.003);
+    expect(bannerLayout.wordmarkInsideBanner).toBe(true);
     expect(bannerLayout.overflow).toBeLessThanOrEqual(1);
   }
 });

@@ -253,32 +253,44 @@ html body.ev-storm-page .generated-storm-suburb .suburb-action-card__button {
   }
 }
 
-/* Match each art-directed source ratio so the logo is never stretched or cropped. */
+/* Keep the layered header compact without changing any artwork aspect ratio. */
 :root {
-  --ev-final-header-art-height: max(110px, 31.25vw);
+  --ev-final-header-art-height: 112px;
+}
+
+@media (min-width: 375px) {
+  :root {
+    --ev-final-header-art-height: 116px;
+  }
+}
+
+@media (min-width: 430px) {
+  :root {
+    --ev-final-header-art-height: 120px;
+  }
 }
 
 @media (min-width: 768px) {
   :root {
-    --ev-final-header-art-height: 15.625vw;
+    --ev-final-header-art-height: 123px;
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    --ev-final-header-art-height: 10.15625vw;
+    --ev-final-header-art-height: 123px;
   }
 }
 
 @media (min-width: 1600px) {
   :root {
-    --ev-final-header-art-height: 7.8125vw;
+    --ev-final-header-art-height: 123px;
   }
 }
 
 @media (min-width: 2200px) {
   :root {
-    --ev-final-header-art-height: 5.989583vw;
+    --ev-final-header-art-height: 123px;
   }
 }
 
@@ -288,7 +300,15 @@ body {
 }
 
 header.ev-final-header .ev-final-header-art {
+  --ev-header-wordmark-width: min(92%, 450px);
+  --ev-header-wordmark-top: 8px;
+  --ev-header-line-width: min(90%, 500px);
+  --ev-header-line-top: 61px;
+  --ev-header-bolt-height: 43px;
+  --ev-header-bolt-top: 49px;
   display: block !important;
+  position: relative !important;
+  isolation: isolate;
   width: 100vw !important;
   min-width: 100vw !important;
   max-width: none !important;
@@ -298,12 +318,32 @@ header.ev-final-header .ev-final-header-art {
   border: 0 !important;
   overflow: hidden !important;
   line-height: 0;
-  background: none !important;
+  background: #020713 !important;
 }
 
-header.ev-final-header .ev-final-header-brand.ev-final-header-brand--art,
-header.ev-final-header .ev-final-header-picture {
+header.ev-final-header .ev-final-header-background {
+  position: absolute !important;
+  z-index: 0 !important;
+  inset: 0 !important;
   display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  object-fit: cover !important;
+  object-position: center 48% !important;
+  filter: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+header.ev-final-header .ev-final-header-brand.ev-final-header-brand--art {
+  display: block !important;
+  position: relative !important;
+  z-index: 1 !important;
   width: 100% !important;
   max-width: none !important;
   height: 100% !important;
@@ -317,18 +357,24 @@ header.ev-final-header .ev-final-header-picture {
   box-shadow: none !important;
 }
 
-header.ev-final-header .ev-final-header-brand.ev-final-header-brand--art {
-  position: relative !important;
-  z-index: 1 !important;
+header.ev-final-header .ev-final-header-lockup {
+  position: absolute;
+  inset: 0 max(72px, env(safe-area-inset-right)) 0 0;
+  display: block;
+  overflow: visible;
+  pointer-events: none;
 }
 
-header.ev-final-header .ev-final-header-image {
-  position: static !important;
+header.ev-final-header :is(
+  .ev-final-header-wordmark,
+  .ev-final-header-energy-line,
+  .ev-final-header-bolt
+) {
+  position: absolute !important;
   display: block !important;
-  width: 100% !important;
   max-width: none !important;
-  height: 100% !important;
   margin: 0 !important;
+  margin-inline: auto !important;
   padding: 0 !important;
   border: 0 !important;
   border-radius: 0 !important;
@@ -337,6 +383,87 @@ header.ev-final-header .ev-final-header-image {
   filter: none !important;
   opacity: 1 !important;
   transform: none !important;
+}
+
+header.ev-final-header .ev-final-header-wordmark {
+  inset-inline: 0 !important;
+  top: var(--ev-header-wordmark-top) !important;
+  width: var(--ev-header-wordmark-width) !important;
+  height: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+header.ev-final-header .ev-final-header-energy-line {
+  z-index: 1 !important;
+  inset-inline: 0 !important;
+  top: var(--ev-header-line-top) !important;
+  width: var(--ev-header-line-width) !important;
+  height: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+header.ev-final-header .ev-final-header-bolt {
+  z-index: 2 !important;
+  inset-inline: 0 !important;
+  top: var(--ev-header-bolt-top) !important;
+  width: auto !important;
+  height: var(--ev-header-bolt-height) !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+@media (min-width: 375px) {
+  header.ev-final-header .ev-final-header-art {
+    --ev-header-line-top: 67px;
+    --ev-header-bolt-height: 44px;
+    --ev-header-bolt-top: 54px;
+  }
+}
+
+@media (min-width: 430px) {
+  header.ev-final-header .ev-final-header-art {
+    --ev-header-wordmark-top: 6px;
+    --ev-header-line-top: 72px;
+    --ev-header-bolt-height: 45px;
+    --ev-header-bolt-top: 58px;
+  }
+}
+
+@media (min-width: 768px) {
+  header.ev-final-header .ev-final-header-art {
+    --ev-header-wordmark-width: 450px;
+    --ev-header-wordmark-top: 3px;
+    --ev-header-line-width: 500px;
+    --ev-header-line-top: 89px;
+    --ev-header-bolt-height: 45px;
+    --ev-header-bolt-top: 75px;
+  }
+}
+
+@media (min-width: 1024px) {
+  header.ev-final-header .ev-final-header-art {
+    --ev-header-wordmark-width: clamp(500px, 34vw, 575px);
+    --ev-header-wordmark-top: 2px;
+    --ev-header-line-width: clamp(540px, 42vw, 720px);
+    --ev-header-line-top: 97px;
+    --ev-header-bolt-height: 40px;
+    --ev-header-bolt-top: 82px;
+  }
+
+  header.ev-final-header .ev-final-header-lockup {
+    inset-inline-end: 0;
+  }
+}
+
+@media (min-width: 1600px) {
+  header.ev-final-header .ev-final-header-art {
+    --ev-header-wordmark-top: 0px;
+    --ev-header-line-top: 100px;
+    --ev-header-bolt-height: 37px;
+    --ev-header-bolt-top: 85px;
+  }
 }
 
 @media (min-width: 1024px) {

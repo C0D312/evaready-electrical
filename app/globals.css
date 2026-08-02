@@ -12651,11 +12651,23 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
 
 /* Compact Evaready banner, marquee, then desktop nav. */
 :root {
-  --ev-final-header-art-height: max(110px, 31.25vw);
+  --ev-final-header-art-height: 112px;
   --ev-final-nav-height: 0px;
   --ev-final-header-btn-height: 0px;
   --site-route-strip-height: 34px;
   --site-header-height: calc(var(--ev-final-header-art-height) + var(--site-route-strip-height) + env(safe-area-inset-top)) !important;
+}
+
+@media (min-width: 375px) {
+  :root {
+    --ev-final-header-art-height: 116px;
+  }
+}
+
+@media (min-width: 430px) {
+  :root {
+    --ev-final-header-art-height: 120px;
+  }
 }
 
 @media (min-width: 640px) and (max-width: 1023px) {
@@ -12666,13 +12678,13 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
 
 @media (min-width: 768px) {
   :root {
-    --ev-final-header-art-height: 15.625vw;
+    --ev-final-header-art-height: 123px;
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    --ev-final-header-art-height: 10.15625vw;
+    --ev-final-header-art-height: 123px;
     --ev-final-nav-height: 34px;
     --ev-final-header-btn-height: 30px;
     --site-route-strip-height: 26px;
@@ -12682,13 +12694,13 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
 
 @media (min-width: 1600px) {
   :root {
-    --ev-final-header-art-height: 7.8125vw;
+    --ev-final-header-art-height: 123px;
   }
 }
 
 @media (min-width: 2200px) {
   :root {
-    --ev-final-header-art-height: 5.989583vw;
+    --ev-final-header-art-height: 123px;
   }
 }
 
@@ -12746,8 +12758,7 @@ header.site-header.ev-final-header {
     0 14px 34px rgba(0, 0, 0, 0.38);
 }
 
-.ev-final-header-brand,
-.ev-final-header-picture {
+.ev-final-header-brand {
   display: block !important;
   width: 100% !important;
   height: 100% !important;
@@ -12765,19 +12776,6 @@ header.site-header.ev-final-header {
 .ev-final-header-brand::before,
 .ev-final-header-brand::after {
   content: none !important;
-}
-
-.ev-final-header-image {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  object-fit: contain !important;
-  object-position: center center !important;
-  filter: none !important;
-  opacity: 1 !important;
-  mix-blend-mode: normal !important;
-  transform: none !important;
 }
 
 .ev-final-mobile-menu {

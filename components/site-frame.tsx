@@ -95,11 +95,10 @@ const legalLinks = [
 ];
 
 const headerArtwork = {
-  mobile: "/images/header/evaready-header-mobile-refined-v12.webp",
-  tablet: "/images/header/evaready-header-tablet-refined-v12.webp",
-  desktop: "/images/header/evaready-header-desktop-refined-v14.webp",
-  large: "/images/header/evaready-header-large-refined-v14.webp",
-  wide: "/images/header/evaready-header-wide-refined-v14.webp",
+  background: "/images/evaready-storm-theme-desktop-v3.webp",
+  wordmark: "/images/header/evaready-header-wordmark-v15.webp",
+  energyLine: "/images/header/evaready-header-energy-line-v15.webp",
+  bolt: "/images/header/evaready-header-bolt-v15.webp",
 } as const;
 
 type FooterLinkItem = {
@@ -251,12 +250,11 @@ function FooterTextLink({ href, label }: FooterLinkItem) {
 }
 
 export function SiteHeader() {
-  const headerSources = {
-    mobile: assetPath(headerArtwork.mobile),
-    tablet: assetPath(headerArtwork.tablet),
-    desktop: assetPath(headerArtwork.desktop),
-    large: assetPath(headerArtwork.large),
-    wide: assetPath(headerArtwork.wide),
+  const headerAssets = {
+    background: assetPath(headerArtwork.background),
+    wordmark: assetPath(headerArtwork.wordmark),
+    energyLine: assetPath(headerArtwork.energyLine),
+    bolt: assetPath(headerArtwork.bolt),
   };
 
   return (
@@ -265,43 +263,61 @@ export function SiteHeader() {
         <RouteMarqueeStrip />
 
         <div className="ev-final-header-art ev-electric-header-banner-row">
+          <Image
+            src={headerAssets.background}
+            alt=""
+            width={1920}
+            height={1280}
+            sizes="100vw"
+            unoptimized
+            loading="eager"
+            decoding="async"
+            className="ev-final-header-background"
+            aria-hidden="true"
+          />
+
           <HomeNavigationLink
             data-header-logo="true"
             className="ev-final-header-brand ev-final-header-brand--art"
           >
-            <picture className="ev-final-header-picture">
-              <source
-                media="(min-width: 2200px)"
-                srcSet={headerSources.wide}
-                type="image/webp"
-              />
-              <source
-                media="(min-width: 1600px)"
-                srcSet={headerSources.large}
-                type="image/webp"
-              />
-              <source
-                media="(min-width: 1024px)"
-                srcSet={headerSources.desktop}
-                type="image/webp"
-              />
-              <source
-                media="(min-width: 768px)"
-                srcSet={headerSources.tablet}
-                type="image/webp"
-              />
-              <img
-                src={headerSources.mobile}
+            <span className="ev-final-header-lockup">
+              <Image
+                src={headerAssets.wordmark}
                 alt="Evaready Electrical 24/7"
-                width={960}
-                height={300}
+                width={1426}
+                height={245}
+                sizes="(max-width: 767px) calc(100vw - 72px), 590px"
+                unoptimized
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
-                sizes="100vw"
-                className="ev-final-header-image ev-electric-header-banner"
+                className="ev-final-header-wordmark"
               />
-            </picture>
+              <Image
+                src={headerAssets.energyLine}
+                alt=""
+                width={1426}
+                height={27}
+                sizes="(max-width: 767px) calc(100vw - 72px), 720px"
+                unoptimized
+                loading="eager"
+                decoding="async"
+                className="ev-final-header-energy-line"
+                aria-hidden="true"
+              />
+              <Image
+                src={headerAssets.bolt}
+                alt=""
+                width={310}
+                height={258}
+                sizes="50px"
+                unoptimized
+                loading="eager"
+                decoding="async"
+                className="ev-final-header-bolt"
+                aria-hidden="true"
+              />
+            </span>
           </HomeNavigationLink>
 
           <div className="ev-final-mobile-actions">

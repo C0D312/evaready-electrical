@@ -128,7 +128,8 @@ async function main() {
     total: number;
     source: string;
     naturalSize: string;
-    horizontalInset: number;
+    backgroundCoverage: number;
+    maxAspectError: number;
   }> = [];
   let checks = 0;
 
@@ -230,18 +231,27 @@ async function main() {
               const container = document.querySelector<HTMLElement>(
                 ".ev-final-header",
               );
-              const image = document.querySelector<HTMLImageElement>(
-                ".ev-final-header-image",
+              const background = document.querySelector<HTMLImageElement>(
+                ".ev-final-header-background",
               );
-              const imageRect = image?.getBoundingClientRect();
-              const naturalRatio =
-                image?.naturalWidth && image?.naturalHeight
-                  ? image.naturalWidth / image.naturalHeight
-                  : 0;
-              const contentWidth =
-                imageRect && naturalRatio
-                  ? Math.min(imageRect.width, imageRect.height * naturalRatio)
-                  : 0;
+              const wordmark = document.querySelector<HTMLImageElement>(
+                ".ev-final-header-wordmark",
+              );
+              const foreground = Array.from(
+                document.querySelectorAll<HTMLImageElement>(
+                  ".ev-final-header-wordmark, .ev-final-header-energy-line, .ev-final-header-bolt",
+                ),
+              );
+              const backgroundRect = background?.getBoundingClientRect();
+              const bannerRect = banner?.getBoundingClientRect();
+              const aspectErrors = foreground.map((image) => {
+                const imageRect = image.getBoundingClientRect();
+                const naturalRatio = image.naturalWidth / image.naturalHeight;
+                const renderedRatio = imageRect.width / imageRect.height;
+                return naturalRatio
+                  ? Math.abs(renderedRatio - naturalRatio) / naturalRatio
+                  : 1;
+              });
 
               return {
                 banner: Math.round(
@@ -256,31 +266,23 @@ async function main() {
                 total: Math.round(
                   container?.getBoundingClientRect().height ?? 0,
                 ),
-                source: image?.currentSrc.split("/").pop() ?? "",
+                source: wordmark?.currentSrc.split("/").pop() ?? "",
                 naturalSize:
-                  image?.naturalWidth && image?.naturalHeight
-                    ? `${image.naturalWidth}x${image.naturalHeight}`
+                  wordmark?.naturalWidth && wordmark?.naturalHeight
+                    ? `${wordmark.naturalWidth}x${wordmark.naturalHeight}`
                     : "0x0",
-                objectFit: image ? getComputedStyle(image).objectFit : "",
-                horizontalInset: Math.round(
-                  Math.max(0, ((imageRect?.width ?? 0) - contentWidth) / 2) *
-                    100,
-                ) / 100,
-                left: Math.round((imageRect?.left ?? 0) * 100) / 100,
-                right: Math.round((imageRect?.right ?? 0) * 100) / 100,
+                objectFit: wordmark ? getComputedStyle(wordmark).objectFit : "",
+                backgroundCoverage:
+                  backgroundRect && bannerRect && bannerRect.width
+                    ? backgroundRect.width / bannerRect.width
+                    : 0,
+                maxAspectError: Math.max(...aspectErrors, 0),
+                left: Math.round((backgroundRect?.left ?? 0) * 100) / 100,
+                right: Math.round((backgroundRect?.right ?? 0) * 100) / 100,
               };
             });
 
-            const expectedSource =
-              viewport.width >= 2200
-                ? "evaready-header-wide-refined-v14.webp"
-                : viewport.width >= 1600
-                  ? "evaready-header-large-refined-v14.webp"
-                  : viewport.width >= 1024
-                    ? "evaready-header-desktop-refined-v14.webp"
-                    : viewport.width >= 768
-                      ? "evaready-header-tablet-refined-v12.webp"
-                      : "evaready-header-mobile-refined-v12.webp";
+            const expectedSource = "evaready-header-wordmark-v15.webp";
 
             if (header.source !== expectedSource) {
               failures.push(
@@ -294,9 +296,15 @@ async function main() {
               );
             }
 
-            if (header.horizontalInset > 1) {
+            if (Math.abs(header.backgroundCoverage - 1) > 0.001) {
               failures.push(
-                `${label}: header artwork has ${header.horizontalInset}px horizontal inset`,
+                `${label}: header background coverage is ${header.backgroundCoverage}`,
+              );
+            }
+
+            if (header.maxAspectError > 0.003) {
+              failures.push(
+                `${label}: header foreground aspect error is ${header.maxAspectError}`,
               );
             }
 
@@ -306,9 +314,15 @@ async function main() {
               );
             }
 
-            if (viewport.width >= 1920 && header.banner > 155) {
+            if (viewport.width >= 1024 && header.total > 190) {
               failures.push(
-                `${label}: wide header banner is ${header.banner}px (maximum 155px)`,
+                `${label}: desktop header is ${header.total}px (maximum 190px)`,
+              );
+            }
+
+            if (viewport.width < 1024 && header.total > 170) {
+              failures.push(
+                `${label}: mobile/tablet header is ${header.total}px (maximum 170px)`,
               );
             }
 
@@ -320,7 +334,8 @@ async function main() {
               total: header.total,
               source: header.source,
               naturalSize: header.naturalSize,
-              horizontalInset: header.horizontalInset,
+              backgroundCoverage: header.backgroundCoverage,
+              maxAspectError: header.maxAspectError,
             });
           }
 
