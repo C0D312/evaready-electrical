@@ -19,7 +19,6 @@ import {
 } from "lucide-react";
 import { GoogleReviewProof } from "@/components/google-review-proof";
 import { OffersSection } from "@/components/offers-section";
-import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { getOffersForPlacement } from "@/data/offers";
 import { assetPath, business, priorityRegions, services } from "@/data/site";
 import {
@@ -163,8 +162,6 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={schemaJson(localBusinessSchema)} />
       <script type="application/ld+json" dangerouslySetInnerHTML={schemaJson(faqSchema)} />
       <script type="application/ld+json" dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)} />
-
-      <SiteHeader />
 
       <section className="home-brand-hero home-theme-feature ev-hero ev-hero--with-van ev-storm-section--hero relative isolate overflow-hidden text-white">
         <Image
@@ -404,7 +401,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <SiteFooter />
     </main>
   );
 }

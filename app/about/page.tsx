@@ -14,7 +14,6 @@ import {
   Wrench,
   Zap,
 } from "lucide-react";
-import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { GoogleRatingSeal } from "@/components/google-rating-seal";
 import { assetPath, business } from "@/data/site";
 import {
@@ -164,7 +163,6 @@ export default function AboutPage() {
 
   return (
     <>
-      <SiteHeader />
       <main
         id="main-content"
         tabIndex={-1}
@@ -448,7 +446,6 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
-      <SiteFooter />
     </>
   );
 }

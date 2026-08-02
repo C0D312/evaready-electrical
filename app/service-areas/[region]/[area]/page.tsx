@@ -3,11 +3,7 @@ import type { Metadata } from "next";
 import { ArrowRight, CheckCircle2, MapPin, Phone } from "lucide-react";
 import { notFound } from "next/navigation";
 import { CompactOfferStrip } from "@/components/compact-offer-strip";
-import {
-  ServiceAreaHero,
-  SiteFooter,
-  SiteHeader,
-} from "@/components/site-frame";
+import { ServiceAreaHero } from "@/components/site-frame";
 import {
   getAreaBySlug,
   getAreaLocalContext,
@@ -181,8 +177,6 @@ export default async function AreaPage({ params }: AreaPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
       />
-      <SiteHeader />
-
       <ServiceAreaHero
         eyebrow="Area service"
         title={`${area.name} Electrician - Emergency, Level 2 & Planned Work`}
@@ -458,7 +452,6 @@ export default async function AreaPage({ params }: AreaPageProps) {
         </div>
       </section>
 
-      <SiteFooter />
     </main>
   );
 }

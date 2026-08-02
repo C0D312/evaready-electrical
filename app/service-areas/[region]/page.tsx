@@ -3,11 +3,7 @@ import type { Metadata } from "next";
 import { ArrowRight, CheckCircle2, MapPin, Phone } from "lucide-react";
 import { CompactOfferStrip } from "@/components/compact-offer-strip";
 import { ServiceAreaSearch } from "@/components/service-area-search";
-import {
-  ServiceAreaHero,
-  SiteFooter,
-  SiteHeader,
-} from "@/components/site-frame";
+import { ServiceAreaHero } from "@/components/site-frame";
 import {
   coverageSearchItems,
   getRegionBySlug,
@@ -184,8 +180,6 @@ export default async function RegionPage({ params }: RegionPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
       />
-      <SiteHeader />
-
       <ServiceAreaHero
         eyebrow="Region service area"
         title={`${region.name} Electrician - Emergency, Level 2 & Planned Work`}
@@ -453,7 +447,6 @@ export default async function RegionPage({ params }: RegionPageProps) {
         </div>
       </section>
 
-      <SiteFooter />
     </main>
   );
 }

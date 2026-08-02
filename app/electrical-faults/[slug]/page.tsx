@@ -11,7 +11,6 @@ import {
   Zap,
 } from "lucide-react";
 import { CompactOfferStrip } from "@/components/compact-offer-strip";
-import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import {
   electricalFaultPages,
   getElectricalFaultPage,
@@ -124,8 +123,6 @@ export default async function ElectricalFaultDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
       />
-
-      <SiteHeader />
 
       <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.08)_1px,transparent_1px)] bg-[size:44px_44px]" />
@@ -457,7 +454,6 @@ export default async function ElectricalFaultDetailPage({
         </div>
       </section>
 
-      <SiteFooter />
     </main>
   );
 }

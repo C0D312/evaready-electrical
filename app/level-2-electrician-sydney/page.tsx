@@ -20,7 +20,6 @@ import {
   ServiceCredentialStrip,
   serviceCredentialPresets,
 } from "@/components/service-credential-strip";
-import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { level2ClusterLinks } from "@/data/internal-links";
@@ -381,8 +380,6 @@ export default function Level2ElectricianSydneyPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(buildSchema())}
       />
-
-      <SiteHeader />
 
       <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
         <Image
@@ -753,7 +750,6 @@ export default function Level2ElectricianSydneyPage() {
         </div>
       </section>
 
-      <SiteFooter />
     </main>
   );
 }

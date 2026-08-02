@@ -14,11 +14,7 @@ import { GoogleReviewProof } from "@/components/google-review-proof";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
 import { CompactOfferStrip } from "@/components/compact-offer-strip";
 import { ServiceAreaSearch } from "@/components/service-area-search";
-import {
-  ServiceAreaHero,
-  SiteFooter,
-  SiteHeader,
-} from "@/components/site-frame";
+import { ServiceAreaHero } from "@/components/site-frame";
 import { TrustProcessProof } from "@/components/trust-process-proof";
 import {
   coverageRegions,
@@ -228,8 +224,6 @@ export default function AreasPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(collectionSchema)}
       />
-
-      <SiteHeader />
 
       <ServiceAreaHero
         eyebrow="Electrical service areas"
@@ -667,7 +661,6 @@ export default function AreasPage() {
         </div>
       </section>
 
-      <SiteFooter />
     </main>
   );
 }

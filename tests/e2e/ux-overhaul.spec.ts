@@ -8,6 +8,8 @@ const coreRoutes = [
   "service-areas/",
   "services/switchboard-upgrades-sydney/",
   "electrical-faults/no-power-to-house/",
+  "service-areas/canterbury-bankstown-and-inner-south-west/",
+  "service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/",
   "service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
   "privacy-policy/",
   "terms/",
@@ -56,6 +58,48 @@ test("core routes keep one H1, landmarks, tracking and viewport-safe layouts", a
     await expect(page.locator("h1")).toHaveCount(1);
     await expect(page.locator('a[href="tel:+61461247247"]')).not.toHaveCount(0);
     await expect(page.locator('[data-conversion-action="quote-click"]')).not.toHaveCount(0);
+
+    const landmarks = await page.evaluate(() => {
+      const skipLink = document.querySelector<HTMLAnchorElement>(
+        'a.skip-to-content[href="#main-content"]',
+      );
+      const header = document.querySelector<HTMLElement>("header.site-header");
+      const main = document.querySelector<HTMLElement>("main#main-content");
+      const footer = document.querySelector<HTMLElement>("footer[data-site-footer]");
+      const sticky = document.querySelector<HTMLElement>(".mobile-sticky-cta");
+      const isBefore = (first: Element | null, second: Element | null) =>
+        Boolean(
+          first &&
+            second &&
+            first.compareDocumentPosition(second) &
+              Node.DOCUMENT_POSITION_FOLLOWING,
+        );
+
+      return {
+        footerAfterMain: isBefore(main, footer),
+        footerInsideMain: Boolean(footer?.closest("main")),
+        headerBeforeMain: isBefore(header, main),
+        headerInsideMain: Boolean(header?.closest("main")),
+        mainCount: document.querySelectorAll("main").length,
+        nestedLandmarkCount: document.querySelectorAll("main header, main footer")
+          .length,
+        skipBeforeHeader: isBefore(skipLink, header),
+        stickyAfterFooter: isBefore(footer, sticky),
+        stickyInsideMain: Boolean(sticky?.closest("main")),
+      };
+    });
+
+    expect(landmarks, `${route} landmark structure`).toEqual({
+      footerAfterMain: true,
+      footerInsideMain: false,
+      headerBeforeMain: true,
+      headerInsideMain: false,
+      mainCount: 1,
+      nestedLandmarkCount: 0,
+      skipBeforeHeader: true,
+      stickyAfterFooter: true,
+      stickyInsideMain: false,
+    });
 
     const overflow = await page.evaluate(
       () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
@@ -570,7 +614,6 @@ test("every page family uses one continuous storm canvas", async ({ page }) => {
       const transparent = "rgba(0, 0, 0, 0)";
       const surfaceSelector = [
         ":scope > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee)",
-        ":scope > footer.site-footer",
         ".lead-offer-panel",
         ".trust-process-proof",
         ".quote-request-panel",
@@ -578,6 +621,8 @@ test("every page family uses one continuous storm canvas", async ({ page }) => {
       const surfaces = Array.from(
         main.querySelectorAll<HTMLElement>(surfaceSelector),
       );
+      const footer = document.querySelector<HTMLElement>("footer.site-footer");
+      if (footer) surfaces.push(footer);
 
       const independentLayers = surfaces.flatMap((surface) => {
         const style = getComputedStyle(surface);
@@ -978,6 +1023,19 @@ test("quote dialog is accessible, keeps the form clear and restores trigger focu
 
   await expect(dialog).toBeVisible();
   await expect(dialog).toHaveAttribute("aria-modal", "true");
+  expect(
+    await dialog.evaluate((element) => {
+      const footer = document.querySelector("footer[data-site-footer]");
+      return {
+        afterFooter: Boolean(
+          footer &&
+            footer.compareDocumentPosition(element) &
+              Node.DOCUMENT_POSITION_FOLLOWING,
+        ),
+        insideMain: Boolean(element.closest("main")),
+      };
+    }),
+  ).toEqual({ afterFooter: true, insideMain: false });
   await expect(page.getByRole("button", { name: "Close quote form" }).last()).toBeFocused();
   await expect(dialog.getByRole("link", { name: "Open the secure form" })).toHaveCount(0);
   const frameHeight = await dialog
@@ -1087,7 +1145,33 @@ test("skip link, FAQ keyboard control and mobile sticky/footer spacing work", as
   const skipLink = page.getByRole("link", { name: "Skip to main content" });
   await expect(skipLink).toBeFocused();
   await page.keyboard.press("Enter");
-  await expect(page.locator("#main-content")).toBeFocused();
+  const main = page.locator("#main-content");
+  await expect(main).toBeFocused();
+
+  const skipPosition = await page.evaluate(() => {
+    const header = document.querySelector<HTMLElement>("header.site-header");
+    const mainContent = document.querySelector<HTMLElement>("main#main-content");
+    return {
+      headerBottom: header?.getBoundingClientRect().bottom ?? -1,
+      mainTop: mainContent?.getBoundingClientRect().top ?? -1,
+    };
+  });
+  expect(skipPosition.mainTop).toBeGreaterThanOrEqual(
+    skipPosition.headerBottom - 2,
+  );
+
+  await page.keyboard.press("Shift+Tab");
+  expect(
+    await page.evaluate(() =>
+      Boolean(document.activeElement?.closest("header.site-header")),
+    ),
+  ).toBe(true);
+  await page.keyboard.press("Tab");
+  expect(
+    await page.evaluate(() =>
+      Boolean(document.activeElement?.closest("main#main-content")),
+    ),
+  ).toBe(true);
 
   const summary = page
     .locator('section[aria-labelledby="faq-heading"] details summary')

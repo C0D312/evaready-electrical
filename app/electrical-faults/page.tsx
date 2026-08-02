@@ -10,7 +10,6 @@ import {
   ShieldCheck,
   Zap,
 } from "lucide-react";
-import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { electricalFaultPages } from "@/data/electrical-faults";
 import { absoluteUrl, business } from "@/data/site";
 import {
@@ -86,8 +85,6 @@ export default function ElectricalFaultsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
       />
-
-      <SiteHeader />
 
       <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.08)_1px,transparent_1px)] bg-[size:44px_44px]" />
@@ -279,7 +276,6 @@ export default function ElectricalFaultsPage() {
         </div>
       </section>
 
-      <SiteFooter />
     </main>
   );
 }

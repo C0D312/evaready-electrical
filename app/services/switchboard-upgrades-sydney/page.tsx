@@ -19,7 +19,6 @@ import {
   ServiceCredentialStrip,
   serviceCredentialPresets,
 } from "@/components/service-credential-strip";
-import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import {
@@ -248,8 +247,6 @@ export default function SwitchboardUpgradesSydneyPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
       />
-
-      <SiteHeader />
 
       {/* Hero */}
       <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
@@ -797,8 +794,6 @@ export default function SwitchboardUpgradesSydneyPage() {
           </div>
         </div>
       </section>
-
-      <SiteFooter />
 
     </main>
   );

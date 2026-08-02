@@ -18,7 +18,6 @@ import {
   getServiceCredentialItems,
   ServiceCredentialStrip,
 } from "@/components/service-credential-strip";
-import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import {
@@ -464,8 +463,6 @@ export default async function ServiceLandingPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
       />
-
-      <SiteHeader />
 
       <section className="brand-internal-hero service-detail-hero relative overflow-hidden bg-[#061E72] text-white">
         <Image
@@ -1291,7 +1288,6 @@ export default async function ServiceLandingPage({
         </div>
       </section>
 
-      <SiteFooter />
     </main>
   );
 }

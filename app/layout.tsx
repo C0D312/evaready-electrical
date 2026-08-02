@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import { GoogleAdsTag } from "@/components/google-ads-tag";
+import { SiteFrame } from "@/components/site-frame";
 import { absoluteUrl, assetPath, business } from "@/data/site";
 import "./globals.css";
 import "./footer.css";
@@ -76,11 +77,11 @@ export default function RootLayout({
   return (
     <html lang="en-AU">
       <body className="ev-electric-theme-bg ev-storm-page" style={brandStyle}>
-        <GoogleAdsTag />
         <a href="#main-content" className="skip-to-content">
           Skip to main content
         </a>
-        {children}
+        <SiteFrame>{children}</SiteFrame>
+        <GoogleAdsTag />
       </body>
     </html>
   );

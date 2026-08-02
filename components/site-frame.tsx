@@ -249,7 +249,7 @@ function FooterTextLink({ href, label }: FooterLinkItem) {
   );
 }
 
-export function SiteHeader() {
+function SiteHeader() {
   const headerAssets = {
     background: assetPath(headerArtwork.background),
     wordmark: assetPath(headerArtwork.wordmark),
@@ -258,8 +258,7 @@ export function SiteHeader() {
   };
 
   return (
-    <>
-      <header className="site-header ev-final-header ev-electric-header fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)]">
+    <header className="site-header ev-final-header ev-electric-header fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)]">
         <RouteMarqueeStrip />
 
         <div className="ev-final-header-art ev-electric-header-banner-row">
@@ -354,18 +353,11 @@ export function SiteHeader() {
             </a>
           </div>
         </div>
-      </header>
-      <div
-        aria-hidden="true"
-        className="site-header-spacer"
-      />
-      <QuoteFormModal />
-      <MobileStickyCta />
-    </>
+    </header>
   );
 }
 
-export function SiteFooter() {
+function SiteFooter() {
   return (
     <footer
       id="site-footer"
@@ -547,6 +539,19 @@ export function SiteFooter() {
         </div>
       </div>
     </footer>
+  );
+}
+
+export function SiteFrame({ children }: { children: ReactNode }) {
+  return (
+    <>
+      <SiteHeader />
+      <div aria-hidden="true" className="site-header-spacer" />
+      {children}
+      <SiteFooter />
+      <QuoteFormModal />
+      <MobileStickyCta />
+    </>
   );
 }
 

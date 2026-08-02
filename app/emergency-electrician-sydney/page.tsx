@@ -15,7 +15,6 @@ import {
   ServiceCredentialStrip,
   serviceCredentialPresets,
 } from "@/components/service-credential-strip";
-import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { emergencyFaultClusterLinks } from "@/data/electrical-faults";
@@ -429,8 +428,6 @@ export default function EmergencyElectricianSydneyPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(schema)}
       />
-
-      <SiteHeader />
 
       <section className={cx(styles.hero, "brand-internal-hero relative overflow-hidden bg-[#061E72] text-white")}>
         <Image
@@ -880,7 +877,6 @@ export default function EmergencyElectricianSydneyPage() {
         </div>
       </section>
 
-      <SiteFooter />
     </main>
   );
 }

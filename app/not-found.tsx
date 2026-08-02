@@ -1,4 +1,3 @@
-import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { business } from "@/data/site";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -14,7 +13,6 @@ export const metadata: Metadata = {
 export default function NotFoundPage() {
   return (
     <>
-      <SiteHeader />
       <main id="main-content" tabIndex={-1} className="bg-[#061E72] text-white">
         <section className="brand-internal-hero relative overflow-hidden px-4 py-14 text-white sm:px-6 sm:py-20 lg:px-8">
           <div className="internal-hero-copy-panel mx-auto max-w-5xl">
@@ -57,7 +55,6 @@ export default function NotFoundPage() {
           </div>
         </section>
       </main>
-      <SiteFooter />
     </>
   );
 }

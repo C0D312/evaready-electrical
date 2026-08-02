@@ -10,7 +10,6 @@ import {
   Phone,
   SunMedium,
 } from "lucide-react";
-import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { absoluteUrl, assetPath, business } from "@/data/site";
@@ -215,8 +214,6 @@ export default function SolarBatteriesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
       />
-
-      <SiteHeader />
 
       <section className="brand-internal-hero relative overflow-hidden bg-[#06142f] text-white">
         <Image
@@ -524,7 +521,6 @@ export default function SolarBatteriesPage() {
         </div>
       </section>
 
-      <SiteFooter />
     </main>
   );
 }

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { business } from "@/data/site";
 import { legalSeoMetadata, toMetadata } from "@/lib/seo-metadata";
 import { buildBreadcrumbSchema, schemaJson } from "@/lib/schema";
@@ -19,7 +18,6 @@ export default function PrivacyPolicyPage() {
 
   return (
     <>
-      <SiteHeader />
       <main id="main-content" tabIndex={-1} className="legal-page ev-storm-page ev-storm-legal text-white">
         <script
           type="application/ld+json"
@@ -240,7 +238,6 @@ export default function PrivacyPolicyPage() {
           </section>
         </section>
       </main>
-      <SiteFooter />
     </>
   );
 }

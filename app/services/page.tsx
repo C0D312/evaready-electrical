@@ -23,7 +23,6 @@ import {
 import { GoogleReviewProof } from "@/components/google-review-proof";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
 import { OffersSection } from "@/components/offers-section";
-import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { getOffersForPlacement } from "@/data/offers";
@@ -1279,8 +1278,6 @@ export default function ServicesPage() {
         dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
       />
 
-      <SiteHeader />
-
       {/* Hero */}
       <section className="brand-internal-hero services-index-hero relative overflow-hidden bg-[#061E72] text-white">
         <Image
@@ -1762,8 +1759,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-
-      <SiteFooter />
 
     </main>
   );

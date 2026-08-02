@@ -11,7 +11,6 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { CompactOfferStrip } from "@/components/compact-offer-strip";
-import { SiteFooter, SiteHeader } from "@/components/site-frame";
 import { getOffersForPlacement } from "@/data/offers";
 import { assetPath, business } from "@/data/site";
 import {
@@ -79,7 +78,6 @@ export default function ContactPage() {
 
   return (
     <>
-      <SiteHeader />
       <main
         id="main-content"
         tabIndex={-1}
@@ -362,7 +360,6 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
-      <SiteFooter />
     </>
   );
 }

@@ -13,11 +13,7 @@ import { notFound } from "next/navigation";
 import { CompactOfferStrip } from "@/components/compact-offer-strip";
 import { GoogleReviewProof } from "@/components/google-review-proof";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
-import {
-  ServiceAreaHero,
-  SiteFooter,
-  SiteHeader,
-} from "@/components/site-frame";
+import { ServiceAreaHero } from "@/components/site-frame";
 import {
   getSuburbCredentialItems,
   ServiceCredentialStrip,
@@ -199,8 +195,6 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
       />
-
-      <SiteHeader />
 
       <ServiceAreaHero
         eyebrow={`${area.name} - ${region.name}`}
@@ -769,7 +763,6 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         </div>
       </section>
 
-      <SiteFooter />
     </main>
   );
 }
