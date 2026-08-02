@@ -97,9 +97,9 @@ const legalLinks = [
 const headerArtwork = {
   mobile: "/images/header/evaready-header-mobile-refined-v12.webp",
   tablet: "/images/header/evaready-header-tablet-refined-v12.webp",
-  desktop: "/images/header/evaready-header-desktop-refined-v13.webp",
-  large: "/images/header/evaready-header-large-refined-v13.webp",
-  wide: "/images/header/evaready-header-wide-refined-v13.webp",
+  desktop: "/images/header/evaready-header-desktop-refined-v14.webp",
+  large: "/images/header/evaready-header-large-refined-v14.webp",
+  wide: "/images/header/evaready-header-wide-refined-v14.webp",
 } as const;
 
 type FooterLinkItem = {
