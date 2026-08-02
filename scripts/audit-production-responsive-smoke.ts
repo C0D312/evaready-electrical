@@ -2,14 +2,12 @@ import { chromium, type Response } from "@playwright/test";
 import { createServer, type Server } from "node:http";
 import { existsSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
+import { resolveDeploymentConfig } from "../config/deployment";
 
 const outDir = path.join(process.cwd(), "out");
-const productionOrigin =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://c0d312.github.io/evaready-electrical";
-const deploymentBasePath = (
-  process.env.NEXT_PUBLIC_BASE_PATH || ""
-).replace(/^\/*|\/*$/g, "");
+const deployment = resolveDeploymentConfig();
+const productionOrigin = deployment.siteUrl;
+const deploymentBasePath = deployment.basePath.replace(/^\/+|\/+$/g, "");
 const requestBasePath = deploymentBasePath ? `/${deploymentBasePath}` : "";
 const routes = [
   "/",

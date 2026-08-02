@@ -5,21 +5,29 @@ import {
   statSync,
 } from "node:fs";
 import path from "node:path";
+import {
+  BRANDED_PRODUCTION_SITE_URL,
+  GITHUB_PAGES_PREVIEW_SITE_URL,
+  resolveDeploymentConfig,
+} from "../config/deployment";
 
 const workspaceRoot = process.cwd();
 const outDir = path.join(workspaceRoot, "out");
-const deploymentBasePath = (
-  process.env.NEXT_PUBLIC_BASE_PATH || ""
-).replace(/\/$/, "");
-const productionOrigin = (
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://c0d312.github.io/evaready-electrical"
-).replace(/\/$/, "");
+const deployment = resolveDeploymentConfig();
+const deploymentBasePath = deployment.basePath;
+const productionOrigin = deployment.siteUrl;
 const productionUrl = new URL(productionOrigin);
-const forbiddenHosts = new Set([
-  "evareadyelectrical.com.au",
-  "www.evareadyelectrical.com.au",
-]);
+const inactiveOrigins = deployment.isBrandedProduction
+  ? [GITHUB_PAGES_PREVIEW_SITE_URL]
+  : [
+      BRANDED_PRODUCTION_SITE_URL,
+      "https://www.evareadyelectrical.com.au",
+      "http://evareadyelectrical.com.au",
+      "http://www.evareadyelectrical.com.au",
+    ];
+const forbiddenHosts = new Set(
+  inactiveOrigins.map((origin) => new URL(origin).hostname),
+);
 const legacyPaths = new Set([
   "/index.html",
   "/regions/canterbury-bankstown",
@@ -320,7 +328,9 @@ if (!robotsText.includes(expectedSitemapLine)) {
 }
 
 if (existsSync(cnamePath)) {
-  issues.push("CNAME is present while using the GitHub Pages preview");
+  issues.push(
+    `CNAME is present in the ${deployment.label} export; custom-domain activation must remain an external launch step`,
+  );
 }
 
 if (existsSync(notFoundPath)) {
@@ -340,14 +350,15 @@ const generatedTextFiles = walkFiles(outDir).filter((filePath) =>
 
 for (const filePath of generatedTextFiles) {
   const content = readFileSync(filePath, "utf8");
+  const normalizedContent = content.replace(/\\\//g, "/");
   const relativePath = path.relative(outDir, filePath).replace(/\\/g, "/");
 
-  if (
-    /https?:\\?\/\\?\/(?:www\\?\.)?evareadyelectrical\\?\.com\\?\.au/i.test(
-      content,
-    )
-  ) {
-    issues.push(`${relativePath} contains the unfinished branded hostname`);
+  for (const inactiveOrigin of inactiveOrigins) {
+    if (normalizedContent.includes(inactiveOrigin)) {
+      issues.push(
+        `${relativePath} contains inactive deployment origin ${inactiveOrigin}`,
+      );
+    }
   }
 
   if (
@@ -369,6 +380,8 @@ console.log(
       cname: existsSync(cnamePath)
         ? readFileSync(cnamePath, "utf8").trim()
         : "",
+      deploymentTarget: deployment.target,
+      inactiveOrigins,
       issueCount: issues.length,
       issues: issues.slice(0, 100),
       productionOrigin,

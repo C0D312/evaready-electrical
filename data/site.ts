@@ -14,11 +14,9 @@ export const deploymentBasePath = (
   process.env.NEXT_PUBLIC_BASE_PATH || ""
 ).replace(/\/$/, "");
 
-export const productionSiteUrl =
-  "https://c0d312.github.io/evaready-electrical";
-
 export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL || productionSiteUrl
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  "https://c0d312.github.io/evaready-electrical"
 ).replace(/\/$/, "");
 
 export function absoluteUrl(path = "") {

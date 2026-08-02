@@ -1,11 +1,12 @@
 import { execSync } from "node:child_process";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
+import { resolveDeploymentConfig } from "../config/deployment";
 
 type SiteVersion = {
   marker: "site-version";
   site: "Evaready Electrical";
-  deployTarget: "GitHub Pages";
+  deployTarget: string;
   basePath: string;
   siteUrl: string;
   buildDate: string;
@@ -24,28 +25,19 @@ function readGitSha() {
   }
 }
 
-function normalizeBasePath(value: string | undefined) {
-  const basePath = (value || "").trim();
-  if (!basePath || basePath === "/") {
-    return "";
-  }
-
-  return `/${basePath.replace(/^\/+/, "").replace(/\/+$/, "")}`;
-}
+const deployment = resolveDeploymentConfig();
 
 const siteVersion: SiteVersion = {
   marker: "site-version",
   site: "Evaready Electrical",
-  deployTarget: "GitHub Pages",
-  basePath: normalizeBasePath(process.env.NEXT_PUBLIC_BASE_PATH),
-  siteUrl:
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    "https://c0d312.github.io/evaready-electrical",
+  deployTarget: deployment.label,
+  basePath: deployment.basePath,
+  siteUrl: deployment.siteUrl,
   buildDate: new Date().toISOString(),
   mainCommit: process.env.NEXT_PUBLIC_MAIN_SHA || readGitSha(),
   versionNote:
     process.env.NEXT_PUBLIC_DEPLOYMENT_NOTE ||
-    "Automatic production build marker.",
+    `Automatic ${deployment.label.toLowerCase()} build marker.`,
 };
 
 const outputPath = join(process.cwd(), "public", "site-version.json");
