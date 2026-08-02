@@ -13,6 +13,24 @@ const coreRoutes = [
   "terms/",
 ];
 
+const continuousThemeRoutes = [
+  "./",
+  "emergency-electrician-sydney/",
+  "level-2-electrician-sydney/",
+  "services/",
+  "services/electrical-fault-finding-sydney/",
+  "electrical-faults/",
+  "electrical-faults/no-power-in-one-room/",
+  "service-areas/",
+  "service-areas/canterbury-bankstown-and-inner-south-west/",
+  "service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/",
+  "service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+  "about/",
+  "contact/",
+  "privacy-policy/",
+  "terms/",
+];
+
 function isFocused(page: Page, selector: string) {
   return page.locator(selector).evaluate((element) => element === document.activeElement);
 }
@@ -112,7 +130,7 @@ test("wide desktop header keeps the complete banner artwork visible", async ({
       width: 1440,
       height: 900,
       expectedBannerHeight: 146,
-      expectedSource: "evaready-header-desktop-refined-v12.webp",
+      expectedSource: "evaready-header-desktop-refined-v13.webp",
       naturalWidth: 2560,
       naturalHeight: 260,
     },
@@ -120,7 +138,7 @@ test("wide desktop header keeps the complete banner artwork visible", async ({
       width: 1920,
       height: 1080,
       expectedBannerHeight: 150,
-      expectedSource: "evaready-header-large-refined-v12.webp",
+      expectedSource: "evaready-header-large-refined-v13.webp",
       naturalWidth: 2944,
       naturalHeight: 230,
     },
@@ -128,7 +146,7 @@ test("wide desktop header keeps the complete banner artwork visible", async ({
       width: 2560,
       height: 1440,
       expectedBannerHeight: 153,
-      expectedSource: "evaready-header-wide-refined-v12.webp",
+      expectedSource: "evaready-header-wide-refined-v13.webp",
       naturalWidth: 3840,
       naturalHeight: 230,
     },
@@ -459,6 +477,72 @@ test("desktop navigation exposes every restored destination and compact contact 
       layout.navRight,
       `${viewport.width}px navigation/action overlap`,
     ).toBeLessThanOrEqual(layout.actionsLeft + 1);
+  }
+});
+
+test("every page family uses one continuous storm canvas", async ({ page }) => {
+  for (const route of continuousThemeRoutes) {
+    const response = await page.goto(route, { waitUntil: "domcontentloaded" });
+    expect(response?.status(), route).toBe(200);
+
+    const theme = await page.locator("main#main-content").evaluate((main) => {
+      const transparent = "rgba(0, 0, 0, 0)";
+      const surfaceSelector = [
+        ":scope > section:not(.home-brand-hero):not(.brand-internal-hero):not(.emergency-issue-marquee)",
+        ":scope > footer.site-footer",
+        ".lead-offer-panel",
+        ".trust-process-proof",
+        ".quote-request-panel",
+      ].join(",");
+      const surfaces = Array.from(
+        main.querySelectorAll<HTMLElement>(surfaceSelector),
+      );
+
+      const independentLayers = surfaces.flatMap((surface) => {
+        const style = getComputedStyle(surface);
+        const before = getComputedStyle(surface, "::before");
+        const after = getComputedStyle(surface, "::after");
+        const failures: string[] = [];
+
+        if (style.backgroundImage !== "none" || style.backgroundColor !== transparent) {
+          failures.push("background");
+        }
+        if (style.boxShadow !== "none") failures.push("shadow");
+        const hasVisibleBoundary =
+          (parseFloat(style.borderTopWidth) > 0 && style.borderTopColor !== transparent) ||
+          (parseFloat(style.borderBottomWidth) > 0 && style.borderBottomColor !== transparent);
+        if (hasVisibleBoundary) {
+          failures.push("border");
+        }
+        if (before.display !== "none" && before.content !== "none") {
+          failures.push("before");
+        }
+        if (after.display !== "none" && after.content !== "none") {
+          failures.push("after");
+        }
+
+        return failures.map((failure) => ({
+          failure,
+          className: surface.className,
+          tagName: surface.tagName,
+        }));
+      });
+
+      const mainStyle = getComputedStyle(main);
+      const mainBefore = getComputedStyle(main, "::before");
+
+      return {
+        canvasBackground: mainStyle.backgroundImage,
+        canvasEffect: mainBefore.backgroundImage,
+        independentLayers,
+        surfacesChecked: surfaces.length,
+      };
+    });
+
+    expect(theme.surfacesChecked, `${route} theme surfaces`).toBeGreaterThan(0);
+    expect(theme.canvasBackground, `${route} canvas background`).not.toBe("none");
+    expect(theme.canvasEffect, `${route} canvas effect`).not.toBe("none");
+    expect(theme.independentLayers, `${route} independent theme layers`).toEqual([]);
   }
 });
 

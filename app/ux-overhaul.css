@@ -1287,21 +1287,6 @@ body.ev-storm-page main#main-content:is(
   display: none !important;
 }
 
-body.ev-storm-page .site-footer.ev-footer {
-  background:
-    linear-gradient(180deg, rgba(2, 6, 16, 0.08), rgba(2, 6, 16, 0.72)),
-    radial-gradient(ellipse 42% 90% at -8% 46%, rgba(8, 118, 255, 0.24), transparent 78%),
-    radial-gradient(ellipse 40% 88% at 108% 52%, rgba(233, 17, 30, 0.19), transparent 78%),
-    #020610 !important;
-  border-top: 0 !important;
-  box-shadow: none !important;
-}
-
-body.ev-storm-page .site-footer.ev-footer::before {
-  content: none !important;
-  display: none !important;
-}
-
 body.ev-storm-page main#main-content.ev-storm-legal::before {
   opacity: 0.28 !important;
 }

@@ -275,11 +275,11 @@ async function main() {
 
             const expectedSource =
               viewport.width >= 2200
-                ? "evaready-header-wide-refined-v12.webp"
+                ? "evaready-header-wide-refined-v13.webp"
                 : viewport.width >= 1600
-                  ? "evaready-header-large-refined-v12.webp"
+                  ? "evaready-header-large-refined-v13.webp"
                   : viewport.width >= 1024
-                    ? "evaready-header-desktop-refined-v12.webp"
+                    ? "evaready-header-desktop-refined-v13.webp"
                     : viewport.width >= 768
                       ? "evaready-header-tablet-refined-v12.webp"
                       : "evaready-header-mobile-refined-v12.webp";
