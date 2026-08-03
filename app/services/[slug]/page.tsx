@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   AlertTriangle,
@@ -14,6 +13,7 @@ import {
 import { CompactOfferStrip } from "@/components/compact-offer-strip";
 import { GoogleReviewProof } from "@/components/google-review-proof";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
+import { ResponsiveHeroImage } from "@/components/performance-images";
 import {
   getServiceCredentialItems,
   ServiceCredentialStrip,
@@ -32,7 +32,7 @@ import {
   switchboardSafetyQuoteChecklist,
 } from "@/data/internal-links";
 import { getServicePageOffers } from "@/data/offers";
-import { absoluteUrl, assetPath, business } from "@/data/site";
+import { absoluteUrl, business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
   buildElectricianSchema,
@@ -465,12 +465,7 @@ export default async function ServiceLandingPage({
       />
 
       <section className="brand-internal-hero service-detail-hero relative overflow-hidden bg-[#061E72] text-white">
-        <Image
-          src={assetPath(business.heroImage)}
-          alt={business.brandImageAlt}
-          fill
-          priority
-          sizes="100vw"
+        <ResponsiveHeroImage
           className="brand-internal-hero-image object-cover object-[68%_center]"
         />
 

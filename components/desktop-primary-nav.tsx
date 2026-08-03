@@ -4,7 +4,7 @@ import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { ServiceAreaSearch } from "@/components/service-area-search";
+import { DeferredServiceAreaSearch } from "@/components/deferred-service-area-search";
 import {
   getServiceNavigationLinks,
   serviceNavigationMenus,
@@ -206,7 +206,7 @@ export function DesktopPrimaryNav({ items }: { items: PrimaryNavItem[] }) {
 
                   {menu.search === "service-areas" ? (
                     <div className="ev-service-nav-panel__search">
-                      <ServiceAreaSearch
+                      <DeferredServiceAreaSearch
                         indexUrl={assetPath(
                           "/service-area-search-index.json",
                         )}

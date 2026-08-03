@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import {
   AlertTriangle,
   ArrowRight,
@@ -15,11 +14,11 @@ import {
   ServiceCredentialStrip,
   serviceCredentialPresets,
 } from "@/components/service-credential-strip";
+import { ResponsiveHeroImage } from "@/components/performance-images";
 import { level2ClusterLinks } from "@/data/internal-links";
 import {
   absoluteUrl,
   approvedBusinessClaims,
-  assetPath,
   business,
 } from "@/data/site";
 import { schemaJson } from "@/lib/schema";
@@ -380,12 +379,7 @@ export default function Level2ElectricianSydneyPage() {
       />
 
       <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
-        <Image
-          src={assetPath(business.heroImage)}
-          alt={business.brandImageAlt}
-          fill
-          priority
-          sizes="100vw"
+        <ResponsiveHeroImage
           className="brand-internal-hero-image object-cover object-[68%_center]"
         />
 

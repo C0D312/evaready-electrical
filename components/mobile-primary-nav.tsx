@@ -22,8 +22,8 @@ import {
   X,
   type LucideIcon,
 } from "lucide-react";
+import { DeferredServiceAreaSearch } from "@/components/deferred-service-area-search";
 import { HomeNavigationLink } from "@/components/home-navigation-link";
-import { ServiceAreaSearch } from "@/components/service-area-search";
 import {
   getServiceNavigationLinks,
   serviceNavigationMenus,
@@ -435,7 +435,7 @@ export function MobilePrimaryNav() {
                         {menu.description}
                       </p>
                       {menu.search === "service-areas" ? (
-                        <ServiceAreaSearch
+                        <DeferredServiceAreaSearch
                           indexUrl={assetPath(
                             "/service-area-search-index.json",
                           )}

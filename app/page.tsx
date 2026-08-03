@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import {
@@ -16,10 +15,10 @@ import {
 } from "lucide-react";
 import { GoogleRatingSeal } from "@/components/google-rating-seal";
 import { OffersSection } from "@/components/offers-section";
+import { ResponsiveHeroImage } from "@/components/performance-images";
 import { getOffersForPlacement } from "@/data/offers";
 import {
   approvedBusinessClaims,
-  assetPath,
   business,
   priorityRegions,
   services,
@@ -146,13 +145,7 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)} />
 
       <section className="home-brand-hero home-theme-feature ev-hero ev-hero--with-van ev-storm-section--hero relative isolate overflow-hidden text-white">
-        <Image
-          src={assetPath(business.heroImage)}
-          alt={business.brandImageAlt}
-          fill
-          loading="eager"
-          fetchPriority="high"
-          sizes="100vw"
+        <ResponsiveHeroImage
           className="brand-hero-image ev-hero-van object-cover object-[67%_center] sm:object-[66%_center] lg:object-center"
         />
         <div className="home-hero-readability-overlay absolute inset-0" aria-hidden="true" />

@@ -12,6 +12,7 @@ const eslintConfig = defineConfig([
     "out/**",
     ".deploy-gh-pages/**",
     "build/**",
+    "reports/playwright-html-report/**",
     "next-env.d.ts",
   ]),
 ]);

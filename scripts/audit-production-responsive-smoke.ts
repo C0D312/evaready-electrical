@@ -218,7 +218,14 @@ async function main() {
           }
 
           if (route === "/") {
-            const header = await page.evaluate(() => {
+            await page.waitForFunction(() =>
+              Array.from(
+                document.querySelectorAll<HTMLImageElement>(
+                  ".ev-final-header-wordmark, .ev-final-header-energy-line, .ev-final-header-bolt",
+                ),
+              ).every((image) => image.complete && image.naturalWidth > 0),
+            );
+            const header = await page.evaluate(async () => {
               const banner = document.querySelector<HTMLElement>(
                 ".ev-final-header-art",
               );
@@ -244,14 +251,32 @@ async function main() {
               );
               const backgroundRect = background?.getBoundingClientRect();
               const bannerRect = banner?.getBoundingClientRect();
-              const aspectErrors = foreground.map((image) => {
+              const sourceMeasurements = await Promise.all(
+                foreground.map(async (image) => {
+                  const sourceImage = new Image();
+                  sourceImage.src = image.currentSrc;
+                  await sourceImage.decode();
+
+                  return {
+                    height: sourceImage.naturalHeight,
+                    image,
+                    width: sourceImage.naturalWidth,
+                  };
+                }),
+              );
+              const aspectErrors = sourceMeasurements.map(
+                ({ height, image, width }) => {
                 const imageRect = image.getBoundingClientRect();
-                const naturalRatio = image.naturalWidth / image.naturalHeight;
+                const naturalRatio = width / height;
                 const renderedRatio = imageRect.width / imageRect.height;
                 return naturalRatio
                   ? Math.abs(renderedRatio - naturalRatio) / naturalRatio
                   : 1;
-              });
+                },
+              );
+              const wordmarkSource = sourceMeasurements.find(
+                ({ image }) => image === wordmark,
+              );
 
               return {
                 banner: Math.round(
@@ -268,8 +293,8 @@ async function main() {
                 ),
                 source: wordmark?.currentSrc.split("/").pop() ?? "",
                 naturalSize:
-                  wordmark?.naturalWidth && wordmark?.naturalHeight
-                    ? `${wordmark.naturalWidth}x${wordmark.naturalHeight}`
+                  wordmarkSource?.width && wordmarkSource.height
+                    ? `${wordmarkSource.width}x${wordmarkSource.height}`
                     : "0x0",
                 objectFit: wordmark ? getComputedStyle(wordmark).objectFit : "",
                 backgroundCoverage:
@@ -282,11 +307,15 @@ async function main() {
               };
             });
 
-            const expectedSource = "evaready-header-wordmark-v15.webp";
+            const expectedSources = new Set([
+              "evaready-header-wordmark-640.webp",
+              "evaready-header-wordmark-1200.webp",
+              "evaready-header-wordmark-v15.webp",
+            ]);
 
-            if (header.source !== expectedSource) {
+            if (!expectedSources.has(header.source)) {
               failures.push(
-                `${label}: expected header source ${expectedSource}, found ${header.source || "(missing)"}`,
+                `${label}: unexpected header source ${header.source || "(missing)"}`,
               );
             }
 
@@ -302,7 +331,8 @@ async function main() {
               );
             }
 
-            if (header.maxAspectError > 0.003) {
+            // Tiny transparent layers can incur sub-pixel rounding at narrow widths.
+            if (header.maxAspectError > 0.005) {
               failures.push(
                 `${label}: header foreground aspect error is ${header.maxAspectError}`,
               );

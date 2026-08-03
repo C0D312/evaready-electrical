@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { Metadata } from "next";
 import {
   ArrowRight,
@@ -15,7 +14,8 @@ import {
   Zap,
 } from "lucide-react";
 import { GoogleRatingSeal } from "@/components/google-rating-seal";
-import { approvedBusinessClaims, assetPath, business } from "@/data/site";
+import { ResponsiveHeroImage } from "@/components/performance-images";
+import { approvedBusinessClaims, business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
   buildElectricianSchema,
@@ -179,12 +179,7 @@ export default function AboutPage() {
         />
 
         <section className="brand-internal-hero ev-hero ev-hero--with-van ev-storm-section--hero relative overflow-hidden bg-[#061E72] text-white">
-          <Image
-            src={assetPath(business.heroImage)}
-            alt={business.brandImageAlt}
-            fill
-            priority
-            sizes="100vw"
+          <ResponsiveHeroImage
             className="brand-internal-hero-image ev-hero-van object-cover object-[68%_center]"
           />
 

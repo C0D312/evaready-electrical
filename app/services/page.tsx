@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import Image from "next/image";
 import {
   ArrowRight,
   BadgeCheck,
@@ -18,8 +17,9 @@ import {
   Zap,
 } from "lucide-react";
 import { ServiceCredentialStrip } from "@/components/service-credential-strip";
+import { ResponsiveHeroImage } from "@/components/performance-images";
 import { serviceLandingPages } from "@/data/service-pages";
-import { absoluteUrl, assetPath, business } from "@/data/site";
+import { absoluteUrl, business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
   buildElectricianSchema,
@@ -1131,12 +1131,7 @@ export default function ServicesPage() {
 
       {/* Hero */}
       <section className="brand-internal-hero services-index-hero relative overflow-hidden bg-[#061E72] text-white">
-        <Image
-          src={assetPath(business.heroImage)}
-          alt={business.brandImageAlt}
-          fill
-          priority
-          sizes="100vw"
+        <ResponsiveHeroImage
           className="brand-internal-hero-image object-cover object-[68%_center]"
         />
 

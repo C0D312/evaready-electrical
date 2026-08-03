@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import {
   AlertTriangle,
   ArrowRight,
@@ -8,6 +7,7 @@ import {
   Zap,
 } from "lucide-react";
 import { EmergencyTrustPanel } from "@/components/emergency-trust-panel";
+import { ResponsiveHeroImage } from "@/components/performance-images";
 import {
   ServiceCredentialStrip,
   serviceCredentialPresets,
@@ -16,7 +16,6 @@ import { emergencyFaultClusterLinks } from "@/data/electrical-faults";
 import {
   absoluteUrl,
   approvedBusinessClaims,
-  assetPath,
   business,
 } from "@/data/site";
 import { schemaJson } from "@/lib/schema";
@@ -391,12 +390,7 @@ export default function EmergencyElectricianSydneyPage() {
       />
 
       <section className={cx(styles.hero, "brand-internal-hero relative overflow-hidden bg-[#061E72] text-white")}>
-        <Image
-          src={assetPath(business.heroImage)}
-          alt={business.brandImageAlt}
-          fill
-          priority
-          sizes="100vw"
+        <ResponsiveHeroImage
           className="brand-internal-hero-image object-cover object-[68%_center]"
         />
 

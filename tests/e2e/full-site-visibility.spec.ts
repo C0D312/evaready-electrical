@@ -189,7 +189,7 @@ test("Panania 2213 is mobile-safe at every required mobile width", async ({
     await expect(
       page.getByText("General electrical work in Panania").first(),
     ).toBeVisible();
-    await expect(page.getByText(/60-minute response/i).first()).toBeVisible();
+    await expect(page.getByText(/60 minutes/i).first()).toBeVisible();
     await expectAnyVisible(
       page.locator('a[href="tel:+61461247247"]'),
       "Panania phone CTA",

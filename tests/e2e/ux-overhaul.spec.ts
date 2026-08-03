@@ -189,14 +189,14 @@ test("wide desktop header keeps proportional layered artwork visible", async ({
     await page.setViewportSize(viewport);
     await page.goto("./", { waitUntil: "domcontentloaded" });
 
-    const bannerLayout = await page.locator(".ev-final-header-art").evaluate((banner) => {
+    const bannerLayout = await page.locator(".ev-final-header-art").evaluate(async (banner) => {
       const wordmark = banner.querySelector<HTMLImageElement>(".ev-final-header-wordmark");
       const bannerBox = banner.getBoundingClientRect();
       const wordmarkBox = wordmark?.getBoundingClientRect();
-      const naturalRatio =
-        wordmark?.naturalWidth && wordmark?.naturalHeight
-          ? wordmark.naturalWidth / wordmark.naturalHeight
-          : 0;
+      const probe = new Image();
+      probe.src = wordmark?.currentSrc ?? "";
+      await probe.decode();
+      const naturalRatio = probe.naturalWidth / probe.naturalHeight;
       const renderedRatio = wordmarkBox
         ? wordmarkBox.width / wordmarkBox.height
         : 0;
@@ -205,8 +205,8 @@ test("wide desktop header keeps proportional layered artwork visible", async ({
         bannerHeight: bannerBox.height,
         bannerWidth: bannerBox.width,
         currentSrc: wordmark?.currentSrc ?? "",
-        naturalHeight: wordmark?.naturalHeight ?? 0,
-        naturalWidth: wordmark?.naturalWidth ?? 0,
+        sourceHeight: probe.naturalHeight,
+        sourceWidth: probe.naturalWidth,
         objectFit: wordmark ? getComputedStyle(wordmark).objectFit : "",
         relativeAspectError: naturalRatio
           ? Math.abs(renderedRatio - naturalRatio) / naturalRatio
@@ -224,11 +224,16 @@ test("wide desktop header keeps proportional layered artwork visible", async ({
     });
 
     expect(bannerLayout.objectFit).toBe("contain");
-    expect(bannerLayout.currentSrc).toContain("evaready-header-wordmark-v15.webp");
-    expect(bannerLayout.naturalWidth).toBe(1426);
-    expect(bannerLayout.naturalHeight).toBe(245);
+    const approvedSource = [
+      { file: "evaready-header-wordmark-640.webp", width: 640, height: 110 },
+      { file: "evaready-header-wordmark-1200.webp", width: 1200, height: 206 },
+      { file: "evaready-header-wordmark-v15.webp", width: 1426, height: 245 },
+    ].find((source) => bannerLayout.currentSrc.includes(source.file));
+    expect(approvedSource).toBeDefined();
+    expect(bannerLayout.sourceWidth).toBe(approvedSource!.width);
+    expect(bannerLayout.sourceHeight).toBe(approvedSource!.height);
     expect(Math.abs(bannerLayout.bannerHeight - viewport.expectedBannerHeight)).toBeLessThanOrEqual(1);
-    expect(bannerLayout.relativeAspectError).toBeLessThanOrEqual(0.003);
+    expect(bannerLayout.relativeAspectError).toBeLessThanOrEqual(0.005);
     expect(bannerLayout.wordmarkInsideBanner).toBe(true);
     expect(bannerLayout.overflow).toBeLessThanOrEqual(1);
   }

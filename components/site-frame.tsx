@@ -13,7 +13,6 @@ import {
   Zap,
   type LucideIcon,
 } from "lucide-react";
-import { CurrentYear } from "@/components/current-year";
 import {
   DesktopPrimaryNav,
   type PrimaryNavItem,
@@ -21,6 +20,13 @@ import {
 import { HomeNavigationLink } from "@/components/home-navigation-link";
 import { MobileStickyCta } from "@/components/mobile-sticky-cta";
 import { MobilePrimaryNav } from "@/components/mobile-primary-nav";
+import {
+  HeaderBackgroundImage,
+  HeaderBoltImage,
+  HeaderEnergyLineImage,
+  HeaderWordmarkImage,
+  ResponsiveHeroImage,
+} from "@/components/performance-images";
 import { QuoteFormModal } from "@/components/quote-form-modal";
 import { RouteMarqueeStrip } from "@/components/route-marquee-strip";
 import { approvedBusinessClaims, assetPath, business } from "@/data/site";
@@ -93,13 +99,6 @@ const legalLinks = [
   { href: "/terms", label: "Terms" },
   { href: "/sitemap.xml", label: "Sitemap" },
 ];
-
-const headerArtwork = {
-  background: "/images/evaready-storm-theme-desktop-v3.webp",
-  wordmark: "/images/header/evaready-header-wordmark-v15.webp",
-  energyLine: "/images/header/evaready-header-energy-line-v15.webp",
-  bolt: "/images/header/evaready-header-bolt-v15.webp",
-} as const;
 
 type FooterLinkItem = {
   href: string;
@@ -250,72 +249,21 @@ function FooterTextLink({ href, label }: FooterLinkItem) {
 }
 
 function SiteHeader() {
-  const headerAssets = {
-    background: assetPath(headerArtwork.background),
-    wordmark: assetPath(headerArtwork.wordmark),
-    energyLine: assetPath(headerArtwork.energyLine),
-    bolt: assetPath(headerArtwork.bolt),
-  };
-
   return (
     <header className="site-header ev-final-header ev-electric-header fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)]">
         <RouteMarqueeStrip />
 
         <div className="ev-final-header-art ev-electric-header-banner-row">
-          <Image
-            src={headerAssets.background}
-            alt=""
-            width={1920}
-            height={1280}
-            sizes="100vw"
-            unoptimized
-            loading="eager"
-            decoding="async"
-            className="ev-final-header-background"
-            aria-hidden="true"
-          />
+          <HeaderBackgroundImage />
 
           <HomeNavigationLink
             data-header-logo="true"
             className="ev-final-header-brand ev-final-header-brand--art"
           >
             <span className="ev-final-header-lockup">
-              <Image
-                src={headerAssets.wordmark}
-                alt="Evaready Electrical 24/7"
-                width={1426}
-                height={245}
-                sizes="(max-width: 767px) calc(100vw - 72px), 590px"
-                unoptimized
-                loading="eager"
-                decoding="async"
-                fetchPriority="high"
-                className="ev-final-header-wordmark"
-              />
-              <Image
-                src={headerAssets.energyLine}
-                alt=""
-                width={1426}
-                height={27}
-                sizes="(max-width: 767px) calc(100vw - 72px), 720px"
-                unoptimized
-                loading="eager"
-                decoding="async"
-                className="ev-final-header-energy-line"
-                aria-hidden="true"
-              />
-              <Image
-                src={headerAssets.bolt}
-                alt=""
-                width={310}
-                height={258}
-                sizes="50px"
-                unoptimized
-                loading="eager"
-                decoding="async"
-                className="ev-final-header-bolt"
-                aria-hidden="true"
-              />
+              <HeaderWordmarkImage />
+              <HeaderEnergyLineImage />
+              <HeaderBoltImage />
             </span>
           </HomeNavigationLink>
 
@@ -527,7 +475,7 @@ function SiteFooter() {
 
         <div className="ev-footer-bottom">
           <p>
-            &copy; <CurrentYear /> Evaready Electrical. All rights reserved.
+            &copy; Evaready Electrical. All rights reserved.
           </p>
           <div className="ev-footer-legal-links">
             {legalLinks.map((link) => (
@@ -566,12 +514,7 @@ export function ServiceAreaHero({
 }) {
   return (
     <section className="brand-internal-hero ev-hero ev-hero--with-van ev-storm-section--hero relative overflow-hidden bg-[#061E72] text-white">
-      <Image
-        src={assetPath(business.heroImage)}
-        alt={business.brandImageAlt}
-        fill
-        priority
-        sizes="100vw"
+      <ResponsiveHeroImage
         className="brand-internal-hero-image ev-hero-van object-cover object-[68%_center]"
       />
 

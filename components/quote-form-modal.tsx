@@ -1,9 +1,27 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Phone, X } from "lucide-react";
-import { ServiceM8Frame } from "@/components/service-m8-frame";
 import { business } from "@/data/site";
+
+const ServiceM8Frame = dynamic(
+  () =>
+    import("@/components/service-m8-frame").then(
+      (module) => module.ServiceM8Frame,
+    ),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        className="flex h-full items-center justify-center bg-white px-5 text-center text-sm font-bold text-slate-700"
+        role="status"
+      >
+        Loading the secure quote form...
+      </div>
+    ),
+  },
+);
 
 type ScrollLockSnapshot = {
   scrollX: number;

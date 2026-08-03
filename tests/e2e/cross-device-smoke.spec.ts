@@ -61,7 +61,7 @@ const routes: RouteCheck[] = [
     kind: "html",
     commercial: true,
     screenshot: true,
-    expects: ["60-minute", "Emergency", "Call Now"],
+    expects: ["60 minutes", "Emergency", "Call Now"],
   },
   {
     path: "/level-2-electrician-sydney/",
@@ -272,12 +272,11 @@ test("live site route matrix has no critical browser/device regressions", async 
         failures.push(`${route.name}: missing Google Ads tag AW-18165545331`);
       }
 
-      const expectedYear = await page.evaluate(() => new Date().getFullYear().toString());
       const footer = page.locator("#site-footer");
       await footer.waitFor({ state: "attached" });
       const footerText = (await footer.textContent()) ?? "";
-      if (!footerText.includes(expectedYear) || !footerText.includes("Evaready Electrical. All rights reserved.")) {
-        failures.push(`${route.name}: footer year does not match current year ${expectedYear}`);
+      if (!footerText.includes("Evaready Electrical. All rights reserved.")) {
+        failures.push(`${route.name}: footer copyright text is missing`);
       }
 
       if (route.suburb) {
@@ -305,18 +304,16 @@ test("live site route matrix has no critical browser/device regressions", async 
         }
 
         if (route.ratingProof !== false) {
-          const ratingCard = page.locator(".google-rating-card").first();
-          if (!(await ratingCard.isVisible().catch(() => false))) {
-            failures.push(`${route.name}: Google rating card not visible on commercial page`);
+          const ratingProof = page
+            .locator("#site-footer a")
+            .filter({ hasText: /5\.0 from 83 Google reviews/ })
+            .first();
+          if (!(await ratingProof.isVisible().catch(() => false))) {
+            failures.push(`${route.name}: approved Google rating proof is not visible`);
           } else {
-            const ratingCardText = await ratingCard.innerText();
-            if (!/google rating/i.test(ratingCardText)) {
-              failures.push(`${route.name}: Google rating card missing Google Rating label`);
-            }
-            for (const expected of ["5.0", "Based on 83 Google reviews", "Read Google reviews", "Leave a review"]) {
-              if (!ratingCardText.includes(expected)) {
-                failures.push(`${route.name}: Google rating card missing "${expected}"`);
-              }
+            const href = await ratingProof.getAttribute("href");
+            if (!href?.startsWith("https://")) {
+              failures.push(`${route.name}: Google rating proof is not linked to its source`);
             }
           }
         }

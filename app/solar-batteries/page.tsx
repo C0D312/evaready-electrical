@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import {
@@ -12,7 +11,8 @@ import {
 } from "lucide-react";
 import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
-import { absoluteUrl, assetPath, business } from "@/data/site";
+import { ResponsiveHeroImage } from "@/components/performance-images";
+import { absoluteUrl, business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
   buildElectricianSchema,
@@ -216,12 +216,7 @@ export default function SolarBatteriesPage() {
       />
 
       <section className="brand-internal-hero relative overflow-hidden bg-[#06142f] text-white">
-        <Image
-          src={assetPath(business.heroImage)}
-          alt={business.brandImageAlt}
-          fill
-          priority
-          sizes="100vw"
+        <ResponsiveHeroImage
           className="brand-internal-hero-image object-cover object-[68%_center]"
         />
         <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-4 py-16 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:py-24">

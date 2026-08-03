@@ -2217,3 +2217,33 @@ html body.ev-storm-page main#main-content.generated-storm-suburb
       rgba(3, 11, 28, 0.96)
     ) !important;
 }
+
+/* A real responsive van image is rendered in these heroes. Keep legacy
+   fallbacks for heroes without an image, but do not download or paint a
+   second CSS copy behind the responsive source. */
+html body.ev-storm-page main#main-content > :is(.home-brand-hero, .brand-internal-hero):has(
+    :is(.brand-hero-image, .brand-internal-hero-image)
+  ) {
+  --ee-van-image: none;
+  background:
+    radial-gradient(circle at 18% 6%, rgba(7, 156, 255, 0.08), transparent 24rem),
+    linear-gradient(180deg, var(--ev-void), var(--ev-dark-blue) 58%, var(--ev-void)) !important;
+}
+
+/* Internal hero cards sit over the real hero image; repeating the full storm
+   bitmap inside the card wastes a high-priority request and delays mobile LCP. */
+html body.ev-storm-page main#main-content
+  > .brand-internal-hero
+  .internal-hero-copy-panel {
+  background: linear-gradient(
+    145deg,
+    rgba(4, 11, 28, 0.94),
+    rgba(9, 29, 66, 0.86)
+  ) !important;
+}
+
+html body.ev-storm-page .brand-internal-hero:has(.brand-internal-hero-image)::before {
+  content: none !important;
+  display: none !important;
+  background-image: none !important;
+}

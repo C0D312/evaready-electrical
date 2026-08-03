@@ -26,6 +26,9 @@ type ServiceAreaSearchProps = {
   variant?: "page" | "navigation";
 };
 
+const searchIndexCache = new Map<string, SearchItem[]>();
+const searchIndexRequests = new Map<string, Promise<SearchItem[]>>();
+
 function isSearchIndexRecord(value: unknown): value is SearchIndexRecord {
   if (!value || typeof value !== "object") {
     return false;
@@ -35,6 +38,50 @@ function isSearchIndexRecord(value: unknown): value is SearchIndexRecord {
   return [record.a, record.h, record.p, record.r, record.s].every(
     (field) => typeof field === "string",
   );
+}
+
+function requestSearchIndex(indexUrl: string) {
+  const cached = searchIndexCache.get(indexUrl);
+  if (cached) {
+    return Promise.resolve(cached);
+  }
+
+  const activeRequest = searchIndexRequests.get(indexUrl);
+  if (activeRequest) {
+    return activeRequest;
+  }
+
+  const request = fetch(indexUrl, { credentials: "same-origin" })
+    .then(async (response) => {
+      if (!response.ok) {
+        throw new Error(`Search index returned ${response.status}`);
+      }
+
+      const payload: unknown = await response.json();
+      if (!Array.isArray(payload) || !payload.every(isSearchIndexRecord)) {
+        throw new Error("Search index has an invalid format");
+      }
+
+      return payload.map((record) => ({
+        areaName: record.a,
+        href: record.h,
+        postcode: record.p,
+        regionName: record.r,
+        suburbName: record.s,
+      }));
+    })
+    .then((records) => {
+      searchIndexCache.set(indexUrl, records);
+      searchIndexRequests.delete(indexUrl);
+      return records;
+    })
+    .catch((error: unknown) => {
+      searchIndexRequests.delete(indexUrl);
+      throw error;
+    });
+
+  searchIndexRequests.set(indexUrl, request);
+  return request;
 }
 
 export function ServiceAreaSearch({
@@ -76,26 +123,9 @@ export function ServiceAreaSearch({
     }
 
     updateIndexStatus("loading");
-    const request = fetch(indexUrl, { credentials: "same-origin" })
-      .then(async (response) => {
-        if (!response.ok) {
-          throw new Error(`Search index returned ${response.status}`);
-        }
-
-        const payload: unknown = await response.json();
-        if (!Array.isArray(payload) || !payload.every(isSearchIndexRecord)) {
-          throw new Error("Search index has an invalid format");
-        }
-
-        setSearchItems(
-          payload.map((record) => ({
-            areaName: record.a,
-            href: record.h,
-            postcode: record.p,
-            regionName: record.r,
-            suburbName: record.s,
-          })),
-        );
+    const request = requestSearchIndex(indexUrl)
+      .then((records) => {
+        setSearchItems(records);
         updateIndexStatus("ready");
       })
       .catch(() => {

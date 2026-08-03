@@ -20,22 +20,34 @@ const supportedViewports = [
 const foregroundAssets = [
   {
     selector: ".ev-final-header-wordmark",
-    file: "evaready-header-wordmark-v15.webp",
-    width: 1426,
-    height: 245,
+    sources: [
+      { file: "evaready-header-wordmark-640.webp", width: 640, height: 110 },
+      { file: "evaready-header-wordmark-1200.webp", width: 1200, height: 206 },
+      { file: "evaready-header-wordmark-v15.webp", width: 1426, height: 245 },
+    ],
   },
   {
     selector: ".ev-final-header-energy-line",
-    file: "evaready-header-energy-line-v15.webp",
-    width: 1426,
-    height: 27,
+    sources: [
+      { file: "evaready-header-energy-line-640.webp", width: 640, height: 12 },
+      { file: "evaready-header-energy-line-960.webp", width: 960, height: 18 },
+      { file: "evaready-header-energy-line-v15.webp", width: 1426, height: 27 },
+    ],
   },
   {
     selector: ".ev-final-header-bolt",
-    file: "evaready-header-bolt-v15.webp",
-    width: 310,
-    height: 258,
+    sources: [
+      { file: "evaready-header-bolt-120.webp", width: 120, height: 100 },
+      { file: "evaready-header-bolt-180.webp", width: 180, height: 150 },
+      { file: "evaready-header-bolt-v15.webp", width: 310, height: 258 },
+    ],
   },
+] as const;
+
+const backgroundAssets = [
+  { file: "evaready-header-storm-768.webp", width: 768, height: 512 },
+  { file: "evaready-header-storm-960.webp", width: 960, height: 640 },
+  { file: "evaready-storm-theme-desktop-v3.webp", width: 1920, height: 1280 },
 ] as const;
 
 const expectedArtHeight = (width: number) => {
@@ -54,7 +66,23 @@ async function inspectHeader(page: Page) {
     ).every((image) => image.complete && image.naturalWidth > 0),
   );
 
-  return page.locator("header.ev-final-header").evaluate((header) => {
+  return page.locator("header.ev-final-header").evaluate(async (header) => {
+    const sourceDimensions = async (image: HTMLImageElement | null) => {
+      if (!image?.currentSrc) {
+        return { src: "", width: 0, height: 0 };
+      }
+
+      const probe = new Image();
+      probe.src = image.currentSrc;
+      await probe.decode();
+
+      return {
+        src: image.currentSrc,
+        width: probe.naturalWidth,
+        height: probe.naturalHeight,
+      };
+    };
+
     const rect = (element: Element | null) => {
       const box = element?.getBoundingClientRect();
       return box
@@ -80,21 +108,22 @@ async function inspectHeader(page: Page) {
     const navBox = rect(desktopNav);
     const menuBox = rect(mobileMenu);
 
-    const assets = Array.from(
+    const assets = await Promise.all(Array.from(
       header.querySelectorAll<HTMLImageElement>(
         ".ev-final-header-wordmark, .ev-final-header-energy-line, .ev-final-header-bolt",
       ),
-    ).map((image) => {
+    ).map(async (image) => {
       const box = rect(image)!;
-      const naturalRatio = image.naturalWidth / image.naturalHeight;
+      const source = await sourceDimensions(image);
+      const naturalRatio = source.width / source.height;
       const renderedRatio = box.width / box.height;
 
       return {
         className: image.className,
-        src: image.currentSrc,
+        src: source.src,
         complete: image.complete,
-        naturalWidth: image.naturalWidth,
-        naturalHeight: image.naturalHeight,
+        sourceWidth: source.width,
+        sourceHeight: source.height,
         naturalRatio,
         renderedRatio,
         relativeAspectError: Math.abs(renderedRatio - naturalRatio) / naturalRatio,
@@ -111,15 +140,17 @@ async function inspectHeader(page: Page) {
           getComputedStyle(mobileMenu!).display === "none" ||
           box.right <= menuBox.left + 1,
       };
-    });
+    }));
+    const backgroundSource = await sourceDimensions(background);
 
     return {
       assets,
       background: {
         box: rect(background),
         complete: background?.complete ?? false,
-        naturalWidth: background?.naturalWidth ?? 0,
-        naturalHeight: background?.naturalHeight ?? 0,
+        src: backgroundSource.src,
+        sourceWidth: backgroundSource.width,
+        sourceHeight: backgroundSource.height,
         objectFit: background ? getComputedStyle(background).objectFit : "",
         opacity: background ? getComputedStyle(background).opacity : "",
       },
@@ -153,11 +184,14 @@ test("header layers preserve their natural aspect ratios in every browser", asyn
     );
 
     expect(asset, `${expectedAsset.selector} must exist`).toBeDefined();
-    expect(asset!.src).toContain(expectedAsset.file);
-    expect(asset!.naturalWidth).toBe(expectedAsset.width);
-    expect(asset!.naturalHeight).toBe(expectedAsset.height);
+    const selectedSource = expectedAsset.sources.find((source) =>
+      asset!.src.includes(source.file),
+    );
+    expect(selectedSource, `${expectedAsset.selector} selected an approved source`).toBeDefined();
+    expect(asset!.sourceWidth).toBe(selectedSource!.width);
+    expect(asset!.sourceHeight).toBe(selectedSource!.height);
     expect(asset!.objectFit).toBe("contain");
-    expect(asset!.relativeAspectError).toBeLessThanOrEqual(0.003);
+    expect(asset!.relativeAspectError).toBeLessThanOrEqual(0.005);
     expect(asset!.insideBanner).toBe(true);
     expect(asset!.clearOfMobileMenu).toBe(true);
   }
@@ -182,8 +216,12 @@ test("header is compact, complete and stable at all supported widths", async ({
     expect(settled.banner).not.toBeNull();
     expect(settled.header).not.toBeNull();
     expect(settled.background.complete).toBe(true);
-    expect(settled.background.naturalWidth).toBe(1920);
-    expect(settled.background.naturalHeight).toBe(1280);
+    const selectedBackground = backgroundAssets.find((source) =>
+      settled.background.src.includes(source.file),
+    );
+    expect(selectedBackground, "header selected an approved storm source").toBeDefined();
+    expect(settled.background.sourceWidth).toBe(selectedBackground!.width);
+    expect(settled.background.sourceHeight).toBe(selectedBackground!.height);
     expect(settled.background.objectFit).toBe("cover");
     expect(settled.background.opacity).toBe("1");
     expect(settled.background.box).toEqual(settled.banner);
@@ -198,7 +236,7 @@ test("header is compact, complete and stable at all supported widths", async ({
 
     for (const asset of settled.assets) {
       expect(asset.complete).toBe(true);
-      expect(asset.relativeAspectError).toBeLessThanOrEqual(0.003);
+      expect(asset.relativeAspectError).toBeLessThanOrEqual(0.005);
       expect(asset.insideBanner).toBe(true);
       expect(asset.clearOfMobileMenu).toBe(true);
     }

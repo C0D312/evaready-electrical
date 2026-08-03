@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { Metadata } from "next";
 import {
   ArrowRight,
@@ -11,6 +10,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { CompactOfferStrip } from "@/components/compact-offer-strip";
+import { ResponsiveHeroImage } from "@/components/performance-images";
 import { getOffersForPlacement } from "@/data/offers";
 import { assetPath, business } from "@/data/site";
 import {
@@ -94,12 +94,7 @@ export default function ContactPage() {
         />
 
         <section className="brand-internal-hero ev-hero ev-hero--with-van ev-storm-section--hero relative overflow-hidden bg-[#061E72] text-white">
-          <Image
-            src={assetPath(business.heroImage)}
-            alt={business.brandImageAlt}
-            fill
-            priority
-            sizes="100vw"
+          <ResponsiveHeroImage
             className="brand-internal-hero-image ev-hero-van object-cover object-[68%_center]"
           />
 
