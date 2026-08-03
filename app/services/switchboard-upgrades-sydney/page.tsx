@@ -4,23 +4,15 @@ import Image from "next/image";
 import {
   AlertTriangle,
   ArrowRight,
-  BadgeCheck,
   Bolt,
-  CheckCircle2,
   ClipboardList,
-  Gauge,
   Phone,
   ShieldCheck,
 } from "lucide-react";
-import { GoogleReviewProof } from "@/components/google-review-proof";
-import { LeadOfferPanel } from "@/components/lead-offer-panel";
-import { CompactOfferStrip } from "@/components/compact-offer-strip";
 import {
   ServiceCredentialStrip,
   serviceCredentialPresets,
 } from "@/components/service-credential-strip";
-import { TrustProcessProof } from "@/components/trust-process-proof";
-import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import {
   level2ClusterLinks,
   serviceClusterLinksBySlug,
@@ -28,7 +20,6 @@ import {
   switchboardSafetyClusterLinks,
   switchboardSafetyQuoteChecklist,
 } from "@/data/internal-links";
-import { getServicePageOffers } from "@/data/offers";
 import { absoluteUrl, assetPath, business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
@@ -89,32 +80,6 @@ const process = [
   },
 ];
 
-const upgradeOutcomes = [
-  "Modern safety switch and RCBO protection where suitable",
-  "Clearer circuit labelling for easier fault finding",
-  "Reduced risk from old ceramic fuses and damaged fixtures",
-  "Better preparation for renovations, EV chargers and added circuits",
-];
-
-const switchboardAuthority = [
-  {
-    title: "Old fuses and missing protection",
-    text: "Ceramic fuse boards can be harder to isolate and may not provide the modern safety switch or RCBO protection expected on upgraded circuits.",
-  },
-  {
-    title: "Burnt wiring and heat damage",
-    text: "Heat marks, buzzing, melted insulation or a burning smell need proper inspection before the affected circuit is placed back into normal use.",
-  },
-  {
-    title: "Overloaded circuits",
-    text: "Repeated tripping can come from heavy appliances, added circuits, poor load balance, old wiring or equipment that needs a dedicated supply.",
-  },
-  {
-    title: "EV, three-phase and new loads",
-    text: "EV chargers, workshops, renovations and larger appliances should be checked against the existing switchboard, protection and supply capacity.",
-  },
-];
-
 const switchboardFaqs = [
   {
     question: "Do ceramic fuses need to be replaced?",
@@ -140,33 +105,6 @@ const switchboardSafetyRelatedLinks = switchboardSafetyClusterLinks.filter(
   (link) => link.href !== "/services/switchboard-upgrades-sydney",
 );
 
-const level2PathwayDescriptions: Record<string, string> = {
-  "/level-2-electrician-sydney":
-    "Hub for consumer mains, metering, service equipment and defect notice pathways.",
-  "/services/consumer-mains-sydney":
-    "Supply cable checks, repairs, upgrades and defect-related consumer mains work.",
-  "/services/defect-notice-repairs-sydney":
-    "Defect notice photos, deadline details and repair scope review.",
-  "/services/point-of-attachment-repairs-sydney":
-    "Overhead attachment concerns, pulled-away fixings and service-line issues.",
-  "/services/private-power-pole-sydney":
-    "Private pole, overhead service and storm-related supply-side planning.",
-  "/services/overhead-service-lines-sydney":
-    "Overhead service line, clearance and damaged supply connection support.",
-  "/services/underground-service-mains-sydney":
-    "Underground mains, route access, service equipment and supply upgrade review.",
-  "/services/metering-services-sydney":
-    "Metering, service equipment and retailer or network paperwork support.",
-  "/services/disconnect-reconnect-electrician-sydney":
-    "Planned isolation and reconnection steps for renovations or supply changes.",
-  "/services/smart-meter-electrician-sydney":
-    "Switchboard preparation, meter area checks and smart meter related enquiries.",
-  "/services/electrical-load-capacity-checks-sydney":
-    "Load capacity checks for larger equipment, EV chargers and supply upgrades.",
-  "/services/three-phase-power-sydney":
-    "Three phase supply planning for larger homes, workshops and equipment.",
-};
-
 const level2SwitchboardLinks = [
   {
     href: "/level-2-electrician-sydney",
@@ -175,21 +113,10 @@ const level2SwitchboardLinks = [
   ...level2ClusterLinks.filter(
     (link) => link.href !== "/services/switchboard-upgrades-sydney",
   ),
-].map((link) => ({
-  ...link,
-  description: level2PathwayDescriptions[link.href],
-}));
-
-const level2SwitchboardNextSteps = [
-  "Send switchboard and meter box photos, including labels and service equipment.",
-  "Send any defect notice, retailer paperwork or network deadline if available.",
-  "Send point-of-attachment, overhead service or underground service photos where relevant.",
-  "Call first if the board, service equipment or wiring is damaged, hot, wet, sparking or unsafe.",
 ];
 
 export default function SwitchboardUpgradesSydneyPage() {
   const pagePath = "/services/switchboard-upgrades-sydney";
-  const currentServiceOffers = getServicePageOffers();
   const serviceTypes = [
     "Switchboard Upgrades Sydney & Surrounding Regions",
     "Safety Switch Installation",
@@ -259,14 +186,14 @@ export default function SwitchboardUpgradesSydneyPage() {
           className="brand-internal-hero-image object-cover object-[68%_center]"
         />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-28">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-16">
           <div className="internal-hero-copy-panel">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-blue-200">
               <ShieldCheck className="h-4 w-4" />
               Safety Switches - RCBOs - Modern Protection
             </div>
 
-            <h1 className="max-w-5xl text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
+            <h1 className="max-w-5xl text-4xl font-black leading-tight tracking-tight sm:text-5xl lg:text-6xl">
               Switchboard Upgrades Sydney & Surrounding Regions
             </h1>
 
@@ -306,31 +233,6 @@ export default function SwitchboardUpgradesSydneyPage() {
               </a>
             </div>
 
-            <div className="mt-10 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
-              <div className="rounded-2xl border border-white/10 bg-white/10 p-4">
-                <ShieldCheck className="h-6 w-6 text-blue-300" />
-                <p className="mt-3 text-xl font-black">Safety</p>
-                <p className="mt-1 text-sm text-slate-300">
-                  Modern circuit protection.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-white/10 bg-white/10 p-4">
-                <BadgeCheck className="h-6 w-6 text-blue-300" />
-                <p className="mt-3 text-xl font-black">{business.licence}</p>
-                <p className="mt-1 text-sm text-slate-300">
-                  NSW licensed electrician.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-white/10 bg-white/10 p-4">
-                <Gauge className="h-6 w-6 text-blue-300" />
-                <p className="mt-3 text-xl font-black">Testing</p>
-                <p className="mt-1 text-sm text-slate-300">
-                  Inspection and verification.
-                </p>
-              </div>
-            </div>
           </div>
 
           {/* Quote card */}
@@ -348,29 +250,6 @@ export default function SwitchboardUpgradesSydneyPage() {
               buzzing, smoke or repeated tripping.
             </p>
 
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-              <a
-                href={business.phoneHref}
-                data-conversion-action="phone-click"
-                aria-label={business.callCta}
-                className="inline-flex items-center justify-center gap-3 rounded-xl border border-red-200/40 bg-gradient-to-r from-[#b90816] via-red-600 to-[#ff2637] px-6 py-4 font-black text-white shadow-lg shadow-red-950/30 transition hover:border-red-100 hover:from-red-700 hover:via-red-500 hover:to-red-400"
-              >
-                <Phone className="h-5 w-5" />
-                <span className="whitespace-nowrap">{business.callCta}</span>
-              </a>
-              <a
-                href={business.bookingUrl}
-                aria-label="Get a quote from Evaready Electrical"
-                data-quote-trigger="true"
-                data-conversion-action="quote-click"
-                aria-haspopup="dialog"
-                className="inline-flex items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-blue-700 to-cyan-400 px-6 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:from-blue-600 hover:to-cyan-300"
-              >
-                {business.quoteCta}
-                <ArrowRight className="h-5 w-5" />
-              </a>
-            </div>
-
             <p className="mt-4 text-center text-xs text-slate-400">
               Electrical Licence: {business.licence}
             </p>
@@ -378,35 +257,7 @@ export default function SwitchboardUpgradesSydneyPage() {
         </div>
       </section>
 
-      <TrustSymbolBand className="border-b border-slate-200" />
-
-      <GoogleReviewProof
-        heading="Read Evaready Electrical reviews before a switchboard upgrade."
-        subheading="Switchboard work should feel clear before it starts. View Evaready Electrical on Google, then send photos or call first if there is heat, smoke or repeated tripping."
-      />
-
-      <LeadOfferPanel
-        className="border-b border-cyan-300/15"
-        eyebrow="Switchboard photo review"
-        heading="Send switchboard photos before planned upgrade work starts."
-        intro="For switchboard upgrades across Sydney and surrounding regions, send photos, tripping details, new load plans or defect notices for review. If there is heat, smoke, buzzing or sparking, call first."
-        items={[
-          "Send switchboard photos for planned electrical work",
-          "Send switchboard, meter box or service equipment photos",
-          "Photos help us quote faster",
-          "Clear next actions before work starts",
-        ]}
-      />
-
-      <CompactOfferStrip
-        id="service-current-offers"
-        offers={currentServiceOffers}
-        heading="Current offers for switchboard and safety work"
-        intro="Eligible switchboard, safety and inspection offers can be applied where the job scope and terms match. Call first if there is heat, smoke, sparking or repeated tripping."
-        className="border-b border-cyan-300/15"
-      />
-
-      <section className="border-b border-cyan-300/15 bg-[#040b1c] py-14 text-white">
+      <section className="border-b border-cyan-300/15 bg-[#040b1c] py-12 text-white">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.28em] text-cyan-300">
@@ -415,7 +266,7 @@ export default function SwitchboardUpgradesSydneyPage() {
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Choose the right switchboard or safety path.
             </h2>
-            <p className="mt-5 text-base font-semibold leading-7 text-slate-200 sm:text-lg sm:leading-8">
+            <p className="mt-4 text-base font-semibold leading-7 text-slate-200">
               Switchboard work can connect with old ceramic fuses, safety
               switch tripping, burnt switchboard smells, RCD upgrades, surge
               protection, inspections, load capacity checks and supply-side
@@ -461,7 +312,7 @@ export default function SwitchboardUpgradesSydneyPage() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group grid min-h-28 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-lg border border-cyan-300/20 bg-[#091d42] p-4 shadow-lg shadow-blue-950/20 transition hover:-translate-y-0.5 hover:border-cyan-200 hover:bg-[#0d2b5c]"
+                className="group grid min-h-24 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-lg border border-cyan-300/20 bg-[#091d42] p-4 shadow-lg shadow-blue-950/20 transition hover:-translate-y-0.5 hover:border-cyan-200 hover:bg-[#0d2b5c]"
               >
                 <span className="min-w-0">
                   <span className="block text-base font-black leading-6 text-white">
@@ -485,57 +336,31 @@ export default function SwitchboardUpgradesSydneyPage() {
         </div>
       </section>
 
-      <section className="border-b border-cyan-300/15 bg-[#06142f] py-14 text-white">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.28em] text-cyan-300">
-              Level 2 service pathway
-            </p>
-            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Related Level 2 electrical support.
-            </h2>
-            <p className="mt-5 text-base font-semibold leading-7 text-slate-200 sm:text-lg sm:leading-8">
-              {business.level2Asp.display}. Switchboard upgrades can connect
-              with consumer mains, defect notices, metering, load capacity and
-              supply-side service equipment, so Evaready can review the photos
-              and explain the practical next action.
-            </p>
-            <div className="mt-6 rounded-lg border border-cyan-300/20 bg-[#091d42] p-5 shadow-lg shadow-blue-950/25">
-              <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">
-                What to send
-              </p>
-              <ul className="mt-4 grid gap-3">
-                {level2SwitchboardNextSteps.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-3 text-sm font-bold leading-6 text-slate-100"
-                  >
-                    <ClipboardList className="mt-0.5 h-5 w-5 shrink-0 text-cyan-300" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
+      <section className="border-b border-cyan-300/15 bg-[#06142f] py-12 text-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-sm font-black uppercase tracking-[0.28em] text-cyan-300">
+            Level 2 service pathway
+          </p>
+          <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-4xl">
+            Related Level 2 electrical support.
+          </h2>
+          <p className="mt-4 max-w-4xl text-base font-semibold leading-7 text-slate-200">
+            {business.level2Asp.display}. Switchboard work can connect with
+            consumer mains, defect notices, metering, load capacity and
+            supply-side service equipment.
+          </p>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {level2SwitchboardLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="group grid min-h-28 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-lg border border-cyan-300/20 bg-[#091d42] p-4 shadow-lg shadow-blue-950/20 transition hover:-translate-y-0.5 hover:border-cyan-200 hover:bg-[#0d2b5c]"
+                className="group grid min-h-16 grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-lg border border-cyan-300/20 bg-[#091d42] p-4 shadow-lg shadow-blue-950/20 transition hover:-translate-y-0.5 hover:border-cyan-200 hover:bg-[#0d2b5c]"
               >
-                <span className="min-w-0">
-                  <span className="block text-base font-black leading-6 text-white">
-                    {link.label}
-                  </span>
-                  {link.description ? (
-                    <span className="mt-2 block text-sm font-semibold leading-6 text-slate-300">
-                      {link.description}
-                    </span>
-                  ) : null}
+                <span className="min-w-0 text-sm font-black leading-6 text-white">
+                  {link.label}
                 </span>
                 <span
-                  className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-cyan-300/25 bg-[#0d2b5c] text-cyan-200 transition group-hover:translate-x-1"
+                  className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-cyan-300/25 bg-[#0d2b5c] text-cyan-200 transition group-hover:translate-x-1"
                   aria-hidden="true"
                 >
                   <ArrowRight className="h-4 w-4" />
@@ -546,14 +371,8 @@ export default function SwitchboardUpgradesSydneyPage() {
         </div>
       </section>
 
-      <TrustProcessProof
-        className="border-b border-cyan-300/15"
-        serviceName="switchboard upgrades"
-        variant="switchboard"
-      />
-
       {/* Services */}
-      <section className="ev-storm-section py-24">
+      <section className="ev-storm-section py-14">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
@@ -586,7 +405,7 @@ export default function SwitchboardUpgradesSydneyPage() {
       </section>
 
       {/* Warning signs */}
-      <section className="ev-storm-section ev-storm-section--emergency py-24">
+      <section className="ev-storm-section ev-storm-section--emergency py-14">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
@@ -603,7 +422,7 @@ export default function SwitchboardUpgradesSydneyPage() {
             </p>
           </div>
 
-          <div className="ev-storm-panel rounded-[2rem] border border-red-300/25 p-7">
+          <div className="ev-storm-panel rounded-lg border border-red-300/25 p-6">
             <div className="grid gap-4">
               {warningSigns.map((item) => (
                 <div key={item} className="flex gap-3">
@@ -616,66 +435,8 @@ export default function SwitchboardUpgradesSydneyPage() {
         </div>
       </section>
 
-      <section className="ev-storm-section py-20">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
-              Upgrade outcomes
-            </p>
-            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              What a proper switchboard upgrade should improve.
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">
-              A switchboard upgrade should make the electrical system safer,
-              easier to understand and better prepared for modern loads.
-            </p>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {upgradeOutcomes.map((item) => (
-              <div
-                key={item}
-                className="ev-storm-card flex gap-3 rounded-lg border border-cyan-300/20 p-5"
-              >
-                <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-blue-700" />
-                <p className="font-semibold leading-7 text-slate-800">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="ev-storm-section py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
-            Switchboard authority
-          </p>
-          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-            The board should be ready for the way the property is used now.
-          </h2>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-            A good upgrade is not just a tidy row of breakers. It should
-            consider old protection, heat damage, overloaded circuits, future
-            loads and whether the supply needs a deeper Level 2 review.
-          </p>
-
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
-            {switchboardAuthority.map((item) => (
-              <article
-                key={item.title}
-                className="ev-storm-card rounded-lg border border-cyan-300/20 p-6"
-              >
-                <CheckCircle2 className="h-7 w-7 text-blue-700" />
-                <h3 className="mt-5 text-2xl font-black">{item.title}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Process */}
-      <section className="ev-storm-section py-24 text-white">
+      <section className="ev-storm-section py-14 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-black uppercase tracking-[0.35em] text-red-400">
             How It Works
@@ -685,17 +446,17 @@ export default function SwitchboardUpgradesSydneyPage() {
             Clear inspection, clean installation and proper testing.
           </h2>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {process.map((step, index) => (
               <div
                 key={step.title}
-                className="rounded-[2rem] border border-white/10 bg-white/5 p-6"
+                className="rounded-lg border border-white/10 bg-white/5 p-5"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-700 font-black">
                   {index + 1}
                 </div>
 
-                <h3 className="mt-6 text-xl font-black">{step.title}</h3>
+                <h3 className="mt-4 text-xl font-black">{step.title}</h3>
                 <p className="mt-3 leading-7 text-slate-300">{step.text}</p>
               </div>
             ))}
@@ -703,7 +464,7 @@ export default function SwitchboardUpgradesSydneyPage() {
         </div>
       </section>
 
-      <section className="ev-storm-section py-20">
+      <section className="ev-storm-section py-14">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
@@ -728,7 +489,7 @@ export default function SwitchboardUpgradesSydneyPage() {
         </div>
       </section>
 
-      <section className="ev-storm-section py-20">
+      <section className="ev-storm-section py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-black uppercase tracking-[0.35em] text-blue-700">
             Connected electrical work
@@ -737,7 +498,7 @@ export default function SwitchboardUpgradesSydneyPage() {
             Switchboard upgrades often connect with supply, fault and load
             checks.
           </h2>
-          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {relatedLinks.map((link) => (
               <Link
                 key={link.href}
@@ -751,46 +512,6 @@ export default function SwitchboardUpgradesSydneyPage() {
                 </span>
               </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-gradient-to-r from-[#082A86] via-[#061E72] to-[#43040e] py-24 text-white">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-red-300">
-              Ready to plan a switchboard upgrade?
-            </p>
-
-            <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Send the switchboard photos and job notes, or call Evaready
-              Electrical if the board feels unsafe.
-            </h2>
-          </div>
-
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <a
-              href={business.phoneHref}
-              data-conversion-action="phone-click"
-              aria-label={business.callCta}
-              className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
-            >
-              <Phone className="h-5 w-5" />
-              <span className="whitespace-nowrap">{business.callCta}</span>
-            </a>
-
-            <a
-              href={business.bookingUrl}
-              data-quote-trigger="true"
-              data-conversion-action="quote-click"
-              aria-haspopup="dialog"
-              aria-label="Get a quote from Evaready Electrical"
-              className="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
-            >
-              {business.quoteCta}
-              <ArrowRight className="h-5 w-5" />
-            </a>
           </div>
         </div>
       </section>

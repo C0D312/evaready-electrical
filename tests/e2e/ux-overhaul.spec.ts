@@ -339,7 +339,7 @@ test("homepage service tiles use the full card as one accessible link", async ({
   await page.goto("./", { waitUntil: "domcontentloaded" });
 
   const cards = page.locator("[data-home-service-card]");
-  await expect(cards).toHaveCount(8);
+  await expect(cards).toHaveCount(4);
   expect(
     await cards.evaluateAll((elements) =>
       elements.every(

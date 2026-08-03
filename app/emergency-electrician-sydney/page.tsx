@@ -8,17 +8,11 @@ import {
   Zap,
 } from "lucide-react";
 import { EmergencyTrustPanel } from "@/components/emergency-trust-panel";
-import { GoogleReviewProof } from "@/components/google-review-proof";
-import { LeadOfferPanel } from "@/components/lead-offer-panel";
-import { OffersSection } from "@/components/offers-section";
 import {
   ServiceCredentialStrip,
   serviceCredentialPresets,
 } from "@/components/service-credential-strip";
-import { TrustProcessProof } from "@/components/trust-process-proof";
-import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { emergencyFaultClusterLinks } from "@/data/electrical-faults";
-import { getOffersForPlacement } from "@/data/offers";
 import { absoluteUrl, assetPath, business } from "@/data/site";
 import { schemaJson } from "@/lib/schema";
 import { emergencySeoMetadata, toMetadata } from "@/lib/seo-metadata";
@@ -109,39 +103,6 @@ const emergencyServices = [
   },
 ];
 
-const warningSigns = [
-  {
-    title: "No power, partial power loss or a circuit that will not stay on",
-    text: "Turn off sensitive appliances if safe and call if the power loss feels unsafe or unexplained.",
-    href: "/electrical-faults/no-power-to-house",
-  },
-  {
-    title: "Burning smell, smoke or heat near a switchboard",
-    text: "Keep clear, do not touch the switchboard, and call for urgent electrical advice.",
-    href: "/electrical-faults/burning-smell-from-switchboard",
-  },
-  {
-    title: "Safety switch or circuit breaker keeps tripping",
-    text: "Stop repeated resets. The switch may be reacting to water ingress, damaged wiring or appliance faults.",
-    href: "/electrical-faults/safety-switch-keeps-tripping",
-  },
-  {
-    title: "Sparking, buzzing, crackling or a hot power point",
-    text: "Stop using the outlet or fitting and keep people away from the affected area.",
-    href: "/electrical-faults/power-point-sparking",
-  },
-  {
-    title: "Storm damage, water around fixtures or outdoor electrical faults",
-    text: "Water and electricity are a serious risk. Do not use wet switches, outlets or lights.",
-    href: "/electrical-faults/rcd-trips-when-raining",
-  },
-  {
-    title: "Fallen service lines, exposed wiring or electric shock risk",
-    text: "Keep clear. For life-threatening danger, call emergency services first.",
-    href: "/electrical-faults/electric-shock-from-outlet",
-  },
-];
-
 const safetySteps = [
   {
     title: "Keep clear of exposed wires, wet fixtures, smoke and burning smells or fallen lines.",
@@ -229,19 +190,6 @@ const process = [
 ];
 
 const relatedLinks = emergencyFaultClusterLinks;
-
-const emergencyProofItems = [
-  `NSW Electrical Licence ${business.licence}`,
-  `ABN ${business.abn}`,
-  `Open Cabler Registration ${business.openCablerRegistration}`,
-  `ARCtick Licensed ${business.arctickLicence}`,
-  business.level2Asp.display,
-  "Call-first emergency triage",
-  "Safety-first fault testing",
-  "Clear next action before work begins",
-  "Photos and paperwork reviewed for planned work",
-  "Sydney and surrounding regions",
-];
 
 function EmergencyActionLink({
   className = "",
@@ -439,7 +387,7 @@ export default function EmergencyElectricianSydneyPage() {
           className="brand-internal-hero-image object-cover object-[68%_center]"
         />
 
-        <div className={cx(styles.heroInner, "relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-24")}>
+        <div className={cx(styles.heroInner, "relative mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-16")}>
           <div className={styles.heroCopyPanel}>
             <div className={cx(styles.eyebrow, "mb-6 inline-flex items-center gap-2 rounded-full border border-red-400/30 bg-red-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-red-200")}>
               <AlertTriangle className="h-4 w-4" aria-hidden="true" />
@@ -461,20 +409,18 @@ export default function EmergencyElectricianSydneyPage() {
               For planned work, send photos and job details.
             </p>
 
-            <p className={cx(styles.heroResponse, "mt-4 max-w-2xl rounded-2xl border border-red-300/25 bg-red-500/10 p-4 text-sm font-bold leading-6 text-slate-100")}>
-              Evaready provides 60-minute emergency response in core service
-              areas and a 60–90-minute response window in selected outer
-              regions. Call first so the fault, location, access and safety risk
-              can be triaged. Timing depends on location, access, traffic,
-              safety conditions, job type and current availability. Response
-              times apply to emergency electrical call-outs, not planned quote
-              work.
-            </p>
-
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <EmergencyActionLink className="min-h-14 px-8 py-4 text-lg sm:min-w-[18rem]" />
               <QuoteActionLink secondary className="min-h-14 sm:min-w-[12rem]" />
             </div>
+
+            <p className={cx(styles.heroResponse, "mt-4 max-w-2xl rounded-2xl border border-red-300/25 bg-red-500/10 p-4 text-sm font-bold leading-6 text-slate-100")}>
+              Emergency response is within 60 minutes in core service areas
+              and 60–90 minutes in selected outer regions. Timing depends on
+              location, access, traffic, safety conditions, job type and current
+              availability. These times apply to emergency call-outs, not
+              planned quote work.
+            </p>
 
             <ServiceCredentialStrip
               items={serviceCredentialPresets.emergency}
@@ -510,11 +456,6 @@ export default function EmergencyElectricianSydneyPage() {
               ))}
             </div>
 
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              <EmergencyActionLink compact />
-              <QuoteActionLink compact />
-            </div>
-
             <p className="mt-4 text-center text-xs text-slate-400">
               Electrical Licence: {business.licence}
             </p>
@@ -524,69 +465,7 @@ export default function EmergencyElectricianSydneyPage() {
 
       <EmergencyTrustPanel className="border-b border-cyan-300/15" />
 
-      <GoogleReviewProof
-        heading="Check Evaready Electrical reviews before you call."
-        subheading="For urgent electrical faults, call first. You can also view Evaready Electrical on Google to read real customer feedback before booking planned work."
-      />
-
-      <section className={cx(styles.calmSection, "ev-storm-section ev-storm-section--subtle py-16")}>
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
-          <div>
-            <p className={cx(styles.redEyebrow, "text-sm font-black uppercase tracking-[0.32em] text-red-600")}>
-              Trust and safety
-            </p>
-            <h2 className={cx(styles.sectionTitle, "mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl")}>
-              Why call Evaready in an emergency?
-            </h2>
-            <p className={cx(styles.sectionText, "mt-5 text-base font-bold leading-7 text-slate-700 sm:text-lg")}>
-              Do not keep resetting breakers, touching damaged fittings or
-              using water-affected outlets. Call first if the fault feels
-              unsafe.
-            </p>
-          </div>
-
-          <div className="grid gap-3 sm:grid-cols-2">
-            {emergencyProofItems.map((item) => (
-              <div
-                key={item}
-                className={cx(styles.proofCard, "ev-storm-card ev-storm-card--trust rounded-2xl px-4 py-3 text-sm font-black leading-6 text-slate-100")}
-              >
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <OffersSection
-        id="emergency-current-offers"
-        offers={getOffersForPlacement("emergency")}
-        eyebrow="Emergency offer support"
-        heading="Current Electrical Offers"
-        intro="Safety comes first. Call immediately if the fault feels unsafe, then the current offers can be reviewed against the job scope and terms."
-      />
-
-      <LeadOfferPanel
-        className="border-b border-cyan-300/15"
-        eyebrow="Emergency triage"
-        heading="Call first for urgent faults, or send photos for planned follow-up work."
-        intro="Evaready Electrical supports emergency call-first triage across Sydney and surrounding regions. Planned electrical work can be reviewed from photos once the immediate safety risk is clear."
-        items={[
-          "Call-first emergency triage",
-          "Send photos after immediate safety risks are clear",
-          "Photos help explain follow-up work",
-          "Clear next actions before work starts",
-        ]}
-      />
-
-      <TrustProcessProof
-        className="border-b border-cyan-300/15"
-        variant="emergency"
-      />
-
-      <TrustSymbolBand className="border-b border-cyan-300/16" />
-
-      <section className={cx(styles.blueSection, "ev-storm-section py-24")}>
+      <section className={cx(styles.blueSection, "ev-storm-section py-14 sm:py-16")}>
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
             <p className={cx(styles.redEyebrow, "text-sm font-black uppercase tracking-[0.35em] text-red-600")}>
@@ -656,57 +535,7 @@ export default function EmergencyElectricianSydneyPage() {
         </div>
       </section>
 
-      <section className={cx(styles.calmSection, "ev-storm-section ev-storm-section--emergency py-24")}>
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
-          <div>
-            <p className={cx(styles.blueEyebrow, "text-sm font-black uppercase tracking-[0.35em] text-blue-700")}>
-              Warning Signs
-            </p>
-
-            <h2 className={cx(styles.sectionTitle, "mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl")}>
-              When should you call an emergency electrician?
-            </h2>
-
-            <p className={cx(styles.sectionText, "mt-5 text-lg leading-8 text-slate-600")}>
-              Electrical faults can look minor before they become dangerous.
-              These warning signs deserve a call-first approach.
-            </p>
-          </div>
-
-          <div className={cx(styles.warningPanel, "ev-storm-panel ev-storm-panel--strong rounded-[2rem] p-7")}>
-            <div className="grid gap-4">
-              {warningSigns.map((item) => (
-                <Link
-                  key={item.title}
-                  href={item.href}
-                  className={cx(styles.warningCard, "group rounded-xl p-3 transition hover:bg-red-50")}
-                >
-                  <span className="min-w-0">
-                    <AlertTriangle
-                      className="mt-1 h-5 w-5 shrink-0 text-red-600"
-                      aria-hidden="true"
-                    />
-                    <span>
-                      <span className={cx(styles.cardTitle, "block font-black text-slate-900")}>
-                        {item.title}
-                      </span>
-                      <span className={cx(styles.cardText, "mt-1 block text-sm leading-6 text-slate-600")}>
-                        {item.text}
-                      </span>
-                    </span>
-                    <ArrowRight
-                      className="ml-auto mt-1 h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-red-600"
-                      aria-hidden="true"
-                    />
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={cx(styles.blueSection, "ev-storm-section py-20")}>
+      <section className={cx(styles.blueSection, "ev-storm-section py-14 sm:py-16")}>
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
             <p className={cx(styles.redEyebrow, "text-sm font-black uppercase tracking-[0.35em] text-red-600")}>
@@ -774,7 +603,7 @@ export default function EmergencyElectricianSydneyPage() {
         </div>
       </section>
 
-      <section className={cx(styles.processSection, "bg-[#061E72] py-24 text-white")}>
+      <section className={cx(styles.processSection, "bg-[#061E72] py-14 text-white sm:py-16")}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className={cx(styles.redEyebrow, "text-sm font-black uppercase tracking-[0.35em] text-red-400")}>
             Emergency Call Flow
@@ -784,7 +613,7 @@ export default function EmergencyElectricianSydneyPage() {
             Clear phone triage, proper testing and safe next actions.
           </h2>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {process.map((step, index) => (
               <div
                 key={step.title}
@@ -802,7 +631,7 @@ export default function EmergencyElectricianSydneyPage() {
         </div>
       </section>
 
-      <section className={cx(styles.calmSection, "ev-storm-section ev-storm-section--subtle py-20")}>
+      <section className={cx(styles.calmSection, "ev-storm-section ev-storm-section--subtle py-14 sm:py-16")}>
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
           <div>
             <p className={cx(styles.blueEyebrow, "text-sm font-black uppercase tracking-[0.35em] text-blue-700")}>
@@ -827,7 +656,7 @@ export default function EmergencyElectricianSydneyPage() {
         </div>
       </section>
 
-      <section className={cx(styles.blueSection, "ev-storm-section py-20")}>
+      <section className={cx(styles.blueSection, "ev-storm-section py-14 sm:py-16")}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className={cx(styles.blueEyebrow, "text-sm font-black uppercase tracking-[0.35em] text-blue-700")}>
             Related emergency fault guides
@@ -849,30 +678,6 @@ export default function EmergencyElectricianSydneyPage() {
                 />
               </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className={cx(styles.finalCta, "bg-gradient-to-r from-[#160208] via-[#061E72] to-[#082A86] py-24 text-white")}>
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
-          <div>
-            <p className={cx(styles.redEyebrow, "text-sm font-black uppercase tracking-[0.35em] text-red-300")}>
-              Emergency electrical fault?
-            </p>
-
-            <h2 className={cx(styles.sectionTitle, "mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl")}>
-              Call first for no power, smoke and burning smells or sparking.
-            </h2>
-            <p className={cx(styles.sectionText, "mt-4 max-w-2xl text-lg leading-8 text-slate-300")}>
-              Planned work can go through the booking form. Anything unsafe
-              should start with a phone call before the affected area is used
-              again.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <EmergencyActionLink />
-            <QuoteActionLink />
           </div>
         </div>
       </section>

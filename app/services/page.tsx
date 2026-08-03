@@ -17,15 +17,7 @@ import {
   Wrench,
   Zap,
 } from "lucide-react";
-import {
-  ServiceCredentialStrip,
-} from "@/components/service-credential-strip";
-import { GoogleReviewProof } from "@/components/google-review-proof";
-import { LeadOfferPanel } from "@/components/lead-offer-panel";
-import { OffersSection } from "@/components/offers-section";
-import { TrustProcessProof } from "@/components/trust-process-proof";
-import { TrustSymbolBand } from "@/components/trust-symbol-band";
-import { getOffersForPlacement } from "@/data/offers";
+import { ServiceCredentialStrip } from "@/components/service-credential-strip";
 import { serviceLandingPages } from "@/data/service-pages";
 import { absoluteUrl, assetPath, business } from "@/data/site";
 import {
@@ -824,8 +816,6 @@ const orderedServices = [
   ...services.filter((service) => !leadValueServiceTitleSet.has(service.title)),
 ];
 
-const featuredServices = leadValueServices;
-
 const serviceLandingPageBySlug = new Map(
   serviceLandingPages.map((service) => [service.slug, service]),
 );
@@ -856,154 +846,6 @@ const servicesHeroIntentCards = [
     label: "Planned work",
     copy: "Choose the closest service below and send photos, job notes and access details through the quote form.",
     tone: "planned",
-  },
-];
-
-const serviceProblemSelectorItems = [
-  {
-    problem: "No power or partial power loss",
-    links: [
-      { label: "Emergency electrician", href: "/emergency-electrician-sydney" },
-      {
-        label: "Electrical fault finding",
-        href: "/services/electrical-fault-finding-sydney",
-      },
-    ],
-  },
-  {
-    problem: "Burning smell or hot fitting",
-    links: [
-      { label: "Emergency electrician", href: "/emergency-electrician-sydney" },
-      {
-        label: "Electrical fault finding",
-        href: "/services/electrical-fault-finding-sydney",
-      },
-    ],
-  },
-  {
-    problem: "Safety switch keeps tripping",
-    links: [
-      {
-        label: "Safety switches",
-        href: "/services/safety-switch-rcd-installation-sydney",
-      },
-      {
-        label: "Electrical fault finding",
-        href: "/services/electrical-fault-finding-sydney",
-      },
-    ],
-  },
-  {
-    problem: "Old switchboard or ceramic fuses",
-    links: [
-      {
-        label: "Switchboard upgrades",
-        href: "/services/switchboard-upgrades-sydney",
-      },
-    ],
-  },
-  {
-    problem: "Defect notice",
-    links: [
-      {
-        label: "Defect notice repairs",
-        href: "/services/defect-notice-repairs-sydney",
-      },
-    ],
-  },
-  {
-    problem: "Consumer mains or supply upgrade",
-    links: [
-      { label: "Consumer mains", href: "/services/consumer-mains-sydney" },
-    ],
-  },
-  {
-    problem: "Damaged point of attachment",
-    links: [
-      {
-        label: "Point of attachment repairs",
-        href: "/services/point-of-attachment-repairs-sydney",
-      },
-    ],
-  },
-  {
-    problem: "Hot water not working",
-    links: [
-      {
-        label: "Hot water electrical",
-        href: "/services/hot-water-system-electrician-sydney",
-      },
-    ],
-  },
-  {
-    problem: "Aircon circuit or isolator",
-    links: [
-      {
-        label: "Air conditioning electrical",
-        href: "/services/split-system-air-conditioning-sydney",
-      },
-    ],
-  },
-  {
-    problem: "Solar or battery electrical planning",
-    links: [
-      {
-        label: "Solar & Batteries",
-        href: "/solar-batteries",
-      },
-      {
-        label: "Load capacity checks",
-        href: "/services/electrical-load-capacity-checks-sydney",
-      },
-    ],
-  },
-  {
-    problem: "CCTV/data cabling",
-    links: [
-      {
-        label: "CCTV and security cameras",
-        href: "/services/cctv-security-camera-installation-sydney",
-      },
-      {
-        label: "Data cabling",
-        href: "/services/data-cabling-electrician-sydney",
-      },
-    ],
-  },
-  {
-    problem: "Shop, office or strata work",
-    links: [
-      {
-        label: "Commercial electrician",
-        href: "/services/commercial-electrician-sydney",
-      },
-    ],
-  },
-  {
-    problem: "Buying, leasing or managing a property",
-    links: [
-      {
-        label: "Pre-purchase and rental electrical inspections",
-        href: "/services/pre-purchase-rental-electrical-inspections-sydney",
-      },
-      {
-        label: "Electrical safety inspections",
-        href: "/services/electrical-safety-inspection-sydney",
-      },
-    ],
-  },
-  {
-    problem: "Planned renovation/new circuit",
-    links: [
-      {
-        label: "Residential electrician",
-        href: "/services/residential-electrician-sydney",
-      },
-      {
-        label: "New builds and renovations",
-        href: "/services/new-build-renovation-electrician-sydney",
-      },
-    ],
   },
 ];
 
@@ -1289,7 +1131,7 @@ export default function ServicesPage() {
           className="brand-internal-hero-image object-cover object-[68%_center]"
         />
 
-        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+        <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
           <div className="internal-hero-copy-panel services-index-hero-panel max-w-5xl">
             <div className="services-index-hero-eyebrow mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-blue-200">
               <CheckCircle2 className="h-4 w-4" />
@@ -1307,27 +1149,7 @@ export default function ServicesPage() {
               and surrounding regions.
             </p>
 
-            <div className="services-index-intent-grid mt-6 grid gap-3 md:grid-cols-2">
-              {servicesHeroIntentCards.map((card) => (
-                <div
-                  key={card.label}
-                  className={`services-index-intent-card rounded-2xl border p-4 ${
-                    card.tone === "emergency"
-                      ? "services-index-intent-card--emergency border-red-300/25 bg-red-500/12"
-                      : "services-index-intent-card--planned border-cyan-300/25 bg-cyan-300/10"
-                  }`}
-                >
-                  <p className="text-xs font-black uppercase tracking-[0.18em]">
-                    {card.label}
-                  </p>
-                  <p className="mt-2 text-sm font-bold leading-6 text-slate-100">
-                    {card.copy}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div className="services-index-hero-cta-grid mt-8 grid gap-3 sm:grid-cols-2">
+            <div className="services-index-hero-cta-grid mt-6 grid gap-3 sm:grid-cols-2">
               <a
                 href={business.phoneHref}
                 data-conversion-action="phone-click"
@@ -1351,6 +1173,26 @@ export default function ServicesPage() {
               </a>
             </div>
 
+            <div className="services-index-intent-grid mt-4 grid gap-3 md:grid-cols-2">
+              {servicesHeroIntentCards.map((card) => (
+                <div
+                  key={card.label}
+                  className={`services-index-intent-card rounded-xl border p-3 ${
+                    card.tone === "emergency"
+                      ? "services-index-intent-card--emergency border-red-300/25 bg-red-500/12"
+                      : "services-index-intent-card--planned border-cyan-300/25 bg-cyan-300/10"
+                  }`}
+                >
+                  <p className="text-xs font-black uppercase tracking-[0.18em]">
+                    {card.label}
+                  </p>
+                  <p className="mt-1.5 text-sm font-bold leading-5 text-slate-100">
+                    {card.copy}
+                  </p>
+                </div>
+              ))}
+            </div>
+
             <ServiceCredentialStrip
               items={servicesHeroCredentialItems}
               className="services-index-hero-credentials mt-6"
@@ -1359,102 +1201,25 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="services-featured-section bg-[var(--ev-midnight)] py-16 text-white sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.22em] text-cyan-200">
-              Most requested
-            </p>
-            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Fast paths for the electrical jobs people call about first.
-            </h2>
-            <p className="mt-5 text-lg font-semibold leading-8 text-slate-200">
-              Start with one of the main service types below, or keep browsing
-              the full service list for more specific electrical work.
-            </p>
-          </div>
-
-          <div className="services-featured-grid mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {featuredServices.map((service) => {
-              const Icon = service.icon;
-              const href = getServiceHref(service.title);
-
-              return (
-                <Link
-                  key={service.title}
-                  href={href}
-                  className="services-featured-card group flex h-full min-h-[17rem] flex-col overflow-hidden rounded-2xl border border-cyan-300/20 bg-[#061E72] p-6 text-white shadow-xl shadow-blue-950/10 transition hover:-translate-y-1 hover:border-cyan-300/55 hover:shadow-cyan-500/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
-                >
-                  <div className="services-featured-card__body grid min-w-0 grid-cols-[3.75rem_minmax(0,1fr)] items-start gap-4">
-                    <span className="services-featured-card__icon inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-blue-500/20 text-cyan-200">
-                      <Icon className="h-7 w-7" />
-                    </span>
-                    <div className="min-w-0">
-                      <h3 className="services-featured-card__title text-xl font-black leading-7">
-                        {getServiceDisplayTitle(service.title)}
-                      </h3>
-                      <p className="services-featured-card__copy mt-2 text-sm font-semibold leading-6 text-slate-200">
-                        {service.description}
-                      </p>
-                    </div>
-                  </div>
-                  <span className="services-card-action mt-auto inline-flex items-center gap-2 pt-5 font-black text-cyan-200">
-                    View service
-                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <TrustSymbolBand className="border-y border-cyan-300/15" />
-
       <section
         id="service-catalogue"
-        className="bg-[var(--ev-dark-blue)] py-16 text-white sm:py-20"
+        className="bg-[var(--ev-dark-blue)] py-12 text-white sm:py-16"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-4xl">
-              <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-200">
-                Electrical services
-              </p>
+          <div className="max-w-4xl">
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-200">
+              Electrical services
+            </p>
 
-              <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-                Choose the electrical service that best matches the job.
-              </h2>
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+              Choose the electrical service that best matches the job.
+            </h2>
 
-              <p className="mt-5 text-lg font-semibold leading-8 text-slate-200">
-                Call directly if the issue feels unsafe. For planned work,
-                choose the closest category and send the details through the
-                quote form so the job can be reviewed.
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-3 sm:flex-row lg:shrink-0">
-              <a
-                href={business.phoneHref}
-                data-conversion-action="phone-click"
-                aria-label={business.callCta}
-                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-red-700 to-red-500 px-5 py-3 text-sm font-black text-white shadow-lg shadow-red-600/25 transition hover:from-red-600 hover:to-red-400"
-              >
-                <Phone className="h-4 w-4" />
-                <span className="whitespace-nowrap">{business.callCta}</span>
-              </a>
-              <a
-                href={business.bookingUrl}
-                data-quote-trigger="true"
-                data-conversion-action="quote-click"
-                aria-haspopup="dialog"
-                aria-label="Get a quote from Evaready Electrical"
-                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-400 px-5 py-3 text-sm font-black text-white shadow-lg shadow-cyan-500/20 transition hover:from-blue-500 hover:to-cyan-300"
-              >
-                {business.quoteCta}
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
+            <p className="mt-5 text-lg font-semibold leading-8 text-slate-200">
+              Call directly if the issue feels unsafe. For planned work,
+              choose the closest category and send the details through the
+              quote form so the job can be reviewed.
+            </p>
           </div>
 
           <nav
@@ -1478,12 +1243,12 @@ export default function ServicesPage() {
             ))}
           </nav>
 
-          <div className="mt-10 grid gap-8">
+          <div className="mt-8 grid gap-6">
             {serviceCatalogueCategories.map((category) => (
               <section
                 key={category.id}
                 id={category.id}
-                className="scroll-mt-36 rounded-[2rem] border border-cyan-300/18 bg-[var(--ev-panel-blue)] p-5 shadow-2xl shadow-blue-950/20 sm:p-7"
+                className="scroll-mt-36 rounded-2xl border border-cyan-300/18 bg-[var(--ev-panel-blue)] p-5 shadow-xl shadow-blue-950/20 sm:p-6"
               >
                 <div className="max-w-4xl">
                   <h3 className="text-2xl font-black tracking-tight text-white sm:text-3xl">
@@ -1495,10 +1260,10 @@ export default function ServicesPage() {
                 </div>
 
                 <div
-                  className="services-catalogue-grid mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3"
+                  className="services-catalogue-grid mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                   data-item-count={category.items.length}
                   data-balance-md={category.items.length % 2}
-                  data-balance-xl={category.items.length % 3}
+                  data-balance-xl={category.items.length % 4}
                 >
                   {category.items.map((item) => {
                     const service = getServiceByTitle(item.title);
@@ -1506,7 +1271,6 @@ export default function ServicesPage() {
                     const href = getServiceHref(service.title);
                     const isExternal = isExternalServiceLink(service.title);
                     const displayTitle = getServiceDisplayTitle(service.title);
-                    const visibleIncludes = service.includes.slice(0, 4);
                     const relatedLinks = item.related ?? [];
                     const serviceCardBody = (
                       <>
@@ -1518,22 +1282,7 @@ export default function ServicesPage() {
                             <h4 className="services-catalogue-card__title text-lg font-black leading-6 text-white">
                               {displayTitle}
                             </h4>
-                            <p className="services-catalogue-card__copy mt-2 text-sm font-semibold leading-6 text-slate-100">
-                              {item.helper ?? service.description}
-                            </p>
                           </div>
-                        </div>
-
-                        <div className="services-catalogue-card__includes">
-                          {visibleIncludes.map((include) => (
-                            <div
-                              key={include}
-                              className="services-catalogue-card__include"
-                            >
-                              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-cyan-200" />
-                              <span>{include}</span>
-                            </div>
-                          ))}
                         </div>
 
                         <span className="services-catalogue-card__action">
@@ -1620,7 +1369,7 @@ export default function ServicesPage() {
                         data-conversion-action="quote-click"
                         aria-haspopup="dialog"
                         aria-label={`Get a quote for ${displayTitle}`}
-                        className="services-catalogue-card group flex h-full min-h-[18.5rem] flex-col rounded-3xl border border-cyan-300/20 bg-[#08236b] p-6 text-white shadow-xl shadow-blue-950/15 transition hover:-translate-y-1 hover:border-cyan-300/55 hover:bg-[#0a2b7a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
+                        className="services-catalogue-card group flex h-full min-h-36 flex-col rounded-2xl border border-cyan-300/20 bg-[#08236b] p-5 text-white shadow-lg shadow-blue-950/15 transition hover:border-cyan-300/55 hover:bg-[#0a2b7a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
                       >
                         {serviceCardBody}
                       </a>
@@ -1630,7 +1379,7 @@ export default function ServicesPage() {
                         href={href}
                         data-catalog-href={href}
                         aria-label={`View ${displayTitle}`}
-                        className="services-catalogue-card group flex h-full min-h-[18.5rem] flex-col rounded-3xl border border-cyan-300/20 bg-[#08236b] p-6 text-white shadow-xl shadow-blue-950/15 transition hover:-translate-y-1 hover:border-cyan-300/55 hover:bg-[#0a2b7a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
+                        className="services-catalogue-card group flex h-full min-h-36 flex-col rounded-2xl border border-cyan-300/20 bg-[#08236b] p-5 text-white shadow-lg shadow-blue-950/15 transition hover:border-cyan-300/55 hover:bg-[#0a2b7a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
                       >
                         {serviceCardBody}
                       </Link>
@@ -1639,123 +1388,6 @@ export default function ServicesPage() {
                 </div>
               </section>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="services-problem-selector bg-[var(--ev-section-blue)] py-12 text-white sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.22em] text-cyan-200">
-              Problem selector
-            </p>
-            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              What do you need help with?
-            </h2>
-            <p className="mt-4 text-base font-semibold leading-7 text-slate-200 sm:text-lg">
-              Choose the closest issue first, then call for urgent faults or
-              send photos and job details for planned work.
-            </p>
-          </div>
-
-          <div
-            className="services-problem-selector-grid mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3"
-            data-balance-lg={serviceProblemSelectorItems.length % 3}
-          >
-            {serviceProblemSelectorItems.map((item) => (
-              <article
-                key={item.problem}
-                className="services-problem-card rounded-2xl border border-cyan-300/18 bg-[#08236b] p-4 shadow-xl shadow-blue-950/15"
-              >
-                <h3 className="services-problem-card__title text-base font-black leading-6 text-white">
-                  {item.problem}
-                </h3>
-                <div className="services-problem-card__links mt-3 flex flex-wrap gap-2">
-                  {item.links.map((link) => (
-                    <Link
-                      key={link.label}
-                      href={link.href}
-                      className="services-problem-card__link inline-flex min-h-10 items-center gap-2 rounded-lg border border-cyan-300/35 bg-cyan-300/10 px-3 py-2 text-sm font-black text-white shadow-sm shadow-cyan-950/20 transition hover:border-cyan-200 hover:bg-cyan-300/20 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
-                    >
-                      <span>{link.label}</span>
-                      <ArrowRight className="h-4 w-4 text-cyan-200" />
-                    </Link>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <GoogleReviewProof
-        heading="Read Evaready Electrical reviews before choosing a service."
-        subheading="The Google rating is shown from manually verified Google Business Profile details. Call first for urgent faults, or request a quote for planned work."
-      />
-
-      <LeadOfferPanel
-        className="border-b border-cyan-300/15"
-        eyebrow="Planned work quotes"
-        heading="Send photos and job notes so the right service can be scoped."
-        intro="For electrical services across Sydney and surrounding regions, photos help us quote faster. If the work is urgent or unsafe, call first so the issue can be triaged by phone."
-      />
-
-      <OffersSection
-        id="services-current-electrical-offers"
-        offers={getOffersForPlacement("services")}
-        heading="Current Electrical Offers"
-        intro="Use the offer that matches the job type. Planned work can go through the quote form, while unsafe electrical faults should be handled by phone first."
-      />
-
-      <TrustProcessProof
-        className="border-b border-cyan-300/15"
-        serviceName="electrical services"
-      />
-
-      {/* CTA */}
-      <section className="bg-gradient-to-r from-[#082A86] via-[#061E72] to-[#43040e] py-24 text-white">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:px-8 xl:flex-row xl:items-center">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-red-300">
-              Electrical help without the guesswork.
-            </p>
-
-            <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Call for urgent faults, or send the job notes for planned
-              upgrades, repairs and installations.
-            </h2>
-          </div>
-
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <a
-              href={business.phoneHref}
-              data-conversion-action="phone-click"
-              aria-label={business.callCta}
-              className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
-            >
-              <Phone className="h-5 w-5" />
-              <span className="whitespace-nowrap">{business.callCta}</span>
-            </a>
-
-            <a
-              href={business.bookingUrl}
-              data-quote-trigger="true"
-              data-conversion-action="quote-click"
-              aria-haspopup="dialog"
-              aria-label="Get a quote from Evaready Electrical"
-              className="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-700 px-7 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600"
-            >
-              {business.quoteCta}
-              <ArrowRight className="h-5 w-5" />
-            </a>
-
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-3 rounded-2xl border border-cyan-300/35 bg-white/10 px-7 py-4 font-black text-white transition hover:bg-white/15"
-            >
-              Contact
-              <ArrowRight className="h-5 w-5" />
-            </Link>
           </div>
         </div>
       </section>

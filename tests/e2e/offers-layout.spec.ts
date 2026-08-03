@@ -3,28 +3,12 @@ import { expect, test } from "@playwright/test";
 const offerPages = [
   { route: "./", section: "[data-offers-section]", count: 4 },
   {
-    route: "emergency-electrician-sydney/",
-    section: "[data-offers-section]",
-    count: 4,
-  },
-  { route: "services/", section: "[data-offers-section]", count: 4 },
-  {
     route: "contact/",
     section: "[data-compact-offer-strip]",
     count: 4,
   },
   {
-    route: "service-areas/",
-    section: "[data-compact-offer-strip]",
-    count: 4,
-  },
-  {
     route: "services/electrical-fault-finding-sydney/",
-    section: "[data-compact-offer-strip]",
-    count: 4,
-  },
-  {
-    route: "services/switchboard-upgrades-sydney/",
     section: "[data-compact-offer-strip]",
     count: 4,
   },
@@ -70,6 +54,25 @@ test.beforeEach(({ browserName }, testInfo) => {
     !supportedProject,
     "Offer layout checks run on representative mobile and desktop Chromium viewports.",
   );
+});
+
+test("offer terms stay available through native keyboard controls", async ({
+  page,
+}) => {
+  await page.goto("./", { waitUntil: "domcontentloaded" });
+
+  const firstCard = page.locator("[data-offer-card]").first();
+  const terms = firstCard.locator(".ev-offer-card__terms");
+  const summary = terms.locator("summary");
+
+  await expect(terms).not.toHaveAttribute("open", "");
+  await summary.focus();
+  await expect(summary).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(terms).toHaveAttribute("open", "");
+  await expect(terms.locator("p")).toBeVisible();
+  await page.keyboard.press("Enter");
+  await expect(terms).not.toHaveAttribute("open", "");
 });
 
 test("offer artwork and card grids stay complete, even and viewport-safe", async ({

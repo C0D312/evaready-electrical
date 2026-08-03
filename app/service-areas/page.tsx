@@ -2,26 +2,16 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import {
   ArrowRight,
-  Building2,
   CheckCircle2,
-  Home,
   MapPin,
   Phone,
-  ShieldCheck,
-  Zap,
 } from "lucide-react";
-import { GoogleReviewProof } from "@/components/google-review-proof";
-import { LeadOfferPanel } from "@/components/lead-offer-panel";
-import { CompactOfferStrip } from "@/components/compact-offer-strip";
 import { ServiceAreaSearch } from "@/components/service-area-search";
 import { ServiceAreaHero } from "@/components/site-frame";
-import { TrustProcessProof } from "@/components/trust-process-proof";
 import {
   coverageRegions,
   coverageSearchItems,
-  coverageStats,
 } from "@/data/service-area-coverage";
-import { getOffersForPlacement } from "@/data/offers";
 import { absoluteUrl, assetPath, business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
@@ -41,18 +31,9 @@ const popularLocalAreaNames = [
   "Parramatta",
   "Merrylands",
   "Blacktown",
-  "Seven Hills",
-  "Camden",
   "Campbelltown",
   "Wollongong",
   "Gosford",
-  "Sutherland",
-  "Liverpool",
-  "Fairfield",
-  "Hurstville",
-  "Rockdale",
-  "Cronulla",
-  "Miranda",
 ] as const;
 
 const popularLocalAreas = popularLocalAreaNames.flatMap((suburbName) => {
@@ -62,69 +43,6 @@ const popularLocalAreas = popularLocalAreaNames.flatMap((suburbName) => {
 
   return item ? [item] : [];
 });
-
-const serviceIntentShortcuts = [
-  {
-    href: "/emergency-electrician-sydney",
-    label: "Emergency electrician",
-    text: "Call-first help for urgent electrical faults.",
-  },
-  {
-    href: "/level-2-electrician-sydney",
-    label: "Level 2 electrician",
-    text: "Supply-side, metering and defect notice enquiries.",
-  },
-  {
-    href: "/services/switchboard-upgrades-sydney",
-    label: "Switchboard upgrades",
-    text: "Older boards, safety switches and capacity planning.",
-  },
-  {
-    href: "/services/consumer-mains-sydney",
-    label: "Consumer mains",
-    text: "Supply repairs, upgrades and review.",
-  },
-  {
-    href: "/services/defect-notice-repairs-sydney",
-    label: "Defect notices",
-    text: "Photos, paperwork and repair scope review.",
-  },
-  {
-    href: "/services/point-of-attachment-repairs-sydney",
-    label: "Point of attachment repairs",
-    text: "Damaged attachment and service-line concerns.",
-  },
-  {
-    href: "/services/hot-water-system-electrician-sydney",
-    label: "Hot water electrical",
-    text: "Electric hot water circuits, isolators and tripping.",
-  },
-  {
-    href: "/services/split-system-air-conditioning-sydney",
-    label: "Air conditioning electrical",
-    text: "Dedicated circuits, AC isolators and load checks.",
-  },
-  {
-    href: "/services/cctv-security-camera-installation-sydney",
-    label: "CCTV/data",
-    text: "Camera, data and cabling support.",
-  },
-  {
-    href: "/services/commercial-electrician-sydney",
-    label: "Commercial electrician",
-    text: "Shops, offices, strata and commercial sites.",
-  },
-  {
-    href: "/electrical-faults/safety-switch-keeps-tripping",
-    label: "Safety switch tripping",
-    text: "Fault guide for repeated RCD or safety-switch trips.",
-  },
-  {
-    href: "/electrical-faults/no-power-to-house",
-    label: "No power fault help",
-    text: "What to check and when to call first.",
-  },
-] as const;
 
 export const metadata: Metadata = toMetadata(serviceAreaIndexSeoMetadata());
 
@@ -154,7 +72,7 @@ export default function AreasPage() {
       tone: "core",
     },
     {
-      heading: "Selected outer regions - 60–90-minute emergency response",
+      heading: `Selected outer regions - ${business.emergencyResponse.greaterDisplay}`,
       regions: getResponseRegionLinks(
         business.emergencyResponseRegions.greater,
       ),
@@ -287,7 +205,7 @@ export default function AreasPage() {
         </div>
       </ServiceAreaHero>
 
-      <section className="bg-[#040b1c] py-20">
+      <section className="bg-[#040b1c] py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
             Major regions
@@ -296,7 +214,7 @@ export default function AreasPage() {
             Browse the regions and suburbs we service.
           </h2>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-8 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             {coverageRegions.map((region) => {
               const suburbCount = region.areas.reduce(
                 (total, area) => total + area.suburbs.length,
@@ -307,26 +225,23 @@ export default function AreasPage() {
                 <Link
                   key={region.slug}
                   href={`/service-areas/${region.slug}`}
-                  className="group rounded-lg border border-cyan-300/20 bg-[#091d42] p-6 shadow-lg shadow-blue-950/20 transition hover:-translate-y-1 hover:border-cyan-200 hover:bg-[#0d2b5c] hover:shadow-xl"
+                  className="group rounded-lg border border-cyan-300/20 bg-[#091d42] p-4 shadow-lg shadow-blue-950/20 transition hover:-translate-y-0.5 hover:border-cyan-200 hover:bg-[#0d2b5c] hover:shadow-xl"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="rounded-lg border border-cyan-300/25 bg-[#0d2b5c] p-3 text-cyan-100">
-                      <MapPin className="h-7 w-7" />
+                      <MapPin className="h-5 w-5" />
                     </div>
                     <span className="rounded-full border border-cyan-300/20 bg-[#0d2b5c] px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-slate-100">
                       {region.areas.length} areas
                     </span>
                   </div>
 
-                  <h3 className="mt-6 text-2xl font-black">{region.name}</h3>
-                  <p className="mt-3 leading-7 text-slate-300">
-                    {region.description}
-                  </p>
-                  <p className="mt-4 text-sm font-black text-cyan-200">
+                  <h3 className="mt-4 text-xl font-black">{region.name}</h3>
+                  <p className="mt-2 text-sm font-black text-cyan-200">
                     {suburbCount} suburbs covered
                   </p>
 
-                  <span className="mt-6 inline-flex items-center gap-2 font-black text-cyan-200">
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-cyan-200">
                     View region
                     <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                   </span>
@@ -337,7 +252,7 @@ export default function AreasPage() {
         </div>
       </section>
 
-      <section className="bg-[#06142f] py-12 sm:py-16">
+      <section className="bg-[#06142f] py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
@@ -346,12 +261,9 @@ export default function AreasPage() {
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Core and selected outer-region emergency areas.
             </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-300">
-              Evaready Electrical provides fast electrical support across
-              Sydney and surrounding regions. Call first for urgent faults such
-              as power loss, burning smells, sparking, tripping safety switches
-              or unsafe wiring. For planned work, open the quote form and send
-              your suburb, job details and photos.
+            <p className="mt-4 text-base leading-7 text-slate-300">
+              Call first for urgent faults. For planned work, search your suburb
+              or postcode above, then send the job details and photos.
             </p>
           </div>
 
@@ -396,143 +308,17 @@ export default function AreasPage() {
             ))}
           </div>
 
-          <div className="mt-4 grid gap-4 lg:grid-cols-2">
-            <div className="rounded-lg border border-red-300/25 bg-[#091d42] p-5 shadow-lg shadow-blue-950/20">
-              <p className="text-sm font-black uppercase tracking-[0.2em] text-red-200">
-                Emergency fault
-              </p>
-              <p className="mt-2 text-base font-bold leading-7 text-slate-100">
-                Call now for no power, burning smells, sparking, repeated
-                safety-switch tripping, switchboard faults, storm damage or
-                unsafe electrical equipment.
-              </p>
-            </div>
-            <div className="rounded-lg border border-cyan-300/25 bg-[#091d42] p-5 shadow-lg shadow-blue-950/20">
-              <p className="text-sm font-black uppercase tracking-[0.2em] text-cyan-300">
-                Planned work
-              </p>
-              <p className="mt-2 text-base font-bold leading-7 text-slate-100">
-                Search your suburb or postcode, choose the closest service
-                area, then send photos, job notes and access details.
-              </p>
-            </div>
-            <p className="rounded-lg border border-cyan-300/25 bg-[#091d42] p-5 text-base font-semibold leading-7 text-slate-200 shadow-lg shadow-blue-950/20 lg:col-span-2">
-              Search your suburb or postcode for the local page. Core and
-              selected outer-region timing applies to emergency electrical
-              call-outs only. Response timing depends on location, access,
-              traffic, safety conditions, job type and current availability.{" "}
+          <div className="mt-4">
+            <p className="rounded-lg border border-cyan-300/25 bg-[#091d42] p-4 text-sm font-semibold leading-6 text-slate-200 shadow-lg shadow-blue-950/20">
+              Response timing depends on location, access, traffic, safety
+              conditions, job type and current availability. {" "}
               {business.emergencyResponse.emergencyOnlyNote}
             </p>
           </div>
         </div>
       </section>
 
-      <section className="border-y border-cyan-300/15 bg-[#0a234d] text-white">
-        <div className="mx-auto grid max-w-7xl gap-3 px-4 py-4 sm:grid-cols-3 sm:px-6 lg:px-8">
-          <div className="rounded-lg border border-cyan-300/25 bg-[#091d42] p-4 shadow-lg shadow-blue-950/30">
-            <p className="text-3xl font-black">{coverageStats.regionCount}</p>
-            <p className="mt-1 text-sm font-semibold text-slate-300">
-              Regions
-            </p>
-          </div>
-          <div className="rounded-lg border border-cyan-300/25 bg-[#091d42] p-4 shadow-lg shadow-blue-950/30">
-            <p className="text-3xl font-black">{coverageStats.areaCount}</p>
-            <p className="mt-1 text-sm font-semibold text-slate-300">Areas</p>
-          </div>
-          <div className="rounded-lg border border-cyan-300/25 bg-[#091d42] p-4 shadow-lg shadow-blue-950/30">
-            <p className="text-3xl font-black">{coverageStats.suburbCount}</p>
-            <p className="mt-1 text-sm font-semibold text-slate-300">
-              Suburbs
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-b border-cyan-300/15 bg-[#06142f]">
-        <div className="mx-auto grid max-w-7xl gap-5 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
-          {[
-            `NSW Licence ${business.licence}`,
-            `ABN ${business.abn}`,
-            "Residential and commercial",
-            "Emergency and Level 2",
-          ].map((item) => (
-            <div key={item} className="flex items-center gap-3">
-              <CheckCircle2 className="h-6 w-6 shrink-0 text-cyan-300" />
-              <span className="font-bold text-slate-100">{item}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <GoogleReviewProof
-        heading="See Evaready Electrical reviews before choosing your area."
-        subheading="Use the service-area search to find your suburb, then view Evaready Electrical on Google before calling or sending planned job details."
-      />
-
-      <LeadOfferPanel
-        compact
-        className="border-b border-cyan-300/15"
-        eyebrow="Area quote support"
-        heading="Find your area, then call or send photos for review."
-        intro="Evaready Electrical supports urgent faults and planned electrical work across Sydney and surrounding regions. Call first for unsafe issues, or send photos and job notes for planned work."
-        items={[
-          "Free photo review for planned electrical work",
-          "Send your defect notice for review",
-          "Send switchboard, meter box or service equipment photos",
-          "Photo details help Evaready quote faster",
-          "Clear next actions before work starts",
-          "Fast callback for urgent enquiries",
-          "No-obligation quote for planned work",
-        ]}
-      />
-
-      <CompactOfferStrip
-        id="service-areas-current-offers"
-        offers={getOffersForPlacement("service-areas")}
-        heading="Current offers across Sydney service areas"
-        intro="Use the suburb finder first, then call for urgent faults or send planned job details through the quote form so eligible offers can be checked."
-        className="border-b border-cyan-300/15"
-      />
-
-      <section className="bg-[#040b1c] py-14">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
-              Service shortcuts
-            </p>
-            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Need a specific electrical service?
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-300">
-              Choose the closest service path, then call first for unsafe
-              faults or send photos and job details for planned work.
-            </p>
-          </div>
-
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {serviceIntentShortcuts.map((shortcut) => (
-              <Link
-                key={shortcut.href}
-                href={shortcut.href}
-                className="group rounded-lg border border-cyan-300/20 bg-[#091d42] p-4 shadow-lg shadow-blue-950/20 transition hover:-translate-y-0.5 hover:border-cyan-200 hover:bg-[#0d2b5c]"
-              >
-                <span className="block text-base font-black text-white">
-                  {shortcut.label}
-                </span>
-                <span className="mt-2 block text-sm font-semibold leading-6 text-slate-300">
-                  {shortcut.text}
-                </span>
-                <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-cyan-200">
-                  View service
-                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#06142f] py-16">
+      <section className="bg-[#06142f] py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
@@ -541,7 +327,7 @@ export default function AreasPage() {
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Popular local electrical service areas
             </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-300">
+            <p className="mt-4 text-base leading-7 text-slate-300">
               Quick links to high-intent suburb pages. Use the search above for
               every listed suburb, postcode, area or region.
             </p>
@@ -566,97 +352,6 @@ export default function AreasPage() {
                 </span>
               </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <TrustProcessProof
-        className="border-y border-cyan-300/15"
-        compact
-        serviceName="service-area electrical enquiries"
-      />
-
-      <section className="bg-[#06142f] py-20">
-        <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-4 lg:px-8">
-          {[
-            {
-              title: "Residential",
-              text: "Electrical repairs, upgrades and installations for homes, units, townhouses and renovations.",
-              icon: Home,
-            },
-            {
-              title: "Commercial",
-              text: "Offices, shops, warehouses, strata, builders and real estate clients.",
-              icon: Building2,
-            },
-            {
-              title: "Emergency",
-              text: "Power loss, circuit tripping and electrical issues that should be checked quickly.",
-              icon: Zap,
-            },
-            {
-              title: "Licensed",
-              text: `NSW electrical licence ${business.licence} and ABN ${business.abn}.`,
-              icon: ShieldCheck,
-            },
-          ].map((item) => {
-            const Icon = item.icon;
-
-            return (
-              <div
-                key={item.title}
-                className="rounded-lg border border-cyan-300/20 bg-[#091d42] p-7 shadow-lg shadow-blue-950/20"
-              >
-                <Icon className="h-8 w-8 text-cyan-300" />
-                <h3 className="mt-5 text-2xl font-black">{item.title}</h3>
-                <p className="mt-3 leading-7 text-slate-300">{item.text}</p>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="bg-gradient-to-r from-[#06142f] via-[#0a234d] to-[#040b1c] py-20 text-white">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
-              Electrical help in your area.
-            </p>
-            <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Call for urgent faults or send the job details for review.
-            </h2>
-          </div>
-
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <a
-              href={business.phoneHref}
-              data-conversion-action="phone-click"
-              aria-label={business.callCta}
-              className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
-            >
-              <Phone className="h-5 w-5" />
-              <span className="whitespace-nowrap">{business.callCta}</span>
-            </a>
-
-            <a
-              href={business.bookingUrl}
-              data-quote-trigger="true"
-              data-conversion-action="quote-click"
-              aria-haspopup="dialog"
-              aria-label="Get a quote from Evaready Electrical"
-              className="inline-flex items-center justify-center gap-3 rounded-lg bg-[#0876ff] px-7 py-4 font-black text-white shadow-lg shadow-cyan-950/20 transition hover:bg-[#079cff]"
-            >
-              {business.quoteCta}
-              <ArrowRight className="h-5 w-5" />
-            </a>
-
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-3 rounded-lg border border-cyan-300/35 bg-[#091d42] px-7 py-4 font-black text-white transition hover:bg-[#0d2b5c]"
-            >
-              Contact
-              <ArrowRight className="h-5 w-5" />
-            </Link>
           </div>
         </div>
       </section>

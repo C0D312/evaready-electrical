@@ -6,18 +6,15 @@ import {
   ArrowRight,
   BadgeCheck,
   Bolt,
-  Building2,
   Clock3,
-  Droplets,
   Flame,
   Home,
   MapPin,
   Phone,
   ShieldCheck,
-  Wrench,
   Zap,
 } from "lucide-react";
-import { GoogleReviewProof } from "@/components/google-review-proof";
+import { GoogleRatingSeal } from "@/components/google-rating-seal";
 import { OffersSection } from "@/components/offers-section";
 import { getOffersForPlacement } from "@/data/offers";
 import { assetPath, business, priorityRegions, services } from "@/data/site";
@@ -36,10 +33,6 @@ const featuredServiceRoutes = [
   { title: "Level 2 Electrician", href: "/level-2-electrician-sydney" },
   { title: "Switchboard Upgrades", href: "/services/switchboard-upgrades-sydney" },
   { title: "Fault Finding", href: "/services/electrical-fault-finding-sydney" },
-  { title: "Power Points & Lighting", href: "/services/power-point-installation-sydney" },
-  { title: "Commercial Electrician", href: "/services/commercial-electrician-sydney" },
-  { title: "Hot Water System Electrical", href: "/services/hot-water-system-electrician-sydney" },
-  { title: "Air Conditioning", href: "/services/split-system-air-conditioning-sydney" },
 ] as const;
 
 const featuredServices = featuredServiceRoutes.flatMap((route) => {
@@ -72,12 +65,6 @@ const urgentIssues = [
     href: "/electrical-faults/safety-switch-keeps-tripping",
     icon: ShieldCheck,
   },
-  {
-    title: "Storm or water damage",
-    text: "Do not touch wet electrical equipment. Keep clear and call for safety advice.",
-    href: "/electrical-faults/power-outage-after-storm",
-    icon: Droplets,
-  },
 ] as const;
 
 const trustItems = [
@@ -97,19 +84,9 @@ const trustItems = [
     icon: BadgeCheck,
   },
   {
-    title: "Residential, commercial and strata",
-    text: "Electrical work for homes, businesses and strata properties.",
-    icon: Building2,
-  },
-  {
     title: "Registered cabler",
     text: `Open Cabler Registration ${business.openCablerRegistration}`,
     icon: Zap,
-  },
-  {
-    title: "Online quote requests",
-    text: "Use the quote form for planned repairs, installations and upgrades.",
-    icon: Wrench,
   },
 ] as const;
 
@@ -190,7 +167,7 @@ export default function HomePage() {
               across Sydney and surrounding regions.
             </p>
 
-            <div className="mt-7 grid grid-cols-2 gap-3">
+            <div className="mt-7 grid grid-cols-2 gap-3" aria-label="Choose urgent or planned electrical help">
               <a
                 href={business.phoneHref}
                 data-conversion-action="phone-click"
@@ -198,8 +175,11 @@ export default function HomePage() {
                 className="ev-btn ev-btn--call inline-flex min-h-14 items-center justify-center gap-2 rounded-lg px-5 py-3 text-base font-bold text-white"
               >
                 <Phone className="h-5 w-5" aria-hidden="true" />
-                <span className="sm:hidden">Call Now</span>
-                <span className="hidden sm:inline">Call {business.phoneDisplay}</span>
+                <span className="leading-tight">
+                  <span className="block text-[0.7rem] font-semibold">Urgent or unsafe?</span>
+                  <span className="sm:hidden">Call Now</span>
+                  <span className="hidden sm:inline">Call {business.phoneDisplay}</span>
+                </span>
               </a>
               <a
                 href={business.bookingUrl}
@@ -209,8 +189,11 @@ export default function HomePage() {
                 aria-label="Request a quote from Evaready Electrical"
                 className="ev-btn ev-btn--quote inline-flex min-h-14 items-center justify-center gap-2 rounded-lg px-5 py-3 text-base font-bold text-white"
               >
-                <span className="sm:hidden">Quote</span>
-                <span className="hidden sm:inline">Request a Quote</span>
+                <span className="leading-tight">
+                  <span className="block text-[0.7rem] font-semibold">Planned work?</span>
+                  <span className="sm:hidden">Quote</span>
+                  <span className="hidden sm:inline">Request a Quote</span>
+                </span>
                 <ArrowRight className="h-5 w-5" aria-hidden="true" />
               </a>
             </div>
@@ -228,7 +211,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-theme-band home-theme-band--services ev-storm-section py-14 sm:py-18" aria-labelledby="services-heading">
+      <section className="home-theme-band home-theme-band--services ev-storm-section py-12 sm:py-16" aria-labelledby="services-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-bold text-cyan-100">Electrical services</p>
@@ -273,7 +256,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-theme-band home-theme-band--emergency ev-storm-section ev-storm-section--emergency py-14 sm:py-18" aria-labelledby="emergency-heading">
+      <section className="home-theme-band home-theme-band--emergency ev-storm-section ev-storm-section--emergency py-12 sm:py-16" aria-labelledby="emergency-heading">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
           <div className="ev-storm-panel ev-storm-panel--strong rounded-lg border border-red-300/30 p-5 sm:p-7">
             <p className="text-sm font-bold text-red-100">Emergency guidance</p>
@@ -314,26 +297,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-theme-band home-theme-band--trust ev-storm-section py-14 sm:py-18" aria-labelledby="why-heading">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-bold text-cyan-100">Why Evaready</p>
-            <h2 id="why-heading" className="mt-2 text-3xl font-bold leading-tight sm:text-4xl">
-              Licences, registrations and services
-            </h2>
+      <section className="home-theme-band home-theme-band--trust ev-storm-section py-12 sm:py-16" aria-labelledby="why-heading">
+        <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-end lg:px-8">
+          <div>
+            <div className="max-w-3xl">
+              <p className="text-sm font-bold text-cyan-100">Why Evaready</p>
+              <h2 id="why-heading" className="mt-2 text-3xl font-bold leading-tight sm:text-4xl">
+                Verified electrical credentials and customer feedback
+              </h2>
+            </div>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              {trustItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div key={item.title} className="ev-storm-card ev-storm-card--trust rounded-lg p-4">
+                    <div className="flex items-start gap-3">
+                      <Icon className="mt-0.5 h-5 w-5 shrink-0 text-cyan-100" aria-hidden="true" />
+                      <div>
+                        <h3 className="font-bold text-white">{item.title}</h3>
+                        <p className="mt-1 text-sm leading-6 text-slate-300">{item.text}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {trustItems.map((item) => {
-              const Icon = item.icon;
-              return (
-                <div key={item.title} className="ev-storm-card ev-storm-card--trust rounded-lg p-5">
-                  <Icon className="h-6 w-6 text-cyan-100" aria-hidden="true" />
-                  <h3 className="mt-3 text-lg font-bold text-white">{item.title}</h3>
-                  <p className="mt-2 text-base leading-7 text-slate-300">{item.text}</p>
-                </div>
-              );
-            })}
-          </div>
+          <GoogleRatingSeal compact showLeaveReview={false} className="max-w-none" />
         </div>
       </section>
 
@@ -344,7 +334,7 @@ export default function HomePage() {
         className="home-offers-section home-theme-band home-theme-band--offers"
       />
 
-      <section className="home-theme-band home-theme-band--areas ev-storm-section py-14 sm:py-18" aria-labelledby="areas-heading">
+      <section className="home-theme-band home-theme-band--areas ev-storm-section py-12 sm:py-16" aria-labelledby="areas-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-3xl">
@@ -361,8 +351,8 @@ export default function HomePage() {
               Find your suburb <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {priorityRegions.slice(0, 6).map((region) => (
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {priorityRegions.slice(0, 4).map((region) => (
               <Link key={region.href} href={region.href} className="ev-storm-card group rounded-lg p-5">
                 <MapPin className="h-5 w-5 text-cyan-100" aria-hidden="true" />
                 <h3 className="mt-3 text-lg font-bold text-white">{region.name}</h3>
@@ -376,13 +366,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <GoogleReviewProof
-        heading="Evaready's Google rating and reviews"
-        subheading="See the current rating and read customer feedback on Evaready Electrical's Google Business Profile."
-        className="home-theme-band home-theme-band--reviews"
-      />
-
-      <section className="home-theme-band home-theme-band--faq ev-storm-section py-14 sm:py-18" aria-labelledby="faq-heading">
+      <section className="home-theme-band home-theme-band--faq ev-storm-section py-12 sm:py-16" aria-labelledby="faq-heading">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-bold text-cyan-100">Common questions</p>
           <h2 id="faq-heading" className="mt-2 text-3xl font-bold leading-tight sm:text-4xl">

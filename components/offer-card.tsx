@@ -96,10 +96,11 @@ export function OfferCard({
         <p className="ev-offer-card__applies">
           <strong>Applies to:</strong> {offer.appliesTo}
         </p>
-        <p className="ev-offer-card__terms">
-          <strong>Offer terms:</strong> {offer.terms}
-        </p>
         <OfferCta offer={offer} />
+        <details className="ev-offer-card__terms">
+          <summary>View offer terms</summary>
+          <p>{offer.terms}</p>
+        </details>
       </div>
     </article>
   );

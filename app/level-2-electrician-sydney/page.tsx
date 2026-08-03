@@ -7,21 +7,14 @@ import {
   BadgeCheck,
   Bolt,
   ClipboardCheck,
-  FileWarning,
-  Gauge,
   HardHat,
   Phone,
-  ShieldCheck,
   Zap,
 } from "lucide-react";
-import { GoogleReviewProof } from "@/components/google-review-proof";
-import { LeadOfferPanel } from "@/components/lead-offer-panel";
 import {
   ServiceCredentialStrip,
   serviceCredentialPresets,
 } from "@/components/service-credential-strip";
-import { TrustProcessProof } from "@/components/trust-process-proof";
-import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { level2ClusterLinks } from "@/data/internal-links";
 import { absoluteUrl, assetPath, business } from "@/data/site";
 import { schemaJson } from "@/lib/schema";
@@ -391,7 +384,7 @@ export default function Level2ElectricianSydneyPage() {
           className="brand-internal-hero-image object-cover object-[68%_center]"
         />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-28">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-16">
           <div className="internal-hero-copy-panel">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-400/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-cyan-100">
               <BadgeCheck className="h-4 w-4" />
@@ -408,15 +401,17 @@ export default function Level2ElectricianSydneyPage() {
               lines, underground service mains and supply-side electrical work.
             </p>
 
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <CallActionLink />
+              <QuoteActionLink />
+            </div>
+
             <p className="mt-4 max-w-2xl rounded-2xl border border-red-300/25 bg-red-500/10 p-4 text-sm font-bold leading-6 text-slate-100">
-              Evaready provides 60-minute emergency response in core service
-              areas and a 60–90-minute response window in selected outer
-              regions. Call first if a Level 2 issue involves unsafe service
-              equipment, damaged point of attachment, supply loss, storm
-              damage, defect notices with urgent deadlines or exposed service
-              wiring. Timing depends on location, access, traffic, safety
-              conditions, job type and current availability. Response times
-              apply to emergency electrical call-outs, not planned quote work.
+              Call first if a Level 2 issue involves unsafe service equipment,
+              supply loss, storm damage or exposed service wiring. Emergency
+              response is within 60 minutes in core areas and 60–90 minutes in
+              selected outer regions, subject to location, access, traffic,
+              safety conditions, job type and current availability.
             </p>
 
             <p className="mt-4 max-w-2xl text-sm font-semibold leading-6 text-slate-300">
@@ -431,10 +426,6 @@ export default function Level2ElectricianSydneyPage() {
               className="mt-6 max-w-4xl"
             />
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <CallActionLink />
-              <QuoteActionLink />
-            </div>
           </div>
 
           <aside className="rounded-[2rem] border border-white/15 bg-[#061E72]/70 p-6 shadow-2xl shadow-blue-950/30 backdrop-blur-xl">
@@ -464,11 +455,6 @@ export default function Level2ElectricianSydneyPage() {
               instead of waiting for a quote response.
             </p>
 
-            <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-              <CallActionLink className="rounded-xl px-5 py-3 text-sm" />
-              <QuoteActionLink className="rounded-xl px-5 py-3 text-sm" />
-            </div>
-
             <p className="mt-4 text-center text-xs text-slate-400">
               Electrical Licence: {business.licence}
             </p>
@@ -476,32 +462,7 @@ export default function Level2ElectricianSydneyPage() {
         </div>
       </section>
 
-      <TrustSymbolBand className="border-b border-cyan-300/16" />
-
-      <GoogleReviewProof
-        heading="Review Evaready Electrical before sending Level 2 details."
-        subheading="Level 2 enquiries often need photos, paperwork and clear communication. Read Evaready Electrical on Google before sending planned work details."
-      />
-
-      <LeadOfferPanel
-        className="border-b border-cyan-300/15"
-        eyebrow="Level 2 quote support"
-        heading="Send defect notices, photos and supply-side details through the quote form."
-        intro="For Level 2 electrical enquiries across Sydney and surrounding regions, use the quote form to send the defect notice, suburb, deadline, switchboard photos, meter box photos or service equipment photos. Call first if the issue is unsafe."
-        items={[
-          "Send your defect notice for review",
-          "Send switchboard, meter box or service equipment photos",
-          "Photos help us quote faster",
-          "Clear next actions before work starts",
-        ]}
-      />
-
-      <TrustProcessProof
-        className="border-b border-cyan-300/15"
-        variant="level2"
-      />
-
-      <section className="ev-storm-section py-20 sm:py-24">
+      <section className="ev-storm-section py-14 sm:py-16">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-200">
@@ -544,7 +505,7 @@ export default function Level2ElectricianSydneyPage() {
         </div>
       </section>
 
-      <section className="ev-storm-section ev-storm-section--subtle py-20 sm:py-24">
+      <section className="ev-storm-section ev-storm-section--subtle py-14 sm:py-16">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
@@ -568,10 +529,6 @@ export default function Level2ElectricianSydneyPage() {
               before photos and paperwork are reviewed.
             </p>
 
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <CallActionLink className="rounded-lg px-6 py-4" />
-              <QuoteActionLink className="rounded-lg px-6 py-4" />
-            </div>
           </div>
 
           <div className="ev-storm-panel rounded-[2rem] p-6">
@@ -599,7 +556,7 @@ export default function Level2ElectricianSydneyPage() {
         </div>
       </section>
 
-      <section className="ev-storm-section py-20 sm:py-24">
+      <section className="ev-storm-section py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-200">
             Networks and paperwork
@@ -630,49 +587,7 @@ export default function Level2ElectricianSydneyPage() {
         </div>
       </section>
 
-      <section className="bg-[#061E72] py-20 text-white sm:py-24">
-        <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-3 lg:px-8">
-          {[
-            {
-              title: "For homes and strata",
-              text: "Consumer mains, defect notices, private poles, point of attachment issues and supply upgrade planning.",
-              icon: ShieldCheck,
-              href: "/services/residential-electrician-sydney",
-            },
-            {
-              title: "For businesses",
-              text: "Shops, warehouses, commercial buildings and strata sites can request supply-side electrical support.",
-              icon: Gauge,
-              href: "/services/commercial-electrician-sydney",
-            },
-            {
-              title: "For urgent faults",
-              text: "If supply equipment is sparking, hot, smoking or unsafe, call before touching the affected area.",
-              icon: FileWarning,
-              href: "/emergency-electrician-sydney",
-            },
-          ].map((item) => {
-            const Icon = item.icon;
-
-            return (
-              <Link
-                key={item.title}
-                href={item.href}
-                className="group rounded-[2rem] border border-cyan-300/15 bg-white/5 p-7 transition hover:border-cyan-300/60 hover:bg-white/10"
-              >
-                <Icon className="h-8 w-8 text-cyan-300" />
-                <div className="mt-6 flex items-start gap-3">
-                  <h3 className="text-2xl font-black">{item.title}</h3>
-                  <ArrowRight className="ml-auto mt-2 h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-cyan-300" />
-                </div>
-                <p className="mt-3 leading-7 text-slate-300">{item.text}</p>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="ev-storm-section ev-storm-section--subtle py-20">
+      <section className="ev-storm-section ev-storm-section--subtle py-14 sm:py-16">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-red-600">
@@ -681,10 +596,6 @@ export default function Level2ElectricianSydneyPage() {
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               Common Level 2 questions.
             </h2>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
-              <CallActionLink className="rounded-lg px-6 py-4" />
-              <QuoteActionLink className="rounded-lg px-6 py-4" />
-            </div>
           </div>
 
           <div className="grid gap-4">
@@ -701,7 +612,7 @@ export default function Level2ElectricianSydneyPage() {
         </div>
       </section>
 
-      <section className="ev-storm-section py-20">
+      <section className="ev-storm-section py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-200">
             Related electrical services
@@ -721,31 +632,6 @@ export default function Level2ElectricianSydneyPage() {
                 <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-cyan-200 transition group-hover:translate-x-1" />
               </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-gradient-to-r from-[#082A86] via-[#061E72] to-[#160208] py-20 text-white sm:py-24">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-200">
-              Need Level 2 electrical help?
-            </p>
-
-            <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Send the defect notice, photos and suburb, or call first if the
-              issue feels unsafe.
-            </h2>
-            <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-300">
-              Planned work can go through the booking form. Urgent supply
-              faults, smoke, heat, sparking or power loss should start with a
-              phone call.
-            </p>
-          </div>
-
-          <div className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row lg:flex-col xl:flex-row">
-            <CallActionLink />
-            <QuoteActionLink />
           </div>
         </div>
       </section>
