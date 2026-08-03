@@ -14958,43 +14958,6 @@ function getLocalPageContext(
   };
 }
 
-function firstSuburbForArea(area: CoverageArea, fallbackName: string) {
-  return (
-    area.suburbs[0] ?? {
-      name: fallbackName,
-      postcode: "",
-      slug: area.slug,
-    }
-  );
-}
-
-export function getAreaLocalContext(
-  coverageRegion: CoverageRegion,
-  coverageArea: CoverageArea,
-) {
-  return getLocalPageContext(
-    coverageRegion,
-    coverageArea,
-    firstSuburbForArea(coverageArea, coverageArea.name),
-  );
-}
-
-export function getRegionLocalContext(coverageRegion: CoverageRegion) {
-  const firstArea =
-    coverageRegion.areas[0] ?? ({
-      description: coverageRegion.description,
-      name: coverageRegion.name,
-      slug: coverageRegion.slug,
-      suburbs: [],
-    } satisfies CoverageArea);
-
-  return getLocalPageContext(
-    coverageRegion,
-    firstArea,
-    firstSuburbForArea(firstArea, coverageRegion.name),
-  );
-}
-
 type SuburbCopyOverride = Partial<
   Pick<
     SuburbPageCopy,

@@ -1,17 +1,22 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowRight, CheckCircle2, MapPin, Phone } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import { notFound } from "next/navigation";
-import { CompactOfferStrip } from "@/components/compact-offer-strip";
+import {
+  LocationFaqs,
+  LocationFinalCta,
+  LocationPrimaryActions,
+  LocationServicePathways,
+} from "@/components/location-page-sections";
+import { ServiceAreaSearch } from "@/components/service-area-search";
 import { ServiceAreaHero } from "@/components/site-frame";
 import {
+  coverageSearchItems,
   getAreaBySlug,
-  getAreaLocalContext,
   getAreaPaths,
   getRegionBySlug,
 } from "@/data/service-area-coverage";
 import { rankSuburbsForInternalLinks } from "@/data/internal-links";
-import { getOffersForPlacement } from "@/data/offers";
 import { absoluteUrl, business, getEmergencyResponseForRegion } from "@/data/site";
 import {
   buildBreadcrumbSchema,
@@ -55,72 +60,42 @@ export default async function AreaPage({ params }: AreaPageProps) {
     notFound();
   }
 
-  const localContext = getAreaLocalContext(region, area);
   const emergencyResponse = getEmergencyResponseForRegion(region.name);
-  const areaOffers = getOffersForPlacement("service-areas");
   const sortedSuburbs = rankSuburbsForInternalLinks(area.suburbs);
+  const areaSearchItems = coverageSearchItems.filter(
+    (item) => item.regionSlug === region.slug && item.areaSlug === area.slug,
+  );
   const strathfieldSuburbCrossLink =
     region.slug === "inner-west-burwood-and-canada-bay" &&
     area.slug === "strathfield"
       ? {
           href: "/service-areas/inner-west-burwood-and-canada-bay/burwood/strathfield",
           title: "Looking for Strathfield 2135?",
-          text: "The main Strathfield suburb page sits in the Burwood area group and covers emergency, Level 2 and general electrical work for Strathfield 2135.",
+          text: "The Strathfield 2135 suburb page is listed in the Burwood service area.",
         }
       : null;
-  const localServiceCards = [
-    {
-      title: `Emergency electrician in ${area.name}`,
-      text: `Call first for no power and burning smells, sparking and overheating power points, tripping safety switches, storm or water damage and unsafe electrical faults around ${area.name}. ${emergencyResponse.regionDisplay}`,
-      href: "/emergency-electrician-sydney",
-    },
-    {
-      title: `Level 2 electrician in ${area.name}`,
-      text: `${business.level2Asp.display} support can include consumer mains, metering, overhead or underground service work, point of attachment issues and defect notice repairs.`,
-      href: "/level-2-electrician-sydney",
-    },
-    {
-      title: `Switchboard upgrades in ${area.name}`,
-      text: `Switchboard work may include ceramic fuse replacement, safety switches, RCBO upgrades, burnt wiring checks and capacity planning.`,
-      href: "/services/switchboard-upgrades-sydney",
-    },
-    {
-      title: `Electrical fault finding`,
-      text: `Fault checks cover circuit tripping, damaged wiring, hot power points, flickering lights, appliance issues and safe isolation testing.`,
-      href: "/services/electrical-fault-finding-sydney",
-    },
-    {
-      title: `Consumer mains`,
-      text: `Consumer mains and supply-side electrical questions are reviewed with the right Level 2 process for the site and network requirements.`,
-      href: "/services/consumer-mains-sydney",
-    },
-    {
-      title: `Defect notice repairs`,
-      text: `For defect notices, send the notice, photos, suburb and deadline so the next action can be scoped clearly.`,
-      href: "/services/defect-notice-repairs-sydney",
-    },
-  ];
   const faqItems = [
     {
-      question: `Do you service ${area.name}?`,
-      answer: `Yes. Evaready Electrical services ${area.name} and the listed suburbs for emergency faults, Level 2 enquiries, switchboards, fault finding and planned electrical work.`,
+      question: `Which suburbs are listed in ${area.name}?`,
+      answer: `This page lists all ${area.suburbs.length} suburbs covered under ${area.name}. Use the search or suburb directory to open the page with the correct suburb name and postcode.`,
     },
     {
-      question: `Can I call for an emergency electrician in ${area.name}?`,
-      answer: `Yes. Call first for no power and burning smells, sparking and overheating power points, repeated safety switch tripping, storm damage or any electrical fault that feels unsafe. ${emergencyResponse.regionDisplay}`,
+      question: `Can I call about an unsafe electrical fault in ${area.name}?`,
+      answer: `${emergencyResponse.regionDisplay} ${business.emergencyResponse.disclaimer} Call first for no power, burning smells, sparking, repeated tripping, shock risk or storm and water-affected electrical equipment.`,
     },
     {
-      question: `Do you help with Level 2 electrical work in ${area.name}?`,
-      answer: `Evaready Electrical is an ${business.level2Asp.display} and can assist with Level 2 electrical enquiries involving consumer mains, metering, defect notices, overhead or underground services and supply-side issues.`,
+      question: `Is Level 2 electrical work available across ${area.name}?`,
+      answer: `Evaready Electrical is an ${business.level2Asp.display}. Eligible work can include consumer mains, metering, service equipment, defect notice repairs, points of attachment and overhead or underground service lines. The exact scope depends on the network, site and job requirements.`,
     },
     {
-      question: `What common electrical jobs do you handle in ${area.name}?`,
-      answer: `Common jobs include switchboard upgrades, fault finding, hot water circuits, lighting, power points, smoke alarms, air-conditioning electrical support, CCTV/data and general electrical repairs.`,
+      question: `How should I request planned work in ${area.name}?`,
+      answer: `Use the quote form to send the suburb, postcode, job address, contact details, photos, access notes and any relevant defect notice or network paperwork. Call first if the issue feels unsafe or active.`,
     },
-    {
-      question: `How do I request a quote in ${area.name}?`,
-      answer: `Open the secure booking form and send your suburb, address, contact details, photos and job notes. For unsafe faults, call first.`,
-    },
+  ];
+  const serviceNames = [
+    `Emergency electrician in ${area.name}`,
+    `Level 2 electrician in ${area.name}`,
+    `Planned electrical work in ${area.name}`,
   ];
   const pagePath = `/service-areas/${region.slug}/${area.slug}`;
   const breadcrumbSchema = buildBreadcrumbSchema(
@@ -137,15 +112,15 @@ export default async function AreaPage({ params }: AreaPageProps) {
     areaServed: area.name,
     description: `${area.name} electrical service area for urgent faults, Level 2 enquiries, switchboards and planned electrical work.`,
     name: `${business.name} - ${area.name} Electrician`,
-    offerNames: localServiceCards.map((card) => card.title),
-    serviceTypes: localServiceCards.map((card) => card.title),
+    offerNames: serviceNames,
+    serviceTypes: serviceNames,
     url: absoluteUrl(pagePath),
   });
   const serviceSchema = buildServiceSchema({
     areaServed: area.name,
     description: `Emergency, Level 2 and planned electrical work across ${area.name}.`,
     name: `${area.name} electrician service area`,
-    offerNames: localServiceCards.map((card) => card.title),
+    offerNames: serviceNames,
     path: pagePath,
     serviceType: [
       `Emergency electrician in ${area.name}`,
@@ -177,282 +152,129 @@ export default async function AreaPage({ params }: AreaPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
       />
+
       <ServiceAreaHero
         eyebrow="Area service"
         title={`${area.name} Electrician - Emergency, Level 2 & Planned Work`}
       >
-        <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
-          {area.description} Evaready Electrical provides emergency
-          electrician support, Level 2 ASP enquiries, switchboards,
-          consumer mains, defect notices, fault finding, hot water,
-          air-conditioning electrical, CCTV/data and general electrical work
-          across {area.name}.
-        </p>
-        <p className="mt-4 max-w-3xl text-base leading-7 text-slate-200">
-          Local jobs around {area.name} commonly involve
-          {" "}
-          {localContext.propertyMix}. Planned enquiries are easier to review
-          when they include {localContext.accessDetail}.
+        <nav
+          aria-label="Breadcrumb"
+          className="mt-5 flex max-w-3xl flex-wrap items-center gap-x-2 gap-y-1 text-sm font-bold text-cyan-100"
+        >
+          <Link href="/service-areas" className="hover:text-white">
+            Service Areas
+          </Link>
+          <span aria-hidden="true">/</span>
+          <Link
+            href={`/service-areas/${region.slug}`}
+            className="hover:text-white"
+          >
+            {region.name}
+          </Link>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">{area.name}</span>
+        </nav>
+        <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-100 sm:text-xl">
+          This area directory confirms {area.suburbs.length} listed suburb and
+          postcode {area.suburbs.length === 1 ? "route" : "routes"} for emergency
+          faults, eligible Level 2 work and planned electrical services.
         </p>
         <p className="mt-4 max-w-3xl text-base font-semibold leading-7 text-blue-100">
-          Region: {region.name}. {emergencyResponse.regionDisplay} Extended
-          service areas may depend on job type, urgency and availability.
+          Region: {region.name}. {emergencyResponse.regionDisplay}
+          {` ${business.emergencyResponse.disclaimer}`}
         </p>
+        <div className="mt-6 grid max-w-2xl gap-3 sm:grid-cols-2">
+          <div className="ev-storm-card rounded-lg border border-cyan-300/25 p-4">
+            <p className="text-3xl font-black">{area.suburbs.length}</p>
+            <p className="mt-1 text-sm font-semibold text-slate-200">
+              Suburbs listed in this area
+            </p>
+          </div>
+          <div className="ev-storm-card rounded-lg border border-cyan-300/25 p-4">
+            <p className="text-lg font-black">{emergencyResponse.shortDisplay}</p>
+            <p className="mt-1 text-sm font-semibold text-slate-200">
+              Emergency call-outs only
+            </p>
+          </div>
+        </div>
+        <LocationPrimaryActions className="mt-7" />
       </ServiceAreaHero>
 
-      <section className="border-b border-cyan-300/15 bg-[#06142f]">
-        <div className="mx-auto grid max-w-7xl gap-5 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
-          {[
-            `Licensed electrician ${business.licence}`,
-            emergencyResponse.shortDisplay,
-            business.level2Asp.shortDisplay,
-            "Urgent fault support",
-            "Booking details and photos",
-            `${area.suburbs.length} suburbs covered`,
-          ].map((item) => (
-            <div key={item} className="flex items-center gap-3">
-              <CheckCircle2 className="h-6 w-6 shrink-0 text-cyan-300" />
-              <span className="font-bold text-slate-100">{item}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-[#040b1c] py-20">
+      <section className="py-14 text-white sm:py-16" data-location-section="suburb-directory">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
-            Local services
+          <p className="text-sm font-black uppercase tracking-[0.28em] text-cyan-300">
+            Suburb and postcode directory
           </p>
-          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-            Emergency, Level 2 and common electrical jobs in {area.name}.
+          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight sm:text-5xl">
+            Find your suburb in {area.name}.
           </h2>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
-            Choose the service that matches the job, call first for unsafe
-            faults, or send photos and notes for planned work.
+          <p className="mt-4 max-w-3xl text-base leading-7 text-slate-200 sm:text-lg">
+            Search by suburb or postcode, or choose a verified route below.
+            Each suburb page confirms its postcode, area, region and emergency
+            response classification.
           </p>
-
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {[
-              {
-                title: "Local property mix",
-                text: `${area.name} enquiries often involve ${localContext.propertyMix}.`,
-              },
-              {
-                title: "Urgent fault patterns",
-                text: `Call first for ${localContext.emergencySignals}, especially if there is heat, smoke, sparking or no power.`,
-              },
-              {
-                title: "Level 2 and switchboards",
-                text: `Level 2 enquiries can involve ${localContext.level2Detail}; switchboards often need checks for ${localContext.switchboardDetail}.`,
-              },
-            ].map((item) => (
-              <article
-                key={item.title}
-                className="rounded-lg border border-cyan-300/20 bg-[#091d42] p-5 shadow-lg shadow-blue-950/20"
-              >
-                <h3 className="text-lg font-black text-white">
-                  {item.title}
-                </h3>
-                <p className="mt-3 leading-7 text-slate-300">{item.text}</p>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {localServiceCards.map((card) => (
-              <Link
-                key={card.title}
-                href={card.href}
-                className="group rounded-lg border border-cyan-300/20 bg-[#091d42] p-6 shadow-lg shadow-blue-950/20 transition hover:-translate-y-1 hover:border-cyan-200 hover:bg-[#0d2b5c] hover:shadow-xl"
-              >
-                <h3 className="text-2xl font-black">{card.title}</h3>
-                <p className="mt-3 leading-7 text-slate-300">{card.text}</p>
-                <span className="mt-5 inline-flex items-center gap-2 font-black text-cyan-200">
-                  View service
-                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#06142f] py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
-            Suburbs
-          </p>
-          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-            Suburbs covered in {area.name}.
-          </h2>
-          <div className="mt-5 flex flex-wrap gap-3">
-            <Link
-              href="/service-areas"
-              className="rounded-full border border-cyan-300/25 bg-[#091d42] px-4 py-2 text-sm font-black text-slate-100 transition hover:border-cyan-200 hover:text-cyan-100"
-            >
-              All service areas
-            </Link>
-            <Link
-              href={`/service-areas/${region.slug}`}
-              className="rounded-full border border-cyan-300/25 bg-[#091d42] px-4 py-2 text-sm font-black text-slate-100 transition hover:border-cyan-200 hover:text-cyan-100"
-            >
-              {region.name}
-            </Link>
+          <div className="mt-7 max-w-3xl">
+            <ServiceAreaSearch items={areaSearchItems} />
           </div>
 
           {strathfieldSuburbCrossLink ? (
             <Link
               href={strathfieldSuburbCrossLink.href}
-              className="group mt-8 flex flex-col gap-4 rounded-lg border border-cyan-300/20 bg-[#091d42] p-6 shadow-lg shadow-blue-950/20 transition hover:border-cyan-200 hover:bg-[#0d2b5c] sm:flex-row sm:items-center sm:justify-between"
+              className="ev-storm-card group mt-7 flex flex-col gap-3 rounded-lg border border-cyan-300/25 p-5 transition hover:border-cyan-200 sm:flex-row sm:items-center sm:justify-between"
             >
               <span>
-                <span className="block text-sm font-black uppercase tracking-[0.24em] text-cyan-300">
-                  Nearby high-value page
-                </span>
-                <span className="mt-2 block text-2xl font-black text-white">
+                <span className="block text-xl font-black text-white">
                   {strathfieldSuburbCrossLink.title}
                 </span>
-                <span className="mt-2 block max-w-3xl leading-7 text-slate-300">
+                <span className="mt-2 block leading-7 text-slate-200">
                   {strathfieldSuburbCrossLink.text}
                 </span>
               </span>
-              <span className="inline-flex items-center gap-2 font-black text-cyan-200">
-                View Strathfield page
-                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+              <span className="inline-flex min-h-11 shrink-0 items-center gap-2 font-black text-cyan-200">
+                View suburb
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </span>
             </Link>
           ) : null}
 
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {sortedSuburbs.map((suburb) => (
-              <Link
-                key={suburb.slug}
-                href={`/service-areas/${region.slug}/${area.slug}/${suburb.slug}`}
-                className="group rounded-lg border border-cyan-300/20 bg-[#091d42] p-5 shadow-lg shadow-blue-950/20 transition hover:border-cyan-200 hover:bg-[#0d2b5c]"
-              >
-                <div className="flex items-start gap-3">
-                  <MapPin className="mt-1 h-5 w-5 shrink-0 text-cyan-300" />
-                  <div>
-                    <h3 className="text-xl font-black">{suburb.name}</h3>
-                    <p className="mt-1 text-sm font-bold text-slate-300">
-                      {suburb.postcode}
-                    </p>
-                  </div>
-                </div>
-
-                <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-cyan-200">
-                  View suburb
-                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                </span>
-              </Link>
+              <li key={suburb.slug}>
+                <Link
+                  href={`/service-areas/${region.slug}/${area.slug}/${suburb.slug}`}
+                  className="ev-storm-card group flex h-full min-h-20 items-center justify-between gap-4 rounded-lg border border-cyan-300/20 px-4 py-3 transition hover:border-cyan-200 focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+                >
+                  <span className="flex min-w-0 items-center gap-3">
+                    <MapPin className="h-5 w-5 shrink-0 text-cyan-300" aria-hidden="true" />
+                    <span className="min-w-0">
+                      <span className="block font-black text-white">{suburb.name}</span>
+                      <span className="mt-1 block text-sm font-bold text-slate-300">
+                        {suburb.postcode}
+                      </span>
+                    </span>
+                  </span>
+                  <ArrowRight
+                    className="h-4 w-4 shrink-0 text-cyan-200 transition group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
-      <section className="bg-[#040b1c] py-20">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
-              How we work locally
-            </p>
-            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Clear communication, careful testing and clean workmanship.
-            </h2>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              "Confirm the job type, suburb, access and urgency.",
-              "Prioritise urgent electrical hazards and power faults.",
-              "Use photos, job notes and access details to plan the work.",
-              "Complete the electrical work safely and explain the next actions.",
-            ].map((item) => (
-              <div
-                key={item}
-                className="rounded-lg border border-cyan-300/20 bg-[#091d42] p-5 shadow-lg shadow-blue-950/20"
-              >
-                <CheckCircle2 className="h-6 w-6 text-cyan-300" />
-                <p className="mt-4 font-bold leading-7 text-slate-100">
-                  {item}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#06142f] py-20">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
-              Area FAQs
-            </p>
-            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Common electrical questions for {area.name}.
-            </h2>
-          </div>
-
-          <div className="grid gap-4">
-            {faqItems.map((item) => (
-              <div
-                key={item.question}
-                className="rounded-lg border border-cyan-300/20 bg-[#091d42] p-6 shadow-lg shadow-blue-950/20"
-              >
-                <h3 className="text-xl font-black">{item.question}</h3>
-                <p className="mt-3 leading-7 text-slate-300">{item.answer}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <CompactOfferStrip
-        id="area-current-offers"
-        offers={areaOffers}
-        heading={`Current offers for ${area.name}`}
-        intro="Eligible offers can be checked against the job scope and terms. Call first if the fault feels unsafe or active."
-        className="border-y border-cyan-300/15"
+      <LocationServicePathways
+        locality={area.name}
+        responseDisplay={emergencyResponse.regionDisplay}
       />
 
-      <section className="bg-gradient-to-r from-[#06142f] via-[#0a234d] to-[#040b1c] py-20 text-white">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
-              Electrical support around {area.name}.
-            </p>
-            <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Call for urgent faults or send the job details for review.
-            </h2>
-          </div>
+      <LocationFaqs
+        heading={`Before arranging electrical work in ${area.name}.`}
+        items={faqItems}
+      />
 
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <a
-              href={business.phoneHref}
-              data-conversion-action="phone-click"
-              aria-label={business.callCta}
-              className="inline-flex items-center justify-center gap-3 rounded-lg bg-red-600 px-7 py-4 font-black text-white transition hover:bg-red-500"
-            >
-              <Phone className="h-5 w-5" />
-              <span className="whitespace-nowrap">{business.callCta}</span>
-            </a>
-
-            <a
-              href={business.bookingUrl}
-              aria-label="Get a quote from Evaready Electrical"
-              data-quote-trigger="true"
-              data-conversion-action="quote-click"
-              aria-haspopup="dialog"
-              className="inline-flex items-center justify-center gap-3 rounded-lg bg-[#0876ff] px-7 py-4 font-black text-white shadow-lg shadow-cyan-950/20 transition hover:bg-[#079cff]"
-            >
-              {business.quoteCta}
-              <ArrowRight className="h-5 w-5" />
-            </a>
-          </div>
-        </div>
-      </section>
-
+      <LocationFinalCta locality={area.name} />
     </main>
   );
 }
-

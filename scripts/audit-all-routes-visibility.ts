@@ -274,7 +274,7 @@ function localSuburbWarning(item: RouteInventoryItem, visibleText: string) {
   const warnings: string[] = [];
   const suburbName = item.suburbName ?? "";
   const postcode = item.postcode ?? "";
-  const topLine = `Emergency, Level 2 and general electrical work in ${suburbName} ${postcode}`;
+  const h1Line = `Electrician ${suburbName} ${postcode}`;
 
   if (suburbName && !visibleText.includes(suburbName)) {
     warnings.push("suburb name missing");
@@ -284,8 +284,8 @@ function localSuburbWarning(item: RouteInventoryItem, visibleText: string) {
     warnings.push("postcode missing");
   }
 
-  if (suburbName && postcode && !visibleText.includes(topLine)) {
-    warnings.push("top local service line missing");
+  if (suburbName && postcode && !visibleText.includes(h1Line)) {
+    warnings.push("suburb H1 wording missing");
   }
 
   if (
@@ -324,27 +324,23 @@ function localSuburbMarkupWarning(item: RouteInventoryItem, html: string) {
   }
 
   const warnings: string[] = [];
+  const pathwayCount = html.match(/\bdata-location-pathway=/g)?.length ?? 0;
   const serviceCardCount =
-    html.match(/\bdata-suburb-service-card=/g)?.length ?? 0;
+    html.match(/\bdata-location-service-card="true"/g)?.length ?? 0;
+  const faqCount = html.match(/\bdata-location-faq="true"/g)?.length ?? 0;
+  const nearbyLinkCount =
+    html.match(/\bdata-nearby-suburb-link="true"/g)?.length ?? 0;
 
-  if (!html.includes('data-suburb-action-card="call-first"')) {
-    warnings.push("call-first action card missing");
+  if (pathwayCount !== 3) {
+    warnings.push(`expected 3 customer pathways, found ${pathwayCount}`);
   }
 
-  if (!html.includes('data-suburb-action-link="call-first"')) {
-    warnings.push("call-first phone action link missing");
+  if (!html.includes('data-conversion-action="phone-click"')) {
+    warnings.push("phone conversion action missing");
   }
 
-  if (!html.includes('data-suburb-action-link="quote-form"')) {
-    warnings.push("quote-form action link missing");
-  }
-
-  if (!html.includes('data-suburb-action-link="level-2-services"')) {
-    warnings.push("Level 2 service action link missing");
-  }
-
-  if (!html.includes('data-suburb-action-link="level-2-quote"')) {
-    warnings.push("Level 2 quote action link missing");
+  if (!html.includes('data-conversion-action="quote-click"')) {
+    warnings.push("quote conversion action missing");
   }
 
   if (!html.includes('href="tel:+61461247247"')) {
@@ -352,7 +348,15 @@ function localSuburbMarkupWarning(item: RouteInventoryItem, html: string) {
   }
 
   if (serviceCardCount < 8) {
-    warnings.push(`expected 8 linked service summary cards, found ${serviceCardCount}`);
+    warnings.push(`expected 8 linked service cards, found ${serviceCardCount}`);
+  }
+
+  if (faqCount !== 4) {
+    warnings.push(`expected 4 visible FAQs, found ${faqCount}`);
+  }
+
+  if (nearbyLinkCount !== 8) {
+    warnings.push(`expected 8 nearby suburb links, found ${nearbyLinkCount}`);
   }
 
   return warnings.join("; ");

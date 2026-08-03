@@ -207,6 +207,103 @@ test("Panania 2213 is mobile-safe at every required mobile width", async ({
   }
 });
 
+test("representative location templates stay responsive and keyboard accessible", async ({
+  browser,
+}) => {
+  const routeMap = new Map(
+    createAllRouteInventory().map((item) => [item.route, item]),
+  );
+  const targets = [
+    {
+      route:
+        "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania",
+      viewport: { width: 320, height: 568 },
+    },
+    {
+      route: "/service-areas/blue-mountains/blue-mountains/katoomba",
+      viewport: { width: 768, height: 1024 },
+    },
+    {
+      route: "/service-areas/sydney-city-and-eastern-suburbs/randwick/coogee",
+      viewport: { width: 1366, height: 768 },
+    },
+    {
+      route:
+        "/service-areas/wollongong-and-illawarra/shellharbour/shellharbour-city-centre",
+      viewport: { width: 390, height: 844 },
+    },
+  ];
+
+  for (const target of targets) {
+    const route = routeMap.get(target.route);
+
+    if (!route) {
+      throw new Error(`Location QA target missing from route inventory: ${target.route}`);
+    }
+
+    const context = await browser.newContext({ viewport: target.viewport });
+    const page = await context.newPage();
+    await assertRouteVisible(page, route);
+
+    const firstFaq = page.locator('details[data-location-faq="true"]').first();
+    const summary = firstFaq.locator("summary");
+    await summary.focus();
+    await expect(summary).toBeFocused();
+    await summary.press("Enter");
+    await expect(firstFaq).toHaveAttribute("open", "");
+    expect(await hasHorizontalOverflow(page)).toBe(false);
+
+    const documentHeight = await page.evaluate(() => {
+      const footer = document.querySelector<HTMLElement>("footer#site-footer");
+      const footerRect = footer?.getBoundingClientRect();
+
+      return {
+        footerBottom: footerRect
+          ? footerRect.bottom + window.scrollY
+          : 0,
+        scrollHeight: document.documentElement.scrollHeight,
+      };
+    });
+    expect(documentHeight.footerBottom).toBeGreaterThan(0);
+    expect(
+      documentHeight.scrollHeight - documentHeight.footerBottom,
+      `${target.route} trailing document space`,
+    ).toBeLessThanOrEqual(96);
+
+    if (target.viewport.width >= 1024) {
+      const pathwayRects = await page
+        .locator("[data-location-pathway]")
+        .evaluateAll((cards) =>
+          cards.map((card) => {
+            const rect = card.getBoundingClientRect();
+            return { height: rect.height, top: rect.top };
+          }),
+        );
+      expect(
+        Math.max(...pathwayRects.map((rect) => rect.top)) -
+          Math.min(...pathwayRects.map((rect) => rect.top)),
+        `${target.route} pathway row alignment`,
+      ).toBeLessThanOrEqual(1);
+      expect(
+        Math.max(...pathwayRects.map((rect) => rect.height)) -
+          Math.min(...pathwayRects.map((rect) => rect.height)),
+        `${target.route} pathway card heights`,
+      ).toBeLessThanOrEqual(1);
+    }
+
+    await page.screenshot({
+      fullPage: true,
+      timeout: 60_000,
+      path: path.join(
+        screenshotDir,
+        `location-${route.suburbName?.toLowerCase().replaceAll(" ", "-")}-${target.viewport.width}x${target.viewport.height}.png`,
+      ),
+    });
+
+    await context.close();
+  }
+});
+
 async function assertRouteVisible(page: Page, route: RouteInventoryItem) {
   const failedInternalAssets: string[] = [];
 
@@ -270,9 +367,10 @@ async function assertRouteVisible(page: Page, route: RouteInventoryItem) {
 
   if (route.pageType === "suburb page" && route.suburbName && route.postcode) {
     await expect(
-      page.getByText(
-        `Emergency, Level 2 and general electrical work in ${route.suburbName} ${route.postcode}`,
-      ),
+      page.getByRole("heading", {
+        level: 1,
+        name: `Electrician ${route.suburbName} ${route.postcode}`,
+      }),
     ).toBeVisible();
     await expectSuburbActionLinks(page, route.route);
   }
@@ -281,24 +379,18 @@ async function assertRouteVisible(page: Page, route: RouteInventoryItem) {
 async function expectSuburbActionLinks(page: Page, route: string) {
   await expectAnyVisible(
     page.locator(
-      'a[data-suburb-action-link="call-first"][href="tel:+61461247247"]',
+      'a[data-conversion-action="phone-click"][href="tel:+61461247247"]',
     ),
-    `${route} call-first action link`,
+    `${route} phone action`,
   );
   await expectAnyVisible(
-    page.locator('a[data-suburb-action-link="quote-form"]'),
-    `${route} quote-form action link`,
-  );
-  await expectAnyVisible(
-    page.locator('a[data-suburb-action-link="level-2-services"]'),
-    `${route} Level 2 service action link`,
-  );
-  await expectAnyVisible(
-    page.locator('a[data-suburb-action-link="level-2-quote"]'),
-    `${route} Level 2 quote action link`,
+    page.locator('a[data-conversion-action="quote-click"]'),
+    `${route} quote action`,
   );
 
-  const serviceCards = page.locator("a[data-suburb-service-card]");
+  await expect(page.locator("a[data-location-pathway]"), `${route} customer pathways`).toHaveCount(3);
+
+  const serviceCards = page.locator('a[data-location-service-card="true"]');
   await expect(serviceCards, `${route} linked service cards`).toHaveCount(8);
 
   for (let index = 0; index < 8; index += 1) {
@@ -309,6 +401,9 @@ async function expectSuburbActionLinks(page: Page, route: string) {
       /\/(?:services|emergency-electrician-sydney|level-2-electrician-sydney)/,
     );
   }
+
+  await expect(page.locator('details[data-location-faq="true"]'), `${route} FAQs`).toHaveCount(4);
+  await expect(page.locator('a[data-nearby-suburb-link="true"]'), `${route} nearby suburb links`).toHaveCount(8);
 }
 
 async function expectAnyVisible(locator: Locator, label: string) {

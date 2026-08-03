@@ -277,23 +277,8 @@ function countInternalLinks(html: string) {
   return hrefs.size;
 }
 
-function countVisibleFaqs(text: string, suburbName: string) {
-  const escapedSuburb = escapeRegExp(suburbName);
-  const faqPatterns = [
-    new RegExp(`Do you service ${escapedSuburb}\\?`, "i"),
-    new RegExp(`Do you handle emergency faults in ${escapedSuburb}\\?`, "i"),
-    new RegExp(
-      `Do you provide Level 2 electrical work in ${escapedSuburb}\\?`,
-      "i",
-    ),
-    /Can I send photos for a quote\?/i,
-    new RegExp(
-      `Do you help with switchboards, hot water circuits, aircon electrical and CCTV/data in ${escapedSuburb}\\?`,
-      "i",
-    ),
-  ];
-
-  return faqPatterns.filter((pattern) => pattern.test(text)).length;
+function countVisibleFaqs(html: string) {
+  return (html.match(/data-location-faq="true"/g) ?? []).length;
 }
 
 function findResponseWording(text: string) {
@@ -493,7 +478,7 @@ function auditRecord(record: SuburbRecord): SuburbAuditRow {
   ).test(visibleText);
   const switchboardPresent = /\bswitchboard/i.test(visibleText);
   const internalLinkCount = countInternalLinks(html);
-  const faqCount = countVisibleFaqs(visibleText, record.suburb.name);
+  const faqCount = countVisibleFaqs(html);
   const notes: string[] = [];
 
   if (!correctResponsePresent) {
@@ -504,8 +489,8 @@ function auditRecord(record: SuburbRecord): SuburbAuditRow {
     notes.push(`fewer than 8 internal links: ${internalLinkCount}`);
   }
 
-  if (faqCount < 5) {
-    notes.push(`fewer than 5 FAQs: ${faqCount}`);
+  if (faqCount < 4) {
+    notes.push(`fewer than 4 FAQs: ${faqCount}`);
   }
 
   if (!/^\d{4}$/.test(record.suburb.postcode)) {
@@ -616,7 +601,7 @@ function rowHasWarning(row: SuburbAuditRow) {
       : "",
     row["ASP wording present yes/no"] === "no" ? "missing ASP wording" : "",
     row["internal links count"] < 8 ? "fewer than 8 internal links" : "",
-    row["FAQ count"] < 5 ? "fewer than 5 FAQs" : "",
+    row["FAQ count"] < 4 ? "fewer than 4 FAQs" : "",
   ].some(Boolean);
 }
 
@@ -661,7 +646,7 @@ function warningSummary(row: SuburbAuditRow) {
     row["internal links count"] < 8
       ? `fewer than 8 internal links: ${row["internal links count"]}`
       : "",
-    row["FAQ count"] < 5 ? `fewer than 5 FAQs: ${row["FAQ count"]}` : "",
+    row["FAQ count"] < 4 ? `fewer than 4 FAQs: ${row["FAQ count"]}` : "",
   ]
     .filter(Boolean)
     .join("; ");
