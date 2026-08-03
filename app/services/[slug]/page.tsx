@@ -308,8 +308,8 @@ export default async function ServiceLandingPage({
       ...(isLevel2ResponseService
         ? [
             business.level2Asp.display,
-            "60-minute emergency attendance in core service areas",
-            "60–90-minute emergency attendance in selected outer regions",
+            business.emergencyResponse.coreServiceType,
+            business.emergencyResponse.greaterServiceType,
           ]
         : []),
     ],
@@ -340,8 +340,8 @@ export default async function ServiceLandingPage({
       ? [
           service.title,
           business.level2Asp.display,
-          "60-minute emergency attendance in core service areas",
-          "60–90-minute emergency attendance in selected outer regions",
+          business.emergencyResponse.coreServiceType,
+          business.emergencyResponse.greaterServiceType,
         ]
       : service.title,
     offerNames: service.services,
@@ -382,8 +382,8 @@ export default async function ServiceLandingPage({
     ...(isLevel2ResponseService
       ? [
           business.level2Asp.display,
-          "60-minute emergency response in core areas",
-          "60–90 minutes in selected outer regions",
+          business.emergencyResponse.coreDisplay,
+          business.emergencyResponse.greaterDisplay,
         ]
       : []),
     ...(service.credentialHighlights ?? []),
@@ -496,10 +496,11 @@ export default async function ServiceLandingPage({
 
             {isLevel2ResponseService ? (
               <p className="mt-5 max-w-3xl rounded-2xl border border-cyan-300/20 bg-cyan-300/10 p-4 text-sm font-bold leading-6 text-cyan-50">
-                {business.level2Asp.display}. Emergency supply-side call-outs
-                can be on site within 60 minutes in core service areas, with
-                a 60–90-minute response window in selected outer regions. Call
-                first for unsafe service equipment, damaged point of
+                {business.level2Asp.display}.{" "}
+                {business.emergencyResponse.combinedDisplay}{" "}
+                {business.emergencyResponse.disclaimer}{" "}
+                {business.emergencyResponse.emergencyOnlyNote} Call first for
+                unsafe service equipment, damaged point of
                 attachment, overhead service concerns, consumer mains faults,
                 private pole damage or urgent defect notice deadlines. Network
                 approvals and distributor timing remain with the relevant

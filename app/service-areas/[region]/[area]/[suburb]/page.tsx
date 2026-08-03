@@ -99,7 +99,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
     },
     {
       question: `What is the emergency response guidance for ${suburb.name}?`,
-      answer: `${emergencyResponse.shortDisplay} applies to urgent electrical call-outs in ${suburb.name}. Actual timing depends on location, access, traffic, safety conditions, job type and current availability. Planned quote work is not covered by emergency response guidance. Call first for power loss, burning smells, sparking, shock risk, repeated tripping or storm and water-affected electrical equipment.`,
+      answer: `${emergencyResponse.shortDisplay} applies to urgent electrical call-outs in ${suburb.name}. ${business.emergencyResponse.disclaimer} ${business.emergencyResponse.emergencyOnlyNote} Call first for power loss, burning smells, sparking, shock risk, repeated tripping or storm and water-affected electrical equipment.`,
     },
     {
       question: `Can Evaready help with Level 2 electrical work in ${suburb.name}?`,
@@ -206,7 +206,8 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
           electrical services.
         </p>
         <p className="mt-4 max-w-3xl text-base font-semibold leading-7 text-blue-100">
-          {emergencyResponse.regionDisplay} {business.emergencyResponse.disclaimer}
+          {emergencyResponse.regionDisplay}{" "}
+          {business.emergencyResponse.compactQualification}
         </p>
         <ServiceCredentialStrip
           items={getSuburbCredentialItems(suburb.name, region.name)}

@@ -1,3 +1,5 @@
+import { approvedBusinessClaims, business } from "./site";
+
 export type ServiceFaq = {
   answer: string;
   question: string;
@@ -1023,9 +1025,9 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     },
     responseTrustProof: {
       items: [
-        "60-minute emergency response in core service areas",
-        "60–90-minute emergency response in selected outer regions",
-        "Ausgrid & Endeavour Energy Accredited Level 2 ASP",
+        business.emergencyResponse.coreServiceType,
+        business.emergencyResponse.greaterServiceType,
+        business.level2Asp.display,
         "Call first for urgent electrical faults",
         "Send photos and job details for planned work",
       ],
@@ -1135,8 +1137,8 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     intro:
       "Evaready helps with the electrical side of split-system air conditioning, including dedicated circuits, AC isolators, outdoor unit power, safety switch protection, switchboard capacity checks and heat-pump electrical supply where relevant. Air-conditioning installation or refrigeration work is handled by appropriately licensed technicians. If the job involves electrical supply, tripping, burning smell, heat, buzzing, sparking, unsafe wiring, isolators, switchboard capacity or power to the unit, call first or send photos for review.",
     credentialHighlights: [
-      "ARCtick Licensed - L157323",
-      "Licence L157323 for eligible air-conditioning, heat pump and related work.",
+      approvedBusinessClaims.credentials.arctick.approvedWording,
+      approvedBusinessClaims.credentials.arctick.qualification,
     ],
     heroBullets: [
       "Air-conditioning electrical support",
@@ -1167,9 +1169,9 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     responseTrustProof: {
       heading: "Trusted air-conditioning electrical support without overclaiming.",
       items: [
-        "60-minute emergency response in core service areas",
-        "60–90-minute emergency response in selected outer regions",
-        "Ausgrid & Endeavour Energy Accredited Level 2 ASP",
+        business.emergencyResponse.coreServiceType,
+        business.emergencyResponse.greaterServiceType,
+        business.level2Asp.display,
         "Call first for urgent electrical faults",
         "Send photos and job details for planned work",
       ],
@@ -1311,8 +1313,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     title: "CCTV Electrician Sydney & Surrounding Regions",
     description:
       "Security camera and CCTV cabling installed neatly for homes, shops, offices and strata sites.",
-    intro:
-      "A good CCTV setup depends on camera placement, clean cabling and reliable power. Evaready Electrical helps with CCTV and security camera installation for homes and businesses, including camera wiring, power supplies, recorder locations and future camera provisions. Open Cabler registration number 46691 applies to eligible data, CCTV and communications cabling work.",
+    intro: `A good CCTV setup depends on camera placement, clean cabling and reliable power. Evaready Electrical helps with CCTV and security camera installation for homes and businesses, including camera wiring, power supplies, recorder locations and future camera provisions. ${approvedBusinessClaims.credentials.openCabler.approvedWording} applies to eligible data, CCTV and communications cabling work.`,
     heroBullets: [
       "Home CCTV installation",
       "Business security cameras",
@@ -1354,8 +1355,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     faqs: [
       {
         question: "Can you install CCTV at a home or business?",
-        answer:
-          "Yes. Evaready Electrical can assist with CCTV camera wiring and installation for residential and commercial properties, including eligible cabling work under Open Cabler registration number 46691.",
+        answer: `Yes. Evaready Electrical can assist with CCTV camera wiring and installation for residential and commercial properties, including eligible cabling work under ${approvedBusinessClaims.credentials.openCabler.approvedWording}.`,
       },
       {
         question: "Where should CCTV cameras be installed?",
@@ -1383,8 +1383,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     title: "Data Cabling Electrician Sydney & Surrounding Regions",
     description:
       "Network data cabling, internet points and communication outlets for homes, offices and renovations.",
-    intro:
-      "Reliable internet and network points need tidy cabling and sensible placement. Evaready Electrical installs data cabling, internet points and communication outlets for homes, offices, renovations and commercial spaces. Open Cabler registration number 46691 applies to eligible data and communications cabling work.",
+    intro: `Reliable internet and network points need tidy cabling and sensible placement. Evaready Electrical installs data cabling, internet points and communication outlets for homes, offices, renovations and commercial spaces. ${approvedBusinessClaims.credentials.openCabler.approvedWording} applies to eligible data and communications cabling work.`,
     heroBullets: [
       "Network data points",
       "Internet outlet installation",
@@ -1431,8 +1430,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         question: "Can you help with office data cabling?",
-        answer:
-          "Yes. Evaready Electrical can assist with office data runs, outlet placement and eligible communication cabling under Open Cabler registration number 46691.",
+        answer: `Yes. Evaready Electrical can assist with office data runs, outlet placement and eligible communication cabling under ${approvedBusinessClaims.credentials.openCabler.approvedWording}.`,
       },
       {
         question: "Do you repair phone lines?",
@@ -3223,8 +3221,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     faqs: [
       {
         question: "Can you work on phone line cabling?",
-        answer:
-          "Evaready Electrical can assist with eligible internal phone and communications cabling under Open Cabler registration number 46691.",
+        answer: `Evaready Electrical can assist with eligible internal phone and communications cabling under ${approvedBusinessClaims.credentials.openCabler.approvedWording}.`,
       },
       {
         question: "Do carrier network faults need the provider?",
@@ -3237,7 +3234,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
           "Send photos of the outlet, modem or phone equipment, the room location, access points and any damaged cabling.",
       },
     ],
-    credentialHighlights: ["Open Cabler Registration: 46691"],
+    credentialHighlights: [approvedBusinessClaims.credentials.openCabler.approvedWording],
     relatedServices: [
       "data-cabling-electrician-sydney",
       "cctv-security-camera-installation-sydney",

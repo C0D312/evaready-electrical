@@ -822,14 +822,23 @@ const serviceLandingPageBySlug = new Map(
 
 const servicesHeroCredentialItems = [
   { icon: ShieldCheck, title: "NSW Licensed", text: business.licence },
-  { icon: Clock3, title: "60-Min Response", text: "Core emergencies", tone: "red" as const },
-  { icon: Clock3, title: "60–90-Min Response", text: "Selected outer regions" },
+  {
+    icon: Clock3,
+    title: business.emergencyResponse.coreBadgeTitle,
+    text: business.emergencyResponse.coreBadgeText,
+    tone: "red" as const,
+  },
+  {
+    icon: Clock3,
+    title: business.emergencyResponse.greaterBadgeTitle,
+    text: business.emergencyResponse.greaterBadgeText,
+  },
   ...(business.level2Asp.enabled
     ? [
         {
           icon: BadgeCheck,
           title: business.level2Asp.shortDisplay,
-          text: "Ausgrid & Endeavour Energy",
+          text: business.level2Asp.networks.join(" & "),
         },
       ]
     : []),

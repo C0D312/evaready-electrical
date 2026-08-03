@@ -1,4 +1,8 @@
-import { business, getEmergencyResponseForRegion } from "./site";
+import {
+  approvedBusinessClaims,
+  business,
+  getEmergencyResponseForRegion,
+} from "./site";
 import { generatedCoverageRegions } from "./service-area-region-data";
 import { clampMetaDescription } from "../lib/meta-description";
 
@@ -191,10 +195,7 @@ function normalizeSuburbEmergencyAnswer(
     )
     .trim();
   const withResponse =
-    normalizedAnswer.includes(response.regionDisplay) ||
-    /\bcan be on site within (?:60|90) minutes\b|\b60[–-]90-minute response window\b/i.test(
-      normalizedAnswer,
-    )
+    normalizedAnswer.includes(response.regionDisplay)
     ? normalizedAnswer
     : `${normalizedAnswer} ${response.regionDisplay}`;
 
@@ -16553,7 +16554,7 @@ export function getSuburbPageCopy(
         [
           `Air-conditioning electrical support in ${coverageSuburb.name} can include dedicated circuits, isolators, switchboard capacity checks and outdoor unit power.`,
           `Split-system enquiries in ${suburbLabel} may need electrical supply planning, safety switch checks, outdoor unit power and clear coordination with appropriately licensed technicians where required.`,
-          `ARCtick Refrigerant Handling Licence L157323 - Split Systems (1) applies to eligible split systems, hot water heat pumps and swimming pool heat pumps under licence scope.`,
+          `${approvedBusinessClaims.credentials.arctick.approvedWording}. ${approvedBusinessClaims.credentials.arctick.qualification}`,
         ],
         seed,
         53,
@@ -16878,12 +16879,12 @@ export function getSuburbPageCopy(
     serviceSummaries,
     servicesHeading: `Electrical services available in ${coverageSuburb.name}.`,
     trustItems: [
-      `NSW Electrical Licence 398937C`,
+      approvedBusinessClaims.credentials.electricalLicence.approvedWording,
       `ABN 44 650 697 797`,
-      `Open 24/7 for urgent electrical faults`,
+      approvedBusinessClaims.availability.approvedWording,
       `${response.badgeTitle} for emergency call-outs`,
       business.level2Asp.display,
-      `ARCtick Refrigerant Handling Licence L157323 - Split Systems (1)`,
+      approvedBusinessClaims.credentials.arctick.approvedWording,
       pick(
         [
           `Electrical help in ${suburbLabel}`,

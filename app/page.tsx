@@ -17,7 +17,13 @@ import {
 import { GoogleRatingSeal } from "@/components/google-rating-seal";
 import { OffersSection } from "@/components/offers-section";
 import { getOffersForPlacement } from "@/data/offers";
-import { assetPath, business, priorityRegions, services } from "@/data/site";
+import {
+  approvedBusinessClaims,
+  assetPath,
+  business,
+  priorityRegions,
+  services,
+} from "@/data/site";
 import {
   buildBreadcrumbSchema,
   buildElectricianSchema,
@@ -74,8 +80,8 @@ const trustItems = [
     icon: ShieldCheck,
   },
   {
-    title: "Open 24/7",
-    text: "Call any time for an urgent electrical fault.",
+    title: approvedBusinessClaims.availability.shortWording,
+    text: approvedBusinessClaims.availability.qualification,
     icon: Clock3,
   },
   {
@@ -93,8 +99,7 @@ const trustItems = [
 const faqs = [
   {
     question: "Do you offer 24/7 emergency electrician call-outs?",
-    answer:
-      "Yes. Call Evaready Electrical for power outages, circuit tripping, burning smells, sparking or other electrical issues that feel unsafe. For emergency call-outs, Evaready can be on site within 60 minutes in core service areas, with a 60–90-minute response window in selected outer regions.",
+    answer: `Yes. ${approvedBusinessClaims.availability.qualification} Call Evaready Electrical for power outages, circuit tripping, burning smells, sparking or other electrical issues that feel unsafe. ${business.emergencyResponse.combinedDisplay} ${business.emergencyResponse.disclaimer} ${business.emergencyResponse.emergencyOnlyNote}`,
   },
   {
     question: "Can you help with Level 2 electrical work?",
@@ -118,8 +123,8 @@ export default function HomePage() {
       "Emergency faults, Level 2 ASP enquiries, switchboards and general electrical work across Sydney and surrounding regions.",
     offerNames: featuredServices.map((service) => service.title),
     serviceTypes: [
-      "60-minute emergency electrician response in core service areas",
-      "60–90-minute emergency response in selected outer regions",
+      business.emergencyResponse.coreServiceType,
+      business.emergencyResponse.greaterServiceType,
       business.level2Asp.display,
       ...featuredServices.map((service) => service.title),
     ],
@@ -204,7 +209,7 @@ export default function HomePage() {
 
             <ul className="mt-6 hidden gap-2 text-sm text-slate-100 sm:grid sm:grid-cols-3" aria-label="Business trust details">
               <li className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-cyan-200" aria-hidden="true" />NSW Licence {business.licence}</li>
-              <li className="flex items-center gap-2"><Clock3 className="h-4 w-4 text-cyan-200" aria-hidden="true" />Open 24/7</li>
+              <li className="flex items-center gap-2"><Clock3 className="h-4 w-4 text-cyan-200" aria-hidden="true" />{approvedBusinessClaims.availability.shortWording}</li>
               <li className="flex items-center gap-2"><Home className="h-4 w-4 text-cyan-200" aria-hidden="true" />Residential, commercial and strata</li>
             </ul>
           </div>

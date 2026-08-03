@@ -1,7 +1,8 @@
 import { Zap } from "lucide-react";
+import { approvedBusinessClaims } from "@/data/site";
 
 const routeHighlights = [
-  "Open 24/7 for urgent faults",
+  approvedBusinessClaims.availability.approvedWording,
   "NSW licensed electrical work",
   "Emergency and Level 2 help",
   "Sydney and surrounding regions",

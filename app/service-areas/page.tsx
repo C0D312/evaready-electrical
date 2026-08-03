@@ -65,7 +65,7 @@ function getResponseRegionLinks(regionNames: readonly string[]) {
 export default function AreasPage() {
   const responseRegionGroups = [
     {
-      heading: `Core emergency areas - ${business.emergencyResponse.coreMinutes}-minute emergency response`,
+      heading: `Core emergency areas - ${business.emergencyResponse.coreDisplay}`,
       regions: getResponseRegionLinks(
         business.emergencyResponseRegions.core,
       ),
@@ -189,9 +189,9 @@ export default function AreasPage() {
         <div className="mt-5 max-w-4xl rounded-lg border border-cyan-300/25 bg-[#091d42] p-4 shadow-lg shadow-blue-950/20">
           <div className="grid gap-3 sm:grid-cols-3">
             {[
-              `${business.emergencyResponse.coreMinutes}-minute emergency response in core service areas`,
+              business.emergencyResponse.coreDisplay,
               business.emergencyResponse.greaterDisplay,
-              "Ausgrid & Endeavour Energy Accredited Level 2 ASP",
+              business.level2Asp.display,
             ].map((item) => (
               <div
                 key={item}
@@ -310,8 +310,7 @@ export default function AreasPage() {
 
           <div className="mt-4">
             <p className="rounded-lg border border-cyan-300/25 bg-[#091d42] p-4 text-sm font-semibold leading-6 text-slate-200 shadow-lg shadow-blue-950/20">
-              Response timing depends on location, access, traffic, safety
-              conditions, job type and current availability. {" "}
+              {business.emergencyResponse.disclaimer}{" "}
               {business.emergencyResponse.emergencyOnlyNote}
             </p>
           </div>

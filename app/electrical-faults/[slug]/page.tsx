@@ -16,7 +16,11 @@ import {
   getElectricalFaultPage,
 } from "@/data/electrical-faults";
 import { getFaultPageOffers } from "@/data/offers";
-import { absoluteUrl, business } from "@/data/site";
+import {
+  absoluteUrl,
+  approvedBusinessClaims,
+  business,
+} from "@/data/site";
 import {
   buildBreadcrumbSchema,
   buildElectricianSchema,
@@ -194,7 +198,7 @@ export default async function ElectricalFaultDetailPage({
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-7 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           {[
             `NSW Licence ${business.licence}`,
-            "Open 24/7 for urgent faults",
+            approvedBusinessClaims.availability.approvedWording,
             "Fault finding and testing",
             "Photos help planned quotes",
           ].map((item) => (

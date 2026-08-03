@@ -1,4 +1,9 @@
-import { absoluteUrl, business, services } from "@/data/site";
+import {
+  absoluteUrl,
+  approvedBusinessClaims,
+  business,
+  services,
+} from "@/data/site";
 
 type SchemaValue =
   | string
@@ -82,7 +87,7 @@ export function businessIdentifiers() {
   return [
     {
       "@type": "PropertyValue",
-      name: "NSW Electrical Licence",
+      name: approvedBusinessClaims.credentials.electricalLicence.label,
       value: business.licence,
     },
     {
@@ -92,12 +97,12 @@ export function businessIdentifiers() {
     },
     {
       "@type": "PropertyValue",
-      name: "Open Cabler Registration",
+      name: approvedBusinessClaims.credentials.openCabler.label,
       value: business.openCablerRegistration,
     },
     {
       "@type": "PropertyValue",
-      name: "ARCtick Refrigerant Handling Licence",
+      name: approvedBusinessClaims.credentials.arctick.label,
       value: business.arctickLicence,
     },
   ];
@@ -190,8 +195,7 @@ export function buildElectricianSchema({
             opens: "00:00",
             closes: "23:59",
           },
-          description:
-            "Calls are open 24/7 for urgent electrical faults that feel unsafe.",
+          description: approvedBusinessClaims.availability.qualification,
         }
       : undefined,
     makesOffer: offerNames?.map((offerName) => ({

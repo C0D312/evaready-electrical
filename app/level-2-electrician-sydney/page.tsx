@@ -16,7 +16,12 @@ import {
   serviceCredentialPresets,
 } from "@/components/service-credential-strip";
 import { level2ClusterLinks } from "@/data/internal-links";
-import { absoluteUrl, assetPath, business } from "@/data/site";
+import {
+  absoluteUrl,
+  approvedBusinessClaims,
+  assetPath,
+  business,
+} from "@/data/site";
 import { schemaJson } from "@/lib/schema";
 import { level2SeoMetadata, toMetadata } from "@/lib/seo-metadata";
 
@@ -272,7 +277,7 @@ function buildSchema() {
         identifier: [
           {
             "@type": "PropertyValue",
-            name: "NSW Electrical Licence",
+            name: approvedBusinessClaims.credentials.electricalLicence.label,
             value: business.licence,
           },
           {
@@ -282,12 +287,12 @@ function buildSchema() {
           },
           {
             "@type": "PropertyValue",
-            name: "Open Cabler Registration",
+            name: approvedBusinessClaims.credentials.openCabler.label,
             value: business.openCablerRegistration,
           },
           {
             "@type": "PropertyValue",
-            name: "ARCtick Refrigerant Handling Licence",
+            name: approvedBusinessClaims.credentials.arctick.label,
             value: business.arctickLicence,
           },
         ],
@@ -305,8 +310,8 @@ function buildSchema() {
           "Underground service mains",
           "Point of attachment",
           "Supply-side electrical work",
-          "60-minute emergency response in core service areas",
-          "60–90-minute emergency response in selected outer regions",
+          business.emergencyResponse.coreServiceType,
+          business.emergencyResponse.greaterServiceType,
           "Level 2 electrical work",
         ],
         url: pageUrl,
@@ -408,10 +413,10 @@ export default function Level2ElectricianSydneyPage() {
 
             <p className="mt-4 max-w-2xl rounded-2xl border border-red-300/25 bg-red-500/10 p-4 text-sm font-bold leading-6 text-slate-100">
               Call first if a Level 2 issue involves unsafe service equipment,
-              supply loss, storm damage or exposed service wiring. Emergency
-              response is within 60 minutes in core areas and 60–90 minutes in
-              selected outer regions, subject to location, access, traffic,
-              safety conditions, job type and current availability.
+              supply loss, storm damage or exposed service wiring.{" "}
+              {business.emergencyResponse.combinedDisplay}{" "}
+              {business.emergencyResponse.disclaimer}{" "}
+              {business.emergencyResponse.emergencyOnlyNote}
             </p>
 
             <p className="mt-4 max-w-2xl text-sm font-semibold leading-6 text-slate-300">

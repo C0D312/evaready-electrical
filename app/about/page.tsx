@@ -15,7 +15,7 @@ import {
   Zap,
 } from "lucide-react";
 import { GoogleRatingSeal } from "@/components/google-rating-seal";
-import { assetPath, business } from "@/data/site";
+import { approvedBusinessClaims, assetPath, business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
   buildElectricianSchema,
@@ -28,7 +28,7 @@ export const metadata: Metadata = toMetadata(aboutSeoMetadata());
 const trustPoints = [
   {
     title: "Licensed NSW electrician",
-    text: `NSW Electrical Licence ${business.licence} and ABN ${business.abn}.`,
+    text: `${approvedBusinessClaims.credentials.electricalLicence.approvedWording} and ABN ${business.abn}.`,
     icon: ShieldCheck,
   },
   {
@@ -38,12 +38,12 @@ const trustPoints = [
   },
   {
     title: "Registered cabling support",
-    text: `Open Cabler Registration ${business.openCablerRegistration}.`,
+    text: `${approvedBusinessClaims.credentials.openCabler.approvedWording}.`,
     icon: Zap,
   },
   {
     title: "ARCtick licence",
-    text: `ARCtick Licensed ${business.arctickLicence} for relevant split-system work.`,
+    text: `${approvedBusinessClaims.credentials.arctick.approvedWording}. ${approvedBusinessClaims.credentials.arctick.qualification}`,
     icon: BadgeCheck,
   },
   {

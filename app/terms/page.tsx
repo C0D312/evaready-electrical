@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { customerPricingProcess } from "@/data/claims";
 import { business } from "@/data/site";
 import { legalSeoMetadata, toMetadata } from "@/lib/seo-metadata";
 import { buildBreadcrumbSchema, schemaJson } from "@/lib/schema";
@@ -59,18 +60,20 @@ export default function TermsPage() {
           </article>
 
           <article className="legal-content-card">
-            <h2>Quotes and bookings</h2>
+            <h2>How enquiries, diagnostics and quotations work</h2>
             <p>
               A quote or booking request submitted through the website is an
               enquiry. Job scope, timing, pricing and availability depend on the
               information provided, site access, safety requirements, materials,
               authority requirements and any inspection or testing needed.
             </p>
-            <p>
-              For planned work, the secure booking form can be used to send your
-              contact details, address, suburb, job notes and photos. We may
-              contact you to clarify details before confirming a next action.
-            </p>
+            <ol className="mt-5 grid gap-4">
+              {customerPricingProcess.map((step, index) => (
+                <li key={step.id}>
+                  <strong>{index + 1}. {step.title}:</strong> {step.wording}
+                </li>
+              ))}
+            </ol>
           </article>
 
           <article className="legal-content-card">

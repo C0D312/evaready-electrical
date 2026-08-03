@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { currentOffers, offerPolicy } from "../../data/offers";
 
 const offerPages = [
   { route: "./", section: "[data-offers-section]", count: 4 },
@@ -14,23 +15,6 @@ const offerPages = [
   },
   {
     route: "electrical-faults/no-power-to-house/",
-    section: "[data-compact-offer-strip]",
-    count: 4,
-  },
-  {
-    route: "service-areas/northern-beaches/",
-    section: "[data-compact-offer-strip]",
-    count: 4,
-  },
-  {
-    route:
-      "service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/",
-    section: "[data-compact-offer-strip]",
-    count: 4,
-  },
-  {
-    route:
-      "service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
     section: "[data-compact-offer-strip]",
     count: 4,
   },
@@ -73,6 +57,31 @@ test("offer terms stay available through native keyboard controls", async ({
   await expect(terms.locator("p")).toBeVisible();
   await page.keyboard.press("Enter");
   await expect(terms).not.toHaveAttribute("open", "");
+});
+
+test("all offer cards use the shared eligibility and non-stacking terms", async ({
+  page,
+}) => {
+  await page.goto("./", { waitUntil: "domcontentloaded" });
+
+  for (const offer of currentOffers) {
+    const card = page.locator(`[data-offer-id="${offer.id}"]`);
+    const terms = card.locator(".ev-offer-card__terms");
+
+    await expect(card.locator(".ev-offer-card__applies")).toContainText(
+      offer.appliesTo,
+    );
+    await terms.locator("summary").click();
+    await expect(terms.locator("p")).toHaveText(offer.terms);
+    await expect(terms.locator("p")).toContainText(offerPolicy.stacking);
+  }
+
+  const jsonLdText = await page
+    .locator('script[type="application/ld+json"]')
+    .allTextContents();
+  for (const offer of currentOffers) {
+    expect(jsonLdText.join(" ")).not.toContain(offer.title);
+  }
 });
 
 test("offer artwork and card grids stay complete, even and viewport-safe", async ({

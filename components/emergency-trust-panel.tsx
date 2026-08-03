@@ -75,10 +75,10 @@ export function EmergencyTrustPanel({ className = "" }: { className?: string }) 
               24/7 Emergency Electrician Sydney
             </h2>
             <p className="mt-4 max-w-3xl text-base font-semibold leading-7 text-slate-300 sm:text-lg">
-              Emergency call-outs can be on site within 60 minutes in core
-              service areas, with a 60–90-minute response window in selected
-              outer regions. Call first for unsafe faults; use the booking form
-              for planned work.
+              {business.emergencyResponse.combinedDisplay}{" "}
+              {business.emergencyResponse.disclaimer}{" "}
+              {business.emergencyResponse.emergencyOnlyNote} Call first for
+              unsafe faults; use the booking form for planned work.
             </p>
             <div className="mt-7 grid gap-3 sm:flex sm:flex-wrap">
               <a

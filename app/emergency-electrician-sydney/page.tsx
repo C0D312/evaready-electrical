@@ -13,7 +13,12 @@ import {
   serviceCredentialPresets,
 } from "@/components/service-credential-strip";
 import { emergencyFaultClusterLinks } from "@/data/electrical-faults";
-import { absoluteUrl, assetPath, business } from "@/data/site";
+import {
+  absoluteUrl,
+  approvedBusinessClaims,
+  assetPath,
+  business,
+} from "@/data/site";
 import { schemaJson } from "@/lib/schema";
 import { emergencySeoMetadata, toMetadata } from "@/lib/seo-metadata";
 import styles from "./emergency-theme.module.css";
@@ -23,6 +28,18 @@ export const metadata: Metadata = toMetadata(emergencySeoMetadata());
 function cx(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ");
 }
+
+function formatList(items: readonly string[]) {
+  if (items.length < 2) {
+    return items[0] ?? "";
+  }
+
+  return `${items.slice(0, -1).join(", ")}, and ${items[items.length - 1]}`;
+}
+
+const selectedOuterRegionNames = formatList(
+  business.emergencyResponseRegions.greater,
+);
 
 const emergencyServices = [
   {
@@ -139,14 +156,12 @@ const emergencyFaqs = [
       "Call first if the fault feels unsafe, urgent or active. Use the quote form for planned work, photos, paperwork, defect notices, switchboard photos, meter box photos and job notes.",
   },
   {
-    question: "Can Evaready attend within 60 minutes?",
-    answer:
-      "For emergency electrical call-outs in core service areas, Evaready can be on site within 60 minutes. Timing depends on location, access, traffic, safety conditions, job type and current availability.",
+    question: "Does Evaready target a response within 60 minutes?",
+    answer: `${business.emergencyResponse.coreDisplay}. ${business.emergencyResponse.disclaimer} ${business.emergencyResponse.emergencyOnlyNote}`,
   },
   {
-    question: "Which areas use the 60–90-minute response window?",
-    answer:
-      "The selected outer regions are Northern Beaches, Blue Mountains, Wollongong and Illawarra, and Central Coast South. Emergency attendance in these regions has a 60–90-minute response window, depending on location, access, traffic, safety conditions, job type and current availability.",
+    question: "Which areas use the estimated 60–90-minute response?",
+    answer: `The selected outer regions are ${selectedOuterRegionNames}. ${business.emergencyResponse.greaterDisplay}. ${business.emergencyResponse.disclaimer} ${business.emergencyResponse.emergencyOnlyNote}`,
   },
   {
     question: "Should I keep resetting a tripping safety switch?",
@@ -283,8 +298,7 @@ function buildSchema() {
             opens: "00:00",
             closes: "23:59",
           },
-          description:
-            "Calls are open 24/7 for urgent electrical faults that feel unsafe.",
+          description: approvedBusinessClaims.availability.qualification,
         },
         areaServed: [
           { "@type": "City", name: "Sydney" },
@@ -293,7 +307,7 @@ function buildSchema() {
         identifier: [
           {
             "@type": "PropertyValue",
-            name: "NSW Electrical Licence",
+            name: approvedBusinessClaims.credentials.electricalLicence.label,
             value: business.licence,
           },
           {
@@ -303,12 +317,12 @@ function buildSchema() {
           },
           {
             "@type": "PropertyValue",
-            name: "Open Cabler Registration",
+            name: approvedBusinessClaims.credentials.openCabler.label,
             value: business.openCablerRegistration,
           },
           {
             "@type": "PropertyValue",
-            name: "ARCtick Refrigerant Handling Licence",
+            name: approvedBusinessClaims.credentials.arctick.label,
             value: business.arctickLicence,
           },
         ],
@@ -318,15 +332,14 @@ function buildSchema() {
         "@id": `${pageUrl}#emergency-service`,
         name: "Emergency Electrician Sydney",
         serviceType: [
-          "60-minute emergency electrician response in core service areas",
-          "60–90-minute emergency response in selected outer regions",
+          business.emergencyResponse.coreServiceType,
+          business.emergencyResponse.greaterServiceType,
           "Emergency electrical fault finding and repairs",
         ],
         provider: { "@id": `${pageUrl}#electrician` },
         areaServed: "Sydney and surrounding regions",
         url: pageUrl,
-        description:
-          "Emergency electrical help for power loss and burning smells, sparking outlets, tripping safety switches, switchboard faults and storm or water-related electrical hazards, with 60-minute response in core service areas and a 60–90-minute response window in selected outer regions.",
+        description: `Emergency electrical help for power loss, burning smells, sparking outlets, tripping safety switches, switchboard faults and storm or water-related electrical hazards. ${business.emergencyResponse.combinedDisplay} ${business.emergencyResponse.disclaimer}`,
       },
       {
         "@type": "FAQPage",
@@ -391,7 +404,7 @@ export default function EmergencyElectricianSydneyPage() {
           <div className={styles.heroCopyPanel}>
             <div className={cx(styles.eyebrow, "mb-6 inline-flex items-center gap-2 rounded-full border border-red-400/30 bg-red-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-red-200")}>
               <AlertTriangle className="h-4 w-4" aria-hidden="true" />
-              Open 24/7 for urgent electrical faults
+              {approvedBusinessClaims.availability.approvedWording}
             </div>
 
             <h1 className={cx(styles.heroTitle, "max-w-5xl text-4xl font-black leading-tight tracking-tight sm:text-5xl lg:text-6xl 2xl:text-7xl")}>
@@ -415,11 +428,9 @@ export default function EmergencyElectricianSydneyPage() {
             </div>
 
             <p className={cx(styles.heroResponse, "mt-4 max-w-2xl rounded-2xl border border-red-300/25 bg-red-500/10 p-4 text-sm font-bold leading-6 text-slate-100")}>
-              Emergency response is within 60 minutes in core service areas
-              and 60–90 minutes in selected outer regions. Timing depends on
-              location, access, traffic, safety conditions, job type and current
-              availability. These times apply to emergency call-outs, not
-              planned quote work.
+              {business.emergencyResponse.combinedDisplay}{" "}
+              {business.emergencyResponse.disclaimer}{" "}
+              {business.emergencyResponse.emergencyOnlyNote}
             </p>
 
             <ServiceCredentialStrip

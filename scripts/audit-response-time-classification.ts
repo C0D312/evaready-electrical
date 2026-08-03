@@ -12,7 +12,7 @@ type ResponseTimeRow = {
   "actual visible minutes": string;
   area: string;
   classification: "core" | "greater" | "needs-owner-review";
-  "expected minutes": number;
+  "expected minutes": string;
   "guarantee wording": "yes" | "no";
   "html exists": "yes" | "no";
   "mismatch": "yes" | "no";
@@ -114,25 +114,38 @@ function responseClassification(regionName: string): "core" | "greater" | "needs
   return "needs-owner-review";
 }
 
-function visibleMinutes(text: string) {
-  const matches = new Set<string>();
+function visibleResponseClaims(text: string) {
+  const coreTarget = /\btarget(?: emergency)? response within 60 minutes\b/i.test(text);
+  const outerEstimate = /\bestimated 60[–-]90-minute(?: emergency)? response\b/i.test(text);
+  const textWithoutApprovedRange = text.replace(
+    /\bestimated 60[–-]90-minute(?: emergency)? response\b/gi,
+    "",
+  );
+  const legacyGuaranteedStyle =
+    /\b(?:60|90)[- ]minute emergency response\b|\bwithin 90 minutes\b/i.test(
+      textWithoutApprovedRange,
+    );
 
-  if (/\b60[- ]minute\b|\bwithin 60 minutes\b/i.test(text)) {
-    matches.add("60");
-  }
-
-  if (/\b90[- ]minute\b|\bwithin 90 minutes\b/i.test(text)) {
-    matches.add("90");
-  }
-
-  return Array.from(matches).join("/");
+  return {
+    coreTarget,
+    outerEstimate,
+    legacyGuaranteedStyle,
+    display: [
+      coreTarget ? "target-within-60" : "",
+      outerEstimate ? "estimated-60-90" : "",
+      legacyGuaranteedStyle ? "legacy-unqualified" : "",
+    ]
+      .filter(Boolean)
+      .join("/"),
+  };
 }
 
 function auditRecord({ area, region, suburb }: SuburbRecord): ResponseTimeRow {
   const route = routeForSuburb(region, area, suburb);
   const htmlPath = htmlPathForRoute(route);
   const classification = responseClassification(region.name);
-  const expectedMinutes = getEmergencyResponseForRegion(region.name).minutes;
+  const response = getEmergencyResponseForRegion(region.name);
+  const expectedMinutes = response.isCore ? "target-within-60" : "estimated-60-90";
 
   if (!existsSync(htmlPath)) {
     return {
@@ -154,10 +167,11 @@ function auditRecord({ area, region, suburb }: SuburbRecord): ResponseTimeRow {
   }
 
   const visibleText = stripHtmlToVisibleText(readFileSync(htmlPath, "utf8"));
-  const actualMinutes = visibleMinutes(visibleText);
-  const expectedText = String(expectedMinutes);
-  const bothPresent = actualMinutes === "60/90";
-  const mismatch = !actualMinutes.split("/").includes(expectedText) || bothPresent;
+  const actualClaims = visibleResponseClaims(visibleText);
+  const bothPresent = actualClaims.coreTarget && actualClaims.outerEstimate;
+  const mismatch = response.isCore
+    ? !actualClaims.coreTarget || actualClaims.outerEstimate || actualClaims.legacyGuaranteedStyle
+    : !actualClaims.outerEstimate || actualClaims.coreTarget || actualClaims.legacyGuaranteedStyle;
   const guaranteeWording =
     /\bguaranteed arrival\b|\bguaranteed same-hour\b|\b60 minutes anywhere\b|\b60 minutes across every region\b|\bguaranteed network approval\b|\bguaranteed distributor approval\b/i.test(
       visibleText,
@@ -172,7 +186,7 @@ function auditRecord({ area, region, suburb }: SuburbRecord): ResponseTimeRow {
     route,
     classification,
     "expected minutes": expectedMinutes,
-    "actual visible minutes": actualMinutes,
+    "actual visible minutes": actualClaims.display,
     "html exists": "yes",
     mismatch: mismatch ? "yes" : "no",
     "both 60 and 90 confusingly present": bothPresent ? "yes" : "no",

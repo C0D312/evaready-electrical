@@ -23,7 +23,7 @@ import { MobileStickyCta } from "@/components/mobile-sticky-cta";
 import { MobilePrimaryNav } from "@/components/mobile-primary-nav";
 import { QuoteFormModal } from "@/components/quote-form-modal";
 import { RouteMarqueeStrip } from "@/components/route-marquee-strip";
-import { assetPath, business } from "@/data/site";
+import { approvedBusinessClaims, assetPath, business } from "@/data/site";
 
 const navItems: PrimaryNavItem[] = [
   { href: "/", label: "Home" },
@@ -208,7 +208,7 @@ const footerTrustItems: {
 }[] = [
   {
     icon: ShieldCheck,
-    label: "NSW Electrical Licence",
+    label: approvedBusinessClaims.credentials.electricalLicence.label,
     value: business.licence,
     href: business.verificationUrls.electricalLicence,
   },
@@ -220,14 +220,14 @@ const footerTrustItems: {
   },
   {
     icon: Zap,
-    label: "Open Cabler",
-    value: `Registration ${business.openCablerRegistration}`,
+    label: approvedBusinessClaims.credentials.openCabler.label,
+    value: business.openCablerRegistration,
     href: business.verificationUrls.openCabler,
   },
   {
     icon: BadgeCheck,
-    label: "ARCtick",
-    value: `Licence ${business.arctickLicence}`,
+    label: approvedBusinessClaims.credentials.arctick.label,
+    value: business.arctickLicence,
     href: business.verificationUrls.arctick,
   },
   { icon: ShieldCheck, label: "Level 2 ASP", value: business.level2Asp.display },

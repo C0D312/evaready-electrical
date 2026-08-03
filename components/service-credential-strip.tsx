@@ -10,7 +10,11 @@ import {
   Wrench,
   Zap,
 } from "lucide-react";
-import { business, getEmergencyResponseForRegion } from "@/data/site";
+import {
+  approvedBusinessClaims,
+  business,
+  getEmergencyResponseForRegion,
+} from "@/data/site";
 
 export type ServiceCredentialItem = {
   icon: LucideIcon;
@@ -34,22 +38,53 @@ const iconTone = {
 export const serviceCredentialPresets = {
   general: [
     { icon: ShieldCheck, title: "NSW Licensed", text: business.licence },
-    { icon: Clock3, title: "60-Min Response", text: "Core emergencies", tone: "red" },
-    { icon: Clock3, title: "60–90-Min Response", text: "Selected outer regions" },
+    {
+      icon: Clock3,
+      title: business.emergencyResponse.coreBadgeTitle,
+      text: business.emergencyResponse.coreBadgeText,
+      tone: "red",
+    },
+    {
+      icon: Clock3,
+      title: business.emergencyResponse.greaterBadgeTitle,
+      text: business.emergencyResponse.greaterBadgeText,
+    },
     { icon: Camera, title: "Booking Details & Photos", text: "Secure form" },
     { icon: BadgeCheck, title: "Safety-First Testing", text: "Checked clearly" },
   ],
   emergency: [
-    { icon: Clock3, title: "60-Minute Response", text: "Core emergency areas", tone: "red" },
-    { icon: Clock3, title: "60–90-Min Response", text: "Selected outer regions" },
+    {
+      icon: Clock3,
+      title: business.emergencyResponse.coreBadgeTitle,
+      text: business.emergencyResponse.coreBadgeText,
+      tone: "red",
+    },
+    {
+      icon: Clock3,
+      title: business.emergencyResponse.greaterBadgeTitle,
+      text: business.emergencyResponse.greaterBadgeText,
+    },
     { icon: ShieldAlert, title: "Call First If Unsafe", text: "Smoke, heat or sparking", tone: "red" },
     { icon: ShieldCheck, title: `NSW Licence ${business.licence}`, text: "Licensed electrician" },
     { icon: Flame, title: "Urgent Fault Support", text: "Power loss & hazards", tone: "red" },
   ],
   level2: [
-    { icon: Zap, title: business.level2Asp.shortDisplay, text: "Ausgrid & Endeavour Energy" },
-    { icon: Clock3, title: "60-Minute Emergency", text: "Core areas", tone: "red" },
-    { icon: Clock3, title: "60–90-Min Emergency", text: "Selected outer regions" },
+    {
+      icon: Zap,
+      title: business.level2Asp.shortDisplay,
+      text: business.level2Asp.networks.join(" & "),
+    },
+    {
+      icon: Clock3,
+      title: business.emergencyResponse.coreBadgeTitle,
+      text: business.emergencyResponse.coreBadgeText,
+      tone: "red",
+    },
+    {
+      icon: Clock3,
+      title: business.emergencyResponse.greaterBadgeTitle,
+      text: business.emergencyResponse.greaterBadgeText,
+    },
     { icon: Wrench, title: "Consumer Mains", text: "Repairs & upgrades" },
     {
       icon: ShieldAlert,
@@ -67,12 +102,20 @@ export const serviceCredentialPresets = {
   hotWater: [
     { icon: Wrench, title: "Hot Water Electrical", text: "Circuits & isolators" },
     { icon: BadgeCheck, title: "Heat Pump Support", text: "Electrical checks" },
-    { icon: ShieldCheck, title: `ARCtick ${business.arctickLicence}`, text: "Where relevant" },
+    {
+      icon: ShieldCheck,
+      title: approvedBusinessClaims.credentials.arctick.approvedWording,
+      text: "Where relevant and within licence scope",
+    },
     { icon: ShieldAlert, title: "Safety-First Testing", text: "Heat, trips & faults" },
   ],
   aircon: [
     { icon: Wrench, title: "Split-System Electrical Support", text: "Circuits & isolators" },
-    { icon: BadgeCheck, title: `ARCtick ${business.arctickLicence}`, text: "Where relevant" },
+    {
+      icon: BadgeCheck,
+      title: approvedBusinessClaims.credentials.arctick.approvedWording,
+      text: "Where relevant and within licence scope",
+    },
     { icon: Zap, title: "Isolators & Circuits", text: "Outdoor unit power" },
     { icon: ShieldCheck, title: "Capacity Checks", text: "Switchboards" },
   ],
@@ -144,17 +187,25 @@ export function getSuburbCredentialItems(
   const response = regionName
     ? getEmergencyResponseForRegion(regionName)
     : {
-        badgeTitle: "60–90-Min Response",
-        badgeText: "Emergency call-outs",
+        badgeTitle: "Response Confirmed by Area",
+        badgeText: "Call to confirm timing",
       };
 
   return [
     { icon: MapPin, title: `Servicing ${suburb}`, text: "Local electrical help" },
     { icon: ShieldCheck, title: `NSW Licence ${business.licence}`, text: "Licensed electrician" },
     { icon: Clock3, title: response.badgeTitle, text: response.badgeText, tone: "red" },
-    { icon: Zap, title: business.level2Asp.shortDisplay, text: "Ausgrid & Endeavour Energy" },
+    {
+      icon: Zap,
+      title: business.level2Asp.shortDisplay,
+      text: business.level2Asp.networks.join(" & "),
+    },
     { icon: Camera, title: "Get a Quote Online", text: "Send notes & photos" },
-    { icon: ShieldCheck, title: `ARCtick ${business.arctickLicence}`, text: "Where relevant" },
+    {
+      icon: ShieldCheck,
+      title: approvedBusinessClaims.credentials.arctick.approvedWording,
+      text: "Where relevant and within licence scope",
+    },
   ];
 }
 

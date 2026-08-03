@@ -9,7 +9,7 @@ import {
   Wrench,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { business } from "@/data/site";
+import { approvedBusinessClaims, business } from "@/data/site";
 
 type TrustProcessProofVariant =
   | "general"
@@ -41,7 +41,7 @@ type TrustProcessProofProps = {
 const baseProofItems: ProofItem[] = [
   {
     title: "Licence verification",
-    text: `NSW Electrical Licence ${business.licence}, ABN ${business.abn}, Open Cabler registration number ${business.openCablerRegistration} and ARCtick ${business.arctickLicence} are shown clearly before you call or book.`,
+    text: `${approvedBusinessClaims.credentials.electricalLicence.approvedWording}, ABN ${business.abn}, ${approvedBusinessClaims.credentials.openCabler.approvedWording} and ${approvedBusinessClaims.credentials.arctick.approvedWording} are shown clearly before you call or book.`,
     icon: BadgeCheck,
   },
   {

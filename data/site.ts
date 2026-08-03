@@ -50,6 +50,72 @@ export function assetPath(path: string) {
   return `${deploymentBasePath}${path}`;
 }
 
+export const approvedBusinessClaims = {
+  availability: {
+    shortWording: "Open 24/7",
+    approvedWording: "Open 24/7 for urgent electrical fault calls",
+    qualification:
+      "Phone enquiries are open 24/7 for urgent electrical faults. Attendance timing depends on location, access, traffic, safety conditions, job type and current availability.",
+  },
+  credentials: {
+    electricalLicence: {
+      label: "NSW Electrical Licence",
+      value: "398937C",
+      approvedWording: "NSW Electrical Licence 398937C",
+    },
+    openCabler: {
+      label: "Open Cabler Registration",
+      value: "46691",
+      approvedWording: "Open Cabler Registration 46691",
+    },
+    arctick: {
+      label: "ARCtick Licence",
+      value: "L157323",
+      approvedWording: "ARCtick Licence L157323",
+      qualification:
+        "Use only where refrigerant handling or split-system work is relevant and within licence scope.",
+    },
+  },
+  emergencyResponse: {
+    coreMinutes: 60,
+    greaterRegionMinimumMinutes: 60,
+    greaterRegionMinutes: 90,
+    coreBadgeTitle: "Target Within 60 Min",
+    coreBadgeText: "Approved core areas",
+    greaterBadgeTitle: "Estimated 60–90 Min",
+    greaterBadgeText: "Selected outer regions",
+    coreDisplay:
+      "Target response within 60 minutes in approved core service areas",
+    greaterDisplay:
+      "Estimated 60–90-minute response in selected outer regions",
+    combinedDisplay:
+      "Target response within 60 minutes in approved core areas. Estimated 60–90-minute response in selected outer regions.",
+    coreServiceType:
+      "Target emergency response within 60 minutes in approved core service areas",
+    greaterServiceType:
+      "Estimated 60–90-minute emergency response in selected outer regions",
+    disclaimer:
+      "These response times are targets or estimates, not promises of a particular arrival time. Actual timing depends on location, access, traffic, safety conditions, job type and current availability.",
+    compactQualification:
+      "Timing varies with location, access, traffic, safety conditions, job type and current availability. This guidance applies only to emergency call-outs; planned quote work is scheduled separately.",
+    emergencyOnlyNote:
+      "Response times apply to emergency electrical call-outs, not planned quote work.",
+  },
+  level2Asp: {
+    networks: ["Ausgrid", "Endeavour Energy"],
+    approvedWording:
+      "Ausgrid & Endeavour Energy Accredited Level 2 ASP",
+    shortWording: "Accredited Level 2 ASP",
+    qualification:
+      "Level 2 ASP work is handled within the relevant network, licence and job scope.",
+  },
+  googleReviewProof: {
+    rating: "5.0",
+    reviewCount: 83,
+    approvedWording: "5.0 from 83 Google reviews",
+  },
+} as const;
+
 export const business = {
   name: "Evaready Electrical",
   legalName: "EVAREADY ELECTRICAL PTY LTD",
@@ -64,13 +130,13 @@ export const business = {
   smsHref: "sms:+61461247247",
   email: "info@evareadyelectrical.com.au",
   emailHref: "mailto:info@evareadyelectrical.com.au",
-  licence: "398937C",
+  licence: approvedBusinessClaims.credentials.electricalLicence.value,
   abn: "44 650 697 797",
-  openCablerRegistration: "46691",
-  arctickLicence: "L157323",
+  openCablerRegistration: approvedBusinessClaims.credentials.openCabler.value,
+  arctickLicence: approvedBusinessClaims.credentials.arctick.value,
   serviceArea: "Sydney & Surrounding Regions",
   siteUrl,
-  // Google rating and review count are manually verified from the Google Business Profile. Update when totals change.
+  // This point-in-time Google value is manually maintained. Reconfirm it immediately before launch.
   googleBusinessProfileUrl:
     "https://www.google.com/maps/place/EVAREADY+ELECTRICAL/@-33.8174926,150.9319747,10z/data=!3m1!4b1!4m6!3m5!1s0x2c48e6ae7a738d3f:0x11aa41dc360ca1dd!8m2!3d-33.8174926!4d150.9319747!16s%2Fg%2F11ytz9tp5p?entry=ttu&g_ep=EgoyMDI2MDUzMS4wIKXMDSoASAFQAw%3D%3D",
   googleReviewsUrl:
@@ -78,9 +144,10 @@ export const business = {
   googleReviewUrl:
     "https://www.google.com/maps/place/EVAREADY+ELECTRICAL/@-33.8174926,150.9319747,10z/data=!3m1!4b1!4m6!3m5!1s0x2c48e6ae7a738d3f:0x11aa41dc360ca1dd!8m2!3d-33.8174926!4d150.9319747!16s%2Fg%2F11ytz9tp5p?entry=ttu&g_ep=EgoyMDI2MDUzMS4wIKXMDSoASAFQAw%3D%3D",
   googleLeaveReviewUrl: "https://g.page/r/Cd2hDDbcQaoREBM/review",
-  googleRating: "5.0",
-  googleReviewCount: 83,
-  googleReviewDisplayText: "5.0 from 83 Google reviews",
+  googleRating: approvedBusinessClaims.googleReviewProof.rating,
+  googleReviewCount: approvedBusinessClaims.googleReviewProof.reviewCount,
+  googleReviewDisplayText:
+    approvedBusinessClaims.googleReviewProof.approvedWording,
   bookingUrl:
     "https://book.servicem8.com/request_booking?uuid=78c2a862-45cf-413b-8ca5-1bf6d8f8944b",
   verificationUrls: {
@@ -90,29 +157,15 @@ export const business = {
     openCabler: "https://www.acma.gov.au/find-registered-cabler",
     arctick: "https://www.lookforthetick.com.au/",
   },
-  emergencyResponse: {
-    coreMinutes: 60,
-    greaterRegionMinimumMinutes: 60,
-    greaterRegionMinutes: 90,
-    coreDisplay: "On site within 60 minutes for emergency call-outs",
-    greaterDisplay:
-      "60–90-minute emergency response in selected outer regions",
-    combinedDisplay:
-      "60-minute emergency response in core areas. 60–90 minutes in selected outer regions.",
-    disclaimer:
-      "Response time depends on location, access, traffic, safety conditions, job type and current availability.",
-    emergencyOnlyNote:
-      "Response times apply to emergency electrical call-outs, not planned quote work.",
-  },
+  emergencyResponse: approvedBusinessClaims.emergencyResponse,
   level2Asp: {
     enabled: true,
-    networks: ["Ausgrid", "Endeavour Energy"],
-    display: "Ausgrid & Endeavour Energy Accredited Level 2 ASP",
-    shortDisplay: "Accredited Level 2 ASP",
+    networks: approvedBusinessClaims.level2Asp.networks,
+    display: approvedBusinessClaims.level2Asp.approvedWording,
+    shortDisplay: approvedBusinessClaims.level2Asp.shortWording,
     aspNumber: "",
     categories: [] as string[],
-    verificationNote:
-      "Level 2 ASP work is handled within the relevant network, licence and job scope.",
+    verificationNote: approvedBusinessClaims.level2Asp.qualification,
   },
   emergencyResponseRegions: {
     core: [
@@ -143,6 +196,13 @@ export function getEmergencyResponseForRegion(regionName: string) {
   const isCore = business.emergencyResponseRegions.core.includes(normalizedRegion);
   const isGreater =
     business.emergencyResponseRegions.greater.includes(normalizedRegion);
+
+  if (!isCore && !isGreater) {
+    throw new Error(
+      `No approved emergency-response classification exists for region: ${regionName}`,
+    );
+  }
+
   const minutes = isCore
     ? business.emergencyResponse.coreMinutes
     : business.emergencyResponse.greaterRegionMinutes;
@@ -154,17 +214,21 @@ export function getEmergencyResponseForRegion(regionName: string) {
       ? business.emergencyResponse.coreMinutes
       : business.emergencyResponse.greaterRegionMinimumMinutes,
     minutes,
-    badgeTitle: isCore ? "60-Minute Response" : "60–90-Min Response",
-    badgeText: isCore ? "Core emergency areas" : "Selected outer regions",
+    badgeTitle: isCore
+      ? business.emergencyResponse.coreBadgeTitle
+      : business.emergencyResponse.greaterBadgeTitle,
+    badgeText: isCore
+      ? business.emergencyResponse.coreBadgeText
+      : business.emergencyResponse.greaterBadgeText,
     shortDisplay: isCore
-      ? "60-minute emergency response"
-      : "60–90-minute emergency response",
+      ? "Target response within 60 minutes"
+      : "Estimated 60–90-minute response",
     regionDisplay: isCore
-      ? "Emergency call-outs in this core service area can be on site within 60 minutes."
-      : "Emergency call-outs across this selected outer region have a 60–90-minute response window, depending on location, access, traffic and current availability.",
+      ? "Target response within 60 minutes for emergency call-outs in this approved core service area."
+      : "Estimated 60–90-minute response for emergency call-outs in this selected outer region.",
     suburbDisplay: isCore
-      ? "60-minute response for urgent call-outs."
-      : "60–90-minute response window for urgent call-outs in selected outer regions.",
+      ? "Target response within 60 minutes for urgent call-outs."
+      : "Estimated 60–90-minute response for urgent call-outs in selected outer regions.",
   };
 }
 
@@ -181,7 +245,7 @@ export const services = [
     title: "Emergency Electrician",
     slug: "emergency-electrician-sydney",
     description:
-      "Open 24/7 for power faults, outages, circuit tripping, burning smells and electrical hazards that need a phone call first.",
+      `${approvedBusinessClaims.availability.approvedWording} for power faults, outages, circuit tripping, burning smells and electrical hazards that need a phone call first.`,
     icon: Zap,
     intent: "Emergency",
   },
@@ -580,39 +644,6 @@ export const priorityRegions = [
     name: "St George & Bayside",
     href: "/service-areas/st-george-and-bayside",
     focus: "Residential, strata, shopfronts and electrical maintenance",
-  },
-];
-
-export const trustPoints = [
-  "Licensed electrician - 398937C",
-  "ABN 44 650 697 797",
-  "Open Cabler Registration: 46691",
-  "Residential, commercial, emergency and Level 2 electrical work",
-  "Open 24/7 for urgent calls",
-  "Clear communication before work starts",
-  "Service across priority NSW regions",
-];
-
-export const offers = [
-  {
-    title: "Residential electrical specialists",
-    description:
-      "Power points, lighting, switchboards, smoke alarms, renovations and general home electrical work.",
-  },
-  {
-    title: "Urgent calls open 24/7",
-    description:
-      "A direct phone path for power loss and burning smells, switchboard faults and electrical hazards.",
-  },
-  {
-    title: "Level 2 electrical support",
-    description:
-      "Consumer mains, metering, service upgrades and defect work handled with clear communication.",
-  },
-  {
-    title: "Easy service area search",
-    description:
-      "Suburb and postcode search so customers can quickly check local service information.",
   },
 ];
 

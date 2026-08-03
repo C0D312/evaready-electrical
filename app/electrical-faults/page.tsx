@@ -11,7 +11,7 @@ import {
   Zap,
 } from "lucide-react";
 import { electricalFaultPages } from "@/data/electrical-faults";
-import { absoluteUrl, business } from "@/data/site";
+import { absoluteUrl, approvedBusinessClaims, business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
   buildElectricianSchema,
@@ -24,8 +24,8 @@ export const metadata: Metadata = toMetadata(faultsIndexSeoMetadata());
 const trustItems = [
   {
     icon: Clock3,
-    title: "Open 24/7",
-    text: "Call first when the fault feels unsafe.",
+    title: approvedBusinessClaims.availability.shortWording,
+    text: approvedBusinessClaims.availability.qualification,
   },
   {
     icon: ShieldCheck,

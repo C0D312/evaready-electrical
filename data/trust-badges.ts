@@ -1,4 +1,4 @@
-import { business } from "@/data/site";
+import { approvedBusinessClaims, business } from "@/data/site";
 
 export type TrustBadgeIconName = "badge" | "map-pin" | "shield" | "star" | "zap";
 
@@ -14,7 +14,7 @@ export type TrustBadge = {
 
 export const footerTrustBadges: TrustBadge[] = [
   {
-    altText: `NSW Electrical Licence ${business.licence}`,
+    altText: approvedBusinessClaims.credentials.electricalLicence.approvedWording,
     icon: "shield",
     title: "NSW Licensed Electrician",
     text: `Electrical Licence ${business.licence}`,
@@ -28,16 +28,16 @@ export const footerTrustBadges: TrustBadge[] = [
     tone: "blue",
   },
   {
-    altText: `Open Cabler Registration ${business.openCablerRegistration}`,
+    altText: approvedBusinessClaims.credentials.openCabler.approvedWording,
     icon: "zap",
     title: "Open Cabler Registered",
     text: `Registration ${business.openCablerRegistration}`,
     tone: "cyan",
   },
   {
-    altText: `ARCtick Licensed ${business.arctickLicence}`,
+    altText: approvedBusinessClaims.credentials.arctick.approvedWording,
     icon: "badge",
-    title: "ARCtick Licensed",
+    title: approvedBusinessClaims.credentials.arctick.label,
     text: business.arctickLicence,
     tone: "blue",
   },

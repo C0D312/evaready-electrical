@@ -9,7 +9,7 @@ import {
   type LucideIcon,
   Zap,
 } from "lucide-react";
-import { business } from "@/data/site";
+import { approvedBusinessClaims, business } from "@/data/site";
 
 type TrustGraphicItem = {
   helper?: string;
@@ -22,13 +22,13 @@ type TrustGraphicItem = {
 const trustGraphicItems: TrustGraphicItem[] = [
   {
     icon: Clock3,
-    title: "24/7 Emergency Electrical Help",
+    title: approvedBusinessClaims.availability.approvedWording,
     text: "Urgent fault support for power loss, burning smells, sparking, tripping circuits or storm damage.",
     tone: "red",
   },
   {
     icon: ShieldCheck,
-    title: `NSW Electrical Licence ${business.licence}`,
+    title: approvedBusinessClaims.credentials.electricalLicence.approvedWording,
     text: "Licensed electrical work for homes, businesses and strata.",
   },
   {
@@ -38,15 +38,13 @@ const trustGraphicItems: TrustGraphicItem[] = [
   },
   {
     icon: BadgeCheck,
-    title: "Open Cabler Registration",
+    title: approvedBusinessClaims.credentials.openCabler.label,
     text: `${business.openCablerRegistration} for eligible data, CCTV and communications cabling work.`,
   },
   {
     icon: FileCheck2,
-    title: "ARCtick Licensed",
-    text: `Refrigerant Handling Licence ${business.arctickLicence} - Split Systems (1).`,
-    helper:
-      "Eligible split systems, hot water heat pumps and swimming pool heat pumps under licence scope.",
+    title: approvedBusinessClaims.credentials.arctick.approvedWording,
+    text: approvedBusinessClaims.credentials.arctick.qualification,
   },
   {
     icon: Zap,

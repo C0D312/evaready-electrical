@@ -14,6 +14,7 @@
     "audit:metadata": "tsx scripts/audit-metadata.ts",
     "audit:page-health": "tsx scripts/audit-page-health.ts",
     "audit:response-times": "tsx scripts/audit-response-time-classification.ts",
+    "audit:claims": "tsx scripts/audit-claims-and-offers.ts",
     "audit:location-output": "tsx scripts/audit-location-page-output.ts",
     "audit:performance": "tsx scripts/audit-performance-assets.ts",
     "audit:all-routes-visibility": "tsx scripts/audit-all-routes-visibility.ts",
