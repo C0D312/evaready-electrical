@@ -4,8 +4,9 @@ import { business } from "@/data/site";
 type GoogleRatingSealProps = {
   className?: string;
   compact?: boolean;
+  reviewsLinkLabel?: string;
   showLeaveReview?: boolean;
-  variant?: "default" | "hero";
+  variant?: "default" | "hero" | "offers";
 };
 
 function getGoogleRatingDetails() {
@@ -46,6 +47,7 @@ function getGoogleRatingDetails() {
 export function GoogleRatingSeal({
   className = "",
   compact = false,
+  reviewsLinkLabel = "Read Google reviews",
   showLeaveReview = true,
   variant = "default",
 }: GoogleRatingSealProps) {
@@ -115,7 +117,7 @@ export function GoogleRatingSeal({
           rel="noopener noreferrer"
           className="inline-flex min-h-10 items-center justify-center gap-1 rounded-lg border border-cyan-300/30 bg-white/[0.08] px-3 py-2 text-cyan-50 transition hover:border-cyan-200 hover:bg-white/[0.12] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
         >
-          Read Google reviews
+          {reviewsLinkLabel}
           <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
         </a>
         {showLeaveReview ? (

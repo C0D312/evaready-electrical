@@ -13,7 +13,6 @@ import {
   ShieldCheck,
   Zap,
 } from "lucide-react";
-import { GoogleRatingSeal } from "@/components/google-rating-seal";
 import { OffersSection } from "@/components/offers-section";
 import { ResponsiveHeroImage } from "@/components/performance-images";
 import { getOffersForPlacement } from "@/data/offers";
@@ -302,12 +301,12 @@ export default function HomePage() {
       </section>
 
       <section className="home-theme-band home-theme-band--trust ev-storm-section py-12 sm:py-16" aria-labelledby="why-heading">
-        <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-end lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div>
             <div className="max-w-3xl">
               <p className="text-sm font-bold text-cyan-100">Why Evaready</p>
               <h2 id="why-heading" className="mt-2 text-3xl font-bold leading-tight sm:text-4xl">
-                Verified electrical credentials and customer feedback
+                Verified electrical credentials
               </h2>
             </div>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -327,7 +326,6 @@ export default function HomePage() {
               })}
             </div>
           </div>
-          <GoogleRatingSeal compact showLeaveReview={false} className="max-w-none" />
         </div>
       </section>
 

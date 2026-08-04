@@ -92,8 +92,14 @@ test("offer artwork and card grids stay complete, even and viewport-safe", async
     const cards = section.locator("[data-offer-card]");
     const media = section.locator(".ev-offer-card__media");
     const images = section.locator(".ev-offer-card__media img");
+    const googleProof = section.locator("[data-offers-google-proof]");
 
     await expect(cards).toHaveCount(offerPage.count);
+    await expect(googleProof).toHaveCount(1);
+    await expect(googleProof.locator(".google-rating-seal--offers")).toHaveCount(1);
+    await expect(googleProof).toContainText("Google rating");
+    await expect(googleProof).toContainText("5.0");
+    await expect(googleProof).toContainText("83 Google reviews");
     await expect(media).toHaveCount(offerPage.count);
     await expect(images).toHaveCount(offerPage.count);
     await expect(section.locator(".ev-offer-card__body")).toHaveCount(0);
@@ -131,6 +137,10 @@ test("offer artwork and card grids stay complete, even and viewport-safe", async
       const offerCards = Array.from(
         element.querySelectorAll<HTMLElement>("[data-offer-card]"),
       );
+      const googleProof = element.querySelector<HTMLElement>(
+        "[data-offers-google-proof]",
+      );
+      const firstOfferCard = offerCards[0];
 
       return {
         cardHeights: offerCards.map(
@@ -148,12 +158,21 @@ test("offer artwork and card grids stay complete, even and viewport-safe", async
         overflow:
           document.documentElement.scrollWidth -
           document.documentElement.clientWidth,
+        proofBeforeCards:
+          Boolean(googleProof && firstOfferCard) &&
+          Boolean(
+            googleProof &&
+              firstOfferCard &&
+              googleProof.compareDocumentPosition(firstOfferCard) &
+                Node.DOCUMENT_POSITION_FOLLOWING,
+          ),
       };
     });
 
     expect(Math.max(...layout.mediaHeights) - Math.min(...layout.mediaHeights)).toBeLessThan(1);
     expect(Math.max(...layout.cardWidths) - Math.min(...layout.cardWidths)).toBeLessThan(1);
     expect(layout.overflow).toBeLessThanOrEqual(1);
+    expect(layout.proofBeforeCards).toBe(true);
 
     if (testInfo.project.name.startsWith("desktop-")) {
       expect(Math.max(...layout.cardHeights) - Math.min(...layout.cardHeights)).toBeLessThan(1);

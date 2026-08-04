@@ -11,7 +11,6 @@ import {
   Wrench,
 } from "lucide-react";
 import { CompactOfferStrip } from "@/components/compact-offer-strip";
-import { GoogleReviewProof } from "@/components/google-review-proof";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
 import { ResponsiveHeroImage } from "@/components/performance-images";
 import {
@@ -579,11 +578,6 @@ export default async function ServiceLandingPage({
       />
 
       <TrustSymbolBand className="border-b border-slate-200" />
-
-      <GoogleReviewProof
-        heading={`Read Evaready Electrical reviews before booking ${service.title.toLowerCase()}.`}
-        subheading="View Evaready Electrical on Google before sending planned job details. For unsafe electrical faults, use the phone first."
-      />
 
       <LeadOfferPanel
         compact

@@ -33,6 +33,36 @@
   gap: clamp(0.65rem, 1.2vw, 1rem);
 }
 
+.ev-offers-proof {
+  display: flex;
+  width: 100%;
+  margin: 0 0 clamp(0.8rem, 1.6vw, 1.15rem);
+}
+
+.ev-offers-proof .google-rating-seal--offers {
+  display: grid;
+  width: 100%;
+  max-width: none;
+  grid-template-columns: minmax(0, auto) minmax(12rem, 1fr) auto;
+  align-items: center;
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+  padding: 0.75rem 0.9rem;
+  border-radius: 0.75rem;
+}
+
+.ev-offers-proof .google-rating-seal--offers > * {
+  min-width: 0;
+  margin: 0;
+}
+
+.ev-offers-proof .google-rating-seal--offers > p {
+  font-weight: 700;
+}
+
+.ev-offers-proof .google-rating-seal--offers > div:last-child {
+  justify-content: flex-end;
+}
+
 .ev-offer-card {
   display: block;
   min-width: 0;
@@ -187,6 +217,32 @@
   .ev-offers-grid,
   .ev-compact-offer-strip__grid {
     gap: 0.55rem;
+  }
+
+  .ev-offers-proof .google-rating-seal--offers {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.6rem 0.75rem;
+    padding: 0.7rem;
+  }
+
+  .ev-offers-proof .google-rating-seal--offers > div:first-child {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .ev-offers-proof .google-rating-seal--offers > p {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .ev-offers-proof .google-rating-seal--offers > div:last-child {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .ev-offers-proof .google-rating-seal--offers > div:last-child a {
+    min-height: 44px;
+    padding-inline: 0.7rem;
   }
 
   .ev-offer-card {

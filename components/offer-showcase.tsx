@@ -1,4 +1,5 @@
 import { ArrowRight, Phone } from "lucide-react";
+import { GoogleRatingSeal } from "@/components/google-rating-seal";
 import { OfferCard } from "@/components/offer-card";
 import type { EvareadyOffer } from "@/data/offers";
 import { business } from "@/data/site";
@@ -11,6 +12,15 @@ type OfferShowcaseProps = {
 export function OfferShowcase({ offers, gridClassName }: OfferShowcaseProps) {
   return (
     <>
+      <div className="ev-offers-proof" data-offers-google-proof>
+        <GoogleRatingSeal
+          compact
+          reviewsLinkLabel="Read reviews"
+          showLeaveReview={false}
+          variant="offers"
+        />
+      </div>
+
       <div className={gridClassName}>
         {offers.map((offer) => (
           <OfferCard key={offer.id} offer={offer} />
