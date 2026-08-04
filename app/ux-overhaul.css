@@ -444,25 +444,16 @@ header.ev-final-header .ev-final-header-bolt {
 
 @media (min-width: 1024px) {
   header.ev-final-header .ev-final-header-art {
-    --ev-header-wordmark-width: clamp(500px, 34vw, 575px);
-    --ev-header-wordmark-top: 2px;
-    --ev-header-line-width: clamp(540px, 42vw, 720px);
-    --ev-header-line-top: 97px;
-    --ev-header-bolt-height: 40px;
-    --ev-header-bolt-top: 82px;
+    --ev-header-wordmark-width: clamp(490px, 33vw, 560px);
+    --ev-header-wordmark-top: 4px;
+    --ev-header-line-width: clamp(540px, 42vw, 700px);
+    --ev-header-line-top: 94px;
+    --ev-header-bolt-height: 38px;
+    --ev-header-bolt-top: 78px;
   }
 
   header.ev-final-header .ev-final-header-lockup {
     inset-inline-end: 0;
-  }
-}
-
-@media (min-width: 1600px) {
-  header.ev-final-header .ev-final-header-art {
-    --ev-header-wordmark-top: 0px;
-    --ev-header-line-top: 100px;
-    --ev-header-bolt-height: 37px;
-    --ev-header-bolt-top: 85px;
   }
 }
 
