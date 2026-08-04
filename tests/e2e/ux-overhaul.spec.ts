@@ -173,24 +173,24 @@ test("wide desktop header keeps proportional layered artwork visible", async ({
     {
       width: 1440,
       height: 900,
-      expectedBannerHeight: 123,
+      expectedBannerHeight: 116,
     },
     {
       width: 1920,
       height: 1080,
-      expectedBannerHeight: 123,
+      expectedBannerHeight: 122,
     },
     {
       width: 2560,
       height: 1440,
-      expectedBannerHeight: 123,
+      expectedBannerHeight: 128,
     },
   ]) {
     await page.setViewportSize(viewport);
     await page.goto("./", { waitUntil: "domcontentloaded" });
 
     const bannerLayout = await page.locator(".ev-final-header-art").evaluate(async (banner) => {
-      const wordmark = banner.querySelector<HTMLImageElement>(".ev-final-header-wordmark");
+      const wordmark = banner.querySelector<HTMLImageElement>(".ev-final-header-evaready");
       const bannerBox = banner.getBoundingClientRect();
       const wordmarkBox = wordmark?.getBoundingClientRect();
       const probe = new Image();
@@ -225,9 +225,7 @@ test("wide desktop header keeps proportional layered artwork visible", async ({
 
     expect(bannerLayout.objectFit).toBe("contain");
     const approvedSource = [
-      { file: "evaready-header-wordmark-640.webp", width: 640, height: 110 },
-      { file: "evaready-header-wordmark-1200.webp", width: 1200, height: 206 },
-      { file: "evaready-header-wordmark-v15.webp", width: 1426, height: 245 },
+      { file: "evaready-header-evaready-v16.webp", width: 1426, height: 171 },
     ].find((source) => bannerLayout.currentSrc.includes(source.file));
     expect(approvedSource).toBeDefined();
     expect(bannerLayout.sourceWidth).toBe(approvedSource!.width);

@@ -278,19 +278,19 @@ html body.ev-storm-page .generated-storm-suburb .suburb-action-card__button {
 
 @media (min-width: 1024px) {
   :root {
-    --ev-final-header-art-height: 123px;
+    --ev-final-header-art-height: 116px;
   }
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1441px) {
   :root {
-    --ev-final-header-art-height: 123px;
+    --ev-final-header-art-height: 122px;
   }
 }
 
-@media (min-width: 2200px) {
+@media (min-width: 1921px) {
   :root {
-    --ev-final-header-art-height: 123px;
+    --ev-final-header-art-height: 128px;
   }
 }
 
@@ -367,6 +367,8 @@ header.ev-final-header .ev-final-header-lockup {
 
 header.ev-final-header :is(
   .ev-final-header-wordmark,
+  .ev-final-header-evaready,
+  .ev-final-header-electrical,
   .ev-final-header-energy-line,
   .ev-final-header-bolt
 ) {
@@ -383,6 +385,14 @@ header.ev-final-header :is(
   filter: none !important;
   opacity: 1 !important;
   transform: none !important;
+}
+
+header.ev-final-header .ev-final-header-desktop-picture {
+  display: none;
+}
+
+header.ev-final-header .ev-final-header-compact-picture {
+  display: contents;
 }
 
 header.ev-final-header .ev-final-header-wordmark {
@@ -444,16 +454,77 @@ header.ev-final-header .ev-final-header-bolt {
 
 @media (min-width: 1024px) {
   header.ev-final-header .ev-final-header-art {
-    --ev-header-wordmark-width: clamp(490px, 33vw, 560px);
-    --ev-header-wordmark-top: 4px;
-    --ev-header-line-width: clamp(540px, 42vw, 700px);
+    --ev-header-line-width: clamp(560px, 43vw, 620px);
     --ev-header-line-top: 94px;
-    --ev-header-bolt-height: 38px;
-    --ev-header-bolt-top: 78px;
+    --ev-header-bolt-height: 26px;
+    --ev-header-bolt-top: 82px;
   }
 
   header.ev-final-header .ev-final-header-lockup {
     inset-inline-end: 0;
+  }
+
+  header.ev-final-header .ev-final-header-wordmark--combined {
+    display: none !important;
+  }
+
+  header.ev-final-header .ev-final-header-desktop-picture {
+    display: contents;
+  }
+
+  header.ev-final-header .ev-final-header-evaready,
+  header.ev-final-header .ev-final-header-electrical {
+    z-index: 3 !important;
+    inset-inline: 0 !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+
+  header.ev-final-header .ev-final-header-evaready {
+    top: 8px !important;
+    width: clamp(500px, 36vw, 520px) !important;
+  }
+
+  header.ev-final-header .ev-final-header-electrical {
+    top: 67px !important;
+    width: clamp(455px, 32vw, 470px) !important;
+  }
+}
+
+@media (min-width: 1441px) {
+  header.ev-final-header .ev-final-header-art {
+    --ev-header-line-width: clamp(650px, 36vw, 680px);
+    --ev-header-line-top: 100px;
+    --ev-header-bolt-height: 25px;
+    --ev-header-bolt-top: 89px;
+  }
+
+  header.ev-final-header .ev-final-header-evaready {
+    width: clamp(530px, 30vw, 560px) !important;
+  }
+
+  header.ev-final-header .ev-final-header-electrical {
+    top: 72px !important;
+    width: clamp(470px, 27vw, 500px) !important;
+  }
+}
+
+@media (min-width: 1921px) {
+  header.ev-final-header .ev-final-header-art {
+    --ev-header-line-width: 720px;
+    --ev-header-line-top: 104px;
+    --ev-header-bolt-height: 25px;
+    --ev-header-bolt-top: 95px;
+  }
+
+  header.ev-final-header .ev-final-header-evaready {
+    width: 580px !important;
+  }
+
+  header.ev-final-header .ev-final-header-electrical {
+    top: 75px !important;
+    width: 520px !important;
   }
 }
 

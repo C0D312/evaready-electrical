@@ -13,35 +13,60 @@ const supportedViewports = [
   { width: 1280, height: 800 },
   { width: 1366, height: 768 },
   { width: 1440, height: 900 },
+  { width: 1600, height: 900 },
   { width: 1920, height: 1080 },
+  { width: 2048, height: 1152 },
   { width: 2560, height: 1440 },
 ] as const;
 
-const foregroundAssets = [
+const combinedWordmarkAsset = {
+  selector: ".ev-final-header-wordmark--combined",
+  sources: [
+    { file: "evaready-header-wordmark-640.webp", width: 640, height: 110 },
+    { file: "evaready-header-wordmark-1200.webp", width: 1200, height: 206 },
+    { file: "evaready-header-wordmark-v15.webp", width: 1426, height: 245 },
+  ],
+} as const;
+
+const energyLineAsset = {
+  selector: ".ev-final-header-energy-line",
+  sources: [
+    { file: "evaready-header-energy-line-640.webp", width: 640, height: 12 },
+    { file: "evaready-header-energy-line-960.webp", width: 960, height: 18 },
+    { file: "evaready-header-energy-line-v15.webp", width: 1426, height: 27 },
+  ],
+} as const;
+
+const boltAsset = {
+  selector: ".ev-final-header-bolt",
+  sources: [
+    { file: "evaready-header-bolt-120.webp", width: 120, height: 100 },
+    { file: "evaready-header-bolt-180.webp", width: 180, height: 150 },
+    { file: "evaready-header-bolt-v15.webp", width: 310, height: 258 },
+  ],
+} as const;
+
+const compactForegroundAssets = [
+  combinedWordmarkAsset,
+  energyLineAsset,
+  boltAsset,
+] as const;
+
+const desktopForegroundAssets = [
   {
-    selector: ".ev-final-header-wordmark",
+    selector: ".ev-final-header-evaready",
     sources: [
-      { file: "evaready-header-wordmark-640.webp", width: 640, height: 110 },
-      { file: "evaready-header-wordmark-1200.webp", width: 1200, height: 206 },
-      { file: "evaready-header-wordmark-v15.webp", width: 1426, height: 245 },
+      { file: "evaready-header-evaready-v16.webp", width: 1426, height: 171 },
     ],
   },
   {
-    selector: ".ev-final-header-energy-line",
+    selector: ".ev-final-header-electrical",
     sources: [
-      { file: "evaready-header-energy-line-640.webp", width: 640, height: 12 },
-      { file: "evaready-header-energy-line-960.webp", width: 960, height: 18 },
-      { file: "evaready-header-energy-line-v15.webp", width: 1426, height: 27 },
+      { file: "evaready-header-electrical-v16.webp", width: 1426, height: 73 },
     ],
   },
-  {
-    selector: ".ev-final-header-bolt",
-    sources: [
-      { file: "evaready-header-bolt-120.webp", width: 120, height: 100 },
-      { file: "evaready-header-bolt-180.webp", width: 180, height: 150 },
-      { file: "evaready-header-bolt-v15.webp", width: 310, height: 258 },
-    ],
-  },
+  energyLineAsset,
+  boltAsset,
 ] as const;
 
 const backgroundAssets = [
@@ -51,6 +76,9 @@ const backgroundAssets = [
 ] as const;
 
 const expectedArtHeight = (width: number) => {
+  if (width >= 1921) return 128;
+  if (width >= 1441) return 122;
+  if (width >= 1024) return 116;
   if (width >= 768) return 123;
   if (width >= 430) return 120;
   if (width >= 375) return 116;
@@ -108,11 +136,16 @@ async function inspectHeader(page: Page) {
     const navBox = rect(desktopNav);
     const menuBox = rect(mobileMenu);
 
-    const assets = await Promise.all(Array.from(
+    const visibleForeground = Array.from(
       header.querySelectorAll<HTMLImageElement>(
-        ".ev-final-header-wordmark, .ev-final-header-energy-line, .ev-final-header-bolt",
+        ".ev-final-header-wordmark, .ev-final-header-evaready, .ev-final-header-electrical, .ev-final-header-energy-line, .ev-final-header-bolt",
       ),
-    ).map(async (image) => {
+    ).filter((image) => {
+      const box = image.getBoundingClientRect();
+      return box.width > 0 && box.height > 0;
+    });
+
+    const assets = await Promise.all(visibleForeground.map(async (image) => {
       const box = rect(image)!;
       const source = await sourceDimensions(image);
       const naturalRatio = source.width / source.height;
@@ -176,9 +209,12 @@ test("header layers preserve their natural aspect ratios in every browser", asyn
 }) => {
   await page.goto("./", { waitUntil: "domcontentloaded" });
   const layout = await inspectHeader(page);
+  const expectedAssets = layout.viewportWidth >= 1024
+    ? desktopForegroundAssets
+    : compactForegroundAssets;
 
-  expect(layout.assets).toHaveLength(foregroundAssets.length);
-  for (const expectedAsset of foregroundAssets) {
+  expect(layout.assets).toHaveLength(expectedAssets.length);
+  for (const expectedAsset of expectedAssets) {
     const asset = layout.assets.find((item) =>
       item.className.includes(expectedAsset.selector.slice(1)),
     );
@@ -254,7 +290,7 @@ test("header is compact, complete and stable at all supported widths", async ({
       expect(settled.desktopNavDisplay).not.toBe("none");
       expect(settled.mobileMenuDisplay).toBe("none");
       expect(Math.abs(settled.navGap ?? 0)).toBeLessThanOrEqual(1);
-      expect(settled.header!.height).toBeLessThanOrEqual(190);
+      expect(settled.header!.height).toBeLessThanOrEqual(195);
     } else {
       expect(settled.desktopNavDisplay).toBe("none");
       expect(settled.mobileMenuDisplay).not.toBe("none");

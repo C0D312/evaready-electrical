@@ -242,13 +242,18 @@ async function main() {
                 ".ev-final-header-background",
               );
               const wordmark = document.querySelector<HTMLImageElement>(
-                ".ev-final-header-wordmark",
+                window.innerWidth >= 1024
+                  ? ".ev-final-header-evaready"
+                  : ".ev-final-header-wordmark--combined",
               );
               const foreground = Array.from(
                 document.querySelectorAll<HTMLImageElement>(
-                  ".ev-final-header-wordmark, .ev-final-header-energy-line, .ev-final-header-bolt",
+                  ".ev-final-header-wordmark, .ev-final-header-evaready, .ev-final-header-electrical, .ev-final-header-energy-line, .ev-final-header-bolt",
                 ),
-              );
+              ).filter((image) => {
+                const box = image.getBoundingClientRect();
+                return box.width > 0 && box.height > 0;
+              });
               const backgroundRect = background?.getBoundingClientRect();
               const bannerRect = banner?.getBoundingClientRect();
               const sourceMeasurements = await Promise.all(
@@ -311,6 +316,7 @@ async function main() {
               "evaready-header-wordmark-640.webp",
               "evaready-header-wordmark-1200.webp",
               "evaready-header-wordmark-v15.webp",
+              "evaready-header-evaready-v16.webp",
             ]);
 
             if (!expectedSources.has(header.source)) {
@@ -344,9 +350,9 @@ async function main() {
               );
             }
 
-            if (viewport.width >= 1024 && header.total > 190) {
+            if (viewport.width >= 1024 && header.total > 195) {
               failures.push(
-                `${label}: desktop header is ${header.total}px (maximum 190px)`,
+                `${label}: desktop header is ${header.total}px (maximum 195px)`,
               );
             }
 

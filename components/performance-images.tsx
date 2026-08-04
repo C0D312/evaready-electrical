@@ -17,6 +17,10 @@ const imagePaths = {
     "/images/performance/evaready-header-energy-line-640.webp",
   headerEnergyLineSmall:
     "/images/performance/evaready-header-energy-line-960.webp",
+  headerElectrical:
+    "/images/header/evaready-header-electrical-v16.webp",
+  headerEvaready:
+    "/images/header/evaready-header-evaready-v16.webp",
   headerWordmark: "/images/header/evaready-header-wordmark-v15.webp",
   headerWordmarkMedium:
     "/images/performance/evaready-header-wordmark-1200.webp",
@@ -26,6 +30,9 @@ const imagePaths = {
   serviceVanMedium: "/images/performance/evaready-service-van-960.webp",
   serviceVanSmall: "/images/performance/evaready-service-van-640.webp",
 } as const;
+
+const transparentPixel =
+  "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
 
 const responsiveHeroImage = {
   sizes: "100vw",
@@ -52,18 +59,59 @@ export function HeaderBackgroundImage() {
 
 export function HeaderWordmarkImage() {
   return (
-    <img
-      src={assetPath(imagePaths.headerWordmark)}
-      srcSet={`${assetPath(imagePaths.headerWordmarkSmall)} 640w, ${assetPath(imagePaths.headerWordmarkMedium)} 1200w, ${assetPath(imagePaths.headerWordmark)} 1426w`}
-      sizes="(max-width: 767px) calc(100vw - 72px), 590px"
-      alt="Evaready Electrical 24/7"
-      width={1426}
-      height={245}
-      loading="eager"
-      decoding="async"
-      fetchPriority="high"
-      className="ev-final-header-wordmark"
-    />
+    <>
+      <picture className="ev-final-header-compact-picture">
+        <source
+          media="(max-width: 1023px)"
+          srcSet={`${assetPath(imagePaths.headerWordmarkSmall)} 640w, ${assetPath(imagePaths.headerWordmarkMedium)} 1200w, ${assetPath(imagePaths.headerWordmark)} 1426w`}
+          sizes="(max-width: 767px) calc(100vw - 72px), 590px"
+          type="image/webp"
+        />
+        <img
+          src={transparentPixel}
+          alt="Evaready Electrical 24/7"
+          width={1426}
+          height={245}
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
+          className="ev-final-header-wordmark ev-final-header-wordmark--combined"
+        />
+      </picture>
+      <picture className="ev-final-header-desktop-picture">
+        <source
+          media="(min-width: 1024px)"
+          srcSet={assetPath(imagePaths.headerEvaready)}
+          type="image/webp"
+        />
+        <img
+          src={transparentPixel}
+          alt="Evaready"
+          width={1426}
+          height={171}
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
+          className="ev-final-header-evaready"
+        />
+      </picture>
+      <picture className="ev-final-header-desktop-picture">
+        <source
+          media="(min-width: 1024px)"
+          srcSet={assetPath(imagePaths.headerElectrical)}
+          type="image/webp"
+        />
+        <img
+          src={transparentPixel}
+          alt="Electrical 24/7"
+          width={1426}
+          height={73}
+          loading="eager"
+          decoding="async"
+          className="ev-final-header-electrical"
+        />
+      </picture>
+    </>
   );
 }
 
