@@ -194,6 +194,13 @@ export default async function ElectricalFaultDetailPage({
         </div>
       </section>
 
+      <CompactOfferStrip
+        id="fault-current-offers"
+        offers={faultOffers}
+        heading="Current electrical offers"
+        className="border-y border-cyan-300/15"
+      />
+
       <section className="ev-storm-section ev-storm-section--subtle">
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-7 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           {[
@@ -276,14 +283,6 @@ export default async function ElectricalFaultDetailPage({
           </div>
         </div>
       </section>
-
-      <CompactOfferStrip
-        id="fault-current-offers"
-        offers={faultOffers}
-        heading="Current electrical offers"
-        intro="Call first for active, unsafe or urgent electrical faults. Once the immediate safety risk is clear, the current offers can be checked against the job scope and terms."
-        className="border-y border-cyan-300/15"
-      />
 
       <section className="ev-storm-section py-16 sm:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">

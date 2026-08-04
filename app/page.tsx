@@ -209,6 +209,12 @@ export default function HomePage() {
         </div>
       </section>
 
+      <OffersSection
+        offers={getOffersForPlacement("homepage")}
+        heading="Current electrical offers"
+        className="home-offers-section home-theme-band home-theme-band--offers"
+      />
+
       <section className="home-theme-band home-theme-band--services ev-storm-section py-12 sm:py-16" aria-labelledby="services-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
@@ -324,13 +330,6 @@ export default function HomePage() {
           <GoogleRatingSeal compact showLeaveReview={false} className="max-w-none" />
         </div>
       </section>
-
-      <OffersSection
-        offers={getOffersForPlacement("homepage")}
-        heading="Current electrical offers"
-        intro="Check the terms on each offer before requesting work. Call first if an electrical fault feels unsafe."
-        className="home-offers-section home-theme-band home-theme-band--offers"
-      />
 
       <section className="home-theme-band home-theme-band--areas ev-storm-section py-12 sm:py-16" aria-labelledby="areas-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

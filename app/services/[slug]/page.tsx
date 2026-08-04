@@ -571,6 +571,13 @@ export default async function ServiceLandingPage({
         </div>
       </section>
 
+      <CompactOfferStrip
+        id="service-current-offers"
+        offers={currentServiceOffers}
+        heading={`Current offers for ${service.title.toLowerCase()}`}
+        className="border-b border-cyan-300/15"
+      />
+
       <TrustSymbolBand className="border-b border-slate-200" />
 
       <GoogleReviewProof
@@ -593,14 +600,6 @@ export default async function ServiceLandingPage({
             : `For ${service.title.toLowerCase()} across Sydney and surrounding regions, photos help us quote faster. Call first if there is heat, smoke, sparking, power loss or unsafe wiring.`
         }
         items={offerItems}
-      />
-
-      <CompactOfferStrip
-        id="service-current-offers"
-        offers={currentServiceOffers}
-        heading={`Current offers for ${service.title.toLowerCase()}`}
-        intro="Eligible offers can be checked against the job scope and terms. Call first if the electrical issue is active or unsafe."
-        className="border-b border-cyan-300/15"
       />
 
       {switchboardSafetyRelatedLinks.length ? (

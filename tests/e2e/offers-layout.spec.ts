@@ -45,8 +45,7 @@ test("offer terms stay available through native keyboard controls", async ({
 }) => {
   await page.goto("./", { waitUntil: "domcontentloaded" });
 
-  const firstCard = page.locator("[data-offer-card]").first();
-  const terms = firstCard.locator(".ev-offer-card__terms");
+  const terms = page.locator("[data-offers-section] .ev-offers-terms");
   const summary = terms.locator("summary");
 
   await expect(terms).not.toHaveAttribute("open", "");
@@ -54,26 +53,25 @@ test("offer terms stay available through native keyboard controls", async ({
   await expect(summary).toBeFocused();
   await page.keyboard.press("Enter");
   await expect(terms).toHaveAttribute("open", "");
-  await expect(terms.locator("p")).toBeVisible();
+  await expect(terms.locator("[data-offer-term-id]").first()).toBeVisible();
   await page.keyboard.press("Enter");
   await expect(terms).not.toHaveAttribute("open", "");
 });
 
-test("all offer cards use the shared eligibility and non-stacking terms", async ({
+test("all offers retain shared eligibility and non-stacking terms", async ({
   page,
 }) => {
   await page.goto("./", { waitUntil: "domcontentloaded" });
 
-  for (const offer of currentOffers) {
-    const card = page.locator(`[data-offer-id="${offer.id}"]`);
-    const terms = card.locator(".ev-offer-card__terms");
+  const terms = page.locator("[data-offers-section] .ev-offers-terms");
+  await terms.locator("summary").click();
 
-    await expect(card.locator(".ev-offer-card__applies")).toContainText(
-      offer.appliesTo,
-    );
-    await terms.locator("summary").click();
-    await expect(terms.locator("p")).toHaveText(offer.terms);
-    await expect(terms.locator("p")).toContainText(offerPolicy.stacking);
+  for (const offer of currentOffers) {
+    const item = terms.locator(`[data-offer-term-id="${offer.id}"]`);
+
+    await expect(item).toContainText(offer.appliesTo);
+    await expect(item.locator("p").last()).toHaveText(offer.terms);
+    await expect(item.locator("p").last()).toContainText(offerPolicy.stacking);
   }
 
   const jsonLdText = await page
@@ -98,6 +96,14 @@ test("offer artwork and card grids stay complete, even and viewport-safe", async
     await expect(cards).toHaveCount(offerPage.count);
     await expect(media).toHaveCount(offerPage.count);
     await expect(images).toHaveCount(offerPage.count);
+    await expect(section.locator(".ev-offer-card__body")).toHaveCount(0);
+    await expect(
+      section.locator('[data-conversion-action="phone-click"]'),
+    ).toHaveCount(1);
+    await expect(
+      section.locator('[data-conversion-action="quote-click"]'),
+    ).toHaveCount(1);
+    await expect(section.locator(".ev-offers-terms")).toHaveCount(1);
     await expect
       .poll(() =>
         cards.evaluateAll((elements) =>
@@ -139,12 +145,6 @@ test("offer artwork and card grids stay complete, even and viewport-safe", async
               .querySelector<HTMLElement>(".ev-offer-card__media")
               ?.getBoundingClientRect().height ?? 0,
         ),
-        ctaBottoms: offerCards.map(
-          (card) =>
-            card
-              .querySelector<HTMLElement>(".ev-offer-card__cta")
-              ?.getBoundingClientRect().bottom ?? 0,
-        ),
         overflow:
           document.documentElement.scrollWidth -
           document.documentElement.clientWidth,
@@ -157,7 +157,22 @@ test("offer artwork and card grids stay complete, even and viewport-safe", async
 
     if (testInfo.project.name.startsWith("desktop-")) {
       expect(Math.max(...layout.cardHeights) - Math.min(...layout.cardHeights)).toBeLessThan(1);
-      expect(Math.max(...layout.ctaBottoms) - Math.min(...layout.ctaBottoms)).toBeLessThan(1);
+    }
+  }
+});
+
+test("offer artwork appears immediately after each page hero", async ({ page }) => {
+  for (const offerPage of offerPages) {
+    await page.goto(offerPage.route, { waitUntil: "domcontentloaded" });
+
+    const secondSection = page.locator("main#main-content > section").nth(1);
+    if (offerPage.section === "[data-offers-section]") {
+      await expect(secondSection).toHaveAttribute("data-offers-section", "true");
+    } else {
+      await expect(secondSection).toHaveAttribute(
+        "data-compact-offer-strip",
+        "true",
+      );
     }
   }
 });
