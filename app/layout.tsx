@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import { GoogleAdsTag } from "@/components/google-ads-tag";
+import { RouteScrollManager } from "@/components/route-scroll-manager";
 import { SiteFrame } from "@/components/site-frame";
 import { absoluteUrl, assetPath, business } from "@/data/site";
 import "./globals.css";
@@ -80,6 +81,7 @@ export default function RootLayout({
         <a href="#main-content" className="skip-to-content">
           Skip to main content
         </a>
+        <RouteScrollManager />
         <SiteFrame>{children}</SiteFrame>
         <GoogleAdsTag />
       </body>
