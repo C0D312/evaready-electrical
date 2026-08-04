@@ -4,7 +4,8 @@
   "deployTarget": "GitHub Pages preview",
   "basePath": "/evaready-electrical",
   "siteUrl": "https://c0d312.github.io/evaready-electrical",
-  "buildDate": "2026-08-04T15:46:51.964Z",
+  "buildDate": "2026-08-04T21:49:25.018Z",
   "mainCommit": "70e64d0650a2128e0fb2ab7d7114e4df66142d24",
-  "versionNote": "Automatic github pages preview build marker."
+  "versionNote": "GitHub Pages preview refreshed for mobile cache verification.",
+  "refreshId": "20260805-phone-cache-refresh"
 }
