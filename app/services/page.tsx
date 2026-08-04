@@ -16,6 +16,7 @@ import {
   Wrench,
   Zap,
 } from "lucide-react";
+import { OffersSection } from "@/components/offers-section";
 import { ServiceCredentialStrip } from "@/components/service-credential-strip";
 import { ResponsiveHeroImage } from "@/components/performance-images";
 import { serviceLandingPages } from "@/data/service-pages";
@@ -1204,6 +1205,8 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      <OffersSection />
 
       <section
         id="service-catalogue"

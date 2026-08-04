@@ -8,6 +8,7 @@ import {
   Phone,
   ShieldCheck,
 } from "lucide-react";
+import { OffersSection } from "@/components/offers-section";
 import {
   ServiceCredentialStrip,
   serviceCredentialPresets,
@@ -251,6 +252,8 @@ export default function SwitchboardUpgradesSydneyPage() {
           </div>
         </div>
       </section>
+
+      <OffersSection />
 
       <section className="border-b border-cyan-300/15 bg-[#040b1c] py-12 text-white">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">

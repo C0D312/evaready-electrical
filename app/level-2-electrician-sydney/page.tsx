@@ -10,6 +10,7 @@ import {
   Phone,
   Zap,
 } from "lucide-react";
+import { OffersSection } from "@/components/offers-section";
 import {
   ServiceCredentialStrip,
   serviceCredentialPresets,
@@ -460,6 +461,8 @@ export default function Level2ElectricianSydneyPage() {
           </aside>
         </div>
       </section>
+
+      <OffersSection />
 
       <section className="ev-storm-section py-14 sm:py-16">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { OffersSection } from "@/components/offers-section";
 import { customerPricingProcess } from "@/data/claims";
 import { business } from "@/data/site";
 import { legalSeoMetadata, toMetadata } from "@/lib/seo-metadata";
@@ -42,6 +43,8 @@ export default function TermsPage() {
             </p>
           </div>
         </section>
+
+        <OffersSection />
 
         <section className="mx-auto grid max-w-5xl gap-5 px-4 pb-12 sm:px-6 lg:px-8">
           <article className="legal-content-card">

@@ -8,6 +8,7 @@ import {
   LocationPrimaryActions,
   LocationServicePathways,
 } from "@/components/location-page-sections";
+import { OffersSection } from "@/components/offers-section";
 import { ServiceAreaSearch } from "@/components/service-area-search";
 import { ServiceAreaHero } from "@/components/site-frame";
 import {
@@ -206,7 +207,13 @@ export default async function RegionPage({ params }: RegionPageProps) {
           <div className="mt-7 max-w-3xl">
             <ServiceAreaSearch items={regionSearchItems} />
           </div>
+        </div>
+      </section>
 
+      <OffersSection />
+
+      <section className="pb-14 text-white sm:pb-16" data-location-section="region-list">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mt-9 flex flex-wrap items-end justify-between gap-4">
             <h3 className="text-2xl font-black text-white sm:text-3xl">
               {region.areas.length === 1 ? "Area in this region" : "Areas in this region"}

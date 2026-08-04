@@ -7,6 +7,7 @@ import {
   Zap,
 } from "lucide-react";
 import { EmergencyTrustPanel } from "@/components/emergency-trust-panel";
+import { OffersSection } from "@/components/offers-section";
 import { ResponsiveHeroImage } from "@/components/performance-images";
 import {
   ServiceCredentialStrip,
@@ -467,6 +468,8 @@ export default function EmergencyElectricianSydneyPage() {
           </aside>
         </div>
       </section>
+
+      <OffersSection />
 
       <EmergencyTrustPanel className="border-b border-cyan-300/15" />
 

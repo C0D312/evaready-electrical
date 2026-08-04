@@ -10,12 +10,11 @@ import {
   ShieldCheck,
   Zap,
 } from "lucide-react";
-import { CompactOfferStrip } from "@/components/compact-offer-strip";
+import { OffersSection } from "@/components/offers-section";
 import {
   electricalFaultPages,
   getElectricalFaultPage,
 } from "@/data/electrical-faults";
-import { getFaultPageOffers } from "@/data/offers";
 import {
   absoluteUrl,
   approvedBusinessClaims,
@@ -107,8 +106,6 @@ export default async function ElectricalFaultDetailPage({
     ],
     `/electrical-faults/${fault.slug}`,
   );
-  const faultOffers = getFaultPageOffers();
-
   return (
     <main id="main-content" tabIndex={-1} className="core-storm-page core-storm-fault-detail ev-storm-page min-h-screen text-white">
       <script
@@ -194,12 +191,7 @@ export default async function ElectricalFaultDetailPage({
         </div>
       </section>
 
-      <CompactOfferStrip
-        id="fault-current-offers"
-        offers={faultOffers}
-        heading="Current electrical offers"
-        className="border-y border-cyan-300/15"
-      />
+      <OffersSection />
 
       <section className="ev-storm-section ev-storm-section--subtle">
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-7 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">

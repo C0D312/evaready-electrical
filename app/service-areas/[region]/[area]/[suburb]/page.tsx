@@ -9,6 +9,7 @@ import {
   LocationServicePathways,
   locationServiceDirectory,
 } from "@/components/location-page-sections";
+import { OffersSection } from "@/components/offers-section";
 import { ServiceAreaHero } from "@/components/site-frame";
 import {
   getSuburbCredentialItems,
@@ -215,6 +216,8 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         />
         <LocationPrimaryActions className="mt-7" />
       </ServiceAreaHero>
+
+      <OffersSection />
 
       <LocationServicePathways
         locality={locality}

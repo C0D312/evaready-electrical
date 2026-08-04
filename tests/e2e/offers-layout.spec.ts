@@ -5,19 +5,45 @@ const offerPages = [
   { route: "./", section: "[data-offers-section]", count: 4 },
   {
     route: "contact/",
-    section: "[data-compact-offer-strip]",
+    section: "[data-offers-section]",
     count: 4,
   },
   {
     route: "services/electrical-fault-finding-sydney/",
-    section: "[data-compact-offer-strip]",
+    section: "[data-offers-section]",
     count: 4,
   },
   {
     route: "electrical-faults/no-power-to-house/",
-    section: "[data-compact-offer-strip]",
+    section: "[data-offers-section]",
     count: 4,
   },
+] as const;
+
+const routeTemplates = [
+  "./",
+  "about/",
+  "contact/",
+  "electrical-faults/",
+  "electrical-faults/no-power-to-house/",
+  "emergency-electrician-sydney/",
+  "level-2-electrician-sydney/",
+  "privacy-policy/",
+  "service-areas/",
+  "service-areas/canterbury-bankstown-and-inner-south-west/",
+  "service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/",
+  "service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/greenacre/",
+  "services/",
+  "services/electrical-fault-finding-sydney/",
+  "services/switchboard-upgrades-sydney/",
+  "solar-batteries/",
+  "terms/",
+] as const;
+
+const serviceAreaSearchRoutes = [
+  "service-areas/",
+  "service-areas/canterbury-bankstown-and-inner-south-west/",
+  "service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/",
 ] as const;
 
 const expectedOfferIds = [
@@ -185,13 +211,52 @@ test("offer artwork appears immediately after each page hero", async ({ page }) 
     await page.goto(offerPage.route, { waitUntil: "domcontentloaded" });
 
     const secondSection = page.locator("main#main-content > section").nth(1);
-    if (offerPage.section === "[data-offers-section]") {
-      await expect(secondSection).toHaveAttribute("data-offers-section", "true");
-    } else {
-      await expect(secondSection).toHaveAttribute(
-        "data-compact-offer-strip",
-        "true",
+    await expect(secondSection).toHaveAttribute("data-offers-section", "true");
+  }
+});
+
+test("every route template renders one complete shared offers section", async ({
+  page,
+}) => {
+  for (const route of routeTemplates) {
+    const response = await page.goto(route, { waitUntil: "domcontentloaded" });
+
+    expect(response?.ok(), `${route} should load successfully`).toBe(true);
+    const sections = page.locator("main#main-content [data-offers-section]");
+    await expect(sections, `${route} should contain one offers section`).toHaveCount(1);
+    await expect(sections.locator("[data-offer-card]")).toHaveCount(4);
+    await expect(sections.locator("[data-offers-google-proof]")).toHaveCount(1);
+    await expect(
+      sections.locator('[data-conversion-action="phone-click"]'),
+    ).toHaveCount(1);
+    await expect(
+      sections.locator('[data-conversion-action="quote-click"]'),
+    ).toHaveCount(1);
+  }
+});
+
+test("service-area postcode search remains before current offers", async ({
+  page,
+}) => {
+  for (const route of serviceAreaSearchRoutes) {
+    await page.goto(route, { waitUntil: "domcontentloaded" });
+
+    const order = await page.evaluate(() => {
+      const search = document.querySelector(
+        "main#main-content .service-area-search",
       );
-    }
+      const offers = document.querySelector(
+        "main#main-content [data-offers-section]",
+      );
+
+      return Boolean(
+        search &&
+          offers &&
+          (search.compareDocumentPosition(offers) &
+            Node.DOCUMENT_POSITION_FOLLOWING) !== 0,
+      );
+    });
+
+    expect(order, `${route} search should precede offers`).toBe(true);
   }
 });

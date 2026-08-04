@@ -9,9 +9,8 @@ import {
   Phone,
   ShieldCheck,
 } from "lucide-react";
-import { CompactOfferStrip } from "@/components/compact-offer-strip";
+import { OffersSection } from "@/components/offers-section";
 import { ResponsiveHeroImage } from "@/components/performance-images";
-import { getOffersForPlacement } from "@/data/offers";
 import { assetPath, business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
@@ -186,12 +185,7 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <CompactOfferStrip
-          id="contact-current-offers"
-          offers={getOffersForPlacement("contact")}
-          heading="Current offers for planned and urgent work"
-          className="border-y border-cyan-300/15"
-        />
+        <OffersSection />
 
         <section className="ev-storm-section ev-storm-section--subtle px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8">
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.82fr_1.18fr]">

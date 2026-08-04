@@ -10,6 +10,7 @@ import {
   ShieldCheck,
   Zap,
 } from "lucide-react";
+import { OffersSection } from "@/components/offers-section";
 import { electricalFaultPages } from "@/data/electrical-faults";
 import { absoluteUrl, approvedBusinessClaims, business } from "@/data/site";
 import {
@@ -157,6 +158,8 @@ export default function ElectricalFaultsPage() {
           </aside>
         </div>
       </section>
+
+      <OffersSection />
 
       <section className="ev-storm-section ev-storm-section--subtle">
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-7 sm:grid-cols-3 sm:px-6 lg:px-8">

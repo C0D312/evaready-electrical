@@ -10,8 +10,8 @@ import {
   ShieldCheck,
   Wrench,
 } from "lucide-react";
-import { CompactOfferStrip } from "@/components/compact-offer-strip";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
+import { OffersSection } from "@/components/offers-section";
 import { ResponsiveHeroImage } from "@/components/performance-images";
 import {
   getServiceCredentialItems,
@@ -30,7 +30,6 @@ import {
   switchboardSafetyClusterLinks,
   switchboardSafetyQuoteChecklist,
 } from "@/data/internal-links";
-import { getServicePageOffers } from "@/data/offers";
 import { absoluteUrl, business } from "@/data/site";
 import {
   buildBreadcrumbSchema,
@@ -411,7 +410,6 @@ export default async function ServiceLandingPage({
           "Clear next actions before work starts",
         ]
       : undefined;
-  const currentServiceOffers = getServicePageOffers();
   const quoteCtaLabel = service.quoteCtaLabel ?? business.quoteCta;
   const quoteCta = (
     <a
@@ -570,12 +568,7 @@ export default async function ServiceLandingPage({
         </div>
       </section>
 
-      <CompactOfferStrip
-        id="service-current-offers"
-        offers={currentServiceOffers}
-        heading={`Current offers for ${service.title.toLowerCase()}`}
-        className="border-b border-cyan-300/15"
-      />
+      <OffersSection />
 
       <TrustSymbolBand className="border-b border-slate-200" />
 
