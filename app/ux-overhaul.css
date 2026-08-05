@@ -253,56 +253,15 @@ html body.ev-storm-page .generated-storm-suburb .suburb-action-card__button {
   }
 }
 
-/* Keep the layered header compact without changing any artwork aspect ratio. */
-:root {
-  --ev-final-header-art-height: 112px;
-}
-
-@media (min-width: 375px) {
-  :root {
-    --ev-final-header-art-height: 116px;
-  }
-}
-
-@media (min-width: 430px) {
-  :root {
-    --ev-final-header-art-height: 120px;
-  }
-}
-
-@media (min-width: 768px) {
-  :root {
-    --ev-final-header-art-height: 123px;
-  }
-}
-
-@media (min-width: 1024px) {
-  :root {
-    --ev-final-header-art-height: 116px;
-  }
-}
-
-@media (min-width: 1441px) {
-  :root {
-    --ev-final-header-art-height: 122px;
-  }
-}
-
-@media (min-width: 1921px) {
-  :root {
-    --ev-final-header-art-height: 128px;
-  }
-}
-
 html,
 body {
   overflow-x: clip;
 }
 
 header.ev-final-header .ev-final-header-art {
-  --ev-header-wordmark-width: min(92%, 450px);
+  --ev-header-wordmark-width: min(77%, 450px);
   --ev-header-wordmark-top: 8px;
-  --ev-header-line-width: min(90%, 500px);
+  --ev-header-line-width: min(77%, 500px);
   --ev-header-line-top: 61px;
   --ev-header-bolt-height: 43px;
   --ev-header-bolt-top: 49px;
@@ -359,7 +318,7 @@ header.ev-final-header .ev-final-header-brand.ev-final-header-brand--art {
 
 header.ev-final-header .ev-final-header-lockup {
   position: absolute;
-  inset: 0 max(72px, env(safe-area-inset-right)) 0 0;
+  inset: 0 max(32px, env(safe-area-inset-right)) 0 0;
   display: block;
   overflow: visible;
   pointer-events: none;
@@ -400,8 +359,6 @@ header.ev-final-header .ev-final-header-wordmark {
   top: var(--ev-header-wordmark-top) !important;
   width: var(--ev-header-wordmark-width) !important;
   height: auto !important;
-  object-fit: contain !important;
-  object-position: center !important;
 }
 
 header.ev-final-header .ev-final-header-energy-line {
@@ -410,8 +367,6 @@ header.ev-final-header .ev-final-header-energy-line {
   top: var(--ev-header-line-top) !important;
   width: var(--ev-header-line-width) !important;
   height: auto !important;
-  object-fit: contain !important;
-  object-position: center !important;
 }
 
 header.ev-final-header .ev-final-header-bolt {
@@ -420,8 +375,6 @@ header.ev-final-header .ev-final-header-bolt {
   top: var(--ev-header-bolt-top) !important;
   width: auto !important;
   height: var(--ev-header-bolt-height) !important;
-  object-fit: contain !important;
-  object-position: center !important;
 }
 
 @media (min-width: 375px) {
@@ -438,6 +391,12 @@ header.ev-final-header .ev-final-header-bolt {
     --ev-header-line-top: 72px;
     --ev-header-bolt-height: 45px;
     --ev-header-bolt-top: 58px;
+  }
+}
+
+@media (min-width: 640px) {
+  header.ev-final-header .ev-final-header-lockup {
+    inset-inline-end: 0;
   }
 }
 
@@ -460,10 +419,6 @@ header.ev-final-header .ev-final-header-bolt {
     --ev-header-bolt-top: 82px;
   }
 
-  header.ev-final-header .ev-final-header-lockup {
-    inset-inline-end: 0;
-  }
-
   header.ev-final-header .ev-final-header-wordmark--combined {
     display: none !important;
   }
@@ -477,8 +432,6 @@ header.ev-final-header .ev-final-header-bolt {
     z-index: 3 !important;
     inset-inline: 0 !important;
     height: auto !important;
-    object-fit: contain !important;
-    object-position: center !important;
   }
 
   header.ev-final-header .ev-final-header-evaready {

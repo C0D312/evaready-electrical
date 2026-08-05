@@ -46,11 +46,7 @@ const boltAsset = {
   ],
 } as const;
 
-const compactForegroundAssets = [
-  combinedWordmarkAsset,
-  energyLineAsset,
-  boltAsset,
-] as const;
+const compactForegroundAssets = [combinedWordmarkAsset, energyLineAsset, boltAsset] as const;
 
 const desktopForegroundAssets = [
   {
@@ -96,9 +92,7 @@ async function inspectHeader(page: Page) {
 
   return page.locator("header.ev-final-header").evaluate(async (header) => {
     const sourceDimensions = async (image: HTMLImageElement | null) => {
-      if (!image?.currentSrc) {
-        return { src: "", width: 0, height: 0 };
-      }
+      if (!image?.currentSrc) return { src: "", width: 0, height: 0 };
 
       const probe = new Image();
       probe.src = image.currentSrc;
@@ -124,17 +118,18 @@ async function inspectHeader(page: Page) {
           }
         : null;
     };
+
     const ticker = header.querySelector<HTMLElement>(".emergency-issue-marquee");
     const banner = header.querySelector<HTMLElement>(".ev-final-header-art");
-    const background = header.querySelector<HTMLImageElement>(
-      ".ev-final-header-background",
-    );
+    const background = header.querySelector<HTMLImageElement>(".ev-final-header-background");
     const desktopNav = header.querySelector<HTMLElement>(".ev-final-desktop-nav");
     const mobileMenu = header.querySelector<HTMLElement>(".ev-final-mobile-menu");
+    const lockup = header.querySelector<HTMLElement>(".ev-final-header-lockup");
     const bannerBox = rect(banner);
     const tickerBox = rect(ticker);
     const navBox = rect(desktopNav);
     const menuBox = rect(mobileMenu);
+    const lockupBox = rect(lockup);
 
     const visibleForeground = Array.from(
       header.querySelectorAll<HTMLImageElement>(
@@ -145,35 +140,37 @@ async function inspectHeader(page: Page) {
       return box.width > 0 && box.height > 0;
     });
 
-    const assets = await Promise.all(visibleForeground.map(async (image) => {
-      const box = rect(image)!;
-      const source = await sourceDimensions(image);
-      const naturalRatio = source.width / source.height;
-      const renderedRatio = box.width / box.height;
+    const assets = await Promise.all(
+      visibleForeground.map(async (image) => {
+        const box = rect(image)!;
+        const source = await sourceDimensions(image);
+        const naturalRatio = source.width / source.height;
+        const renderedRatio = box.width / box.height;
 
-      return {
-        className: image.className,
-        src: source.src,
-        complete: image.complete,
-        sourceWidth: source.width,
-        sourceHeight: source.height,
-        naturalRatio,
-        renderedRatio,
-        relativeAspectError: Math.abs(renderedRatio - naturalRatio) / naturalRatio,
-        objectFit: getComputedStyle(image).objectFit,
-        box,
-        insideBanner:
-          !!bannerBox &&
-          box.top >= bannerBox.top - 1 &&
-          box.right <= bannerBox.right + 1 &&
-          box.bottom <= bannerBox.bottom + 1 &&
-          box.left >= bannerBox.left - 1,
-        clearOfMobileMenu:
-          !menuBox ||
-          getComputedStyle(mobileMenu!).display === "none" ||
-          box.right <= menuBox.left + 1,
-      };
-    }));
+        return {
+          className: image.className,
+          src: source.src,
+          complete: image.complete,
+          sourceWidth: source.width,
+          sourceHeight: source.height,
+          naturalRatio,
+          renderedRatio,
+          relativeAspectError: Math.abs(renderedRatio - naturalRatio) / naturalRatio,
+          objectFit: getComputedStyle(image).objectFit,
+          box,
+          insideBanner:
+            !!bannerBox &&
+            box.top >= bannerBox.top - 1 &&
+            box.right <= bannerBox.right + 1 &&
+            box.bottom <= bannerBox.bottom + 1 &&
+            box.left >= bannerBox.left - 1,
+          clearOfMobileMenu:
+            !menuBox ||
+            getComputedStyle(mobileMenu!).display === "none" ||
+            box.right <= menuBox.left + 1,
+        };
+      }),
+    );
     const backgroundSource = await sourceDimensions(background);
 
     return {
@@ -191,6 +188,7 @@ async function inspectHeader(page: Page) {
       bannerBackground: banner ? getComputedStyle(banner).backgroundColor : "",
       desktopNavDisplay: desktopNav ? getComputedStyle(desktopNav).display : "",
       header: rect(header),
+      lockup: lockupBox,
       mobileMenuDisplay: mobileMenu ? getComputedStyle(mobileMenu).display : "",
       navGap:
         bannerBox && navBox && getComputedStyle(desktopNav!).display !== "none"
@@ -204,14 +202,11 @@ async function inspectHeader(page: Page) {
   });
 }
 
-test("header layers preserve their natural aspect ratios in every browser", async ({
-  page,
-}) => {
+test("header layers preserve their natural aspect ratios in every browser", async ({ page }) => {
   await page.goto("./", { waitUntil: "domcontentloaded" });
   const layout = await inspectHeader(page);
-  const expectedAssets = layout.viewportWidth >= 1024
-    ? desktopForegroundAssets
-    : compactForegroundAssets;
+  const expectedAssets =
+    layout.viewportWidth >= 1024 ? desktopForegroundAssets : compactForegroundAssets;
 
   expect(layout.assets).toHaveLength(expectedAssets.length);
   for (const expectedAsset of expectedAssets) {
@@ -233,7 +228,7 @@ test("header layers preserve their natural aspect ratios in every browser", asyn
   }
 });
 
-test("header is compact, complete and stable at all supported widths", async ({
+test("header is centred, compact and stable at all supported widths", async ({
   page,
 }, testInfo) => {
   test.skip(
@@ -251,6 +246,7 @@ test("header is compact, complete and stable at all supported widths", async ({
 
     expect(settled.banner).not.toBeNull();
     expect(settled.header).not.toBeNull();
+    expect(settled.lockup).not.toBeNull();
     expect(settled.background.complete).toBe(true);
     const selectedBackground = backgroundAssets.find((source) =>
       settled.background.src.includes(source.file),
@@ -263,12 +259,15 @@ test("header is compact, complete and stable at all supported widths", async ({
     expect(settled.background.box).toEqual(settled.banner);
     expect(settled.bannerBackground).not.toBe("rgba(0, 0, 0, 0)");
     expect(Math.abs(settled.banner!.left)).toBeLessThanOrEqual(1);
-    expect(
-      Math.abs(settled.banner!.width - settled.viewportWidth),
-    ).toBeLessThanOrEqual(1);
+    expect(Math.abs(settled.banner!.width - settled.viewportWidth)).toBeLessThanOrEqual(1);
     expect(settled.banner!.height).toBe(expectedArtHeight(viewport.width));
     expect(Math.abs(settled.tickerGap ?? 0)).toBeLessThanOrEqual(1);
     expect(settled.overflow).toBeLessThanOrEqual(1);
+
+    const lockupCentre = settled.lockup!.left + settled.lockup!.width / 2;
+    const viewportCentre = settled.viewportWidth / 2;
+    const maximumCentreOffset = viewport.width < 640 ? 17 : 1;
+    expect(Math.abs(lockupCentre - viewportCentre)).toBeLessThanOrEqual(maximumCentreOffset);
 
     for (const asset of settled.assets) {
       expect(asset.complete).toBe(true);

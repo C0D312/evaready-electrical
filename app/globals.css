@@ -1237,10 +1237,6 @@ section.border-y.bg-\[\#061E72\] span {
     transform: none;
   }
 
-  header a[data-header-logo="true"] {
-    max-width: clamp(9.1rem, 40vw, 10.9rem);
-  }
-
   .site-header-actions > a[href^="tel:"] {
     width: 7.15rem;
     max-width: 7.15rem;
@@ -1303,10 +1299,6 @@ section.border-y.bg-\[\#061E72\] span {
 }
 
 @media (min-width: 380px) and (max-width: 767px) {
-  header a[data-header-logo="true"] {
-    max-width: clamp(9.1rem, 40vw, 10.9rem);
-  }
-
   .site-header-top {
     grid-template-columns: minmax(0, clamp(9.1rem, 40vw, 10.9rem)) minmax(0, 1fr);
   }
@@ -1318,10 +1310,6 @@ section.border-y.bg-\[\#061E72\] span {
 }
 
 @media (max-width: 360px) {
-  header a[data-header-logo="true"] {
-    max-width: 9.1rem;
-  }
-
   .site-header-top {
     grid-template-columns: minmax(0, 9.1rem) minmax(0, 1fr);
   }
@@ -1842,10 +1830,6 @@ section.brand-internal-hero.bg-\[\#061E72\] {
 }
 
 @media (max-width: 767px) {
-  header a[data-header-logo="true"] {
-    max-width: clamp(9.1rem, 40vw, 10.9rem);
-  }
-
   .site-logo-link {
     min-width: clamp(9.1rem, 40vw, 10.9rem);
     min-height: 3rem;
@@ -1935,10 +1919,6 @@ section.brand-internal-hero.bg-\[\#061E72\] {
 @media (min-width: 768px) {
   .brand-internal-hero {
     background-position: center right !important;
-  }
-
-  header a[data-header-logo="true"] {
-    max-width: 17.5rem;
   }
 
   .site-logo-link {
