@@ -23,28 +23,28 @@ export const metadata: Metadata = toMetadata(contactSeoMetadata());
 
 const contactOptions = [
   {
-    title: "Phone",
-    text: business.phoneDisplay,
-    href: business.phoneHref,
-    icon: Phone,
-  },
-  {
     title: "Email",
     text: business.email,
     href: business.emailHref,
     icon: Mail,
   },
   {
-    title: "Quote form",
-    text: "Send photos and job details.",
-    href: business.bookingUrl,
-    icon: ClipboardCheck,
-  },
-  {
     title: "Service areas",
     text: "Sydney and surrounding regions",
     href: "/service-areas",
     icon: MapPin,
+  },
+  {
+    title: "Phone",
+    text: business.phoneDisplay,
+    href: business.phoneHref,
+    icon: Phone,
+  },
+  {
+    title: "Quote form",
+    text: "Send photos and job details.",
+    href: business.bookingUrl,
+    icon: ClipboardCheck,
   },
 ];
 
@@ -142,7 +142,7 @@ export default function ContactPage() {
               <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
                 Direct options
               </p>
-              <h2 className="mt-2 text-2xl font-black tracking-tight sm:text-[1.7rem]">
+              <h2 className="contact-direct-options__title mt-2 text-2xl font-black tracking-tight sm:text-[1.7rem]">
                 Call, email or send job details.
               </h2>
               <div className="contact-option-grid mt-4 grid gap-2 sm:grid-cols-2">
@@ -150,6 +150,10 @@ export default function ContactPage() {
                   const Icon = option.icon;
                   const isPhone = option.title === "Phone";
                   const isQuote = option.title === "Quote form";
+                  const isEmail = option.title === "Email";
+                  const optionClass = option.title
+                    .toLowerCase()
+                    .replaceAll(" ", "-");
 
                   return (
                     <a
@@ -159,7 +163,7 @@ export default function ContactPage() {
                           ? assetPath(option.href)
                           : option.href
                       }
-                      className="contact-option-card flex min-w-0 items-center gap-3 rounded-xl border border-cyan-300/16 bg-[#061E72]/55 p-3 text-left transition hover:border-cyan-200/45 hover:bg-[#082A86]"
+                      className={`contact-option-card contact-option-card--${optionClass} flex min-w-0 items-center gap-3 rounded-xl border border-cyan-300/16 bg-[#061E72]/55 p-3 text-left transition hover:border-cyan-200/45 hover:bg-[#082A86]`}
                       data-conversion-action={
                         isPhone ? "phone-click" : isQuote ? "quote-click" : undefined
                       }
@@ -170,11 +174,17 @@ export default function ContactPage() {
                         <Icon className="h-4 w-4" aria-hidden="true" />
                       </span>
                       <span className="min-w-0 flex-1">
-                        <span className="block text-xs font-black uppercase tracking-[0.1em] text-cyan-100">
+                        <span className="contact-option-card__label block text-xs font-black uppercase tracking-[0.1em] text-cyan-100">
                           {option.title}
                         </span>
                         <span className="contact-option-card__text mt-0.5 block min-w-0 break-words text-[0.82rem] font-semibold leading-5 text-slate-200">
-                          {option.text}
+                          {isEmail ? (
+                            <>
+                              info@<wbr />evareadyelectrical.com.au
+                            </>
+                          ) : (
+                            option.text
+                          )}
                         </span>
                       </span>
                     </a>

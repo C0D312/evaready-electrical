@@ -1747,11 +1747,20 @@ html body.ev-storm-page main#main-content :is(a, button)[data-conversion-action=
     inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
 }
 
-/* Contact layout must win after every shared compatibility rule above. */
+/* Keep the Contact hero compact after shared conversion-control rules. */
 html body main#main-content.core-storm-contact .contact-direct-options {
   align-self: center !important;
+  width: min(100%, 36rem) !important;
   height: auto !important;
   min-height: 0 !important;
+  padding: clamp(1rem, 1.6vw, 1.25rem) !important;
+  border-radius: 1.25rem !important;
+}
+
+html body main#main-content.core-storm-contact .contact-direct-options__title {
+  font-size: clamp(1.25rem, 1.75vw, 1.5rem) !important;
+  line-height: 1.08 !important;
+  text-wrap: balance !important;
 }
 
 html body main#main-content.core-storm-contact .contact-option-grid,
@@ -1762,29 +1771,68 @@ html body main#main-content.core-storm-contact .contact-mobile-actions {
 }
 
 html body main#main-content.core-storm-contact .contact-option-card__text {
-  overflow-wrap: anywhere !important;
+  margin-top: 0.2rem !important;
+  font-size: clamp(0.7rem, 0.72vw, 0.76rem) !important;
+  line-height: 1.28 !important;
+  overflow-wrap: normal !important;
   word-break: normal !important;
 }
 
 html body main#main-content.core-storm-contact .contact-option-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  grid-auto-rows: minmax(4.25rem, auto) !important;
+  align-items: stretch !important;
   align-content: start !important;
+  gap: 0.55rem !important;
+  margin-top: 0.9rem !important;
 }
 
-html body main#main-content.core-storm-contact .contact-option-card {
-  min-height: 4.5rem !important;
-  justify-content: flex-start !important;
-  gap: 0.75rem !important;
-  padding: 0.75rem !important;
+html body main#main-content.core-storm-contact a.contact-option-card {
+  display: grid !important;
+  grid-template-columns: 2.125rem minmax(0, 1fr) !important;
+  align-items: center !important;
+  align-content: center !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 4.25rem !important;
+  height: 100% !important;
+  max-height: none !important;
+  padding: 0.625rem 0.7rem !important;
+  gap: 0.625rem !important;
+  order: 0 !important;
   border-radius: 0.75rem !important;
+  font-size: 1rem !important;
+  line-height: normal !important;
   text-align: left !important;
+  white-space: normal !important;
   flex-wrap: nowrap !important;
 }
 
-html body main#main-content.core-storm-contact .contact-option-card > span:first-child {
-  width: 2.25rem !important;
-  height: 2.25rem !important;
-  flex: 0 0 2.25rem !important;
-  border-radius: 0.625rem !important;
+html body main#main-content.core-storm-contact a.contact-option-card > span:first-child {
+  width: 2.125rem !important;
+  height: 2.125rem !important;
+  min-width: 2.125rem !important;
+  flex: 0 0 2.125rem !important;
+  border-radius: 0.6rem !important;
+}
+
+html body main#main-content.core-storm-contact .contact-option-card__label {
+  font-size: 0.67rem !important;
+  line-height: 1.1 !important;
+  letter-spacing: 0.075em !important;
+}
+
+html body main#main-content.core-storm-contact a.contact-option-card--phone {
+  box-shadow:
+    0 8px 20px rgba(233, 17, 30, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+html body main#main-content.core-storm-contact a.contact-option-card--quote-form {
+  box-shadow:
+    0 8px 20px rgba(7, 156, 255, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16) !important;
 }
 
 html body main#main-content.core-storm-contact .contact-mobile-actions {
@@ -1804,8 +1852,12 @@ html body main#main-content.core-storm-contact .contact-mobile-actions > :is(a, 
 
 @media (max-width: 639px) {
   html body main#main-content.core-storm-contact .contact-option-grid {
-    display: flex !important;
-    flex-direction: column !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-auto-rows: minmax(3.75rem, auto) !important;
+  }
+
+  html body main#main-content.core-storm-contact a.contact-option-card {
+    min-height: 3.75rem !important;
   }
 }
 
