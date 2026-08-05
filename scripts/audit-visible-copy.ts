@@ -54,6 +54,11 @@ const suspiciousPhrases = [
   "homepage stays focused",
 ];
 
+const relevantStalePhraseChecks = stalePhraseChecks.filter(
+  (phrase) =>
+    !(phrase.includes("2026") && phrase.includes("Evaready Electrical")),
+);
+
 const suspiciousPatternChecks = [
   { label: ["service", "page"].join(" "), pattern: /\bservice page\b/i },
 ];
@@ -165,6 +170,18 @@ function pageTypeForRoute(route: string) {
 function findPhrases(text: string, phrases: string[]) {
   const lower = text.toLowerCase();
   return phrases.filter((phrase) => lower.includes(phrase.toLowerCase()));
+}
+
+function hasLegacyStaticCopyright(text: string) {
+  return text.split(/\n+/).some((line) => {
+    const normalized = line.trim();
+
+    return (
+      /\b20\d{2} Evaready Electrical\b/.test(normalized) &&
+      normalized.includes("All rights reserved") &&
+      !normalized.startsWith("Copyright ")
+    );
+  });
 }
 
 function grammarWarnings(text: string) {
@@ -293,9 +310,12 @@ function auditRoute(url: string): AuditRow {
   const visibleText = stripHtmlToVisibleText(html);
   const wordCount = visibleText ? visibleText.split(/\s+/).length : 0;
   const staleFound = [
-    ...findPhrases(visibleText, stalePhraseChecks),
+    ...findPhrases(visibleText, relevantStalePhraseChecks),
     ...exactCaseStalePhrases.filter((phrase) => visibleText.includes(phrase)),
     ...suburbWordingWarnings(visibleText, pageType),
+    ...(hasLegacyStaticCopyright(visibleText)
+      ? ["legacy static copyright year"]
+      : []),
   ];
   const suspiciousFound = [
     ...findPhrases(visibleText, suspiciousPhrases),

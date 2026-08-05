@@ -4,6 +4,22 @@ import type { CSSProperties } from "react";
 import { assetPath, business } from "@/data/site";
 
 const imagePaths = {
+  headerDesktop1024:
+    "/images/header/evaready-header-desktop-1024-crisp-v17.webp",
+  headerDesktop1280:
+    "/images/header/evaready-header-desktop-1280-crisp-v17.webp",
+  headerDesktop1366:
+    "/images/header/evaready-header-desktop-1366-crisp-v17.webp",
+  headerDesktop1440:
+    "/images/header/evaready-header-desktop-1440-crisp-v17.webp",
+  headerDesktop1600:
+    "/images/header/evaready-header-desktop-1600-crisp-v17.webp",
+  headerDesktop1920:
+    "/images/header/evaready-header-desktop-1920-crisp-v17.webp",
+  headerDesktop2048:
+    "/images/header/evaready-header-desktop-2048-crisp-v17.webp",
+  headerDesktop2560:
+    "/images/header/evaready-header-desktop-2560-crisp-v17.webp",
   headerBackground: "/images/evaready-storm-theme-desktop-v3.webp",
   headerBackgroundCompact:
     "/images/performance/evaready-header-storm-768.webp",
@@ -54,6 +70,63 @@ export function HeaderBackgroundImage() {
       className="ev-final-header-background"
       aria-hidden="true"
     />
+  );
+}
+
+export function HeaderDesktopBannerImage() {
+  return (
+    <picture className="ev-final-header-raster-picture">
+      <source
+        media="(min-width: 2300px)"
+        srcSet={assetPath(imagePaths.headerDesktop2560)}
+        type="image/webp"
+      />
+      <source
+        media="(min-width: 2000px)"
+        srcSet={assetPath(imagePaths.headerDesktop2048)}
+        type="image/webp"
+      />
+      <source
+        media="(min-width: 1760px)"
+        srcSet={assetPath(imagePaths.headerDesktop1920)}
+        type="image/webp"
+      />
+      <source
+        media="(min-width: 1520px)"
+        srcSet={assetPath(imagePaths.headerDesktop1600)}
+        type="image/webp"
+      />
+      <source
+        media="(min-width: 1400px)"
+        srcSet={assetPath(imagePaths.headerDesktop1440)}
+        type="image/webp"
+      />
+      <source
+        media="(min-width: 1323px)"
+        srcSet={assetPath(imagePaths.headerDesktop1366)}
+        type="image/webp"
+      />
+      <source
+        media="(min-width: 1200px)"
+        srcSet={assetPath(imagePaths.headerDesktop1280)}
+        type="image/webp"
+      />
+      <source
+        media="(min-width: 1024px)"
+        srcSet={assetPath(imagePaths.headerDesktop1024)}
+        type="image/webp"
+      />
+      <img
+        src={transparentPixel}
+        alt="Evaready Electrical 24/7"
+        width={2048}
+        height={270}
+        loading="eager"
+        decoding="async"
+        fetchPriority="high"
+        className="ev-final-header-raster-image"
+      />
+    </picture>
   );
 }
 

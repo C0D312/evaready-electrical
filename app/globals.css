@@ -12664,7 +12664,7 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
 
 @media (min-width: 1024px) {
   :root {
-    --ev-final-header-art-height: 116px;
+    --ev-final-header-art-height: 135px;
     --ev-final-nav-height: 34px;
     --ev-final-header-btn-height: 30px;
     --site-route-strip-height: 26px;
@@ -12672,15 +12672,22 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
   }
 }
 
-@media (min-width: 1441px) {
+@media (min-width: 1440px) {
   :root {
-    --ev-final-header-art-height: 122px;
+    --ev-final-header-art-height: 145px;
   }
 }
 
-@media (min-width: 1921px) {
+/* Match the approved 2048px compact-header silhouette without ultrawide growth. */
+@media (min-width: 1920px) {
   :root {
-    --ev-final-header-art-height: 128px;
+    --ev-final-header-art-height: 150px;
+  }
+}
+
+@media (min-width: 2048px) {
+  :root {
+    --ev-final-header-art-height: 160px;
   }
 }
 

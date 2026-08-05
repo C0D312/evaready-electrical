@@ -56,6 +56,10 @@ const riskyPatterns = [
   "fake rating",
 ];
 
+const relevantStalePatterns = stalePatterns.filter(
+  (pattern) => !pattern.includes("2026 Evaready Electrical"),
+);
+
 const commercialPageTypes = new Set([
   "homepage",
   "services index",
@@ -172,6 +176,18 @@ function filePathForRoute(route: string) {
 
 function findIncluded(text: string, patterns: string[]) {
   return patterns.filter((pattern) => text.includes(pattern));
+}
+
+function hasLegacyStaticCopyright(text: string) {
+  return text.split(/\n+/).some((line) => {
+    const normalized = line.trim();
+
+    return (
+      /\b20\d{2} Evaready Electrical\b/.test(normalized) &&
+      normalized.includes("All rights reserved") &&
+      !normalized.startsWith("Copyright ")
+    );
+  });
 }
 
 function extractAssetRefs(html: string) {
@@ -299,7 +315,12 @@ function auditRoute(url: string): PageHealthRow {
       html.includes('data-conversion-action="quote-click"') || !commercial
         ? "yes"
         : "no",
-    "stale string warning": findIncluded(visibleText, stalePatterns).join("; "),
+    "stale string warning": [
+      ...findIncluded(visibleText, relevantStalePatterns),
+      ...(hasLegacyStaticCopyright(visibleText)
+        ? ["legacy static copyright year"]
+        : []),
+    ].join("; "),
     "risky wording warning": findIncluded(visibleText, riskyPatterns).join("; "),
     "broken asset reference warning": brokenAssets.slice(0, 8).join("; "),
     "missing CSS/JS warning": missingCssJsWarnings.slice(0, 8).join("; "),

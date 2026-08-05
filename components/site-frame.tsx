@@ -17,12 +17,14 @@ import {
   DesktopPrimaryNav,
   type PrimaryNavItem,
 } from "@/components/desktop-primary-nav";
+import { CurrentYear } from "@/components/current-year";
 import { HomeNavigationLink } from "@/components/home-navigation-link";
 import { MobileStickyCta } from "@/components/mobile-sticky-cta";
 import { MobilePrimaryNav } from "@/components/mobile-primary-nav";
 import {
   HeaderBackgroundImage,
   HeaderBoltImage,
+  HeaderDesktopBannerImage,
   HeaderEnergyLineImage,
   HeaderWordmarkImage,
   ResponsiveHeroImage,
@@ -255,6 +257,7 @@ function SiteHeader() {
 
         <div className="ev-final-header-art ev-electric-header-banner-row">
           <HeaderBackgroundImage />
+          <HeaderDesktopBannerImage />
 
           <HomeNavigationLink
             data-header-logo="true"
@@ -475,7 +478,7 @@ function SiteFooter() {
 
         <div className="ev-footer-bottom">
           <p>
-            &copy; Evaready Electrical. All rights reserved.
+            Copyright &copy; <CurrentYear /> Evaready Electrical. All rights reserved.
           </p>
           <div className="ev-footer-legal-links">
             {legalLinks.map((link) => (

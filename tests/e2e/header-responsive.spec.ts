@@ -48,22 +48,19 @@ const boltAsset = {
 
 const compactForegroundAssets = [combinedWordmarkAsset, energyLineAsset, boltAsset] as const;
 
-const desktopForegroundAssets = [
-  {
-    selector: ".ev-final-header-evaready",
-    sources: [
-      { file: "evaready-header-evaready-v16.webp", width: 1426, height: 171 },
-    ],
-  },
-  {
-    selector: ".ev-final-header-electrical",
-    sources: [
-      { file: "evaready-header-electrical-v16.webp", width: 1426, height: 73 },
-    ],
-  },
-  energyLineAsset,
-  boltAsset,
-] as const;
+const desktopRasterAsset = {
+  selector: ".ev-final-header-raster-image",
+  sources: [
+    { file: "evaready-header-desktop-1024-crisp-v17.webp", width: 2048, height: 270 },
+    { file: "evaready-header-desktop-1280-crisp-v17.webp", width: 2560, height: 270 },
+    { file: "evaready-header-desktop-1366-crisp-v17.webp", width: 2732, height: 270 },
+    { file: "evaready-header-desktop-1440-crisp-v17.webp", width: 2880, height: 290 },
+    { file: "evaready-header-desktop-1600-crisp-v17.webp", width: 3200, height: 290 },
+    { file: "evaready-header-desktop-1920-crisp-v17.webp", width: 3840, height: 300 },
+    { file: "evaready-header-desktop-2048-crisp-v17.webp", width: 4096, height: 320 },
+    { file: "evaready-header-desktop-2560-crisp-v17.webp", width: 5120, height: 320 },
+  ],
+} as const;
 
 const backgroundAssets = [
   { file: "evaready-header-storm-768.webp", width: 768, height: 512 },
@@ -72,9 +69,10 @@ const backgroundAssets = [
 ] as const;
 
 const expectedArtHeight = (width: number) => {
-  if (width >= 1921) return 128;
-  if (width >= 1441) return 122;
-  if (width >= 1024) return 116;
+  if (width >= 2048) return 160;
+  if (width >= 1920) return 150;
+  if (width >= 1440) return 145;
+  if (width >= 1024) return 135;
   if (width >= 768) return 123;
   if (width >= 430) return 120;
   if (width >= 375) return 116;
@@ -85,7 +83,7 @@ async function inspectHeader(page: Page) {
   await page.waitForFunction(() =>
     Array.from(
       document.querySelectorAll<HTMLImageElement>(
-        ".ev-final-header-background, .ev-final-header-wordmark, .ev-final-header-energy-line, .ev-final-header-bolt",
+        ".ev-final-header-background, .ev-final-header-raster-image, .ev-final-header-wordmark, .ev-final-header-energy-line, .ev-final-header-bolt",
       ),
     ).every((image) => image.complete && image.naturalWidth > 0),
   );
@@ -133,7 +131,7 @@ async function inspectHeader(page: Page) {
 
     const visibleForeground = Array.from(
       header.querySelectorAll<HTMLImageElement>(
-        ".ev-final-header-wordmark, .ev-final-header-evaready, .ev-final-header-electrical, .ev-final-header-energy-line, .ev-final-header-bolt",
+        ".ev-final-header-raster-image, .ev-final-header-wordmark, .ev-final-header-evaready, .ev-final-header-electrical, .ev-final-header-energy-line, .ev-final-header-bolt",
       ),
     ).filter((image) => {
       const box = image.getBoundingClientRect();
@@ -183,6 +181,7 @@ async function inspectHeader(page: Page) {
         sourceHeight: backgroundSource.height,
         objectFit: background ? getComputedStyle(background).objectFit : "",
         opacity: background ? getComputedStyle(background).opacity : "",
+        display: background ? getComputedStyle(background).display : "",
       },
       banner: bannerBox,
       bannerBackground: banner ? getComputedStyle(banner).backgroundColor : "",
@@ -206,7 +205,7 @@ test("header layers preserve their natural aspect ratios in every browser", asyn
   await page.goto("./", { waitUntil: "domcontentloaded" });
   const layout = await inspectHeader(page);
   const expectedAssets =
-    layout.viewportWidth >= 1024 ? desktopForegroundAssets : compactForegroundAssets;
+    layout.viewportWidth >= 1024 ? [desktopRasterAsset] : compactForegroundAssets;
 
   expect(layout.assets).toHaveLength(expectedAssets.length);
   for (const expectedAsset of expectedAssets) {
@@ -221,7 +220,9 @@ test("header layers preserve their natural aspect ratios in every browser", asyn
     expect(selectedSource, `${expectedAsset.selector} selected an approved source`).toBeDefined();
     expect(asset!.sourceWidth).toBe(selectedSource!.width);
     expect(asset!.sourceHeight).toBe(selectedSource!.height);
-    expect(asset!.objectFit).toBe("contain");
+    expect(asset!.objectFit).toBe(
+      expectedAsset.selector === desktopRasterAsset.selector ? "fill" : "contain",
+    );
     expect(asset!.relativeAspectError).toBeLessThanOrEqual(0.005);
     expect(asset!.insideBanner).toBe(true);
     expect(asset!.clearOfMobileMenu).toBe(true);
@@ -247,16 +248,20 @@ test("header is centred, compact and stable at all supported widths", async ({
     expect(settled.banner).not.toBeNull();
     expect(settled.header).not.toBeNull();
     expect(settled.lockup).not.toBeNull();
-    expect(settled.background.complete).toBe(true);
-    const selectedBackground = backgroundAssets.find((source) =>
-      settled.background.src.includes(source.file),
-    );
-    expect(selectedBackground, "header selected an approved storm source").toBeDefined();
-    expect(settled.background.sourceWidth).toBe(selectedBackground!.width);
-    expect(settled.background.sourceHeight).toBe(selectedBackground!.height);
-    expect(settled.background.objectFit).toBe("cover");
-    expect(settled.background.opacity).toBe("1");
-    expect(settled.background.box).toEqual(settled.banner);
+    if (viewport.width >= 1024) {
+      expect(settled.background.display).toBe("none");
+    } else {
+      expect(settled.background.complete).toBe(true);
+      const selectedBackground = backgroundAssets.find((source) =>
+        settled.background.src.includes(source.file),
+      );
+      expect(selectedBackground, "header selected an approved storm source").toBeDefined();
+      expect(settled.background.sourceWidth).toBe(selectedBackground!.width);
+      expect(settled.background.sourceHeight).toBe(selectedBackground!.height);
+      expect(settled.background.objectFit).toBe("cover");
+      expect(settled.background.opacity).toBe("1");
+      expect(settled.background.box).toEqual(settled.banner);
+    }
     expect(settled.bannerBackground).not.toBe("rgba(0, 0, 0, 0)");
     expect(Math.abs(settled.banner!.left)).toBeLessThanOrEqual(1);
     expect(Math.abs(settled.banner!.width - settled.viewportWidth)).toBeLessThanOrEqual(1);
@@ -264,10 +269,12 @@ test("header is centred, compact and stable at all supported widths", async ({
     expect(Math.abs(settled.tickerGap ?? 0)).toBeLessThanOrEqual(1);
     expect(settled.overflow).toBeLessThanOrEqual(1);
 
-    const lockupCentre = settled.lockup!.left + settled.lockup!.width / 2;
-    const viewportCentre = settled.viewportWidth / 2;
-    const maximumCentreOffset = viewport.width < 640 ? 17 : 1;
-    expect(Math.abs(lockupCentre - viewportCentre)).toBeLessThanOrEqual(maximumCentreOffset);
+    if (viewport.width < 1024) {
+      const lockupCentre = settled.lockup!.left + settled.lockup!.width / 2;
+      const viewportCentre = settled.viewportWidth / 2;
+      const maximumCentreOffset = viewport.width < 640 ? 17 : 1;
+      expect(Math.abs(lockupCentre - viewportCentre)).toBeLessThanOrEqual(maximumCentreOffset);
+    }
 
     for (const asset of settled.assets) {
       expect(asset.complete).toBe(true);
@@ -289,7 +296,7 @@ test("header is centred, compact and stable at all supported widths", async ({
       expect(settled.desktopNavDisplay).not.toBe("none");
       expect(settled.mobileMenuDisplay).toBe("none");
       expect(Math.abs(settled.navGap ?? 0)).toBeLessThanOrEqual(1);
-      expect(settled.header!.height).toBeLessThanOrEqual(195);
+      expect(settled.header!.height).toBeLessThanOrEqual(230);
     } else {
       expect(settled.desktopNavDisplay).toBe("none");
       expect(settled.mobileMenuDisplay).not.toBe("none");

@@ -106,6 +106,10 @@ const riskyStrings = [
   "fake rating",
 ];
 
+const relevantStaleStrings = staleStrings.filter(
+  (value) => !value.includes("2026 Evaready Electrical"),
+);
+
 const columns: (keyof SuburbAuditRow)[] = [
   "region",
   "area",
@@ -229,6 +233,18 @@ function findIncluded(text: string, needles: string[]) {
   const lowerText = text.toLowerCase();
 
   return needles.filter((needle) => lowerText.includes(needle.toLowerCase()));
+}
+
+function hasLegacyStaticCopyright(text: string) {
+  return text.split(/\n+/).some((line) => {
+    const normalized = line.trim();
+
+    return (
+      /\b20\d{2} Evaready Electrical\b/.test(normalized) &&
+      normalized.includes("All rights reserved") &&
+      !normalized.startsWith("Copyright ")
+    );
+  });
 }
 
 function escapeRegExp(value: string) {
@@ -453,7 +469,12 @@ function auditRecord(record: SuburbRecord): SuburbAuditRow {
     /<meta[^>]+name=["']description["'][^>]+content=["']([^"']*)["'][^>]*>/i,
   );
   const h1 = extractMatch(html, /<h1[^>]*>([\s\S]*?)<\/h1>/i);
-  const staleFound = findIncluded(visibleText, staleStrings);
+  const staleFound = [
+    ...findIncluded(visibleText, relevantStaleStrings),
+    ...(hasLegacyStaticCopyright(visibleText)
+      ? ["legacy static copyright year"]
+      : []),
+  ];
   const riskyFound = findIncluded(visibleText, riskyStrings);
   const grammarFound = spellingGrammarWarnings(visibleText);
   const repeatedFound = repeatedPhraseWarnings(visibleText);
