@@ -1,10 +1,10 @@
 {
   "marker": "site-version",
   "site": "Evaready Electrical",
-  "deployTarget": "GitHub Pages preview",
+  "deployTarget": "Local development",
   "basePath": "/evaready-electrical",
   "siteUrl": "https://c0d312.github.io/evaready-electrical",
-  "buildDate": "2026-08-05T13:57:30.832Z",
-  "mainCommit": "19bc62f18898e7cc2c34a8668e7c1006b2c7fd40",
-  "versionNote": "Automatic github pages preview build marker."
+  "buildDate": "2026-08-05T16:14:29.601Z",
+  "mainCommit": "348cba7ba625bc0194a3ebc99ff02abee7161b53",
+  "versionNote": "Automatic local development build marker."
 }
