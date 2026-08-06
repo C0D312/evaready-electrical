@@ -26,22 +26,12 @@ const imagePaths = {
   headerBackgroundSmall:
     "/images/performance/evaready-header-storm-960.webp",
   headerBolt: "/images/header/evaready-header-bolt-v15.webp",
-  headerBoltCompact: "/images/performance/evaready-header-bolt-120.webp",
-  headerBoltSmall: "/images/performance/evaready-header-bolt-180.webp",
   headerEnergyLine: "/images/header/evaready-header-energy-line-v15.webp",
-  headerEnergyLineCompact:
-    "/images/performance/evaready-header-energy-line-640.webp",
-  headerEnergyLineSmall:
-    "/images/performance/evaready-header-energy-line-960.webp",
   headerElectrical:
     "/images/header/evaready-header-electrical-v16.webp",
   headerEvaready:
     "/images/header/evaready-header-evaready-v16.webp",
   headerWordmark: "/images/header/evaready-header-wordmark-v15.webp",
-  headerWordmarkMedium:
-    "/images/performance/evaready-header-wordmark-1200.webp",
-  headerWordmarkSmall:
-    "/images/performance/evaready-header-wordmark-640.webp",
   serviceVanCompact: "/images/performance/evaready-service-van-768.webp",
   serviceVanMedium: "/images/performance/evaready-service-van-960.webp",
   serviceVanSmall: "/images/performance/evaready-service-van-640.webp",
@@ -136,8 +126,7 @@ export function HeaderWordmarkImage() {
       <picture className="ev-final-header-compact-picture">
         <source
           media="(max-width: 1023px)"
-          srcSet={`${assetPath(imagePaths.headerWordmarkSmall)} 640w, ${assetPath(imagePaths.headerWordmarkMedium)} 1200w, ${assetPath(imagePaths.headerWordmark)} 1426w`}
-          sizes="(max-width: 639px) 77vw, (max-width: 1023px) min(61vw, 540px), 450px"
+          srcSet={assetPath(imagePaths.headerWordmark)}
           type="image/webp"
         />
         <img
@@ -192,8 +181,6 @@ export function HeaderEnergyLineImage() {
   return (
     <img
       src={assetPath(imagePaths.headerEnergyLine)}
-      srcSet={`${assetPath(imagePaths.headerEnergyLineCompact)} 640w, ${assetPath(imagePaths.headerEnergyLineSmall)} 960w, ${assetPath(imagePaths.headerEnergyLine)} 1426w`}
-      sizes="(max-width: 639px) 77vw, (max-width: 1023px) min(70vw, 620px), 500px"
       alt=""
       width={1426}
       height={27}
@@ -209,8 +196,6 @@ export function HeaderBoltImage() {
   return (
     <img
       src={assetPath(imagePaths.headerBolt)}
-      srcSet={`${assetPath(imagePaths.headerBoltCompact)} 120w, ${assetPath(imagePaths.headerBoltSmall)} 180w, ${assetPath(imagePaths.headerBolt)} 310w`}
-      sizes="50px"
       alt=""
       width={310}
       height={258}

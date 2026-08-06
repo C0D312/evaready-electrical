@@ -21,29 +21,17 @@ const supportedViewports = [
 
 const combinedWordmarkAsset = {
   selector: ".ev-final-header-wordmark--combined",
-  sources: [
-    { file: "evaready-header-wordmark-640.webp", width: 640, height: 110 },
-    { file: "evaready-header-wordmark-1200.webp", width: 1200, height: 206 },
-    { file: "evaready-header-wordmark-v15.webp", width: 1426, height: 245 },
-  ],
+  sources: [{ file: "evaready-header-wordmark-v15.webp", width: 1426, height: 245 }],
 } as const;
 
 const energyLineAsset = {
   selector: ".ev-final-header-energy-line",
-  sources: [
-    { file: "evaready-header-energy-line-640.webp", width: 640, height: 12 },
-    { file: "evaready-header-energy-line-960.webp", width: 960, height: 18 },
-    { file: "evaready-header-energy-line-v15.webp", width: 1426, height: 27 },
-  ],
+  sources: [{ file: "evaready-header-energy-line-v15.webp", width: 1426, height: 27 }],
 } as const;
 
 const boltAsset = {
   selector: ".ev-final-header-bolt",
-  sources: [
-    { file: "evaready-header-bolt-120.webp", width: 120, height: 100 },
-    { file: "evaready-header-bolt-180.webp", width: 180, height: 150 },
-    { file: "evaready-header-bolt-v15.webp", width: 310, height: 258 },
-  ],
+  sources: [{ file: "evaready-header-bolt-v15.webp", width: 310, height: 258 }],
 } as const;
 
 const compactForegroundAssets = [combinedWordmarkAsset, energyLineAsset, boltAsset] as const;
