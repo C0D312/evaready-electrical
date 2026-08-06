@@ -137,7 +137,7 @@ export function HeaderWordmarkImage() {
         <source
           media="(max-width: 1023px)"
           srcSet={`${assetPath(imagePaths.headerWordmarkSmall)} 640w, ${assetPath(imagePaths.headerWordmarkMedium)} 1200w, ${assetPath(imagePaths.headerWordmark)} 1426w`}
-          sizes="(max-width: 639px) 77vw, 450px"
+          sizes="(max-width: 639px) 77vw, (max-width: 1023px) min(61vw, 540px), 450px"
           type="image/webp"
         />
         <img
@@ -193,7 +193,7 @@ export function HeaderEnergyLineImage() {
     <img
       src={assetPath(imagePaths.headerEnergyLine)}
       srcSet={`${assetPath(imagePaths.headerEnergyLineCompact)} 640w, ${assetPath(imagePaths.headerEnergyLineSmall)} 960w, ${assetPath(imagePaths.headerEnergyLine)} 1426w`}
-      sizes="(max-width: 639px) 77vw, 500px"
+      sizes="(max-width: 639px) 77vw, (max-width: 1023px) min(70vw, 620px), 500px"
       alt=""
       width={1426}
       height={27}

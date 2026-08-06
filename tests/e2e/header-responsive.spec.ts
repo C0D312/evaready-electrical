@@ -73,7 +73,7 @@ const expectedArtHeight = (width: number) => {
   if (width >= 1920) return 150;
   if (width >= 1440) return 145;
   if (width >= 1024) return 135;
-  if (width >= 768) return 123;
+  if (width >= 768) return Math.min(136, Math.max(123, width * 0.15625));
   if (width >= 430) return 120;
   if (width >= 375) return 116;
   return 112;
@@ -265,7 +265,7 @@ test("header is centred, compact and stable at all supported widths", async ({
     expect(settled.bannerBackground).not.toBe("rgba(0, 0, 0, 0)");
     expect(Math.abs(settled.banner!.left)).toBeLessThanOrEqual(1);
     expect(Math.abs(settled.banner!.width - settled.viewportWidth)).toBeLessThanOrEqual(1);
-    expect(settled.banner!.height).toBe(expectedArtHeight(viewport.width));
+    expect(settled.banner!.height).toBeCloseTo(expectedArtHeight(viewport.width), 2);
     expect(Math.abs(settled.tickerGap ?? 0)).toBeLessThanOrEqual(1);
     expect(settled.overflow).toBeLessThanOrEqual(1);
 

@@ -414,20 +414,22 @@ header.ev-final-header .ev-final-header-bolt {
   }
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --ev-final-header-art-height: clamp(123px, 15.625vw, 136px);
+  }
+
   header.ev-final-header .ev-final-header-lockup {
     inset-inline-end: 0;
   }
-}
 
-@media (min-width: 768px) {
   header.ev-final-header .ev-final-header-art {
-    --ev-header-wordmark-width: 450px;
-    --ev-header-wordmark-top: 3px;
-    --ev-header-line-width: 500px;
-    --ev-header-line-top: 89px;
-    --ev-header-bolt-height: 45px;
-    --ev-header-bolt-top: 75px;
+    --ev-header-wordmark-width: min(61vw, 540px);
+    --ev-header-wordmark-top: 4px;
+    --ev-header-line-width: min(70vw, 620px);
+    --ev-header-line-top: calc(100% - 24px);
+    --ev-header-bolt-height: clamp(46px, 5vw, 52px);
+    --ev-header-bolt-top: calc(100% - var(--ev-header-bolt-height));
   }
 }
 
