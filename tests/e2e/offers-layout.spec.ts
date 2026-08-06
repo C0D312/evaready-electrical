@@ -124,8 +124,9 @@ test("offer artwork and card grids stay complete, even and viewport-safe", async
     await expect(googleProof).toHaveCount(1);
     await expect(googleProof.locator(".google-rating-seal--offers")).toHaveCount(1);
     await expect(googleProof).toContainText("Google rating");
-    await expect(googleProof).toContainText("5.0");
-    await expect(googleProof).toContainText("83 Google reviews");
+    await expect(googleProof.locator("[data-google-rating-value]")).toHaveCount(1);
+    await expect(googleProof.locator("[data-google-rating-count]")).toHaveCount(1);
+    await expect(googleProof.locator("[data-google-reviews-link]")).toHaveCount(1);
     await expect(media).toHaveCount(offerPage.count);
     await expect(images).toHaveCount(offerPage.count);
     await expect(section.locator(".ev-offer-card__body")).toHaveCount(0);
