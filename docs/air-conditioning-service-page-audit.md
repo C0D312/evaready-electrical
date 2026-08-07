@@ -1,5 +1,7 @@
 # Air Conditioning Service Page Audit
 
+> Current status (2026-08-08): This audit records the June 2026 implementation. `components/google-review-proof.tsx` was removed in commit `aec94c7`; it is not active source.
+
 Date: 2026-06-15
 
 Page audited: https://c0d312.github.io/evaready-electrical/services/split-system-air-conditioning-sydney/

@@ -1,5 +1,7 @@
 # Evaready Electrical Logo Colour Theme Audit
 
+> Current status (2026-08-08): This audit records the June 2026 component inventory. `components/google-review-proof.tsx` was removed in commit `aec94c7`; current rating surfaces use `GoogleRatingSeal`.
+
 Date: 2026-06-18
 
 Scope: audit only. No source, route, metadata, schema, build or deploy changes were made.

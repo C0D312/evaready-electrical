@@ -3448,7 +3448,7 @@ a[data-quote-trigger="true"].site-header-quote {
     0 0 0 1px rgba(255, 50, 71, 0.1) inset !important;
 }
 
-.core-storm-page :is(.credential-card, .footer-credential-card, .service-credential-card, .google-rating-seal, .google-review-proof__panel, .home-hero-trust-card, .proofCard, .processCard) {
+.core-storm-page :is(.credential-card, .footer-credential-card, .service-credential-card, .google-rating-seal, .home-hero-trust-card, .proofCard, .processCard) {
   background:
     linear-gradient(145deg, rgba(6, 20, 47, 0.9), rgba(10, 50, 102, 0.72)),
     var(--ev-storm-bg-active) !important;
@@ -4836,8 +4836,8 @@ body.ev-electric-theme-bg::after {
 }
 
 .ev-storm-card--trust,
-.core-storm-page :is(.credential-card, .footer-credential-card, .service-credential-card, .google-rating-seal, .google-review-proof__panel, .home-hero-trust-card, .proofCard, .processCard),
-.generated-storm-page :is(.credential-card, .footer-credential-card, .service-credential-card, .google-rating-seal, .google-review-proof__panel, .home-hero-trust-card, .proofCard, .processCard) {
+.core-storm-page :is(.credential-card, .footer-credential-card, .service-credential-card, .google-rating-seal, .home-hero-trust-card, .proofCard, .processCard),
+.generated-storm-page :is(.credential-card, .footer-credential-card, .service-credential-card, .google-rating-seal, .home-hero-trust-card, .proofCard, .processCard) {
   background:
     linear-gradient(145deg, rgba(6, 20, 47, 0.92), rgba(10, 50, 102, 0.76)),
     radial-gradient(circle at 8% 12%, rgba(98, 216, 255, 0.2), transparent 18rem),
@@ -5024,7 +5024,7 @@ body.ev-electric-theme-bg .mobile-primary-nav__panel {
 }
 
 .generated-storm-page > section:not(.brand-internal-hero):not(.emergency-issue-marquee),
-.generated-storm-page :is(.google-review-proof, .lead-offer-panel, .trust-process-proof, .service-related-section, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section) {
+.generated-storm-page :is(.lead-offer-panel, .trust-process-proof, .service-related-section, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section) {
   background:
     radial-gradient(circle at 8% 12%, rgba(7, 156, 255, 0.43), transparent 28rem),
     radial-gradient(circle at 93% 12%, rgba(233, 17, 30, 0.23), transparent 27rem),
@@ -5035,7 +5035,7 @@ body.ev-electric-theme-bg .mobile-primary-nav__panel {
 }
 
 .generated-storm-page section :is(article, aside, div, li, details, a)[class*="rounded"][class*="border"]:not(.quote-modal-frame-shell):not(.quote-modal-iframe):not(.mobile-sticky-cta):not(.mobile-nav-trigger):not(.mobile-primary-nav__panel):not(.ev-btn):not(.ev-btn--call):not(.ev-btn--quote):not([data-quote-trigger="true"]):not([href^="tel:"]),
-.generated-storm-page :is(.internal-hero-copy-panel, .service-detail-hero-panel, .service-related-card, .service-action-card, .service-credential-card, .credential-card, .footer-credential-card, .google-review-proof__panel, .lead-offer-panel .rounded-xl, .trust-process-proof [class*="rounded"][class*="border"]) {
+.generated-storm-page :is(.internal-hero-copy-panel, .service-detail-hero-panel, .service-related-card, .service-action-card, .service-credential-card, .credential-card, .footer-credential-card, .lead-offer-panel .rounded-xl, .trust-process-proof [class*="rounded"][class*="border"]) {
   background:
     linear-gradient(145deg, rgba(5, 18, 45, 0.92), rgba(8, 35, 85, 0.76) 58%, rgba(2, 5, 13, 0.86)),
     var(--ev-storm-bg-active) !important;
@@ -5108,7 +5108,7 @@ body.ev-electric-theme-bg .mobile-primary-nav__panel {
 }
 
 .generated-storm-page > section:not(.brand-internal-hero):not(.emergency-issue-marquee),
-.generated-storm-page :is(.google-review-proof, .lead-offer-panel, .trust-process-proof, .service-related-section, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section) {
+.generated-storm-page :is(.lead-offer-panel, .trust-process-proof, .service-related-section, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section) {
   position: relative !important;
   isolation: isolate !important;
   overflow: hidden !important;
@@ -5129,7 +5129,7 @@ body.ev-electric-theme-bg .mobile-primary-nav__panel {
 }
 
 .generated-storm-page > section:not(.brand-internal-hero):not(.emergency-issue-marquee)::before,
-.generated-storm-page :is(.google-review-proof, .lead-offer-panel, .trust-process-proof, .service-related-section, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section)::before {
+.generated-storm-page :is(.lead-offer-panel, .trust-process-proof, .service-related-section, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section)::before {
   content: "" !important;
   position: absolute !important;
   inset: 0 !important;
@@ -5146,7 +5146,7 @@ body.ev-electric-theme-bg .mobile-primary-nav__panel {
 }
 
 .generated-storm-page > section:not(.brand-internal-hero):not(.emergency-issue-marquee)::after,
-.generated-storm-page :is(.google-review-proof, .lead-offer-panel, .trust-process-proof, .service-related-section, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section)::after {
+.generated-storm-page :is(.lead-offer-panel, .trust-process-proof, .service-related-section, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section)::after {
   content: "" !important;
   position: absolute !important;
   inset: 0 !important;
@@ -5159,7 +5159,7 @@ body.ev-electric-theme-bg .mobile-primary-nav__panel {
 }
 
 .generated-storm-page > section:not(.brand-internal-hero):not(.emergency-issue-marquee) > *,
-.generated-storm-page :is(.google-review-proof, .lead-offer-panel, .trust-process-proof, .service-related-section, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section) > * {
+.generated-storm-page :is(.lead-offer-panel, .trust-process-proof, .service-related-section, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section) > * {
   position: relative !important;
   z-index: 1 !important;
 }
@@ -5167,7 +5167,7 @@ body.ev-electric-theme-bg .mobile-primary-nav__panel {
 .generated-storm-page :is(.internal-hero-copy-panel, .service-detail-hero-panel, .brand-hero-card, .service-area-search, .quote-request-card, .quote-request-summary),
 .generated-storm-page section :is(article, aside, div, li, details, a)[class*="rounded"][class*="border"]:not(.quote-modal-frame-shell):not(.quote-modal-iframe):not(.mobile-sticky-cta):not(.mobile-nav-trigger):not(.mobile-primary-nav__panel):not(.ev-btn):not(.ev-btn--call):not(.ev-btn--quote):not([data-quote-trigger="true"]):not([href^="tel:"]),
 .generated-storm-page section :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50):not(a):not(button):not(input):not(textarea):not(select):not(.quote-modal-frame-shell):not(.quote-modal-iframe):not(.mobile-primary-nav__panel),
-.generated-storm-page :is(.service-related-card, .service-action-card, .service-credential-card, .credential-card, .footer-credential-card, .google-review-proof__panel, .lead-offer-panel .rounded-xl, .trust-process-card, .processCard, .proofCard) {
+.generated-storm-page :is(.service-related-card, .service-action-card, .service-credential-card, .credential-card, .footer-credential-card, .lead-offer-panel .rounded-xl, .trust-process-card, .processCard, .proofCard) {
   background:
     linear-gradient(145deg, rgba(5, 18, 45, 0.92), rgba(8, 35, 85, 0.76) 58%, rgba(2, 5, 13, 0.86)),
     var(--ev-storm-bg-active) !important;
@@ -5195,7 +5195,7 @@ body.ev-electric-theme-bg .mobile-primary-nav__panel {
     0 0 0 1px rgba(255, 50, 71, 0.1) inset !important;
 }
 
-.generated-storm-page :is(.service-credential-card, .credential-card, .google-review-proof__panel, .trust-process-proof [class*="rounded"][class*="border"], .service-detail-hero-credentials [class*="rounded"][class*="border"]) {
+.generated-storm-page :is(.service-credential-card, .credential-card, .trust-process-proof [class*="rounded"][class*="border"], .service-detail-hero-credentials [class*="rounded"][class*="border"]) {
   background:
     linear-gradient(145deg, rgba(6, 20, 47, 0.92), rgba(10, 50, 102, 0.74)),
     var(--ev-storm-bg-active) !important;
@@ -5270,7 +5270,7 @@ body.ev-electric-theme-bg .mobile-primary-nav__panel {
   }
 
   .generated-storm-page > section:not(.brand-internal-hero):not(.emergency-issue-marquee)::before,
-  .generated-storm-page :is(.google-review-proof, .lead-offer-panel, .trust-process-proof, .service-related-section, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section)::before {
+  .generated-storm-page :is(.lead-offer-panel, .trust-process-proof, .service-related-section, .service-detail-scope-section, .service-detail-warning-section, .service-detail-related-section)::before {
     opacity: 0.5 !important;
     background-size: 100% auto !important;
   }
@@ -7609,41 +7609,6 @@ main.legal-page :is(h1, h2, p, a),
     padding: 0.72rem !important;
   }
 
-  .google-review-proof {
-    padding-top: 2.75rem !important;
-    padding-bottom: 2.75rem !important;
-  }
-
-  .google-review-proof__container {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
-
-  .google-review-proof__panel {
-    gap: 1rem !important;
-    border-radius: 1.15rem !important;
-    padding: 1rem !important;
-  }
-
-  .google-review-proof__copy h2 {
-    margin-top: 0.8rem !important;
-    font-size: clamp(1.45rem, 7vw, 2rem) !important;
-    line-height: 1.08 !important;
-  }
-
-  .google-review-proof__copy p {
-    font-size: 0.92rem !important;
-    line-height: 1.45 !important;
-  }
-
-  .google-review-proof__note {
-    display: block !important;
-    margin-top: 0.9rem !important;
-    padding: 0.75rem !important;
-    font-size: 0.82rem !important;
-    line-height: 1.35 !important;
-  }
-
   .google-rating-seal {
     border-radius: 1.05rem !important;
     padding: 1rem !important;
@@ -7959,7 +7924,6 @@ main.legal-page :is(h1, h2, p, a),
     flex: none !important;
   }
 
-  .google-review-proof,
   .google-rating-seal {
     position: relative;
     z-index: 1;
@@ -8828,7 +8792,6 @@ main section a.group[class*="bg-white"],
 main section a.group[class*="bg-slate-"],
 main section a.group[class*="bg-blue-50"],
 .google-rating-seal,
-.google-review-proof__panel,
 .quote-process-graphic,
 .quote-process-graphic li,
 .service-credential-strip > div,
@@ -8880,7 +8843,6 @@ main section .bg-red-50 :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50)
 main section :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50, .bg-red-50) :is(h2, h3, h4, h5, dt),
 main section :is(article, div, li, aside)[class*="rounded"] :is(h2, h3, h4, h5, dt),
 .google-rating-seal :is(h2, h3, h4, p:first-child),
-.google-review-proof__panel :is(h2, h3, h4),
 .quote-process-graphic :is(h2, h3, h4),
 .service-credential-strip > div span:first-child,
 .hero-credential-badges > div p:first-child,
@@ -8891,7 +8853,6 @@ main section :is(article, div, li, aside)[class*="rounded"] :is(h2, h3, h4, h5, 
 main section :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50, .bg-red-50) :is(p, dd, li, span),
 main section :is(article, div, li, aside)[class*="rounded"] :is(p, dd, li, span),
 .google-rating-seal p,
-.google-review-proof__panel p,
 .quote-process-graphic :is(p, li),
 .service-credential-strip > div span,
 .hero-credential-badges > div p,
@@ -8901,7 +8862,6 @@ main section :is(article, div, li, aside)[class*="rounded"] :is(p, dd, li, span)
 
 main section :is(.text-blue-700, .text-blue-600, .text-cyan-200, .text-cyan-300),
 main section :is(article, div, li, aside)[class*="rounded"] svg,
-.google-review-proof__panel svg,
 .quote-process-graphic svg,
 .service-credential-strip svg,
 .hero-credential-badges svg,
@@ -8913,13 +8873,6 @@ main section :is(.text-red-600, .text-red-500, .text-red-300, .text-red-200),
 main section .bg-red-50 svg,
 main section [class*="border-red"] svg {
   color: #ff9aa3 !important;
-}
-
-.google-review-proof {
-  background:
-    radial-gradient(circle at 18% 0%, rgba(114, 215, 255, 0.07), transparent 32%),
-    linear-gradient(180deg, var(--brand-black), var(--brand-void) 58%, var(--brand-black)) !important;
-  color: var(--brand-white) !important;
 }
 
 .google-rating-seal {
@@ -9413,7 +9366,6 @@ main section [data-suburb-action-card="call-first"] a:not(.bg-red-600):not([data
   .quote-home-card,
   .google-rating-card,
   .google-rating-seal,
-  .google-review-proof,
   .emergency-trust-panel,
   .service-credential-strip,
   .hero-credential-badges,
@@ -9447,7 +9399,6 @@ main section [data-suburb-action-card="call-first"] a:not(.bg-red-600):not([data
   .quote-home-card,
   .google-rating-card,
   .google-rating-seal,
-  .google-review-proof,
   .emergency-trust-panel,
   .service-credential-strip,
   .hero-credential-badges,
@@ -9481,7 +9432,6 @@ main section [data-suburb-action-card="call-first"] a:not(.bg-red-600):not([data
   .quote-home-card,
   .google-rating-card,
   .google-rating-seal,
-  .google-review-proof,
   .emergency-trust-panel,
   .service-credential-strip,
   .hero-credential-badges,
@@ -13177,7 +13127,6 @@ body.ev-electric-theme-bg :is(
   .footer-credential-card,
   .service-credential-card,
   .google-rating-seal,
-  .google-review-proof__panel,
   .quote-home-card,
   .quote-request-card,
   .quote-request-summary,
@@ -13550,8 +13499,8 @@ body.ev-storm-page main section :is(article, aside, div, li, details)[class*="ro
 body.ev-electric-theme-bg main section :is(article, aside, div, li, details)[class*="rounded"][class*="border"]:not(.quote-modal-frame-shell):not(.quote-modal-iframe):not(.mobile-sticky-cta):not(.mobile-nav-trigger),
 body.ev-storm-page main section :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50):not(a):not(button):not(input):not(textarea):not(select):not(.quote-modal-frame-shell):not(.quote-modal-iframe),
 body.ev-electric-theme-bg main section :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-blue-50):not(a):not(button):not(input):not(textarea):not(select):not(.quote-modal-frame-shell):not(.quote-modal-iframe),
-body.ev-storm-page :is(.credential-card, .footer-credential-card, .service-credential-card, .google-rating-seal, .google-review-proof__panel, .quote-home-card, .quote-request-card, .quote-request-summary, .service-area-search, .legal-content-card, .emergency-feature-card, .emergency-link-card, .home-hero-trust-card, .lead-offer-panel .rounded-xl),
-body.ev-electric-theme-bg :is(.credential-card, .footer-credential-card, .service-credential-card, .google-rating-seal, .google-review-proof__panel, .quote-home-card, .quote-request-card, .quote-request-summary, .service-area-search, .legal-content-card, .emergency-feature-card, .emergency-link-card, .home-hero-trust-card, .lead-offer-panel .rounded-xl) {
+body.ev-storm-page :is(.credential-card, .footer-credential-card, .service-credential-card, .google-rating-seal, .quote-home-card, .quote-request-card, .quote-request-summary, .service-area-search, .legal-content-card, .emergency-feature-card, .emergency-link-card, .home-hero-trust-card, .lead-offer-panel .rounded-xl),
+body.ev-electric-theme-bg :is(.credential-card, .footer-credential-card, .service-credential-card, .google-rating-seal, .quote-home-card, .quote-request-card, .quote-request-summary, .service-area-search, .legal-content-card, .emergency-feature-card, .emergency-link-card, .home-hero-trust-card, .lead-offer-panel .rounded-xl) {
   background: var(--ev-storm-card-bg) !important;
   background-position: center, center top !important;
   background-repeat: no-repeat !important;
@@ -13589,8 +13538,8 @@ body.ev-electric-theme-bg :is(.emergency-link-card--triage, .emergency-card, .wa
 }
 
 .ev-storm-card--trust,
-body.ev-storm-page :is(.credential-card, .service-credential-card, .google-rating-seal, .google-review-proof__panel),
-body.ev-electric-theme-bg :is(.credential-card, .service-credential-card, .google-rating-seal, .google-review-proof__panel) {
+body.ev-storm-page :is(.credential-card, .service-credential-card, .google-rating-seal),
+body.ev-electric-theme-bg :is(.credential-card, .service-credential-card, .google-rating-seal) {
   border-color: rgba(98, 216, 255, 0.42) !important;
   box-shadow:
     0 18px 56px rgba(0, 0, 0, 0.34),
@@ -13830,7 +13779,7 @@ body.ev-electric-theme-bg .quote-modal-frame-shell {
     0 0 0 1px rgba(255, 50, 71, 0.1) inset !important;
 }
 
-.core-storm-page :is(.credential-card, .footer-credential-card, .service-credential-card, .google-rating-seal, .google-review-proof__panel, .home-hero-trust-card, .proofCard, .processCard) {
+.core-storm-page :is(.credential-card, .footer-credential-card, .service-credential-card, .google-rating-seal, .home-hero-trust-card, .proofCard, .processCard) {
   background:
     linear-gradient(145deg, rgba(6, 20, 47, 0.9), rgba(10, 50, 102, 0.72)),
     var(--ev-storm-bg-active) !important;

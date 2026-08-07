@@ -418,13 +418,11 @@
 
 .page :global(.emergency-trust-panel a),
 .page :global(.trust-process-proof article),
-.page :global(.google-review-proof),
 .page :global(.lead-offer-panel),
 .page :global(.quote-request-panel) {
   border-color: rgba(89, 219, 252, 0.22);
 }
 
-.page :global(.google-review-proof),
 .page :global(.quote-request-panel) {
   background:
     radial-gradient(circle at 12% 0%, rgba(3, 157, 254, 0.11), transparent 22rem),
@@ -432,7 +430,6 @@
   color: var(--ev-white);
 }
 
-.page :global(.google-review-proof h2),
 .page :global(.lead-offer-panel h2),
 .page :global(.quote-request-panel h2),
 .page :global(.trust-process-proof h2),
@@ -440,7 +437,6 @@
   color: var(--ev-white) !important;
 }
 
-.page :global(.google-review-proof p),
 .page :global(.lead-offer-panel p),
 .page :global(.quote-request-panel p),
 .page :global(.trust-process-proof p),

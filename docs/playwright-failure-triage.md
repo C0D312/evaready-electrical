@@ -1,5 +1,7 @@
 # Playwright Failure Triage
 
+> Current status (2026-08-08): This triage describes the June 2026 implementation. `components/google-review-proof.tsx` was removed in commit `aec94c7`; current rating surfaces use `GoogleRatingSeal`.
+
 Date/time: 2026-06-08T00:51:57+10:00  
 Live site: https://c0d312.github.io/evaready-electrical/  
 Local main: `7d47ce10b7 Add live site version marker`  
@@ -56,7 +58,7 @@ Reported failure:
 Source inspection:
 
 - `components/google-rating-card.tsx` renders the label text `Google Rating`.
-- `components/google-review-proof.tsx` includes `GoogleRatingCard`.
+- At the time of this triage, `components/google-review-proof.tsx` included `GoogleRatingCard`; that component is no longer active.
 - `data/site.ts` contains verified static Google data:
   - `googleRating: "5.0"`
   - `googleReviewCount: 83`

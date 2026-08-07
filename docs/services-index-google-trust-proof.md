@@ -1,5 +1,7 @@
 # Services Index Google Rating and Trust Proof Check
 
+> Current status (2026-08-08): This is a historical verification record. `GoogleReviewProof` was removed in commit `aec94c7`; current rating surfaces use `GoogleRatingSeal`.
+
 Date: 2026-06-14
 
 ## Scope
@@ -10,7 +12,7 @@ Checked the services index only. No fake reviews, fake ratings, aggregateRating 
 
 Google proof added: no new source change required.
 
-The services index already uses the approved `GoogleReviewProof` component below the hero and primary CTA area. The component renders the existing `GoogleRatingCard`, using the site constants already present in `data/site.ts`.
+At the time of this June 2026 check, the services index used `GoogleReviewProof` below the hero and primary CTA area. That component is no longer active.
 
 Generated output confirms the services section includes:
 

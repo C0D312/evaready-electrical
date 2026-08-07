@@ -1,5 +1,7 @@
 # Air Conditioning Response and Trust Proof
 
+> Current status (2026-08-08): This is a historical implementation record. `GoogleReviewProof` was removed in commit `aec94c7`; current rating surfaces use `GoogleRatingSeal` through the offer showcase or a direct page mount.
+
 Date: 2026-06-15
 
 Page updated: `/services/split-system-air-conditioning-sydney/`
@@ -34,7 +36,7 @@ Updated the shared service template so `responseTrustProof` can provide an optio
 
 Google proof added: no new Google component was added.
 
-The air-conditioning service page already renders the approved shared `GoogleReviewProof` lower on the page through the commercial service template. No Google Places API, fake review text, fake rating text, `aggregateRating` schema or `Review` schema was added.
+At the time of this June 2026 update, the air-conditioning service page rendered the shared `GoogleReviewProof` through the commercial service template. That component is no longer active. No Google Places API, fake review text, fake rating text, `aggregateRating` schema or `Review` schema was added by the historical update.
 
 ## Claims Avoided
 

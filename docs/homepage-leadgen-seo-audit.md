@@ -1,5 +1,7 @@
 # Homepage Lead-Generation and SEO Audit
 
+> Current status (2026-08-08): This audit preserves observations from June 2026. `components/google-review-proof.tsx` was removed in commit `aec94c7`; references below are historical, not current source ownership.
+
 Date: 2026-06-14
 
 Scope: homepage audit only. No source, copy, CSS, metadata, schema, route, build or deploy changes were made.

@@ -1483,7 +1483,7 @@ body.ev-storm-page main#main-content.core-storm-page.core-storm-home > footer.si
   display: none !important;
 }
 
-body.ev-storm-page main#main-content.core-storm-home .home-theme-band :is(.ev-storm-card, .google-review-proof__panel),
+body.ev-storm-page main#main-content.core-storm-home .home-theme-band .ev-storm-card,
 body.ev-storm-page main#main-content.core-storm-home .home-theme-band--offers .ev-offer-card {
   background:
     linear-gradient(145deg, rgba(5, 18, 38, 0.95), rgba(7, 24, 49, 0.91)) !important;
@@ -1494,8 +1494,7 @@ body.ev-storm-page main#main-content.core-storm-home .home-theme-band--offers .e
   backdrop-filter: blur(6px) saturate(1.02) !important;
 }
 
-body.ev-storm-page main#main-content.core-storm-home .home-theme-band--trust .ev-storm-card--trust,
-body.ev-storm-page main#main-content.core-storm-home .home-theme-band--reviews .google-review-proof__panel {
+body.ev-storm-page main#main-content.core-storm-home .home-theme-band--trust .ev-storm-card--trust {
   background:
     linear-gradient(145deg, rgba(9, 23, 39, 0.96), rgba(8, 30, 53, 0.9)) !important;
   border-color: rgba(98, 216, 255, 0.25) !important;
@@ -1548,7 +1547,7 @@ body.ev-storm-page main#main-content.core-storm-home .home-theme-band--offers .e
     backdrop-filter: blur(4px) !important;
   }
 
-  body.ev-storm-page main#main-content.core-storm-home .home-theme-band :is(.ev-storm-card, .google-review-proof__panel),
+  body.ev-storm-page main#main-content.core-storm-home .home-theme-band .ev-storm-card,
   body.ev-storm-page main#main-content.core-storm-home .home-theme-band--offers .ev-offer-card {
     box-shadow:
       0 10px 26px rgba(0, 0, 0, 0.25),
@@ -1629,7 +1628,6 @@ body.ev-storm-page main#main-content:is(
   .ev-storm-section,
   .ev-storm-section--emergency,
   .ev-storm-section--subtle,
-  .google-review-proof,
   .lead-offer-panel,
   .trust-process-proof,
   .quote-request-panel,
@@ -1661,7 +1659,6 @@ body.ev-storm-page main#main-content:is(
   .ev-storm-section,
   .ev-storm-section--emergency,
   .ev-storm-section--subtle,
-  .google-review-proof,
   .lead-offer-panel,
   .trust-process-proof,
   .quote-request-panel,
@@ -1680,7 +1677,6 @@ body.ev-storm-page main#main-content:is(
   .ev-storm-section,
   .ev-storm-section--emergency,
   .ev-storm-section--subtle,
-  .google-review-proof,
   .lead-offer-panel,
   .trust-process-proof,
   .quote-request-panel,

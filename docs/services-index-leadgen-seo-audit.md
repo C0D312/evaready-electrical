@@ -1,5 +1,7 @@
 # Services Index Lead Generation and SEO Audit
 
+> Current status (2026-08-08): This audit records the June 2026 component inventory. `components/google-review-proof.tsx` was removed in commit `aec94c7`; references below are historical.
+
 Date: 2026-06-14
 
 Scope: audit only. No source, CSS, copy, route, metadata, schema, build or deployment changes were made.

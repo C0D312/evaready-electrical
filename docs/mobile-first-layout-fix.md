@@ -1,5 +1,7 @@
 # Mobile-First Layout Fix
 
+> Current status (2026-08-08): This is a historical change record. `components/google-review-proof.tsx` and its dedicated selector family were later retired in commit `aec94c7`; current rating layout uses `GoogleRatingSeal`.
+
 ## Files Changed
 
 - `app/globals.css`

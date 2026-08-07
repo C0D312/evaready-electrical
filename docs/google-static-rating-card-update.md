@@ -1,5 +1,7 @@
 # Google Static Rating Card Update
 
+> Current status (2026-08-08): This document describes a superseded static implementation. `GoogleReviewProof` was removed in commit `aec94c7`; current rating surfaces use `GoogleRatingSeal`.
+
 ## Files Changed
 
 - `data/site.ts`
@@ -36,7 +38,7 @@ The card is static, lightweight and uses the central profile/review URLs. It doe
 
 ## Pages Where The Card Appears
 
-The card appears through `GoogleReviewProof` on:
+At the time of this update, the card appeared through `GoogleReviewProof` on:
 
 - Homepage
 - Emergency electrician page

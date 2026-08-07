@@ -1,5 +1,7 @@
 # Evaready Logo Colour Cards, Trust, Forms and Service Sections Update
 
+> Current status (2026-08-08): This is a historical styling record. The `.google-review-proof` selector family was retired after `GoogleReviewProof` was removed in commit `aec94c7`; current rating styling is owned by `.google-rating-seal`.
+
 Date: 2026-06-18
 
 Scope: shared visual styling only. No content, routes, metadata, schema, Ads code, conversion attributes, Google review data, Google Places API, badges or suburb copy were changed.
