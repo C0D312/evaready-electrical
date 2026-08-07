@@ -9,6 +9,7 @@ import {
   LocationServicePathways,
   locationServiceDirectory,
 } from "@/components/location-page-sections";
+import { LocationEvidenceSection } from "@/components/location-evidence-section";
 import { CurrentOffersLink } from "@/components/current-offers-link";
 import { ServiceAreaHero } from "@/components/site-frame";
 import {
@@ -23,6 +24,7 @@ import {
   getSuburbPaths,
 } from "@/data/service-area-coverage";
 import { rankSuburbsForInternalLinks } from "@/data/internal-links";
+import { getApprovedLocationEvidence } from "@/data/location-evidence";
 import { business, getEmergencyResponseForRegion } from "@/data/site";
 import {
   buildBreadcrumbSchema,
@@ -91,6 +93,11 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
   const emergencyResponse = getEmergencyResponseForRegion(region.name);
   const locality = `${suburb.name} ${suburb.postcode}`;
   const pagePath = `/service-areas/${region.slug}/${area.slug}/${suburb.slug}`;
+  const locationEvidence = getApprovedLocationEvidence(
+    region.slug,
+    area.slug,
+    suburb.slug,
+  );
   const visibleServiceDescription = `Evaready Electrical lists ${locality} within ${area.name}, ${region.name}, for urgent electrical faults, eligible Level 2 work and planned electrical services.`;
   const faqItems = [
     {
@@ -206,6 +213,10 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         locality={locality}
         responseDisplay={emergencyResponse.suburbDisplay}
       />
+
+      {locationEvidence ? (
+        <LocationEvidenceSection evidence={locationEvidence} />
+      ) : null}
 
       <section className="py-14 text-white sm:py-16" data-location-section="service-directory">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

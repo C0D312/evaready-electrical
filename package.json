@@ -17,6 +17,7 @@
     "audit:claims": "tsx scripts/audit-claims-and-offers.ts",
     "audit:offers": "tsx scripts/audit-offer-route-distribution.ts",
     "audit:location-output": "tsx scripts/audit-location-page-output.ts",
+    "audit:location-evidence": "tsx scripts/audit-location-evidence-quality.ts",
     "audit:performance": "tsx scripts/audit-performance-assets.ts",
     "audit:all-routes-visibility": "tsx scripts/audit-all-routes-visibility.ts",
     "audit:visibility": "tsx scripts/audit-page-visibility.ts",

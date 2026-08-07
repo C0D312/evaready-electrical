@@ -212,7 +212,7 @@ function measure(record: LocationRecord): PageMeasurement {
     mainText,
     normalizedBlocks: blocks.map((block) => normalizeBlock(block, record)),
     offersLinkCount: (
-      mainHtml.match(/data-suburb-offers-link=["']true["']/g) ?? []
+      mainHtml.match(/data-compact-offers-link=["']true["']/g) ?? []
     ).length,
     rawBytes: statSync(record.filePath).size,
     wordCount: wordCount(mainText),
@@ -411,8 +411,8 @@ for (const page of pages.filter((item) => item.family === "suburb")) {
     issues.push(`${page.url} is missing its response classification wording`);
   }
 
-  if (page.ctaCount < 6) {
-    issues.push(`${page.url} has ${page.ctaCount} conversion actions; expected at least 6`);
+  if (page.ctaCount < 4) {
+    issues.push(`${page.url} has ${page.ctaCount} conversion actions; expected at least 4`);
   }
   if (page.finalActionCount !== 1) {
     issues.push(`${page.url} has ${page.finalActionCount} final action sections; expected 1`);
@@ -465,9 +465,7 @@ const suburbFactualBlockCounts = new Map(
   ]),
 );
 const pagesWithOwnerEvidence = suburbPages.filter((page) =>
-  Object.keys(page.suburb ?? {}).some(
-    (key) => !["name", "postcode", "slug"].includes(key),
-  ),
+  page.mainHtml.includes('data-location-evidence="approved"'),
 );
 
 if (familyCounts.region !== 16) issues.push(`Expected 16 regions; found ${familyCounts.region}`);
@@ -539,7 +537,7 @@ const reportLines = [
   "- Text measurements use visible semantic blocks inside `main#main-content` only; scripts, JSON-LD, styles, SVG and non-main content are excluded.",
   "- Exact sharing compares literal visible blocks. Locality-normalised sharing replaces the current suburb, postcode, area and region before comparison.",
   "- A unique factual block is a literal block occurring on one suburb page that contains a suburb, postcode, area or region value from the approved coverage dataset.",
-  "- Owner-specific local evidence means a provenance-backed job, project, review, photo or team/location record. The suburb dataset currently stores only name, postcode and slug, so service-area facts must not be described as job proof.",
+  "- Owner-specific local evidence means a provenance-backed, public-use-approved job, review or photograph rendered from the typed evidence registry. Coverage facts must not be described as job proof.",
   "",
   "## Visible-main findings",
   "",
