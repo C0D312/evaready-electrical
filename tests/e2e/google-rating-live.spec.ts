@@ -3,9 +3,15 @@ import { expect, test, type Page } from "@playwright/test";
 const configuredBuild =
   process.env.GOOGLE_RATING_TEST_CONFIGURED === "true";
 const expectedPlaceId =
-  process.env.GOOGLE_RATING_TEST_PLACE_ID || "ChIJ_TEST_EVAREADY";
+  process.env.GOOGLE_RATING_TEST_PLACE_ID || "TEST_ONLY_PLACE_ID";
 
-type MockMode = "success" | "invalid-place" | "quota-error";
+type MockMode =
+  | "success"
+  | "success-changed"
+  | "invalid-place"
+  | "quota-error"
+  | "incomplete"
+  | "timeout";
 
 async function stubUnchangedExternalScripts(page: Page) {
   await page.route("**/__next*.txt**", async (route) => {
@@ -44,6 +50,11 @@ async function installGooglePlacesMock(page: Page, mode: MockMode) {
             window.__evareadyGooglePlaces.fetchCount += 1;
             window.__evareadyGooglePlaces.fields = [...request.fields];
 
+            if (mode === "timeout") {
+              await new Promise(() => {});
+              return;
+            }
+
             await new Promise((resolve) => setTimeout(resolve, 250));
 
             if (mode === "invalid-place") {
@@ -54,10 +65,17 @@ async function installGooglePlacesMock(page: Page, mode: MockMode) {
               throw new Error("Google Places quota exceeded.");
             }
 
+            if (mode === "incomplete") {
+              this.rating = 4.9;
+              this.userRatingCount = 0;
+              this.googleMapsURI = "";
+              return;
+            }
+
             this.rating = 4.9;
-            this.userRatingCount = 127;
+            this.userRatingCount = mode === "success-changed" ? 214 : 127;
             this.googleMapsURI =
-              "https://www.google.com/maps/place/?q=place_id:ChIJ_TEST_EVAREADY";
+              "https://www.google.com/maps/place/?q=place_id:TEST_ONLY_PLACE_ID";
           }
         }
 
@@ -83,6 +101,65 @@ async function installGooglePlacesMock(page: Page, mode: MockMode) {
   });
 }
 
+async function installControlledIntersectionObserver(page: Page) {
+  await page.addInitScript(() => {
+    type ControlledObserver = {
+      trigger: () => void;
+    };
+    type TestWindow = Window & {
+      __evareadyIntersectionObservers?: ControlledObserver[];
+    };
+
+    const testWindow = window as TestWindow;
+    testWindow.__evareadyIntersectionObservers = [];
+
+    class ControlledIntersectionObserver {
+      private readonly callback: IntersectionObserverCallback;
+      private readonly targets = new Set<Element>();
+
+      constructor(callback: IntersectionObserverCallback) {
+        this.callback = callback;
+        testWindow.__evareadyIntersectionObservers?.push(this);
+      }
+
+      observe(target: Element) {
+        this.targets.add(target);
+      }
+
+      unobserve(target: Element) {
+        this.targets.delete(target);
+      }
+
+      disconnect() {
+        this.targets.clear();
+      }
+
+      takeRecords() {
+        return [];
+      }
+
+      trigger() {
+        const entries = [...this.targets].map(
+          (target) =>
+            ({
+              boundingClientRect: target.getBoundingClientRect(),
+              intersectionRatio: 1,
+              intersectionRect: target.getBoundingClientRect(),
+              isIntersecting: true,
+              rootBounds: null,
+              target,
+              time: performance.now(),
+            }) as IntersectionObserverEntry,
+        );
+        this.callback(entries, this as unknown as IntersectionObserver);
+      }
+    }
+
+    window.IntersectionObserver =
+      ControlledIntersectionObserver as unknown as typeof IntersectionObserver;
+  });
+}
+
 test.beforeEach(({ browserName }, testInfo) => {
   const supportedProject =
     browserName === "chromium" &&
@@ -96,7 +173,49 @@ test.beforeEach(({ browserName }, testInfo) => {
   );
 });
 
-test("one live Places request updates every widget without layout shift", async ({
+test("Places loads only when the widget approaches the viewport", async ({
+  page,
+}) => {
+  test.skip(
+    !configuredBuild,
+    "This case requires the test-only browser key and Place ID build.",
+  );
+
+  let mapsRequestCount = 0;
+  await stubUnchangedExternalScripts(page);
+  await installControlledIntersectionObserver(page);
+  await installGooglePlacesMock(page, "success");
+  await page.route("https://maps.googleapis.com/maps/api/js**", async (route) => {
+    mapsRequestCount += 1;
+    await route.fallback();
+  });
+  await page.goto("services/", { waitUntil: "domcontentloaded" });
+
+  const widget = page.locator(".google-rating-seal").first();
+  await expect(widget).toHaveCount(1);
+  await expect(widget.locator('[data-google-rating-state="idle"]')).toHaveCount(
+    1,
+  );
+  await expect(widget).toContainText("View our current Google reviews");
+  await page.waitForTimeout(300);
+  expect(mapsRequestCount).toBe(0);
+
+  await page.evaluate(() => {
+    const observers = (
+      window as Window & {
+        __evareadyIntersectionObservers?: Array<{ trigger: () => void }>;
+      }
+    ).__evareadyIntersectionObservers;
+    observers?.forEach((observer) => observer.trigger());
+  });
+
+  await expect(widget.locator('[data-google-rating-state="ready"]')).toHaveCount(
+    1,
+  );
+  expect(mapsRequestCount).toBe(1);
+});
+
+test("one live Places request updates the widget without layout shift", async ({
   page,
 }, testInfo) => {
   test.skip(
@@ -134,18 +253,18 @@ test("one live Places request updates every widget without layout shift", async 
   await page.goto("about/", { waitUntil: "domcontentloaded" });
 
   const widgets = page.locator(".google-rating-seal");
-  await expect(widgets).toHaveCount(2);
+  await expect(widgets).toHaveCount(1);
 
   const firstWidget = widgets.first();
   const initialBox = await firstWidget.boundingBox();
-  await expect(
-    firstWidget.locator('[data-google-rating-state="loading"]'),
-  ).toHaveCount(1);
+  await expect(firstWidget.locator('[data-google-rating-state="loading"]')).toHaveCount(
+    1,
+  );
   await expect(firstWidget).toContainText("Loading current Google rating");
 
-  await expect(
-    firstWidget.locator('[data-google-rating-state="ready"]'),
-  ).toHaveCount(1);
+  await expect(firstWidget.locator('[data-google-rating-state="ready"]')).toHaveCount(
+    1,
+  );
   await expect(firstWidget.locator("[data-google-rating-value]")).toHaveText(
     "4.9",
   );
@@ -155,7 +274,10 @@ test("one live Places request updates every widget without layout shift", async 
   await expect(firstWidget).toContainText("Google Maps");
   await expect(firstWidget.locator("[data-google-reviews-link]")).toHaveAttribute(
     "href",
-    "https://www.google.com/maps/place/?q=place_id:ChIJ_TEST_EVAREADY",
+    "https://www.google.com/maps/place/?q=place_id:TEST_ONLY_PLACE_ID",
+  );
+  await expect(firstWidget.getByRole("status")).toContainText(
+    "Google rating 4.9. Based on 127 Google reviews.",
   );
 
   for (const widget of await widgets.all()) {
@@ -167,10 +289,24 @@ test("one live Places request updates every widget without layout shift", async 
     );
   }
 
+  const reviewsLink = firstWidget.locator("[data-google-reviews-link]");
+  await reviewsLink.focus();
+  await expect(reviewsLink).toBeFocused();
+  if (await firstWidget.getByRole("link", { name: "Leave a review" }).count()) {
+    await page.keyboard.press("Tab");
+    await expect(
+      firstWidget.getByRole("link", { name: "Leave a review" }),
+    ).toBeFocused();
+    await page.keyboard.press("Shift+Tab");
+    await expect(reviewsLink).toBeFocused();
+  }
+
   const finalBox = await firstWidget.boundingBox();
   expect(initialBox).not.toBeNull();
   expect(finalBox).not.toBeNull();
-  expect(Math.abs((finalBox?.height || 0) - (initialBox?.height || 0))).toBeLessThanOrEqual(1);
+  expect(
+    Math.abs((finalBox?.height || 0) - (initialBox?.height || 0)),
+  ).toBeLessThanOrEqual(1);
 
   const apiState = await page.evaluate(() => {
     const state = window as Window & {
@@ -201,7 +337,31 @@ test("one live Places request updates every widget without layout shift", async 
   });
 });
 
-for (const failure of ["invalid-place", "quota-error"] as const) {
+test("a changed Places count is rendered from the response", async ({ page }) => {
+  test.skip(
+    !configuredBuild,
+    "This case requires the test-only browser key and Place ID build.",
+  );
+
+  await stubUnchangedExternalScripts(page);
+  await installGooglePlacesMock(page, "success-changed");
+  await page.goto("about/", { waitUntil: "domcontentloaded" });
+
+  const widget = page.locator(".google-rating-seal").first();
+  await expect(widget.locator('[data-google-rating-state="ready"]')).toHaveCount(
+    1,
+  );
+  await expect(widget.locator("[data-google-rating-count]")).toContainText(
+    "Based on 214 Google reviews",
+  );
+});
+
+for (const failure of [
+  "invalid-place",
+  "quota-error",
+  "incomplete",
+  "timeout",
+] as const) {
   test(`${failure} keeps the widget honest and usable`, async ({ page }) => {
     test.skip(
       !configuredBuild,
@@ -223,10 +383,15 @@ for (const failure of ["invalid-place", "quota-error"] as const) {
     const widget = page.locator(".google-rating-seal").first();
     await expect(
       widget.locator('[data-google-rating-state="unavailable"]'),
-    ).toHaveCount(1);
+    ).toHaveCount(1, { timeout: 7_000 });
     await expect(widget.locator("[data-google-rating-value]")).toHaveText("--");
-    await expect(widget).toContainText("Google rating temporarily unavailable");
-    await expect(widget).not.toContainText("Based on 83 Google reviews");
+    await expect(widget).toContainText("View our current Google reviews");
+    await expect(widget.locator("[data-google-rating-count]")).not.toContainText(
+      /Based on \d+ Google reviews/,
+    );
+    await expect(widget.getByRole("status")).toContainText(
+      "Live Google rating is unavailable",
+    );
     await expect(widget.locator("[data-google-reviews-link]")).toHaveAttribute(
       "href",
       /^https:\/\//,
@@ -265,8 +430,14 @@ test("missing configuration makes no API request and shows no false live data", 
     widget.locator('[data-google-rating-state="unavailable"]'),
   ).toHaveCount(1);
   await expect(widget.locator("[data-google-rating-value]")).toHaveText("--");
-  await expect(widget).toContainText("Google rating temporarily unavailable");
-  await expect(widget).not.toContainText("Based on 83 Google reviews");
+  await expect(widget).toContainText("View our current Google reviews");
+  await expect(widget.locator("[data-google-rating-count]")).not.toContainText(
+    /Based on \d+ Google reviews/,
+  );
+  await expect(widget.locator("[data-google-reviews-link]")).toHaveAttribute(
+    "href",
+    /^https:\/\//,
+  );
   expect(mapsRequestCount).toBe(0);
   expect(consoleErrors).toEqual([]);
   expect(pageErrors).toEqual([]);

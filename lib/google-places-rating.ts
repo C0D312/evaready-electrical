@@ -32,6 +32,7 @@ declare global {
 }
 
 const GOOGLE_MAPS_SCRIPT_ID = "evaready-google-maps-javascript-api";
+const GOOGLE_PLACE_REQUEST_TIMEOUT_MS = 5_000;
 const GOOGLE_PLACE_FIELDS = [
   "rating",
   "userRatingCount",
@@ -40,6 +41,29 @@ const GOOGLE_PLACE_FIELDS = [
 
 let mapsScriptPromise: Promise<GoogleMapsNamespace> | null = null;
 let placeRatingPromise: Promise<GooglePlaceRating> | null = null;
+
+function withTimeout<T>(promise: Promise<T>, timeoutMs: number): Promise<T> {
+  let timeoutId: ReturnType<typeof setTimeout> | undefined;
+  const timeout = new Promise<never>((_, reject) => {
+    timeoutId = setTimeout(() => {
+      reject(new Error("Google Places rating request timed out."));
+    }, timeoutMs);
+  });
+
+  return Promise.race([promise, timeout]).finally(() => {
+    if (timeoutId !== undefined) {
+      clearTimeout(timeoutId);
+    }
+  });
+}
+
+function isValidGoogleMapsURI(value: string): boolean {
+  try {
+    return new URL(value).protocol === "https:";
+  } catch {
+    return false;
+  }
+}
 
 function loadGoogleMaps(browserKey: string): Promise<GoogleMapsNamespace> {
   const existingMaps = window.google?.maps;
@@ -111,11 +135,14 @@ async function fetchGooglePlaceRating(
   if (
     typeof place.rating !== "number" ||
     !Number.isFinite(place.rating) ||
+    place.rating <= 0 ||
+    place.rating > 5 ||
     typeof place.userRatingCount !== "number" ||
     !Number.isFinite(place.userRatingCount) ||
-    place.userRatingCount < 0 ||
+    !Number.isInteger(place.userRatingCount) ||
+    place.userRatingCount <= 0 ||
     typeof place.googleMapsURI !== "string" ||
-    !place.googleMapsURI
+    !isValidGoogleMapsURI(place.googleMapsURI)
   ) {
     throw new Error("Google Places returned incomplete rating data.");
   }
@@ -137,7 +164,10 @@ export function getGooglePlaceRating(): Promise<GooglePlaceRating> {
 
   placeRatingPromise =
     browserKey && placeId
-      ? fetchGooglePlaceRating(browserKey, placeId)
+      ? withTimeout(
+          fetchGooglePlaceRating(browserKey, placeId),
+          GOOGLE_PLACE_REQUEST_TIMEOUT_MS,
+        )
       : Promise.reject(
           new Error("Google Places browser key or Place ID is not configured."),
         );

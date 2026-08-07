@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ExternalLink, Star } from "lucide-react";
 import {
   getGooglePlaceRating,
@@ -15,9 +15,12 @@ type LiveGoogleRatingProps = {
 };
 
 type RatingState =
+  | { status: "idle" }
   | { status: "loading" }
   | { status: "ready"; value: GooglePlaceRating }
   | { status: "unavailable" };
+
+const NEUTRAL_REVIEW_MESSAGE = "View our current Google reviews";
 
 function formatRating(rating: number) {
   return rating.toFixed(1);
@@ -29,28 +32,60 @@ export function LiveGoogleRating({
   reviewsLinkLabel,
   showLeaveReview,
 }: LiveGoogleRatingProps) {
+  const loadTriggerRef = useRef<HTMLDivElement>(null);
   const [ratingState, setRatingState] = useState<RatingState>({
-    status: "loading",
+    status: "idle",
   });
 
   useEffect(() => {
     let active = true;
+    let started = false;
 
-    void getGooglePlaceRating().then(
-      (value) => {
-        if (active) {
-          setRatingState({ status: "ready", value });
+    const requestRating = () => {
+      if (started) {
+        return;
+      }
+
+      started = true;
+      setRatingState({ status: "loading" });
+
+      void getGooglePlaceRating().then(
+        (value) => {
+          if (active) {
+            setRatingState({ status: "ready", value });
+          }
+        },
+        () => {
+          if (active) {
+            setRatingState({ status: "unavailable" });
+          }
+        },
+      );
+    };
+
+    const trigger = loadTriggerRef.current;
+    if (!trigger || !("IntersectionObserver" in window)) {
+      requestRating();
+      return () => {
+        active = false;
+      };
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          observer.disconnect();
+          requestRating();
         }
       },
-      () => {
-        if (active) {
-          setRatingState({ status: "unavailable" });
-        }
-      },
+      { rootMargin: "400px 0px" },
     );
+
+    observer.observe(trigger);
 
     return () => {
       active = false;
+      observer.disconnect();
     };
   }, []);
 
@@ -61,10 +96,14 @@ export function LiveGoogleRating({
     ? `Based on ${ratingState.value.userRatingCount} Google reviews`
     : ratingState.status === "loading"
       ? "Loading current Google rating..."
-      : "Google rating temporarily unavailable";
+      : NEUTRAL_REVIEW_MESSAGE;
   const statusText = isReady
     ? `Google rating ${ratingText}. ${countText}.`
-    : countText;
+    : ratingState.status === "loading"
+      ? "Loading current Google rating."
+      : ratingState.status === "unavailable"
+        ? "Live Google rating is unavailable. Use the reviews link to view current Google reviews."
+        : "Google rating will load when this review panel approaches the viewport.";
   const reviewsHref = isReady
     ? ratingState.value.googleMapsURI
     : fallbackReviewsHref;
@@ -72,8 +111,10 @@ export function LiveGoogleRating({
   return (
     <>
       <div
+        ref={loadTriggerRef}
         className="flex min-w-0 items-center gap-3"
         data-google-rating-state={ratingState.status}
+        aria-busy={ratingState.status === "loading"}
       >
         <p className="sr-only" aria-live="polite" role="status">
           {statusText}
