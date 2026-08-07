@@ -1,7 +1,7 @@
 import { ArrowRight, Phone } from "lucide-react";
 import { GoogleRatingSeal } from "@/components/google-rating-seal";
 import { OfferCard } from "@/components/offer-card";
-import type { EvareadyOffer } from "@/data/offers";
+import { offerPolicy, type EvareadyOffer } from "@/data/offers";
 import { business } from "@/data/site";
 
 type OfferShowcaseProps = {
@@ -67,6 +67,9 @@ export function OfferShowcase({ offers, gridClassName }: OfferShowcaseProps) {
             </section>
           ))}
         </div>
+        <p className="ev-offers-terms__policy">
+          <strong>All offers:</strong> {offerPolicy.stacking}
+        </p>
       </details>
     </>
   );

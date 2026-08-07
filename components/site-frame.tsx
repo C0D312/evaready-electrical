@@ -234,7 +234,7 @@ const footerTrustItems: {
   { icon: ShieldCheck, label: "Level 2 ASP", value: business.level2Asp.display },
   {
     icon: Star,
-    label: "Google rating",
+    label: "Google reviews",
     value: business.googleReviewDisplayText,
     href: business.googleBusinessProfileUrl,
   },

@@ -7,9 +7,10 @@ The visible `GoogleRatingSeal` read `business.googleRating` and
 approved-claims data and are currently fixed at `5.0` and `83`. The widget did
 not request current data from Google.
 
-This change makes only the values rendered by `GoogleRatingSeal` live. Existing
-metadata, schema, footer credentials and approved claims are intentionally not
-changed by this task.
+Only values rendered by `GoogleRatingSeal` are live. Static trust links use the
+neutral label `View current Google reviews`; they do not repeat a historical
+rating or review count. Metadata and schema intentionally publish no review or
+`AggregateRating` values.
 
 ## Runtime behaviour
 

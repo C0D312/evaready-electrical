@@ -306,14 +306,14 @@ test("live site route matrix has no critical browser/device regressions", async 
         if (route.ratingProof !== false) {
           const ratingProof = page
             .locator("#site-footer a")
-            .filter({ hasText: /5\.0 from 83 Google reviews/ })
+            .filter({ hasText: /View current Google reviews/ })
             .first();
           if (!(await ratingProof.isVisible().catch(() => false))) {
-            failures.push(`${route.name}: approved Google rating proof is not visible`);
+            failures.push(`${route.name}: Google reviews source link is not visible`);
           } else {
             const href = await ratingProof.getAttribute("href");
             if (!href?.startsWith("https://")) {
-              failures.push(`${route.name}: Google rating proof is not linked to its source`);
+              failures.push(`${route.name}: Google reviews link is not linked to its source`);
             }
           }
         }

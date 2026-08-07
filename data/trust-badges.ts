@@ -49,7 +49,7 @@ export const footerTrustBadges: TrustBadge[] = [
     tone: "cyan",
   },
   {
-    altText: `Google Rating ${business.googleReviewDisplayText}`,
+    altText: business.googleReviewDisplayText,
     icon: "star",
     title: "Google Reviews",
     text: business.googleReviewDisplayText,

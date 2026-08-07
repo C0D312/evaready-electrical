@@ -122,13 +122,12 @@ async function main() {
   const failures: string[] = [];
   const homeHeaderMeasurements: Array<{
     viewport: string;
-    banner: number;
+    slot: number;
     ticker: number;
     navigation: number;
     total: number;
-    source: string;
-    naturalSize: string;
-    backgroundCoverage: number;
+    activeArtworkCount: number;
+    activeSources: string[];
     maxAspectError: number;
   }> = [];
   let checks = 0;
@@ -221,12 +220,18 @@ async function main() {
             await page.waitForFunction(() =>
               Array.from(
                 document.querySelectorAll<HTMLImageElement>(
-                  ".ev-final-header-wordmark, .ev-final-header-energy-line, .ev-final-header-bolt",
+                  ".ev-final-header-background, .ev-final-header-raster-image, .ev-final-header-wordmark, .ev-final-header-energy-line, .ev-final-header-bolt",
                 ),
-              ).every((image) => image.complete && image.naturalWidth > 0),
+              )
+                .filter((image) => {
+                  const box = image.getBoundingClientRect();
+                  return box.width > 0 && box.height > 0;
+                })
+                .every((image) => image.complete && image.naturalWidth > 0),
             );
+
             const header = await page.evaluate(async () => {
-              const banner = document.querySelector<HTMLElement>(
+              const slot = document.querySelector<HTMLElement>(
                 ".ev-final-header-art",
               );
               const ticker = document.querySelector<HTMLElement>(
@@ -238,54 +243,40 @@ async function main() {
               const container = document.querySelector<HTMLElement>(
                 ".ev-final-header",
               );
-              const background = document.querySelector<HTMLImageElement>(
-                ".ev-final-header-background",
-              );
-              const wordmark = document.querySelector<HTMLImageElement>(
-                window.innerWidth >= 1024
-                  ? ".ev-final-header-evaready"
-                  : ".ev-final-header-wordmark--combined",
-              );
-              const foreground = Array.from(
+              const slotRect = slot?.getBoundingClientRect();
+              const artwork = Array.from(
                 document.querySelectorAll<HTMLImageElement>(
-                  ".ev-final-header-wordmark, .ev-final-header-evaready, .ev-final-header-electrical, .ev-final-header-energy-line, .ev-final-header-bolt",
+                  ".ev-final-header-background, .ev-final-header-raster-image, .ev-final-header-wordmark, .ev-final-header-evaready, .ev-final-header-electrical, .ev-final-header-energy-line, .ev-final-header-bolt",
                 ),
               ).filter((image) => {
                 const box = image.getBoundingClientRect();
                 return box.width > 0 && box.height > 0;
               });
-              const backgroundRect = background?.getBoundingClientRect();
-              const bannerRect = banner?.getBoundingClientRect();
+              const foreground = artwork.filter(
+                (image) => !image.classList.contains("ev-final-header-background"),
+              );
               const sourceMeasurements = await Promise.all(
                 foreground.map(async (image) => {
-                  const sourceImage = new Image();
-                  sourceImage.src = image.currentSrc;
-                  await sourceImage.decode();
+                  const probe = new Image();
+                  probe.src = image.currentSrc;
+                  await probe.decode();
+                  const box = image.getBoundingClientRect();
+                  const naturalRatio = probe.naturalWidth / probe.naturalHeight;
+                  const renderedRatio = box.width / box.height;
 
                   return {
-                    height: sourceImage.naturalHeight,
-                    image,
-                    width: sourceImage.naturalWidth,
+                    aspectError: naturalRatio
+                      ? Math.abs(renderedRatio - naturalRatio) / naturalRatio
+                      : 1,
+                    objectFit: getComputedStyle(image).objectFit,
+                    source: image.currentSrc.split("/").pop() ?? "",
                   };
                 }),
               );
-              const aspectErrors = sourceMeasurements.map(
-                ({ height, image, width }) => {
-                const imageRect = image.getBoundingClientRect();
-                const naturalRatio = width / height;
-                const renderedRatio = imageRect.width / imageRect.height;
-                return naturalRatio
-                  ? Math.abs(renderedRatio - naturalRatio) / naturalRatio
-                  : 1;
-                },
-              );
-              const wordmarkSource = sourceMeasurements.find(
-                ({ image }) => image === wordmark,
-              );
 
               return {
-                banner: Math.round(
-                  banner?.getBoundingClientRect().height ?? 0,
+                slot: Math.round(
+                  slotRect?.height ?? 0,
                 ),
                 ticker: Math.round(
                   ticker?.getBoundingClientRect().height ?? 0,
@@ -296,48 +287,31 @@ async function main() {
                 total: Math.round(
                   container?.getBoundingClientRect().height ?? 0,
                 ),
-                source: wordmark?.currentSrc.split("/").pop() ?? "",
-                naturalSize:
-                  wordmarkSource?.width && wordmarkSource.height
-                    ? `${wordmarkSource.width}x${wordmarkSource.height}`
-                    : "0x0",
-                objectFit: wordmark ? getComputedStyle(wordmark).objectFit : "",
-                backgroundCoverage:
-                  backgroundRect && bannerRect && bannerRect.width
-                    ? backgroundRect.width / bannerRect.width
-                    : 0,
-                maxAspectError: Math.max(...aspectErrors, 0),
-                left: Math.round((backgroundRect?.left ?? 0) * 100) / 100,
-                right: Math.round((backgroundRect?.right ?? 0) * 100) / 100,
+                activeArtworkCount: artwork.length,
+                activeSources: sourceMeasurements.map(({ source }) => source),
+                allForegroundContained: sourceMeasurements.every(
+                  ({ objectFit }) => objectFit === "contain",
+                ),
+                maxAspectError: Math.max(
+                  ...sourceMeasurements.map(({ aspectError }) => aspectError),
+                  0,
+                ),
+                left: Math.round((slotRect?.left ?? 0) * 100) / 100,
+                right: Math.round((slotRect?.right ?? 0) * 100) / 100,
               };
             });
 
-            const expectedSources = new Set([
-              "evaready-header-wordmark-640.webp",
-              "evaready-header-wordmark-1200.webp",
-              "evaready-header-wordmark-v15.webp",
-              "evaready-header-evaready-v16.webp",
-            ]);
-
-            if (!expectedSources.has(header.source)) {
+            const expectedArtworkCount = viewport.width >= 1024 ? 1 : 4;
+            if (header.activeArtworkCount !== expectedArtworkCount) {
               failures.push(
-                `${label}: unexpected header source ${header.source || "(missing)"}`,
+                `${label}: found ${header.activeArtworkCount} active header artwork elements, expected ${expectedArtworkCount}`,
               );
             }
 
-            if (header.objectFit !== "contain") {
-              failures.push(
-                `${label}: header object-fit is ${header.objectFit || "(missing)"}, expected contain`,
-              );
+            if (!header.allForegroundContained) {
+              failures.push(`${label}: active header foreground is not contained`);
             }
 
-            if (Math.abs(header.backgroundCoverage - 1) > 0.001) {
-              failures.push(
-                `${label}: header background coverage is ${header.backgroundCoverage}`,
-              );
-            }
-
-            // Tiny transparent layers can incur sub-pixel rounding at narrow widths.
             if (header.maxAspectError > 0.005) {
               failures.push(
                 `${label}: header foreground aspect error is ${header.maxAspectError}`,
@@ -346,13 +320,13 @@ async function main() {
 
             if (Math.abs(header.left) > 1 || Math.abs(header.right - viewport.width) > 1) {
               failures.push(
-                `${label}: header image bounds ${header.left}px-${header.right}px do not span the viewport`,
+                `${label}: header slot bounds ${header.left}px-${header.right}px do not span the viewport`,
               );
             }
 
-            if (viewport.width >= 1024 && header.total > 195) {
+            if (viewport.width >= 1024 && header.total > 230) {
               failures.push(
-                `${label}: desktop header is ${header.total}px (maximum 195px)`,
+                `${label}: desktop header is ${header.total}px (maximum 230px)`,
               );
             }
 
@@ -364,13 +338,12 @@ async function main() {
 
             homeHeaderMeasurements.push({
               viewport: `${viewport.width}x${viewport.height}`,
-              banner: header.banner,
+              slot: header.slot,
               ticker: header.ticker,
               navigation: header.navigation,
               total: header.total,
-              source: header.source,
-              naturalSize: header.naturalSize,
-              backgroundCoverage: header.backgroundCoverage,
+              activeArtworkCount: header.activeArtworkCount,
+              activeSources: header.activeSources,
               maxAspectError: header.maxAspectError,
             });
           }

@@ -97,8 +97,11 @@ test("all offers retain shared eligibility and non-stacking terms", async ({
 
     await expect(item).toContainText(offer.appliesTo);
     await expect(item.locator("p").last()).toHaveText(offer.terms);
-    await expect(item.locator("p").last()).toContainText(offerPolicy.stacking);
   }
+
+  await expect(terms.locator(".ev-offers-terms__policy")).toContainText(
+    offerPolicy.stacking,
+  );
 
   const jsonLdText = await page
     .locator('script[type="application/ld+json"]')

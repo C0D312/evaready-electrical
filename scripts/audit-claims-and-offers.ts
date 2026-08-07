@@ -238,9 +238,6 @@ if (offerIds.size !== currentOffers.length) {
 }
 
 for (const offer of currentOffers) {
-  if (!offer.terms.endsWith(offerPolicy.stacking)) {
-    fail(`Offer does not use the shared non-stacking policy: ${offer.id}`);
-  }
   if (
     !offer.appliesTo ||
     !offer.terms ||
@@ -310,9 +307,14 @@ for (const { route } of routeEntries) {
       if (!text.includes(offer.appliesTo) || !text.includes(offer.terms)) {
         fail(`Offer eligibility or terms differ from source: ${offer.id}`, route);
       }
-      if (countOccurrences(text, offerPolicy.stacking) < 1) {
-        fail(`Offer stacking policy is missing: ${offer.id}`, route);
-      }
+    }
+
+    const stackingPolicyCount = countOccurrences(text, offerPolicy.stacking);
+    if (stackingPolicyCount !== 1) {
+      fail(
+        `Expected one shared offer stacking policy, found ${stackingPolicyCount}`,
+        route,
+      );
     }
   }
 }

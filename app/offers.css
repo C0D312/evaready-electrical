@@ -197,6 +197,16 @@
   color: #f5fbff;
 }
 
+.ev-offers-terms__policy {
+  margin: 0 0.75rem 0.75rem;
+  border-top: 1px solid rgba(98, 216, 255, 0.14);
+  padding: 0.75rem 0.1rem 0;
+}
+
+.ev-offers-terms__policy strong {
+  color: #f5fbff;
+}
+
 .ev-footer-current-offers {
   margin-top: 0.85rem;
 }

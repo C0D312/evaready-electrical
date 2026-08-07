@@ -208,9 +208,7 @@ test("header layers preserve their natural aspect ratios in every browser", asyn
     expect(selectedSource, `${expectedAsset.selector} selected an approved source`).toBeDefined();
     expect(asset!.sourceWidth).toBe(selectedSource!.width);
     expect(asset!.sourceHeight).toBe(selectedSource!.height);
-    expect(asset!.objectFit).toBe(
-      expectedAsset.selector === desktopRasterAsset.selector ? "fill" : "contain",
-    );
+    expect(asset!.objectFit).toBe("contain");
     expect(asset!.relativeAspectError).toBeLessThanOrEqual(0.005);
     expect(asset!.insideBanner).toBe(true);
     expect(asset!.clearOfMobileMenu).toBe(true);

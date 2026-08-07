@@ -128,10 +128,13 @@ export const claimSourceOfTruth = {
   googleRating: {
     approvedWording: approvedBusinessClaims.googleReviewProof.approvedWording,
     qualification:
-      "A manually maintained point-in-time Google Business Profile value. It must be rechecked immediately before launch and updated whenever the public count or rating changes.",
+      "The visible rating and review count must come from the live Google Places widget. Static trust links must not publish a historical count as current.",
     evidenceRequired:
-      "Dated Google Business Profile screenshot or export confirming the 5.0 rating and 83-review count, plus the approved profile URL.",
-    visibleLocations: ["homepage rating seal", "global footer trust details"],
+      "Owner-approved EVAREADY ELECTRICAL Place ID and a restricted Google Maps browser key are required for live verification.",
+    visibleLocations: [
+      "live Google rating widgets",
+      "global footer Google reviews link",
+    ],
     schemaLocations: [
       "None. Review and AggregateRating schema are intentionally not published.",
     ],

@@ -315,6 +315,7 @@ header.ev-final-header .ev-final-header-raster-image {
   padding: 0 !important;
   border: 0 !important;
   border-radius: 0 !important;
+  object-fit: contain !important;
   object-position: center center !important;
   image-rendering: auto;
 }

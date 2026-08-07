@@ -18,42 +18,34 @@ export type LocationFaqItem = {
 export const locationServiceDirectory = [
   {
     href: "/emergency-electrician-sydney",
-    text: "Urgent help for power loss, burning smells, sparking, repeated tripping and unsafe electrical faults.",
     title: "Emergency Electrician",
   },
   {
     href: "/level-2-electrician-sydney",
-    text: "Accredited Level 2 support for consumer mains, service equipment, metering and network-related work.",
     title: "Level 2 Electrician",
   },
   {
     href: "/services/switchboard-upgrades-sydney",
-    text: "Switchboard fault checks, ceramic fuse replacement, safety switches, RCBOs and capacity upgrades.",
     title: "Switchboard Upgrades",
   },
   {
     href: "/services/electrical-fault-finding-sydney",
-    text: "Testing for intermittent faults, circuit tripping, damaged wiring, hot fittings and partial power loss.",
     title: "Electrical Fault Finding",
   },
   {
     href: "/services/consumer-mains-sydney",
-    text: "Assessment and electrical work for consumer mains, supply capacity and associated service equipment.",
     title: "Consumer Mains",
   },
   {
     href: "/services/defect-notice-repairs-sydney",
-    text: "Review and repair of electrical defect notices within the relevant licence, network and job scope.",
     title: "Defect Notice Repairs",
   },
   {
     href: "/services/hot-water-system-electrician-sydney",
-    text: "Electrical fault checks for hot water circuits, isolators, wiring, thermostats and elements.",
     title: "Hot Water Electrical",
   },
   {
     href: "/services/split-system-air-conditioning-sydney",
-    text: "Electrical supply, isolators, dedicated circuits and switchboard checks for air-conditioning systems.",
     title: "Air-Conditioning Electrical",
   },
 ] as const;
