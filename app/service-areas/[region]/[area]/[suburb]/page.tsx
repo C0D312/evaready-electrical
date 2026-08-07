@@ -4,6 +4,7 @@ import { ArrowRight, MapPin } from "lucide-react";
 import { notFound } from "next/navigation";
 import {
   LocationFaqs,
+  LocationFinalCta,
   LocationPrimaryActions,
   LocationServicePathways,
   locationServiceDirectory,
@@ -87,10 +88,10 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         })),
     ),
   ).slice(0, 8);
-  const copy = getSuburbPageCopy(region, area, suburb);
   const emergencyResponse = getEmergencyResponseForRegion(region.name);
   const locality = `${suburb.name} ${suburb.postcode}`;
   const pagePath = `/service-areas/${region.slug}/${area.slug}/${suburb.slug}`;
+  const visibleServiceDescription = `Evaready Electrical lists ${locality} within ${area.name}, ${region.name}, for urgent electrical faults, eligible Level 2 work and planned electrical services.`;
   const faqItems = [
     {
       question: `Does Evaready Electrical service ${locality}?`,
@@ -116,7 +117,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
   ];
   const serviceSchema = buildServiceSchema({
     areaServed: locality,
-    description: copy.heroDescription,
+    description: visibleServiceDescription,
     name: `Electrician ${locality}`,
     offerNames: serviceNames,
     path: pagePath,
@@ -188,9 +189,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
           <span aria-current="page">{locality}</span>
         </nav>
         <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-100 sm:text-xl">
-          Evaready Electrical lists {locality} within {area.name}, {region.name},
-          for urgent electrical faults, eligible Level 2 work and planned
-          electrical services.
+          {visibleServiceDescription}
         </p>
         <p className="mt-4 max-w-3xl text-base font-semibold leading-7 text-blue-100">
           {emergencyResponse.regionDisplay}{" "}
@@ -218,6 +217,10 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
           <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight sm:text-5xl">
             Find the service that matches the job.
           </h2>
+          <p className="mt-4 max-w-3xl text-base leading-7 text-slate-200 sm:text-lg">
+            Check the detailed service pages below, then call for an unsafe
+            fault or send planned work through the quote form.
+          </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {locationServiceDirectory.map((service) => (
               <Link
@@ -227,6 +230,9 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                 className="ev-storm-card group flex h-full min-w-0 flex-col rounded-lg border border-cyan-300/20 p-5 transition hover:border-cyan-200 focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
               >
                 <h3 className="text-xl font-black text-white">{service.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-200">
+                  {service.text}
+                </p>
                 <span className="mt-auto inline-flex min-h-11 items-center gap-2 pt-4 text-sm font-black text-cyan-200">
                   View service
                   <ArrowRight
@@ -237,12 +243,20 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
               </Link>
             ))}
           </div>
-          <div className="mt-6">
+          <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href="/services"
               className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-cyan-300/25 px-4 py-2 font-black text-cyan-100 transition hover:border-cyan-200 hover:text-white"
             >
               View all electrical services
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+            <Link
+              href="/#current-electrical-offers"
+              data-suburb-offers-link="true"
+              className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-cyan-300/25 px-4 py-2 font-black text-cyan-100 transition hover:border-cyan-200 hover:text-white"
+            >
+              View current offers and terms
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
@@ -302,7 +316,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                         {nearbySuburb.name} {nearbySuburb.postcode}
                       </span>
                       <span className="mt-1 block text-sm font-medium leading-5 text-slate-300">
-                        {nearbySuburb.areaName}
+                        Coverage, response guidance and service links for {nearbySuburb.areaName}.
                       </span>
                     </span>
                   </span>
@@ -317,6 +331,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         </div>
       </section>
 
+      <LocationFinalCta locality={locality} />
     </main>
   );
 }

@@ -1,4 +1,10 @@
-import { existsSync, readFileSync, statSync } from "node:fs";
+import {
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  statSync,
+  writeFileSync,
+} from "node:fs";
 import path from "node:path";
 import { gzipSync } from "node:zlib";
 import {
@@ -24,15 +30,31 @@ type LocationRecord = {
 type PageMeasurement = LocationRecord & {
   blocks: string[];
   ctaCount: number;
+  finalActionCount: number;
   gzipBytes: number;
   h2Count: number;
+  mainHtml: string;
   mainText: string;
   normalizedBlocks: string[];
+  offersLinkCount: number;
   rawBytes: number;
   wordCount: number;
 };
 
 const outputRoot = path.join(process.cwd(), "out", "service-areas");
+const recoveryReportPath = path.join(
+  process.cwd(),
+  "docs",
+  "suburb-page-recovery-audit.md",
+);
+const regressionBaseline = {
+  commit: "aec94c7eff0c77d7fcabbb848396e8e2ce749aba",
+  ctaCount: 4,
+  gzipBytes: 31_536,
+  mainBytes: 65_236,
+  rawBytes: 267_337,
+  wordCount: 939,
+} as const;
 
 function decodeHtml(value: string) {
   const namedEntities: Record<string, string> = {
@@ -181,10 +203,17 @@ function measure(record: LocationRecord): PageMeasurement {
     ...record,
     blocks,
     ctaCount: (mainHtml.match(/data-conversion-action=/g) ?? []).length,
+    finalActionCount: (
+      mainHtml.match(/data-location-section=["']final-action["']/g) ?? []
+    ).length,
     gzipBytes: gzipSync(Buffer.from(html)).byteLength,
     h2Count: (mainHtml.match(/<h2\b/gi) ?? []).length,
+    mainHtml,
     mainText,
     normalizedBlocks: blocks.map((block) => normalizeBlock(block, record)),
+    offersLinkCount: (
+      mainHtml.match(/data-suburb-offers-link=["']true["']/g) ?? []
+    ).length,
     rawBytes: statSync(record.filePath).size,
     wordCount: wordCount(mainText),
   };
@@ -227,6 +256,89 @@ function sharedPercentage(
   });
 
   return totalWords ? (sharedWords / totalWords) * 100 : 0;
+}
+
+function blockPageOccurrences(
+  pages: PageMeasurement[],
+  key: "blocks" | "normalizedBlocks",
+) {
+  const occurrences = new Map<string, Set<number>>();
+
+  pages.forEach((page, pageIndex) => {
+    for (const block of new Set(page[key])) {
+      const pageIndexes = occurrences.get(block) ?? new Set<number>();
+      pageIndexes.add(pageIndex);
+      occurrences.set(block, pageIndexes);
+    }
+  });
+
+  return occurrences;
+}
+
+function uniqueFactualBlockCount(
+  page: PageMeasurement,
+  occurrences: Map<string, Set<number>>,
+) {
+  if (!page.area || !page.suburb) return 0;
+
+  const nearby = rankSuburbsForInternalLinks(
+    page.region.areas.flatMap((areaItem) =>
+      areaItem.suburbs
+        .filter((nearbySuburb) => nearbySuburb.slug !== page.suburb?.slug)
+        .map((nearbySuburb) => ({
+          ...nearbySuburb,
+          areaName: areaItem.name,
+        })),
+    ),
+  ).slice(0, 8);
+  const verifiedFacts = [
+    page.suburb.name,
+    page.suburb.postcode,
+    page.area.name,
+    page.region.name,
+    ...nearby.flatMap((nearbySuburb) => [
+      nearbySuburb.name,
+      nearbySuburb.postcode,
+      nearbySuburb.areaName,
+    ]),
+  ]
+    .filter(Boolean)
+    .map((value) => value.toLowerCase());
+
+  return new Set(
+    page.blocks.filter(
+      (block) =>
+        (occurrences.get(block)?.size ?? 0) === 1 &&
+        verifiedFacts.some((fact) => block.toLowerCase().includes(fact)),
+    ),
+  ).size;
+}
+
+function parseJsonLd(mainHtml: string) {
+  const schemas: unknown[] = [];
+  const pattern =
+    /<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+  let match: RegExpExecArray | null;
+
+  while ((match = pattern.exec(mainHtml))) {
+    try {
+      schemas.push(JSON.parse(decodeHtml(match[1])));
+    } catch {
+      // The dedicated schema audit reports malformed JSON-LD in full detail.
+    }
+  }
+
+  return schemas;
+}
+
+function schemaTypes(schema: unknown): string[] {
+  if (!schema || typeof schema !== "object") return [];
+  const type = (schema as Record<string, unknown>)["@type"];
+  return Array.isArray(type)
+    ? type.filter((item): item is string => typeof item === "string")
+    : typeof type === "string"
+      ? [type]
+      : [];
 }
 
 function pairSimilarity(left: PageMeasurement, right: PageMeasurement) {
@@ -299,6 +411,30 @@ for (const page of pages.filter((item) => item.family === "suburb")) {
     issues.push(`${page.url} is missing its response classification wording`);
   }
 
+  if (page.ctaCount < 6) {
+    issues.push(`${page.url} has ${page.ctaCount} conversion actions; expected at least 6`);
+  }
+  if (page.finalActionCount !== 1) {
+    issues.push(`${page.url} has ${page.finalActionCount} final action sections; expected 1`);
+  }
+  if (page.offersLinkCount !== 1) {
+    issues.push(`${page.url} has ${page.offersLinkCount} current-offers links; expected 1`);
+  }
+
+  const serviceSchemas = parseJsonLd(page.mainHtml).filter((schema) =>
+    schemaTypes(schema).includes("Service"),
+  );
+  if (serviceSchemas.length !== 1) {
+    issues.push(`${page.url} has ${serviceSchemas.length} Service schemas; expected 1`);
+  } else {
+    const description = (
+      serviceSchemas[0] as Record<string, unknown>
+    ).description;
+    if (typeof description !== "string" || !page.mainText.includes(description)) {
+      issues.push(`${page.url} Service schema description is not visible in main content`);
+    }
+  }
+
   const nearby = rankSuburbsForInternalLinks(
     region.areas.flatMap((areaItem) =>
       areaItem.suburbs
@@ -320,6 +456,19 @@ const familyCounts = {
   region: pages.filter((page) => page.family === "region").length,
   suburb: pages.filter((page) => page.family === "suburb").length,
 };
+const suburbPages = pages.filter((page) => page.family === "suburb");
+const suburbBlockOccurrences = blockPageOccurrences(suburbPages, "blocks");
+const suburbFactualBlockCounts = new Map(
+  suburbPages.map((page) => [
+    page.url,
+    uniqueFactualBlockCount(page, suburbBlockOccurrences),
+  ]),
+);
+const pagesWithOwnerEvidence = suburbPages.filter((page) =>
+  Object.keys(page.suburb ?? {}).some(
+    (key) => !["name", "postcode", "slug"].includes(key),
+  ),
+);
 
 if (familyCounts.region !== 16) issues.push(`Expected 16 regions; found ${familyCounts.region}`);
 if (familyCounts.area !== 39) issues.push(`Expected 39 areas; found ${familyCounts.area}`);
@@ -363,13 +512,91 @@ for (const family of ["region", "area", "suburb"] as const) {
   );
 }
 
-const suburbMedianRawKb = median(
-  pages
-    .filter((page) => page.family === "suburb")
-    .map((page) => page.rawBytes / 1024),
+const suburbExactShared = sharedPercentage(suburbPages, "blocks");
+const suburbNormalizedShared = sharedPercentage(
+  suburbPages,
+  "normalizedBlocks",
 );
-if (suburbMedianRawKb > 260) {
-  issues.push(`Suburb median raw HTML is ${suburbMedianRawKb.toFixed(1)} KB (target <=260 KB)`);
+const suburbWorstPair = worstPair(suburbPages);
+const factualBlockValues = [...suburbFactualBlockCounts.values()];
+const pananiaPage = suburbPages.find(
+  (page) =>
+    page.region.slug === "canterbury-bankstown-and-inner-south-west" &&
+    page.area?.slug === "canterbury-bankstown" &&
+    page.suburb?.slug === "panania",
+);
+
+if (!pananiaPage) {
+  issues.push("Panania recovery measurement page is missing");
+}
+
+const reportLines = [
+  "# Suburb Page Recovery Audit",
+  "",
+  "## Scope and method",
+  "",
+  `- Analysed ${suburbPages.length} rendered suburb pages from the static production export.`,
+  "- Text measurements use visible semantic blocks inside `main#main-content` only; scripts, JSON-LD, styles, SVG and non-main content are excluded.",
+  "- Exact sharing compares literal visible blocks. Locality-normalised sharing replaces the current suburb, postcode, area and region before comparison.",
+  "- A unique factual block is a literal block occurring on one suburb page that contains a suburb, postcode, area or region value from the approved coverage dataset.",
+  "- Owner-specific local evidence means a provenance-backed job, project, review, photo or team/location record. The suburb dataset currently stores only name, postcode and slug, so service-area facts must not be described as job proof.",
+  "",
+  "## Visible-main findings",
+  "",
+  `- Exact shared-text percentage: **${suburbExactShared.toFixed(2)}%**.`,
+  `- Locality-normalised shared-text percentage: **${suburbNormalizedShared.toFixed(2)}%**.`,
+  `- Highest locality-normalised pair similarity: **${suburbWorstPair.similarity.toFixed(2)}%** (${suburbWorstPair.left} and ${suburbWorstPair.right}).`,
+  `- Unique factual blocks per suburb, average / median / range: **${average(factualBlockValues).toFixed(1)} / ${median(factualBlockValues).toFixed(1)} / ${Math.min(...factualBlockValues)}-${Math.max(...factualBlockValues)}**.`,
+  `- Pages with owner-specific local evidence fields: **${pagesWithOwnerEvidence.length}**.`,
+  `- Pages without owner-specific local evidence fields: **${suburbPages.length - pagesWithOwnerEvidence.length}**.`,
+  "",
+  "The pages provide verified coverage hierarchy, postcode, response classification and nearby-page navigation. They do not claim local jobs, offices, reviews or travel times. Locality-normalised similarity remains a transparent template-risk signal; useful shared safety and service information is not presented as unique local proof.",
+  "",
+  "## Recovered user value",
+  "",
+  "The comparison with the parent of `aec94c7` found five visible regressions across all 873 suburb pages. This recovery restores or concisely replaces each one:",
+  "",
+  "- One final Call and Get a Quote conversion section after the nearby-suburb navigation.",
+  "- A short service-directory introduction that separates unsafe faults from planned work.",
+  "- Useful descriptions on all eight service-directory cards.",
+  "- A direct Current Offers link beside the complete electrical-services link.",
+  "- Helpful nearby-suburb copy explaining that each link provides coverage, response guidance and service information.",
+  "",
+  "The three existing Emergency, Level 2 and planned-work pathway cards remain the primary route-specific decision aid. The redundant `Electrician` JSON-LD removed by `aec94c7` was not restored.",
+  "",
+  "## Panania regression recovery",
+  "",
+  "| Measurement | Regressed `aec94c7` | Recovered export | Difference |",
+  "| --- | ---: | ---: | ---: |",
+  `| Raw HTML bytes | ${regressionBaseline.rawBytes.toLocaleString("en-AU")} | ${pananiaPage?.rawBytes.toLocaleString("en-AU") ?? "missing"} | ${pananiaPage ? (pananiaPage.rawBytes - regressionBaseline.rawBytes).toLocaleString("en-AU", { signDisplay: "always" }) : "n/a"} |`,
+  `| Gzip HTML bytes | ${regressionBaseline.gzipBytes.toLocaleString("en-AU")} | ${pananiaPage?.gzipBytes.toLocaleString("en-AU") ?? "missing"} | ${pananiaPage ? (pananiaPage.gzipBytes - regressionBaseline.gzipBytes).toLocaleString("en-AU", { signDisplay: "always" }) : "n/a"} |`,
+  `| Visible-main bytes | ${regressionBaseline.mainBytes.toLocaleString("en-AU")} | ${pananiaPage ? Buffer.byteLength(pananiaPage.mainHtml).toLocaleString("en-AU") : "missing"} | ${pananiaPage ? (Buffer.byteLength(pananiaPage.mainHtml) - regressionBaseline.mainBytes).toLocaleString("en-AU", { signDisplay: "always" }) : "n/a"} |`,
+  `| Visible words | ${regressionBaseline.wordCount.toLocaleString("en-AU")} | ${pananiaPage?.wordCount.toLocaleString("en-AU") ?? "missing"} | ${pananiaPage ? (pananiaPage.wordCount - regressionBaseline.wordCount).toLocaleString("en-AU", { signDisplay: "always" }) : "n/a"} |`,
+  `| Conversion actions | ${regressionBaseline.ctaCount} | ${pananiaPage?.ctaCount ?? "missing"} | ${pananiaPage ? (pananiaPage.ctaCount - regressionBaseline.ctaCount).toLocaleString("en-AU", { signDisplay: "always" }) : "n/a"} |`,
+  "",
+  `Regression baseline commit: \`${regressionBaseline.commit}\`.`,
+  "",
+  "## All suburb pages",
+  "",
+  "| Route | Words | Raw bytes | CTA count | Unique factual blocks | Owner-specific local evidence |",
+  "| --- | ---: | ---: | ---: | ---: | --- |",
+  ...suburbPages
+    .sort((left, right) => left.url.localeCompare(right.url))
+    .map(
+      (page) =>
+        `| ${page.url} | ${page.wordCount} | ${page.rawBytes} | ${page.ctaCount} | ${suburbFactualBlockCounts.get(page.url) ?? 0} | Not supplied |`,
+    ),
+];
+
+mkdirSync(path.dirname(recoveryReportPath), { recursive: true });
+writeFileSync(recoveryReportPath, `${reportLines.join("\n")}\n`, "utf8");
+console.log(`\nRecovery report: ${recoveryReportPath}`);
+
+const suburbMedianRawKb = median(
+  suburbPages.map((page) => page.rawBytes / 1024),
+);
+if (suburbMedianRawKb > 270) {
+  issues.push(`Suburb median raw HTML is ${suburbMedianRawKb.toFixed(1)} KB (target <=270 KB)`);
 }
 
 if (issues.length) {
