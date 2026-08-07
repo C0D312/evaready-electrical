@@ -192,7 +192,7 @@ was used.
 - Sitemap/metadata: 1,001 indexable pages, zero warnings
 - Internal links: 20,142 checked across 1,004 routes, zero broken
 - Visible copy/page health: 1,001 pages, zero critical failures
-- Claims/schema audit: 1,001 sitemap entries, 3,985 schema blocks, four offers,
+- Historical pre-deduplication claims/schema audit: 1,001 sitemap entries, 3,985 schema blocks, four offers,
   zero failures
 - Static production URL audit: 1,001 canonicals and 20,857 schema URLs, zero
   issues, using the approved preview origin

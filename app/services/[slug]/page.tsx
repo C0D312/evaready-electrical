@@ -11,7 +11,6 @@ import {
   Wrench,
 } from "lucide-react";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
-import { OffersSection } from "@/components/offers-section";
 import { ResponsiveHeroImage } from "@/components/performance-images";
 import {
   getServiceCredentialItems,
@@ -567,8 +566,6 @@ export default async function ServiceLandingPage({
           </aside>
         </div>
       </section>
-
-      <OffersSection />
 
       <TrustSymbolBand className="border-b border-slate-200" />
 

@@ -10,7 +10,6 @@ import {
   ShieldCheck,
   Zap,
 } from "lucide-react";
-import { OffersSection } from "@/components/offers-section";
 import {
   electricalFaultPages,
   getElectricalFaultPage,
@@ -190,8 +189,6 @@ export default async function ElectricalFaultDetailPage({
           </aside>
         </div>
       </section>
-
-      <OffersSection />
 
       <section className="ev-storm-section ev-storm-section--subtle">
         <div className="mx-auto grid max-w-7xl gap-5 px-4 py-7 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">

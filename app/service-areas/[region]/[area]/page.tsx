@@ -8,7 +8,7 @@ import {
   LocationPrimaryActions,
   LocationServicePathways,
 } from "@/components/location-page-sections";
-import { OffersSection } from "@/components/offers-section";
+import { CurrentOffersLink } from "@/components/current-offers-link";
 import { ServiceAreaSearch } from "@/components/service-area-search";
 import { ServiceAreaHero } from "@/components/site-frame";
 import {
@@ -220,7 +220,11 @@ export default async function AreaPage({ params }: AreaPageProps) {
         </div>
       </section>
 
-      <OffersSection />
+      <section className="pb-6 text-white" data-location-section="offers-link">
+        <div className="mx-auto flex max-w-7xl px-4 sm:px-6 lg:px-8">
+          <CurrentOffersLink />
+        </div>
+      </section>
 
       <section className="pb-14 text-white sm:pb-16" data-location-section="suburb-list">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

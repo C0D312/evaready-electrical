@@ -6,7 +6,7 @@ import {
   MapPin,
   Phone,
 } from "lucide-react";
-import { OffersSection } from "@/components/offers-section";
+import { CurrentOffersLink } from "@/components/current-offers-link";
 import { ServiceAreaSearch } from "@/components/service-area-search";
 import { ServiceAreaHero } from "@/components/site-frame";
 import {
@@ -206,7 +206,11 @@ export default function AreasPage() {
         </div>
       </ServiceAreaHero>
 
-      <OffersSection />
+      <section className="py-6 text-white" data-location-section="offers-link">
+        <div className="mx-auto flex max-w-7xl px-4 sm:px-6 lg:px-8">
+          <CurrentOffersLink />
+        </div>
+      </section>
 
       <section className="bg-[#040b1c] py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

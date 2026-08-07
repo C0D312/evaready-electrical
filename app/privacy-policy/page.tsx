@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { OffersSection } from "@/components/offers-section";
 import { business } from "@/data/site";
 import { legalSeoMetadata, toMetadata } from "@/lib/seo-metadata";
 import { buildBreadcrumbSchema, schemaJson } from "@/lib/schema";
@@ -43,8 +42,6 @@ export default function PrivacyPolicyPage() {
             </p>
           </div>
         </section>
-
-        <OffersSection />
 
         <section className="mx-auto grid max-w-5xl gap-5 px-4 pb-12 sm:px-6 lg:px-8">
           <article className="legal-content-card">

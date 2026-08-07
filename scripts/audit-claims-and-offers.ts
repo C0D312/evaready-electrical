@@ -6,7 +6,12 @@ import {
   customerPricingProcess,
   unsupportedPublicClaimPatterns,
 } from "../data/claims";
-import { currentOffers, offerPolicy } from "../data/offers";
+import {
+  currentOffers,
+  fullOfferShowcaseRoutes,
+  offerOwnerVerificationItems,
+  offerPolicy,
+} from "../data/offers";
 import {
   coverageRegions,
   coverageSearchItems,
@@ -247,6 +252,9 @@ for (const offer of currentOffers) {
   ) {
     fail(`Offer source record is incomplete: ${offer.id}`);
   }
+  if (!/\bExcludes\b|\bDoes not include\b/.test(offer.terms)) {
+    fail(`Offer exclusions are not explicit: ${offer.id}`);
+  }
 }
 
 const freeOffer = currentOffers.find(
@@ -257,8 +265,14 @@ if (!freeOffer?.terms.startsWith("Visual inspection only.")) {
 }
 
 let offerPageCount = 0;
+let compactOfferLinkPageCount = 0;
 let schemaScriptCount = 0;
 let unsupportedVisibleClaimCount = 0;
+const expectedFullOfferRoutes = new Set(
+  fullOfferShowcaseRoutes.map((route) =>
+    route === "/" ? "/" : `/${route.replace(/^\/+|\/+$/g, "")}`,
+  ),
+);
 
 for (const { route } of routeEntries) {
   const htmlPath = htmlPathForRoute(route);
@@ -297,6 +311,29 @@ for (const { route } of routeEntries) {
   const visibleOfferIds = currentOffers.filter((offer) =>
     html.includes(`data-offer-id="${offer.id}"`),
   );
+  const hasFullOfferShowcase =
+    html.includes('data-offers-section="true"') &&
+    visibleOfferIds.length === currentOffers.length;
+  const shouldHaveFullOfferShowcase = expectedFullOfferRoutes.has(route);
+
+  if (hasFullOfferShowcase !== shouldHaveFullOfferShowcase) {
+    fail(
+      `Full offer showcase=${hasFullOfferShowcase}; expected=${shouldHaveFullOfferShowcase}`,
+      route,
+    );
+  }
+
+  if (html.includes('data-compact-offers-link="true"')) {
+    compactOfferLinkPageCount += 1;
+  }
+
+  if (
+    (route === "/service-areas" || route.startsWith("/service-areas/")) &&
+    !html.includes('data-compact-offers-link="true"')
+  ) {
+    fail("Location route is missing its compact offers link", route);
+  }
+
   if (visibleOfferIds.length > 0) {
     offerPageCount += 1;
     if (visibleOfferIds.length !== currentOffers.length) {
@@ -315,6 +352,13 @@ for (const { route } of routeEntries) {
         `Expected one shared offer stacking policy, found ${stackingPolicyCount}`,
         route,
       );
+    }
+
+    if (
+      !html.includes("<details") ||
+      !text.includes("View offer terms")
+    ) {
+      fail("Offer terms are not exposed through an accessible details control", route);
     }
   }
 }
@@ -368,11 +412,12 @@ console.log(
       claimRegistryEntries: Object.keys(claimSourceOfTruth).length,
       coreSuburbs,
       failures: failures.length,
+      compactOfferLinkPageCount,
       offerPageCount,
       offers: currentOffers.length,
       ownerReconfirmationRequired: [
         "Google rating and review count",
-        ...currentOffers.map((offer) => offer.title),
+        ...offerOwnerVerificationItems.map((item) => item.claim),
       ],
       schemaScriptCount,
       selectedOuterSuburbs,

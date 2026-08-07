@@ -9,7 +9,7 @@ import {
   LocationServicePathways,
   locationServiceDirectory,
 } from "@/components/location-page-sections";
-import { OffersSection } from "@/components/offers-section";
+import { CurrentOffersLink } from "@/components/current-offers-link";
 import { ServiceAreaHero } from "@/components/site-frame";
 import {
   getSuburbCredentialItems,
@@ -202,8 +202,6 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         <LocationPrimaryActions className="mt-7" />
       </ServiceAreaHero>
 
-      <OffersSection />
-
       <LocationServicePathways
         locality={locality}
         responseDisplay={emergencyResponse.suburbDisplay}
@@ -251,14 +249,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
               View all electrical services
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
-            <Link
-              href="/#current-electrical-offers"
-              data-suburb-offers-link="true"
-              className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-cyan-300/25 px-4 py-2 font-black text-cyan-100 transition hover:border-cyan-200 hover:text-white"
-            >
-              View current offers and terms
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
+            <CurrentOffersLink />
           </div>
         </div>
       </section>

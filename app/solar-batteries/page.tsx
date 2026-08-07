@@ -9,7 +9,6 @@ import {
   Phone,
   SunMedium,
 } from "lucide-react";
-import { OffersSection } from "@/components/offers-section";
 import { TrustProcessProof } from "@/components/trust-process-proof";
 import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { ResponsiveHeroImage } from "@/components/performance-images";
@@ -269,8 +268,6 @@ export default function SolarBatteriesPage() {
           </div>
         </div>
       </section>
-
-      <OffersSection />
 
       <TrustSymbolBand className="border-b border-cyan-300/15" />
 

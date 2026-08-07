@@ -67,7 +67,7 @@ Every response statement must include both qualifications:
 
 ## Offer register
 
-All offer cards render from `data/offers.ts`. The four cards appear on 63 routes: the homepage, Contact page, 46 generated service pages and 15 fault guides. Offer eligibility and complete terms are shown from that same record, and every terms string ends with the shared non-stacking policy:
+All offer cards render from `data/offers.ts`. The complete four-card showcase is intentionally limited to four high-intent routes: the homepage, Services directory, Emergency Electrician Sydney and Switchboard Upgrades Sydney. Location pages use one lightweight `View current offers and terms` link instead of repeating the showcase. Other informational pages rely on the global footer link. Offer eligibility and complete terms are shown from the same record, and every terms string ends with the shared non-stacking policy:
 
 > Cannot be combined with another offer unless Evaready Electrical confirms otherwise in writing.
 
@@ -113,10 +113,10 @@ This process is published on the Terms page. It explains the journey without fix
 
 `npm run audit:claims` is the build-output gate for this register. It checks every sitemap route, all 873 suburb classifications, offer-card terms, unsupported claim patterns and structured-data types.
 
-Final validation on 3 August 2026:
+Latest offer-route validation on 8 August 2026:
 
 - Clean production build: 1,005 static pages generated.
-- Claims and offers: 1,001 sitemap routes, 3,985 JSON-LD blocks and 63 offer routes checked; zero failures and zero unsupported visible claims.
+- Claims and offers: 1,001 sitemap routes and 3,112 JSON-LD blocks checked. Four routes contain the complete showcase; all 929 location routes contain a page-local compact offers link; zero distribution or unsupported-visible-claim failures.
 - Response classifications: 873 suburbs checked; 678 core and 195 selected outer-region suburbs; zero mismatches and zero owner-review rows.
 - Suburb copy: 873/873 checked with zero warnings or missing HTML files.
 - Metadata, visible copy and page health: 1,001 pages checked with zero warnings.

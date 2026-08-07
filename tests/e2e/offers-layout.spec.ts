@@ -1,43 +1,46 @@
 import { expect, test } from "@playwright/test";
 import { currentOffers, offerPolicy } from "../../data/offers";
 
-const offerPages = [
+const fullOfferPages = [
   { route: "./", section: "[data-offers-section]", count: 4 },
   {
-    route: "contact/",
+    route: "services/",
     section: "[data-offers-section]",
     count: 4,
   },
   {
-    route: "services/electrical-fault-finding-sydney/",
+    route: "emergency-electrician-sydney/",
     section: "[data-offers-section]",
     count: 4,
   },
   {
-    route: "electrical-faults/no-power-to-house/",
+    route: "services/switchboard-upgrades-sydney/",
     section: "[data-offers-section]",
     count: 4,
   },
 ] as const;
 
-const routeTemplates = [
-  "./",
+const routesWithoutFullShowcase = [
   "about/",
   "contact/",
   "electrical-faults/",
   "electrical-faults/no-power-to-house/",
-  "emergency-electrician-sydney/",
   "level-2-electrician-sydney/",
   "privacy-policy/",
   "service-areas/",
   "service-areas/canterbury-bankstown-and-inner-south-west/",
   "service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/",
   "service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/greenacre/",
-  "services/",
   "services/electrical-fault-finding-sydney/",
-  "services/switchboard-upgrades-sydney/",
   "solar-batteries/",
   "terms/",
+] as const;
+
+const locationCompactRoutes = [
+  "service-areas/",
+  "service-areas/canterbury-bankstown-and-inner-south-west/",
+  "service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/",
+  "service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/greenacre/",
 ] as const;
 
 const serviceAreaSearchRoutes = [
@@ -114,7 +117,7 @@ test("all offers retain shared eligibility and non-stacking terms", async ({
 test("offer artwork and card grids stay complete, even and viewport-safe", async ({
   page,
 }, testInfo) => {
-  for (const offerPage of offerPages) {
+  for (const offerPage of fullOfferPages) {
     await page.goto(offerPage.route, { waitUntil: "domcontentloaded" });
 
     const section = page.locator(offerPage.section);
@@ -210,36 +213,56 @@ test("offer artwork and card grids stay complete, even and viewport-safe", async
   }
 });
 
-test("offer artwork appears immediately after each page hero", async ({ page }) => {
-  for (const offerPage of offerPages) {
-    await page.goto(offerPage.route, { waitUntil: "domcontentloaded" });
-
-    const secondSection = page.locator("main#main-content > section").nth(1);
-    await expect(secondSection).toHaveAttribute("data-offers-section", "true");
-  }
-});
-
-test("every route template renders one complete shared offers section", async ({
+test("only approved high-intent routes render the complete offer showcase", async ({
   page,
 }) => {
-  for (const route of routeTemplates) {
+  for (const offerPage of fullOfferPages) {
+    const response = await page.goto(offerPage.route, {
+      waitUntil: "domcontentloaded",
+    });
+
+    expect(response?.ok(), `${offerPage.route} should load successfully`).toBe(
+      true,
+    );
+    const sections = page.locator("main#main-content [data-offers-section]");
+    await expect(sections).toHaveCount(1);
+    await expect(sections.locator("[data-offer-card]")).toHaveCount(4);
+    await expect(sections.locator("[data-offers-google-proof]")).toHaveCount(1);
+  }
+
+  for (const route of routesWithoutFullShowcase) {
     const response = await page.goto(route, { waitUntil: "domcontentloaded" });
 
     expect(response?.ok(), `${route} should load successfully`).toBe(true);
-    const sections = page.locator("main#main-content [data-offers-section]");
-    await expect(sections, `${route} should contain one offers section`).toHaveCount(1);
-    await expect(sections.locator("[data-offer-card]")).toHaveCount(4);
-    await expect(sections.locator("[data-offers-google-proof]")).toHaveCount(1);
     await expect(
-      sections.locator('[data-conversion-action="phone-click"]'),
-    ).toHaveCount(1);
-    await expect(
-      sections.locator('[data-conversion-action="quote-click"]'),
-    ).toHaveCount(1);
+      page.locator("main#main-content [data-offers-section]"),
+      `${route} should not repeat the complete offer showcase`,
+    ).toHaveCount(0);
   }
 });
 
-test("service-area postcode search remains before current offers", async ({
+test("location templates use one lightweight current-offers link", async ({
+  page,
+}) => {
+  for (const route of locationCompactRoutes) {
+    await page.goto(route, { waitUntil: "domcontentloaded" });
+
+    const compactLink = page.locator(
+      'main#main-content [data-compact-offers-link="true"]',
+    );
+    await expect(compactLink).toHaveCount(1);
+    await expect(compactLink).toHaveText(/View current offers and terms/i);
+    await expect(compactLink).toHaveAttribute(
+      "href",
+      /#current-electrical-offers$/,
+    );
+    await expect(
+      page.locator("main#main-content [data-offers-section]"),
+    ).toHaveCount(0);
+  }
+});
+
+test("service-area postcode search remains before the compact offers link", async ({
   page,
 }) => {
   for (const route of serviceAreaSearchRoutes) {
@@ -249,18 +272,18 @@ test("service-area postcode search remains before current offers", async ({
       const search = document.querySelector(
         "main#main-content .service-area-search",
       );
-      const offers = document.querySelector(
-        "main#main-content [data-offers-section]",
+      const offersLink = document.querySelector(
+        'main#main-content [data-compact-offers-link="true"]',
       );
 
       return Boolean(
         search &&
-          offers &&
-          (search.compareDocumentPosition(offers) &
+          offersLink &&
+          (search.compareDocumentPosition(offersLink) &
             Node.DOCUMENT_POSITION_FOLLOWING) !== 0,
       );
     });
 
-    expect(order, `${route} search should precede offers`).toBe(true);
+    expect(order, `${route} search should precede the offers link`).toBe(true);
   }
 });

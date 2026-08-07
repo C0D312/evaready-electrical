@@ -9,7 +9,6 @@ import {
   Phone,
   ShieldCheck,
 } from "lucide-react";
-import { OffersSection } from "@/components/offers-section";
 import { ResponsiveHeroImage } from "@/components/performance-images";
 import { assetPath, business } from "@/data/site";
 import {
@@ -194,8 +193,6 @@ export default function ContactPage() {
             </aside>
           </div>
         </section>
-
-        <OffersSection />
 
         <section className="ev-storm-section ev-storm-section--subtle px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8">
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.82fr_1.18fr]">

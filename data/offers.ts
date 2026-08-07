@@ -5,9 +5,9 @@ export type OfferEvidenceStatus = "owner-reconfirmation-required";
 
 export type OfferPlacement =
   | "homepage"
-  | "contact"
-  | "service-page"
-  | "fault";
+  | "services-index"
+  | "emergency-page"
+  | "switchboard-page";
 
 export type EvareadyOffer = {
   id: string;
@@ -43,11 +43,57 @@ export const offerPolicy = {
     "Owner must confirm that the offer remains current, commercially approved and supported by the stated eligibility, exclusions and expiry policy immediately before launch.",
 } as const;
 
+export const fullOfferShowcaseRoutes = [
+  "/",
+  "/services/",
+  "/emergency-electrician-sydney/",
+  "/services/switchboard-upgrades-sydney/",
+] as const;
+
+export const offerOwnerVerificationItems = [
+  {
+    claim: "Licensed & Insured",
+    location: "$50 online-booking offer artwork",
+    evidenceRequired:
+      "Current insurance evidence and owner approval, or corrected artwork that removes the claim.",
+  },
+  {
+    claim: "24/7 Electrical Service",
+    location: "$50 online-booking offer artwork",
+    evidenceRequired:
+      "Owner approval that the artwork wording accurately describes the available service and its limitations.",
+  },
+  {
+    claim: "Free Electrical Safety Inspection",
+    location: "Free safety-inspection offer",
+    evidenceRequired:
+      "Owner confirmation of current eligibility, visual-inspection scope, exclusions and expiry policy.",
+  },
+  {
+    claim: "$50 Off When You Book Online",
+    location: "$50 online-booking offer",
+    evidenceRequired:
+      "Owner confirmation of eligible planned work, booking method, exclusions and expiry policy.",
+  },
+  {
+    claim: "15% Off First Emergency Service",
+    location: "First emergency-service offer",
+    evidenceRequired:
+      "Owner confirmation of first-customer eligibility, labour-only scope, exclusions and expiry policy.",
+  },
+  {
+    claim: "20% Off Pensioners, Seniors & Veterans",
+    location: "Pensioner, senior and veteran offer",
+    evidenceRequired:
+      "Owner confirmation of identification requirements, labour-only scope, exclusions and expiry policy.",
+  },
+] as const;
+
 const publishedOfferPlacements = [
   "homepage",
-  "contact",
-  "service-page",
-  "fault",
+  "services-index",
+  "emergency-page",
+  "switchboard-page",
 ] as const satisfies readonly OfferPlacement[];
 
 export const currentOffers: readonly EvareadyOffer[] = [
@@ -165,12 +211,4 @@ export function getOffersForPlacement(placement: OfferPlacement) {
   return currentOffers
     .filter((offer) => offer.showOn.includes(placement))
     .sort((a, b) => a.priority - b.priority);
-}
-
-export function getServicePageOffers() {
-  return getOffersForPlacement("service-page");
-}
-
-export function getFaultPageOffers() {
-  return getOffersForPlacement("fault");
 }
