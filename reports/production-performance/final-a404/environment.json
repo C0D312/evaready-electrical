@@ -1,0 +1,27 @@
+{
+  "branch": "codex/responsive-ux-overhaul",
+  "sourceCommit": "a404e774fbac6cfe90a54269f20fe95bff744b84",
+  "sourceCommitRemoteMatchBeforeMeasurement": true,
+  "operatingSystem": "Windows_NT 10.0.26200",
+  "nodeVersion": "v22.23.1",
+  "npmVersion": "10.9.8",
+  "nextVersion": "16.3.0",
+  "lighthouseVersion": "13.4.1",
+  "chromeVersion": "151.0.7922.108",
+  "deploymentTarget": "github-preview",
+  "basePath": "/evaready-electrical",
+  "siteUrl": "https://c0d312.github.io/evaready-electrical",
+  "localBaseUrl": "http://127.0.0.1:4181/evaready-electrical",
+  "staticServer": "scripts/serve-static-export.ts",
+  "profiles": [
+    "mobile",
+    "desktop"
+  ],
+  "runsPerRoutePerProfile": 3,
+  "routeCount": 10,
+  "totalLighthouseRuns": 60,
+  "firstRawReportTime": "2026-08-08T17:34:16.7997704+10:00",
+  "lastRawReportTime": "2026-08-08T17:46:18.8543648+10:00",
+  "rawReportsCommitted": false,
+  "rawReportLocationDuringRun": "C:/Users/Admin/AppData/Local/Temp/evaready-final-a404-lighthouse-raw"
+}

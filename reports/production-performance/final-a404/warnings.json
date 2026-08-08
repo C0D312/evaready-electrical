@@ -1,0 +1,23 @@
+{
+  "lighthouseRunCount": 60,
+  "lighthouseCliFailures": 0,
+  "lighthouseCleanupWarnings": 0,
+  "consoleAuditFailureRuns": 42,
+  "mobilePerformanceBelow90": true,
+  "mobileLcpAbove2500Ms": true,
+  "bestPracticesRange": {
+    "minimum": 73,
+    "maximum": 77
+  },
+  "observedBestPracticesIssues": [
+    "Google Ads produced a third-party test_cookie finding.",
+    "Chrome reported an issue through its DevTools Issues panel.",
+    "Some templates recorded a local 404 console entry whose Lighthouse item did not expose a URL."
+  ],
+  "measurementLimitations": [
+    "These are local Lighthouse laboratory measurements, not field Core Web Vitals.",
+    "INP was not measured by this navigation-only matrix.",
+    "Raw Lighthouse JSON remained outside Git because the committed run and median summaries contain the reported audit data.",
+    "The exhaustive all-route browser runner was not run and remains incomplete."
+  ]
+}

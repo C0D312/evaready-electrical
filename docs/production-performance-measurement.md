@@ -1,5 +1,12 @@
 # Production Performance Measurement
 
+> **Superseded current-status evidence.** This document records the earlier
+> `d1e88b` performance-optimisation run. It remains useful as historical task
+> evidence, but it is not the current measurement for source commit `a404e774`.
+> The reconciled exact-source results are stored in
+> `reports/production-performance/final-a404/` and are used by
+> `docs/final-non-header-launch-readiness-report.md`.
+
 Date: 2026-08-08 (Australia/Sydney)
 
 ## Result

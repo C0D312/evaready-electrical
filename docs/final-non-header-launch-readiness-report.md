@@ -10,7 +10,8 @@ The non-header application is technically stable: the clean Node.js 22 build,
 1,005-page static generation, route inventories, 873 suburb checks, SEO
 generators, internal links, conversion links, modal behaviour, keyboard paths,
 responsive geometry and dependency audits pass. Two objective responsive
-defects found during this gate were corrected without changing the header:
+defects found during the preceding launch gate were corrected without changing
+the header:
 
 - internal service hero grids no longer overflow at tablet widths; and
 - the footer Call action now wraps cleanly at 320px.
@@ -19,7 +20,10 @@ Launch approval is still blocked by content-quality and evidence gaps. The 873
 suburb pages have 99.94% locality-normalised similarity and no approved local
 job, photograph or testimonial evidence. Owner decisions are also required for
 business credentials and every offer, while a verified Google Places browser
-key and Place ID are required before the rating widget can be called live.
+key and Place ID are required before the rating widget can be called live. The
+exact-current Lighthouse matrix also leaves mobile performance below the
+approved launch thresholds, so the performance result is a blocker rather than
+a pass.
 
 The header was explicitly excluded from this audit. No header source, CSS,
 asset or test was reviewed or changed.
@@ -40,14 +44,14 @@ asset or test was reviewed or changed.
 | OWNER CONFIRMATION REQUIRED | Photographs, people and testimonials | Confirm provenance, publication rights, vehicle-plate approval and customer permission |
 | EXTERNAL CONFIGURATION REQUIRED | Live Google rating | Supply the exact verified Place ID and a restricted browser API key; verify a genuine response for EVAREADY ELECTRICAL |
 | BLOCKER | Location-page helpful-content quality | Decide the indexation/evidence plan and add truthful owner-approved local evidence to priority pages before launch |
-| BLOCKER | Mobile Lighthouse LCP remains 3.30-3.52 seconds in the latest reproducible evidence | Approve and test a non-header LCP optimisation without weakening the mobile van composition or tracking |
+| BLOCKER | Exact-`a404e774` mobile Lighthouse performance is 81-84 and LCP is 4.58-5.11 seconds | Approve and test a non-header LCP/payload optimisation without weakening conversion content or tracking |
 | DEFERRED HEADER ITEM | Header design and behaviour | Separate owner review; deliberately outside this task |
 
 ## Repository and toolchain
 
 - Branch: `codex/responsive-ux-overhaul`
-- Baseline local HEAD: `d1e88b466180fc283edd68fda68d3b3914a0e7be`
-- Baseline remote HEAD: `d1e88b466180fc283edd68fda68d3b3914a0e7be`
+- Performance evidence source HEAD: `a404e774fbac6cfe90a54269f20fe95bff744b84`
+- Remote feature-branch HEAD before measurement: `a404e774fbac6cfe90a54269f20fe95bff744b84`
 - Node.js: `22.23.1`
 - npm: `10.9.8`
 - Next.js: `16.3.0`
@@ -57,10 +61,12 @@ asset or test was reviewed or changed.
 - ESLint: `9.39.4`
 - Playwright: `1.60.0`
 
-The clean install used an isolated npm cache and `npm ci --ignore-scripts`.
-It installed 366 packages and audited 367 packages successfully. The lockfile
-received only the compatible transitive `nanoid` security patch from 3.3.16 to
-3.3.18; no package range or framework major version changed.
+The clean exact-commit worktree used an isolated npm cache and
+`npm ci --ignore-scripts --no-audit`, which installed 366 packages. Separate
+full and production-only `npm audit` commands then reported zero
+vulnerabilities. The lockfile contains the compatible transitive `nanoid`
+3.3.18 patch. The exact lockfile-update command was not retained. In
+particular, `npm ci` did not produce that lockfile change.
 
 ## Commands and results
 
@@ -71,7 +77,7 @@ not access the branded domain:
 $env:NEXT_PUBLIC_DEPLOYMENT_TARGET='github-preview'
 $env:NEXT_PUBLIC_BASE_PATH='/evaready-electrical'
 $env:NEXT_PUBLIC_SITE_URL='https://c0d312.github.io/evaready-electrical'
-npm ci --ignore-scripts
+npm ci --ignore-scripts --no-audit
 npm run lint
 npx tsc --noEmit
 npm run build
@@ -79,7 +85,7 @@ npm run build
 
 | Check | Result |
 | --- | --- |
-| Clean dependency installation | PASS - 366 packages installed; 367 audited |
+| Clean dependency installation | PASS - 366 packages installed from the current lockfile |
 | `npm run lint` | PASS |
 | `npx tsc --noEmit` | PASS |
 | Clean production build | PASS - Next.js 16.3.0; 1,005 static pages generated |
@@ -95,19 +101,21 @@ npm run build
 | offers route audit | PASS - full showcase on 4 routes; compact treatment on the remaining intended routes |
 | production-domain static audit | PASS - 1,001 canonicals, 1,001 unique sitemap URLs, 14,746 schema URLs, 40,092 asset references; 0 issues |
 | visible-copy audit | PASS - 1,001 pages; 0 warnings |
-| asset audit | PASS - 6,139 exported files; no file over the configured 500KB limit |
+| asset audit | PASS - 6,129 exported files; no file over the configured 500KB limit |
 | live link and CTA audit | PASS - 1,004 HTML routes; 131,186 rows; 0 broken links; 0 CTA failures |
 | static visibility inventory | PASS - 1,004 routes; 873 suburbs; 0 critical or missing outputs |
+| exact-current Lighthouse matrix | BLOCKER - 60/60 runs completed; mobile 81-84 performance and 4.58-5.11s LCP |
+| explicit-local Playwright matrix | PASS - 104 passed, 0 failed, 196 viewport/project skips across 15 projects |
 | `git diff --check` | PASS |
 | secret scan | PASS - no committed API key, token, private key or `.env.local`; only blank `.env.example` placeholders |
 
-The exhaustive all-route browser visibility runner was also attempted against
-the current build. It exceeded the local 600-second execution limit after
-reaching the 768px stage without emitting a website assertion failure. This is
-recorded as an incomplete runner, not as a pass. It is covered by the complete
-static route audit plus a current 224-check browser geometry sweep across 14
-representative route types and all 16 supported widths, which passed with zero
-failures.
+The exhaustive all-route browser visibility runner did not complete in the
+earlier gate and was not rerun during this evidence reconciliation. It remains
+**incomplete**, not a pass. The current browser result is explicitly limited to
+six non-header interaction suites on representative routes. Static route,
+link, metadata, schema, visible-copy and CTA audits still cover the complete
+export, but that is not equivalent to exhaustive all-route/all-browser UI
+coverage.
 
 ## Route and output inventory
 
@@ -243,56 +251,106 @@ Offer accuracy remains **OWNER CONFIRMATION REQUIRED** as listed above.
 
 ### PASS
 
-- Exactly one visible main landmark was found on the tested templates.
-- Skip navigation, FAQ controls, modal keyboard operation and focus return pass.
-- Mobile menu scroll lock and quote-modal browser Back handling pass.
-- Mobile sticky CTA spacing and the tested touch pathways pass.
-- A current non-header geometry sweep covered 224 route/width combinations at
-  320, 360, 375, 390, 412, 430, 768, 820, 1024, 1280, 1366, 1440, 1600, 1920,
-  2048 and 2560px with zero horizontal-overflow or visibility failures.
-- Cross-device smoke tests passed in Chromium, installed Chrome, Edge, WebKit,
-  Mobile Chrome, Mobile Safari and iPad emulation.
-- The contact/service internal hero family and footer CTA were visually
-  inspected after the two scoped fixes.
+- The current matrix used the explicit local production URL
+  `http://127.0.0.1:4181/evaready-electrical/`; no test defaulted to the public
+  GitHub Pages site.
+- Six non-header suites covered contact actions, current copyright, Google
+  rating loading/fallbacks, approved location evidence, offers and route-scroll
+  behaviour.
+- The matrix completed 300 project/test combinations: 104 passed, 0 failed and
+  196 were intentionally skipped by test viewport/project guards.
+- The selected tests contain no header assertions. Header code, styles, assets,
+  behaviour and tests remained outside this task.
 
-Firefox could not launch in this Windows environment because its software
-WebRender compositor failed before navigation. This is a browser-runner
-limitation, not a website assertion failure. A real Firefox smoke test on a
-separate supported machine remains recommended before launch.
+| Project | Passed | Failed | Skipped |
+| --- | ---: | ---: | ---: |
+| desktop-chromium-1366 | 6 | 0 | 14 |
+| desktop-chromium-1440 | 13 | 0 | 7 |
+| desktop-chromium-1920 | 6 | 0 | 14 |
+| desktop-firefox-1440 | 6 | 0 | 14 |
+| desktop-webkit-1440 | 6 | 0 | 14 |
+| google-chrome-1440 | 6 | 0 | 14 |
+| microsoft-edge-1440 | 6 | 0 | 14 |
+| mobile-chrome-360 | 6 | 0 | 14 |
+| mobile-chrome-390 | 13 | 0 | 7 |
+| mobile-chrome-412 | 6 | 0 | 14 |
+| mobile-chrome-430 | 6 | 0 | 14 |
+| mobile-safari-390 | 6 | 0 | 14 |
+| mobile-safari-430 | 6 | 0 | 14 |
+| ipad-768 | 6 | 0 | 14 |
+| ipad-pro-1024 | 6 | 0 | 14 |
+
+This is representative non-header interaction coverage, not exhaustive
+all-route/all-browser coverage. The exhaustive runner remains incomplete.
 
 ## Production performance evidence
 
-The latest reproducible report uses three-run medians from a production static
-export. It was measured with Lighthouse 13.4.1 and Chrome 150, but under Node.js
-26.1.0. The current source was separately clean-installed and built under Node
-22.23.1. Because the Lighthouse run was not itself repeated under Node 22 during
-this gate, this environment difference is disclosed rather than concealed.
+### BLOCKER - current exact-source measurement
+
+The authoritative current matrix was generated from a detached worktree at
+exact source commit `a404e774fbac6cfe90a54269f20fe95bff744b84`. The clean
+static export used Node.js 22.23.1, npm 10.9.8, Next.js 16.3.0, Lighthouse
+13.4.1 and Chrome 151.0.7922.108. It was served by the project static server at
+`http://127.0.0.1:4181/evaready-electrical` using the GitHub preview base-path
+configuration. Each row is the median of three runs using the same profile,
+server and environment.
+
+The historical 3 August Node 26 / Next.js 16.2 / Chrome 150 measurements are
+not used in any current conclusion. They remain recoverable in
+`docs/final-performance-before-after.md` and are explicitly labelled
+historical. Those results measured a different source commit and only six
+routes, while the current matrix measures exact `a404e774` across ten routes.
+The application output, runtime, framework, browser, route scope and transferred
+resource set differ, so the figures cannot be mixed or described as one current
+measurement.
 
 ### Mobile medians
 
-| Page | Performance | LCP | CLS | Accessibility | Transfer |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| Homepage | 91 | 3,455ms | 0 | 100 | 586.1KB |
-| Services | 92 | 3,381ms | 0 | 100 | 591.6KB |
-| Emergency | 91 | 3,524ms | 0 | 100 | 590.3KB |
-| Level 2 | 91 | 3,456ms | 0 | 100 | 587.3KB |
-| Service Areas | 91 | 3,451ms | 0 | 95 | 590.6KB |
-| Panania | 92 | 3,302ms | 0 | 100 | 596.4KB |
+| Page | Perf | A11y | BP | SEO | FCP | LCP | CLS | TBT | Transfer | Requests |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Homepage | 81 | 100 | 77 | 100 | 1,209ms | 5,109ms | 0 | 8ms | 947,389B | 35 |
+| Services | 81 | 100 | 77 | 100 | 1,356ms | 5,033ms | 0 | 10ms | 954,886B | 35 |
+| Service Areas | 82 | 100 | 77 | 100 | 1,359ms | 4,810ms | 0 | 9ms | 884,375B | 32 |
+| Emergency | 81 | 100 | 77 | 100 | 1,507ms | 5,032ms | 0 | 8ms | 953,559B | 36 |
+| Level 2 | 84 | 100 | 77 | 100 | 1,359ms | 4,585ms | 0 | 8ms | 880,810B | 31 |
+| Switchboards | 81 | 100 | 77 | 100 | 1,357ms | 5,107ms | 0 | 7ms | 949,762B | 35 |
+| Fault guide | 83 | 100 | 73 | 100 | 1,357ms | 4,732ms | 0 | 11ms | 920,123B | 35 |
+| Region | 83 | 100 | 73 | 100 | 1,356ms | 4,658ms | 0 | 9ms | 882,465B | 35 |
+| Area | 83 | 100 | 73 | 100 | 1,358ms | 4,658ms | 0 | 10ms | 884,246B | 38 |
+| Panania | 84 | 100 | 73 | 100 | 1,356ms | 4,582ms | 0 | 8ms | 882,387B | 40 |
 
 ### Desktop medians
 
-| Page | Performance | LCP | CLS | Accessibility | Transfer |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| Homepage | 99 | 944ms | 0 | 96 | 911.5KB |
-| Services | 99 | 1,026ms | 0 | 96 | 910.9KB |
-| Emergency | 99 | 946ms | 0 | 96 | 907.1KB |
-| Level 2 | 98 | 1,066ms | 0 | 96 | 906.7KB |
-| Service Areas | 99 | 946ms | 0 | 92 | 910.0KB |
-| Panania | 99 | 946ms | 0 | 96 | 913.9KB |
+| Page | Perf | A11y | BP | SEO | FCP | LCP | CLS | TBT | Transfer | Requests |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Homepage | 96 | 93 | 73 | 100 | 327ms | 1,387ms | 0 | 0ms | 1,476,501B | 64 |
+| Services | 96 | 93 | 73 | 100 | 326ms | 1,386ms | 0 | 0ms | 1,483,998B | 64 |
+| Service Areas | 96 | 93 | 73 | 100 | 328ms | 1,348ms | 0 | 0ms | 1,413,485B | 61 |
+| Emergency | 96 | 93 | 73 | 100 | 366ms | 1,386ms | 0 | 0ms | 1,480,065B | 64 |
+| Level 2 | 97 | 93 | 73 | 100 | 327ms | 1,307ms | 0 | 0ms | 1,409,920B | 60 |
+| Switchboards | 96 | 93 | 73 | 100 | 326ms | 1,386ms | 0 | 0ms | 1,478,866B | 64 |
+| Fault guide | 97 | 93 | 73 | 100 | 327ms | 1,310ms | 0 | 0ms | 1,407,165B | 63 |
+| Region | 96 | 93 | 73 | 100 | 327ms | 1,347ms | 0 | 0ms | 1,410,451B | 61 |
+| Area | 96 | 93 | 73 | 100 | 327ms | 1,347ms | 0 | 0ms | 1,412,222B | 64 |
+| Panania | 97 | 93 | 73 | 100 | 327ms | 1,307ms | 0 | 0ms | 1,410,385B | 66 |
 
-Desktop targets and CLS pass. Mobile performance scores pass 90, but mobile
-LCP misses the 2.5-second target on every measured representative route. These
-are local laboratory measurements, not field Core Web Vitals or INP evidence.
+Desktop performance, LCP, CLS and TBT meet the stated performance thresholds.
+Mobile performance is 81-84 and every mobile LCP median exceeds 2.5 seconds,
+so mobile performance remains a launch blocker. CLS is 0 and TBT is 7-11ms.
+
+The mobile LCP element is the main hero image on nine routes and the region H1
+on one route. The desktop LCP element is the main hero image on nine routes and
+the fault-guide hero section on one route. Exact selectors are retained in the
+committed median JSON/CSV.
+
+Best Practices is 73-77 because Google Ads produces a third-party cookie and
+Chrome DevTools issue finding, and 42 runs also recorded a local 404 console
+entry whose Lighthouse item did not expose a URL. These warnings are retained,
+not hidden. All 60 Lighthouse CLI runs completed successfully with zero cleanup
+warnings.
+
+These are local laboratory measurements, not field Core Web Vitals. This
+navigation-only matrix did not measure INP.
 
 ## Security and credentials
 
@@ -305,23 +363,27 @@ are local laboratory measurements, not field Core Web Vitals or INP evidence.
   found by the final scan.
 - JSON-LD serialization and external-link attributes pass the existing audits.
 
-## Objective defects corrected in this gate
+## Objective defects corrected in the preceding gate
 
 1. `app/globals.css` - constrained direct internal-hero grid children to a
    single shrinkable track below 1024px, eliminating min-content overflow at
    768px and 820px without changing desktop or header behaviour.
 2. `app/footer.css` - allowed the 320px footer Call action text to wrap and
    balance inside its existing button, eliminating clipping and overflow.
-3. `package-lock.json` - accepted the compatible transitive `nanoid` 3.3.18
-   security patch produced by the clean Node.js 22 installation.
+3. `package-lock.json` - contains the compatible transitive `nanoid` 3.3.18
+   security patch. The exact lockfile-update command was not retained; it was
+   not produced by `npm ci`.
+
+This performance-evidence reconciliation made no production-source, visual,
+route, SEO, conversion or header change.
 
 ## Preserved unrelated work
 
 The repository contains a large pre-existing dirty working tree of owner
 reports, screenshots, logs, generated audit outputs, local preview files and
 untracked header candidates. They were not deleted, hidden, staged or committed
-by this task. Only the two scoped non-header CSS fixes, the three-line lockfile
-patch and this report belong to this gate.
+by this task. The current reconciliation adds only corrected documentation and
+the auditable `reports/production-performance/final-a404/` summaries.
 
 ## Handoff and safety confirmation
 

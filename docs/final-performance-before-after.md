@@ -1,5 +1,13 @@
 # Final production performance before and after
 
+> **Historical evidence only (3 August 2026).** These figures describe commit
+> `4ebea41eeedebb0e7f8ee8dc21e967a2ec20521f` measured with Node.js 26.1.0,
+> Next.js 16.2.12 and Chrome 150. They must not be used as current evidence for
+> the exact `a404e774` application source. The current Node.js 22 / Next.js
+> 16.3.0 / Chrome 151 evidence is stored in
+> `reports/production-performance/final-a404/` and is the only performance data
+> used by the current launch-readiness conclusion.
+
 ## Scope and safety
 
 - Branch: `codex/responsive-ux-overhaul`
