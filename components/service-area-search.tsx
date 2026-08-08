@@ -211,7 +211,7 @@ export function ServiceAreaSearch({
           id={searchId}
           type="search"
           value={query}
-          aria-controls={resultsId}
+          aria-controls={normalizedQuery ? resultsId : undefined}
           onFocus={() => void loadIndex()}
           onChange={(event) => {
             const nextQuery = event.target.value;

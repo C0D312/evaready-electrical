@@ -19,6 +19,7 @@
     "audit:location-output": "tsx scripts/audit-location-page-output.ts",
     "audit:location-evidence": "tsx scripts/audit-location-evidence-quality.ts",
     "audit:performance": "tsx scripts/audit-performance-assets.ts",
+    "audit:lighthouse": "tsx scripts/benchmark-production-performance.ts",
     "audit:all-routes-visibility": "tsx scripts/audit-all-routes-visibility.ts",
     "audit:visibility": "tsx scripts/audit-page-visibility.ts",
     "audit:live-links-and-ctas": "tsx scripts/audit-live-links-and-ctas.ts",

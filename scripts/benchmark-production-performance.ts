@@ -1,333 +1,526 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import os from "node:os";
 import path from "node:path";
-import { chromium, type Browser, type Page } from "@playwright/test";
+import { spawnSync } from "node:child_process";
+import {
+  brotliCompressSync,
+  constants,
+  gzipSync,
+} from "node:zlib";
 
 type ProfileName = "mobile" | "desktop";
+
+type RouteDefinition = {
+  label: string;
+  route: string;
+};
+
+type NetworkRequest = {
+  mimeType?: string;
+  resourceSize?: number;
+  resourceType?: string;
+  transferSize?: number;
+  url?: string;
+};
+
+type LighthouseAudit = {
+  details?: {
+    items?: unknown[];
+  };
+  displayValue?: string;
+  numericValue?: number;
+  score?: number | null;
+};
+
+type LighthouseResult = {
+  audits: Record<string, LighthouseAudit>;
+  categories: Record<string, { score: number | null }>;
+  finalDisplayedUrl?: string;
+  lighthouseVersion: string;
+};
 
 type RunMetrics = {
   phase: string;
   profile: ProfileName;
-  url: string;
+  route: string;
+  routeLabel: string;
   run: number;
-  performanceScore: string;
-  accessibilityScore: string;
-  bestPracticesScore: string;
-  seoScore: string;
+  lighthouseVersion: string;
+  performanceScore: number;
+  accessibilityScore: number;
+  bestPracticesScore: number;
+  seoScore: number;
+  fcpMs: number;
   lcpMs: number;
   cls: number;
-  inpMs: string;
-  domContentLoadedMs: number;
-  loadMs: number;
-  totalJsBytes: number;
-  totalCssBytes: number;
-  totalImageBytes: number;
+  tbtMs: number;
+  speedIndexMs: number;
+  domElements: number;
+  rawHtmlBytes: number;
+  gzipHtmlBytes: number;
+  brotliHtmlBytes: number;
+  cssResourceBytes: number;
+  cssTransferBytes: number;
+  jsResourceBytes: number;
+  jsTransferBytes: number;
+  imageResourceBytes: number;
+  imageTransferBytes: number;
+  totalResourceBytes: number;
   totalTransferBytes: number;
   requestCount: number;
-  notes: string;
+  consoleErrorScore: number | null;
+  lcpElement: string;
+  lcpResourceUrl: string;
+  cliExitCode: number;
+  cliCleanupWarning: boolean;
 };
 
+const LIGHTHOUSE_VERSION = "13.4.1";
 const productionBase =
-  process.env.PERF_BASE_URL || "https://evareadyelectrical.com.au";
-const phase = process.env.PERF_PHASE || "before";
-const reportDir = path.join(process.cwd(), "reports");
-const jsonPath = path.join(reportDir, `performance-${phase}-runs.json`);
-const csvPath = path.join(reportDir, "performance-before-after.csv");
+  process.env.PERF_BASE_URL ??
+  "http://127.0.0.1:4178/evaready-electrical";
+const phase = process.env.PERF_PHASE ?? "baseline";
+const runsPerRoute = Number(process.env.PERF_RUNS ?? "3");
+const outputDir = path.resolve(
+  process.env.PERF_OUTPUT_DIR ??
+    path.join(process.cwd(), "reports", "production-performance"),
+);
+const rawDir = path.resolve(
+  process.env.PERF_RAW_DIR ??
+    path.join(os.tmpdir(), "evaready-production-lighthouse", phase),
+);
+const chromePath =
+  process.env.CHROME_PATH ??
+  "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
 
-const routes = [
-  "/",
-  "/emergency-electrician-sydney/",
-  "/level-2-electrician-sydney/",
-  "/services/",
-  "/service-areas/",
-  "/about/",
-  "/contact/",
-  "/solar-batteries/",
-  "/services/pre-purchase-rental-electrical-inspections-sydney/",
+const routeDefinitions: RouteDefinition[] = [
+  { label: "Homepage", route: "/" },
+  { label: "Services", route: "/services/" },
+  { label: "Service Areas", route: "/service-areas/" },
+  {
+    label: "Emergency Electrician Sydney",
+    route: "/emergency-electrician-sydney/",
+  },
+  {
+    label: "Level 2 Electrician Sydney",
+    route: "/level-2-electrician-sydney/",
+  },
+  {
+    label: "Switchboard Upgrades Sydney",
+    route: "/services/switchboard-upgrades-sydney/",
+  },
+  {
+    label: "No Power In One Room fault guide",
+    route: "/electrical-faults/no-power-in-one-room/",
+  },
+  {
+    label: "Canterbury-Bankstown region",
+    route: "/service-areas/canterbury-bankstown-and-inner-south-west/",
+  },
+  {
+    label: "Canterbury-Bankstown area",
+    route:
+      "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/",
+  },
+  {
+    label: "Panania suburb",
+    route:
+      "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+  },
 ];
 
-const profiles: Record<
-  ProfileName,
-  {
-    viewport: { width: number; height: number };
-    deviceScaleFactor: number;
-    isMobile: boolean;
-    hasTouch: boolean;
-    userAgent: string;
+function selectedProfiles() {
+  const requested = (process.env.PERF_PROFILES ?? "mobile,desktop")
+    .split(",")
+    .map((value) => value.trim())
+    .filter(Boolean);
+  const profiles = requested.filter(
+    (value): value is ProfileName => value === "mobile" || value === "desktop",
+  );
+  if (profiles.length !== requested.length || profiles.length === 0) {
+    throw new Error("PERF_PROFILES must contain mobile, desktop, or both.");
   }
-> = {
-  mobile: {
-    viewport: { width: 390, height: 844 },
-    deviceScaleFactor: 3,
-    isMobile: true,
-    hasTouch: true,
-    userAgent:
-      "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1",
-  },
-  desktop: {
-    viewport: { width: 1366, height: 768 },
-    deviceScaleFactor: 1,
-    isMobile: false,
-    hasTouch: false,
-    userAgent:
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0 Safari/537.36",
-  },
-};
+  return profiles;
+}
 
-function productionUrl(route: string, cacheBust: string) {
-  const base = productionBase.replace(/\/+$/, "");
-  const normalizedRoute = route.startsWith("/") ? route : `/${route}`;
-  return `${base}${normalizedRoute}?perf=${cacheBust}`;
+function selectedRoutes() {
+  const filter = process.env.PERF_ROUTE_FILTER?.trim().toLowerCase();
+  if (!filter) return routeDefinitions;
+  const matches = routeDefinitions.filter(
+    ({ label, route }) =>
+      label.toLowerCase().includes(filter) || route.toLowerCase().includes(filter),
+  );
+  if (matches.length === 0) {
+    throw new Error(`PERF_ROUTE_FILTER matched no route: ${filter}`);
+  }
+  return matches;
 }
 
 function numberOrZero(value: unknown) {
-  return typeof value === "number" && Number.isFinite(value) ? Math.round(value) : 0;
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function scorePercent(result: LighthouseResult, category: string) {
+  return Math.round(numberOrZero(result.categories[category]?.score) * 100);
 }
 
 function median(values: number[]) {
   const sorted = values.slice().sort((a, b) => a - b);
-  return sorted[Math.floor(sorted.length / 2)] ?? 0;
-}
-
-function csvCell(value: string | number) {
-  const text = String(value);
-  if (/[",\r\n]/.test(text)) {
-    return `"${text.replace(/"/g, '""')}"`;
+  const midpoint = Math.floor(sorted.length / 2);
+  if (sorted.length % 2 === 0) {
+    return ((sorted[midpoint - 1] ?? 0) + (sorted[midpoint] ?? 0)) / 2;
   }
-  return text;
+  return sorted[midpoint] ?? 0;
 }
 
-function csvPhase(line: string) {
-  return line.split(",", 1)[0];
+function round(value: number, digits = 0) {
+  const factor = 10 ** digits;
+  return Math.round(value * factor) / factor;
 }
 
-async function installPerfObservers(page: Page) {
-  await page.addInitScript(() => {
-    const metrics = {
-      lcpMs: 0,
-      cls: 0,
-    };
-    Object.defineProperty(window, "__evPerfMetrics", {
-      configurable: true,
-      value: metrics,
-    });
+function csvCell(value: string | number | boolean | null) {
+  const text = value === null ? "" : String(value);
+  return /[",\r\n]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
+}
 
-    try {
-      new PerformanceObserver((entryList) => {
-        const entries = entryList.getEntries();
-        const lastEntry = entries[entries.length - 1];
-        if (lastEntry) {
-          metrics.lcpMs = lastEntry.startTime;
-        }
-      }).observe({ type: "largest-contentful-paint", buffered: true });
-    } catch {
-      // Browser does not support LCP observation in this context.
+function routeSlug(route: string) {
+  return route === "/"
+    ? "homepage"
+    : route.replace(/^\/+|\/+$/g, "").replace(/[^a-z0-9]+/gi, "-");
+}
+
+function auditedUrl(route: string, profile: ProfileName, run: number) {
+  const base = productionBase.replace(/\/+$/, "");
+  const normalizedRoute = route === "/" ? "/" : `/${route.replace(/^\/+/, "")}`;
+  const url = new URL(`${base}${normalizedRoute}`);
+  url.searchParams.set("lh", `${phase}-${profile}-${run}`);
+  return url.href;
+}
+
+function htmlFile(route: string) {
+  const relative = route === "/" ? "index.html" : path.join(route, "index.html");
+  return path.join(process.cwd(), "out", relative.replace(/^[/\\]+/, ""));
+}
+
+function htmlSizes(route: string) {
+  const file = htmlFile(route);
+  if (!existsSync(file)) {
+    throw new Error(`Static HTML not found for ${route}: ${file}`);
+  }
+  const html = readFileSync(file);
+  return {
+    rawHtmlBytes: html.byteLength,
+    gzipHtmlBytes: gzipSync(html).byteLength,
+    brotliHtmlBytes: brotliCompressSync(html, {
+      params: { [constants.BROTLI_PARAM_QUALITY]: 5 },
+    }).byteLength,
+  };
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function findNodeLabel(value: unknown): string {
+  if (Array.isArray(value)) {
+    for (const item of value) {
+      const label = findNodeLabel(item);
+      if (label) return label;
     }
-
-    try {
-      new PerformanceObserver((entryList) => {
-        for (const entry of entryList.getEntries()) {
-          const layoutShift = entry as PerformanceEntry & {
-            hadRecentInput?: boolean;
-            value?: number;
-          };
-          if (!layoutShift.hadRecentInput && typeof layoutShift.value === "number") {
-            metrics.cls += layoutShift.value;
-          }
-        }
-      }).observe({ type: "layout-shift", buffered: true });
-    } catch {
-      // Browser does not support CLS observation in this context.
-    }
-  });
+    return "";
+  }
+  if (!isRecord(value)) return "";
+  if (value.type === "node") {
+    return typeof value.selector === "string"
+      ? value.selector
+      : typeof value.nodeLabel === "string"
+        ? value.nodeLabel
+        : "";
+  }
+  for (const item of Object.values(value)) {
+    const label = findNodeLabel(item);
+    if (label) return label;
+  }
+  return "";
 }
 
-async function measureRun(
-  browser: Browser,
-  route: string,
-  profileName: ProfileName,
+function networkRequests(result: LighthouseResult) {
+  const items = result.audits["network-requests"]?.details?.items ?? [];
+  return items.filter(isRecord).map((item) => item as NetworkRequest);
+}
+
+function sumBy(
+  requests: NetworkRequest[],
+  predicate: (request: NetworkRequest) => boolean,
+  key: "resourceSize" | "transferSize",
+) {
+  return requests.reduce(
+    (total, request) =>
+      predicate(request) ? total + numberOrZero(request[key]) : total,
+    0,
+  );
+}
+
+function resolveLighthouseCommand() {
+  const configured = process.env.LIGHTHOUSE_BIN?.trim();
+  if (configured) {
+    if (/\.(?:cmd|bat)$/i.test(configured)) {
+      throw new Error(
+        "LIGHTHOUSE_BIN must point to Lighthouse's cli/index.js on Windows, not a .cmd shim.",
+      );
+    }
+    if (/\.[cm]?js$/i.test(configured)) {
+      return { command: process.execPath, prefixArgs: [configured] };
+    }
+    return { command: configured, prefixArgs: [] as string[] };
+  }
+  const npmExecPath = process.env.npm_execpath;
+  if (npmExecPath) {
+    const npxCli = path.join(path.dirname(npmExecPath), "npx-cli.js");
+    if (existsSync(npxCli)) {
+      return {
+        command: process.execPath,
+        prefixArgs: [npxCli, "--yes", `lighthouse@${LIGHTHOUSE_VERSION}`],
+      };
+    }
+  }
+  return {
+    command: "npx",
+    prefixArgs: ["--yes", `lighthouse@${LIGHTHOUSE_VERSION}`],
+  };
+}
+
+function runLighthouse(
+  definition: RouteDefinition,
+  profile: ProfileName,
   run: number,
-): Promise<RunMetrics> {
-  const profile = profiles[profileName];
-  const context = await browser.newContext(profile);
-  const page = await context.newPage();
-  const cdp = await context.newCDPSession(page);
-  await cdp.send("Network.enable");
-  await cdp.send("Network.setCacheDisabled", { cacheDisabled: true });
-  await installPerfObservers(page);
+): RunMetrics {
+  const rawPath = path.join(
+    rawDir,
+    `${profile}-${routeSlug(definition.route)}-run-${run}.json`,
+  );
+  const { command, prefixArgs } = resolveLighthouseCommand();
+  const args = [
+    ...prefixArgs,
+    auditedUrl(definition.route, profile, run),
+    "--output=json",
+    `--output-path=${rawPath}`,
+    "--only-categories=performance,accessibility,best-practices,seo",
+    "--max-wait-for-load=45000",
+    "--quiet",
+    "--chrome-flags=--headless=new --no-sandbox --disable-gpu --disable-background-networking --disable-component-update --disable-sync --no-first-run",
+  ];
+  if (profile === "desktop") args.push("--preset=desktop");
 
-  const targetUrl = productionUrl(route, `${phase}-${profileName}-${run}-${Date.now()}`);
-  await page.goto(targetUrl, { waitUntil: "load", timeout: 60_000 });
-  await page.waitForTimeout(2_500);
-
-  const metrics = await page.evaluate(() => {
-    const nav = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming;
-    const resources = performance.getEntriesByType("resource") as PerformanceResourceTiming[];
-    const byType = resources.reduce(
-      (totals, resource) => {
-        const size = resource.transferSize || resource.encodedBodySize || 0;
-        totals.totalTransferBytes += size;
-        if (resource.initiatorType === "script") totals.totalJsBytes += size;
-        if (resource.initiatorType === "css" || resource.name.endsWith(".css")) totals.totalCssBytes += size;
-        if (resource.initiatorType === "img" || /\.(?:png|jpe?g|webp|avif|svg|ico)(?:[?#]|$)/i.test(resource.name)) {
-          totals.totalImageBytes += size;
-        }
-        return totals;
-      },
-      {
-        totalJsBytes: 0,
-        totalCssBytes: 0,
-        totalImageBytes: 0,
-        totalTransferBytes: nav.transferSize || nav.encodedBodySize || 0,
-      },
-    );
-
-    const observed = (window as unknown as { __evPerfMetrics?: { lcpMs: number; cls: number } })
-      .__evPerfMetrics || { lcpMs: 0, cls: 0 };
-
-    return {
-      ...byType,
-      requestCount: resources.length + 1,
-      domContentLoadedMs: nav.domContentLoadedEventEnd,
-      loadMs: nav.loadEventEnd,
-      lcpMs: observed.lcpMs,
-      cls: observed.cls,
-    };
+  const execution = spawnSync(command, args, {
+    cwd: process.cwd(),
+    encoding: "utf8",
+    env: { ...process.env, CHROME_PATH: chromePath },
+    shell: false,
+    timeout: 180_000,
   });
 
-  await context.close();
+  if (!existsSync(rawPath)) {
+    throw new Error(
+      [
+        `Lighthouse did not write ${rawPath}.`,
+        execution.error?.message,
+        execution.stderr,
+      ]
+        .filter(Boolean)
+        .join("\n"),
+    );
+  }
+
+  const result = JSON.parse(readFileSync(rawPath, "utf8")) as LighthouseResult;
+  const requests = networkRequests(result);
+  const css = (request: NetworkRequest) =>
+    request.resourceType === "Stylesheet" || request.mimeType?.includes("text/css") === true;
+  const javascript = (request: NetworkRequest) =>
+    request.resourceType === "Script" ||
+    request.mimeType?.includes("javascript") === true;
+  const image = (request: NetworkRequest) =>
+    request.resourceType === "Image" || request.mimeType?.startsWith("image/") === true;
+  const lcpElement = findNodeLabel(
+    result.audits["lcp-breakdown-insight"]?.details?.items ??
+      result.audits["lcp-discovery-insight"]?.details?.items ??
+      result.audits["largest-contentful-paint-element"]?.details?.items,
+  );
+  const lcpRequest = requests.find((request) => {
+    const url = request.url ?? "";
+    return (
+      request.resourceType === "Image" &&
+      lcpElement.includes(path.basename(new URL(url).pathname))
+    );
+  });
+  const exitCode = execution.status ?? (execution.error ? 1 : 0);
+  const cleanupWarning =
+    exitCode !== 0 && /EBUSY: resource busy or locked/i.test(execution.stderr ?? "");
 
   return {
     phase,
-    profile: profileName,
-    url: route,
+    profile,
+    route: definition.route,
+    routeLabel: definition.label,
     run,
-    performanceScore: "not-run",
-    accessibilityScore: "not-run",
-    bestPracticesScore: "not-run",
-    seoScore: "not-run",
-    lcpMs: numberOrZero(metrics.lcpMs),
-    cls: Number(metrics.cls.toFixed(4)),
-    inpMs: "not-measured",
-    domContentLoadedMs: numberOrZero(metrics.domContentLoadedMs),
-    loadMs: numberOrZero(metrics.loadMs),
-    totalJsBytes: numberOrZero(metrics.totalJsBytes),
-    totalCssBytes: numberOrZero(metrics.totalCssBytes),
-    totalImageBytes: numberOrZero(metrics.totalImageBytes),
-    totalTransferBytes: numberOrZero(metrics.totalTransferBytes),
-    requestCount: numberOrZero(metrics.requestCount),
-    notes: "Playwright timing fallback; Lighthouse not installed.",
+    lighthouseVersion: result.lighthouseVersion,
+    performanceScore: scorePercent(result, "performance"),
+    accessibilityScore: scorePercent(result, "accessibility"),
+    bestPracticesScore: scorePercent(result, "best-practices"),
+    seoScore: scorePercent(result, "seo"),
+    fcpMs: round(numberOrZero(result.audits["first-contentful-paint"]?.numericValue)),
+    lcpMs: round(numberOrZero(result.audits["largest-contentful-paint"]?.numericValue)),
+    cls: round(numberOrZero(result.audits["cumulative-layout-shift"]?.numericValue), 4),
+    tbtMs: round(numberOrZero(result.audits["total-blocking-time"]?.numericValue)),
+    speedIndexMs: round(numberOrZero(result.audits["speed-index"]?.numericValue)),
+    domElements: round(
+      numberOrZero(
+        result.audits["dom-size"]?.numericValue ??
+          result.audits["dom-size-insight"]?.numericValue,
+      ),
+    ),
+    ...htmlSizes(definition.route),
+    cssResourceBytes: sumBy(requests, css, "resourceSize"),
+    cssTransferBytes: sumBy(requests, css, "transferSize"),
+    jsResourceBytes: sumBy(requests, javascript, "resourceSize"),
+    jsTransferBytes: sumBy(requests, javascript, "transferSize"),
+    imageResourceBytes: sumBy(requests, image, "resourceSize"),
+    imageTransferBytes: sumBy(requests, image, "transferSize"),
+    totalResourceBytes: sumBy(requests, () => true, "resourceSize"),
+    totalTransferBytes: sumBy(requests, () => true, "transferSize"),
+    requestCount: requests.length,
+    consoleErrorScore: result.audits["errors-in-console"]?.score ?? null,
+    lcpElement,
+    lcpResourceUrl: lcpRequest?.url ?? "",
+    cliExitCode: exitCode,
+    cliCleanupWarning: cleanupWarning,
   };
 }
 
 function summarize(rows: RunMetrics[]) {
   const groups = new Map<string, RunMetrics[]>();
   for (const row of rows) {
-    groups.set(`${row.phase}|${row.profile}|${row.url}`, [
-      ...(groups.get(`${row.phase}|${row.profile}|${row.url}`) || []),
-      row,
-    ]);
+    const key = `${row.profile}|${row.route}`;
+    groups.set(key, [...(groups.get(key) ?? []), row]);
   }
 
-  return [...groups.values()].map((group) => ({
-    phase: group[0].phase,
-    profile: group[0].profile,
-    url: group[0].url,
-    runs: group.length,
-    performanceScore: "not-run",
-    accessibilityScore: "not-run",
-    bestPracticesScore: "not-run",
-    seoScore: "not-run",
-    medianLcpMs: median(group.map((row) => row.lcpMs)),
-    medianCls: Number(median(group.map((row) => row.cls * 10_000)) / 10_000),
-    medianInpMs: "not-measured",
-    medianLoadMs: median(group.map((row) => row.loadMs)),
-    medianJsBytes: median(group.map((row) => row.totalJsBytes)),
-    medianCssBytes: median(group.map((row) => row.totalCssBytes)),
-    medianImageBytes: median(group.map((row) => row.totalImageBytes)),
-    medianTransferBytes: median(group.map((row) => row.totalTransferBytes)),
-    medianRequestCount: median(group.map((row) => row.requestCount)),
-    notes: group[0].notes,
-  }));
+  return [...groups.values()].map((group) => {
+    const first = group[0];
+    return {
+      phase,
+      profile: first.profile,
+      route: first.route,
+      routeLabel: first.routeLabel,
+      runs: group.length,
+      lighthouseVersion: first.lighthouseVersion,
+      performanceScore: median(group.map((row) => row.performanceScore)),
+      accessibilityScore: median(group.map((row) => row.accessibilityScore)),
+      bestPracticesScore: median(group.map((row) => row.bestPracticesScore)),
+      seoScore: median(group.map((row) => row.seoScore)),
+      fcpMs: median(group.map((row) => row.fcpMs)),
+      lcpMs: median(group.map((row) => row.lcpMs)),
+      cls: median(group.map((row) => row.cls)),
+      tbtMs: median(group.map((row) => row.tbtMs)),
+      speedIndexMs: median(group.map((row) => row.speedIndexMs)),
+      domElements: median(group.map((row) => row.domElements)),
+      rawHtmlBytes: first.rawHtmlBytes,
+      gzipHtmlBytes: first.gzipHtmlBytes,
+      brotliHtmlBytes: first.brotliHtmlBytes,
+      cssResourceBytes: median(group.map((row) => row.cssResourceBytes)),
+      cssTransferBytes: median(group.map((row) => row.cssTransferBytes)),
+      jsResourceBytes: median(group.map((row) => row.jsResourceBytes)),
+      jsTransferBytes: median(group.map((row) => row.jsTransferBytes)),
+      imageResourceBytes: median(group.map((row) => row.imageResourceBytes)),
+      imageTransferBytes: median(group.map((row) => row.imageTransferBytes)),
+      totalResourceBytes: median(group.map((row) => row.totalResourceBytes)),
+      totalTransferBytes: median(group.map((row) => row.totalTransferBytes)),
+      requestCount: median(group.map((row) => row.requestCount)),
+      consoleErrorScore: median(
+        group.map((row) => row.consoleErrorScore ?? 0),
+      ),
+      lcpElement: first.lcpElement,
+      cliCleanupWarnings: group.filter((row) => row.cliCleanupWarning).length,
+    };
+  });
 }
 
-async function main() {
-  mkdirSync(reportDir, { recursive: true });
+function writeCsv(file: string, rows: ReturnType<typeof summarize>) {
+  if (rows.length === 0) return;
+  const columns = Object.keys(rows[0]) as Array<keyof (typeof rows)[number]>;
+  const lines = [
+    columns.map(csvCell).join(","),
+    ...rows.map((row) => columns.map((column) => csvCell(row[column])).join(",")),
+  ];
+  writeFileSync(file, `${lines.join("\n")}\n`);
+}
 
-  const browser = await chromium.launch({ headless: true });
+function verifyConfiguration() {
+  if (!Number.isInteger(runsPerRoute) || runsPerRoute < 1) {
+    throw new Error("PERF_RUNS must be a positive integer.");
+  }
+  if (!existsSync(path.join(process.cwd(), "out", "index.html"))) {
+    throw new Error("Static export missing. Run the production build first.");
+  }
+  if (!existsSync(chromePath)) {
+    throw new Error(`Chrome not found: ${chromePath}`);
+  }
+}
+
+function main() {
+  verifyConfiguration();
+  mkdirSync(outputDir, { recursive: true });
+  mkdirSync(rawDir, { recursive: true });
+
+  const profiles = selectedProfiles();
+  const routes = selectedRoutes();
   const rows: RunMetrics[] = [];
-  for (const profileName of Object.keys(profiles) as ProfileName[]) {
-    for (const route of routes) {
-      for (let run = 1; run <= 3; run += 1) {
-        console.log(`Measuring ${phase} ${profileName} ${route} run ${run}`);
-        rows.push(await measureRun(browser, route, profileName, run));
+  const total = profiles.length * routes.length * runsPerRoute;
+
+  for (const profile of profiles) {
+    for (const definition of routes) {
+      for (let run = 1; run <= runsPerRoute; run += 1) {
+        console.log(
+          `[${rows.length + 1}/${total}] ${phase} ${profile} ${definition.label} run ${run}`,
+        );
+        const metrics = runLighthouse(definition, profile, run);
+        rows.push(metrics);
+        console.log(
+          `  Performance ${metrics.performanceScore}, LCP ${metrics.lcpMs}ms, CLS ${metrics.cls}, transfer ${metrics.totalTransferBytes} bytes`,
+        );
       }
     }
   }
-  await browser.close();
 
-  writeFileSync(jsonPath, `${JSON.stringify(rows, null, 2)}\n`);
   const summary = summarize(rows);
-  const header = [
-    "phase",
-    "profile",
-    "url",
-    "runs",
-    "performance score",
-    "accessibility score",
-    "best practices score",
-    "seo score",
-    "median LCP ms",
-    "median CLS",
-    "median INP ms",
-    "median load ms",
-    "median JS bytes",
-    "median CSS bytes",
-    "median image bytes",
-    "median transfer bytes",
-    "median request count",
-    "notes",
-  ];
+  const runsJson = path.join(outputDir, `${phase}-runs.json`);
+  const mediansJson = path.join(outputDir, `${phase}-medians.json`);
+  const mediansCsv = path.join(outputDir, `${phase}-medians.csv`);
+  writeFileSync(runsJson, `${JSON.stringify(rows, null, 2)}\n`);
+  writeFileSync(mediansJson, `${JSON.stringify(summary, null, 2)}\n`);
+  writeCsv(mediansCsv, summary);
 
-  const headerLine = header.map(csvCell).join(",");
-  const existingRows =
-    existsSync(csvPath)
-      ? readFileSync(csvPath, "utf8")
-          .split(/\r?\n/)
-          .filter((line) => line.trim() && line !== headerLine && csvPhase(line) !== phase)
-      : [];
-
-  const currentRows = summary.map((row) =>
-      [
-        row.phase,
-        row.profile,
-        row.url,
-        row.runs,
-        row.performanceScore,
-        row.accessibilityScore,
-        row.bestPracticesScore,
-        row.seoScore,
-        row.medianLcpMs,
-        row.medianCls,
-        row.medianInpMs,
-        row.medianLoadMs,
-        row.medianJsBytes,
-        row.medianCssBytes,
-        row.medianImageBytes,
-        row.medianTransferBytes,
-        row.medianRequestCount,
-        row.notes,
-      ]
-        .map(csvCell)
-        .join(","),
-    );
-
-  const csv = [headerLine, ...existingRows, ...currentRows].join("\n");
-
-  writeFileSync(csvPath, `${csv}\n`);
-  console.log(JSON.stringify({ csvPath, jsonPath, rows: rows.length, summaryRows: summary.length }, null, 2));
+  console.log(
+    JSON.stringify(
+      {
+        phase,
+        node: process.version,
+        lighthouse: LIGHTHOUSE_VERSION,
+        baseUrl: productionBase,
+        profiles,
+        routeCount: routes.length,
+        runsPerRoute,
+        runCount: rows.length,
+        output: { runsJson, mediansJson, mediansCsv },
+      },
+      null,
+      2,
+    ),
+  );
 }
 
-main().catch((error) => {
+try {
+  main();
+} catch (error) {
   console.error(error);
   process.exit(1);
-});
+}

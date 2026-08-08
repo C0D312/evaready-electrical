@@ -8073,6 +8073,16 @@ main.legal-page :is(h1, h2, p, a),
   -webkit-mask-image: none !important;
 }
 
+.brand-internal-hero.fault-guide-hero {
+  --ee-van-image: var(--fault-hero-image-desktop);
+}
+
+@media (max-width: 1023px) {
+  .brand-internal-hero.fault-guide-hero {
+    --ee-van-image: var(--fault-hero-image-tablet);
+  }
+}
+
 .brand-internal-hero:has(.brand-internal-hero-image)::before {
   content: none !important;
   display: none !important;
@@ -9305,6 +9315,10 @@ main section [data-suburb-action-card="call-first"] a:not(.bg-red-600):not([data
 }
 
 @media (max-width: 767px) {
+  .brand-internal-hero.fault-guide-hero {
+    --ee-van-image: var(--fault-hero-image-mobile);
+  }
+
   .home-brand-hero,
   .brand-internal-hero {
     --mobile-hero-photo-height: clamp(13.25rem, 56vw, 17.5rem);

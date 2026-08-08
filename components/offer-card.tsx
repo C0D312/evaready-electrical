@@ -12,6 +12,16 @@ export function OfferCard({
   className = "",
 }: OfferCardProps) {
   const isEmergency = offer.ctaType === "call";
+  const imagePath = assetPath(offer.image);
+  const image360Path = assetPath(
+    offer.image.replace(/\.webp$/, "-360.webp"),
+  );
+  const image480Path = assetPath(
+    offer.image.replace(/\.webp$/, "-480.webp"),
+  );
+  const image720Path = assetPath(
+    offer.image.replace(/\.webp$/, "-720.webp"),
+  );
 
   return (
     <article
@@ -26,15 +36,22 @@ export function OfferCard({
       data-offer-id={offer.id}
     >
       <div className="ev-offer-card__media">
-        <Image
-          src={assetPath(offer.image)}
-          alt={offer.alt}
-          width={offer.imageWidth}
-          height={offer.imageHeight}
-          sizes="(max-width: 1180px) 46vw, 300px"
-          loading="lazy"
-          className="ev-offer-card__image"
-        />
+        <picture className="ev-offer-card__picture">
+          <source
+            type="image/webp"
+            srcSet={`${image360Path} 360w, ${image480Path} 480w, ${image720Path} 720w, ${imagePath} ${offer.imageWidth}w`}
+            sizes="(max-width: 1180px) 46vw, 300px"
+          />
+          <Image
+            src={imagePath}
+            alt={offer.alt}
+            width={offer.imageWidth}
+            height={offer.imageHeight}
+            sizes="(max-width: 1180px) 46vw, 300px"
+            loading="lazy"
+            className="ev-offer-card__image"
+          />
+        </picture>
       </div>
     </article>
   );

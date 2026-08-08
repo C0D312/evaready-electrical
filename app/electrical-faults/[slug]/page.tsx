@@ -14,6 +14,7 @@ import {
   electricalFaultPages,
   getElectricalFaultPage,
 } from "@/data/electrical-faults";
+import { faultHeroImageStyle } from "@/lib/fault-hero-image";
 import {
   absoluteUrl,
   approvedBusinessClaims,
@@ -124,7 +125,10 @@ export default async function ElectricalFaultDetailPage({
         dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
       />
 
-      <section className="brand-internal-hero relative overflow-hidden bg-[#061E72] text-white">
+      <section
+        className="brand-internal-hero fault-guide-hero relative overflow-hidden bg-[#061E72] text-white"
+        style={faultHeroImageStyle}
+      >
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.08)_1px,transparent_1px)] bg-[size:44px_44px]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(37,99,235,0.28),transparent_32%),radial-gradient(circle_at_84%_18%,rgba(239,68,68,0.24),transparent_34%)]" />
         <div className="absolute inset-0 bg-gradient-to-br from-[#082A86]/95 via-[#082A86]/96 to-[#28020a]/95" />
