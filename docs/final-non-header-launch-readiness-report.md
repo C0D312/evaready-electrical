@@ -17,7 +17,7 @@ the header:
 - the footer Call action now wraps cleanly at 320px.
 
 Launch approval is still blocked by content-quality and evidence gaps. The 873
-suburb pages have 99.94% locality-normalised similarity and no approved local
+suburb pages have a 99.94% locality-normalised repeated-block word rate and no approved local
 job, photograph or testimonial evidence. Owner decisions are also required for
 business credentials and every offer, while a verified Google Places browser
 key and Place ID are required before the rating widget can be called live. The
@@ -159,8 +159,9 @@ contains only indexable URLs and excludes special/non-indexable pages.
 The location system is technically complete but not yet strong enough for an
 unqualified launch-readiness approval:
 
-- exact shared visible text: 58.03%;
-- locality-normalised similarity: 99.94%;
+- exact shared visible-block word rate: 58.03%;
+- locality-normalised repeated-block word rate: 99.94% (this is not a pairwise page-similarity score);
+- highest locality-normalised pairwise Jaccard similarity: 100.00%;
 - median suburb visible word count: 901;
 - median suburb HTML: approximately 247.5KB raw / 27.7KB gzip;
 - approved local jobs: 0;

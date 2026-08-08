@@ -17,7 +17,6 @@ import {
   locationEvidenceRecords,
   locationEvidenceServiceTypes,
   type ApprovedLocationEvidenceRecord,
-  type LocationEvidenceRecord,
 } from "../data/location-evidence";
 import { getEmergencyResponseForRegion } from "../data/site";
 
@@ -34,7 +33,7 @@ type Measurement = SuburbRoute & {
   blocks: string[];
   crawlDepth: number | null;
   ctaCount: number;
-  exactSharedPercent: number;
+  exactSharedVisibleBlockWordRatePercent: number;
   hasApprovedPhoto: boolean;
   hasApprovedReview: boolean;
   hasGenuinelyDifferentServiceInformation: boolean;
@@ -42,7 +41,7 @@ type Measurement = SuburbRoute & {
   hasQuoteCta: boolean;
   inboundInternalLinks: number;
   internalLinkCount: number;
-  localityNormalizedSharedPercent: number;
+  localityNormalizedRepeatedBlockWordRatePercent: number;
   mainHtml: string;
   mainText: string;
   normalizedBlocks: string[];
@@ -175,12 +174,6 @@ function suburbRoutes() {
 
 function evidenceKey(regionSlug: string, areaSlug: string, suburbSlug: string) {
   return `${regionSlug}/${areaSlug}/${suburbSlug}`;
-}
-
-function isApprovedEvidence(
-  record: LocationEvidenceRecord,
-): record is ApprovedLocationEvidenceRecord {
-  return record.approval.status === "approved";
 }
 
 function findIndexFiles(directory: string): string[] {
@@ -316,6 +309,39 @@ function overallSharedPercent(
   return totals.total ? (totals.shared / totals.total) * 100 : 0;
 }
 
+function highestPairwiseSimilarity(
+  pages: { normalizedBlocks: string[]; route: string }[],
+) {
+  const comparablePages = pages.map((page) => ({
+    blocks: new Set(
+      page.normalizedBlocks.filter((block) => countWords(block) >= 6),
+    ),
+    route: page.route,
+  }));
+  let highest = { left: "", right: "", similarity: 0 };
+
+  for (let leftIndex = 0; leftIndex < comparablePages.length; leftIndex += 1) {
+    const left = comparablePages[leftIndex];
+    for (
+      let rightIndex = leftIndex + 1;
+      rightIndex < comparablePages.length;
+      rightIndex += 1
+    ) {
+      const right = comparablePages[rightIndex];
+      const intersection = [...left.blocks].filter((block) =>
+        right.blocks.has(block),
+      ).length;
+      const union = new Set([...left.blocks, ...right.blocks]).size;
+      const similarity = union ? (intersection / union) * 100 : 0;
+      if (similarity > highest.similarity) {
+        highest = { left: left.route, right: right.route, similarity };
+      }
+    }
+  }
+
+  return highest;
+}
+
 function average(values: number[]) {
   return values.reduce((sum, value) => sum + value, 0) / values.length;
 }
@@ -375,6 +401,7 @@ const coverageByKey = new Map(
 );
 const approvedEvidence = new Map<string, ApprovedLocationEvidenceRecord>();
 const seenEvidenceKeys = new Set<string>();
+const seenPublicEvidenceIds = new Set<string>();
 const allowedServices = new Set<string>(locationEvidenceServiceTypes);
 
 for (const record of locationEvidenceRecords) {
@@ -393,19 +420,16 @@ for (const record of locationEvidenceRecords) {
   if (record.postcode !== coverage.suburb.postcode) {
     issues.push(`${key} postcode mismatch: ${record.postcode}`);
   }
-  if (!isApprovedEvidence(record)) {
-    issues.push(`${key} is ${record.approval.status}; draft intake must stay outside production source`);
-    continue;
-  }
-  if (!record.approval.approvedBy.trim()) {
-    issues.push(`${key} has no approval identity`);
-  }
   if (!/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/.test(record.approval.approvedOn)) {
     issues.push(`${key} has invalid approval date ${record.approval.approvedOn}`);
   }
-  if (!record.evidenceReference.trim()) {
-    issues.push(`${key} has no protected evidence reference`);
+  if (!/^le_[a-f0-9]{16,64}$/i.test(record.publicEvidenceId)) {
+    issues.push(`${key} has an invalid publicEvidenceId`);
   }
+  if (seenPublicEvidenceIds.has(record.publicEvidenceId)) {
+    issues.push(`${key} duplicates publicEvidenceId ${record.publicEvidenceId}`);
+  }
+  seenPublicEvidenceIds.add(record.publicEvidenceId);
   if (!record.realCompletedJobType.trim()) {
     issues.push(`${key} has no real completed job type`);
   }
@@ -428,10 +452,25 @@ for (const record of locationEvidenceRecords) {
     if (record.photograph.width <= 0 || record.photograph.height <= 0) {
       issues.push(`${key} photo needs positive intrinsic dimensions`);
     }
+    if (
+      !record.photograph.safeFilenameConfirmed ||
+      !record.photograph.exifAndGpsRemoved ||
+      !record.photograph.rightsAndConsentConfirmed ||
+      !record.photograph.customerAndPropertyPrivacyReviewConfirmed ||
+      !record.photograph.identifiablePeopleReviewConfirmed ||
+      !record.photograph.numberPlateReviewConfirmed ||
+      !record.photograph.addressAndDocumentReviewConfirmed ||
+      !record.photograph.publicUseApproved
+    ) {
+      issues.push(`${key} photo is missing a required privacy or public-use confirmation`);
+    }
   }
   if (record.review) {
     if (!record.review.excerpt.trim()) issues.push(`${key} review excerpt is empty`);
     if (!record.review.sourceLabel.trim()) issues.push(`${key} review source is empty`);
+    if (!record.review.publicUseApproved) {
+      issues.push(`${key} review lacks public-use approval`);
+    }
   }
   approvedEvidence.set(key, record);
 }
@@ -463,8 +502,11 @@ const normalizedOccurrences = occurrenceMap(
 
 const measurements: Measurement[] = initialPages.map((page) => {
   const internalLinks = extractInternalRoutes(page.mainHtml, linkGraph.knownRoutes);
-  const exactSharedPercent = pageSharedPercent(page.blocks, exactOccurrences);
-  const localityNormalizedSharedPercent = pageSharedPercent(
+  const exactSharedVisibleBlockWordRatePercent = pageSharedPercent(
+    page.blocks,
+    exactOccurrences,
+  );
+  const localityNormalizedRepeatedBlockWordRatePercent = pageSharedPercent(
     page.normalizedBlocks,
     normalizedOccurrences,
   );
@@ -533,7 +575,7 @@ const measurements: Measurement[] = initialPages.map((page) => {
     ...page,
     crawlDepth,
     ctaCount: (page.mainHtml.match(/data-conversion-action=/g) ?? []).length,
-    exactSharedPercent,
+    exactSharedVisibleBlockWordRatePercent,
     hasApprovedPhoto,
     hasApprovedReview,
     hasGenuinelyDifferentServiceInformation: Boolean(
@@ -543,7 +585,7 @@ const measurements: Measurement[] = initialPages.map((page) => {
     hasQuoteCta,
     inboundInternalLinks: linkGraph.inbound.get(page.route) ?? 0,
     internalLinkCount: internalLinks.size,
-    localityNormalizedSharedPercent,
+    localityNormalizedRepeatedBlockWordRatePercent,
     rawBytes: statSync(page.filePath).size,
     uniqueFactualBlocks,
     wordCount: countWords(page.mainText),
@@ -555,6 +597,7 @@ const normalizedShared = overallSharedPercent(
   initialPages.map((page) => ({ blocks: page.normalizedBlocks })),
   normalizedOccurrences,
 );
+const highestNormalizedPair = highestPairwiseSimilarity(initialPages);
 const pagesWithJobs = measurements.filter((page) => page.approvedEvidence);
 const pagesWithPhotos = measurements.filter((page) => page.hasApprovedPhoto);
 const pagesWithReviews = measurements.filter((page) => page.hasApprovedReview);
@@ -584,8 +627,9 @@ const reportLines = [
   "",
   `- Audited all **${measurements.length}** generated suburb pages from the static production export.`,
   "- Visible-copy calculations use semantic text inside `main#main-content`; JSON-LD, scripts, styles, SVG and global chrome are excluded.",
-  "- Exact shared text is the word-weighted share of visible blocks repeated verbatim on at least two suburb pages.",
-  "- Locality-normalised similarity replaces each page's suburb, postcode, area and region before applying the same word-weighted comparison.",
+  "- Exact shared visible-block word rate is the word-weighted share of visible blocks repeated verbatim on at least two suburb pages.",
+  "- Locality-normalised repeated-block word rate replaces each page's suburb, postcode, area and region, then applies the same repeated-block word calculation. It is not a conventional pairwise page-similarity score.",
+  "- Highest pairwise similarity is a separate Jaccard comparison of locality-normalised visible semantic blocks containing at least six words.",
   "- Internal-link depth is the shortest generated-link path from the homepage. It is not a Google crawl guarantee.",
   "- Genuine local evidence requires a typed, owner-approved record with documented public-use approval. Coverage data and the branded van are not counted as completed-job proof.",
   "",
@@ -600,8 +644,9 @@ const reportLines = [
   "",
   "## Genuine local usefulness",
   "",
-  `- Exact shared visible text: **${exactShared.toFixed(2)}%**.`,
-  `- Locality-normalised template similarity: **${normalizedShared.toFixed(2)}%**.`,
+  `- Exact shared visible-block word rate: **${exactShared.toFixed(2)}%**.`,
+  `- Locality-normalised repeated-block word rate: **${normalizedShared.toFixed(2)}%**.`,
+  `- Highest locality-normalised pairwise similarity: **${highestNormalizedPair.similarity.toFixed(2)}%** (${highestNormalizedPair.left} and ${highestNormalizedPair.right}).`,
   `- Pages with approved completed-job evidence: **${pagesWithJobs.length}**.`,
   `- Pages with owner-approved local photographs: **${pagesWithPhotos.length}**.`,
   `- Pages with verified testimonial excerpts: **${pagesWithReviews.length}**.`,
@@ -637,8 +682,8 @@ const csvRows = [
     "response_classification",
     "visible_word_count",
     "raw_html_bytes",
-    "exact_shared_text_percent",
-    "locality_normalised_similarity_percent",
+    "exact_shared_visible_block_word_rate_percent",
+    "locality_normalised_repeated_block_word_rate_percent",
     "unique_factual_blocks",
     "crawl_depth_from_home",
     "inbound_internal_links",
@@ -666,8 +711,8 @@ const csvRows = [
         : "selected outer-region 60-90-minute estimate",
       page.wordCount,
       page.rawBytes,
-      page.exactSharedPercent.toFixed(2),
-      page.localityNormalizedSharedPercent.toFixed(2),
+      page.exactSharedVisibleBlockWordRatePercent.toFixed(2),
+      page.localityNormalizedRepeatedBlockWordRatePercent.toFixed(2),
       page.uniqueFactualBlocks,
       page.crawlDepth,
       page.inboundInternalLinks,
@@ -697,8 +742,15 @@ writeFileSync(
 
 console.log("Location evidence quality audit");
 console.log(`Suburb routes: ${measurements.length}`);
-console.log(`Exact shared visible text: ${exactShared.toFixed(2)}%`);
-console.log(`Locality-normalised similarity: ${normalizedShared.toFixed(2)}%`);
+console.log(
+  `Exact shared visible-block word rate: ${exactShared.toFixed(2)}%`,
+);
+console.log(
+  `Locality-normalised repeated-block word rate: ${normalizedShared.toFixed(2)}%`,
+);
+console.log(
+  `Highest locality-normalised pairwise similarity: ${highestNormalizedPair.similarity.toFixed(2)}%`,
+);
 console.log(
   `Approved evidence: ${pagesWithJobs.length} jobs, ${pagesWithPhotos.length} photos, ${pagesWithReviews.length} testimonials`,
 );

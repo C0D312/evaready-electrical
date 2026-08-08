@@ -25,16 +25,23 @@ export type LocationEvidenceServiceType =
   (typeof locationEvidenceServiceTypes)[number];
 
 type LocationEvidencePhoto = {
+  addressAndDocumentReviewConfirmed: true;
   alt: string;
+  customerAndPropertyPrivacyReviewConfirmed: true;
+  exifAndGpsRemoved: true;
   height: number;
-  ownerApprovalConfirmed: true;
-  src: `/images/${string}`;
+  identifiablePeopleReviewConfirmed: true;
+  numberPlateReviewConfirmed: true;
+  publicUseApproved: true;
+  rightsAndConsentConfirmed: true;
+  safeFilenameConfirmed: true;
+  src: `/images/location-evidence/${string}`;
   width: number;
 };
 
 type LocationEvidenceReview = {
   excerpt: string;
-  ownerApprovalConfirmed: true;
+  publicUseApproved: true;
   sourceLabel: string;
   sourceUrl: `https://${string}`;
 };
@@ -42,9 +49,9 @@ type LocationEvidenceReview = {
 type LocationEvidenceBase = {
   areaSlug: string;
   completedMonth: `${number}-${number}`;
-  evidenceReference: string;
   photograph?: LocationEvidencePhoto;
   postcode: string;
+  publicEvidenceId: `le_${string}`;
   realCompletedJobType: string;
   regionSlug: string;
   review?: LocationEvidenceReview;
@@ -56,26 +63,16 @@ type LocationEvidenceBase = {
 
 export type ApprovedLocationEvidenceRecord = LocationEvidenceBase & {
   approval: {
-    approvedBy: string;
     approvedOn: `${number}-${number}-${number}`;
     publicUseConfirmed: true;
     status: "approved";
   };
 };
 
-type UnpublishedLocationEvidenceRecord = LocationEvidenceBase & {
-  approval: {
-    status: "draft" | "rejected";
-  };
-};
-
-export type LocationEvidenceRecord =
-  | ApprovedLocationEvidenceRecord
-  | UnpublishedLocationEvidenceRecord;
-
 // Keep this registry empty until provenance and public-use approval are recorded.
-// Draft intake belongs in the owner template, not in production source.
-export const locationEvidenceRecords: readonly LocationEvidenceRecord[] = [];
+// Draft intake and private evidence belong in the owner's private ledger, not Git.
+export const locationEvidenceRecords: readonly ApprovedLocationEvidenceRecord[] =
+  [];
 
 export function getApprovedLocationEvidence(
   regionSlug: string,
@@ -83,8 +80,7 @@ export function getApprovedLocationEvidence(
   suburbSlug: string,
 ) {
   return locationEvidenceRecords.find(
-    (record): record is ApprovedLocationEvidenceRecord =>
-      record.approval.status === "approved" &&
+    (record) =>
       record.approval.publicUseConfirmed &&
       record.regionSlug === regionSlug &&
       record.areaSlug === areaSlug &&

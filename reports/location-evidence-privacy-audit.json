@@ -1,0 +1,15 @@
+{
+  "audit": "location-evidence-public-repository-privacy",
+  "approvedEvidenceRecords": 0,
+  "approvedGlobalBusinessDetailsExcludedFromPiiFindings": true,
+  "generatedAt": "2026-08-08T20:25:05.887Z",
+  "issues": [],
+  "referencedEvidenceAssets": 0,
+  "result": "PASS",
+  "scope": [
+    "data/location-evidence.ts records",
+    "only assets referenced by approved location-evidence records",
+    "blank location indexation owner-review CSV"
+  ],
+  "ownerReviewRowsAudited": 873
+}

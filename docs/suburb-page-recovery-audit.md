@@ -4,20 +4,21 @@
 
 - Analysed 873 rendered suburb pages from the static production export.
 - Text measurements use visible semantic blocks inside `main#main-content` only; scripts, JSON-LD, styles, SVG and non-main content are excluded.
-- Exact sharing compares literal visible blocks. Locality-normalised sharing replaces the current suburb, postcode, area and region before comparison.
+- Exact shared visible-block word rate is the word-weighted share of literal visible blocks repeated on at least two pages. Locality-normalised repeated-block word rate replaces the current suburb, postcode, area and region before applying the same calculation.
+- Highest pairwise similarity is a separate Jaccard comparison of locality-normalised visible semantic blocks containing at least six words.
 - A unique factual block is a literal block occurring on one suburb page that contains a suburb, postcode, area or region value from the approved coverage dataset.
-- Owner-specific local evidence means a provenance-backed job, project, review, photo or team/location record. The suburb dataset currently stores only name, postcode and slug, so service-area facts must not be described as job proof.
+- Owner-specific local evidence means a provenance-backed, public-use-approved job, review or photograph rendered from the typed evidence registry. Coverage facts must not be described as job proof.
 
 ## Visible-main findings
 
-- Exact shared-text percentage: **67.85%**.
-- Locality-normalised shared-text percentage: **99.95%**.
+- Exact shared visible-block word rate: **58.03%**.
+- Locality-normalised repeated-block word rate: **99.94%**.
 - Highest locality-normalised pair similarity: **100.00%** (/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/birrong/ and /service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/campsie/).
 - Unique factual blocks per suburb, average / median / range: **19.0 / 19.0 / 19-20**.
 - Pages with owner-specific local evidence fields: **0**.
 - Pages without owner-specific local evidence fields: **873**.
 
-The pages provide verified coverage hierarchy, postcode, response classification and nearby-page navigation. They do not claim local jobs, offices, reviews or travel times. Locality-normalised similarity remains a transparent template-risk signal; useful shared safety and service information is not presented as unique local proof.
+The pages provide verified coverage hierarchy, postcode, response classification and nearby-page navigation. They do not claim local jobs, offices, reviews or travel times. The locality-normalised repeated-block word rate remains a transparent template-risk signal; useful shared safety and service information is not presented as unique local proof.
 
 ## Recovered user value
 

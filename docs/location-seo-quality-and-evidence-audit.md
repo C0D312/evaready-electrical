@@ -6,8 +6,9 @@ Generated: 2026-08-07T20:22:11.711Z
 
 - Audited all **873** generated suburb pages from the static production export.
 - Visible-copy calculations use semantic text inside `main#main-content`; JSON-LD, scripts, styles, SVG and global chrome are excluded.
-- Exact shared text is the word-weighted share of visible blocks repeated verbatim on at least two suburb pages.
-- Locality-normalised similarity replaces each page's suburb, postcode, area and region before applying the same word-weighted comparison.
+- Exact shared visible-block word rate is the word-weighted share of visible blocks repeated verbatim on at least two suburb pages.
+- Locality-normalised repeated-block word rate replaces each page's suburb, postcode, area and region, then applies the same repeated-block word calculation. It is not a conventional pairwise page-similarity score.
+- Highest pairwise similarity is a separate Jaccard comparison of locality-normalised visible semantic blocks containing at least six words.
 - Internal-link depth is the shortest generated-link path from the homepage. It is not a Google crawl guarantee.
 - Genuine local evidence requires a typed, owner-approved record with documented public-use approval. Coverage data and the branded van are not counted as completed-job proof.
 
@@ -22,8 +23,9 @@ Generated: 2026-08-07T20:22:11.711Z
 
 ## Genuine local usefulness
 
-- Exact shared visible text: **58.03%**.
-- Locality-normalised template similarity: **99.94%**.
+- Exact shared visible-block word rate: **58.03%**.
+- Locality-normalised repeated-block word rate: **99.94%**.
+- Highest locality-normalised pairwise similarity: **100.00%** (/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/birrong/ and /service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/campsie/).
 - Pages with approved completed-job evidence: **0**.
 - Pages with owner-approved local photographs: **0**.
 - Pages with verified testimonial excerpts: **0**.

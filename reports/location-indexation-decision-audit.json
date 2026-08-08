@@ -1,0 +1,27 @@
+{
+  "audit": "location-indexation-decisions",
+  "baselineStartingSha": "8c3526ade3f1f50aa8673a3fbcbf7f872860408d",
+  "currentCounts": {
+    "approvedEvidenceRecords": 0,
+    "callPaths": 873,
+    "indexFollow": 873,
+    "noindex": 0,
+    "quotePaths": 873,
+    "redirects": 0,
+    "selfCanonicals": 873,
+    "sitemapSuburbs": 873,
+    "suburbRoutes": 873
+  },
+  "decisionCounts": {
+    "index-ready": 0,
+    "hold-noindex-candidate": 0,
+    "consolidation-review": 0,
+    "unreviewed": 873
+  },
+  "generatedAt": "2026-08-08T20:24:43.539Z",
+  "indexationBehaviorChanged": false,
+  "issues": [],
+  "launchGate": "BLOCKED — OWNER INDEXATION DECISIONS MISSING",
+  "registryEntries": 0,
+  "result": "PASS"
+}
