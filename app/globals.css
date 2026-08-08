@@ -12608,6 +12608,40 @@ html body main .quote-modal-backdrop .quote-modal-panel .quote-modal-action-bar 
   }
 }
 
+/* Keep single-column internal heroes inside their gutters before the desktop
+   two-column layout begins. Implicit grid tracks otherwise expand to min-content. */
+@media (max-width: 1023px) {
+  body.ev-storm-page main#main-content > .brand-internal-hero > :is(
+    .grid,
+    [class*="heroInner"]
+  ) {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  body.ev-storm-page main#main-content > .brand-internal-hero > :is(
+    .grid,
+    [class*="heroInner"]
+  ) > :is(div, aside),
+  body.ev-storm-page main#main-content > .brand-internal-hero :is(
+    .internal-hero-copy-panel,
+    [class*="heroCopyPanel"],
+    [class*="heroPanel"]
+  ) {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  body.ev-storm-page main#main-content > .brand-internal-hero :is(
+    .internal-hero-copy-panel,
+    [class*="heroCopyPanel"]
+  ) :is(h1, p, .service-credential-strip) {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+}
+
 @media (min-width: 430px) {
   :root {
     --ev-final-header-art-height: 120px;
