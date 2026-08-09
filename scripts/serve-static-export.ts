@@ -9,6 +9,7 @@ const deployment = resolveDeploymentConfig();
 const basePath = deployment.basePath.replace(/\/$/, "");
 const host = process.env.STATIC_EXPORT_HOST ?? "127.0.0.1";
 const port = Number(process.env.STATIC_EXPORT_PORT ?? "4176");
+const requireBasePath = process.env.STATIC_EXPORT_REQUIRE_BASE_PATH === "1";
 
 const textExtensions = new Set([
   ".css",
@@ -42,6 +43,14 @@ function resolveOutputPath(requestUrl: string) {
   const pathname = decodeURIComponent(
     new URL(requestUrl, `http://${host}:${port}`).pathname,
   );
+  if (
+    requireBasePath &&
+    basePath &&
+    pathname !== basePath &&
+    !pathname.startsWith(`${basePath}/`)
+  ) {
+    return null;
+  }
   const applicationPath =
     basePath &&
     (pathname === basePath || pathname.startsWith(`${basePath}/`))

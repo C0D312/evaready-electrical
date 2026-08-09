@@ -2,6 +2,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { coverageRegions } from "../data/service-area-coverage";
 import { absoluteUrl } from "../data/site";
+import { parseRobotsDirectives } from "./lib/location-indexation-audit";
 
 const outputRoot = path.join(process.cwd(), "out");
 const outputPath = path.join(
@@ -66,12 +67,9 @@ const rows = coverageRegions
         const robotsTag =
           html.match(/<meta\b(?=[^>]*\bname=["']robots["'])[^>]*>/i)?.[0] ??
           "";
-        const robots = extractAttribute(robotsTag, "content").toLowerCase();
-        const currentIndexStatus = robots.includes("noindex")
-          ? "noindex, follow"
-          : robots.includes("index") && robots.includes("follow")
-            ? "index, follow"
-            : "unknown";
+        const currentIndexStatus = parseRobotsDirectives(
+          extractAttribute(robotsTag, "content"),
+        ).status;
         const currentSitemapStatus = sitemap.includes(
           `<loc>${absoluteUrl(route)}</loc>`,
         )
@@ -118,3 +116,6 @@ console.log("Location indexation owner-review CSV");
 console.log(`Rows: ${rows.length}`);
 console.log(`Owner-controlled cells populated: 0`);
 console.log(`Output: ${outputPath}`);
+console.log(
+  "Copy this blank template to an owner-controlled private system. Never complete or commit the tracked GitHub copy.",
+);

@@ -6,6 +6,8 @@ Treat every tracked file, commit, report, CSV, image, filename and Git object as
 
 > **Completed forms and private evidence must never be committed to the public repository.**
 
+> **Copy this blank template to an owner-controlled private system. Never complete or commit the tracked GitHub copy.**
+
 Private evidence belongs in an owner-controlled ledger outside GitHub. That ledger may hold original job references, invoices, property addresses, approval identities, consent forms, source photographs and completed intake records.
 
 ## Public evidence record
@@ -36,8 +38,11 @@ Do not commit:
 - Private approval identities or signatures.
 - Consent forms or completed intake forms.
 - Raw exports from Search Console, Google Ads, ServiceM8 or accounting systems containing personal or account data.
+- Aggregated Search Console, Google Ads, ServiceM8, revenue, job or commercial review data used for private prioritisation.
 
-The approved Evaready public business phone and business details are not personal evidence. The privacy audit avoids false positives by examining only location-evidence records and their referenced assets.
+The approved Evaready public business phone and business details are not personal evidence. The privacy audit avoids false positives by limiting configured PII checks to location-evidence records, the approved evidence directory and the tracked blank owner-review CSV.
+
+A later indexation implementation may receive only an owner-approved manifest containing route, decision and decision date. Separately sanitised public evidence may be supplied only through the approved evidence process.
 
 ## Photograph requirements
 
@@ -61,9 +66,13 @@ Do not infer that a stock, generated, promotional or branded-van image is eviden
 Run `npm run audit:location-privacy` after the production build. The audit is intentionally scoped to:
 
 - Typed records in `data/location-evidence.ts`.
-- Only image assets referenced by those records.
+- Every image referenced by those records.
+- Every physical file under `public/images/location-evidence/`, including orphan and unreferenced files.
+- The tracked blank owner-review CSV.
 
-It checks forbidden private-field keys, obvious email/phone/address and identifier patterns, access/security patterns, opaque IDs, safe filenames, required approval booleans and common EXIF/GPS markers. Automated detection cannot replace owner review of faces, plates, properties, documents, consent or contextual re-identification.
+It checks forbidden private-field keys, configured email/phone/address and identifier patterns, access/security patterns, opaque IDs, safe filenames, path containment, symlinks, decoded image formats, MIME types, declared dimensions and EXIF, XMP, IPTC, GPS and embedded comment/text metadata through the pinned `sharp` decoder.
+
+When the evidence registry and directory are empty, the correct scoped result is: `No configured PII patterns or evidence assets exist in the current empty scoped dataset.` This is not proof that the repository or Git history contains no PII. Automated checks do not perform OCR, facial recognition or complete contextual identification. Human review remains required for faces, number plates, addresses, documents, labels, properties, consent and contextual re-identification.
 
 ## Exposure response
 

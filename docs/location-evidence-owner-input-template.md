@@ -2,6 +2,8 @@
 
 > **Completed forms and private evidence must never be committed to the public repository.**
 
+> **Copy this blank template to an owner-controlled private system. Never complete or commit the tracked GitHub copy.**
+
 Use this blank template only as a guide for an owner-controlled private evidence ledger. Supplying information does not approve publication. A developer may add a sanitised public record only after every privacy, provenance and public-use check is complete.
 
 Do not place a completed copy of this form in GitHub, project documentation, reports, issue comments or commit messages.

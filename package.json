@@ -20,6 +20,8 @@
     "audit:location-evidence": "tsx scripts/audit-location-evidence-quality.ts",
     "audit:location-indexation": "tsx scripts/audit-location-indexation-decisions.ts",
     "audit:location-privacy": "tsx scripts/audit-location-evidence-privacy.ts",
+    "test:location-audits": "tsx --test tests/audits/location-indexation-audit.test.ts tests/audits/location-evidence-privacy-audit.test.ts tests/audits/preview-url.test.ts",
+    "report:location-indexation-playwright": "tsx scripts/summarize-location-indexation-playwright.ts",
     "generate:location-owner-review": "tsx scripts/generate-location-indexation-owner-review.ts",
     "audit:performance": "tsx scripts/audit-performance-assets.ts",
     "audit:lighthouse": "tsx scripts/benchmark-production-performance.ts",
@@ -46,6 +48,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.0",
+    "sharp": "0.35.3",
     "tailwindcss": "^4",
     "tsx": "^4.22.4",
     "typescript": "^5"

@@ -1,17 +1,14 @@
+import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
-import {
-  coverageRegions,
-  coverageSearchItems,
-} from "../data/service-area-coverage";
-import {
-  getLocationIndexationDecision,
-  locationIndexationDecisionRegistry,
-  locationIndexationDecisionStatuses,
-  type LocationIndexationDecisionStatus,
-} from "../data/location-indexation-decisions";
+import { coverageRegions, coverageSearchItems } from "../data/service-area-coverage";
 import { locationEvidenceRecords } from "../data/location-evidence";
+import { locationIndexationDecisionRegistry } from "../data/location-indexation-decisions";
 import { absoluteUrl } from "../data/site";
+import {
+  auditLocationIndexation,
+  type MeasuredLocationRoute,
+} from "./lib/location-indexation-audit";
 
 const expectedSuburbCount = 873;
 const outputRoot = path.join(process.cwd(), "out");
@@ -21,94 +18,69 @@ const reportPath = path.join(
   "location-indexation-decision-audit.json",
 );
 
-type RouteAudit = {
-  callPath: boolean;
-  canonical: string;
-  decision: LocationIndexationDecisionStatus;
-  indexStatus: "index, follow" | "noindex" | "unknown";
-  inSitemap: boolean;
-  quotePath: boolean;
-  redirect: boolean;
-  route: string;
-  selfCanonical: boolean;
-};
-
 function htmlFileForRoute(route: string) {
-  return path.join(
-    outputRoot,
-    ...route.split("/").filter(Boolean),
-    "index.html",
-  );
+  return path.join(outputRoot, ...route.split("/").filter(Boolean), "index.html");
 }
 
 function extractAttribute(tag: string, attribute: string) {
-  return (
-    tag.match(new RegExp(`${attribute}=["']([^"']*)["']`, "i"))?.[1] ?? ""
-  );
+  return tag.match(new RegExp(`${attribute}=["']([^"']*)["']`, "i"))?.[1] ?? "";
 }
 
 function extractTag(html: string, pattern: RegExp) {
   return html.match(pattern)?.[0] ?? "";
 }
 
-const issues: string[] = [];
+function gitValue(args: string[]) {
+  try {
+    return execFileSync("git", args, {
+      cwd: process.cwd(),
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"],
+    }).trim();
+  } catch {
+    return "unavailable";
+  }
+}
 
 if (!existsSync(outputRoot)) {
   throw new Error("Missing static export. Run the production build first.");
 }
 
+const sourceIssues: string[] = [];
 const sitemapPath = path.join(outputRoot, "sitemap.xml");
 const robotsPath = path.join(outputRoot, "robots.txt");
-if (!existsSync(sitemapPath)) issues.push("Missing out/sitemap.xml");
-if (!existsSync(robotsPath)) issues.push("Missing out/robots.txt");
+if (!existsSync(sitemapPath)) sourceIssues.push("Missing out/sitemap.xml");
+if (!existsSync(robotsPath)) sourceIssues.push("Missing out/robots.txt");
 
-const sitemap = existsSync(sitemapPath)
-  ? readFileSync(sitemapPath, "utf8")
-  : "";
-const robotsText = existsSync(robotsPath)
-  ? readFileSync(robotsPath, "utf8")
-  : "";
-
+const sitemap = existsSync(sitemapPath) ? readFileSync(sitemapPath, "utf8") : "";
+const sitemapLocations = new Set(
+  [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/gi)].map((match) => match[1].trim()),
+);
+const robotsText = existsSync(robotsPath) ? readFileSync(robotsPath, "utf8") : "";
 if (!/^User-Agent:\s*\*/im.test(robotsText)) {
-  issues.push("robots.txt does not contain the wildcard user agent");
+  sourceIssues.push("robots.txt does not contain the wildcard user agent");
 }
 if (!/^Allow:\s*\//im.test(robotsText)) {
-  issues.push("robots.txt does not allow crawling");
+  sourceIssues.push("robots.txt does not allow crawling");
 }
-
-const knownRoutes = new Set(coverageSearchItems.map((item) => `${item.href}/`));
-const seenDecisionRoutes = new Set<string>();
-
-for (const record of locationIndexationDecisionRegistry) {
-  if (!knownRoutes.has(record.route)) {
-    issues.push(`Decision registry contains an unknown route: ${record.route}`);
-  }
-  if (seenDecisionRoutes.has(record.route)) {
-    issues.push(`Decision registry contains a duplicate route: ${record.route}`);
-  }
-  seenDecisionRoutes.add(record.route);
-  if (!/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/.test(record.decisionDate)) {
-    issues.push(
-      `Decision registry contains an invalid date for ${record.route}: ${record.decisionDate}`,
-    );
-  }
+if (coverageRegions.length !== 16) {
+  sourceIssues.push(`Expected 16 regions; found ${coverageRegions.length}`);
 }
-
-const routeAudits: RouteAudit[] = coverageSearchItems.map((item) => {
-  const route = `${item.href}/` as `/service-areas/${string}/`;
+const knownRoutes = coverageSearchItems.map((item) => `${item.href}/`);
+const measuredRoutes: MeasuredLocationRoute[] = knownRoutes.map((route) => {
   const filePath = htmlFileForRoute(route);
+  const expectedCanonical = absoluteUrl(route);
   if (!existsSync(filePath)) {
-    issues.push(`Missing generated suburb page: ${route}`);
     return {
+      accessible: false,
       callPath: false,
       canonical: "",
-      decision: getLocationIndexationDecision(route),
-      indexStatus: "unknown",
+      expectedCanonical,
       inSitemap: false,
       quotePath: false,
       redirect: false,
+      robotsContent: "",
       route,
-      selfCanonical: false,
     };
   }
 
@@ -117,143 +89,84 @@ const routeAudits: RouteAudit[] = coverageSearchItems.map((item) => {
     html,
     /<meta\b(?=[^>]*\bname=["']robots["'])[^>]*>/i,
   );
-  const robotsContent = extractAttribute(robotsTag, "content").toLowerCase();
-  const indexStatus = robotsContent.includes("noindex")
-    ? "noindex"
-    : robotsContent.includes("index") && robotsContent.includes("follow")
-      ? "index, follow"
-      : "unknown";
   const canonicalTag = extractTag(
     html,
     /<link\b(?=[^>]*\brel=["']canonical["'])[^>]*>/i,
   );
-  const canonical = extractAttribute(canonicalTag, "href");
-  const expectedCanonical = absoluteUrl(route);
-  const inSitemap = sitemap.includes(`<loc>${expectedCanonical}</loc>`);
-  const callPath = html.includes('data-conversion-action="phone-click"');
-  const quotePath = html.includes('data-conversion-action="quote-click"');
-  const redirect = /<meta\b(?=[^>]*http-equiv=["']refresh["'])/i.test(html);
-
-  if (indexStatus === "unknown") {
-    issues.push(`${route} has no explicit index/follow or noindex directive`);
-  }
-  if (canonical !== expectedCanonical) {
-    issues.push(`${route} canonical mismatch: ${canonical || "missing"}`);
-  }
-  if (!inSitemap) issues.push(`${route} is absent from the current sitemap`);
-  if (!callPath || !quotePath) {
-    issues.push(`${route} is missing its Call or Quote conversion pathway`);
-  }
-  if (redirect) issues.push(`${route} unexpectedly contains a redirect`);
-
   return {
-    callPath,
-    canonical,
-    decision: getLocationIndexationDecision(route),
-    indexStatus,
-    inSitemap,
-    quotePath,
-    redirect,
+    accessible: true,
+    callPath: html.includes('data-conversion-action="phone-click"'),
+    canonical: extractAttribute(canonicalTag, "href"),
+    expectedCanonical,
+    inSitemap: sitemapLocations.has(expectedCanonical),
+    quotePath: html.includes('data-conversion-action="quote-click"'),
+    redirect: /<meta\b(?=[^>]*http-equiv=["']refresh["'])/i.test(html),
+    robotsContent: extractAttribute(robotsTag, "content"),
     route,
-    selfCanonical: canonical === expectedCanonical,
   };
 });
 
-const decisionCounts = Object.fromEntries(
-  locationIndexationDecisionStatuses.map((status) => [
-    status,
-    routeAudits.filter((page) => page.decision === status).length,
-  ]),
-) as Record<LocationIndexationDecisionStatus, number>;
+const audit = auditLocationIndexation({
+  decisions: locationIndexationDecisionRegistry,
+  expectedRouteCount: expectedSuburbCount,
+  knownRoutes,
+  measuredRoutes,
+  mode: "baseline",
+});
+audit.issues.unshift(...sourceIssues);
+if (sourceIssues.length) audit.technicalBaselineResult = "FAIL";
 
-const currentCounts = {
-  approvedEvidenceRecords: locationEvidenceRecords.length,
-  callPaths: routeAudits.filter((page) => page.callPath).length,
-  indexFollow: routeAudits.filter((page) => page.indexStatus === "index, follow")
-    .length,
-  noindex: routeAudits.filter((page) => page.indexStatus === "noindex").length,
-  quotePaths: routeAudits.filter((page) => page.quotePath).length,
-  redirects: routeAudits.filter((page) => page.redirect).length,
-  selfCanonicals: routeAudits.filter((page) => page.selfCanonical).length,
-  sitemapSuburbs: routeAudits.filter((page) => page.inSitemap).length,
-  suburbRoutes: routeAudits.length,
-};
-
-const expectedUnchangedCounts = {
-  approvedEvidenceRecords: 0,
-  callPaths: expectedSuburbCount,
-  indexFollow: expectedSuburbCount,
-  noindex: 0,
-  quotePaths: expectedSuburbCount,
-  redirects: 0,
-  selfCanonicals: expectedSuburbCount,
-  sitemapSuburbs: expectedSuburbCount,
-  suburbRoutes: expectedSuburbCount,
-};
-
-for (const [name, expected] of Object.entries(expectedUnchangedCounts)) {
-  const actual = currentCounts[name as keyof typeof currentCounts];
-  if (actual !== expected) {
-    issues.push(`Expected unchanged ${name}=${expected}; found ${actual}`);
-  }
-}
-
-if (coverageRegions.length !== 16) {
-  issues.push(`Expected 16 regions; found ${coverageRegions.length}`);
-}
-if (locationIndexationDecisionRegistry.length !== 0) {
-  issues.push(
-    "The owner decision registry must remain empty until an explicit route list is supplied",
-  );
-}
-if (decisionCounts.unreviewed !== expectedSuburbCount) {
-  issues.push(
-    `Expected ${expectedSuburbCount} unreviewed decisions; found ${decisionCounts.unreviewed}`,
-  );
-}
-
-const launchGate =
-  decisionCounts.unreviewed === expectedSuburbCount
-    ? "BLOCKED — OWNER INDEXATION DECISIONS MISSING"
-    : "OWNER DECISIONS PARTIALLY RECORDED — REVIEW REQUIRED";
-
+const packageJson = JSON.parse(
+  readFileSync(path.join(process.cwd(), "package.json"), "utf8"),
+) as { dependencies?: Record<string, string> };
 const report = {
   audit: "location-indexation-decisions",
-  baselineStartingSha: "8c3526ade3f1f50aa8673a3fbcbf7f872860408d",
-  currentCounts,
-  decisionCounts,
+  auditMode: audit.mode,
+  approvedEvidenceRecords: locationEvidenceRecords.length,
+  currentCounts: audit.currentCounts,
+  decisionCounts: audit.decisionCounts,
   generatedAt: new Date().toISOString(),
-  indexationBehaviorChanged: false,
-  issues,
-  launchGate,
+  indexationBehaviorChanged: audit.indexationBehaviorChanged,
+  issues: audit.issues,
+  launchDecisionGate: audit.launchDecisionGate,
+  measuredSourceIdentity: {
+    branch: gitValue(["branch", "--show-current"]),
+    gitCommit: gitValue(["rev-parse", "HEAD"]),
+    next: packageJson.dependencies?.next ?? "unknown",
+    node: process.version,
+    outputRoot: path.relative(process.cwd(), outputRoot) || ".",
+  },
+  overallLaunchReadiness: audit.overallLaunchReadiness,
   registryEntries: locationIndexationDecisionRegistry.length,
-  result: issues.length ? "FAIL" : "PASS",
+  technicalAppliedDecisionResult: audit.technicalAppliedDecisionResult,
+  technicalBaselineResult: audit.technicalBaselineResult,
 };
 
 mkdirSync(path.dirname(reportPath), { recursive: true });
 writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
 
-console.log("Location indexation decision audit");
-console.log(`Suburb routes: ${currentCounts.suburbRoutes}`);
+console.log("Location indexation decision audit (baseline mode)");
+console.log(`Suburb routes: ${audit.currentCounts.suburbRoutes}`);
 console.log(
-  `Index/follow: ${currentCounts.indexFollow}; noindex: ${currentCounts.noindex}; sitemap: ${currentCounts.sitemapSuburbs}`,
+  `Index/follow: ${audit.currentCounts.indexFollow}; noindex: ${audit.currentCounts.noindex}; sitemap: ${audit.currentCounts.sitemapSuburbs}`,
 );
 console.log(
-  `Self-canonicals: ${currentCounts.selfCanonicals}; redirects: ${currentCounts.redirects}`,
+  `Self-canonicals: ${audit.currentCounts.selfCanonicals}; redirects: ${audit.currentCounts.redirects}`,
 );
-console.log(`Decisions: ${JSON.stringify(decisionCounts)}`);
-console.log(`Launch gate: ${launchGate}`);
+console.log(`Indexation behavior changed: ${audit.indexationBehaviorChanged}`);
+console.log(`Technical baseline: ${audit.technicalBaselineResult}`);
+console.log(`Overall launch readiness: ${audit.overallLaunchReadiness}`);
 console.log(`Report: ${reportPath}`);
 
-if (issues.length) {
-  console.error(`FAIL: ${issues.length} issue(s)`);
-  issues.slice(0, 30).forEach((issue) => console.error(`- ${issue}`));
-  if (issues.length > 30) {
-    console.error(`- ...and ${issues.length - 30} more`);
+if (audit.issues.length) {
+  console.error(`FAIL: ${audit.issues.length} technical issue(s)`);
+  audit.issues.slice(0, 40).forEach((issue) => console.error(`- ${issue}`));
+  if (audit.issues.length > 40) {
+    console.error(`- ...and ${audit.issues.length - 40} more`);
   }
   process.exitCode = 1;
 } else {
   console.log(
-    "PASS: the empty decision registry leaves every suburb route and SEO control unchanged.",
+    "PASS: technical baseline is unchanged; the separate owner decision launch gate remains blocked.",
   );
 }

@@ -51,7 +51,9 @@ Default status until the owner makes an explicit route-level decision. No techni
 
 ## Required owner inputs
 
-Use the blank `reports/location-indexation-owner-review.csv`. Genuine prioritisation requires owner-supplied, sanitised aggregate data:
+> **Copy this blank template to an owner-controlled private system. Never complete or commit the tracked GitHub copy.**
+
+Use `reports/location-indexation-owner-review.csv` only as a blank structure for a private owner review. Genuine prioritisation requires owner-supplied information such as:
 
 - Serviceability confirmation and response capability.
 - Approved completed-job, photograph and testimonial counts.
@@ -62,16 +64,18 @@ Use the blank `reports/location-indexation-owner-review.csv`. Genuine prioritisa
 - Legitimate backlinks and referrals.
 - Explicit owner decision and date.
 
-No external account was accessed to create this dataset, and no owner-controlled field was guessed or pre-populated.
+No external account was accessed to create this dataset, and no owner-controlled field was guessed or pre-populated. Raw or aggregated Search Console, Google Ads, ServiceM8, revenue, job or commercial data must remain outside GitHub.
+
+A later implementation may receive only an explicitly approved decision manifest containing `route`, `decision` and `decision date`. Separately sanitised public evidence may be supplied only through the approved location-evidence process.
 
 ## Decision process
 
 1. Keep raw source exports and private evidence in an owner-controlled system outside GitHub.
-2. Aggregate and sanitise route-level values before using the CSV.
+2. Complete the copied CSV only inside that private system.
 3. Review usefulness, serviceability, evidence, search intent, qualified leads and legitimate authority together.
-4. Record one explicit decision per route and a decision date.
+4. Record one explicit decision per route and a decision date privately.
 5. Review candidate changes for backlinks, internal links, canonical destination and redirect consequences.
-6. Supply an explicit approved route list for a separate implementation task.
+6. Supply only an explicit approved route, decision and decision-date manifest for a separate implementation task.
 7. Rebuild and verify metadata, sitemap, canonicals, robots, routes, Call/Quote paths and rollback mapping before any publication.
 
 ## Blank scoring framework
