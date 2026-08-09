@@ -16,11 +16,24 @@ type RouteDefinition = {
 };
 
 type NetworkRequest = {
+  entity?: string;
   mimeType?: string;
+  priority?: string;
   resourceSize?: number;
   resourceType?: string;
+  statusCode?: number;
   transferSize?: number;
   url?: string;
+};
+
+type RequestFailure = {
+  classification: "first-party" | "third-party" | "embedded" | "unknown";
+  description: string;
+  initiator: string;
+  resourceType: string;
+  source: "console" | "network";
+  statusCode: number | null;
+  url: string;
 };
 
 type LighthouseAudit = {
@@ -35,7 +48,12 @@ type LighthouseAudit = {
 type LighthouseResult = {
   audits: Record<string, LighthouseAudit>;
   categories: Record<string, { score: number | null }>;
+  environment?: {
+    hostUserAgent?: string;
+    networkUserAgent?: string;
+  };
   finalDisplayedUrl?: string;
+  finalUrl?: string;
   lighthouseVersion: string;
 };
 
@@ -71,6 +89,19 @@ type RunMetrics = {
   consoleErrorScore: number | null;
   lcpElement: string;
   lcpResourceUrl: string;
+  ttfbMs: number;
+  resourceLoadDelayMs: number;
+  resourceLoadDurationMs: number;
+  elementRenderDelayMs: number;
+  observedLcpMs: number;
+  observedTtfbMs: number;
+  observedResourceLoadDelayMs: number;
+  observedResourceLoadDurationMs: number;
+  observedElementRenderDelayMs: number;
+  firstPartyFailureCount: number;
+  thirdPartyFailureCount: number;
+  consoleErrorCount: number;
+  failures: RequestFailure[];
   cliExitCode: number;
   cliCleanupWarning: boolean;
 };
@@ -244,6 +275,25 @@ function findNodeLabel(value: unknown): string {
   return "";
 }
 
+function findNodeSnippet(value: unknown): string {
+  if (Array.isArray(value)) {
+    for (const item of value) {
+      const snippet = findNodeSnippet(item);
+      if (snippet) return snippet;
+    }
+    return "";
+  }
+  if (!isRecord(value)) return "";
+  if (value.type === "node" && typeof value.snippet === "string") {
+    return value.snippet;
+  }
+  for (const item of Object.values(value)) {
+    const snippet = findNodeSnippet(item);
+    if (snippet) return snippet;
+  }
+  return "";
+}
+
 function networkRequests(result: LighthouseResult) {
   const items = result.audits["network-requests"]?.details?.items ?? [];
   return items.filter(isRecord).map((item) => item as NetworkRequest);
@@ -259,6 +309,117 @@ function sumBy(
       predicate(request) ? total + numberOrZero(request[key]) : total,
     0,
   );
+}
+
+function auditItems(result: LighthouseResult, auditName: string) {
+  return (result.audits[auditName]?.details?.items ?? []).filter(isRecord);
+}
+
+function metricItem(result: LighthouseResult) {
+  return auditItems(result, "metrics")[0] ?? {};
+}
+
+function observedLcpBreakdown(result: LighthouseResult) {
+  const breakdown = auditItems(result, "lcp-breakdown-insight").find(
+    (item) => item.type === "table" && Array.isArray(item.items),
+  );
+  const values = new Map<string, number>();
+  if (breakdown && Array.isArray(breakdown.items)) {
+    for (const item of breakdown.items) {
+      if (!isRecord(item) || typeof item.subpart !== "string") continue;
+      values.set(item.subpart, numberOrZero(item.duration));
+    }
+  }
+  return {
+    ttfbMs: values.get("timeToFirstByte") ?? 0,
+    resourceLoadDelayMs: values.get("resourceLoadDelay") ?? 0,
+    resourceLoadDurationMs: values.get("resourceLoadDuration") ?? 0,
+    elementRenderDelayMs: values.get("elementRenderDelay") ?? 0,
+  };
+}
+
+function requestClassification(url: string, pageUrl: string) {
+  if (url.startsWith("data:")) return "embedded" as const;
+  try {
+    return new URL(url).origin === new URL(pageUrl).origin
+      ? ("first-party" as const)
+      : ("third-party" as const);
+  } catch {
+    return "unknown" as const;
+  }
+}
+
+function statusFromDescription(description: string) {
+  const match = description.match(/status of (\d{3})/i);
+  return match ? Number(match[1]) : null;
+}
+
+function failureInventory(
+  result: LighthouseResult,
+  requests: NetworkRequest[],
+): RequestFailure[] {
+  const pageUrl = result.finalUrl ?? result.finalDisplayedUrl ?? productionBase;
+  const failures: RequestFailure[] = requests
+    .filter((request) => numberOrZero(request.statusCode) >= 400)
+    .map((request) => {
+      const url = request.url ?? "";
+      return {
+        classification: requestClassification(url, pageUrl),
+        description: `HTTP ${request.statusCode}`,
+        initiator: "unavailable in Lighthouse network audit",
+        resourceType: request.resourceType ?? "unknown",
+        source: "network" as const,
+        statusCode: request.statusCode ?? null,
+        url,
+      };
+    });
+
+  for (const item of auditItems(result, "errors-in-console")) {
+    const sourceLocation = isRecord(item.sourceLocation)
+      ? item.sourceLocation
+      : {};
+    const url =
+      typeof sourceLocation.url === "string" ? sourceLocation.url : "";
+    const description =
+      typeof item.description === "string" ? item.description : "Console error";
+    const duplicate = failures.some(
+      (failure) => failure.url === url && failure.description === description,
+    );
+    if (duplicate) continue;
+    failures.push({
+      classification: requestClassification(url, pageUrl),
+      description,
+      initiator: "unavailable in Lighthouse console audit",
+      resourceType:
+        typeof item.source === "string" ? item.source : "console",
+      source: "console",
+      statusCode: statusFromDescription(description),
+      url,
+    });
+  }
+  return failures;
+}
+
+function inferLcpResourceUrl(
+  requests: NetworkRequest[],
+  lcpElement: string,
+  lcpSnippet: string,
+) {
+  if (!/^img\b/i.test(lcpSnippet.trim()) && !lcpSnippet.includes("<img")) {
+    return "";
+  }
+  const candidates = requests.filter((request) => {
+    if (request.resourceType !== "Image" || !request.url) return false;
+    if (
+      lcpElement.includes("brand-hero-image") ||
+      lcpElement.includes("brand-internal-hero-image")
+    ) {
+      return request.url.includes("/images/performance/evaready-service-van-");
+    }
+    const baseName = path.basename(new URL(request.url).pathname);
+    return lcpSnippet.includes(baseName);
+  });
+  return candidates.length === 1 ? candidates[0]?.url ?? "" : "";
 }
 
 function resolveLighthouseCommand() {
@@ -346,13 +507,25 @@ function runLighthouse(
       result.audits["lcp-discovery-insight"]?.details?.items ??
       result.audits["largest-contentful-paint-element"]?.details?.items,
   );
-  const lcpRequest = requests.find((request) => {
-    const url = request.url ?? "";
-    return (
-      request.resourceType === "Image" &&
-      lcpElement.includes(path.basename(new URL(url).pathname))
-    );
-  });
+  const lcpSnippet = findNodeSnippet(
+    result.audits["lcp-breakdown-insight"]?.details?.items ??
+      result.audits["lcp-discovery-insight"]?.details?.items ??
+      result.audits["largest-contentful-paint-element"]?.details?.items,
+  );
+  const lcpResourceUrl = inferLcpResourceUrl(
+    requests,
+    lcpElement,
+    lcpSnippet,
+  );
+  const metrics = metricItem(result);
+  const failures = failureInventory(result, requests);
+  const observedBreakdown = observedLcpBreakdown(result);
+  const lcpMs = round(
+    numberOrZero(result.audits["largest-contentful-paint"]?.numericValue),
+  );
+  const ttfbMs = round(numberOrZero(metrics.timeToFirstByte));
+  const resourceLoadDelayMs = round(numberOrZero(metrics.lcpLoadDelay));
+  const resourceLoadDurationMs = round(numberOrZero(metrics.lcpLoadDuration));
   const exitCode = execution.status ?? (execution.error ? 1 : 0);
   const cleanupWarning =
     exitCode !== 0 && /EBUSY: resource busy or locked/i.test(execution.stderr ?? "");
@@ -369,7 +542,7 @@ function runLighthouse(
     bestPracticesScore: scorePercent(result, "best-practices"),
     seoScore: scorePercent(result, "seo"),
     fcpMs: round(numberOrZero(result.audits["first-contentful-paint"]?.numericValue)),
-    lcpMs: round(numberOrZero(result.audits["largest-contentful-paint"]?.numericValue)),
+    lcpMs,
     cls: round(numberOrZero(result.audits["cumulative-layout-shift"]?.numericValue), 4),
     tbtMs: round(numberOrZero(result.audits["total-blocking-time"]?.numericValue)),
     speedIndexMs: round(numberOrZero(result.audits["speed-index"]?.numericValue)),
@@ -391,7 +564,38 @@ function runLighthouse(
     requestCount: requests.length,
     consoleErrorScore: result.audits["errors-in-console"]?.score ?? null,
     lcpElement,
-    lcpResourceUrl: lcpRequest?.url ?? "",
+    lcpResourceUrl,
+    ttfbMs,
+    resourceLoadDelayMs,
+    resourceLoadDurationMs,
+    elementRenderDelayMs: Math.max(
+      0,
+      lcpMs - ttfbMs - resourceLoadDelayMs - resourceLoadDurationMs,
+    ),
+    observedLcpMs: round(numberOrZero(metrics.observedLargestContentfulPaint)),
+    observedTtfbMs: round(observedBreakdown.ttfbMs, 1),
+    observedResourceLoadDelayMs: round(
+      observedBreakdown.resourceLoadDelayMs,
+      1,
+    ),
+    observedResourceLoadDurationMs: round(
+      observedBreakdown.resourceLoadDurationMs,
+      1,
+    ),
+    observedElementRenderDelayMs: round(
+      observedBreakdown.elementRenderDelayMs,
+      1,
+    ),
+    firstPartyFailureCount: failures.filter(
+      (failure) => failure.classification === "first-party",
+    ).length,
+    thirdPartyFailureCount: failures.filter(
+      (failure) => failure.classification === "third-party",
+    ).length,
+    consoleErrorCount: failures.filter(
+      (failure) => failure.source === "console",
+    ).length,
+    failures,
     cliExitCode: exitCode,
     cliCleanupWarning: cleanupWarning,
   };
@@ -439,6 +643,35 @@ function summarize(rows: RunMetrics[]) {
         group.map((row) => row.consoleErrorScore ?? 0),
       ),
       lcpElement: first.lcpElement,
+      lcpResourceUrl: first.lcpResourceUrl,
+      ttfbMs: median(group.map((row) => row.ttfbMs)),
+      resourceLoadDelayMs: median(
+        group.map((row) => row.resourceLoadDelayMs),
+      ),
+      resourceLoadDurationMs: median(
+        group.map((row) => row.resourceLoadDurationMs),
+      ),
+      elementRenderDelayMs: median(
+        group.map((row) => row.elementRenderDelayMs),
+      ),
+      observedLcpMs: median(group.map((row) => row.observedLcpMs)),
+      observedTtfbMs: median(group.map((row) => row.observedTtfbMs)),
+      observedResourceLoadDelayMs: median(
+        group.map((row) => row.observedResourceLoadDelayMs),
+      ),
+      observedResourceLoadDurationMs: median(
+        group.map((row) => row.observedResourceLoadDurationMs),
+      ),
+      observedElementRenderDelayMs: median(
+        group.map((row) => row.observedElementRenderDelayMs),
+      ),
+      firstPartyFailureCount: median(
+        group.map((row) => row.firstPartyFailureCount),
+      ),
+      thirdPartyFailureCount: median(
+        group.map((row) => row.thirdPartyFailureCount),
+      ),
+      consoleErrorCount: median(group.map((row) => row.consoleErrorCount)),
       cliCleanupWarnings: group.filter((row) => row.cliCleanupWarning).length,
     };
   });
@@ -495,9 +728,77 @@ function main() {
   const runsJson = path.join(outputDir, `${phase}-runs.json`);
   const mediansJson = path.join(outputDir, `${phase}-medians.json`);
   const mediansCsv = path.join(outputDir, `${phase}-medians.csv`);
+  const failuresJson = path.join(outputDir, `${phase}-failures.json`);
+  const environmentJson = path.join(outputDir, `${phase}-environment.json`);
+  const routesJson = path.join(outputDir, `${phase}-routes.json`);
   writeFileSync(runsJson, `${JSON.stringify(rows, null, 2)}\n`);
   writeFileSync(mediansJson, `${JSON.stringify(summary, null, 2)}\n`);
   writeCsv(mediansCsv, summary);
+  writeFileSync(
+    failuresJson,
+    `${JSON.stringify(
+      rows.flatMap((row) =>
+        row.failures.map((failure) => ({
+          phase: row.phase,
+          profile: row.profile,
+          route: row.route,
+          run: row.run,
+          ...failure,
+        })),
+      ),
+      null,
+      2,
+    )}\n`,
+  );
+  writeFileSync(routesJson, `${JSON.stringify(routes, null, 2)}\n`);
+  const firstResult = rows[0];
+  const firstRaw = firstResult
+    ? JSON.parse(
+        readFileSync(
+          path.join(
+            rawDir,
+            `${firstResult.profile}-${routeSlug(firstResult.route)}-run-${firstResult.run}.json`,
+          ),
+          "utf8",
+        ),
+      ) as LighthouseResult
+    : null;
+  const packageJson = JSON.parse(
+    readFileSync(path.join(process.cwd(), "package.json"), "utf8"),
+  ) as { dependencies?: Record<string, string> };
+  writeFileSync(
+    environmentJson,
+    `${JSON.stringify(
+      {
+        phase,
+        sourceSha: process.env.PERF_SOURCE_SHA ?? "not-recorded",
+        node: process.version,
+        next: packageJson.dependencies?.next ?? "unknown",
+        lighthouse: firstResult?.lighthouseVersion ?? LIGHTHOUSE_VERSION,
+        chromeVersion:
+          process.env.PERF_CHROME_VERSION ??
+          firstRaw?.environment?.hostUserAgent?.match(
+            /(?:HeadlessChrome|Chrome)\/([\d.]+)/,
+          )?.[1] ??
+          "unknown",
+        chromeHostUserAgent: firstRaw?.environment?.hostUserAgent ?? "unknown",
+        chromeNetworkUserAgent:
+          firstRaw?.environment?.networkUserAgent ?? "unknown",
+        baseUrl: productionBase,
+        profiles,
+        routeCount: routes.length,
+        runsPerRoute,
+        runCount: rows.length,
+        command:
+          process.env.PERF_COMMAND ??
+          "npm run audit:lighthouse (environment variables recorded separately)",
+        laboratoryOnly: true,
+        inpMeasured: false,
+      },
+      null,
+      2,
+    )}\n`,
+  );
 
   console.log(
     JSON.stringify(
@@ -510,7 +811,14 @@ function main() {
         routeCount: routes.length,
         runsPerRoute,
         runCount: rows.length,
-        output: { runsJson, mediansJson, mediansCsv },
+        output: {
+          runsJson,
+          mediansJson,
+          mediansCsv,
+          failuresJson,
+          environmentJson,
+          routesJson,
+        },
       },
       null,
       2,

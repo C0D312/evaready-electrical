@@ -96,6 +96,11 @@ const server = createServer((request, response) => {
   }
 
   const extension = path.extname(filePath).toLowerCase();
+  const isSegmentPayload =
+    extension === ".txt" &&
+    /^__next(?:\.[A-Za-z0-9_$-]+)+\.__PAGE__\.txt$/.test(
+      path.basename(filePath),
+    );
   const immutable =
     filePath.includes(`${path.sep}_next${path.sep}`) ||
     filePath.includes(`${path.sep}images${path.sep}`) ||
@@ -104,7 +109,9 @@ const server = createServer((request, response) => {
     "cache-control": immutable
       ? "public, max-age=31536000, immutable"
       : "public, max-age=0, must-revalidate",
-    "content-type": contentTypes[extension] ?? "application/octet-stream",
+    "content-type": isSegmentPayload
+      ? "text/x-component; charset=utf-8"
+      : contentTypes[extension] ?? "application/octet-stream",
     vary: "Accept-Encoding",
   };
   let body = readFileSync(filePath);

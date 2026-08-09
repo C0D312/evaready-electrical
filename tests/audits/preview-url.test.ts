@@ -1,6 +1,16 @@
 import assert from "node:assert/strict";
+import {
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from "node:fs";
+import os from "node:os";
+import path from "node:path";
 import test from "node:test";
 import { isLocationIndexationSpecFile } from "../../scripts/lib/playwright-evidence";
+import { generateStaticSegmentAliases } from "../../scripts/lib/static-export-segment-aliases";
 import { resolveStaticExportServerOptions } from "../../scripts/lib/static-export-server-options";
 import { resolvePreviewUrl } from "../e2e/support/preview-url";
 
@@ -67,6 +77,64 @@ test("strict static export mode rejects a root-mounted server", () => {
       }),
     /requires a non-root --base-path/,
   );
+});
+
+test("static export aliases materialise fixed Next segment payloads", () => {
+  const outDir = mkdtempSync(path.join(os.tmpdir(), "evaready-segment-fixed-"));
+  try {
+    const routeDir = path.join(outDir, "services");
+    const nested = path.join(routeDir, "__next.services", "__PAGE__.txt");
+    mkdirSync(path.dirname(nested), { recursive: true });
+    writeFileSync(nested, "segment payload");
+
+    const aliases = generateStaticSegmentAliases(outDir);
+    const alias = path.join(routeDir, "__next.services.__PAGE__.txt");
+    assert.deepEqual(aliases, [
+      {
+        alias: "services/__next.services.__PAGE__.txt",
+        source: "services/__next.services/__PAGE__.txt",
+        bytes: 15,
+      },
+    ]);
+    assert.equal(readFileSync(alias, "utf8"), "segment payload");
+  } finally {
+    rmSync(outDir, { force: true, recursive: true });
+  }
+});
+
+test("static export aliases materialise dynamic Next segment payloads", () => {
+  const outDir = mkdtempSync(path.join(os.tmpdir(), "evaready-segment-dynamic-"));
+  try {
+    const routeDir = path.join(outDir, "services", "example");
+    const nested = path.join(
+      routeDir,
+      "__next.services",
+      "$d$slug",
+      "__PAGE__.txt",
+    );
+    mkdirSync(path.dirname(nested), { recursive: true });
+    writeFileSync(nested, "dynamic segment payload");
+
+    const aliases = generateStaticSegmentAliases(outDir);
+    const alias = path.join(
+      routeDir,
+      "__next.services.$d$slug.__PAGE__.txt",
+    );
+    assert.equal(aliases.length, 1);
+    assert.equal(readFileSync(alias, "utf8"), "dynamic segment payload");
+  } finally {
+    rmSync(outDir, { force: true, recursive: true });
+  }
+});
+
+test("static export aliases ignore unrelated files", () => {
+  const outDir = mkdtempSync(path.join(os.tmpdir(), "evaready-segment-safe-"));
+  try {
+    writeFileSync(path.join(outDir, "ordinary.txt"), "ordinary");
+    assert.deepEqual(generateStaticSegmentAliases(outDir), []);
+  } finally {
+    rmSync(outDir, { force: true, recursive: true });
+  }
 });
 
 test("Playwright evidence recognises basename and full-path spec reports", () => {
