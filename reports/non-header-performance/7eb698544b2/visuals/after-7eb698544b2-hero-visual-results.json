@@ -1,0 +1,338 @@
+{
+  "phase": "after-7eb698544b2",
+  "baseUrl": "http://127.0.0.1:4184/evaready-electrical/",
+  "browser": "Google Chrome",
+  "screenshotCount": 15,
+  "results": [
+    {
+      "phase": "after-7eb698544b2",
+      "label": "homepage",
+      "route": "/",
+      "width": 390,
+      "screenshot": "homepage-390.png",
+      "pageScrollWidth": 390,
+      "viewportWidth": 390,
+      "hero": {
+        "width": 390,
+        "height": 738.234375,
+        "top": 150
+      },
+      "image": {
+        "complete": true,
+        "naturalWidth": 390,
+        "naturalHeight": 292,
+        "renderedWidth": 390,
+        "renderedHeight": 218.390625,
+        "currentSrc": "http://127.0.0.1:4184/evaready-electrical/images/performance/evaready-service-van-640.webp"
+      }
+    },
+    {
+      "phase": "after-7eb698544b2",
+      "label": "emergency",
+      "route": "emergency-electrician-sydney/",
+      "width": 390,
+      "screenshot": "emergency-390.png",
+      "pageScrollWidth": 390,
+      "viewportWidth": 390,
+      "hero": {
+        "width": 390,
+        "height": 2287.578125,
+        "top": 0
+      },
+      "image": {
+        "complete": true,
+        "naturalWidth": 390,
+        "naturalHeight": 292,
+        "renderedWidth": 390,
+        "renderedHeight": 218.390625,
+        "currentSrc": "http://127.0.0.1:4184/evaready-electrical/images/performance/evaready-service-van-640.webp"
+      }
+    },
+    {
+      "phase": "after-7eb698544b2",
+      "label": "panania",
+      "route": "service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+      "width": 390,
+      "screenshot": "panania-390.png",
+      "pageScrollWidth": 390,
+      "viewportWidth": 390,
+      "hero": {
+        "width": 390,
+        "height": 1421.28125,
+        "top": 150
+      },
+      "image": {
+        "complete": true,
+        "naturalWidth": 390,
+        "naturalHeight": 292,
+        "renderedWidth": 390,
+        "renderedHeight": 218.390625,
+        "currentSrc": "http://127.0.0.1:4184/evaready-electrical/images/performance/evaready-service-van-640.webp"
+      }
+    },
+    {
+      "phase": "after-7eb698544b2",
+      "label": "homepage",
+      "route": "/",
+      "width": 430,
+      "screenshot": "homepage-430.png",
+      "pageScrollWidth": 430,
+      "viewportWidth": 430,
+      "hero": {
+        "width": 430,
+        "height": 772.515625,
+        "top": 154
+      },
+      "image": {
+        "complete": true,
+        "naturalWidth": 430,
+        "naturalHeight": 322,
+        "renderedWidth": 430,
+        "renderedHeight": 240.796875,
+        "currentSrc": "http://127.0.0.1:4184/evaready-electrical/images/performance/evaready-service-van-640.webp"
+      }
+    },
+    {
+      "phase": "after-7eb698544b2",
+      "label": "emergency",
+      "route": "emergency-electrician-sydney/",
+      "width": 430,
+      "screenshot": "emergency-430.png",
+      "pageScrollWidth": 430,
+      "viewportWidth": 430,
+      "hero": {
+        "width": 430,
+        "height": 2462.453125,
+        "top": 0
+      },
+      "image": {
+        "complete": true,
+        "naturalWidth": 430,
+        "naturalHeight": 322,
+        "renderedWidth": 430,
+        "renderedHeight": 240.796875,
+        "currentSrc": "http://127.0.0.1:4184/evaready-electrical/images/performance/evaready-service-van-640.webp"
+      }
+    },
+    {
+      "phase": "after-7eb698544b2",
+      "label": "panania",
+      "route": "service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+      "width": 430,
+      "screenshot": "panania-430.png",
+      "pageScrollWidth": 430,
+      "viewportWidth": 430,
+      "hero": {
+        "width": 430,
+        "height": 1471.984375,
+        "top": 128
+      },
+      "image": {
+        "complete": true,
+        "naturalWidth": 430,
+        "naturalHeight": 322,
+        "renderedWidth": 430,
+        "renderedHeight": 240.796875,
+        "currentSrc": "http://127.0.0.1:4184/evaready-electrical/images/performance/evaready-service-van-640.webp"
+      }
+    },
+    {
+      "phase": "after-7eb698544b2",
+      "label": "homepage",
+      "route": "/",
+      "width": 768,
+      "screenshot": "homepage-768.png",
+      "pageScrollWidth": 768,
+      "viewportWidth": 768,
+      "hero": {
+        "width": 768,
+        "height": 768,
+        "top": 157
+      },
+      "image": {
+        "complete": true,
+        "naturalWidth": 768,
+        "naturalHeight": 576,
+        "renderedWidth": 768,
+        "renderedHeight": 768,
+        "currentSrc": "http://127.0.0.1:4184/evaready-electrical/images/performance/evaready-service-van-768.webp"
+      }
+    },
+    {
+      "phase": "after-7eb698544b2",
+      "label": "emergency",
+      "route": "emergency-electrician-sydney/",
+      "width": 768,
+      "screenshot": "emergency-768.png",
+      "pageScrollWidth": 768,
+      "viewportWidth": 768,
+      "hero": {
+        "width": 768,
+        "height": 1633.5,
+        "top": 0
+      },
+      "image": {
+        "complete": true,
+        "naturalWidth": 768,
+        "naturalHeight": 576,
+        "renderedWidth": 768,
+        "renderedHeight": 1632.5,
+        "currentSrc": "http://127.0.0.1:4184/evaready-electrical/images/performance/evaready-service-van-768.webp"
+      }
+    },
+    {
+      "phase": "after-7eb698544b2",
+      "label": "panania",
+      "route": "service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+      "width": 768,
+      "screenshot": "panania-768.png",
+      "pageScrollWidth": 768,
+      "viewportWidth": 768,
+      "hero": {
+        "width": 768,
+        "height": 908.5,
+        "top": 157
+      },
+      "image": {
+        "complete": true,
+        "naturalWidth": 768,
+        "naturalHeight": 576,
+        "renderedWidth": 768,
+        "renderedHeight": 908.5,
+        "currentSrc": "http://127.0.0.1:4184/evaready-electrical/images/performance/evaready-service-van-768.webp"
+      }
+    },
+    {
+      "phase": "after-7eb698544b2",
+      "label": "homepage",
+      "route": "/",
+      "width": 1440,
+      "screenshot": "homepage-1440.png",
+      "pageScrollWidth": 1440,
+      "viewportWidth": 1440,
+      "hero": {
+        "width": 1440,
+        "height": 768,
+        "top": 212
+      },
+      "image": {
+        "complete": true,
+        "naturalWidth": 1440,
+        "naturalHeight": 1080,
+        "renderedWidth": 1440,
+        "renderedHeight": 768,
+        "currentSrc": "http://127.0.0.1:4184/evaready-electrical/images/evaready-electrical-sydney-service-van.webp"
+      }
+    },
+    {
+      "phase": "after-7eb698544b2",
+      "label": "emergency",
+      "route": "emergency-electrician-sydney/",
+      "width": 1440,
+      "screenshot": "emergency-1440.png",
+      "pageScrollWidth": 1440,
+      "viewportWidth": 1440,
+      "hero": {
+        "width": 1440,
+        "height": 1113.59375,
+        "top": 212
+      },
+      "image": {
+        "complete": true,
+        "naturalWidth": 1440,
+        "naturalHeight": 1080,
+        "renderedWidth": 1440,
+        "renderedHeight": 1112.59375,
+        "currentSrc": "http://127.0.0.1:4184/evaready-electrical/images/evaready-electrical-sydney-service-van.webp"
+      }
+    },
+    {
+      "phase": "after-7eb698544b2",
+      "label": "panania",
+      "route": "service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+      "width": 1440,
+      "screenshot": "panania-1440.png",
+      "pageScrollWidth": 1440,
+      "viewportWidth": 1440,
+      "hero": {
+        "width": 1440,
+        "height": 925.59375,
+        "top": 212
+      },
+      "image": {
+        "complete": true,
+        "naturalWidth": 1440,
+        "naturalHeight": 1080,
+        "renderedWidth": 1440,
+        "renderedHeight": 925.59375,
+        "currentSrc": "http://127.0.0.1:4184/evaready-electrical/images/evaready-electrical-sydney-service-van.webp"
+      }
+    },
+    {
+      "phase": "after-7eb698544b2",
+      "label": "homepage",
+      "route": "/",
+      "width": 1920,
+      "screenshot": "homepage-1920.png",
+      "pageScrollWidth": 1920,
+      "viewportWidth": 1920,
+      "hero": {
+        "width": 1920,
+        "height": 768,
+        "top": 217
+      },
+      "image": {
+        "complete": true,
+        "naturalWidth": 1920,
+        "naturalHeight": 1440,
+        "renderedWidth": 1920,
+        "renderedHeight": 768,
+        "currentSrc": "http://127.0.0.1:4184/evaready-electrical/images/evaready-electrical-sydney-service-van.webp"
+      }
+    },
+    {
+      "phase": "after-7eb698544b2",
+      "label": "emergency",
+      "route": "emergency-electrician-sydney/",
+      "width": 1920,
+      "screenshot": "emergency-1920.png",
+      "pageScrollWidth": 1920,
+      "viewportWidth": 1920,
+      "hero": {
+        "width": 1920,
+        "height": 1248.59375,
+        "top": 217
+      },
+      "image": {
+        "complete": true,
+        "naturalWidth": 1920,
+        "naturalHeight": 1440,
+        "renderedWidth": 1920,
+        "renderedHeight": 1247.59375,
+        "currentSrc": "http://127.0.0.1:4184/evaready-electrical/images/evaready-electrical-sydney-service-van.webp"
+      }
+    },
+    {
+      "phase": "after-7eb698544b2",
+      "label": "panania",
+      "route": "service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+      "width": 1920,
+      "screenshot": "panania-1920.png",
+      "pageScrollWidth": 1920,
+      "viewportWidth": 1920,
+      "hero": {
+        "width": 1920,
+        "height": 925.59375,
+        "top": 217
+      },
+      "image": {
+        "complete": true,
+        "naturalWidth": 1920,
+        "naturalHeight": 1440,
+        "renderedWidth": 1920,
+        "renderedHeight": 925.59375,
+        "currentSrc": "http://127.0.0.1:4184/evaready-electrical/images/evaready-electrical-sydney-service-van.webp"
+      }
+    }
+  ]
+}

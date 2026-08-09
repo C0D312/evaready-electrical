@@ -1,0 +1,432 @@
+﻿{
+  "config": {
+    "configFile": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\playwright.config.ts",
+    "rootDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop-chromium-1366",
+        "name": "desktop-chromium-1366",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop-chromium-1440",
+        "name": "desktop-chromium-1440",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop-chromium-1920",
+        "name": "desktop-chromium-1920",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop-firefox-1440",
+        "name": "desktop-firefox-1440",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop-webkit-1440",
+        "name": "desktop-webkit-1440",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "google-chrome-1440",
+        "name": "google-chrome-1440",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "microsoft-edge-1440",
+        "name": "microsoft-edge-1440",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "mobile-chrome-360",
+        "name": "mobile-chrome-360",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "mobile-chrome-390",
+        "name": "mobile-chrome-390",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "mobile-chrome-412",
+        "name": "mobile-chrome-412",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "mobile-chrome-430",
+        "name": "mobile-chrome-430",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "mobile-safari-390",
+        "name": "mobile-safari-390",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "mobile-safari-430",
+        "name": "mobile-safari-430",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "ipad-768",
+        "name": "ipad-768",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "ipad-pro-1024",
+        "name": "ipad-pro-1024",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 3,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "non-header-performance.spec.ts",
+      "file": "non-header-performance.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "static export serves Next segment prefetches without first-party failures",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1914,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:41:07.275Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f6a427f32c436eb9a7b3-6bf715f87cc4d9b61827",
+          "file": "non-header-performance.spec.ts",
+          "line": 14,
+          "column": 5
+        },
+        {
+          "title": "Google Ads queue remains available while the library is deferred",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 636,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:41:07.277Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f6a427f32c436eb9a7b3-17e8c3e4602c2e5d03cb",
+          "file": "non-header-performance.spec.ts",
+          "line": 59,
+          "column": 5
+        },
+        {
+          "title": "static export serves Next segment prefetches without first-party failures",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 2156,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:41:07.281Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f6a427f32c436eb9a7b3-5175d3eb3e90d93ab232",
+          "file": "non-header-performance.spec.ts",
+          "line": 14,
+          "column": 5
+        },
+        {
+          "title": "Google Ads queue remains available while the library is deferred",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 839,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:41:08.433Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f6a427f32c436eb9a7b3-1eaf0865cdb9cdd5cd90",
+          "file": "non-header-performance.spec.ts",
+          "line": 59,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-08-09T21:41:06.951Z",
+    "duration": 2674.778,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

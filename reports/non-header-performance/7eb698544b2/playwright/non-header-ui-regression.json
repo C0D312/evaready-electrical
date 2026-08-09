@@ -1,0 +1,2136 @@
+﻿{
+  "config": {
+    "configFile": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\playwright.config.ts",
+    "rootDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop-chromium-1366",
+        "name": "desktop-chromium-1366",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop-chromium-1440",
+        "name": "desktop-chromium-1440",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop-chromium-1920",
+        "name": "desktop-chromium-1920",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop-firefox-1440",
+        "name": "desktop-firefox-1440",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop-webkit-1440",
+        "name": "desktop-webkit-1440",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "google-chrome-1440",
+        "name": "google-chrome-1440",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "microsoft-edge-1440",
+        "name": "microsoft-edge-1440",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "mobile-chrome-360",
+        "name": "mobile-chrome-360",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "mobile-chrome-390",
+        "name": "mobile-chrome-390",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "mobile-chrome-412",
+        "name": "mobile-chrome-412",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "mobile-chrome-430",
+        "name": "mobile-chrome-430",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "mobile-safari-390",
+        "name": "mobile-safari-390",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "mobile-safari-430",
+        "name": "mobile-safari-430",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "ipad-768",
+        "name": "ipad-768",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "ipad-pro-1024",
+        "name": "ipad-pro-1024",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 3,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "contact-direct-options.spec.ts",
+      "file": "contact-direct-options.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "contact direct options stay compact and contained",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6897,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:37.354Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4535c90508f150be9a5e-e9877cfea69c5588171d",
+          "file": "contact-direct-options.spec.ts",
+          "line": 11,
+          "column": 5
+        },
+        {
+          "title": "contact direct actions preserve their destinations and tracking",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3720,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:37.347Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4535c90508f150be9a5e-3186bab4bcdc69320f68",
+          "file": "contact-direct-options.spec.ts",
+          "line": 64,
+          "column": 5
+        },
+        {
+          "title": "contact direct options stay compact and contained",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6810,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:45.895Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4535c90508f150be9a5e-965499ec894fe306634b",
+          "file": "contact-direct-options.spec.ts",
+          "line": 11,
+          "column": 5
+        },
+        {
+          "title": "contact direct actions preserve their destinations and tracking",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1305,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:46.075Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4535c90508f150be9a5e-d15941be260a7a1c3bef",
+          "file": "contact-direct-options.spec.ts",
+          "line": 64,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "footer-copyright.spec.ts",
+      "file": "footer-copyright.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "footer shows the current copyright year",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 543,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:37.347Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "536c584dc5f1ec9ef015-6457f58eafa19e4bb699",
+          "file": "footer-copyright.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "footer shows the current copyright year",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 733,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:46.406Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "536c584dc5f1ec9ef015-c7f1524707dc49d108a4",
+          "file": "footer-copyright.spec.ts",
+          "line": 3,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "google-rating-live.spec.ts",
+      "file": "google-rating-live.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Places loads only when the widget approaches the viewport",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "This case requires the test-only browser key and Place ID build.",
+                  "location": {
+                    "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                    "line": 179,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "skipped",
+                  "duration": 79,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:38.041Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "This case requires the test-only browser key and Place ID build.",
+                      "location": {
+                        "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                        "line": 179,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8f4c8ec9d9703c16ba52-6f89dfa6ac6359d6952b",
+          "file": "google-rating-live.spec.ts",
+          "line": 176,
+          "column": 5
+        },
+        {
+          "title": "one live Places request updates the widget without layout shift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "This case requires the test-only browser key and Place ID build.",
+                  "location": {
+                    "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                    "line": 221,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "skipped",
+                  "duration": 77,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:38.127Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "This case requires the test-only browser key and Place ID build.",
+                      "location": {
+                        "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                        "line": 221,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8f4c8ec9d9703c16ba52-8a06b472ea619316dcda",
+          "file": "google-rating-live.spec.ts",
+          "line": 218,
+          "column": 5
+        },
+        {
+          "title": "a changed Places count is rendered from the response",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "This case requires the test-only browser key and Place ID build.",
+                  "location": {
+                    "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                    "line": 341,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "skipped",
+                  "duration": 77,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:38.210Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "This case requires the test-only browser key and Place ID build.",
+                      "location": {
+                        "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                        "line": 341,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8f4c8ec9d9703c16ba52-85f7882d1868ddde4504",
+          "file": "google-rating-live.spec.ts",
+          "line": 340,
+          "column": 5
+        },
+        {
+          "title": "invalid-place keeps the widget honest and usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "This case requires the test-only browser key and Place ID build.",
+                  "location": {
+                    "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                    "line": 366,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "skipped",
+                  "duration": 75,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:38.294Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "This case requires the test-only browser key and Place ID build.",
+                      "location": {
+                        "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                        "line": 366,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8f4c8ec9d9703c16ba52-2eb947f8f5589655d1bf",
+          "file": "google-rating-live.spec.ts",
+          "line": 365,
+          "column": 7
+        },
+        {
+          "title": "quota-error keeps the widget honest and usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "This case requires the test-only browser key and Place ID build.",
+                  "location": {
+                    "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                    "line": 366,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "skipped",
+                  "duration": 77,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:38.376Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "This case requires the test-only browser key and Place ID build.",
+                      "location": {
+                        "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                        "line": 366,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8f4c8ec9d9703c16ba52-64a2d881c0d203a4d3d8",
+          "file": "google-rating-live.spec.ts",
+          "line": 365,
+          "column": 7
+        },
+        {
+          "title": "incomplete keeps the widget honest and usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "This case requires the test-only browser key and Place ID build.",
+                  "location": {
+                    "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                    "line": 366,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "skipped",
+                  "duration": 77,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:38.459Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "This case requires the test-only browser key and Place ID build.",
+                      "location": {
+                        "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                        "line": 366,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8f4c8ec9d9703c16ba52-7ec1731bfa9fc64c82ff",
+          "file": "google-rating-live.spec.ts",
+          "line": 365,
+          "column": 7
+        },
+        {
+          "title": "timeout keeps the widget honest and usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "This case requires the test-only browser key and Place ID build.",
+                  "location": {
+                    "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                    "line": 366,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "skipped",
+                  "duration": 78,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:38.543Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "This case requires the test-only browser key and Place ID build.",
+                      "location": {
+                        "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                        "line": 366,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8f4c8ec9d9703c16ba52-16afd1ac42fecafa6c69",
+          "file": "google-rating-live.spec.ts",
+          "line": 365,
+          "column": 7
+        },
+        {
+          "title": "missing configuration makes no API request and shows no false live data",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 2205,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:38.627Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8f4c8ec9d9703c16ba52-432425e21d8236c4389b",
+          "file": "google-rating-live.spec.ts",
+          "line": 404,
+          "column": 5
+        },
+        {
+          "title": "Places loads only when the widget approaches the viewport",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "This case requires the test-only browser key and Place ID build.",
+                  "location": {
+                    "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                    "line": 179,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "skipped",
+                  "duration": 97,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:47.288Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "This case requires the test-only browser key and Place ID build.",
+                      "location": {
+                        "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                        "line": 179,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8f4c8ec9d9703c16ba52-348241baf0540b88e875",
+          "file": "google-rating-live.spec.ts",
+          "line": 176,
+          "column": 5
+        },
+        {
+          "title": "one live Places request updates the widget without layout shift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "This case requires the test-only browser key and Place ID build.",
+                  "location": {
+                    "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                    "line": 221,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "skipped",
+                  "duration": 97,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:47.393Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "This case requires the test-only browser key and Place ID build.",
+                      "location": {
+                        "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                        "line": 221,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8f4c8ec9d9703c16ba52-8d43d67bd888af86af5e",
+          "file": "google-rating-live.spec.ts",
+          "line": 218,
+          "column": 5
+        },
+        {
+          "title": "a changed Places count is rendered from the response",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "This case requires the test-only browser key and Place ID build.",
+                  "location": {
+                    "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                    "line": 341,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "skipped",
+                  "duration": 103,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:47.499Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "This case requires the test-only browser key and Place ID build.",
+                      "location": {
+                        "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                        "line": 341,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8f4c8ec9d9703c16ba52-0a2b2d15216da91e04e6",
+          "file": "google-rating-live.spec.ts",
+          "line": 340,
+          "column": 5
+        },
+        {
+          "title": "invalid-place keeps the widget honest and usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "This case requires the test-only browser key and Place ID build.",
+                  "location": {
+                    "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                    "line": 366,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "skipped",
+                  "duration": 101,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:47.535Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "This case requires the test-only browser key and Place ID build.",
+                      "location": {
+                        "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                        "line": 366,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8f4c8ec9d9703c16ba52-96d192b57d7e70ba7bc9",
+          "file": "google-rating-live.spec.ts",
+          "line": 365,
+          "column": 7
+        },
+        {
+          "title": "quota-error keeps the widget honest and usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "This case requires the test-only browser key and Place ID build.",
+                  "location": {
+                    "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                    "line": 366,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "skipped",
+                  "duration": 92,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:47.610Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "This case requires the test-only browser key and Place ID build.",
+                      "location": {
+                        "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                        "line": 366,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8f4c8ec9d9703c16ba52-ef0262abddb88dae36d3",
+          "file": "google-rating-live.spec.ts",
+          "line": 365,
+          "column": 7
+        },
+        {
+          "title": "incomplete keeps the widget honest and usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "This case requires the test-only browser key and Place ID build.",
+                  "location": {
+                    "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                    "line": 366,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "skipped",
+                  "duration": 92,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:47.646Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "This case requires the test-only browser key and Place ID build.",
+                      "location": {
+                        "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                        "line": 366,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8f4c8ec9d9703c16ba52-75a9e9a80a4657b736af",
+          "file": "google-rating-live.spec.ts",
+          "line": 365,
+          "column": 7
+        },
+        {
+          "title": "timeout keeps the widget honest and usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "This case requires the test-only browser key and Place ID build.",
+                  "location": {
+                    "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                    "line": 366,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "skipped",
+                  "duration": 96,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:47.708Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "This case requires the test-only browser key and Place ID build.",
+                      "location": {
+                        "file": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\tests\\e2e\\google-rating-live.spec.ts",
+                        "line": 366,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8f4c8ec9d9703c16ba52-99c90917c580b7c86294",
+          "file": "google-rating-live.spec.ts",
+          "line": 365,
+          "column": 7
+        },
+        {
+          "title": "missing configuration makes no API request and shows no false live data",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 857,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:47.745Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8f4c8ec9d9703c16ba52-09b0614ef8c6988f4fab",
+          "file": "google-rating-live.spec.ts",
+          "line": 404,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "location-evidence.spec.ts",
+      "file": "location-evidence.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "unapproved location evidence never renders an empty public section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 492,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:40.839Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2d020103df11bfba7dfc-088a21345fc51631db5b",
+          "file": "location-evidence.spec.ts",
+          "line": 6,
+          "column": 5
+        },
+        {
+          "title": "unapproved location evidence never renders an empty public section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 880,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:47.812Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2d020103df11bfba7dfc-b92547872b7c8160f490",
+          "file": "location-evidence.spec.ts",
+          "line": 6,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "location-indexation.spec.ts",
+      "file": "location-indexation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "an empty owner decision registry leaves suburb SEO and conversion paths unchanged",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "description": "{\"expectedStatus\":404,\"label\":\"origin-root-home\",\"pathname\":\"/\",\"status\":404}",
+                  "type": "strictBasePathProbe"
+                },
+                {
+                  "description": "{\"expectedStatus\":404,\"label\":\"origin-root-panania\",\"pathname\":\"/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/\",\"status\":404}",
+                  "type": "strictBasePathProbe"
+                },
+                {
+                  "description": "{\"expectedStatus\":200,\"label\":\"preview-home\",\"pathname\":\"/evaready-electrical/\",\"status\":200}",
+                  "type": "strictBasePathProbe"
+                },
+                {
+                  "description": "{\"expectedStatus\":200,\"label\":\"preview-panania\",\"pathname\":\"/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/\",\"status\":200}",
+                  "type": "strictBasePathProbe"
+                },
+                {
+                  "description": "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+                  "type": "finalTestedPathname"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 524,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:41.244Z",
+                  "annotations": [
+                    {
+                      "description": "{\"expectedStatus\":404,\"label\":\"origin-root-home\",\"pathname\":\"/\",\"status\":404}",
+                      "type": "strictBasePathProbe"
+                    },
+                    {
+                      "description": "{\"expectedStatus\":404,\"label\":\"origin-root-panania\",\"pathname\":\"/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/\",\"status\":404}",
+                      "type": "strictBasePathProbe"
+                    },
+                    {
+                      "description": "{\"expectedStatus\":200,\"label\":\"preview-home\",\"pathname\":\"/evaready-electrical/\",\"status\":200}",
+                      "type": "strictBasePathProbe"
+                    },
+                    {
+                      "description": "{\"expectedStatus\":200,\"label\":\"preview-panania\",\"pathname\":\"/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/\",\"status\":200}",
+                      "type": "strictBasePathProbe"
+                    },
+                    {
+                      "description": "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+                      "type": "finalTestedPathname"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "67e465151a2b9c4a7438-31a3260eddb927e2c78d",
+          "file": "location-indexation.spec.ts",
+          "line": 16,
+          "column": 5
+        },
+        {
+          "title": "an empty owner decision registry leaves suburb SEO and conversion paths unchanged",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "description": "{\"expectedStatus\":404,\"label\":\"origin-root-home\",\"pathname\":\"/\",\"status\":404}",
+                  "type": "strictBasePathProbe"
+                },
+                {
+                  "description": "{\"expectedStatus\":404,\"label\":\"origin-root-panania\",\"pathname\":\"/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/\",\"status\":404}",
+                  "type": "strictBasePathProbe"
+                },
+                {
+                  "description": "{\"expectedStatus\":200,\"label\":\"preview-home\",\"pathname\":\"/evaready-electrical/\",\"status\":200}",
+                  "type": "strictBasePathProbe"
+                },
+                {
+                  "description": "{\"expectedStatus\":200,\"label\":\"preview-panania\",\"pathname\":\"/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/\",\"status\":200}",
+                  "type": "strictBasePathProbe"
+                },
+                {
+                  "description": "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+                  "type": "finalTestedPathname"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 894,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:48.640Z",
+                  "annotations": [
+                    {
+                      "description": "{\"expectedStatus\":404,\"label\":\"origin-root-home\",\"pathname\":\"/\",\"status\":404}",
+                      "type": "strictBasePathProbe"
+                    },
+                    {
+                      "description": "{\"expectedStatus\":404,\"label\":\"origin-root-panania\",\"pathname\":\"/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/\",\"status\":404}",
+                      "type": "strictBasePathProbe"
+                    },
+                    {
+                      "description": "{\"expectedStatus\":200,\"label\":\"preview-home\",\"pathname\":\"/evaready-electrical/\",\"status\":200}",
+                      "type": "strictBasePathProbe"
+                    },
+                    {
+                      "description": "{\"expectedStatus\":200,\"label\":\"preview-panania\",\"pathname\":\"/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/\",\"status\":200}",
+                      "type": "strictBasePathProbe"
+                    },
+                    {
+                      "description": "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+                      "type": "finalTestedPathname"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "67e465151a2b9c4a7438-3ea9ce9ef919973408a5",
+          "file": "location-indexation.spec.ts",
+          "line": 16,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "offers-layout.spec.ts",
+      "file": "offers-layout.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "offer terms stay available through native keyboard controls",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 612,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:41.368Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "61bf0486459049e391e7-e62a38639a5a50024e9a",
+          "file": "offers-layout.spec.ts",
+          "line": 72,
+          "column": 5
+        },
+        {
+          "title": "all offers retain shared eligibility and non-stacking terms",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 590,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:41.778Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "61bf0486459049e391e7-c95dfcb80071feade50c",
+          "file": "offers-layout.spec.ts",
+          "line": 90,
+          "column": 5
+        },
+        {
+          "title": "offer artwork and card grids stay complete, even and viewport-safe",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 2656,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:41.986Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "61bf0486459049e391e7-e984e34b54fc7a054f77",
+          "file": "offers-layout.spec.ts",
+          "line": 117,
+          "column": 5
+        },
+        {
+          "title": "only approved high-intent routes render the complete offer showcase",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2472,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:42.375Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "61bf0486459049e391e7-b4899e039c43380d2178",
+          "file": "offers-layout.spec.ts",
+          "line": 216,
+          "column": 5
+        },
+        {
+          "title": "location templates use one lightweight current-offers link",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1031,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:44.444Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "61bf0486459049e391e7-aae99f1513d7198f54e6",
+          "file": "offers-layout.spec.ts",
+          "line": 244,
+          "column": 5
+        },
+        {
+          "title": "service-area postcode search remains before the compact offers link",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 735,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:44.650Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "61bf0486459049e391e7-b250de888078d3820309",
+          "file": "offers-layout.spec.ts",
+          "line": 265,
+          "column": 5
+        },
+        {
+          "title": "offer terms stay available through native keyboard controls",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 838,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:48.738Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "61bf0486459049e391e7-311e69a356a2816edf73",
+          "file": "offers-layout.spec.ts",
+          "line": 72,
+          "column": 5
+        },
+        {
+          "title": "all offers retain shared eligibility and non-stacking terms",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 832,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:49.542Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "61bf0486459049e391e7-f8f0abb320fc44c4db7e",
+          "file": "offers-layout.spec.ts",
+          "line": 90,
+          "column": 5
+        },
+        {
+          "title": "offer artwork and card grids stay complete, even and viewport-safe",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 2426,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:49.583Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "61bf0486459049e391e7-ac8b46514380a09009fc",
+          "file": "offers-layout.spec.ts",
+          "line": 117,
+          "column": 5
+        },
+        {
+          "title": "only approved high-intent routes render the complete offer showcase",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2067,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:50.381Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "61bf0486459049e391e7-ca174ba32820ba2af29a",
+          "file": "offers-layout.spec.ts",
+          "line": 216,
+          "column": 5
+        },
+        {
+          "title": "location templates use one lightweight current-offers link",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1102,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:52.017Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "61bf0486459049e391e7-d1dd358cd702b6b5a38c",
+          "file": "offers-layout.spec.ts",
+          "line": 244,
+          "column": 5
+        },
+        {
+          "title": "service-area postcode search remains before the compact offers link",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 813,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:52.455Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "61bf0486459049e391e7-c538c11da213239bdf45",
+          "file": "offers-layout.spec.ts",
+          "line": 265,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "route-scroll.spec.ts",
+      "file": "route-scroll.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "cross-page footer links open the destination at the top",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 802,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:44.857Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d75373953e3fdcbd2c04-127fd3616b63df149b57",
+          "file": "route-scroll.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "same-page fragment links retain their anchor behaviour",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 577,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:45.395Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d75373953e3fdcbd2c04-779cbcf4e2805778978d",
+          "file": "route-scroll.spec.ts",
+          "line": 17,
+          "column": 5
+        },
+        {
+          "title": "cross-page footer links open the destination at the top",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1094,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:52.857Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d75373953e3fdcbd2c04-285e6e5baa80eeeaec9e",
+          "file": "route-scroll.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "same-page fragment links retain their anchor behaviour",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 819,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:42:53.126Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d75373953e3fdcbd2c04-1360222db3d07ab29005",
+          "file": "route-scroll.spec.ts",
+          "line": 17,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-08-09T21:42:36.981Z",
+    "duration": 17051.702999999998,
+    "expected": 28,
+    "skipped": 14,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -123,6 +123,7 @@ const rawDir = path.resolve(
 const chromePath =
   process.env.CHROME_PATH ??
   "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
+const reuseRawReports = process.env.PERF_REUSE_RAW === "1";
 
 const routeDefinitions: RouteDefinition[] = [
   { label: "Homepage", route: "/" },
@@ -473,13 +474,15 @@ function runLighthouse(
   ];
   if (profile === "desktop") args.push("--preset=desktop");
 
-  const execution = spawnSync(command, args, {
-    cwd: process.cwd(),
-    encoding: "utf8",
-    env: { ...process.env, CHROME_PATH: chromePath },
-    shell: false,
-    timeout: 180_000,
-  });
+  const execution = reuseRawReports
+    ? { error: undefined, status: 0, stderr: "" }
+    : spawnSync(command, args, {
+        cwd: process.cwd(),
+        encoding: "utf8",
+        env: { ...process.env, CHROME_PATH: chromePath },
+        shell: false,
+        timeout: 180_000,
+      });
 
   if (!existsSync(rawPath)) {
     throw new Error(
@@ -789,6 +792,7 @@ function main() {
         routeCount: routes.length,
         runsPerRoute,
         runCount: rows.length,
+        rawReportsReused: reuseRawReports,
         command:
           process.env.PERF_COMMAND ??
           "npm run audit:lighthouse (environment variables recorded separately)",

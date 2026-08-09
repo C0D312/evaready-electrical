@@ -1,0 +1,601 @@
+{
+  "config": {
+    "configFile": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\playwright.config.ts",
+    "rootDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop-chromium-1366",
+        "name": "desktop-chromium-1366",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop-chromium-1440",
+        "name": "desktop-chromium-1440",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop-chromium-1920",
+        "name": "desktop-chromium-1920",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop-firefox-1440",
+        "name": "desktop-firefox-1440",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop-webkit-1440",
+        "name": "desktop-webkit-1440",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "google-chrome-1440",
+        "name": "google-chrome-1440",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "microsoft-edge-1440",
+        "name": "microsoft-edge-1440",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "mobile-chrome-360",
+        "name": "mobile-chrome-360",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "mobile-chrome-390",
+        "name": "mobile-chrome-390",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "mobile-chrome-412",
+        "name": "mobile-chrome-412",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "mobile-chrome-430",
+        "name": "mobile-chrome-430",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "mobile-safari-390",
+        "name": "mobile-safari-390",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "mobile-safari-430",
+        "name": "mobile-safari-430",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "ipad-768",
+        "name": "ipad-768",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/reports/playwright-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "ipad-pro-1024",
+        "name": "ipad-pro-1024",
+        "testDir": "C:/Users/Admin/AppData/Local/Temp/evaready-perf-final-7eb/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "reports/playwright-html-report",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/playwright-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 3,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "non-header-cross-browser.spec.ts",
+      "file": "non-header-cross-browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "representative non-header heroes remain functional across browsers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium-1440",
+              "projectName": "desktop-chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2652,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:21:49.908Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1349dfb23699396f94f8-899d3dcbd2daef982868",
+          "file": "non-header-cross-browser.spec.ts",
+          "line": 19,
+          "column": 5
+        },
+        {
+          "title": "representative non-header heroes remain functional across browsers",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-firefox-1440",
+              "projectName": "desktop-firefox-1440",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 1,
+                  "error": {
+                    "message": "TimeoutError: browserType.launch: Timeout 180000ms exceeded.\nCall log:\n\u001b[2m  - <launching> C:\\Users\\Admin\\AppData\\Local\\ms-playwright\\firefox-1522\\firefox\\firefox.exe -no-remote -headless -profile C:\\Users\\Admin\\AppData\\Local\\Temp\\playwright_firefoxdev_profile-UJjlPC -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=34392\u001b[22m\n\u001b[2m  - [pid=34392][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=34392][out] Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=0.528592) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt\u001b[22m\n",
+                    "stack": "TimeoutError: browserType.launch: Timeout 180000ms exceeded.\nCall log:\n\u001b[2m  - <launching> C:\\Users\\Admin\\AppData\\Local\\ms-playwright\\firefox-1522\\firefox\\firefox.exe -no-remote -headless -profile C:\\Users\\Admin\\AppData\\Local\\Temp\\playwright_firefoxdev_profile-UJjlPC -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=34392\u001b[22m\n\u001b[2m  - [pid=34392][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=34392][out] Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=0.528592) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt\u001b[22m\n"
+                  },
+                  "errors": [
+                    {
+                      "message": "TimeoutError: browserType.launch: Timeout 180000ms exceeded.\nCall log:\n\u001b[2m  - <launching> C:\\Users\\Admin\\AppData\\Local\\ms-playwright\\firefox-1522\\firefox\\firefox.exe -no-remote -headless -profile C:\\Users\\Admin\\AppData\\Local\\Temp\\playwright_firefoxdev_profile-UJjlPC -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=34392\u001b[22m\n\u001b[2m  - [pid=34392][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=34392][out] Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=0.528592) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt\u001b[22m\n"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:21:49.905Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\reports\\playwright-test-results\\non-header-cross-browser-r-00ce7--functional-across-browsers-desktop-firefox-1440\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-final-7eb\\reports\\playwright-test-results\\non-header-cross-browser-r-00ce7--functional-across-browsers-desktop-firefox-1440\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "1349dfb23699396f94f8-240ac7706f5d261e5236",
+          "file": "non-header-cross-browser.spec.ts",
+          "line": 19,
+          "column": 5
+        },
+        {
+          "title": "representative non-header heroes remain functional across browsers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-webkit-1440",
+              "projectName": "desktop-webkit-1440",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 3965,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:21:49.910Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1349dfb23699396f94f8-8208950732cf5576b37f",
+          "file": "non-header-cross-browser.spec.ts",
+          "line": 19,
+          "column": 5
+        },
+        {
+          "title": "representative non-header heroes remain functional across browsers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "google-chrome-1440",
+              "projectName": "google-chrome-1440",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2949,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:21:53.072Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1349dfb23699396f94f8-80097c48c79dc5f7f5dd",
+          "file": "non-header-cross-browser.spec.ts",
+          "line": 19,
+          "column": 5
+        },
+        {
+          "title": "representative non-header heroes remain functional across browsers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "microsoft-edge-1440",
+              "projectName": "microsoft-edge-1440",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 2985,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:21:54.686Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1349dfb23699396f94f8-41db5292e75a2c73ef0d",
+          "file": "non-header-cross-browser.spec.ts",
+          "line": 19,
+          "column": 5
+        },
+        {
+          "title": "representative non-header heroes remain functional across browsers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chrome-390",
+              "projectName": "mobile-chrome-390",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2711,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:21:56.735Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1349dfb23699396f94f8-92c25abd9daa900e1a83",
+          "file": "non-header-cross-browser.spec.ts",
+          "line": 19,
+          "column": 5
+        },
+        {
+          "title": "representative non-header heroes remain functional across browsers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-safari-390",
+              "projectName": "mobile-safari-390",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 4167,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:21:58.647Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1349dfb23699396f94f8-f70e891168aeb3c87e3c",
+          "file": "non-header-cross-browser.spec.ts",
+          "line": 19,
+          "column": 5
+        },
+        {
+          "title": "representative non-header heroes remain functional across browsers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "ipad-768",
+              "projectName": "ipad-768",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4147,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-09T21:21:59.943Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1349dfb23699396f94f8-c42b03303f1de817f45d",
+          "file": "non-header-cross-browser.spec.ts",
+          "line": 19,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-08-09T21:21:49.507Z",
+    "duration": 180494.256,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

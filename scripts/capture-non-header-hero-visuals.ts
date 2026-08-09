@@ -63,10 +63,19 @@ async function main() {
         }
       });
       await page.goto(url, { waitUntil: "networkidle" });
+      await page.addStyleTag({
+        content: [
+          "header.site-header { visibility: hidden !important; }",
+          ".mobile-sticky-cta { visibility: hidden !important; }",
+        ].join("\n"),
+      });
       const hero = page.locator(definition.selector).first();
       await hero.waitFor({ state: "visible" });
       const file = `${definition.label}-${width}.png`;
-      await hero.screenshot({ path: path.join(outputDir, file) });
+      await hero.screenshot({
+        animations: "disabled",
+        path: path.join(outputDir, file),
+      });
       const measurements = await page.evaluate((selector) => {
         const element = document.querySelector(selector);
         const image = element?.querySelector("img");

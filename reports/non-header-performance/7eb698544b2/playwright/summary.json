@@ -1,0 +1,230 @@
+{
+  "generatedAt": "2026-08-09T21:44:06.115Z",
+  "sourceSha": "7eb698544b27534c19abddb1de5bdef883425cbb",
+  "node": "v22.23.1",
+  "baseUrl": "http://127.0.0.1:4184/evaready-electrical/",
+  "runs": [
+    {
+      "id": "focused-performance",
+      "file": "non-header-performance.json",
+      "command": "node node_modules/@playwright/test/cli.js test non-header-performance.spec.ts --project=desktop-chromium-1440 --project=mobile-chrome-390 --reporter=json",
+      "baseUrl": "http://127.0.0.1:4184/evaready-electrical/",
+      "stats": {
+        "startTime": "2026-08-09T21:41:06.951Z",
+        "duration": 2674.778,
+        "expected": 4,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "projects": {
+        "desktop-chromium-1440": {
+          "passed": 2,
+          "failed": 0,
+          "skipped": 0,
+          "interrupted": 0
+        },
+        "mobile-chrome-390": {
+          "passed": 2,
+          "failed": 0,
+          "skipped": 0,
+          "interrupted": 0
+        }
+      },
+      "failures": []
+    },
+    {
+      "id": "supported-cross-browser",
+      "file": "non-header-cross-browser-supported.json",
+      "command": "node node_modules/@playwright/test/cli.js test non-header-cross-browser.spec.ts --project=desktop-chromium-1440 --project=google-chrome-1440 --project=microsoft-edge-1440 --project=desktop-webkit-1440 --project=mobile-chrome-390 --project=mobile-safari-390 --project=ipad-768 --reporter=json",
+      "baseUrl": "http://127.0.0.1:4184/evaready-electrical/",
+      "stats": {
+        "startTime": "2026-08-09T21:41:37.626Z",
+        "duration": 12401.395,
+        "expected": 7,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "projects": {
+        "desktop-chromium-1440": {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "interrupted": 0
+        },
+        "desktop-webkit-1440": {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "interrupted": 0
+        },
+        "google-chrome-1440": {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "interrupted": 0
+        },
+        "ipad-768": {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "interrupted": 0
+        },
+        "microsoft-edge-1440": {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "interrupted": 0
+        },
+        "mobile-chrome-390": {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "interrupted": 0
+        },
+        "mobile-safari-390": {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "interrupted": 0
+        }
+      },
+      "failures": []
+    },
+    {
+      "id": "non-header-ui-regression",
+      "file": "non-header-ui-regression.json",
+      "command": "node node_modules/@playwright/test/cli.js test contact-direct-options.spec.ts footer-copyright.spec.ts google-rating-live.spec.ts location-evidence.spec.ts location-indexation.spec.ts offers-layout.spec.ts route-scroll.spec.ts --project=desktop-chromium-1440 --project=mobile-chrome-390 --reporter=json",
+      "baseUrl": "http://127.0.0.1:4184/evaready-electrical/",
+      "stats": {
+        "startTime": "2026-08-09T21:42:36.981Z",
+        "duration": 17051.702999999998,
+        "expected": 28,
+        "skipped": 14,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "projects": {
+        "desktop-chromium-1440": {
+          "passed": 14,
+          "failed": 0,
+          "skipped": 7,
+          "interrupted": 0
+        },
+        "mobile-chrome-390": {
+          "passed": 14,
+          "failed": 0,
+          "skipped": 7,
+          "interrupted": 0
+        }
+      },
+      "failures": []
+    },
+    {
+      "id": "quote-dialog-regression",
+      "file": "quote-dialog-regression.json",
+      "command": "node node_modules/@playwright/test/cli.js test ux-overhaul.spec.ts --grep \"quote dialog\" --project=desktop-chromium-1440 --project=mobile-chrome-390 --reporter=json",
+      "baseUrl": "http://127.0.0.1:4184/evaready-electrical/",
+      "stats": {
+        "startTime": "2026-08-09T21:43:36.583Z",
+        "duration": 3505.951,
+        "expected": 3,
+        "skipped": 1,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "projects": {
+        "desktop-chromium-1440": {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 1,
+          "interrupted": 0
+        },
+        "mobile-chrome-390": {
+          "passed": 2,
+          "failed": 0,
+          "skipped": 0,
+          "interrupted": 0
+        }
+      },
+      "failures": []
+    },
+    {
+      "id": "firefox-environment-attempt",
+      "file": "non-header-cross-browser-with-firefox-environment-failure.json",
+      "command": "node node_modules/@playwright/test/cli.js test non-header-cross-browser.spec.ts --project=desktop-chromium-1440 --project=google-chrome-1440 --project=microsoft-edge-1440 --project=desktop-firefox-1440 --project=desktop-webkit-1440 --project=mobile-chrome-390 --project=mobile-safari-390 --project=ipad-768 --reporter=json",
+      "baseUrl": "http://127.0.0.1:4184/evaready-electrical/",
+      "stats": {
+        "startTime": "2026-08-09T21:21:49.507Z",
+        "duration": 180494.256,
+        "expected": 7,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "projects": {
+        "desktop-chromium-1440": {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "interrupted": 0
+        },
+        "desktop-firefox-1440": {
+          "passed": 0,
+          "failed": 1,
+          "skipped": 0,
+          "interrupted": 0
+        },
+        "desktop-webkit-1440": {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "interrupted": 0
+        },
+        "google-chrome-1440": {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "interrupted": 0
+        },
+        "ipad-768": {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "interrupted": 0
+        },
+        "microsoft-edge-1440": {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "interrupted": 0
+        },
+        "mobile-chrome-390": {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "interrupted": 0
+        },
+        "mobile-safari-390": {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "interrupted": 0
+        }
+      },
+      "failures": [
+        {
+          "project": "desktop-firefox-1440",
+          "status": "failed",
+          "message": "TimeoutError: browserType.launch: Timeout 180000ms exceeded.\nCall log:\n\u001b[2m  - <launching> C:\\Users\\Admin\\AppData\\Local\\ms-playwright\\firefox-1522\\firefox\\firefox.exe -no-remote -headless -profile C:\\Users\\Admin\\AppData\\Local\\Temp\\playwright_firefoxdev_profile-UJjlPC -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=34392\u001b[22m\n\u001b[2m  - [pid=34392][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=34392][out] Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=0.528592) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt\u001b[22m\n"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "These are representative non-header route checks, not exhaustive all-route browser coverage.",
+    "Firefox could not launch in this Windows headless environment because RenderCompositorSWGL failed to map the default framebuffer.",
+    "Expected Google Places live-data tests remain skipped without owner configuration; missing-configuration fallback tests pass."
+  ]
+}

@@ -1,0 +1,309 @@
+{
+  "algorithm": "SHA-256",
+  "rawDirectory": "C:\\Users\\Admin\\AppData\\Local\\Temp\\evaready-perf-raw\\after-7eb698544b2-final",
+  "reportCount": 60,
+  "representativeRun": 2,
+  "representativeCount": 20,
+  "reports": [
+    {
+      "file": "desktop-electrical-faults-no-power-in-one-room-run-1.json",
+      "bytes": 1271216,
+      "sha256": "fc19a4b7ca7413ef1dc1b317916cf58e0d01f35f4758617bc647c1d52ebbe572"
+    },
+    {
+      "file": "desktop-electrical-faults-no-power-in-one-room-run-2.json",
+      "bytes": 1271275,
+      "sha256": "54b477d70ca31a0268574d7f47fc880180193fbedf1f3cc56aec8a9a3c14f10a"
+    },
+    {
+      "file": "desktop-electrical-faults-no-power-in-one-room-run-3.json",
+      "bytes": 1270981,
+      "sha256": "7b5abd2c187697878d1f30e5fa25d3b2fc756c97168ef12ae182c64ea24b7584"
+    },
+    {
+      "file": "desktop-emergency-electrician-sydney-run-1.json",
+      "bytes": 1534055,
+      "sha256": "dead7e7e5bbd24a58d45eb61657c0f6978ecfa343034f9c410ff9db5b2d9d26e"
+    },
+    {
+      "file": "desktop-emergency-electrician-sydney-run-2.json",
+      "bytes": 1534244,
+      "sha256": "eba9a6f98b27a718063cc6b406be57299e0e63dfb5b194edf1f5ab966fc532fa"
+    },
+    {
+      "file": "desktop-emergency-electrician-sydney-run-3.json",
+      "bytes": 1534621,
+      "sha256": "8dc2f5085e0cad47f92e4aba9cef7af894ae5214af125b7ca703853044611a16"
+    },
+    {
+      "file": "desktop-homepage-run-1.json",
+      "bytes": 1198507,
+      "sha256": "8fdd1c376147a77cca76edb4bfdee9c2d4cd12d46c86854176b886daa0aaeab8"
+    },
+    {
+      "file": "desktop-homepage-run-2.json",
+      "bytes": 1198817,
+      "sha256": "d9176050fc7613c0a60db919ac646652faaa9675e079ece7a572e3b497b1c91a"
+    },
+    {
+      "file": "desktop-homepage-run-3.json",
+      "bytes": 1199538,
+      "sha256": "85ee39d3b57ec6c054668944b000f9a95a7b6792838d3be3eae2e8a84b095730"
+    },
+    {
+      "file": "desktop-level-2-electrician-sydney-run-1.json",
+      "bytes": 1464766,
+      "sha256": "e37f5ddd4c443831dde99b59d56083c644c39c3b02ac576f794d6a90fd7abefa"
+    },
+    {
+      "file": "desktop-level-2-electrician-sydney-run-2.json",
+      "bytes": 1464435,
+      "sha256": "2a1b8b78a18812abcdc75234b16bac98da06c0502f32c8c58efbc19ab10d4d8f"
+    },
+    {
+      "file": "desktop-level-2-electrician-sydney-run-3.json",
+      "bytes": 1464636,
+      "sha256": "89dab36f28ad97208c917adb2ca1782896368228f443fbe92674a8f45bd541ab"
+    },
+    {
+      "file": "desktop-service-areas-canterbury-bankstown-and-inner-south-west-canterbury-bankstown-panania-run-1.json",
+      "bytes": 1265963,
+      "sha256": "22abbd7aa6e15e7cf1e663be261b63ccd92da9bfebb77a75cb2a42db569f8610"
+    },
+    {
+      "file": "desktop-service-areas-canterbury-bankstown-and-inner-south-west-canterbury-bankstown-panania-run-2.json",
+      "bytes": 1265963,
+      "sha256": "73d3cd115f9e627cd8a8c22c26cf712c82561cbdf1ea4abb83a6cdabf964509c"
+    },
+    {
+      "file": "desktop-service-areas-canterbury-bankstown-and-inner-south-west-canterbury-bankstown-panania-run-3.json",
+      "bytes": 1266040,
+      "sha256": "9b55a249dc0ba9824e30cb2fe666ba603781ac90315e8dc09955fe4c2291462d"
+    },
+    {
+      "file": "desktop-service-areas-canterbury-bankstown-and-inner-south-west-canterbury-bankstown-run-1.json",
+      "bytes": 1241171,
+      "sha256": "e5868e5f5035d7084a4235fea849346d91a0d636004ef53639272a819160eb43"
+    },
+    {
+      "file": "desktop-service-areas-canterbury-bankstown-and-inner-south-west-canterbury-bankstown-run-2.json",
+      "bytes": 1241285,
+      "sha256": "6a10269cd469299b0251349f7335a1e83a1ae2ad036c21a9be30988b3af896a7"
+    },
+    {
+      "file": "desktop-service-areas-canterbury-bankstown-and-inner-south-west-canterbury-bankstown-run-3.json",
+      "bytes": 1241030,
+      "sha256": "fee12fb345db802e61fb1fa4d0db7a8556075a3169e5b973cd753d8cc545e117"
+    },
+    {
+      "file": "desktop-service-areas-canterbury-bankstown-and-inner-south-west-run-1.json",
+      "bytes": 1236616,
+      "sha256": "0de2fb8bfb0746a901366c15aa96be5ae50f552f147d7273e2d153c5025b729c"
+    },
+    {
+      "file": "desktop-service-areas-canterbury-bankstown-and-inner-south-west-run-2.json",
+      "bytes": 1236343,
+      "sha256": "fb4f46bcea467ed19beb838592d0ee2920720ce0a36ca537cee3596a0261caa2"
+    },
+    {
+      "file": "desktop-service-areas-canterbury-bankstown-and-inner-south-west-run-3.json",
+      "bytes": 1236496,
+      "sha256": "b7a47e7f6771b04e25bec75acabcf1757e0e93064f2a261e101b4770b8d5613b"
+    },
+    {
+      "file": "desktop-service-areas-run-1.json",
+      "bytes": 1163163,
+      "sha256": "096235441545c04273abcf91d306d7a21190140201f097d89189d5fabfea04ba"
+    },
+    {
+      "file": "desktop-service-areas-run-2.json",
+      "bytes": 1163103,
+      "sha256": "cbc948faf81f9d7ae58518a073622b64baec1160f119153da36bd0a000101881"
+    },
+    {
+      "file": "desktop-service-areas-run-3.json",
+      "bytes": 1162797,
+      "sha256": "be2e39c046b29fae387812962cc7d4ca70becf1c50f3afa0b4cd7ff1fb11c764"
+    },
+    {
+      "file": "desktop-services-run-1.json",
+      "bytes": 1332824,
+      "sha256": "efb58c0bd6b8069c46276fe8fe5b7f4296b510e328e98bc32a84c9237ddc030d"
+    },
+    {
+      "file": "desktop-services-run-2.json",
+      "bytes": 1331804,
+      "sha256": "d31a4af5e6eb4c134820f2812cf39847364052a537646cba6825158f853b1b62"
+    },
+    {
+      "file": "desktop-services-run-3.json",
+      "bytes": 1332275,
+      "sha256": "7411e6b53448bfc8ee680ee7bfd26f22dfa699c4e21d62576a7dd3f0b25ff083"
+    },
+    {
+      "file": "desktop-services-switchboard-upgrades-sydney-run-1.json",
+      "bytes": 1381578,
+      "sha256": "50223c7c5210eb0783e7d4e5088b8ac9072df3a64f06c61b5216e0da986753d6"
+    },
+    {
+      "file": "desktop-services-switchboard-upgrades-sydney-run-2.json",
+      "bytes": 1381892,
+      "sha256": "8c87aa456b4d05b1b78c38b6bf30b4f96ea45244da7a38d07ec229d97242538f"
+    },
+    {
+      "file": "desktop-services-switchboard-upgrades-sydney-run-3.json",
+      "bytes": 1382045,
+      "sha256": "ffdaec12564632146c7bc19ac848c56ddc444adcf9d7213cb3ee4cafddc3188a"
+    },
+    {
+      "file": "mobile-electrical-faults-no-power-in-one-room-run-1.json",
+      "bytes": 988812,
+      "sha256": "38ee04539fd22187e2ca61100190cdd9f028fa4ec0f833322951ea2b43b0afdc"
+    },
+    {
+      "file": "mobile-electrical-faults-no-power-in-one-room-run-2.json",
+      "bytes": 988963,
+      "sha256": "6f311a982b6cacae4978a2ad16ece125d5247c21e0735b5477f0f6f29de41ed0"
+    },
+    {
+      "file": "mobile-electrical-faults-no-power-in-one-room-run-3.json",
+      "bytes": 989046,
+      "sha256": "c31f45e7e7f7be1e79f6631dff36b1e1af06d2da6e933b54ade3e336ac169354"
+    },
+    {
+      "file": "mobile-emergency-electrician-sydney-run-1.json",
+      "bytes": 1257688,
+      "sha256": "fe0c3f69baeaffeae7a9904bfaac6a4a5323c22cf1a8eb626a9735155eff5125"
+    },
+    {
+      "file": "mobile-emergency-electrician-sydney-run-2.json",
+      "bytes": 1257866,
+      "sha256": "54743087946dca00a0a532281550b2bb365909ab4bfa74052db6fb7a443c22df"
+    },
+    {
+      "file": "mobile-emergency-electrician-sydney-run-3.json",
+      "bytes": 1257474,
+      "sha256": "c94b16120db8a380a7dee3e2d42fc36e070f34790a21eb7aa0aa1c8ff1f40751"
+    },
+    {
+      "file": "mobile-homepage-run-1.json",
+      "bytes": 977111,
+      "sha256": "12da109f7b6a581df56f9f3901f427df0b72687a18f634c2fa4d0c6d986ee715"
+    },
+    {
+      "file": "mobile-homepage-run-2.json",
+      "bytes": 976803,
+      "sha256": "a5c672865b5068a949e957634c98818e1cde1519ee40f6ed26cd489c1c571223"
+    },
+    {
+      "file": "mobile-homepage-run-3.json",
+      "bytes": 977114,
+      "sha256": "0d7cf03d3e63bd7809dae89bed6e494f60bd0d25a4bbaeabaa42746427fba4b6"
+    },
+    {
+      "file": "mobile-level-2-electrician-sydney-run-1.json",
+      "bytes": 1236190,
+      "sha256": "82780809a412c2d650347c7ee6be7970aa4a73fd507da967cc4ad7ba5fe2f5fb"
+    },
+    {
+      "file": "mobile-level-2-electrician-sydney-run-2.json",
+      "bytes": 1236435,
+      "sha256": "13f53f0bb504bd57509e51ec9111d10614184f8734c6804602ea414e45c165d7"
+    },
+    {
+      "file": "mobile-level-2-electrician-sydney-run-3.json",
+      "bytes": 1236468,
+      "sha256": "65fe5e6e0356edb4ec3b0618f300882264fc8fca561f7a0126573bf6b1e024e6"
+    },
+    {
+      "file": "mobile-service-areas-canterbury-bankstown-and-inner-south-west-canterbury-bankstown-panania-run-1.json",
+      "bytes": 1047144,
+      "sha256": "aaa4c51a091c213cd7eb991deef1825b11896872b8a09cb11161375f35c5e0a3"
+    },
+    {
+      "file": "mobile-service-areas-canterbury-bankstown-and-inner-south-west-canterbury-bankstown-panania-run-2.json",
+      "bytes": 1047369,
+      "sha256": "35394a63be33798dc30c42b5dfdb6385398b7a61dd4f2af37ef112ab465efe94"
+    },
+    {
+      "file": "mobile-service-areas-canterbury-bankstown-and-inner-south-west-canterbury-bankstown-panania-run-3.json",
+      "bytes": 1047454,
+      "sha256": "e18564666376712c3b0fa8180329e7e83ed74a42a5d06b83d608dddaaab6c486"
+    },
+    {
+      "file": "mobile-service-areas-canterbury-bankstown-and-inner-south-west-canterbury-bankstown-run-1.json",
+      "bytes": 984992,
+      "sha256": "a62b8ec8713fc7c6ec879253fe7727ae53dc77633cba67a1e6e6ae5b495a04e5"
+    },
+    {
+      "file": "mobile-service-areas-canterbury-bankstown-and-inner-south-west-canterbury-bankstown-run-2.json",
+      "bytes": 984863,
+      "sha256": "5e784bf3334f23d95bc1ae6b18ab7ac06cd17c656e53e816f434d357c68d5cf2"
+    },
+    {
+      "file": "mobile-service-areas-canterbury-bankstown-and-inner-south-west-canterbury-bankstown-run-3.json",
+      "bytes": 984710,
+      "sha256": "1bbdb7158b2b19062c23c98ae57b362e1f7f157928a792b099889cae96470c38"
+    },
+    {
+      "file": "mobile-service-areas-canterbury-bankstown-and-inner-south-west-run-1.json",
+      "bytes": 996249,
+      "sha256": "05c8c8e73711973a918b6c3cc7b05f4440e70121432063dec261c158648a9742"
+    },
+    {
+      "file": "mobile-service-areas-canterbury-bankstown-and-inner-south-west-run-2.json",
+      "bytes": 995860,
+      "sha256": "4570f0f0a948c1d3974ded8dd01d5e2f52d6ec6d5601b6992b9e3305b2164f7d"
+    },
+    {
+      "file": "mobile-service-areas-canterbury-bankstown-and-inner-south-west-run-3.json",
+      "bytes": 995729,
+      "sha256": "3a8fad817d6329e67e6bc642d21c176569c2852dfd5b65629c8d8dbb6d57935d"
+    },
+    {
+      "file": "mobile-service-areas-run-1.json",
+      "bytes": 985369,
+      "sha256": "1e1f94b10160d2e2b9b2845b4b729e6a1cd220d4a3de981109e325a7f456d41d"
+    },
+    {
+      "file": "mobile-service-areas-run-2.json",
+      "bytes": 985562,
+      "sha256": "38e5a786373efdc4813357baa38d252e0c083ccf1a56e251c958f14fd8b22441"
+    },
+    {
+      "file": "mobile-service-areas-run-3.json",
+      "bytes": 985264,
+      "sha256": "625c78f109e42bc98de1cdee1aa8119a7c9a7fe5559221d2b7b5b636338b3387"
+    },
+    {
+      "file": "mobile-services-run-1.json",
+      "bytes": 1140208,
+      "sha256": "520957c3cec8180c4bdf95acd6d45e7566150d03222e9c899c4ba7970ffe4212"
+    },
+    {
+      "file": "mobile-services-run-2.json",
+      "bytes": 1140288,
+      "sha256": "9273a84bf5a5c508085638b62cab17f77df2019c51dd4d9aa2549225a18b7aa1"
+    },
+    {
+      "file": "mobile-services-run-3.json",
+      "bytes": 1140468,
+      "sha256": "322a3d31dc418a9da9cacaeef3c23d4f2b382a88d44a4be211a6f624a157d057"
+    },
+    {
+      "file": "mobile-services-switchboard-upgrades-sydney-run-1.json",
+      "bytes": 1152426,
+      "sha256": "f4825fa8abc50185068cb395ca83ddf54956009a07a9f516d208237a6a26378d"
+    },
+    {
+      "file": "mobile-services-switchboard-upgrades-sydney-run-2.json",
+      "bytes": 1152042,
+      "sha256": "e7e4f1fb4c0b6c296929e259a12df8ded74eb890e9f3f1679b57aea233cc468f"
+    },
+    {
+      "file": "mobile-services-switchboard-upgrades-sydney-run-3.json",
+      "bytes": 1152074,
+      "sha256": "57b6e83f23f0a9b1d35150713f7ebbaee42ea09e6aaaafe6bdcff889dfeec8f7"
+    }
+  ]
+}

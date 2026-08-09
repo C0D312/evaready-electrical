@@ -1,0 +1,21 @@
+{
+  "phase": "after-7eb698544b2",
+  "sourceSha": "7eb698544b27534c19abddb1de5bdef883425cbb",
+  "node": "v22.23.1",
+  "next": "16.3.0",
+  "lighthouse": "13.4.1",
+  "chromeVersion": "151.0.7922.108",
+  "chromeHostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+  "chromeNetworkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36",
+  "baseUrl": "http://127.0.0.1:4184/evaready-electrical",
+  "profiles": [
+    "mobile",
+    "desktop"
+  ],
+  "routeCount": 10,
+  "runsPerRoute": 3,
+  "runCount": 60,
+  "command": "Node 22.23.1: node_modules/tsx/dist/cli.mjs scripts/benchmark-production-performance.ts; PERF_BASE_URL=http://127.0.0.1:4184/evaready-electrical; PERF_RUNS=3; PERF_PROFILES=mobile,desktop; Lighthouse 13.4.1; Chrome 151.0.7922.108",
+  "laboratoryOnly": true,
+  "inpMeasured": false
+}
