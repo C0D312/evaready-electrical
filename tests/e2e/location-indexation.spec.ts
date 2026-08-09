@@ -20,10 +20,33 @@ test("an empty owner decision registry leaves suburb SEO and conversion paths un
   expect(locationIndexationDecisionRegistry).toHaveLength(0);
   expect(getLocationIndexationDecision(pananiaCanonicalRoute)).toBe("unreviewed");
 
+  const previewHome = resolvePreviewUrl(baseURL ?? "", "");
   const target = resolvePreviewUrl(baseURL ?? "", pananiaRelativeRoute);
-  const incorrectOriginRootUrl = new URL(pananiaCanonicalRoute, target.origin);
-  const incorrectResponse = await page.request.get(incorrectOriginRootUrl.href);
-  expect(incorrectResponse.status()).toBe(404);
+  const probes = [
+    { expectedStatus: 404, label: "origin-root-home", url: new URL("/", target.origin) },
+    {
+      expectedStatus: 404,
+      label: "origin-root-panania",
+      url: new URL(pananiaCanonicalRoute, target.origin),
+    },
+    { expectedStatus: 200, label: "preview-home", url: previewHome },
+    { expectedStatus: 200, label: "preview-panania", url: target },
+  ];
+
+  for (const probe of probes) {
+    const probeResponse = await page.request.get(probe.url.href);
+    const status = probeResponse.status();
+    expect(status, probe.label).toBe(probe.expectedStatus);
+    testInfo.annotations.push({
+      description: JSON.stringify({
+        expectedStatus: probe.expectedStatus,
+        label: probe.label,
+        pathname: probe.url.pathname,
+        status,
+      }),
+      type: "strictBasePathProbe",
+    });
+  }
 
   const response = await page.goto(target.href, {
     waitUntil: "domcontentloaded",

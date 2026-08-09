@@ -3,13 +3,20 @@ import { existsSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
 import { brotliCompressSync, constants } from "node:zlib";
 import { resolveDeploymentConfig } from "../config/deployment";
+import { resolveStaticExportServerOptions } from "./lib/static-export-server-options";
 
 const outDir = path.resolve(process.cwd(), "out");
 const deployment = resolveDeploymentConfig();
-const basePath = deployment.basePath.replace(/\/$/, "");
-const host = process.env.STATIC_EXPORT_HOST ?? "127.0.0.1";
-const port = Number(process.env.STATIC_EXPORT_PORT ?? "4176");
-const requireBasePath = process.env.STATIC_EXPORT_REQUIRE_BASE_PATH === "1";
+const {
+  basePath,
+  host,
+  port,
+  requireBasePath,
+} = resolveStaticExportServerOptions({
+  argv: process.argv.slice(2),
+  deploymentBasePath: deployment.basePath,
+  env: process.env,
+});
 
 const textExtensions = new Set([
   ".css",
