@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { isLocationIndexationSpecFile } from "../../scripts/lib/playwright-evidence";
 import { resolveStaticExportServerOptions } from "../../scripts/lib/static-export-server-options";
 import { resolvePreviewUrl } from "../e2e/support/preview-url";
 
@@ -66,4 +67,17 @@ test("strict static export mode rejects a root-mounted server", () => {
       }),
     /requires a non-root --base-path/,
   );
+});
+
+test("Playwright evidence recognises basename and full-path spec reports", () => {
+  assert.equal(isLocationIndexationSpecFile("location-indexation.spec.ts"), true);
+  assert.equal(
+    isLocationIndexationSpecFile("tests/e2e/location-indexation.spec.ts"),
+    true,
+  );
+  assert.equal(
+    isLocationIndexationSpecFile("tests\\e2e\\location-indexation.spec.ts"),
+    true,
+  );
+  assert.equal(isLocationIndexationSpecFile("other.spec.ts"), false);
 });

@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { githubPreviewBasePath } from "../tests/e2e/support/preview-url";
+import { isLocationIndexationSpecFile } from "./lib/playwright-evidence";
 
 type PlaywrightResult = {
   annotations?: { description?: string; type?: string }[];
@@ -63,7 +64,7 @@ const visit = (suite: PlaywrightSuite) => {
 };
 report.suites?.forEach(visit);
 const locationSpecs = specs.filter((spec) =>
-  spec.file?.replaceAll("\\", "/").endsWith("tests/e2e/location-indexation.spec.ts"),
+  isLocationIndexationSpecFile(spec.file),
 );
 if (!locationSpecs.length) {
   throw new Error("Playwright JSON contains no location-indexation spec results");
