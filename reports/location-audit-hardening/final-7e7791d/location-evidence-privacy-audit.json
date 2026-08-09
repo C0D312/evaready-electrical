@@ -1,0 +1,29 @@
+{
+  "audit": "location-evidence-public-repository-privacy",
+  "approvedGlobalBusinessDetailsExcludedFromPiiFindings": true,
+  "generatedAt": "2026-08-09T17:18:30.905Z",
+  "approvedEvidenceRecords": 0,
+  "datasetState": "empty",
+  "evidenceDirectoryFiles": 0,
+  "issues": [],
+  "limitations": [
+    "This scoped audit does not prove that the repository or Git history contains no PII.",
+    "Automated checks do not perform OCR, facial recognition or complete contextual identification.",
+    "Human review remains required for faces, number plates, addresses, documents, labels, properties and contextual identification."
+  ],
+  "metadataParser": {
+    "name": "sharp",
+    "version": "0.35.3"
+  },
+  "orphanEvidenceAssets": 0,
+  "ownerReviewRowsAudited": 873,
+  "referencedEvidenceAssets": 0,
+  "result": "PASS",
+  "scopeStatement": "No configured PII patterns or evidence assets exist in the current empty scoped dataset.",
+  "scope": [
+    "typed records in data/location-evidence.ts",
+    "every referenced evidence asset",
+    "every physical file under public/images/location-evidence, including orphans",
+    "the tracked blank location indexation owner-review CSV"
+  ]
+}

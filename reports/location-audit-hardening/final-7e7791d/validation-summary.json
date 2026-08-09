@@ -1,0 +1,74 @@
+{
+  "audit": "hardened-location-indexation-and-privacy-validation",
+  "branch": "codex/responsive-ux-overhaul",
+  "evidenceRunDateSydney": "2026-08-10",
+  "implementationSha": "7e7791dfd5fd51438410f8d8df3a231cf8a3e747",
+  "runtime": {
+    "next": "16.3.0",
+    "node": "22.23.1",
+    "npm": "10.9.8",
+    "react": "19.2.4",
+    "sharp": "0.35.3"
+  },
+  "build": {
+    "faultGuides": 15,
+    "generatedServicePaths": 46,
+    "result": "PASS",
+    "staticPages": 1005,
+    "suburbPages": 873
+  },
+  "currentPublicBaseline": {
+    "approvedEvidenceRecords": 0,
+    "callPaths": 873,
+    "evidenceDirectoryFiles": 0,
+    "indexFollow": 873,
+    "noindex": 0,
+    "quotePaths": 873,
+    "redirects": 0,
+    "selfCanonicals": 873,
+    "sitemapSuburbs": 873,
+    "unreviewedDecisions": 873
+  },
+  "launchStatus": {
+    "overallLaunchReadiness": "BLOCKED - OWNER INDEXATION DECISIONS MISSING",
+    "technicalBaselineResult": "PASS"
+  },
+  "playwright": {
+    "baseUrl": "http://127.0.0.1:4177/evaready-electrical/",
+    "command": "C:\\Users\\Admin\\AppData\\Local\\Temp\\node-v22.23.1-win-x64\\node.exe node_modules/@playwright/test/cli.js test tests/e2e/location-indexation.spec.ts --workers=1",
+    "failed": 0,
+    "finalPathname": "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+    "httpStatusMatrix": {
+      "originRootHome": 404,
+      "originRootPanania": 404,
+      "previewHome": 200,
+      "previewPanania": 200
+    },
+    "passed": 15,
+    "skipped": 0
+  },
+  "privacy": {
+    "limitations": [
+      "This scoped audit does not prove that the repository or Git history contains no PII.",
+      "Automated checks do not perform OCR, facial recognition or complete contextual identification.",
+      "Human privacy, rights and consent review remains required for every future public asset."
+    ],
+    "orphanEvidenceAssets": 0,
+    "referencedEvidenceAssets": 0,
+    "result": "PASS",
+    "scopeStatement": "No configured PII patterns or evidence assets exist in the current empty scoped dataset."
+  },
+  "similarity": {
+    "exactSharedVisibleBlockWordRatePercent": 58.03,
+    "highestLocalityNormalisedPairwiseSimilarityPercent": 100.0,
+    "localityNormalisedRepeatedBlockWordRatePercent": 99.94
+  },
+  "tests": {
+    "adversarialLocationAuditTests": {
+      "failed": 0,
+      "passed": 19
+    },
+    "fullNpmAuditVulnerabilities": 0,
+    "productionNpmAuditVulnerabilities": 0
+  }
+}

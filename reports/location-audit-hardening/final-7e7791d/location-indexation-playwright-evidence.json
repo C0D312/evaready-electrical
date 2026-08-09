@@ -1,0 +1,540 @@
+{
+  "audit": "location-indexation-playwright",
+  "baseUrl": "http://127.0.0.1:4177/evaready-electrical/",
+  "command": "C:\\Users\\Admin\\AppData\\Local\\Temp\\node-v22.23.1-win-x64\\node.exe node_modules/@playwright/test/cli.js test tests/e2e/location-indexation.spec.ts --workers=1",
+  "finishedAt": "2026-08-09T17:37:03.451Z",
+  "generatedAt": "2026-08-09T17:37:43.896Z",
+  "httpMatrixPassed": true,
+  "implementationSha": "7e7791dfd5fd51438410f8d8df3a231cf8a3e747",
+  "projectResults": [
+    {
+      "failed": 0,
+      "finalTestedPathnames": [
+        "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/"
+      ],
+      "httpProbes": [
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-home",
+          "pathname": "/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-panania",
+          "pathname": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-home",
+          "pathname": "/evaready-electrical/",
+          "status": 200
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-panania",
+          "pathname": "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 200
+        }
+      ],
+      "passed": 1,
+      "project": "desktop-chromium-1366",
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "finalTestedPathnames": [
+        "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/"
+      ],
+      "httpProbes": [
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-home",
+          "pathname": "/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-panania",
+          "pathname": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-home",
+          "pathname": "/evaready-electrical/",
+          "status": 200
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-panania",
+          "pathname": "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 200
+        }
+      ],
+      "passed": 1,
+      "project": "desktop-chromium-1440",
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "finalTestedPathnames": [
+        "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/"
+      ],
+      "httpProbes": [
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-home",
+          "pathname": "/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-panania",
+          "pathname": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-home",
+          "pathname": "/evaready-electrical/",
+          "status": 200
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-panania",
+          "pathname": "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 200
+        }
+      ],
+      "passed": 1,
+      "project": "desktop-chromium-1920",
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "finalTestedPathnames": [
+        "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/"
+      ],
+      "httpProbes": [
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-home",
+          "pathname": "/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-panania",
+          "pathname": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-home",
+          "pathname": "/evaready-electrical/",
+          "status": 200
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-panania",
+          "pathname": "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 200
+        }
+      ],
+      "passed": 1,
+      "project": "desktop-firefox-1440",
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "finalTestedPathnames": [
+        "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/"
+      ],
+      "httpProbes": [
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-home",
+          "pathname": "/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-panania",
+          "pathname": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-home",
+          "pathname": "/evaready-electrical/",
+          "status": 200
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-panania",
+          "pathname": "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 200
+        }
+      ],
+      "passed": 1,
+      "project": "desktop-webkit-1440",
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "finalTestedPathnames": [
+        "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/"
+      ],
+      "httpProbes": [
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-home",
+          "pathname": "/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-panania",
+          "pathname": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-home",
+          "pathname": "/evaready-electrical/",
+          "status": 200
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-panania",
+          "pathname": "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 200
+        }
+      ],
+      "passed": 1,
+      "project": "google-chrome-1440",
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "finalTestedPathnames": [
+        "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/"
+      ],
+      "httpProbes": [
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-home",
+          "pathname": "/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-panania",
+          "pathname": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-home",
+          "pathname": "/evaready-electrical/",
+          "status": 200
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-panania",
+          "pathname": "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 200
+        }
+      ],
+      "passed": 1,
+      "project": "ipad-768",
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "finalTestedPathnames": [
+        "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/"
+      ],
+      "httpProbes": [
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-home",
+          "pathname": "/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-panania",
+          "pathname": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-home",
+          "pathname": "/evaready-electrical/",
+          "status": 200
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-panania",
+          "pathname": "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 200
+        }
+      ],
+      "passed": 1,
+      "project": "ipad-pro-1024",
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "finalTestedPathnames": [
+        "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/"
+      ],
+      "httpProbes": [
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-home",
+          "pathname": "/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-panania",
+          "pathname": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-home",
+          "pathname": "/evaready-electrical/",
+          "status": 200
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-panania",
+          "pathname": "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 200
+        }
+      ],
+      "passed": 1,
+      "project": "microsoft-edge-1440",
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "finalTestedPathnames": [
+        "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/"
+      ],
+      "httpProbes": [
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-home",
+          "pathname": "/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-panania",
+          "pathname": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-home",
+          "pathname": "/evaready-electrical/",
+          "status": 200
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-panania",
+          "pathname": "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 200
+        }
+      ],
+      "passed": 1,
+      "project": "mobile-chrome-360",
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "finalTestedPathnames": [
+        "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/"
+      ],
+      "httpProbes": [
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-home",
+          "pathname": "/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-panania",
+          "pathname": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-home",
+          "pathname": "/evaready-electrical/",
+          "status": 200
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-panania",
+          "pathname": "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 200
+        }
+      ],
+      "passed": 1,
+      "project": "mobile-chrome-390",
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "finalTestedPathnames": [
+        "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/"
+      ],
+      "httpProbes": [
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-home",
+          "pathname": "/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-panania",
+          "pathname": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-home",
+          "pathname": "/evaready-electrical/",
+          "status": 200
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-panania",
+          "pathname": "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 200
+        }
+      ],
+      "passed": 1,
+      "project": "mobile-chrome-412",
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "finalTestedPathnames": [
+        "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/"
+      ],
+      "httpProbes": [
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-home",
+          "pathname": "/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-panania",
+          "pathname": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-home",
+          "pathname": "/evaready-electrical/",
+          "status": 200
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-panania",
+          "pathname": "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 200
+        }
+      ],
+      "passed": 1,
+      "project": "mobile-chrome-430",
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "finalTestedPathnames": [
+        "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/"
+      ],
+      "httpProbes": [
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-home",
+          "pathname": "/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-panania",
+          "pathname": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-home",
+          "pathname": "/evaready-electrical/",
+          "status": 200
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-panania",
+          "pathname": "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 200
+        }
+      ],
+      "passed": 1,
+      "project": "mobile-safari-390",
+      "skipped": 0
+    },
+    {
+      "failed": 0,
+      "finalTestedPathnames": [
+        "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/"
+      ],
+      "httpProbes": [
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-home",
+          "pathname": "/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 404,
+          "label": "origin-root-panania",
+          "pathname": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 404
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-home",
+          "pathname": "/evaready-electrical/",
+          "status": 200
+        },
+        {
+          "expectedStatus": 200,
+          "label": "preview-panania",
+          "pathname": "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+          "status": 200
+        }
+      ],
+      "passed": 1,
+      "project": "mobile-safari-430",
+      "skipped": 0
+    }
+  ],
+  "result": "PASS",
+  "rootMountedRouteRejected": true,
+  "sourceCommitAtEvidenceGeneration": "7e7791dfd5fd51438410f8d8df3a231cf8a3e747",
+  "startedAt": "2026-08-09T17:36:40.296Z"
+}

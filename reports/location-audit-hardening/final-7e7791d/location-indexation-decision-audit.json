@@ -1,0 +1,36 @@
+{
+  "audit": "location-indexation-decisions",
+  "auditMode": "baseline",
+  "approvedEvidenceRecords": 0,
+  "currentCounts": {
+    "callPaths": 873,
+    "indexFollow": 873,
+    "noindex": 0,
+    "quotePaths": 873,
+    "redirects": 0,
+    "selfCanonicals": 873,
+    "sitemapSuburbs": 873,
+    "suburbRoutes": 873
+  },
+  "decisionCounts": {
+    "index-ready": 0,
+    "hold-noindex-candidate": 0,
+    "consolidation-review": 0,
+    "unreviewed": 873
+  },
+  "generatedAt": "2026-08-09T17:18:30.207Z",
+  "indexationBehaviorChanged": false,
+  "issues": [],
+  "launchDecisionGate": "BLOCKED — OWNER INDEXATION DECISIONS MISSING",
+  "measuredSourceIdentity": {
+    "branch": "",
+    "gitCommit": "7e7791dfd5fd51438410f8d8df3a231cf8a3e747",
+    "next": "16.3.0",
+    "node": "v22.23.1",
+    "outputRoot": "out"
+  },
+  "overallLaunchReadiness": "BLOCKED — OWNER INDEXATION DECISIONS MISSING",
+  "registryEntries": 0,
+  "technicalAppliedDecisionResult": "NOT RUN",
+  "technicalBaselineResult": "PASS"
+}
