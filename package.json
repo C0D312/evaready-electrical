@@ -25,6 +25,8 @@
     "report:location-indexation-playwright": "tsx scripts/summarize-location-indexation-playwright.ts",
     "generate:location-owner-review": "tsx scripts/generate-location-indexation-owner-review.ts",
     "audit:performance": "tsx scripts/audit-performance-assets.ts",
+    "audit:static-export": "tsx scripts/audit-static-export-hardening.ts",
+    "audit:conversion-truth": "tsx scripts/audit-conversion-truth.ts",
     "audit:lighthouse": "tsx scripts/benchmark-production-performance.ts",
     "audit:all-routes-visibility": "tsx scripts/audit-all-routes-visibility.ts",
     "audit:visibility": "tsx scripts/audit-page-visibility.ts",

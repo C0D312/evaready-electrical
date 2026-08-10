@@ -53,14 +53,20 @@ test("static export serves Next segment prefetches without first-party failures"
   );
   const response = await page.request.get(segmentUrl.href);
   expect(response.status()).toBe(200);
-  expect(response.headers()["content-type"]).toContain("text/x-component");
+  expect(response.headers()["content-type"]).toContain("text/plain");
 });
 
-test("Google Ads queue remains available while the library is deferred", async ({
+test("Google Ads base library loads after hydration without invented conversions", async ({
   page,
 }, testInfo) => {
   const baseUrl = String(testInfo.project.use.baseURL ?? "");
   let libraryRequests = 0;
+  await page.addInitScript(() => {
+    Object.defineProperty(window, "requestIdleCallback", {
+      configurable: true,
+      value: () => 1,
+    });
+  });
   await page.route("https://www.googletagmanager.com/gtag/js**", (route) => {
     libraryRequests += 1;
     return route.fulfill({ body: "", contentType: "application/javascript" });
@@ -79,6 +85,43 @@ test("Google Ads queue remains available while the library is deferred", async (
       })),
     )
     .toEqual({ dataLayer: true, gtag: true });
-  await page.waitForLoadState("load");
   await expect.poll(() => libraryRequests).toBe(1);
+
+  const queuedCommands = await page.evaluate(() => {
+    const dataLayer = (window as Window & { dataLayer?: unknown[] }).dataLayer ?? [];
+    return dataLayer.map((entry) =>
+      Array.from(entry as ArrayLike<unknown>).map((value) =>
+        value instanceof Date ? "date" : value,
+      ),
+    );
+  });
+  expect(queuedCommands.map((command) => command[0])).toEqual(["js", "config"]);
+  expect(queuedCommands[1]?.[1]).toBe("AW-18165545331");
+  expect(JSON.stringify(queuedCommands)).not.toContain("send_to");
+  expect(JSON.stringify(queuedCommands)).not.toContain("event_callback");
+
+  const phone = page
+    .locator('main a[data-conversion-action="phone-click"]')
+    .first();
+  await expect(phone).toHaveAttribute("href", "tel:+61461247247");
+  await phone.evaluate((element) => {
+    element.addEventListener("click", (event) => event.preventDefault(), {
+      once: true,
+    });
+  });
+  await phone.click();
+
+  const quote = page
+    .locator('main a[data-conversion-action="quote-click"]')
+    .first();
+  await quote.click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+
+  const commandsAfterInteractions = await page.evaluate(() =>
+    ((window as Window & { dataLayer?: unknown[] }).dataLayer ?? []).map(
+      (entry) => Array.from(entry as ArrayLike<unknown>)[0],
+    ),
+  );
+  expect(commandsAfterInteractions).toEqual(["js", "config"]);
+  expect(libraryRequests).toBe(1);
 });

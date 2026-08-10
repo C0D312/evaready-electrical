@@ -362,7 +362,7 @@ function main() {
       if (!html.includes('data-conversion-action="phone-click"')) {
         addRow(rows, {
           href: "",
-          issue: "commercial page missing phone conversion attribute",
+          issue: "commercial page missing phone CTA marker attribute",
           kind: "cta",
           source: sourceRoute,
           status: "fail",
@@ -373,7 +373,7 @@ function main() {
       if (!html.includes('data-conversion-action="quote-click"')) {
         addRow(rows, {
           href: "",
-          issue: "commercial page missing quote conversion attribute",
+          issue: "commercial page missing quote CTA marker attribute",
           kind: "cta",
           source: sourceRoute,
           status: "fail",

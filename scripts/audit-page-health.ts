@@ -15,9 +15,9 @@ type PageHealthRow = {
   notes: string;
   "page type": string;
   "phone CTA present": "yes" | "no";
-  "phone conversion attribute present": "yes" | "no";
+  "phone CTA marker attribute present": "yes" | "no";
   "quote CTA present": "yes" | "no";
-  "quote conversion attribute present": "yes" | "no";
+  "quote CTA marker attribute present": "yes" | "no";
   "risky wording warning": string;
   route: string;
   "stale string warning": string;
@@ -249,8 +249,8 @@ function auditRoute(url: string): PageHealthRow {
       "phone CTA present": "no",
       "quote CTA present": "no",
       "Google Ads tag present": "no",
-      "phone conversion attribute present": "no",
-      "quote conversion attribute present": "no",
+      "phone CTA marker attribute present": "no",
+      "quote CTA marker attribute present": "no",
       "stale string warning": "missing generated file",
       "risky wording warning": "",
       "broken asset reference warning": "",
@@ -307,11 +307,11 @@ function auditRoute(url: string): PageHealthRow {
         : "no",
     "Google Ads tag present":
       html.includes("AW-18165545331") || !isHtmlPage ? "yes" : "no",
-    "phone conversion attribute present":
+    "phone CTA marker attribute present":
       html.includes('data-conversion-action="phone-click"') || !commercial
         ? "yes"
         : "no",
-    "quote conversion attribute present":
+    "quote CTA marker attribute present":
       html.includes('data-conversion-action="quote-click"') || !commercial
         ? "yes"
         : "no",
@@ -344,8 +344,8 @@ const headers: (keyof PageHealthRow)[] = [
   "phone CTA present",
   "quote CTA present",
   "Google Ads tag present",
-  "phone conversion attribute present",
-  "quote conversion attribute present",
+  "phone CTA marker attribute present",
+  "quote CTA marker attribute present",
   "stale string warning",
   "risky wording warning",
   "broken asset reference warning",
@@ -371,11 +371,11 @@ const criticalRows = rows.filter((row) =>
     row["phone CTA present"] === "no" ? "missing phone CTA" : "",
     row["quote CTA present"] === "no" ? "missing quote CTA" : "",
     row["Google Ads tag present"] === "no" ? "missing Google Ads tag" : "",
-    row["phone conversion attribute present"] === "no"
-      ? "missing phone conversion attribute"
+    row["phone CTA marker attribute present"] === "no"
+      ? "missing phone CTA marker attribute"
       : "",
-    row["quote conversion attribute present"] === "no"
-      ? "missing quote conversion attribute"
+    row["quote CTA marker attribute present"] === "no"
+      ? "missing quote CTA marker attribute"
       : "",
     row["stale string warning"],
     row["risky wording warning"],

@@ -1,6 +1,10 @@
-import { existsSync, writeFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
-import { generateStaticSegmentAliases } from "./lib/static-export-segment-aliases";
+import {
+  createStaticSegmentAliasManifest,
+  generateStaticSegmentAliases,
+} from "./lib/static-export-segment-aliases";
 
 const outDir = path.resolve(process.cwd(), "out");
 if (!existsSync(outDir)) {
@@ -8,23 +12,26 @@ if (!existsSync(outDir)) {
 }
 
 const aliases = generateStaticSegmentAliases(outDir);
+const packageJson = JSON.parse(
+  readFileSync(path.join(process.cwd(), "package.json"), "utf8"),
+) as { dependencies?: Record<string, string> };
+const sourceCommit = (
+  process.env.STATIC_EXPORT_SOURCE_SHA ??
+  execFileSync("git", ["rev-parse", "HEAD"], {
+    cwd: process.cwd(),
+    encoding: "utf8",
+  })
+).trim();
+const manifest = createStaticSegmentAliasManifest(aliases, {
+  sourceCommit,
+  nextVersion: packageJson.dependencies?.next ?? "unknown",
+  platform: process.platform,
+});
 writeFileSync(
   path.join(outDir, "static-segment-aliases.json"),
-  `${JSON.stringify(
-    {
-      generatedAt: new Date().toISOString(),
-      count: aliases.length,
-      bytes: aliases.reduce((total, alias) => total + alias.bytes, 0),
-      aliases,
-    },
-    null,
-    2,
-  )}\n`,
+  `${JSON.stringify(manifest, null, 2)}\n`,
 );
 
 console.log(
-  `Generated ${aliases.length} static segment aliases (${aliases.reduce(
-    (total, alias) => total + alias.bytes,
-    0,
-  )} bytes).`,
+  `Generated ${manifest.aliasCount} static segment aliases (${manifest.duplicatedBytes} bytes) on ${manifest.platform}.`,
 );

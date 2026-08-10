@@ -220,11 +220,11 @@ function ctaWarnings(html: string, visibleText: string) {
   }
 
   if (!html.includes('data-conversion-action="phone-click"')) {
-    warnings.push("missing phone conversion attribute");
+    warnings.push("missing phone CTA marker attribute");
   }
 
   if (!html.includes('data-conversion-action="quote-click"')) {
-    warnings.push("missing quote conversion attribute");
+    warnings.push("missing quote CTA marker attribute");
   }
 
   return warnings;

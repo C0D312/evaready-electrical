@@ -26,8 +26,8 @@ type VisibilityAuditRow = {
   "phone CTA present yes/no": YesNo;
   "quote CTA present yes/no": YesNo;
   "Google Ads tag present yes/no": YesNo;
-  "phone conversion attribute present yes/no": YesNo;
-  "quote conversion attribute present yes/no": YesNo;
+  "phone CTA marker attribute present yes/no": YesNo;
+  "quote CTA marker attribute present yes/no": YesNo;
   "CSS references valid yes/no": YesNo;
   "JS references valid yes/no": YesNo;
   "image references valid yes/no": YesNo;
@@ -336,11 +336,11 @@ function localSuburbMarkupWarning(item: RouteInventoryItem, html: string) {
   }
 
   if (!html.includes('data-conversion-action="phone-click"')) {
-    warnings.push("phone conversion action missing");
+    warnings.push("phone CTA marker attribute missing");
   }
 
   if (!html.includes('data-conversion-action="quote-click"')) {
-    warnings.push("quote conversion action missing");
+    warnings.push("quote CTA marker attribute missing");
   }
 
   if (!html.includes('href="tel:+61461247247"')) {
@@ -390,8 +390,8 @@ function auditRoute(item: RouteInventoryItem, sitemapRoutes: Set<string>) {
         "phone CTA present yes/no": item.commercial ? "no" : "yes",
         "quote CTA present yes/no": item.commercial ? "no" : "yes",
         "Google Ads tag present yes/no": "no",
-        "phone conversion attribute present yes/no": item.commercial ? "no" : "yes",
-        "quote conversion attribute present yes/no": item.commercial ? "no" : "yes",
+        "phone CTA marker attribute present yes/no": item.commercial ? "no" : "yes",
+        "quote CTA marker attribute present yes/no": item.commercial ? "no" : "yes",
         "CSS references valid yes/no": "no",
         "JS references valid yes/no": "no",
         "image references valid yes/no": "no",
@@ -505,10 +505,10 @@ function auditRoute(item: RouteInventoryItem, sitemapRoutes: Set<string>) {
       !item.commercial || raw.includes('data-conversion-action="quote-click"'),
     ),
     "Google Ads tag present yes/no": yesNo(!isHtml || raw.includes("AW-18165545331")),
-    "phone conversion attribute present yes/no": yesNo(
+    "phone CTA marker attribute present yes/no": yesNo(
       !item.commercial || raw.includes('data-conversion-action="phone-click"'),
     ),
-    "quote conversion attribute present yes/no": yesNo(
+    "quote CTA marker attribute present yes/no": yesNo(
       !item.commercial || raw.includes('data-conversion-action="quote-click"'),
     ),
     "CSS references valid yes/no": yesNo(!isHtml || (cssRefs.length > 0 && cssInvalid.length === 0)),
@@ -534,11 +534,11 @@ function auditRoute(item: RouteInventoryItem, sitemapRoutes: Set<string>) {
     item.commercial && row["quote CTA present yes/no"] === "no"
       ? "missing quote CTA"
       : "",
-    item.commercial && row["phone conversion attribute present yes/no"] === "no"
-      ? "missing phone conversion attribute"
+    item.commercial && row["phone CTA marker attribute present yes/no"] === "no"
+      ? "missing phone CTA marker attribute"
       : "",
-    item.commercial && row["quote conversion attribute present yes/no"] === "no"
-      ? "missing quote conversion attribute"
+    item.commercial && row["quote CTA marker attribute present yes/no"] === "no"
+      ? "missing quote CTA marker attribute"
       : "",
     isHtml && row["Google Ads tag present yes/no"] === "no"
       ? "missing Google Ads tag"
@@ -587,8 +587,8 @@ const headers: Array<keyof VisibilityAuditRow> = [
   "phone CTA present yes/no",
   "quote CTA present yes/no",
   "Google Ads tag present yes/no",
-  "phone conversion attribute present yes/no",
-  "quote conversion attribute present yes/no",
+  "phone CTA marker attribute present yes/no",
+  "quote CTA marker attribute present yes/no",
   "CSS references valid yes/no",
   "JS references valid yes/no",
   "image references valid yes/no",

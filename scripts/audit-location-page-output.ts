@@ -412,7 +412,7 @@ for (const page of pages.filter((item) => item.family === "suburb")) {
   }
 
   if (page.ctaCount < 4) {
-    issues.push(`${page.url} has ${page.ctaCount} conversion actions; expected at least 4`);
+    issues.push(`${page.url} has ${page.ctaCount} Call/Quote actions; expected at least 4`);
   }
   if (page.finalActionCount !== 1) {
     issues.push(`${page.url} has ${page.finalActionCount} final action sections; expected 1`);

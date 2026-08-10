@@ -1,6 +1,7 @@
 export type StaticExportServerOptions = {
   basePath: string;
   host: string;
+  pagesLikeMime: boolean;
   port: number;
   requireBasePath: boolean;
 };
@@ -12,7 +13,7 @@ type ResolveStaticExportServerOptionsInput = {
 };
 
 const valueOptions = new Set(["base-path", "host", "port"]);
-const flagOptions = new Set(["strict-base-path"]);
+const flagOptions = new Set(["pages-like", "strict-base-path"]);
 
 function normaliseBasePath(value: string | undefined) {
   const trimmed = value?.trim() ?? "";
@@ -87,6 +88,9 @@ export function resolveStaticExportServerOptions({
   const requireBasePath =
     commandLine.flags.has("strict-base-path") ||
     env.STATIC_EXPORT_REQUIRE_BASE_PATH === "1";
+  const pagesLikeMime =
+    commandLine.flags.has("pages-like") ||
+    env.STATIC_EXPORT_PAGES_LIKE === "1";
 
   if (!host.trim() || /\s/.test(host)) {
     throw new Error(`Invalid static export host: ${host || "(empty)"}`);
@@ -98,5 +102,5 @@ export function resolveStaticExportServerOptions({
     throw new Error("Strict base-path mode requires a non-root --base-path value");
   }
 
-  return { basePath, host, port, requireBasePath };
+  return { basePath, host, pagesLikeMime, port, requireBasePath };
 }

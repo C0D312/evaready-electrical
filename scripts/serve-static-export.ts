@@ -10,6 +10,7 @@ const deployment = resolveDeploymentConfig();
 const {
   basePath,
   host,
+  pagesLikeMime,
   port,
   requireBasePath,
 } = resolveStaticExportServerOptions({
@@ -109,7 +110,7 @@ const server = createServer((request, response) => {
     "cache-control": immutable
       ? "public, max-age=31536000, immutable"
       : "public, max-age=0, must-revalidate",
-    "content-type": isSegmentPayload
+    "content-type": isSegmentPayload && !pagesLikeMime
       ? "text/x-component; charset=utf-8"
       : contentTypes[extension] ?? "application/octet-stream",
     vary: "Accept-Encoding",
@@ -132,7 +133,9 @@ const server = createServer((request, response) => {
 });
 
 server.listen(port, host, () => {
-  console.log(`Static export available at http://${host}:${port}${basePath}/`);
+  console.log(
+    `Static export available at http://${host}:${port}${basePath}/ (${pagesLikeMime ? "Pages-like text/plain" : "Next segment MIME"} mode)`,
+  );
 });
 
 for (const signal of ["SIGINT", "SIGTERM"] as const) {

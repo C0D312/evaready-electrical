@@ -7,7 +7,7 @@ export function GoogleAdsTag() {
     <>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
-        strategy="lazyOnload"
+        strategy="afterInteractive"
       />
       <Script id="google-ads-base-tag" strategy="afterInteractive">
         {`
