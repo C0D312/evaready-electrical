@@ -1,0 +1,43 @@
+{
+    "sourceSha":  "668a05941e84de514081228b7077b8677e01ef55",
+    "environment":  {
+                        "node":  "22.23.1",
+                        "npm":  "10.9.8",
+                        "next":  "16.3.0",
+                        "lighthouse":  "13.4.1",
+                        "chromeBinaryProductVersion":  "151.0.7922.108",
+                        "chromeUserAgentVersion":  "151.0.0.0",
+                        "os":  "Windows",
+                        "previewBasePath":  "/evaready-electrical"
+                    },
+    "buildEnvironment":  [
+                             "NEXT_PUBLIC_DEPLOYMENT_TARGET=github-preview",
+                             "NEXT_PUBLIC_BASE_PATH=/evaready-electrical",
+                             "NEXT_PUBLIC_SITE_URL=https://c0d312.github.io/evaready-electrical"
+                         ],
+    "commands":  [
+                     "npm ci",
+                     "npm audit",
+                     "npm audit --omit=dev",
+                     "npm run lint",
+                     "npx tsc --noEmit",
+                     "npm run build",
+                     "npm run test:location-audits",
+                     "npm run audit:static-export",
+                     "npm run audit:conversion-truth",
+                     "npm run audit:links",
+                     "npm run audit:metadata",
+                     "npm run audit:page-health",
+                     "npm run audit:claims",
+                     "npm run audit:offers",
+                     "npm run audit:live-links-and-ctas",
+                     "npm run audit:visible-copy",
+                     "npx playwright test tests/e2e/non-header-performance.spec.ts tests/e2e/static-export-navigation.spec.ts --project=desktop-chromium-1440 --project=mobile-chrome-390 --workers=1 --reporter=json",
+                     "npm run audit:lighthouse",
+                     "git diff --check"
+                 ],
+    "invalidRunExcluded":  {
+                               "reason":  "The first after attempt targeted a server process that had exited and every raw report contained CHROME_INTERSTITIAL_ERROR with chrome-error://chromewebdata/. Its zero values are excluded from all medians and are not committed.",
+                               "validAfterEvidenceFolder":  "after-668a059"
+                           }
+}

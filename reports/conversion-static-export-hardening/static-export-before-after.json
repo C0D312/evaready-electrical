@@ -1,0 +1,39 @@
+{
+    "platformScope":  "Windows Next.js 16.3.0 export normalisation; not a universal alias result",
+    "priorUbuntuEvidence":  {
+                                "aliasCount":  0,
+                                "locallyReproducedInThisTask":  false,
+                                "note":  "Prior committed Ubuntu evidence reported flat payloads directly. Ubuntu was unavailable locally for this task."
+                            },
+    "baseline":  {
+                     "sourceSha":  "4a8005995501dc8676e04aaec3fcd385eec344a7",
+                     "platform":  "win32",
+                     "aliasCount":  1001,
+                     "duplicatedBytes":  64947040,
+                     "manifestBytes":  312992,
+                     "fileCount":  7131,
+                     "rawExportBytes":  699319357,
+                     "compressedArtifactBytes":  89834541,
+                     "compressedArtifactSha256":  "e2a7318b847ed9fe51e9646706a867eeff3e2a845b2cf4b41e21741d659017ee",
+                     "noJekyllPresent":  true,
+                     "deterministicManifest":  false
+                 },
+    "after":  {
+                  "sourceSha":  "668a05941e84de514081228b7077b8677e01ef55",
+                  "platform":  "win32",
+                  "aliasCount":  1001,
+                  "fixedAliasCount":  12,
+                  "dynamicAliasCount":  989,
+                  "duplicatedBytes":  64947040,
+                  "manifestBytes":  397231,
+                  "fileCount":  7131,
+                  "rawExportBytes":  699527052,
+                  "compressedArtifactBytes":  89904291,
+                  "compressedArtifactSha256":  "4376b38c1547ddee4fa3965bdc43fcf13c9139839fcb741efb4f1c6f23a19cad",
+                  "noJekyllPresent":  true,
+                  "deterministicManifest":  true,
+                  "deterministicManifestSha256":  "2ed410e3c10e61c678d47cc49fe55238cd9830cadecaffb3620072998df6f56c",
+                  "byteIdentityVerified":  true,
+                  "completeNestedPayloadCoverage":  true
+              }
+}

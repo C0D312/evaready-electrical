@@ -1,0 +1,22 @@
+{
+  "phase": "baseline-4a800",
+  "sourceSha": "4a8005995501dc8676e04aaec3fcd385eec344a7",
+  "node": "v22.23.1",
+  "next": "16.3.0",
+  "lighthouse": "13.4.1",
+  "chromeVersion": "151.0.0.0",
+  "chromeHostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+  "chromeNetworkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36",
+  "baseUrl": "http://127.0.0.1:4190/evaready-electrical",
+  "profiles": [
+    "mobile",
+    "desktop"
+  ],
+  "routeCount": 10,
+  "runsPerRoute": 3,
+  "runCount": 60,
+  "rawReportsReused": false,
+  "command": "PERF_BASE_URL=http://127.0.0.1:4190/evaready-electrical PERF_PHASE=baseline-4a800 PERF_RUNS=3 PERF_PROFILES=mobile,desktop npm run audit:lighthouse",
+  "laboratoryOnly": true,
+  "inpMeasured": false
+}

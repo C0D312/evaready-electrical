@@ -7,6 +7,10 @@
 > 16.3.0 / Chrome 151 evidence is stored in
 > `reports/production-performance/final-a404/` and is the only performance data
 > used by the current launch-readiness conclusion.
+> Tracking terminology in this historical record is also superseded: the
+> current repository has a Google Ads base tag and phone/quote CTA
+> classification markers, but no explicit click-conversion events or approved
+> conversion labels. Marker presence is not proof of a received conversion.
 
 ## Scope and safety
 
@@ -141,8 +145,8 @@ observed LCP element, not the header artwork.
 - The ServiceM8 frame is dynamically loaded only after a quote action opens
   the modal. Static Playwright evidence: 0 initial ServiceM8 requests and 1
   frame load after the quote action.
-- Phone and quote conversion markers remain present and passed the route/CTA
-  audit.
+- Phone and quote CTA classification markers remain present and passed the
+  route/destination audit. This did not verify an account-side conversion.
 
 ### Reduced hydration
 
@@ -237,7 +241,8 @@ smoke-tested on another machine before launch.
 Further mobile LCP gains are likely to require a smaller mobile hero derivative
 or a carefully tested change to the above-fold composition. Tracking is the
 largest remaining authorised JavaScript constraint. Neither should be changed
-without preserving the approved mobile van composition and conversion events.
+without preserving the approved mobile van composition, CTA destinations and
+conversion-readiness markers.
 
 Owner accuracy confirmation is still required immediately before launch for
 the current Google review count and all four offer terms. No deployment or

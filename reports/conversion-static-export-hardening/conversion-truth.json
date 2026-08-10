@@ -1,0 +1,42 @@
+{
+    "googleAdsId":  "AW-18165545331",
+    "baseline":  {
+                     "baseTagPresent":  true,
+                     "externalLibraryStrategy":  "lazyOnload",
+                     "markerAttributeDeclarations":  91,
+                     "phoneMarkerValues":  50,
+                     "quoteMarkerValues":  42,
+                     "explicitGtagEventCalls":  0,
+                     "sendToValues":  0,
+                     "conversionLabels":  0,
+                     "eventCallbacks":  0,
+                     "eventTimeouts":  0
+                 },
+    "after":  {
+                  "result":  "PASS",
+                  "googleAdsId":  "AW-18165545331",
+                  "baseTagPresent":  true,
+                  "externalLibraryStrategy":  "afterInteractive",
+                  "sourceFileCount":  50,
+                  "markerAttributeDeclarations":  91,
+                  "phoneMarkerValues":  50,
+                  "quoteMarkerValues":  42,
+                  "explicitGtagEventCalls":  0,
+                  "sendToValues":  0,
+                  "eventCallbacks":  0,
+                  "eventTimeouts":  0,
+                  "generatedHtmlFiles":  1004,
+                  "generatedHtmlWithBaseTag":  1004,
+                  "generatedPhoneMarkers":  6324,
+                  "generatedQuoteMarkers":  6272,
+                  "generatedExplicitEvents":  0,
+                  "explicitConversionEventsInstalled":  false,
+                  "ownerSuppliedConversionLabelsRequired":  true
+              },
+    "accurateConclusion":  "Google Ads base tag present; phone/quote CTA markers present; explicit click-conversion events not installed.",
+    "ownerLaunchSteps":  [
+                             "Supply real Google Ads conversion labels if click-conversion events are approved.",
+                             "Verify the base tag and any future events with Tag Assistant and the owner Google Ads account.",
+                             "Do not treat CTA marker presence as evidence that Google received a conversion."
+                         ]
+}

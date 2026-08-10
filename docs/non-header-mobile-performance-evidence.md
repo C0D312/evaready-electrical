@@ -1,8 +1,17 @@
 # Non-header mobile performance evidence
 
+> **Historical `7eb6985` evidence, superseded for tracking and export
+> conclusions on 11 August 2026.** The tables below remain valid for their exact
+> source and experiment, but `lazyOnload`, the reported 122-150 KB deferral and
+> `text/x-component` alias serving are not the current implementation. Commit
+> `668a05941e84de514081228b7077b8677e01ef55` restored the external Google base
+> library to `afterInteractive`, uses Pages-like `text/plain` responses, and
+> records current evidence under `reports/conversion-static-export-hardening/`.
+> The mobile Lighthouse launch blocker remains.
+
 ## Status
 
-**NON-HEADER REGRESSION GATE: PASS**
+**HISTORICAL NON-HEADER REGRESSION GATE: PASS**
 
 **MOBILE LIGHTHOUSE LAUNCH TARGET: BLOCKED**
 
@@ -57,6 +66,14 @@ The asset is 768 x 576 pixels and was not changed. Experiments with synchronous 
 Lighthouse's simulated mobile result is dominated by modeled resource/render competition. Current image-LCP routes receive about 594-875 ms resource load duration and about 2,936-3,531 ms element render delay, while the observed unthrottled local LCP is only 95-113 ms. The actionable non-header cost was the approximately 147 KB Google Ads library loaded after hydration. The queue, conversion ID, and conversion markers remain present, while the external library now loads on window idle. That removes approximately 122-150 KB from median mobile initial transfer, depending on route.
 
 The largest remaining image competition belongs to frozen header resources and cannot be changed in this task. The two presentation stylesheets transfer about 61 KB and were retained to avoid visual regression.
+
+The exact `668a059` rerun did not reproduce the expected 122-150 KB increase
+when `afterInteractive` was restored: route transfer deltas against its exact
+`4a800` baseline ranged from -25 to +40 bytes and request counts were unchanged.
+The valid current matrix reports mobile Performance 81-84 and LCP
+4,584-5,108 ms, so it does not claim an LCP solution. CTA markers remain
+classification attributes only; explicit Google Ads click-conversion events
+are not installed.
 
 ## Before and after: mobile medians
 
@@ -187,7 +204,7 @@ The exact Playwright commands are machine-recorded in the Playwright summary. Al
 - Lint: pass
 - TypeScript: pass
 - Clean static build: pass, 1,005 static pages
-- Generated flat segment aliases: 1,001
+- Generated flat segment aliases: 1,001 on the measured Windows Next.js 16.3 export; prior Ubuntu evidence reported zero and was not locally reproduced
 - Location output: 16 regions, 39 areas, 873 suburbs; zero mapping errors
 - Suburb indexation: 873 index/follow, 0 noindex, 873 sitemap entries, 873 self-canonicals, 0 redirects
 - Internal links: 20,143 checked, zero broken generated links

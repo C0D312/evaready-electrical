@@ -1,0 +1,42 @@
+[
+  {
+    "label": "Homepage",
+    "route": "/"
+  },
+  {
+    "label": "Services",
+    "route": "/services/"
+  },
+  {
+    "label": "Service Areas",
+    "route": "/service-areas/"
+  },
+  {
+    "label": "Emergency Electrician Sydney",
+    "route": "/emergency-electrician-sydney/"
+  },
+  {
+    "label": "Level 2 Electrician Sydney",
+    "route": "/level-2-electrician-sydney/"
+  },
+  {
+    "label": "Switchboard Upgrades Sydney",
+    "route": "/services/switchboard-upgrades-sydney/"
+  },
+  {
+    "label": "No Power In One Room fault guide",
+    "route": "/electrical-faults/no-power-in-one-room/"
+  },
+  {
+    "label": "Canterbury-Bankstown region",
+    "route": "/service-areas/canterbury-bankstown-and-inner-south-west/"
+  },
+  {
+    "label": "Canterbury-Bankstown area",
+    "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/"
+  },
+  {
+    "label": "Panania suburb",
+    "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/"
+  }
+]

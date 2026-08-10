@@ -1,0 +1,48 @@
+{
+    "sourceSha":  "668a05941e84de514081228b7077b8677e01ef55",
+    "baseUrl":  "http://127.0.0.1:4192/evaready-electrical/",
+    "command":  "npx playwright test tests/e2e/non-header-performance.spec.ts tests/e2e/static-export-navigation.spec.ts --project=desktop-chromium-1440 --project=mobile-chrome-390 --workers=1 --reporter=json",
+    "totals":  {
+                   "passed":  5,
+                   "failed":  0,
+                   "skipped":  1,
+                   "flaky":  0,
+                   "durationMs":  19139.28
+               },
+    "projects":  [
+                     {
+                         "project":  "desktop-chromium-1440",
+                         "passed":  3,
+                         "failed":  0,
+                         "skipped":  0
+                     },
+                     {
+                         "project":  "mobile-chrome-390",
+                         "passed":  2,
+                         "failed":  0,
+                         "skipped":  1,
+                         "skipReason":  "The seven-route static navigation sequence runs once in representative desktop Chromium."
+                     }
+                 ],
+    "navigationCoverage":  [
+                               "Homepage",
+                               "Services",
+                               "Service page",
+                               "Fault guide",
+                               "Region",
+                               "Area",
+                               "Suburb"
+                           ],
+    "operations":  [
+                       "hover/prefetch",
+                       "click client navigation",
+                       "browser Back",
+                       "direct navigation"
+                   ],
+    "finalTestedPathname":  "/evaready-electrical/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/",
+    "pagesLikeSegmentMime":  "text/plain; charset=utf-8",
+    "unexplainedFirstPartyFailures":  0,
+    "firstPartyConsoleErrors":  0,
+    "realGoogleRequestsSent":  0,
+    "explicitConversionEventsSent":  0
+}

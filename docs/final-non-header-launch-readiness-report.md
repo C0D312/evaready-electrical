@@ -2,6 +2,15 @@
 
 Date: 2026-08-08 (Australia/Sydney)
 
+> **Current tracking/export evidence update (11 August 2026).** The scoped
+> correction at implementation commit `668a05941e84de514081228b7077b8677e01ef55`
+> supersedes this report's earlier treatment of the Google Ads loader and
+> Windows static-export aliases. The base tag and CTA classification markers
+> are present, but explicit phone-click and quote-click Google Ads conversion
+> events are not installed because owner-supplied conversion labels are not
+> available. Current machine-readable evidence is under
+> `reports/conversion-static-export-hardening/`.
+
 ## Verdict
 
 **NOT READY**
@@ -35,7 +44,8 @@ asset or test was reviewed or changed.
 | PASS | Node.js 22 clean install, lint, TypeScript and clean static export | None |
 | PASS | 1,004 known routes, 1,001 indexable sitemap URLs and 873/873 suburbs | None |
 | PASS | Internal links, metadata, canonicals, robots, schema URLs and 404 behaviour | None |
-| PASS | Phone, quote, ServiceM8 and Google Ads markers | None |
+| PASS | Phone, quote and ServiceM8 destinations; Google Ads base tag and CTA classification markers | None |
+| EXTERNAL CONFIGURATION REQUIRED | Google Ads click-conversion events | Supply the real phone and quote conversion labels from the owner account, implement the approved events, then verify with Tag Assistant and Google Ads; marker presence alone is not a conversion |
 | PASS | Keyboard, quote-modal Back handling, mobile sticky CTA and tested responsive layouts | None |
 | PASS | Full and production dependency audits report zero vulnerabilities | None |
 | OWNER CONFIRMATION REQUIRED | Electrical licence, company registration, Level 2 status, network coverage and response wording | Owner must verify the exact current evidence and scope immediately before launch |
@@ -44,14 +54,14 @@ asset or test was reviewed or changed.
 | OWNER CONFIRMATION REQUIRED | Photographs, people and testimonials | Confirm provenance, publication rights, vehicle-plate approval and customer permission |
 | EXTERNAL CONFIGURATION REQUIRED | Live Google rating | Supply the exact verified Place ID and a restricted browser API key; verify a genuine response for EVAREADY ELECTRICAL |
 | BLOCKER | Location-page helpful-content quality | Decide the indexation/evidence plan and add truthful owner-approved local evidence to priority pages before launch |
-| BLOCKER | Exact-`a404e774` mobile Lighthouse performance is 81-84 and LCP is 4.58-5.11 seconds | Approve and test a non-header LCP/payload optimisation without weakening conversion content or tracking |
+| BLOCKER | Exact-`668a059` mobile Lighthouse performance is 81-84 and LCP is 4.58-5.11 seconds | Approve and test a non-header LCP/payload optimisation without weakening conversion content or tracking |
 | DEFERRED HEADER ITEM | Header design and behaviour | Separate owner review; deliberately outside this task |
 
 ## Repository and toolchain
 
 - Branch: `codex/responsive-ux-overhaul`
-- Performance evidence source HEAD: `a404e774fbac6cfe90a54269f20fe95bff744b84`
-- Remote feature-branch HEAD before measurement: `a404e774fbac6cfe90a54269f20fe95bff744b84`
+- Current performance evidence implementation: `668a05941e84de514081228b7077b8677e01ef55`
+- Tracking/export task starting local and remote HEAD: `4a8005995501dc8676e04aaec3fcd385eec344a7`
 - Node.js: `22.23.1`
 - npm: `10.9.8`
 - Next.js: `16.3.0`
@@ -245,6 +255,11 @@ was committed during this audit.
 - Quote modal focus, focus return, scroll lock and browser Back closure pass.
 - Emergency pathways direct visitors to call; planned-work pathways direct
   visitors to submit job details and photographs.
+- The Google Ads base tag uses ID `AW-18165545331`, and phone/quote CTA marker
+  attributes remain present. The current source contains zero explicit
+  `gtag('event', ...)` calls, `send_to` values, conversion labels, callbacks or
+  conversion timeouts. Tag Assistant and account-side conversion verification
+  remain owner launch steps.
 
 Offer accuracy remains **OWNER CONFIRMATION REQUIRED** as listed above.
 
@@ -252,7 +267,7 @@ Offer accuracy remains **OWNER CONFIRMATION REQUIRED** as listed above.
 
 ### PASS
 
-- The current matrix used the explicit local production URL
+- The earlier broad non-header interaction matrix used the explicit local production URL
   `http://127.0.0.1:4181/evaready-electrical/`; no test defaulted to the public
   GitHub Pages site.
 - Six non-header suites covered contact actions, current copyright, Google
@@ -283,16 +298,22 @@ Offer accuracy remains **OWNER CONFIRMATION REQUIRED** as listed above.
 
 This is representative non-header interaction coverage, not exhaustive
 all-route/all-browser coverage. The exhaustive runner remains incomplete.
+The current tracking/export correction added a focused exact-implementation
+matrix at `http://127.0.0.1:4192/evaready-electrical/`: 5 tests passed, 0
+failed and 1 mobile duplicate sequence was deliberately skipped by project
+guard. It covered post-hydration tag startup without idle, queue/config state,
+seven genuine Next Link route types, browser Back, direct navigation and
+Pages-like `text/plain` segment responses without sending a real Google event.
 
 ## Production performance evidence
 
 ### BLOCKER - current exact-source measurement
 
 The authoritative current matrix was generated from a detached worktree at
-exact source commit `a404e774fbac6cfe90a54269f20fe95bff744b84`. The clean
+exact implementation commit `668a05941e84de514081228b7077b8677e01ef55`. The clean
 static export used Node.js 22.23.1, npm 10.9.8, Next.js 16.3.0, Lighthouse
 13.4.1 and Chrome 151.0.7922.108. It was served by the project static server at
-`http://127.0.0.1:4181/evaready-electrical` using the GitHub preview base-path
+`http://127.0.0.1:4192/evaready-electrical` using the GitHub preview base-path
 configuration. Each row is the median of three runs using the same profile,
 server and environment.
 
@@ -300,7 +321,7 @@ The historical 3 August Node 26 / Next.js 16.2 / Chrome 150 measurements are
 not used in any current conclusion. They remain recoverable in
 `docs/final-performance-before-after.md` and are explicitly labelled
 historical. Those results measured a different source commit and only six
-routes, while the current matrix measures exact `a404e774` across ten routes.
+routes, while the current matrix measures exact `668a059` across ten routes.
 The application output, runtime, framework, browser, route scope and transferred
 resource set differ, so the figures cannot be mixed or described as one current
 measurement.
@@ -309,31 +330,31 @@ measurement.
 
 | Page | Perf | A11y | BP | SEO | FCP | LCP | CLS | TBT | Transfer | Requests |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Homepage | 81 | 100 | 77 | 100 | 1,209ms | 5,109ms | 0 | 8ms | 947,389B | 35 |
-| Services | 81 | 100 | 77 | 100 | 1,356ms | 5,033ms | 0 | 10ms | 954,886B | 35 |
-| Service Areas | 82 | 100 | 77 | 100 | 1,359ms | 4,810ms | 0 | 9ms | 884,375B | 32 |
-| Emergency | 81 | 100 | 77 | 100 | 1,507ms | 5,032ms | 0 | 8ms | 953,559B | 36 |
-| Level 2 | 84 | 100 | 77 | 100 | 1,359ms | 4,585ms | 0 | 8ms | 880,810B | 31 |
-| Switchboards | 81 | 100 | 77 | 100 | 1,357ms | 5,107ms | 0 | 7ms | 949,762B | 35 |
-| Fault guide | 83 | 100 | 73 | 100 | 1,357ms | 4,732ms | 0 | 11ms | 920,123B | 35 |
-| Region | 83 | 100 | 73 | 100 | 1,356ms | 4,658ms | 0 | 9ms | 882,465B | 35 |
-| Area | 83 | 100 | 73 | 100 | 1,358ms | 4,658ms | 0 | 10ms | 884,246B | 38 |
-| Panania | 84 | 100 | 73 | 100 | 1,356ms | 4,582ms | 0 | 8ms | 882,387B | 40 |
+| Homepage | 82 | 100 | 77 | 100 | 1,358ms | 4,883ms | 0 | 9ms | 947,392B | 35 |
+| Services | 81 | 100 | 77 | 100 | 1,358ms | 5,035ms | 0 | 8ms | 954,889B | 35 |
+| Service Areas | 83 | 100 | 77 | 100 | 1,360ms | 4,660ms | 0 | 8ms | 884,383B | 32 |
+| Emergency | 81 | 100 | 77 | 100 | 1,508ms | 5,108ms | 0 | 7ms | 953,557B | 36 |
+| Level 2 | 82 | 100 | 77 | 100 | 1,359ms | 4,810ms | 0 | 10ms | 880,803B | 31 |
+| Switchboards | 81 | 100 | 77 | 100 | 1,358ms | 5,107ms | 0 | 10ms | 949,763B | 35 |
+| Fault guide | 83 | 100 | 77 | 100 | 1,358ms | 4,733ms | 0 | 11ms | 926,852B | 35 |
+| Region | 82 | 100 | 77 | 100 | 1,359ms | 4,809ms | 0 | 8ms | 892,022B | 35 |
+| Area | 82 | 100 | 77 | 100 | 1,358ms | 4,808ms | 0 | 8ms | 901,795B | 38 |
+| Panania | 84 | 100 | 77 | 100 | 1,359ms | 4,584ms | 0 | 8ms | 910,734B | 41 |
 
 ### Desktop medians
 
 | Page | Perf | A11y | BP | SEO | FCP | LCP | CLS | TBT | Transfer | Requests |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Homepage | 96 | 93 | 73 | 100 | 327ms | 1,387ms | 0 | 0ms | 1,476,501B | 64 |
-| Services | 96 | 93 | 73 | 100 | 326ms | 1,386ms | 0 | 0ms | 1,483,998B | 64 |
-| Service Areas | 96 | 93 | 73 | 100 | 328ms | 1,348ms | 0 | 0ms | 1,413,485B | 61 |
-| Emergency | 96 | 93 | 73 | 100 | 366ms | 1,386ms | 0 | 0ms | 1,480,065B | 64 |
-| Level 2 | 97 | 93 | 73 | 100 | 327ms | 1,307ms | 0 | 0ms | 1,409,920B | 60 |
-| Switchboards | 96 | 93 | 73 | 100 | 326ms | 1,386ms | 0 | 0ms | 1,478,866B | 64 |
-| Fault guide | 97 | 93 | 73 | 100 | 327ms | 1,310ms | 0 | 0ms | 1,407,165B | 63 |
-| Region | 96 | 93 | 73 | 100 | 327ms | 1,347ms | 0 | 0ms | 1,410,451B | 61 |
-| Area | 96 | 93 | 73 | 100 | 327ms | 1,347ms | 0 | 0ms | 1,412,222B | 64 |
-| Panania | 97 | 93 | 73 | 100 | 327ms | 1,307ms | 0 | 0ms | 1,410,385B | 66 |
+| Homepage | 96 | 93 | 77 | 100 | 327ms | 1,387ms | 0 | 0ms | 1,570,060B | 65 |
+| Services | 96 | 93 | 77 | 100 | 327ms | 1,387ms | 0 | 0ms | 1,577,555B | 65 |
+| Service Areas | 96 | 93 | 77 | 100 | 328ms | 1,348ms | 0 | 0ms | 1,504,546B | 61 |
+| Emergency | 96 | 93 | 77 | 100 | 367ms | 1,387ms | 0 | 0ms | 1,573,617B | 65 |
+| Level 2 | 97 | 93 | 77 | 100 | 328ms | 1,308ms | 0 | 0ms | 1,503,461B | 61 |
+| Switchboards | 96 | 93 | 77 | 100 | 327ms | 1,387ms | 0 | 0ms | 1,572,443B | 65 |
+| Fault guide | 96 | 93 | 77 | 100 | 327ms | 1,370ms | 0 | 0ms | 1,507,440B | 64 |
+| Region | 96 | 93 | 77 | 100 | 328ms | 1,347ms | 0 | 0ms | 1,501,515B | 61 |
+| Area | 96 | 93 | 77 | 100 | 327ms | 1,347ms | 0 | 0ms | 1,511,289B | 64 |
+| Panania | 97 | 93 | 77 | 100 | 328ms | 1,308ms | 0 | 0ms | 1,520,223B | 67 |
 
 Desktop performance, LCP, CLS and TBT meet the stated performance thresholds.
 Mobile performance is 81-84 and every mobile LCP median exceeds 2.5 seconds,
@@ -344,11 +365,13 @@ on one route. The desktop LCP element is the main hero image on nine routes and
 the fault-guide hero section on one route. Exact selectors are retained in the
 committed median JSON/CSV.
 
-Best Practices is 73-77 because Google Ads produces a third-party cookie and
-Chrome DevTools issue finding, and 42 runs also recorded a local 404 console
-entry whose Lighthouse item did not expose a URL. These warnings are retained,
-not hidden. All 60 Lighthouse CLI runs completed successfully with zero cleanup
-warnings.
+Best Practices is 77 because Google Ads produces a third-party cookie and
+Chrome DevTools issue finding. The corrected Windows export produced zero
+first-party or third-party HTTP failures and zero console errors across the 60
+valid runs. One earlier after-change attempt reached a Chrome interstitial after
+its local server exited; all 60 reports from that invalid attempt were excluded
+from current medians and are identified in the command record. All 60 valid
+Lighthouse CLI runs completed successfully with zero cleanup warnings.
 
 These are local laboratory measurements, not field Core Web Vitals. This
 navigation-only matrix did not measure INP.

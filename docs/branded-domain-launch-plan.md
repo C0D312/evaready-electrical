@@ -345,14 +345,20 @@ status. Do not repeatedly resubmit to force crawling.
 
 ## 16. Google Ads and Analytics Conversion Verification
 
-Preserve the existing Google Ads ID `AW-18165545331` and the approved phone and
-quote conversion markers. Before changing any account or tag configuration:
+Preserve the existing Google Ads ID `AW-18165545331` and the phone/quote CTA
+classification markers. The current source does not contain explicit
+phone-click or quote-click conversion events or approved conversion labels.
+Before changing any account or tag configuration:
 
 - Record current tag IDs, event names, conversion labels, consent behaviour,
   and duplicate-firing safeguards.
 - Verify page-view tracking on the branded host.
-- Verify `phone-click` fires once for a real `tel:+61461247247` interaction.
-- Verify `quote-click` fires once when the ServiceM8 quote journey opens.
+- After the owner supplies and approves the real conversion labels, verify the
+  implemented `phone-click` event fires once for a real
+  `tel:+61461247247` interaction.
+- After the owner supplies and approves the real conversion labels, verify the
+  implemented `quote-click` event fires once when the ServiceM8 quote journey
+  opens.
 - Verify browser Back, modal close, menu actions, and repeated clicks do not
   generate false conversions.
 - Use analytics debug or test facilities where available.
@@ -547,7 +553,9 @@ The migration is complete only when:
 - Canonicals, Open Graph, sitemap, robots, schema, and assets use the branded
   origin consistently.
 - Header, navigation, ticker, mobile menu, sticky CTA, quote modal, phone links,
-  ServiceM8, tracking, and conversion events pass desktop and mobile checks.
+  ServiceM8 and tracking pass desktop and mobile checks; any explicit
+  conversion events are verified only after owner-approved labels have been
+  supplied and implemented.
 - Search Console verifies the domain and accepts the sitemap.
 - The 24-hour launch report contains no unresolved critical issue.
 - The owner signs the final acceptance record.

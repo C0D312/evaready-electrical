@@ -2,6 +2,17 @@
 
 Recorded before implementation on 2026-08-10 (Australia/Sydney).
 
+> **Historical diagnosis, partially superseded on 11 August 2026.** This record
+> preserves the investigation at source `a3c20bb` and the later `7eb6985`
+> experiment. It is not the current tracking/export implementation. Commit
+> `668a05941e84de514081228b7077b8677e01ef55` restored the external Google base
+> library to `afterInteractive`, retained the base ID and CTA markers, and added
+> no explicit conversion event because real owner-supplied labels are absent.
+> The 1,001 aliases are Windows Next.js 16.3 export normalisation, not a
+> universal build result; prior Ubuntu evidence reported zero aliases and was
+> not locally reproduced. Current evidence is in
+> `reports/conversion-static-export-hardening/`.
+
 ## Source and environment
 
 - Branch: `codex/responsive-ux-overhaul`
@@ -61,7 +72,7 @@ The remaining modeled delay is dominated by resource and render competition rath
 
 The implementation phase must therefore test non-header changes independently instead of attributing the full simulated delay to the hero bitmap.
 
-## Implemented non-header corrections
+## Historical `7eb6985` implementation (superseded)
 
 The implementation deliberately leaves every hero bitmap and rendering rule unchanged:
 
@@ -70,6 +81,14 @@ The implementation deliberately leaves every hero bitmap and rendering rule unch
 - The Google Ads queue and conversion ID remain in the initial document, while the external 147 KB library now uses Next.js `lazyOnload`. A three-run homepage experiment reduced median transfer from 947,400 bytes to 797,114 bytes without changing the hero composition or conversion markers.
 - A postbuild step materialises the flat Next segment-payload filenames requested by the client. This is host-independent and therefore does not rely on a localhost-only rewrite. The clean build generated 1,001 aliases from the corresponding nested export payloads.
 - The strict production-like server still rejects origin-root routes and now returns `text/x-component` for the generated segment aliases.
+
+The current `668a059` correction serves `.txt` through a Pages-like
+`text/plain` mode, makes the Windows alias manifest deterministic and
+byte-verifies every source/alias pair. It also establishes the conversion
+truth: the Google Ads base tag and phone/quote classification markers are
+present, while explicit `gtag('event', ...)` conversion calls, `send_to`
+values, labels, callbacks and conversion timeouts are all absent. Marker
+presence must not be described as proof that Google received a conversion.
 
 The mobile score and simulated LCP targets may remain blocked because the largest remaining modeled resource belongs to the frozen header. That contribution is reported separately and is not being worked around through a non-header visual change.
 
