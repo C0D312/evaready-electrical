@@ -203,15 +203,24 @@ test("wide desktop header keeps approved crisp artwork proportional", async ({
   ]) {
     await page.setViewportSize(viewport);
     await page.goto("./", { waitUntil: "domcontentloaded" });
+    await expect
+      .poll(() =>
+        page
+          .locator(".ev-final-header-raster-image")
+          .evaluate((element) => {
+            const image = element as HTMLImageElement;
+            return image.complete && image.naturalWidth > 0;
+          }),
+      )
+      .toBe(true);
 
-    const bannerLayout = await page.locator(".ev-final-header-art").evaluate(async (banner) => {
+    const bannerLayout = await page.locator(".ev-final-header-art").evaluate((banner) => {
       const artwork = banner.querySelector<HTMLImageElement>(".ev-final-header-raster-image");
       const bannerBox = banner.getBoundingClientRect();
       const artworkBox = artwork?.getBoundingClientRect();
-      const probe = new Image();
-      probe.src = artwork?.currentSrc ?? "";
-      await probe.decode();
-      const naturalRatio = probe.naturalWidth / probe.naturalHeight;
+      const naturalRatio = artwork
+        ? artwork.naturalWidth / artwork.naturalHeight
+        : 0;
       const renderedRatio = artworkBox
         ? artworkBox.width / artworkBox.height
         : 0;
@@ -220,8 +229,8 @@ test("wide desktop header keeps approved crisp artwork proportional", async ({
         bannerHeight: bannerBox.height,
         bannerWidth: bannerBox.width,
         currentSrc: artwork?.currentSrc ?? "",
-        sourceHeight: probe.naturalHeight,
-        sourceWidth: probe.naturalWidth,
+        sourceHeight: artwork?.naturalHeight ?? 0,
+        sourceWidth: artwork?.naturalWidth ?? 0,
         objectFit: artwork ? getComputedStyle(artwork).objectFit : "",
         relativeAspectError: naturalRatio
           ? Math.abs(renderedRatio - naturalRatio) / naturalRatio
