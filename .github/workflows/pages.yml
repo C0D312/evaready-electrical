@@ -1,4 +1,4 @@
-name: Validate static export
+name: Deploy GitHub Pages preview
 
 on:
   push:
@@ -7,20 +7,27 @@ on:
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 concurrency:
-  group: "static-export"
+  group: "pages"
   cancel-in-progress: false
+
+env:
+  NEXT_PUBLIC_DEPLOYMENT_TARGET: github-preview
+  NEXT_PUBLIC_BASE_PATH: /evaready-electrical
+  NEXT_PUBLIC_SITE_URL: https://c0d312.github.io/evaready-electrical
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.1
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7.0.0
         with:
           node-version: 22
           cache: npm
@@ -28,16 +35,28 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v6.0.0
+
       - name: Build static site
         run: npm run build
-        env:
-          NEXT_PUBLIC_DEPLOYMENT_TARGET: github-preview
-          NEXT_PUBLIC_BASE_PATH: /evaready-electrical
-          NEXT_PUBLIC_SITE_URL: https://c0d312.github.io/evaready-electrical
 
       - name: Audit GitHub Pages output
         run: npm run audit:production-domain
-        env:
-          NEXT_PUBLIC_DEPLOYMENT_TARGET: github-preview
-          NEXT_PUBLIC_BASE_PATH: /evaready-electrical
-          NEXT_PUBLIC_SITE_URL: https://c0d312.github.io/evaready-electrical
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v5.0.0
+        with:
+          path: ./out
+          include-hidden-files: true
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages preview
+        id: deployment
+        uses: actions/deploy-pages@v5.0.0

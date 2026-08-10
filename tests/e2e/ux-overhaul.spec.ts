@@ -161,7 +161,7 @@ test("homepage uses the approved H1 and a seamless reduced-motion-safe service s
   await expect(track).toHaveCSS("animation-name", "none");
 });
 
-test("wide desktop header keeps proportional layered artwork visible", async ({
+test("wide desktop header keeps approved crisp artwork proportional", async ({
   page,
 }, testInfo) => {
   test.skip(
@@ -173,50 +173,65 @@ test("wide desktop header keeps proportional layered artwork visible", async ({
     {
       width: 1440,
       height: 900,
-      expectedBannerHeight: 116,
+      expectedBannerHeight: 145,
+      expectedSource: {
+        file: "evaready-header-desktop-1440-crisp-v17.webp",
+        width: 2880,
+        height: 290,
+      },
     },
     {
       width: 1920,
       height: 1080,
-      expectedBannerHeight: 122,
+      expectedBannerHeight: 150,
+      expectedSource: {
+        file: "evaready-header-desktop-1920-crisp-v17.webp",
+        width: 3840,
+        height: 300,
+      },
     },
     {
       width: 2560,
       height: 1440,
-      expectedBannerHeight: 128,
+      expectedBannerHeight: 160,
+      expectedSource: {
+        file: "evaready-header-desktop-2560-crisp-v17.webp",
+        width: 5120,
+        height: 320,
+      },
     },
   ]) {
     await page.setViewportSize(viewport);
     await page.goto("./", { waitUntil: "domcontentloaded" });
 
     const bannerLayout = await page.locator(".ev-final-header-art").evaluate(async (banner) => {
-      const wordmark = banner.querySelector<HTMLImageElement>(".ev-final-header-evaready");
+      const artwork = banner.querySelector<HTMLImageElement>(".ev-final-header-raster-image");
       const bannerBox = banner.getBoundingClientRect();
-      const wordmarkBox = wordmark?.getBoundingClientRect();
+      const artworkBox = artwork?.getBoundingClientRect();
       const probe = new Image();
-      probe.src = wordmark?.currentSrc ?? "";
+      probe.src = artwork?.currentSrc ?? "";
       await probe.decode();
       const naturalRatio = probe.naturalWidth / probe.naturalHeight;
-      const renderedRatio = wordmarkBox
-        ? wordmarkBox.width / wordmarkBox.height
+      const renderedRatio = artworkBox
+        ? artworkBox.width / artworkBox.height
         : 0;
 
       return {
         bannerHeight: bannerBox.height,
         bannerWidth: bannerBox.width,
-        currentSrc: wordmark?.currentSrc ?? "",
+        currentSrc: artwork?.currentSrc ?? "",
         sourceHeight: probe.naturalHeight,
         sourceWidth: probe.naturalWidth,
-        objectFit: wordmark ? getComputedStyle(wordmark).objectFit : "",
+        objectFit: artwork ? getComputedStyle(artwork).objectFit : "",
         relativeAspectError: naturalRatio
           ? Math.abs(renderedRatio - naturalRatio) / naturalRatio
           : 1,
         wordmarkInsideBanner:
-          !!wordmarkBox &&
-          wordmarkBox.top >= bannerBox.top - 1 &&
-          wordmarkBox.right <= bannerBox.right + 1 &&
-          wordmarkBox.bottom <= bannerBox.bottom + 1 &&
-          wordmarkBox.left >= bannerBox.left - 1,
+          !!artworkBox &&
+          artworkBox.top >= bannerBox.top - 1 &&
+          artworkBox.right <= bannerBox.right + 1 &&
+          artworkBox.bottom <= bannerBox.bottom + 1 &&
+          artworkBox.left >= bannerBox.left - 1,
         overflow:
           document.documentElement.scrollWidth -
           document.documentElement.clientWidth,
@@ -224,12 +239,9 @@ test("wide desktop header keeps proportional layered artwork visible", async ({
     });
 
     expect(bannerLayout.objectFit).toBe("contain");
-    const approvedSource = [
-      { file: "evaready-header-evaready-v16.webp", width: 1426, height: 171 },
-    ].find((source) => bannerLayout.currentSrc.includes(source.file));
-    expect(approvedSource).toBeDefined();
-    expect(bannerLayout.sourceWidth).toBe(approvedSource!.width);
-    expect(bannerLayout.sourceHeight).toBe(approvedSource!.height);
+    expect(bannerLayout.currentSrc).toContain(viewport.expectedSource.file);
+    expect(bannerLayout.sourceWidth).toBe(viewport.expectedSource.width);
+    expect(bannerLayout.sourceHeight).toBe(viewport.expectedSource.height);
     expect(Math.abs(bannerLayout.bannerHeight - viewport.expectedBannerHeight)).toBeLessThanOrEqual(1);
     expect(bannerLayout.relativeAspectError).toBeLessThanOrEqual(0.005);
     expect(bannerLayout.wordmarkInsideBanner).toBe(true);
