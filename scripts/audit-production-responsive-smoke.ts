@@ -220,7 +220,7 @@ async function main() {
             await page.waitForFunction(() =>
               Array.from(
                 document.querySelectorAll<HTMLImageElement>(
-                  ".ev-final-header-background, .ev-final-header-raster-image, .ev-final-header-wordmark, .ev-final-header-energy-line, .ev-final-header-bolt",
+                  ".ev-final-header-background, .ev-final-header-wordmark, .ev-final-header-evaready, .ev-final-header-electrical, .ev-final-header-energy-line, .ev-final-header-bolt",
                 ),
               )
                 .filter((image) => {
@@ -246,7 +246,7 @@ async function main() {
               const slotRect = slot?.getBoundingClientRect();
               const artwork = Array.from(
                 document.querySelectorAll<HTMLImageElement>(
-                  ".ev-final-header-background, .ev-final-header-raster-image, .ev-final-header-wordmark, .ev-final-header-evaready, .ev-final-header-electrical, .ev-final-header-energy-line, .ev-final-header-bolt",
+                  ".ev-final-header-background, .ev-final-header-wordmark, .ev-final-header-evaready, .ev-final-header-electrical, .ev-final-header-energy-line, .ev-final-header-bolt",
                 ),
               ).filter((image) => {
                 const box = image.getBoundingClientRect();
@@ -301,7 +301,7 @@ async function main() {
               };
             });
 
-            const expectedArtworkCount = viewport.width >= 1024 ? 1 : 4;
+            const expectedArtworkCount = viewport.width >= 1024 ? 5 : 4;
             if (header.activeArtworkCount !== expectedArtworkCount) {
               failures.push(
                 `${label}: found ${header.activeArtworkCount} active header artwork elements, expected ${expectedArtworkCount}`,

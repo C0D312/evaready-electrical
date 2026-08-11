@@ -299,27 +299,6 @@ header.ev-final-header .ev-final-header-background {
   transform: none !important;
 }
 
-header.ev-final-header .ev-final-header-raster-picture {
-  display: none;
-}
-
-header.ev-final-header .ev-final-header-raster-image {
-  position: absolute !important;
-  z-index: 1 !important;
-  inset: 0 !important;
-  display: block !important;
-  width: 100% !important;
-  max-width: none !important;
-  height: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  object-fit: contain !important;
-  object-position: center center !important;
-  image-rendering: auto;
-}
-
 header.ev-final-header .ev-final-header-brand.ev-final-header-brand--art {
   display: block !important;
   position: relative !important;
@@ -435,20 +414,16 @@ header.ev-final-header .ev-final-header-bolt {
 }
 
 @media (min-width: 1024px) {
-  header.ev-final-header .ev-final-header-background,
   header.ev-final-header .ev-final-header-lockup {
-    display: none !important;
-  }
-
-  header.ev-final-header .ev-final-header-raster-picture {
-    display: contents;
+    inset-inline-end: 0;
   }
 
   header.ev-final-header .ev-final-header-art {
-    --ev-header-line-width: clamp(560px, 43vw, 620px);
-    --ev-header-line-top: 94px;
-    --ev-header-bolt-height: 26px;
-    --ev-header-bolt-top: 82px;
+    --ev-header-desktop-wordmark-width: clamp(560px, 55vw, 700px);
+    --ev-header-line-width: clamp(700px, 75vw, 900px);
+    --ev-header-line-top: calc(100% - 18px);
+    --ev-header-bolt-height: 40px;
+    --ev-header-bolt-top: calc(100% - 43px);
   }
 
   header.ev-final-header .ev-final-header-wordmark--combined {
@@ -467,49 +442,53 @@ header.ev-final-header .ev-final-header-bolt {
   }
 
   header.ev-final-header .ev-final-header-evaready {
-    top: 8px !important;
-    width: clamp(500px, 36vw, 520px) !important;
+    top: 5px !important;
+    width: var(--ev-header-desktop-wordmark-width) !important;
   }
 
   header.ev-final-header .ev-final-header-electrical {
-    top: 67px !important;
-    width: clamp(455px, 32vw, 470px) !important;
+    top: clamp(74px, 7vw, 90px) !important;
+    width: var(--ev-header-desktop-wordmark-width) !important;
   }
 }
 
-@media (min-width: 1441px) {
+@media (min-width: 1440px) {
   header.ev-final-header .ev-final-header-art {
-    --ev-header-line-width: clamp(650px, 36vw, 680px);
-    --ev-header-line-top: 100px;
-    --ev-header-bolt-height: 25px;
-    --ev-header-bolt-top: 89px;
+    --ev-header-desktop-wordmark-width: clamp(700px, 45vw, 780px);
+    --ev-header-line-width: clamp(900px, 54vw, 1040px);
+    --ev-header-line-top: calc(100% - 21px);
+    --ev-header-bolt-height: 43px;
+    --ev-header-bolt-top: calc(100% - 46px);
   }
 
   header.ev-final-header .ev-final-header-evaready {
-    width: clamp(530px, 30vw, 560px) !important;
+    top: 5px !important;
+    width: var(--ev-header-desktop-wordmark-width) !important;
   }
 
   header.ev-final-header .ev-final-header-electrical {
-    top: 72px !important;
-    width: clamp(470px, 27vw, 500px) !important;
+    top: clamp(90px, calc(5px + 5.4vw), 100px) !important;
+    width: var(--ev-header-desktop-wordmark-width) !important;
   }
 }
 
-@media (min-width: 1921px) {
+@media (min-width: 2048px) {
   header.ev-final-header .ev-final-header-art {
-    --ev-header-line-width: 720px;
-    --ev-header-line-top: 104px;
-    --ev-header-bolt-height: 25px;
-    --ev-header-bolt-top: 95px;
+    --ev-header-desktop-wordmark-width: clamp(790px, 34vw, 860px);
+    --ev-header-line-width: clamp(1100px, 45vw, 1200px);
+    --ev-header-line-top: calc(100% - 24px);
+    --ev-header-bolt-height: 48px;
+    --ev-header-bolt-top: calc(100% - 49px);
   }
 
   header.ev-final-header .ev-final-header-evaready {
-    width: 580px !important;
+    top: 5px !important;
+    width: var(--ev-header-desktop-wordmark-width) !important;
   }
 
   header.ev-final-header .ev-final-header-electrical {
-    top: 75px !important;
-    width: 520px !important;
+    top: clamp(101px, calc(5px + 4.1vw), 109px) !important;
+    width: var(--ev-header-desktop-wordmark-width) !important;
   }
 }
 

@@ -24,7 +24,6 @@ import { MobilePrimaryNav } from "@/components/mobile-primary-nav";
 import {
   HeaderBackgroundImage,
   HeaderBoltImage,
-  HeaderDesktopBannerImage,
   HeaderEnergyLineImage,
   HeaderWordmarkImage,
   ResponsiveHeroImage,
@@ -257,7 +256,6 @@ function SiteHeader() {
 
         <div className="ev-final-header-art ev-electric-header-banner-row">
           <HeaderBackgroundImage />
-          <HeaderDesktopBannerImage />
 
           <HomeNavigationLink
             data-header-logo="true"

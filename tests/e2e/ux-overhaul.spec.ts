@@ -161,7 +161,7 @@ test("homepage uses the approved H1 and a seamless reduced-motion-safe service s
   await expect(track).toHaveCSS("animation-name", "none");
 });
 
-test("wide desktop header keeps approved crisp artwork proportional", async ({
+test("wide desktop header composes approved transparent artwork proportionally", async ({
   page,
 }, testInfo) => {
   test.skip(
@@ -170,90 +170,109 @@ test("wide desktop header keeps approved crisp artwork proportional", async ({
   );
 
   for (const viewport of [
-    {
-      width: 1440,
-      height: 900,
-      expectedBannerHeight: 145,
-      expectedSource: {
-        file: "evaready-header-desktop-1440-crisp-v17.webp",
-        width: 2880,
-        height: 290,
-      },
-    },
-    {
-      width: 1920,
-      height: 1080,
-      expectedBannerHeight: 150,
-      expectedSource: {
-        file: "evaready-header-desktop-1920-crisp-v17.webp",
-        width: 3840,
-        height: 300,
-      },
-    },
-    {
-      width: 2560,
-      height: 1440,
-      expectedBannerHeight: 160,
-      expectedSource: {
-        file: "evaready-header-desktop-2560-crisp-v17.webp",
-        width: 5120,
-        height: 320,
-      },
-    },
+    { width: 1440, height: 900, expectedBannerHeight: 145 },
+    { width: 1920, height: 1080, expectedBannerHeight: 150 },
+    { width: 2560, height: 1440, expectedBannerHeight: 160 },
   ]) {
     await page.setViewportSize(viewport);
     await page.goto("./", { waitUntil: "domcontentloaded" });
     await expect
       .poll(() =>
         page
-          .locator(".ev-final-header-raster-image")
-          .evaluate((element) => {
-            const image = element as HTMLImageElement;
-            return image.complete && image.naturalWidth > 0;
-          }),
+          .locator(
+            ".ev-final-header-background, .ev-final-header-evaready, .ev-final-header-electrical, .ev-final-header-energy-line, .ev-final-header-bolt",
+          )
+          .evaluateAll((elements) =>
+            elements.every((element) => {
+              const image = element as HTMLImageElement;
+              return image.complete && image.naturalWidth > 0;
+            }),
+          ),
       )
       .toBe(true);
 
     const bannerLayout = await page.locator(".ev-final-header-art").evaluate((banner) => {
-      const artwork = banner.querySelector<HTMLImageElement>(".ev-final-header-raster-image");
       const bannerBox = banner.getBoundingClientRect();
-      const artworkBox = artwork?.getBoundingClientRect();
-      const naturalRatio = artwork
-        ? artwork.naturalWidth / artwork.naturalHeight
-        : 0;
-      const renderedRatio = artworkBox
-        ? artworkBox.width / artworkBox.height
-        : 0;
+      const background = banner.querySelector<HTMLImageElement>(
+        ".ev-final-header-background",
+      );
+      const backgroundBox = background?.getBoundingClientRect();
+      const artwork = Array.from(
+        banner.querySelectorAll<HTMLImageElement>(
+          ".ev-final-header-evaready, .ev-final-header-electrical, .ev-final-header-energy-line, .ev-final-header-bolt",
+        ),
+      ).map((image) => {
+        const box = image.getBoundingClientRect();
+        const naturalRatio = image.naturalWidth / image.naturalHeight;
+        const renderedRatio = box.width / box.height;
+
+        return {
+          className: image.className,
+          currentSrc: image.currentSrc,
+          objectFit: getComputedStyle(image).objectFit,
+          relativeAspectError: naturalRatio
+            ? Math.abs(renderedRatio - naturalRatio) / naturalRatio
+            : 1,
+          sourceHeight: image.naturalHeight,
+          sourceWidth: image.naturalWidth,
+          insideBanner:
+            box.top >= bannerBox.top - 1 &&
+            box.right <= bannerBox.right + 1 &&
+            box.bottom <= bannerBox.bottom + 1 &&
+            box.left >= bannerBox.left - 1,
+        };
+      });
 
       return {
+        artwork,
+        backgroundCoversBanner:
+          !!backgroundBox &&
+          Math.abs(backgroundBox.left - bannerBox.left) <= 1 &&
+          Math.abs(backgroundBox.right - bannerBox.right) <= 1 &&
+          Math.abs(backgroundBox.top - bannerBox.top) <= 1 &&
+          Math.abs(backgroundBox.bottom - bannerBox.bottom) <= 1,
+        backgroundObjectFit: background ? getComputedStyle(background).objectFit : "",
         bannerHeight: bannerBox.height,
         bannerWidth: bannerBox.width,
-        currentSrc: artwork?.currentSrc ?? "",
-        sourceHeight: artwork?.naturalHeight ?? 0,
-        sourceWidth: artwork?.naturalWidth ?? 0,
-        objectFit: artwork ? getComputedStyle(artwork).objectFit : "",
-        relativeAspectError: naturalRatio
-          ? Math.abs(renderedRatio - naturalRatio) / naturalRatio
-          : 1,
-        wordmarkInsideBanner:
-          !!artworkBox &&
-          artworkBox.top >= bannerBox.top - 1 &&
-          artworkBox.right <= bannerBox.right + 1 &&
-          artworkBox.bottom <= bannerBox.bottom + 1 &&
-          artworkBox.left >= bannerBox.left - 1,
         overflow:
           document.documentElement.scrollWidth -
           document.documentElement.clientWidth,
       };
     });
 
-    expect(bannerLayout.objectFit).toBe("contain");
-    expect(bannerLayout.currentSrc).toContain(viewport.expectedSource.file);
-    expect(bannerLayout.sourceWidth).toBe(viewport.expectedSource.width);
-    expect(bannerLayout.sourceHeight).toBe(viewport.expectedSource.height);
+    expect(bannerLayout.backgroundObjectFit).toBe("cover");
+    expect(bannerLayout.backgroundCoversBanner).toBe(true);
     expect(Math.abs(bannerLayout.bannerHeight - viewport.expectedBannerHeight)).toBeLessThanOrEqual(1);
-    expect(bannerLayout.relativeAspectError).toBeLessThanOrEqual(0.005);
-    expect(bannerLayout.wordmarkInsideBanner).toBe(true);
+    expect(bannerLayout.artwork).toHaveLength(4);
+    for (const artwork of bannerLayout.artwork) {
+      expect(artwork.objectFit).toBe("contain");
+      expect(artwork.relativeAspectError).toBeLessThanOrEqual(0.005);
+      expect(artwork.insideBanner).toBe(true);
+    }
+    expect(bannerLayout.artwork).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          currentSrc: expect.stringContaining("evaready-header-evaready-v16.webp"),
+          sourceWidth: 1426,
+          sourceHeight: 171,
+        }),
+        expect.objectContaining({
+          currentSrc: expect.stringContaining("evaready-header-electrical-v16.webp"),
+          sourceWidth: 1426,
+          sourceHeight: 73,
+        }),
+        expect.objectContaining({
+          currentSrc: expect.stringContaining("evaready-header-energy-line-v15.webp"),
+          sourceWidth: 1426,
+          sourceHeight: 27,
+        }),
+        expect.objectContaining({
+          currentSrc: expect.stringContaining("evaready-header-bolt-v15.webp"),
+          sourceWidth: 310,
+          sourceHeight: 258,
+        }),
+      ]),
+    );
     expect(bannerLayout.overflow).toBeLessThanOrEqual(1);
   }
 });
