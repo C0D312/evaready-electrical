@@ -272,17 +272,28 @@ test("header is centred, compact and stable at all supported widths", async ({
       const electrical = settled.assets.find((asset) =>
         asset.className.includes("ev-final-header-electrical"),
       );
+      const energyLine = settled.assets.find((asset) =>
+        asset.className.includes("ev-final-header-energy-line"),
+      );
 
       expect(bolt).toBeDefined();
       expect(electrical).toBeDefined();
+      expect(energyLine).toBeDefined();
       expect(
         bolt!.zIndex,
-        "the complete desktop bolt must render above the ELECTRICAL artwork",
-      ).toBeGreaterThan(electrical!.zIndex);
+        "the desktop bolt must emerge from behind the ELECTRICAL artwork",
+      ).toBeLessThan(electrical!.zIndex);
       expect(
-        bolt!.box.top - electrical!.box.bottom,
-        "the desktop bolt must have its own space below ELECTRICAL",
-      ).toBeGreaterThanOrEqual(1);
+        electrical!.box.bottom - bolt!.box.top,
+        "the desktop bolt must overlap the lower wordmark instead of floating below it",
+      ).toBeGreaterThanOrEqual(5);
+      expect(
+        Math.abs(
+          bolt!.box.top + bolt!.box.height * (82 / 258) -
+            (energyLine!.box.top + energyLine!.box.height * (13 / 27)),
+        ),
+        "the energy line must cross the bolt at the source artwork's original intersection",
+      ).toBeLessThanOrEqual(2);
     }
 
     expect(

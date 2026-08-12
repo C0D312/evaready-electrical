@@ -421,9 +421,8 @@ header.ev-final-header .ev-final-header-bolt {
 
   header.ev-final-header .ev-final-header-art {
     --ev-header-line-width: clamp(560px, 50vw, 700px);
-    --ev-header-line-top: clamp(105px, 8.5vw, 116px);
-    --ev-header-bolt-height: 40px;
-    --ev-header-bolt-top: clamp(83px, 6.9vw, 94px);
+    --ev-header-line-top: 87px;
+    --ev-header-bolt-height: 58px;
   }
 
   header.ev-final-header .ev-final-header-wordmark--combined {
@@ -452,16 +451,17 @@ header.ev-final-header .ev-final-header-bolt {
   }
 
   header.ev-final-header .ev-final-header-bolt {
-    z-index: 4 !important;
+    z-index: 2 !important;
+    top: auto !important;
+    bottom: 3px !important;
   }
 }
 
 @media (min-width: 1440px) {
   header.ev-final-header .ev-final-header-art {
     --ev-header-line-width: clamp(650px, 46vw, 740px);
-    --ev-header-line-top: clamp(118px, 8.4vw, 130px);
-    --ev-header-bolt-height: 36px;
-    --ev-header-bolt-top: clamp(98px, 6.7vw, 107px);
+    --ev-header-line-top: 94px;
+    --ev-header-bolt-height: 62px;
   }
 
   header.ev-final-header .ev-final-header-evaready {
@@ -478,9 +478,8 @@ header.ev-final-header .ev-final-header-bolt {
 @media (min-width: 1920px) {
   header.ev-final-header .ev-final-header-art {
     --ev-header-line-width: 720px;
-    --ev-header-line-top: 130px;
-    --ev-header-bolt-height: 34px;
-    --ev-header-bolt-top: 114px;
+    --ev-header-line-top: 97px;
+    --ev-header-bolt-height: 64px;
   }
 
   header.ev-final-header .ev-final-header-evaready {
@@ -497,9 +496,8 @@ header.ev-final-header .ev-final-header-bolt {
 @media (min-width: 2048px) {
   header.ev-final-header .ev-final-header-art {
     --ev-header-line-width: clamp(760px, 35vw, 880px);
-    --ev-header-line-top: 137px;
-    --ev-header-bolt-height: 38px;
-    --ev-header-bolt-top: 119px;
+    --ev-header-line-top: 102px;
+    --ev-header-bolt-height: 70px;
   }
 
   header.ev-final-header .ev-final-header-evaready {
