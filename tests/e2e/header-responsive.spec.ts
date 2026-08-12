@@ -281,6 +281,30 @@ test("header is centred, compact and stable at all supported widths", async ({
       expect(settled.desktopNavDisplay).toBe("none");
       expect(settled.mobileMenuDisplay).not.toBe("none");
       expect(settled.header!.height).toBeLessThanOrEqual(170);
+
+      if (viewport.width < 768) {
+        const wordmark = settled.assets.find((asset) =>
+          asset.className.includes("ev-final-header-wordmark--combined"),
+        );
+        const bolt = settled.assets.find((asset) =>
+          asset.className.includes("ev-final-header-bolt"),
+        );
+
+        expect(wordmark).toBeDefined();
+        expect(bolt).toBeDefined();
+        const expectedWordmarkTop = viewport.width >= 375 ? 27 : 22;
+        expect(wordmark!.box.top - settled.banner!.top).toBeGreaterThanOrEqual(
+          expectedWordmarkTop - 0.5,
+        );
+        expect(wordmark!.box.top - settled.banner!.top).toBeLessThanOrEqual(
+          expectedWordmarkTop + 0.5,
+        );
+        expect(settled.banner!.bottom - bolt!.box.bottom).toBeGreaterThanOrEqual(6);
+        expect(settled.banner!.bottom - bolt!.box.bottom).toBeLessThanOrEqual(9);
+
+        const wordmarkCentre = wordmark!.box.left + wordmark!.box.width / 2;
+        expect(Math.abs(wordmarkCentre - settled.viewportWidth / 2)).toBeLessThanOrEqual(1);
+      }
     }
   }
 });

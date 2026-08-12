@@ -259,12 +259,12 @@ body {
 }
 
 header.ev-final-header .ev-final-header-art {
-  --ev-header-wordmark-width: min(77%, 450px);
-  --ev-header-wordmark-top: 8px;
-  --ev-header-line-width: min(77%, 500px);
-  --ev-header-line-top: 61px;
+  --ev-header-wordmark-width: min(66%, calc(100% - 135px), 450px);
+  --ev-header-wordmark-top: 22px;
+  --ev-header-line-width: min(66%, calc(100% - 135px), 500px);
+  --ev-header-line-top: 70px;
   --ev-header-bolt-height: 43px;
-  --ev-header-bolt-top: 49px;
+  --ev-header-bolt-top: 61px;
   display: block !important;
   position: relative !important;
   isolation: isolate;
@@ -318,7 +318,7 @@ header.ev-final-header .ev-final-header-brand.ev-final-header-brand--art {
 
 header.ev-final-header .ev-final-header-lockup {
   position: absolute;
-  inset: 0 max(32px, env(safe-area-inset-right)) 0 0;
+  inset: 0;
   display: block;
   overflow: visible;
   pointer-events: none;
@@ -379,18 +379,19 @@ header.ev-final-header .ev-final-header-bolt {
 
 @media (min-width: 375px) {
   header.ev-final-header .ev-final-header-art {
-    --ev-header-line-top: 67px;
+    --ev-header-wordmark-top: 27px;
+    --ev-header-line-top: 78px;
     --ev-header-bolt-height: 44px;
-    --ev-header-bolt-top: 54px;
+    --ev-header-bolt-top: 65px;
   }
 }
 
 @media (min-width: 430px) {
   header.ev-final-header .ev-final-header-art {
-    --ev-header-wordmark-top: 6px;
-    --ev-header-line-top: 72px;
+    --ev-header-wordmark-top: 27px;
+    --ev-header-line-top: 82px;
     --ev-header-bolt-height: 45px;
-    --ev-header-bolt-top: 58px;
+    --ev-header-bolt-top: 68px;
   }
 }
 
