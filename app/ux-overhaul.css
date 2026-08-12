@@ -421,8 +421,9 @@ header.ev-final-header .ev-final-header-bolt {
 
   header.ev-final-header .ev-final-header-art {
     --ev-header-line-width: clamp(560px, 50vw, 700px);
-    --ev-header-line-top: 87px;
-    --ev-header-bolt-height: 58px;
+    --ev-header-line-top: clamp(90px, 7.3vw, 100px);
+    --ev-header-bolt-height: 40px;
+    --ev-header-bolt-top: clamp(82px, 6.8vw, 93px);
   }
 
   header.ev-final-header .ev-final-header-wordmark--combined {
@@ -451,17 +452,18 @@ header.ev-final-header .ev-final-header-bolt {
   }
 
   header.ev-final-header .ev-final-header-bolt {
-    z-index: 2 !important;
-    top: auto !important;
-    bottom: 3px !important;
+    z-index: 4 !important;
+    top: var(--ev-header-bolt-top) !important;
+    bottom: auto !important;
   }
 }
 
 @media (min-width: 1440px) {
   header.ev-final-header .ev-final-header-art {
     --ev-header-line-width: clamp(650px, 46vw, 740px);
-    --ev-header-line-top: 94px;
-    --ev-header-bolt-height: 62px;
+    --ev-header-line-top: clamp(101px, 6.95vw, 112px);
+    --ev-header-bolt-height: 36px;
+    --ev-header-bolt-top: clamp(96px, 6.65vw, 107px);
   }
 
   header.ev-final-header .ev-final-header-evaready {
@@ -478,8 +480,9 @@ header.ev-final-header .ev-final-header-bolt {
 @media (min-width: 1920px) {
   header.ev-final-header .ev-final-header-art {
     --ev-header-line-width: 720px;
-    --ev-header-line-top: 97px;
-    --ev-header-bolt-height: 64px;
+    --ev-header-line-top: 118px;
+    --ev-header-bolt-height: 36px;
+    --ev-header-bolt-top: 112px;
   }
 
   header.ev-final-header .ev-final-header-evaready {
@@ -496,8 +499,9 @@ header.ev-final-header .ev-final-header-bolt {
 @media (min-width: 2048px) {
   header.ev-final-header .ev-final-header-art {
     --ev-header-line-width: clamp(760px, 35vw, 880px);
-    --ev-header-line-top: 102px;
-    --ev-header-bolt-height: 70px;
+    --ev-header-line-top: 124px;
+    --ev-header-bolt-height: 40px;
+    --ev-header-bolt-top: clamp(118px, 4.65vw, 119px);
   }
 
   header.ev-final-header .ev-final-header-evaready {

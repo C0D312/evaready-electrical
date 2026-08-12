@@ -272,21 +272,33 @@ test("header is centred, compact and stable at all supported widths", async ({
       const electrical = settled.assets.find((asset) =>
         asset.className.includes("ev-final-header-electrical"),
       );
+      const evaready = settled.assets.find((asset) =>
+        asset.className.includes("ev-final-header-evaready"),
+      );
       const energyLine = settled.assets.find((asset) =>
         asset.className.includes("ev-final-header-energy-line"),
       );
 
       expect(bolt).toBeDefined();
       expect(electrical).toBeDefined();
+      expect(evaready).toBeDefined();
       expect(energyLine).toBeDefined();
       expect(
         bolt!.zIndex,
-        "the desktop bolt must emerge from behind the ELECTRICAL artwork",
-      ).toBeLessThan(electrical!.zIndex);
+        "the complete desktop bolt must render above the ELECTRICAL artwork",
+      ).toBeGreaterThan(electrical!.zIndex);
       expect(
-        electrical!.box.bottom - bolt!.box.top,
-        "the desktop bolt must overlap the lower wordmark instead of floating below it",
-      ).toBeGreaterThanOrEqual(5);
+        bolt!.box.top - electrical!.box.bottom,
+        "the complete desktop bolt must not be hidden behind the wordmark",
+      ).toBeGreaterThanOrEqual(-0.5);
+      expect(
+        bolt!.box.top - electrical!.box.bottom,
+        "the complete desktop bolt must remain connected to the wordmark",
+      ).toBeLessThanOrEqual(2);
+      expect(
+        settled.banner!.bottom - bolt!.box.bottom,
+        "the complete desktop bolt must retain lower-edge safe space",
+      ).toBeGreaterThanOrEqual(1);
       expect(
         Math.abs(
           bolt!.box.top + bolt!.box.height * (82 / 258) -
