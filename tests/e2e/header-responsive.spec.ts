@@ -16,6 +16,7 @@ const supportedViewports = [
   { width: 1600, height: 900 },
   { width: 1920, height: 1080 },
   { width: 2048, height: 1152 },
+  { width: 2209, height: 1318 },
   { width: 2560, height: 1440 },
 ] as const;
 
@@ -142,6 +143,7 @@ async function inspectHeader(page: Page) {
           renderedRatio,
           relativeAspectError: Math.abs(renderedRatio - naturalRatio) / naturalRatio,
           objectFit: getComputedStyle(image).objectFit,
+          zIndex: Number.parseInt(getComputedStyle(image).zIndex, 10) || 0,
           box,
           insideBanner:
             !!bannerBox &&
@@ -261,6 +263,26 @@ test("header is centred, compact and stable at all supported widths", async ({
       expect(asset.relativeAspectError).toBeLessThanOrEqual(0.005);
       expect(asset.insideBanner).toBe(true);
       expect(asset.clearOfMobileMenu).toBe(true);
+    }
+
+    if (viewport.width >= 1024) {
+      const bolt = settled.assets.find((asset) =>
+        asset.className.includes("ev-final-header-bolt"),
+      );
+      const electrical = settled.assets.find((asset) =>
+        asset.className.includes("ev-final-header-electrical"),
+      );
+
+      expect(bolt).toBeDefined();
+      expect(electrical).toBeDefined();
+      expect(
+        bolt!.zIndex,
+        "the complete desktop bolt must render above the ELECTRICAL artwork",
+      ).toBeGreaterThan(electrical!.zIndex);
+      expect(
+        bolt!.box.top - electrical!.box.bottom,
+        "the desktop bolt must have its own space below ELECTRICAL",
+      ).toBeGreaterThanOrEqual(1);
     }
 
     expect(

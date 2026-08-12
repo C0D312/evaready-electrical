@@ -420,11 +420,10 @@ header.ev-final-header .ev-final-header-bolt {
   }
 
   header.ev-final-header .ev-final-header-art {
-    --ev-header-desktop-wordmark-width: clamp(560px, 55vw, 700px);
-    --ev-header-line-width: clamp(700px, 75vw, 900px);
-    --ev-header-line-top: calc(100% - 18px);
+    --ev-header-line-width: clamp(560px, 50vw, 700px);
+    --ev-header-line-top: clamp(105px, 8.5vw, 116px);
     --ev-header-bolt-height: 40px;
-    --ev-header-bolt-top: calc(100% - 43px);
+    --ev-header-bolt-top: clamp(83px, 6.9vw, 94px);
   }
 
   header.ev-final-header .ev-final-header-wordmark--combined {
@@ -443,53 +442,74 @@ header.ev-final-header .ev-final-header-bolt {
   }
 
   header.ev-final-header .ev-final-header-evaready {
-    top: 5px !important;
-    width: var(--ev-header-desktop-wordmark-width) !important;
+    top: 3px !important;
+    width: clamp(450px, 38vw, 520px) !important;
   }
 
   header.ev-final-header .ev-final-header-electrical {
-    top: clamp(74px, 7vw, 90px) !important;
-    width: var(--ev-header-desktop-wordmark-width) !important;
+    top: clamp(59px, 4.9vw, 67px) !important;
+    width: clamp(420px, 35vw, 480px) !important;
+  }
+
+  header.ev-final-header .ev-final-header-bolt {
+    z-index: 4 !important;
   }
 }
 
 @media (min-width: 1440px) {
   header.ev-final-header .ev-final-header-art {
-    --ev-header-desktop-wordmark-width: clamp(700px, 45vw, 780px);
-    --ev-header-line-width: clamp(900px, 54vw, 1040px);
-    --ev-header-line-top: calc(100% - 21px);
-    --ev-header-bolt-height: 43px;
-    --ev-header-bolt-top: calc(100% - 46px);
+    --ev-header-line-width: clamp(650px, 46vw, 740px);
+    --ev-header-line-top: clamp(118px, 8.4vw, 130px);
+    --ev-header-bolt-height: 36px;
+    --ev-header-bolt-top: clamp(98px, 6.7vw, 107px);
   }
 
   header.ev-final-header .ev-final-header-evaready {
-    top: 5px !important;
-    width: var(--ev-header-desktop-wordmark-width) !important;
+    top: 3px !important;
+    width: clamp(540px, 37.5vw, 600px) !important;
   }
 
   header.ev-final-header .ev-final-header-electrical {
-    top: clamp(90px, calc(5px + 5.4vw), 100px) !important;
-    width: var(--ev-header-desktop-wordmark-width) !important;
+    top: clamp(69px, 4.8vw, 77px) !important;
+    width: clamp(500px, 35vw, 560px) !important;
+  }
+}
+
+@media (min-width: 1920px) {
+  header.ev-final-header .ev-final-header-art {
+    --ev-header-line-width: 720px;
+    --ev-header-line-top: 130px;
+    --ev-header-bolt-height: 34px;
+    --ev-header-bolt-top: 114px;
+  }
+
+  header.ev-final-header .ev-final-header-evaready {
+    top: 3px !important;
+    width: 640px !important;
+  }
+
+  header.ev-final-header .ev-final-header-electrical {
+    top: 81px !important;
+    width: 600px !important;
   }
 }
 
 @media (min-width: 2048px) {
   header.ev-final-header .ev-final-header-art {
-    --ev-header-desktop-wordmark-width: clamp(790px, 34vw, 860px);
-    --ev-header-line-width: clamp(1100px, 45vw, 1200px);
-    --ev-header-line-top: calc(100% - 24px);
-    --ev-header-bolt-height: 48px;
-    --ev-header-bolt-top: calc(100% - 49px);
+    --ev-header-line-width: clamp(760px, 35vw, 880px);
+    --ev-header-line-top: 137px;
+    --ev-header-bolt-height: 38px;
+    --ev-header-bolt-top: 119px;
   }
 
   header.ev-final-header .ev-final-header-evaready {
-    top: 5px !important;
-    width: var(--ev-header-desktop-wordmark-width) !important;
+    top: 0 !important;
+    width: clamp(670px, 30vw, 700px) !important;
   }
 
   header.ev-final-header .ev-final-header-electrical {
-    top: clamp(101px, calc(5px + 4.1vw), 109px) !important;
-    width: var(--ev-header-desktop-wordmark-width) !important;
+    top: 84px !important;
+    width: clamp(630px, 28vw, 660px) !important;
   }
 }
 
