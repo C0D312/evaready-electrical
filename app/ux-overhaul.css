@@ -259,12 +259,6 @@ body {
 }
 
 header.ev-final-header .ev-final-header-art {
-  --ev-header-wordmark-width: min(66%, calc(100% - 135px), 450px);
-  --ev-header-wordmark-top: 22px;
-  --ev-header-line-width: min(66%, calc(100% - 135px), 500px);
-  --ev-header-line-top: 70px;
-  --ev-header-bolt-height: 43px;
-  --ev-header-bolt-top: 61px;
   display: block !important;
   position: relative !important;
   isolation: isolate;
@@ -316,26 +310,24 @@ header.ev-final-header .ev-final-header-brand.ev-final-header-brand--art {
   box-shadow: none !important;
 }
 
-header.ev-final-header .ev-final-header-lockup {
+header.ev-final-header .ev-final-header-lockup-picture {
   position: absolute;
   inset: 0;
   display: block;
-  overflow: visible;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   pointer-events: none;
 }
 
-header.ev-final-header :is(
-  .ev-final-header-wordmark,
-  .ev-final-header-evaready,
-  .ev-final-header-electrical,
-  .ev-final-header-energy-line,
-  .ev-final-header-bolt
-) {
+header.ev-final-header .ev-final-header-lockup-image {
   position: absolute !important;
+  inset: 0 !important;
   display: block !important;
-  max-width: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 100% !important;
   margin: 0 !important;
-  margin-inline: auto !important;
   padding: 0 !important;
   border: 0 !important;
   border-radius: 0 !important;
@@ -346,172 +338,9 @@ header.ev-final-header :is(
   transform: none !important;
 }
 
-header.ev-final-header .ev-final-header-desktop-picture {
-  display: none;
-}
-
-header.ev-final-header .ev-final-header-compact-picture {
-  display: contents;
-}
-
-header.ev-final-header .ev-final-header-wordmark {
-  inset-inline: 0 !important;
-  top: var(--ev-header-wordmark-top) !important;
-  width: var(--ev-header-wordmark-width) !important;
-  height: auto !important;
-}
-
-header.ev-final-header .ev-final-header-energy-line {
-  z-index: 1 !important;
-  inset-inline: 0 !important;
-  top: var(--ev-header-line-top) !important;
-  width: var(--ev-header-line-width) !important;
-  height: auto !important;
-}
-
-header.ev-final-header .ev-final-header-bolt {
-  z-index: 2 !important;
-  inset-inline: 0 !important;
-  top: var(--ev-header-bolt-top) !important;
-  width: auto !important;
-  height: var(--ev-header-bolt-height) !important;
-}
-
-@media (min-width: 375px) {
-  header.ev-final-header .ev-final-header-art {
-    --ev-header-wordmark-top: 27px;
-    --ev-header-line-top: 78px;
-    --ev-header-bolt-height: 44px;
-    --ev-header-bolt-top: 65px;
-  }
-}
-
-@media (min-width: 430px) {
-  header.ev-final-header .ev-final-header-art {
-    --ev-header-wordmark-top: 27px;
-    --ev-header-line-top: 82px;
-    --ev-header-bolt-height: 45px;
-    --ev-header-bolt-top: 68px;
-  }
-}
-
 @media (min-width: 768px) and (max-width: 1023px) {
   :root {
     --ev-final-header-art-height: clamp(123px, 15.625vw, 136px);
-  }
-
-  header.ev-final-header .ev-final-header-lockup {
-    inset-inline-end: 0;
-  }
-
-  header.ev-final-header .ev-final-header-art {
-    --ev-header-wordmark-width: min(61vw, 540px);
-    --ev-header-wordmark-top: 4px;
-    --ev-header-line-width: min(70vw, 620px);
-    --ev-header-line-top: calc(100% - 24px);
-    --ev-header-bolt-height: clamp(46px, 5vw, 52px);
-    --ev-header-bolt-top: calc(100% - var(--ev-header-bolt-height));
-  }
-}
-
-@media (min-width: 1024px) {
-  header.ev-final-header .ev-final-header-lockup {
-    inset-inline-end: 0;
-  }
-
-  header.ev-final-header .ev-final-header-art {
-    --ev-header-line-width: clamp(560px, 50vw, 700px);
-    --ev-header-line-top: clamp(90px, 7.3vw, 100px);
-    --ev-header-bolt-height: 40px;
-    --ev-header-bolt-top: clamp(82px, 6.8vw, 93px);
-  }
-
-  header.ev-final-header .ev-final-header-wordmark--combined {
-    display: none !important;
-  }
-
-  header.ev-final-header .ev-final-header-desktop-picture {
-    display: contents;
-  }
-
-  header.ev-final-header .ev-final-header-evaready,
-  header.ev-final-header .ev-final-header-electrical {
-    z-index: 3 !important;
-    inset-inline: 0 !important;
-    height: auto !important;
-  }
-
-  header.ev-final-header .ev-final-header-evaready {
-    top: 3px !important;
-    width: clamp(450px, 38vw, 520px) !important;
-  }
-
-  header.ev-final-header .ev-final-header-electrical {
-    top: clamp(59px, 4.9vw, 67px) !important;
-    width: clamp(420px, 35vw, 480px) !important;
-  }
-
-  header.ev-final-header .ev-final-header-bolt {
-    z-index: 4 !important;
-    top: var(--ev-header-bolt-top) !important;
-    bottom: auto !important;
-  }
-}
-
-@media (min-width: 1440px) {
-  header.ev-final-header .ev-final-header-art {
-    --ev-header-line-width: clamp(650px, 46vw, 740px);
-    --ev-header-line-top: clamp(101px, 6.95vw, 112px);
-    --ev-header-bolt-height: 36px;
-    --ev-header-bolt-top: clamp(96px, 6.65vw, 107px);
-  }
-
-  header.ev-final-header .ev-final-header-evaready {
-    top: 3px !important;
-    width: clamp(540px, 37.5vw, 600px) !important;
-  }
-
-  header.ev-final-header .ev-final-header-electrical {
-    top: clamp(69px, 4.8vw, 77px) !important;
-    width: clamp(500px, 35vw, 560px) !important;
-  }
-}
-
-@media (min-width: 1920px) {
-  header.ev-final-header .ev-final-header-art {
-    --ev-header-line-width: 720px;
-    --ev-header-line-top: 118px;
-    --ev-header-bolt-height: 36px;
-    --ev-header-bolt-top: 112px;
-  }
-
-  header.ev-final-header .ev-final-header-evaready {
-    top: 3px !important;
-    width: 640px !important;
-  }
-
-  header.ev-final-header .ev-final-header-electrical {
-    top: 81px !important;
-    width: 600px !important;
-  }
-}
-
-@media (min-width: 2048px) {
-  header.ev-final-header .ev-final-header-art {
-    --ev-header-line-width: clamp(760px, 35vw, 880px);
-    --ev-header-line-top: 124px;
-    --ev-header-bolt-height: 40px;
-    --ev-header-bolt-top: clamp(118px, 4.65vw, 119px);
-  }
-
-  header.ev-final-header .ev-final-header-evaready {
-    top: 0 !important;
-    width: clamp(670px, 30vw, 700px) !important;
-  }
-
-  header.ev-final-header .ev-final-header-electrical {
-    top: 84px !important;
-    width: clamp(630px, 28vw, 660px) !important;
   }
 }
 

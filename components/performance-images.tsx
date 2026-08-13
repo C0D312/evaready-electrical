@@ -9,20 +9,11 @@ const imagePaths = {
     "/images/performance/evaready-header-storm-768.webp",
   headerBackgroundSmall:
     "/images/performance/evaready-header-storm-960.webp",
-  headerBolt: "/images/header/evaready-header-bolt-v15.webp",
-  headerEnergyLine: "/images/header/evaready-header-energy-line-v15.webp",
-  headerElectrical:
-    "/images/header/evaready-header-electrical-v16.webp",
-  headerEvaready:
-    "/images/header/evaready-header-evaready-v16.webp",
-  headerWordmark: "/images/header/evaready-header-wordmark-v15.webp",
+  headerLockupDirectory: "/images/header/responsive-lockups-v18",
   serviceVanCompact: "/images/performance/evaready-service-van-768.webp",
   serviceVanMedium: "/images/performance/evaready-service-van-960.webp",
   serviceVanSmall: "/images/performance/evaready-service-van-640.webp",
 } as const;
-
-const transparentPixel =
-  "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
 
 const responsiveHeroImage = {
   sizes: "100vw",
@@ -47,90 +38,43 @@ export function HeaderBackgroundImage() {
   );
 }
 
-export function HeaderWordmarkImage() {
-  return (
-    <>
-      <picture className="ev-final-header-compact-picture">
-        <source
-          media="(max-width: 1023px)"
-          srcSet={assetPath(imagePaths.headerWordmark)}
-          type="image/webp"
-        />
-        <img
-          src={transparentPixel}
-          alt="Evaready Electrical 24/7"
-          width={1426}
-          height={245}
-          loading="eager"
-          decoding="async"
-          fetchPriority="high"
-          className="ev-final-header-wordmark ev-final-header-wordmark--combined"
-        />
-      </picture>
-      <picture className="ev-final-header-desktop-picture">
-        <source
-          media="(min-width: 1024px)"
-          srcSet={assetPath(imagePaths.headerEvaready)}
-          type="image/webp"
-        />
-        <img
-          src={transparentPixel}
-          alt="Evaready"
-          width={1426}
-          height={171}
-          loading="eager"
-          decoding="async"
-          fetchPriority="high"
-          className="ev-final-header-evaready"
-        />
-      </picture>
-      <picture className="ev-final-header-desktop-picture">
-        <source
-          media="(min-width: 1024px)"
-          srcSet={assetPath(imagePaths.headerElectrical)}
-          type="image/webp"
-        />
-        <img
-          src={transparentPixel}
-          alt="Electrical 24/7"
-          width={1426}
-          height={73}
-          loading="eager"
-          decoding="async"
-          className="ev-final-header-electrical"
-        />
-      </picture>
-    </>
+const headerLockup = (width: number) =>
+  assetPath(
+    `${imagePaths.headerLockupDirectory}/evaready-header-lockup-${width}-v18.webp`,
   );
-}
 
-export function HeaderEnergyLineImage() {
+export function HeaderLockupImage() {
   return (
-    <img
-      src={assetPath(imagePaths.headerEnergyLine)}
-      alt=""
-      width={1426}
-      height={27}
-      loading="eager"
-      decoding="async"
-      className="ev-final-header-energy-line"
-      aria-hidden="true"
-    />
-  );
-}
-
-export function HeaderBoltImage() {
-  return (
-    <img
-      src={assetPath(imagePaths.headerBolt)}
-      alt=""
-      width={310}
-      height={258}
-      loading="eager"
-      decoding="async"
-      className="ev-final-header-bolt"
-      aria-hidden="true"
-    />
+    <picture className="ev-final-header-lockup-picture">
+      <source media="(max-width: 339px)" srcSet={headerLockup(320)} type="image/webp" />
+      <source media="(max-width: 367px)" srcSet={headerLockup(360)} type="image/webp" />
+      <source media="(max-width: 382px)" srcSet={headerLockup(375)} type="image/webp" />
+      <source media="(max-width: 400px)" srcSet={headerLockup(390)} type="image/webp" />
+      <source media="(max-width: 420px)" srcSet={headerLockup(412)} type="image/webp" />
+      <source media="(max-width: 479px)" srcSet={headerLockup(430)} type="image/webp" />
+      <source media="(max-width: 639px)" srcSet={headerLockup(540)} type="image/webp" />
+      <source media="(max-width: 767px)" srcSet={headerLockup(640)} type="image/webp" />
+      <source media="(max-width: 819px)" srcSet={headerLockup(768)} type="image/webp" />
+      <source media="(max-width: 1023px)" srcSet={headerLockup(820)} type="image/webp" />
+      <source media="(max-width: 1279px)" srcSet={headerLockup(1024)} type="image/webp" />
+      <source media="(max-width: 1365px)" srcSet={headerLockup(1280)} type="image/webp" />
+      <source media="(max-width: 1439px)" srcSet={headerLockup(1366)} type="image/webp" />
+      <source media="(max-width: 1599px)" srcSet={headerLockup(1440)} type="image/webp" />
+      <source media="(max-width: 1919px)" srcSet={headerLockup(1600)} type="image/webp" />
+      <source media="(max-width: 2047px)" srcSet={headerLockup(1920)} type="image/webp" />
+      <source media="(max-width: 2207px)" srcSet={headerLockup(2048)} type="image/webp" />
+      <source media="(max-width: 2559px)" srcSet={headerLockup(2208)} type="image/webp" />
+      <img
+        src={headerLockup(2560)}
+        alt="Evaready Electrical 24/7"
+        width={5120}
+        height={320}
+        loading="eager"
+        decoding="async"
+        fetchPriority="high"
+        className="ev-final-header-lockup-image"
+      />
+    </picture>
   );
 }
 

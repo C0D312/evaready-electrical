@@ -23,9 +23,7 @@ import { MobileStickyCta } from "@/components/mobile-sticky-cta";
 import { MobilePrimaryNav } from "@/components/mobile-primary-nav";
 import {
   HeaderBackgroundImage,
-  HeaderBoltImage,
-  HeaderEnergyLineImage,
-  HeaderWordmarkImage,
+  HeaderLockupImage,
   ResponsiveHeroImage,
 } from "@/components/performance-images";
 import { QuoteFormModal } from "@/components/quote-form-modal";
@@ -261,11 +259,7 @@ function SiteHeader() {
             data-header-logo="true"
             className="ev-final-header-brand ev-final-header-brand--art"
           >
-            <span className="ev-final-header-lockup">
-              <HeaderWordmarkImage />
-              <HeaderEnergyLineImage />
-              <HeaderBoltImage />
-            </span>
+            <HeaderLockupImage />
           </HomeNavigationLink>
 
           <div className="ev-final-mobile-actions">

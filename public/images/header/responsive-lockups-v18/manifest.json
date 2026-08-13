@@ -1,0 +1,125 @@
+{
+  "generator": "scripts/generate-responsive-header-lockups.mjs",
+  "sources": {
+    "evaready": "public/images/header/evaready-header-evaready-v16.webp",
+    "electrical": "public/images/header/evaready-header-electrical-v16.webp",
+    "energyLine": "public/images/header/evaready-header-energy-line-v15.webp",
+    "bolt": "public/images/header/evaready-header-bolt-v15.webp"
+  },
+  "variants": [
+    {
+      "file": "public/images/header/responsive-lockups-v18/evaready-header-lockup-320-v18.webp",
+      "width": 960,
+      "height": 336,
+      "bytes": 128254
+    },
+    {
+      "file": "public/images/header/responsive-lockups-v18/evaready-header-lockup-360-v18.webp",
+      "width": 1080,
+      "height": 336,
+      "bytes": 157738
+    },
+    {
+      "file": "public/images/header/responsive-lockups-v18/evaready-header-lockup-375-v18.webp",
+      "width": 1125,
+      "height": 348,
+      "bytes": 167958
+    },
+    {
+      "file": "public/images/header/responsive-lockups-v18/evaready-header-lockup-390-v18.webp",
+      "width": 1170,
+      "height": 348,
+      "bytes": 178434
+    },
+    {
+      "file": "public/images/header/responsive-lockups-v18/evaready-header-lockup-412-v18.webp",
+      "width": 1236,
+      "height": 348,
+      "bytes": 197748
+    },
+    {
+      "file": "public/images/header/responsive-lockups-v18/evaready-header-lockup-430-v18.webp",
+      "width": 1290,
+      "height": 360,
+      "bytes": 212822
+    },
+    {
+      "file": "public/images/header/responsive-lockups-v18/evaready-header-lockup-540-v18.webp",
+      "width": 1080,
+      "height": 240,
+      "bytes": 135212
+    },
+    {
+      "file": "public/images/header/responsive-lockups-v18/evaready-header-lockup-640-v18.webp",
+      "width": 1280,
+      "height": 240,
+      "bytes": 170328
+    },
+    {
+      "file": "public/images/header/responsive-lockups-v18/evaready-header-lockup-768-v18.webp",
+      "width": 1536,
+      "height": 246,
+      "bytes": 220928
+    },
+    {
+      "file": "public/images/header/responsive-lockups-v18/evaready-header-lockup-820-v18.webp",
+      "width": 1640,
+      "height": 256,
+      "bytes": 249092
+    },
+    {
+      "file": "public/images/header/responsive-lockups-v18/evaready-header-lockup-1024-v18.webp",
+      "width": 2048,
+      "height": 270,
+      "bytes": 308948
+    },
+    {
+      "file": "public/images/header/responsive-lockups-v18/evaready-header-lockup-1280-v18.webp",
+      "width": 2560,
+      "height": 270,
+      "bytes": 333034
+    },
+    {
+      "file": "public/images/header/responsive-lockups-v18/evaready-header-lockup-1366-v18.webp",
+      "width": 2732,
+      "height": 270,
+      "bytes": 351498
+    },
+    {
+      "file": "public/images/header/responsive-lockups-v18/evaready-header-lockup-1440-v18.webp",
+      "width": 2880,
+      "height": 290,
+      "bytes": 410292
+    },
+    {
+      "file": "public/images/header/responsive-lockups-v18/evaready-header-lockup-1600-v18.webp",
+      "width": 3200,
+      "height": 290,
+      "bytes": 422244
+    },
+    {
+      "file": "public/images/header/responsive-lockups-v18/evaready-header-lockup-1920-v18.webp",
+      "width": 3840,
+      "height": 300,
+      "bytes": 464164
+    },
+    {
+      "file": "public/images/header/responsive-lockups-v18/evaready-header-lockup-2048-v18.webp",
+      "width": 4096,
+      "height": 320,
+      "bytes": 510878
+    },
+    {
+      "file": "public/images/header/responsive-lockups-v18/evaready-header-lockup-2208-v18.webp",
+      "width": 4416,
+      "height": 320,
+      "bytes": 524766
+    },
+    {
+      "file": "public/images/header/responsive-lockups-v18/evaready-header-lockup-2560-v18.webp",
+      "width": 5120,
+      "height": 320,
+      "bytes": 542964
+    }
+  ]
+}

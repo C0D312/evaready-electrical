@@ -161,7 +161,7 @@ test("homepage uses the approved H1 and a seamless reduced-motion-safe service s
   await expect(track).toHaveCSS("animation-name", "none");
 });
 
-test("wide desktop header composes approved transparent artwork proportionally", async ({
+test("wide desktop header uses complete art-directed artwork proportionally", async ({
   page,
 }, testInfo) => {
   test.skip(
@@ -180,7 +180,7 @@ test("wide desktop header composes approved transparent artwork proportionally",
       .poll(() =>
         page
           .locator(
-            ".ev-final-header-background, .ev-final-header-evaready, .ev-final-header-electrical, .ev-final-header-energy-line, .ev-final-header-bolt",
+            ".ev-final-header-background, .ev-final-header-lockup-image",
           )
           .evaluateAll((elements) =>
             elements.every((element) => {
@@ -197,34 +197,32 @@ test("wide desktop header composes approved transparent artwork proportionally",
         ".ev-final-header-background",
       );
       const backgroundBox = background?.getBoundingClientRect();
-      const artwork = Array.from(
-        banner.querySelectorAll<HTMLImageElement>(
-          ".ev-final-header-evaready, .ev-final-header-electrical, .ev-final-header-energy-line, .ev-final-header-bolt",
-        ),
-      ).map((image) => {
-        const box = image.getBoundingClientRect();
-        const naturalRatio = image.naturalWidth / image.naturalHeight;
-        const renderedRatio = box.width / box.height;
+      const image = banner.querySelector<HTMLImageElement>(
+        ".ev-final-header-lockup-image",
+      );
+      const box = image?.getBoundingClientRect();
+      const naturalRatio = image
+        ? image.naturalWidth / image.naturalHeight
+        : 0;
+      const renderedRatio = box ? box.width / box.height : 0;
 
-        return {
-          className: image.className,
-          currentSrc: image.currentSrc,
-          objectFit: getComputedStyle(image).objectFit,
+      return {
+        artwork: {
+          alt: image?.alt ?? "",
+          currentSrc: image?.currentSrc ?? "",
+          objectFit: image ? getComputedStyle(image).objectFit : "",
           relativeAspectError: naturalRatio
             ? Math.abs(renderedRatio - naturalRatio) / naturalRatio
             : 1,
-          sourceHeight: image.naturalHeight,
-          sourceWidth: image.naturalWidth,
+          sourceHeight: image?.naturalHeight ?? 0,
+          sourceWidth: image?.naturalWidth ?? 0,
           insideBanner:
+            !!box &&
             box.top >= bannerBox.top - 1 &&
             box.right <= bannerBox.right + 1 &&
             box.bottom <= bannerBox.bottom + 1 &&
             box.left >= bannerBox.left - 1,
-        };
-      });
-
-      return {
-        artwork,
+        },
         backgroundCoversBanner:
           !!backgroundBox &&
           Math.abs(backgroundBox.left - bannerBox.left) <= 1 &&
@@ -243,35 +241,16 @@ test("wide desktop header composes approved transparent artwork proportionally",
     expect(bannerLayout.backgroundObjectFit).toBe("cover");
     expect(bannerLayout.backgroundCoversBanner).toBe(true);
     expect(Math.abs(bannerLayout.bannerHeight - viewport.expectedBannerHeight)).toBeLessThanOrEqual(1);
-    expect(bannerLayout.artwork).toHaveLength(4);
-    for (const artwork of bannerLayout.artwork) {
-      expect(artwork.objectFit).toBe("contain");
-      expect(artwork.relativeAspectError).toBeLessThanOrEqual(0.005);
-      expect(artwork.insideBanner).toBe(true);
-    }
-    expect(bannerLayout.artwork).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          currentSrc: expect.stringContaining("evaready-header-evaready-v16.webp"),
-          sourceWidth: 1426,
-          sourceHeight: 171,
-        }),
-        expect.objectContaining({
-          currentSrc: expect.stringContaining("evaready-header-electrical-v16.webp"),
-          sourceWidth: 1426,
-          sourceHeight: 73,
-        }),
-        expect.objectContaining({
-          currentSrc: expect.stringContaining("evaready-header-energy-line-v15.webp"),
-          sourceWidth: 1426,
-          sourceHeight: 27,
-        }),
-        expect.objectContaining({
-          currentSrc: expect.stringContaining("evaready-header-bolt-v15.webp"),
-          sourceWidth: 310,
-          sourceHeight: 258,
-        }),
-      ]),
+    expect(bannerLayout.artwork.objectFit).toBe("contain");
+    expect(bannerLayout.artwork.relativeAspectError).toBeLessThanOrEqual(0.005);
+    expect(bannerLayout.artwork.insideBanner).toBe(true);
+    expect(bannerLayout.artwork.alt).toBe("Evaready Electrical 24/7");
+    expect(bannerLayout.artwork.currentSrc).toContain(
+      `evaready-header-lockup-${viewport.width}-v18.webp`,
+    );
+    expect(bannerLayout.artwork.sourceWidth).toBe(viewport.width * 2);
+    expect(bannerLayout.artwork.sourceHeight).toBe(
+      viewport.expectedBannerHeight * 2,
     );
     expect(bannerLayout.overflow).toBeLessThanOrEqual(1);
   }

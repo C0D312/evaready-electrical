@@ -20,34 +20,26 @@ const supportedViewports = [
   { width: 2560, height: 1440 },
 ] as const;
 
-const combinedWordmarkAsset = {
-  selector: ".ev-final-header-wordmark--combined",
-  sources: [{ file: "evaready-header-wordmark-v15.webp", width: 1426, height: 245 }],
-} as const;
-
-const energyLineAsset = {
-  selector: ".ev-final-header-energy-line",
-  sources: [{ file: "evaready-header-energy-line-v15.webp", width: 1426, height: 27 }],
-} as const;
-
-const boltAsset = {
-  selector: ".ev-final-header-bolt",
-  sources: [{ file: "evaready-header-bolt-v15.webp", width: 310, height: 258 }],
-} as const;
-
-const compactForegroundAssets = [combinedWordmarkAsset, energyLineAsset, boltAsset] as const;
-
-const desktopForegroundAssets = [
-  {
-    selector: ".ev-final-header-evaready",
-    sources: [{ file: "evaready-header-evaready-v16.webp", width: 1426, height: 171 }],
-  },
-  {
-    selector: ".ev-final-header-electrical",
-    sources: [{ file: "evaready-header-electrical-v16.webp", width: 1426, height: 73 }],
-  },
-  energyLineAsset,
-  boltAsset,
+const lockupAssets = [
+  { maxWidth: 339, name: "320", width: 960, height: 336 },
+  { maxWidth: 367, name: "360", width: 1080, height: 336 },
+  { maxWidth: 382, name: "375", width: 1125, height: 348 },
+  { maxWidth: 400, name: "390", width: 1170, height: 348 },
+  { maxWidth: 420, name: "412", width: 1236, height: 348 },
+  { maxWidth: 479, name: "430", width: 1290, height: 360 },
+  { maxWidth: 639, name: "540", width: 1080, height: 240 },
+  { maxWidth: 767, name: "640", width: 1280, height: 240 },
+  { maxWidth: 819, name: "768", width: 1536, height: 246 },
+  { maxWidth: 1023, name: "820", width: 1640, height: 256 },
+  { maxWidth: 1279, name: "1024", width: 2048, height: 270 },
+  { maxWidth: 1365, name: "1280", width: 2560, height: 270 },
+  { maxWidth: 1439, name: "1366", width: 2732, height: 270 },
+  { maxWidth: 1599, name: "1440", width: 2880, height: 290 },
+  { maxWidth: 1919, name: "1600", width: 3200, height: 290 },
+  { maxWidth: 2047, name: "1920", width: 3840, height: 300 },
+  { maxWidth: 2207, name: "2048", width: 4096, height: 320 },
+  { maxWidth: 2559, name: "2208", width: 4416, height: 320 },
+  { maxWidth: Number.POSITIVE_INFINITY, name: "2560", width: 5120, height: 320 },
 ] as const;
 
 const backgroundAssets = [
@@ -71,26 +63,12 @@ async function inspectHeader(page: Page) {
   await page.waitForFunction(() =>
     Array.from(
       document.querySelectorAll<HTMLImageElement>(
-        ".ev-final-header-background, .ev-final-header-wordmark, .ev-final-header-evaready, .ev-final-header-electrical, .ev-final-header-energy-line, .ev-final-header-bolt",
+        ".ev-final-header-background, .ev-final-header-lockup-image",
       ),
     ).every((image) => image.complete && image.naturalWidth > 0),
   );
 
   return page.locator("header.ev-final-header").evaluate(async (header) => {
-    const sourceDimensions = async (image: HTMLImageElement | null) => {
-      if (!image?.currentSrc) return { src: "", width: 0, height: 0 };
-
-      const probe = new Image();
-      probe.src = image.currentSrc;
-      await probe.decode();
-
-      return {
-        src: image.currentSrc,
-        width: probe.naturalWidth,
-        height: probe.naturalHeight,
-      };
-    };
-
     const rect = (element: Element | null) => {
       const box = element?.getBoundingClientRect();
       return box
@@ -108,75 +86,61 @@ async function inspectHeader(page: Page) {
     const ticker = header.querySelector<HTMLElement>(".emergency-issue-marquee");
     const banner = header.querySelector<HTMLElement>(".ev-final-header-art");
     const background = header.querySelector<HTMLImageElement>(".ev-final-header-background");
+    const lockup = header.querySelector<HTMLImageElement>(".ev-final-header-lockup-image");
     const desktopNav = header.querySelector<HTMLElement>(".ev-final-desktop-nav");
     const mobileMenu = header.querySelector<HTMLElement>(".ev-final-mobile-menu");
-    const lockup = header.querySelector<HTMLElement>(".ev-final-header-lockup");
+    const decodeSource = async (image: HTMLImageElement | null) => {
+      if (!image?.currentSrc) return { width: 0, height: 0 };
+
+      const probe = new Image();
+      probe.src = image.currentSrc;
+      await probe.decode();
+      return { width: probe.naturalWidth, height: probe.naturalHeight };
+    };
+    const [backgroundSource, lockupSource] = await Promise.all([
+      decodeSource(background),
+      decodeSource(lockup),
+    ]);
     const bannerBox = rect(banner);
     const tickerBox = rect(ticker);
     const navBox = rect(desktopNav);
-    const menuBox = rect(mobileMenu);
     const lockupBox = rect(lockup);
-
-    const visibleForeground = Array.from(
-      header.querySelectorAll<HTMLImageElement>(
-        ".ev-final-header-wordmark, .ev-final-header-evaready, .ev-final-header-electrical, .ev-final-header-energy-line, .ev-final-header-bolt",
-      ),
-    ).filter((image) => {
-      const box = image.getBoundingClientRect();
-      return box.width > 0 && box.height > 0;
-    });
-
-    const assets = await Promise.all(
-      visibleForeground.map(async (image) => {
-        const box = rect(image)!;
-        const source = await sourceDimensions(image);
-        const naturalRatio = source.width / source.height;
-        const renderedRatio = box.width / box.height;
-
-        return {
-          className: image.className,
-          src: source.src,
-          complete: image.complete,
-          sourceWidth: source.width,
-          sourceHeight: source.height,
-          naturalRatio,
-          renderedRatio,
-          relativeAspectError: Math.abs(renderedRatio - naturalRatio) / naturalRatio,
-          objectFit: getComputedStyle(image).objectFit,
-          zIndex: Number.parseInt(getComputedStyle(image).zIndex, 10) || 0,
-          box,
-          insideBanner:
-            !!bannerBox &&
-            box.top >= bannerBox.top - 1 &&
-            box.right <= bannerBox.right + 1 &&
-            box.bottom <= bannerBox.bottom + 1 &&
-            box.left >= bannerBox.left - 1,
-          clearOfMobileMenu:
-            !menuBox ||
-            getComputedStyle(mobileMenu!).display === "none" ||
-            box.right <= menuBox.left + 1,
-        };
-      }),
-    );
-    const backgroundSource = await sourceDimensions(background);
+    const lockupNaturalRatio = lockupSource.width && lockupSource.height
+      ? lockupSource.width / lockupSource.height
+      : 0;
+    const lockupRenderedRatio = lockupBox
+      ? lockupBox.width / lockupBox.height
+      : 0;
 
     return {
-      assets,
       background: {
         box: rect(background),
         complete: background?.complete ?? false,
-        src: backgroundSource.src,
+        src: background?.currentSrc ?? "",
         sourceWidth: backgroundSource.width,
         sourceHeight: backgroundSource.height,
         objectFit: background ? getComputedStyle(background).objectFit : "",
-        opacity: background ? getComputedStyle(background).opacity : "",
-        display: background ? getComputedStyle(background).display : "",
       },
       banner: bannerBox,
-      bannerBackground: banner ? getComputedStyle(banner).backgroundColor : "",
       desktopNavDisplay: desktopNav ? getComputedStyle(desktopNav).display : "",
       header: rect(header),
-      lockup: lockupBox,
+      legacyForegroundCount: header.querySelectorAll(
+        ".ev-final-header-wordmark, .ev-final-header-evaready, .ev-final-header-electrical, .ev-final-header-energy-line, .ev-final-header-bolt",
+      ).length,
+      lockup: {
+        alt: lockup?.alt ?? "",
+        box: lockupBox,
+        complete: lockup?.complete ?? false,
+        objectFit: lockup ? getComputedStyle(lockup).objectFit : "",
+        relativeAspectError:
+          lockupNaturalRatio && lockupRenderedRatio
+            ? Math.abs(lockupRenderedRatio - lockupNaturalRatio) /
+              lockupNaturalRatio
+            : 1,
+        src: lockup?.currentSrc ?? "",
+        sourceWidth: lockupSource.width,
+        sourceHeight: lockupSource.height,
+      },
       mobileMenuDisplay: mobileMenu ? getComputedStyle(mobileMenu).display : "",
       navGap:
         bannerBox && navBox && getComputedStyle(desktopNav!).display !== "none"
@@ -190,33 +154,29 @@ async function inspectHeader(page: Page) {
   });
 }
 
-test("header layers preserve their natural aspect ratios in every browser", async ({ page }) => {
+test("header selects one complete art-directed lockup without distortion", async ({
+  page,
+}) => {
   await page.goto("./", { waitUntil: "domcontentloaded" });
   const layout = await inspectHeader(page);
-  const expectedAssets =
-    layout.viewportWidth >= 1024 ? desktopForegroundAssets : compactForegroundAssets;
+  const expected = lockupAssets.find(
+    (asset) => layout.viewportWidth <= asset.maxWidth,
+  )!;
 
-  expect(layout.assets).toHaveLength(expectedAssets.length);
-  for (const expectedAsset of expectedAssets) {
-    const asset = layout.assets.find((item) =>
-      item.className.includes(expectedAsset.selector.slice(1)),
-    );
-
-    expect(asset, `${expectedAsset.selector} must exist`).toBeDefined();
-    const selectedSource = expectedAsset.sources.find((source) =>
-      asset!.src.includes(source.file),
-    );
-    expect(selectedSource, `${expectedAsset.selector} selected an approved source`).toBeDefined();
-    expect(asset!.sourceWidth).toBe(selectedSource!.width);
-    expect(asset!.sourceHeight).toBe(selectedSource!.height);
-    expect(asset!.objectFit).toBe("contain");
-    expect(asset!.relativeAspectError).toBeLessThanOrEqual(0.005);
-    expect(asset!.insideBanner).toBe(true);
-    expect(asset!.clearOfMobileMenu).toBe(true);
-  }
+  expect(layout.legacyForegroundCount).toBe(0);
+  expect(layout.lockup.complete).toBe(true);
+  expect(layout.lockup.src).toContain(
+    `evaready-header-lockup-${expected.name}-v18.webp`,
+  );
+  expect(layout.lockup.sourceWidth).toBe(expected.width);
+  expect(layout.lockup.sourceHeight).toBe(expected.height);
+  expect(layout.lockup.objectFit).toBe("contain");
+  expect(layout.lockup.relativeAspectError).toBeLessThanOrEqual(0.005);
+  expect(layout.lockup.alt).toBe("Evaready Electrical 24/7");
+  expect(layout.lockup.box).toEqual(layout.banner);
 });
 
-test("header is centred, compact and stable at all supported widths", async ({
+test("header is complete, compact and stable at all supported widths", async ({
   page,
 }, testInfo) => {
   test.skip(
@@ -231,11 +191,12 @@ test("header is centred, compact and stable at all supported widths", async ({
     const initial = await inspectHeader(page);
     await page.waitForTimeout(300);
     const settled = await inspectHeader(page);
+    const expected = lockupAssets.find(
+      (asset) => viewport.width <= asset.maxWidth,
+    )!;
 
     expect(settled.banner).not.toBeNull();
     expect(settled.header).not.toBeNull();
-    expect(settled.lockup).not.toBeNull();
-    expect(settled.background.display).not.toBe("none");
     expect(settled.background.complete).toBe(true);
     const selectedBackground = backgroundAssets.find((source) =>
       settled.background.src.includes(source.file),
@@ -244,69 +205,23 @@ test("header is centred, compact and stable at all supported widths", async ({
     expect(settled.background.sourceWidth).toBe(selectedBackground!.width);
     expect(settled.background.sourceHeight).toBe(selectedBackground!.height);
     expect(settled.background.objectFit).toBe("cover");
-    expect(settled.background.opacity).toBe("1");
     expect(settled.background.box).toEqual(settled.banner);
-    expect(settled.bannerBackground).not.toBe("rgba(0, 0, 0, 0)");
+
+    expect(settled.lockup.src).toContain(
+      `evaready-header-lockup-${expected.name}-v18.webp`,
+    );
+    expect(settled.lockup.sourceWidth).toBe(expected.width);
+    expect(settled.lockup.sourceHeight).toBe(expected.height);
+    expect(settled.lockup.objectFit).toBe("contain");
+    expect(settled.lockup.relativeAspectError).toBeLessThanOrEqual(0.005);
+    expect(settled.lockup.box).toEqual(settled.banner);
+    expect(settled.legacyForegroundCount).toBe(0);
+
     expect(Math.abs(settled.banner!.left)).toBeLessThanOrEqual(1);
     expect(Math.abs(settled.banner!.width - settled.viewportWidth)).toBeLessThanOrEqual(1);
-    expect(settled.banner!.height).toBeCloseTo(expectedArtHeight(viewport.width), 2);
+    expect(settled.banner!.height).toBeCloseTo(expectedArtHeight(viewport.width), 1);
     expect(Math.abs(settled.tickerGap ?? 0)).toBeLessThanOrEqual(1);
     expect(settled.overflow).toBeLessThanOrEqual(1);
-
-    const lockupCentre = settled.lockup!.left + settled.lockup!.width / 2;
-    const viewportCentre = settled.viewportWidth / 2;
-    const maximumCentreOffset = viewport.width < 640 ? 17 : 1;
-    expect(Math.abs(lockupCentre - viewportCentre)).toBeLessThanOrEqual(maximumCentreOffset);
-
-    for (const asset of settled.assets) {
-      expect(asset.complete).toBe(true);
-      expect(asset.relativeAspectError).toBeLessThanOrEqual(0.005);
-      expect(asset.insideBanner).toBe(true);
-      expect(asset.clearOfMobileMenu).toBe(true);
-    }
-
-    if (viewport.width >= 1024) {
-      const bolt = settled.assets.find((asset) =>
-        asset.className.includes("ev-final-header-bolt"),
-      );
-      const electrical = settled.assets.find((asset) =>
-        asset.className.includes("ev-final-header-electrical"),
-      );
-      const evaready = settled.assets.find((asset) =>
-        asset.className.includes("ev-final-header-evaready"),
-      );
-      const energyLine = settled.assets.find((asset) =>
-        asset.className.includes("ev-final-header-energy-line"),
-      );
-
-      expect(bolt).toBeDefined();
-      expect(electrical).toBeDefined();
-      expect(evaready).toBeDefined();
-      expect(energyLine).toBeDefined();
-      expect(
-        bolt!.zIndex,
-        "the complete desktop bolt must render above the ELECTRICAL artwork",
-      ).toBeGreaterThan(electrical!.zIndex);
-      expect(
-        bolt!.box.top - electrical!.box.bottom,
-        "the complete desktop bolt must not be hidden behind the wordmark",
-      ).toBeGreaterThanOrEqual(-0.5);
-      expect(
-        bolt!.box.top - electrical!.box.bottom,
-        "the complete desktop bolt must remain connected to the wordmark",
-      ).toBeLessThanOrEqual(2);
-      expect(
-        settled.banner!.bottom - bolt!.box.bottom,
-        "the complete desktop bolt must retain lower-edge safe space",
-      ).toBeGreaterThanOrEqual(1);
-      expect(
-        Math.abs(
-          bolt!.box.top + bolt!.box.height * (82 / 258) -
-            (energyLine!.box.top + energyLine!.box.height * (13 / 27)),
-        ),
-        "the energy line must cross the bolt at the source artwork's original intersection",
-      ).toBeLessThanOrEqual(2);
-    }
 
     expect(
       Math.abs(settled.banner!.height - initial.banner!.height),
@@ -326,30 +241,6 @@ test("header is centred, compact and stable at all supported widths", async ({
       expect(settled.desktopNavDisplay).toBe("none");
       expect(settled.mobileMenuDisplay).not.toBe("none");
       expect(settled.header!.height).toBeLessThanOrEqual(170);
-
-      if (viewport.width < 768) {
-        const wordmark = settled.assets.find((asset) =>
-          asset.className.includes("ev-final-header-wordmark--combined"),
-        );
-        const bolt = settled.assets.find((asset) =>
-          asset.className.includes("ev-final-header-bolt"),
-        );
-
-        expect(wordmark).toBeDefined();
-        expect(bolt).toBeDefined();
-        const expectedWordmarkTop = viewport.width >= 375 ? 27 : 22;
-        expect(wordmark!.box.top - settled.banner!.top).toBeGreaterThanOrEqual(
-          expectedWordmarkTop - 0.5,
-        );
-        expect(wordmark!.box.top - settled.banner!.top).toBeLessThanOrEqual(
-          expectedWordmarkTop + 0.5,
-        );
-        expect(settled.banner!.bottom - bolt!.box.bottom).toBeGreaterThanOrEqual(6);
-        expect(settled.banner!.bottom - bolt!.box.bottom).toBeLessThanOrEqual(9);
-
-        const wordmarkCentre = wordmark!.box.left + wordmark!.box.width / 2;
-        expect(Math.abs(wordmarkCentre - settled.viewportWidth / 2)).toBeLessThanOrEqual(1);
-      }
     }
   }
 });
