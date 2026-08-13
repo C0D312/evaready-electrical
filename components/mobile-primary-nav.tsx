@@ -2,7 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type MouseEvent as ReactMouseEvent,
+} from "react";
 import { createPortal } from "react-dom";
 import {
   ArrowRight,
@@ -24,6 +30,7 @@ import {
 } from "lucide-react";
 import { DeferredServiceAreaSearch } from "@/components/deferred-service-area-search";
 import { HomeNavigationLink } from "@/components/home-navigation-link";
+import { requestQuoteFormOpen } from "@/components/quote-form-events";
 import {
   getServiceNavigationLinks,
   serviceNavigationMenus,
@@ -197,6 +204,33 @@ export function MobilePrimaryNav() {
     openRef.current = true;
     setOpen(true);
   }, []);
+
+  const openQuoteFromMenu = useCallback(
+    (event: ReactMouseEvent<HTMLAnchorElement>) => {
+      event.preventDefault();
+      const opener = triggerRef.current ?? event.currentTarget;
+      const currentState =
+        window.history.state && typeof window.history.state === "object"
+          ? window.history.state
+          : {};
+      const canReuseMenuEntry =
+        menuHistoryPushedRef.current && currentState.mobileMenu === true;
+
+      if (canReuseMenuEntry) {
+        const nextState = { ...currentState, quoteModal: true };
+        delete nextState.mobileMenu;
+        window.history.replaceState(nextState, "", window.location.href);
+      } else {
+        removeMobileMenuHistoryMarker();
+      }
+
+      finishClose();
+      requestQuoteFormOpen(opener, {
+        historyEntryPrepared: canReuseMenuEntry,
+      });
+    },
+    [finishClose, removeMobileMenuHistoryMarker],
+  );
 
   useEffect(() => {
     if (!openRef.current) {
@@ -527,7 +561,7 @@ export function MobilePrimaryNav() {
             data-conversion-action="quote-click"
             aria-haspopup="dialog"
             aria-label="Get a quote from Evaready Electrical"
-            onClick={() => closeMenu()}
+            onClick={openQuoteFromMenu}
             className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-blue-700/20"
           >
             {business.quoteCta}

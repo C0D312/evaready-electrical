@@ -3,6 +3,10 @@
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Phone, X } from "lucide-react";
+import {
+  quoteFormOpenEventName,
+  type QuoteFormOpenDetail,
+} from "@/components/quote-form-events";
 import { business } from "@/data/site";
 
 const ServiceM8Frame = dynamic(
@@ -46,7 +50,6 @@ export function QuoteFormModal() {
   const openRef = useRef(false);
   const modalHistoryPushedRef = useRef(false);
   const historyCloseFallbackRef = useRef<number | null>(null);
-  const pendingOpenTimerRef = useRef<number | null>(null);
 
   const removeQuoteModalHistoryMarker = useCallback(() => {
     if (window.history.state?.quoteModal !== true) {
@@ -128,22 +131,32 @@ export function QuoteFormModal() {
     finishClose();
   }, [finishClose, removeQuoteModalHistoryMarker]);
 
-  const openModal = useCallback((opener: HTMLElement) => {
+  const openModal = useCallback((
+    opener: HTMLElement,
+    historyEntryPrepared = false,
+  ) => {
     if (openRef.current) {
       return;
     }
 
-    if (window.history.state?.quoteModal !== true) {
-      const currentState =
-        window.history.state && typeof window.history.state === "object"
-          ? window.history.state
-          : {};
+    const currentState =
+      window.history.state && typeof window.history.state === "object"
+        ? window.history.state
+        : {};
 
+    if (historyEntryPrepared) {
+      const nextState = { ...currentState, quoteModal: true };
+      delete nextState.mobileMenu;
+      window.history.replaceState(nextState, "", window.location.href);
+      modalHistoryPushedRef.current = true;
+    } else if (window.history.state?.quoteModal !== true) {
       window.history.pushState(
         { ...currentState, quoteModal: true },
         "",
         window.location.href,
       );
+      modalHistoryPushedRef.current = true;
+    } else {
       modalHistoryPushedRef.current = true;
     }
 
@@ -154,10 +167,6 @@ export function QuoteFormModal() {
 
   useEffect(() => {
     function handleClick(event: MouseEvent) {
-      if (event.defaultPrevented) {
-        return;
-      }
-
       if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
         return;
       }
@@ -186,36 +195,30 @@ export function QuoteFormModal() {
         return;
       }
 
-      event.preventDefault();
-      const mobileMenuTrigger = document.querySelector<HTMLElement>(
-        '[aria-controls="mobile-site-menu"]',
-      );
-
       if (link.closest("#mobile-site-menu")) {
-        if (pendingOpenTimerRef.current !== null) {
-          window.clearTimeout(pendingOpenTimerRef.current);
-        }
-
-        pendingOpenTimerRef.current = window.setTimeout(() => {
-          pendingOpenTimerRef.current = null;
-          openModal(
-            mobileMenuTrigger?.isConnected ? mobileMenuTrigger : link,
-          );
-        }, 0);
         return;
       }
 
+      event.preventDefault();
       openModal(link);
     }
 
-    document.addEventListener("click", handleClick);
+    function handleOpenRequest(event: Event) {
+      const { detail } = event as CustomEvent<QuoteFormOpenDetail>;
+
+      if (!detail?.opener) {
+        return;
+      }
+
+      openModal(detail.opener, detail.historyEntryPrepared === true);
+    }
+
+    document.addEventListener("click", handleClick, true);
+    window.addEventListener(quoteFormOpenEventName, handleOpenRequest);
 
     return () => {
-      document.removeEventListener("click", handleClick);
-      if (pendingOpenTimerRef.current !== null) {
-        window.clearTimeout(pendingOpenTimerRef.current);
-        pendingOpenTimerRef.current = null;
-      }
+      document.removeEventListener("click", handleClick, true);
+      window.removeEventListener(quoteFormOpenEventName, handleOpenRequest);
     };
   }, [openModal]);
 
@@ -393,6 +396,7 @@ export function QuoteFormModal() {
             src={business.bookingUrl}
             title="Evaready Electrical quote form"
             className="quote-modal-iframe h-full w-full bg-white"
+            loadStrategy="eager"
             showFallback={false}
           />
         </div>
