@@ -13,7 +13,21 @@ const sources = {
   evaready: path.join(sourceDirectory, "evaready-header-evaready-v16.webp"),
   electrical: path.join(sourceDirectory, "evaready-header-electrical-v16.webp"),
   energyLine: path.join(sourceDirectory, "evaready-header-energy-line-v15.webp"),
-  bolt: path.join(sourceDirectory, "evaready-header-bolt-v15.webp"),
+  boltMaster: path.join(
+    projectRoot,
+    "public",
+    "evaready-full-wide-logo-undistorted-v2.webp",
+  ),
+};
+
+// Extract the bolt from the approved undistorted transparent lockup. The source
+// line crosses the bolt, so only its disconnected left/right continuations are
+// cleared. Every retained bolt pixel keeps its original x/y proportions.
+const boltExtraction = {
+  crop: { left: 330, top: 173, width: 230, height: 170 },
+  energyLineRows: { top: 45, bottom: 72 },
+  retainedColumns: { left: 88, right: 198 },
+  alphaFloor: 8,
 };
 
 // CSS-space layouts are rendered at 3x on phones and 2x everywhere else.
@@ -52,6 +66,83 @@ async function proportionalLayer(source, { width, height }) {
     .toBuffer({ resolveWithObject: true });
 }
 
+async function approvedBoltSource() {
+  const { data, info } = await sharp(sources.boltMaster)
+    .extract(boltExtraction.crop)
+    .ensureAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+
+  let minX = info.width;
+  let minY = info.height;
+  let maxX = -1;
+  let maxY = -1;
+
+  for (let y = 0; y < info.height; y += 1) {
+    for (let x = 0; x < info.width; x += 1) {
+      const alphaIndex = (y * info.width + x) * info.channels + 3;
+      const isEnergyLineContinuation =
+        y >= boltExtraction.energyLineRows.top &&
+        y <= boltExtraction.energyLineRows.bottom &&
+        (x < boltExtraction.retainedColumns.left ||
+          x > boltExtraction.retainedColumns.right);
+
+      if (data[alphaIndex] < boltExtraction.alphaFloor || isEnergyLineContinuation) {
+        data[alphaIndex] = 0;
+        continue;
+      }
+
+      minX = Math.min(minX, x);
+      minY = Math.min(minY, y);
+      maxX = Math.max(maxX, x);
+      maxY = Math.max(maxY, y);
+    }
+  }
+
+  if (maxX < minX || maxY < minY) {
+    throw new Error("The approved bolt extraction produced no visible pixels.");
+  }
+
+  const bounds = {
+    left: minX,
+    top: minY,
+    width: maxX - minX + 1,
+    height: maxY - minY + 1,
+  };
+  const visibleAspectRatio = bounds.width / bounds.height;
+
+  if (visibleAspectRatio < 0.95 || visibleAspectRatio > 1.05) {
+    throw new Error(
+      `Approved bolt aspect ratio ${visibleAspectRatio.toFixed(4)} is outside 0.95-1.05.`,
+    );
+  }
+
+  const source = await sharp(data, {
+    raw: {
+      width: info.width,
+      height: info.height,
+      channels: info.channels,
+    },
+  })
+    .extract(bounds)
+    .webp({ lossless: true, effort: 6 })
+    .toBuffer();
+
+  return { source, bounds, visibleAspectRatio };
+}
+
+async function proportionalBoltLayer(source, { height }) {
+  return sharp(source)
+    .resize({
+      height: Math.round(height),
+      fit: "inside",
+      withoutEnlargement: false,
+      kernel: sharp.kernel.lanczos3,
+    })
+    .webp({ lossless: true, effort: 6 })
+    .toBuffer({ resolveWithObject: true });
+}
+
 async function createVariant(variant) {
   const canvasWidth = variant.width * variant.scale;
   const canvasHeight = variant.height * variant.scale;
@@ -61,7 +152,9 @@ async function createVariant(variant) {
     proportionalLayer(sources.evaready, { width: scaled(variant.evareadyWidth, variant.scale) }),
     proportionalLayer(sources.electrical, { width: scaled(variant.electricalWidth, variant.scale) }),
     proportionalLayer(sources.energyLine, { width: scaled(variant.lineWidth, variant.scale) }),
-    proportionalLayer(sources.bolt, { height: scaled(variant.boltHeight, variant.scale) }),
+    proportionalBoltLayer(boltSource.source, {
+      height: scaled(variant.boltHeight, variant.scale),
+    }),
   ]);
 
   const layers = [
@@ -124,6 +217,7 @@ async function createVariant(variant) {
 }
 
 await fs.mkdir(outputDirectory, { recursive: true });
+const boltSource = await approvedBoltSource();
 const results = [];
 for (const variant of variants) {
   results.push(await createVariant(variant));
@@ -140,6 +234,11 @@ await fs.writeFile(
           path.relative(projectRoot, source).replaceAll("\\", "/"),
         ]),
       ),
+      boltExtraction: {
+        ...boltExtraction,
+        bounds: boltSource.bounds,
+        visibleAspectRatio: boltSource.visibleAspectRatio,
+      },
       variants: results,
     },
     null,
