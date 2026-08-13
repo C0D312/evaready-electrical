@@ -30,6 +30,7 @@
     "audit:lighthouse": "tsx scripts/benchmark-production-performance.ts",
     "audit:all-routes-visibility": "tsx scripts/audit-all-routes-visibility.ts",
     "audit:visibility": "tsx scripts/audit-page-visibility.ts",
+    "audit:scroll-text-fit": "tsx scripts/audit-scroll-and-text-fit.ts",
     "audit:live-links-and-ctas": "tsx scripts/audit-live-links-and-ctas.ts",
     "audit:production-domain": "tsx scripts/audit-production-domain.ts",
     "audit:production-smoke": "tsx scripts/audit-production-responsive-smoke.ts",

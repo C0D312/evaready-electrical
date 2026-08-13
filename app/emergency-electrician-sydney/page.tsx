@@ -672,7 +672,7 @@ export default function EmergencyElectricianSydneyPage() {
           <h2 className={cx(styles.sectionTitle, "mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl")}>
             Choose the closest fault guide, then call first if it feels unsafe.
           </h2>
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="emergency-related-grid mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {relatedLinks.map((link) => (
               <Link
                 key={link.href}
