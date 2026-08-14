@@ -241,12 +241,12 @@ test("wide desktop header uses complete art-directed artwork proportionally", as
     expect(bannerLayout.backgroundObjectFit).toBe("cover");
     expect(bannerLayout.backgroundCoversBanner).toBe(true);
     expect(Math.abs(bannerLayout.bannerHeight - viewport.expectedBannerHeight)).toBeLessThanOrEqual(1);
-    expect(bannerLayout.artwork.objectFit).toBe("contain");
+    expect(bannerLayout.artwork.objectFit).toBe("cover");
     expect(bannerLayout.artwork.relativeAspectError).toBeLessThanOrEqual(0.005);
     expect(bannerLayout.artwork.insideBanner).toBe(true);
     expect(bannerLayout.artwork.alt).toBe("Evaready Electrical 24/7");
     expect(bannerLayout.artwork.currentSrc).toContain(
-      `evaready-header-lockup-${viewport.width}-v18.webp`,
+      `evaready-header-desktop-${viewport.width}-crisp-v17.webp`,
     );
     expect(bannerLayout.artwork.sourceWidth).toBe(viewport.width * 2);
     expect(bannerLayout.artwork.sourceHeight).toBe(

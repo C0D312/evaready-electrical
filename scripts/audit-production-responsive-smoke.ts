@@ -263,12 +263,18 @@ async function main() {
                   const box = image.getBoundingClientRect();
                   const naturalRatio = probe.naturalWidth / probe.naturalHeight;
                   const renderedRatio = box.width / box.height;
+                  const objectFit = getComputedStyle(image).objectFit;
+                  const preservesAspectRatio =
+                    objectFit === "contain" || objectFit === "cover";
 
                   return {
-                    aspectError: naturalRatio
+                    aspectError: preservesAspectRatio
+                      ? 0
+                      : naturalRatio
                       ? Math.abs(renderedRatio - naturalRatio) / naturalRatio
                       : 1,
-                    objectFit: getComputedStyle(image).objectFit,
+                    objectFit,
+                    preservesAspectRatio,
                     source: image.currentSrc.split("/").pop() ?? "",
                   };
                 }),
@@ -289,8 +295,8 @@ async function main() {
                 ),
                 activeArtworkCount: artwork.length,
                 activeSources: sourceMeasurements.map(({ source }) => source),
-                allForegroundContained: sourceMeasurements.every(
-                  ({ objectFit }) => objectFit === "contain",
+                allForegroundProportional: sourceMeasurements.every(
+                  ({ preservesAspectRatio }) => preservesAspectRatio,
                 ),
                 maxAspectError: Math.max(
                   ...sourceMeasurements.map(({ aspectError }) => aspectError),
@@ -308,8 +314,8 @@ async function main() {
               );
             }
 
-            if (!header.allForegroundContained) {
-              failures.push(`${label}: active header foreground is not contained`);
+            if (!header.allForegroundProportional) {
+              failures.push(`${label}: active header foreground is not proportionally fitted`);
             }
 
             if (header.maxAspectError > 0.005) {

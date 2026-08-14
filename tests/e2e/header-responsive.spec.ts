@@ -20,7 +20,7 @@ const supportedViewports = [
   { width: 2560, height: 1440 },
 ] as const;
 
-const lockupAssets = [
+const mobileLockupAssets = [
   { maxWidth: 339, name: "320", width: 960, height: 336 },
   { maxWidth: 367, name: "360", width: 1080, height: 336 },
   { maxWidth: 382, name: "375", width: 1125, height: 348 },
@@ -31,16 +31,36 @@ const lockupAssets = [
   { maxWidth: 767, name: "640", width: 1280, height: 240 },
   { maxWidth: 819, name: "768", width: 1536, height: 246 },
   { maxWidth: 1023, name: "820", width: 1640, height: 256 },
+] as const;
+
+const desktopBannerAssets = [
   { maxWidth: 1279, name: "1024", width: 2048, height: 270 },
   { maxWidth: 1365, name: "1280", width: 2560, height: 270 },
   { maxWidth: 1439, name: "1366", width: 2732, height: 270 },
   { maxWidth: 1599, name: "1440", width: 2880, height: 290 },
   { maxWidth: 1919, name: "1600", width: 3200, height: 290 },
   { maxWidth: 2047, name: "1920", width: 3840, height: 300 },
-  { maxWidth: 2207, name: "2048", width: 4096, height: 320 },
-  { maxWidth: 2559, name: "2208", width: 4416, height: 320 },
+  { maxWidth: 2299, name: "2048", width: 4096, height: 320 },
   { maxWidth: Number.POSITIVE_INFINITY, name: "2560", width: 5120, height: 320 },
 ] as const;
+
+const expectedArtwork = (width: number) => {
+  if (width < 1024) {
+    const asset = mobileLockupAssets.find((candidate) => width <= candidate.maxWidth)!;
+    return {
+      ...asset,
+      file: `evaready-header-lockup-${asset.name}-v18.webp`,
+      objectFit: "contain",
+    };
+  }
+
+  const asset = desktopBannerAssets.find((candidate) => width <= candidate.maxWidth)!;
+  return {
+    ...asset,
+    file: `evaready-header-desktop-${asset.name}-crisp-v17.webp`,
+    objectFit: "cover",
+  };
+};
 
 const backgroundAssets = [
   { file: "evaready-header-storm-768.webp", width: 768, height: 512 },
@@ -154,24 +174,22 @@ async function inspectHeader(page: Page) {
   });
 }
 
-test("header selects one complete art-directed lockup without distortion", async ({
+test("header selects the approved responsive artwork without distortion", async ({
   page,
 }) => {
   await page.goto("./", { waitUntil: "domcontentloaded" });
   const layout = await inspectHeader(page);
-  const expected = lockupAssets.find(
-    (asset) => layout.viewportWidth <= asset.maxWidth,
-  )!;
+  const expected = expectedArtwork(layout.viewportWidth);
 
   expect(layout.legacyForegroundCount).toBe(0);
   expect(layout.lockup.complete).toBe(true);
-  expect(layout.lockup.src).toContain(
-    `evaready-header-lockup-${expected.name}-v18.webp`,
-  );
+  expect(layout.lockup.src).toContain(expected.file);
   expect(layout.lockup.sourceWidth).toBe(expected.width);
   expect(layout.lockup.sourceHeight).toBe(expected.height);
-  expect(layout.lockup.objectFit).toBe("contain");
-  expect(layout.lockup.relativeAspectError).toBeLessThanOrEqual(0.005);
+  expect(layout.lockup.objectFit).toBe(expected.objectFit);
+  if (layout.viewportWidth < 1024) {
+    expect(layout.lockup.relativeAspectError).toBeLessThanOrEqual(0.005);
+  }
   expect(layout.lockup.alt).toBe("Evaready Electrical 24/7");
   expect(layout.lockup.box).toEqual(layout.banner);
 });
@@ -191,9 +209,7 @@ test("header is complete, compact and stable at all supported widths", async ({
     const initial = await inspectHeader(page);
     await page.waitForTimeout(300);
     const settled = await inspectHeader(page);
-    const expected = lockupAssets.find(
-      (asset) => viewport.width <= asset.maxWidth,
-    )!;
+    const expected = expectedArtwork(viewport.width);
 
     expect(settled.banner).not.toBeNull();
     expect(settled.header).not.toBeNull();
@@ -207,13 +223,13 @@ test("header is complete, compact and stable at all supported widths", async ({
     expect(settled.background.objectFit).toBe("cover");
     expect(settled.background.box).toEqual(settled.banner);
 
-    expect(settled.lockup.src).toContain(
-      `evaready-header-lockup-${expected.name}-v18.webp`,
-    );
+    expect(settled.lockup.src).toContain(expected.file);
     expect(settled.lockup.sourceWidth).toBe(expected.width);
     expect(settled.lockup.sourceHeight).toBe(expected.height);
-    expect(settled.lockup.objectFit).toBe("contain");
-    expect(settled.lockup.relativeAspectError).toBeLessThanOrEqual(0.005);
+    expect(settled.lockup.objectFit).toBe(expected.objectFit);
+    if (viewport.width < 1024) {
+      expect(settled.lockup.relativeAspectError).toBeLessThanOrEqual(0.005);
+    }
     expect(settled.lockup.box).toEqual(settled.banner);
     expect(settled.legacyForegroundCount).toBe(0);
 

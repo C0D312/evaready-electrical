@@ -345,6 +345,10 @@ header.ev-final-header .ev-final-header-lockup-image {
 }
 
 @media (min-width: 1024px) {
+  header.ev-final-header .ev-final-header-lockup-image {
+    object-fit: cover !important;
+  }
+
   header.site-header.ev-final-header .ev-final-desktop-nav {
     overflow: visible !important;
   }

@@ -4,6 +4,22 @@ import type { CSSProperties } from "react";
 import { assetPath, business } from "@/data/site";
 
 const imagePaths = {
+  headerDesktop1024:
+    "/images/header/evaready-header-desktop-1024-crisp-v17.webp",
+  headerDesktop1280:
+    "/images/header/evaready-header-desktop-1280-crisp-v17.webp",
+  headerDesktop1366:
+    "/images/header/evaready-header-desktop-1366-crisp-v17.webp",
+  headerDesktop1440:
+    "/images/header/evaready-header-desktop-1440-crisp-v17.webp",
+  headerDesktop1600:
+    "/images/header/evaready-header-desktop-1600-crisp-v17.webp",
+  headerDesktop1920:
+    "/images/header/evaready-header-desktop-1920-crisp-v17.webp",
+  headerDesktop2048:
+    "/images/header/evaready-header-desktop-2048-crisp-v17.webp",
+  headerDesktop2560:
+    "/images/header/evaready-header-desktop-2560-crisp-v17.webp",
   headerBackground: "/images/evaready-storm-theme-desktop-v3.webp",
   headerBackgroundCompact:
     "/images/performance/evaready-header-storm-768.webp",
@@ -56,16 +72,15 @@ export function HeaderLockupImage() {
       <source media="(max-width: 767px)" srcSet={headerLockup(640)} type="image/webp" />
       <source media="(max-width: 819px)" srcSet={headerLockup(768)} type="image/webp" />
       <source media="(max-width: 1023px)" srcSet={headerLockup(820)} type="image/webp" />
-      <source media="(max-width: 1279px)" srcSet={headerLockup(1024)} type="image/webp" />
-      <source media="(max-width: 1365px)" srcSet={headerLockup(1280)} type="image/webp" />
-      <source media="(max-width: 1439px)" srcSet={headerLockup(1366)} type="image/webp" />
-      <source media="(max-width: 1599px)" srcSet={headerLockup(1440)} type="image/webp" />
-      <source media="(max-width: 1919px)" srcSet={headerLockup(1600)} type="image/webp" />
-      <source media="(max-width: 2047px)" srcSet={headerLockup(1920)} type="image/webp" />
-      <source media="(max-width: 2207px)" srcSet={headerLockup(2048)} type="image/webp" />
-      <source media="(max-width: 2559px)" srcSet={headerLockup(2208)} type="image/webp" />
+      <source media="(max-width: 1279px)" srcSet={assetPath(imagePaths.headerDesktop1024)} type="image/webp" />
+      <source media="(max-width: 1365px)" srcSet={assetPath(imagePaths.headerDesktop1280)} type="image/webp" />
+      <source media="(max-width: 1439px)" srcSet={assetPath(imagePaths.headerDesktop1366)} type="image/webp" />
+      <source media="(max-width: 1599px)" srcSet={assetPath(imagePaths.headerDesktop1440)} type="image/webp" />
+      <source media="(max-width: 1919px)" srcSet={assetPath(imagePaths.headerDesktop1600)} type="image/webp" />
+      <source media="(max-width: 2047px)" srcSet={assetPath(imagePaths.headerDesktop1920)} type="image/webp" />
+      <source media="(max-width: 2299px)" srcSet={assetPath(imagePaths.headerDesktop2048)} type="image/webp" />
       <img
-        src={headerLockup(2560)}
+        src={assetPath(imagePaths.headerDesktop2560)}
         alt="Evaready Electrical 24/7"
         width={5120}
         height={320}
