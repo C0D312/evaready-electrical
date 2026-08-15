@@ -338,6 +338,19 @@ header.ev-final-header .ev-final-header-lockup-image {
   transform: none !important;
 }
 
+/* The approved phone artwork is a complete opaque 2048 x 682 banner. Match its
+   canvas exactly and suppress the separate storm layer so the two images can
+   never appear beside or through one another. */
+@media (max-width: 479px) {
+  :root {
+    --ev-final-header-art-height: 33.30078125vw;
+  }
+
+  header.ev-final-header .ev-final-header-background {
+    visibility: hidden !important;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 1023px) {
   :root {
     --ev-final-header-art-height: clamp(123px, 15.625vw, 136px);

@@ -61,6 +61,7 @@ const expectedArtHeight = (width: number) => {
   if (width >= 1440) return 145;
   if (width >= 1024) return 135;
   if (width >= 768) return Math.min(136, Math.max(123, width * 0.15625));
+  if (width <= 479) return width * (682 / 2048);
   if (width >= 430) return 120;
   if (width >= 375) return 116;
   return 112;
@@ -146,6 +147,7 @@ async function inspectHeader(page: Page) {
         sourceWidth: backgroundSource.width,
         sourceHeight: backgroundSource.height,
         objectFit: background ? getComputedStyle(background).objectFit : "",
+        visibility: background ? getComputedStyle(background).visibility : "",
       },
       banner: bannerBox,
       desktopNavDisplay: desktopNav ? getComputedStyle(desktopNav).display : "",
@@ -167,6 +169,8 @@ async function inspectHeader(page: Page) {
         sourceWidth: lockupSource.width,
         sourceHeight: lockupSource.height,
         transform: lockupStyle?.transform ?? "",
+        renderedHeight: renderedObjectSize.height,
+        renderedWidth: renderedObjectSize.width,
       },
       mobileMenuDisplay: mobileMenu ? getComputedStyle(mobileMenu).display : "",
       navGap:
@@ -229,7 +233,15 @@ test("header is complete, compact and stable at all supported widths", async ({
     expect(settled.background.sourceWidth).toBe(selectedBackground!.width);
     expect(settled.background.sourceHeight).toBe(selectedBackground!.height);
     expect(settled.background.objectFit).toBe("cover");
-    expect(settled.background.box).toEqual(settled.banner);
+
+    if (viewport.width <= 479) {
+      expect(settled.background.visibility).toBe("hidden");
+      expect(Math.abs(settled.lockup.renderedWidth - settled.banner!.width)).toBeLessThanOrEqual(1);
+      expect(Math.abs(settled.lockup.renderedHeight - settled.banner!.height)).toBeLessThanOrEqual(1);
+    } else {
+      expect(settled.background.visibility).toBe("visible");
+      expect(settled.background.box).toEqual(settled.banner);
+    }
 
     expect(settled.lockup.src).toContain(expected.file);
     expect(settled.lockup.sourceWidth).toBe(expected.width);
@@ -265,7 +277,7 @@ test("header is complete, compact and stable at all supported widths", async ({
     } else {
       expect(settled.desktopNavDisplay).toBe("none");
       expect(settled.mobileMenuDisplay).not.toBe("none");
-      expect(settled.header!.height).toBeLessThanOrEqual(170);
+      expect(settled.header!.height).toBeLessThanOrEqual(viewport.width <= 479 ? 180 : 170);
     }
   }
 });

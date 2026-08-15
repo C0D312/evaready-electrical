@@ -217,18 +217,37 @@ async function main() {
           }
 
           if (route === "/") {
-            await page.waitForFunction(() =>
-              Array.from(
+            await page.evaluate(async () => {
+              const visibleArtwork = Array.from(
                 document.querySelectorAll<HTMLImageElement>(
                   ".ev-final-header-background, .ev-final-header-lockup-image",
                 ),
-              )
-                .filter((image) => {
-                  const box = image.getBoundingClientRect();
-                  return box.width > 0 && box.height > 0;
-                })
-                .every((image) => image.complete && image.naturalWidth > 0),
-            );
+              ).filter((image) => {
+                const box = image.getBoundingClientRect();
+                const style = getComputedStyle(image);
+                return (
+                  box.width > 0 &&
+                  box.height > 0 &&
+                  style.display !== "none" &&
+                  style.visibility !== "hidden" &&
+                  Number.parseFloat(style.opacity || "1") > 0
+                );
+              });
+
+              await Promise.all(
+                visibleArtwork.map(async (image) => {
+                  if (image.complete && image.naturalWidth > 0) return;
+
+                  try {
+                    await image.decode();
+                  } catch {
+                    throw new Error(
+                      `Visible header artwork could not be decoded: ${image.currentSrc || image.src}`,
+                    );
+                  }
+                }),
+              );
+            });
 
             const header = await page.evaluate(async () => {
               const slot = document.querySelector<HTMLElement>(
@@ -250,7 +269,14 @@ async function main() {
                 ),
               ).filter((image) => {
                 const box = image.getBoundingClientRect();
-                return box.width > 0 && box.height > 0;
+                const style = getComputedStyle(image);
+                return (
+                  box.width > 0 &&
+                  box.height > 0 &&
+                  style.display !== "none" &&
+                  style.visibility !== "hidden" &&
+                  Number.parseFloat(style.opacity || "1") > 0
+                );
               });
               const foreground = artwork.filter(
                 (image) => !image.classList.contains("ev-final-header-background"),
@@ -307,7 +333,7 @@ async function main() {
               };
             });
 
-            const expectedArtworkCount = 2;
+            const expectedArtworkCount = viewport.width <= 479 ? 1 : 2;
             if (header.activeArtworkCount !== expectedArtworkCount) {
               failures.push(
                 `${label}: found ${header.activeArtworkCount} active header artwork elements, expected ${expectedArtworkCount}`,
@@ -336,9 +362,10 @@ async function main() {
               );
             }
 
-            if (viewport.width < 1024 && header.total > 170) {
+            const compactHeaderMaximum = viewport.width <= 479 ? 180 : 170;
+            if (viewport.width < 1024 && header.total > compactHeaderMaximum) {
               failures.push(
-                `${label}: mobile/tablet header is ${header.total}px (maximum 170px)`,
+                `${label}: mobile/tablet header is ${header.total}px (maximum ${compactHeaderMaximum}px)`,
               );
             }
 
