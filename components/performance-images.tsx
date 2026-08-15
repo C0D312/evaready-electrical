@@ -20,12 +20,12 @@ const imagePaths = {
     "/images/header/evaready-header-desktop-2048-crisp-v17.webp",
   headerDesktop2560:
     "/images/header/evaready-header-desktop-2560-crisp-v17.webp",
+  headerOwner: "/images/header/evaready-header-owner-v7.webp",
   headerBackground: "/images/evaready-storm-theme-desktop-v3.webp",
   headerBackgroundCompact:
     "/images/performance/evaready-header-storm-768.webp",
   headerBackgroundSmall:
     "/images/performance/evaready-header-storm-960.webp",
-  headerLockupDirectory: "/images/header/responsive-lockups-v18",
   serviceVanCompact: "/images/performance/evaready-service-van-768.webp",
   serviceVanMedium: "/images/performance/evaready-service-van-960.webp",
   serviceVanSmall: "/images/performance/evaready-service-van-640.webp",
@@ -54,24 +54,10 @@ export function HeaderBackgroundImage() {
   );
 }
 
-const headerLockup = (width: number) =>
-  assetPath(
-    `${imagePaths.headerLockupDirectory}/evaready-header-lockup-${width}-v18.webp`,
-  );
-
 export function HeaderLockupImage() {
   return (
     <picture className="ev-final-header-lockup-picture">
-      <source media="(max-width: 339px)" srcSet={headerLockup(320)} type="image/webp" />
-      <source media="(max-width: 367px)" srcSet={headerLockup(360)} type="image/webp" />
-      <source media="(max-width: 382px)" srcSet={headerLockup(375)} type="image/webp" />
-      <source media="(max-width: 400px)" srcSet={headerLockup(390)} type="image/webp" />
-      <source media="(max-width: 420px)" srcSet={headerLockup(412)} type="image/webp" />
-      <source media="(max-width: 479px)" srcSet={headerLockup(430)} type="image/webp" />
-      <source media="(max-width: 639px)" srcSet={headerLockup(540)} type="image/webp" />
-      <source media="(max-width: 767px)" srcSet={headerLockup(640)} type="image/webp" />
-      <source media="(max-width: 819px)" srcSet={headerLockup(768)} type="image/webp" />
-      <source media="(max-width: 1023px)" srcSet={headerLockup(820)} type="image/webp" />
+      <source media="(max-width: 479px)" srcSet={assetPath(imagePaths.headerOwner)} type="image/webp" />
       <source media="(max-width: 1279px)" srcSet={assetPath(imagePaths.headerDesktop1024)} type="image/webp" />
       <source media="(max-width: 1365px)" srcSet={assetPath(imagePaths.headerDesktop1280)} type="image/webp" />
       <source media="(max-width: 1439px)" srcSet={assetPath(imagePaths.headerDesktop1366)} type="image/webp" />

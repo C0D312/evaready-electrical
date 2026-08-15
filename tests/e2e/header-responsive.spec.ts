@@ -20,19 +20,6 @@ const supportedViewports = [
   { width: 2560, height: 1440 },
 ] as const;
 
-const mobileLockupAssets = [
-  { maxWidth: 339, name: "320", width: 960, height: 336 },
-  { maxWidth: 367, name: "360", width: 1080, height: 336 },
-  { maxWidth: 382, name: "375", width: 1125, height: 348 },
-  { maxWidth: 400, name: "390", width: 1170, height: 348 },
-  { maxWidth: 420, name: "412", width: 1236, height: 348 },
-  { maxWidth: 479, name: "430", width: 1290, height: 360 },
-  { maxWidth: 639, name: "540", width: 1080, height: 240 },
-  { maxWidth: 767, name: "640", width: 1280, height: 240 },
-  { maxWidth: 819, name: "768", width: 1536, height: 246 },
-  { maxWidth: 1023, name: "820", width: 1640, height: 256 },
-] as const;
-
 const desktopBannerAssets = [
   { maxWidth: 1279, name: "1024", width: 2048, height: 270 },
   { maxWidth: 1365, name: "1280", width: 2560, height: 270 },
@@ -45,12 +32,12 @@ const desktopBannerAssets = [
 ] as const;
 
 const expectedArtwork = (width: number) => {
-  if (width < 1024) {
-    const asset = mobileLockupAssets.find((candidate) => width <= candidate.maxWidth)!;
+  if (width <= 479) {
     return {
-      ...asset,
-      file: `evaready-header-lockup-${asset.name}-v18.webp`,
+      file: "evaready-header-owner-v7.webp",
+      height: 682,
       objectFit: "contain",
+      width: 2048,
     };
   }
 
@@ -58,7 +45,7 @@ const expectedArtwork = (width: number) => {
   return {
     ...asset,
     file: `evaready-header-desktop-${asset.name}-crisp-v17.webp`,
-    objectFit: "cover",
+    objectFit: width < 1024 ? "contain" : "cover",
   };
 };
 
@@ -128,8 +115,27 @@ async function inspectHeader(page: Page) {
     const lockupNaturalRatio = lockupSource.width && lockupSource.height
       ? lockupSource.width / lockupSource.height
       : 0;
-    const lockupRenderedRatio = lockupBox
+    const lockupStyle = lockup ? getComputedStyle(lockup) : null;
+    const lockupContainerRatio = lockupBox
       ? lockupBox.width / lockupBox.height
+      : 0;
+    const renderedObjectSize = (() => {
+      if (!lockupBox || !lockupNaturalRatio || !lockupStyle) {
+        return { height: 0, width: 0 };
+      }
+
+      if (lockupStyle.objectFit === "contain") {
+        return lockupContainerRatio > lockupNaturalRatio
+          ? { height: lockupBox.height, width: lockupBox.height * lockupNaturalRatio }
+          : { height: lockupBox.width / lockupNaturalRatio, width: lockupBox.width };
+      }
+
+      return lockupContainerRatio > lockupNaturalRatio
+        ? { height: lockupBox.width / lockupNaturalRatio, width: lockupBox.width }
+        : { height: lockupBox.height, width: lockupBox.height * lockupNaturalRatio };
+    })();
+    const lockupRenderedRatio = renderedObjectSize.height
+      ? renderedObjectSize.width / renderedObjectSize.height
       : 0;
 
     return {
@@ -151,7 +157,7 @@ async function inspectHeader(page: Page) {
         alt: lockup?.alt ?? "",
         box: lockupBox,
         complete: lockup?.complete ?? false,
-        objectFit: lockup ? getComputedStyle(lockup).objectFit : "",
+        objectFit: lockupStyle?.objectFit ?? "",
         relativeAspectError:
           lockupNaturalRatio && lockupRenderedRatio
             ? Math.abs(lockupRenderedRatio - lockupNaturalRatio) /
@@ -160,6 +166,7 @@ async function inspectHeader(page: Page) {
         src: lockup?.currentSrc ?? "",
         sourceWidth: lockupSource.width,
         sourceHeight: lockupSource.height,
+        transform: lockupStyle?.transform ?? "",
       },
       mobileMenuDisplay: mobileMenu ? getComputedStyle(mobileMenu).display : "",
       navGap:
@@ -187,6 +194,7 @@ test("header selects the approved responsive artwork without distortion", async 
   expect(layout.lockup.sourceWidth).toBe(expected.width);
   expect(layout.lockup.sourceHeight).toBe(expected.height);
   expect(layout.lockup.objectFit).toBe(expected.objectFit);
+  expect(layout.lockup.transform).toBe("none");
   if (layout.viewportWidth < 1024) {
     expect(layout.lockup.relativeAspectError).toBeLessThanOrEqual(0.005);
   }
@@ -227,6 +235,7 @@ test("header is complete, compact and stable at all supported widths", async ({
     expect(settled.lockup.sourceWidth).toBe(expected.width);
     expect(settled.lockup.sourceHeight).toBe(expected.height);
     expect(settled.lockup.objectFit).toBe(expected.objectFit);
+    expect(settled.lockup.transform).toBe("none");
     if (viewport.width < 1024) {
       expect(settled.lockup.relativeAspectError).toBeLessThanOrEqual(0.005);
     }
