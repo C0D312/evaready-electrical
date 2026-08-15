@@ -274,25 +274,6 @@ header.ev-final-header .ev-final-header-art {
   background: #020713 !important;
 }
 
-header.ev-final-header .ev-final-header-background {
-  position: absolute !important;
-  z-index: 0 !important;
-  inset: 0 !important;
-  display: block !important;
-  width: 100% !important;
-  max-width: none !important;
-  height: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  object-fit: cover !important;
-  object-position: center 48% !important;
-  filter: none !important;
-  opacity: 1 !important;
-  transform: none !important;
-}
-
 header.ev-final-header .ev-final-header-brand.ev-final-header-brand--art {
   display: block !important;
   position: relative !important;
@@ -339,15 +320,10 @@ header.ev-final-header .ev-final-header-lockup-image {
 }
 
 /* The approved phone artwork is a complete opaque 2048 x 682 banner. Match its
-   canvas exactly and suppress the separate storm layer so the two images can
-   never appear beside or through one another. */
+   canvas exactly so the complete source fills the reserved slot. */
 @media (max-width: 479px) {
   :root {
     --ev-final-header-art-height: 33.30078125vw;
-  }
-
-  header.ev-final-header .ev-final-header-background {
-    visibility: hidden !important;
   }
 }
 

@@ -21,11 +21,6 @@ const imagePaths = {
   headerDesktop2560:
     "/images/header/evaready-header-desktop-2560-crisp-v17.webp",
   headerOwner: "/images/header/evaready-header-owner-v7.webp",
-  headerBackground: "/images/evaready-storm-theme-desktop-v3.webp",
-  headerBackgroundCompact:
-    "/images/performance/evaready-header-storm-768.webp",
-  headerBackgroundSmall:
-    "/images/performance/evaready-header-storm-960.webp",
   serviceVanCompact: "/images/performance/evaready-service-van-768.webp",
   serviceVanMedium: "/images/performance/evaready-service-van-960.webp",
   serviceVanSmall: "/images/performance/evaready-service-van-640.webp",
@@ -36,23 +31,6 @@ const responsiveHeroImage = {
   src: assetPath(business.heroImage),
   srcSet: `${assetPath(imagePaths.serviceVanSmall)} 640w, ${assetPath(imagePaths.serviceVanCompact)} 768w, ${assetPath(imagePaths.serviceVanMedium)} 960w, ${assetPath(business.heroImage)} 1448w`,
 } as const;
-
-export function HeaderBackgroundImage() {
-  return (
-    <img
-      src={assetPath(imagePaths.headerBackground)}
-      srcSet={`${assetPath(imagePaths.headerBackgroundCompact)} 768w, ${assetPath(imagePaths.headerBackgroundSmall)} 960w, ${assetPath(imagePaths.headerBackground)} 1920w`}
-      sizes="100vw"
-      alt=""
-      width={1920}
-      height={1280}
-      loading="eager"
-      decoding="async"
-      className="ev-final-header-background"
-      aria-hidden="true"
-    />
-  );
-}
 
 export function HeaderLockupImage() {
   return (

@@ -49,12 +49,6 @@ const expectedArtwork = (width: number) => {
   };
 };
 
-const backgroundAssets = [
-  { file: "evaready-header-storm-768.webp", width: 768, height: 512 },
-  { file: "evaready-header-storm-960.webp", width: 960, height: 640 },
-  { file: "evaready-storm-theme-desktop-v3.webp", width: 1920, height: 1280 },
-] as const;
-
 const expectedArtHeight = (width: number) => {
   if (width >= 2048) return 160;
   if (width >= 1920) return 150;
@@ -71,7 +65,7 @@ async function inspectHeader(page: Page) {
   await page.waitForFunction(() =>
     Array.from(
       document.querySelectorAll<HTMLImageElement>(
-        ".ev-final-header-background, .ev-final-header-lockup-image",
+        ".ev-final-header-lockup-image",
       ),
     ).every((image) => image.complete && image.naturalWidth > 0),
   );
@@ -93,7 +87,6 @@ async function inspectHeader(page: Page) {
 
     const ticker = header.querySelector<HTMLElement>(".emergency-issue-marquee");
     const banner = header.querySelector<HTMLElement>(".ev-final-header-art");
-    const background = header.querySelector<HTMLImageElement>(".ev-final-header-background");
     const lockup = header.querySelector<HTMLImageElement>(".ev-final-header-lockup-image");
     const desktopNav = header.querySelector<HTMLElement>(".ev-final-desktop-nav");
     const mobileMenu = header.querySelector<HTMLElement>(".ev-final-mobile-menu");
@@ -105,10 +98,7 @@ async function inspectHeader(page: Page) {
       await probe.decode();
       return { width: probe.naturalWidth, height: probe.naturalHeight };
     };
-    const [backgroundSource, lockupSource] = await Promise.all([
-      decodeSource(background),
-      decodeSource(lockup),
-    ]);
+    const lockupSource = await decodeSource(lockup);
     const bannerBox = rect(banner);
     const tickerBox = rect(ticker);
     const navBox = rect(desktopNav);
@@ -140,15 +130,7 @@ async function inspectHeader(page: Page) {
       : 0;
 
     return {
-      background: {
-        box: rect(background),
-        complete: background?.complete ?? false,
-        src: background?.currentSrc ?? "",
-        sourceWidth: backgroundSource.width,
-        sourceHeight: backgroundSource.height,
-        objectFit: background ? getComputedStyle(background).objectFit : "",
-        visibility: background ? getComputedStyle(background).visibility : "",
-      },
+      backgroundLayerCount: header.querySelectorAll(".ev-final-header-background").length,
       banner: bannerBox,
       desktopNavDisplay: desktopNav ? getComputedStyle(desktopNav).display : "",
       header: rect(header),
@@ -225,22 +207,11 @@ test("header is complete, compact and stable at all supported widths", async ({
 
     expect(settled.banner).not.toBeNull();
     expect(settled.header).not.toBeNull();
-    expect(settled.background.complete).toBe(true);
-    const selectedBackground = backgroundAssets.find((source) =>
-      settled.background.src.includes(source.file),
-    );
-    expect(selectedBackground, "header selected an approved storm source").toBeDefined();
-    expect(settled.background.sourceWidth).toBe(selectedBackground!.width);
-    expect(settled.background.sourceHeight).toBe(selectedBackground!.height);
-    expect(settled.background.objectFit).toBe("cover");
+    expect(settled.backgroundLayerCount).toBe(0);
 
     if (viewport.width <= 479) {
-      expect(settled.background.visibility).toBe("hidden");
       expect(Math.abs(settled.lockup.renderedWidth - settled.banner!.width)).toBeLessThanOrEqual(1);
       expect(Math.abs(settled.lockup.renderedHeight - settled.banner!.height)).toBeLessThanOrEqual(1);
-    } else {
-      expect(settled.background.visibility).toBe("visible");
-      expect(settled.background.box).toEqual(settled.banner);
     }
 
     expect(settled.lockup.src).toContain(expected.file);

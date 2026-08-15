@@ -22,7 +22,6 @@ import { HomeNavigationLink } from "@/components/home-navigation-link";
 import { MobileStickyCta } from "@/components/mobile-sticky-cta";
 import { MobilePrimaryNav } from "@/components/mobile-primary-nav";
 import {
-  HeaderBackgroundImage,
   HeaderLockupImage,
   ResponsiveHeroImage,
 } from "@/components/performance-images";
@@ -253,8 +252,6 @@ function SiteHeader() {
         <RouteMarqueeStrip />
 
         <div className="ev-final-header-art ev-electric-header-banner-row">
-          <HeaderBackgroundImage />
-
           <HomeNavigationLink
             data-header-logo="true"
             className="ev-final-header-brand ev-final-header-brand--art"

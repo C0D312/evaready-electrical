@@ -220,7 +220,7 @@ async function main() {
             await page.evaluate(async () => {
               const visibleArtwork = Array.from(
                 document.querySelectorAll<HTMLImageElement>(
-                  ".ev-final-header-background, .ev-final-header-lockup-image",
+                  ".ev-final-header-lockup-image",
                 ),
               ).filter((image) => {
                 const box = image.getBoundingClientRect();
@@ -265,7 +265,7 @@ async function main() {
               const slotRect = slot?.getBoundingClientRect();
               const artwork = Array.from(
                 document.querySelectorAll<HTMLImageElement>(
-                  ".ev-final-header-background, .ev-final-header-lockup-image",
+                  ".ev-final-header-lockup-image",
                 ),
               ).filter((image) => {
                 const box = image.getBoundingClientRect();
@@ -333,7 +333,7 @@ async function main() {
               };
             });
 
-            const expectedArtworkCount = viewport.width <= 479 ? 1 : 2;
+            const expectedArtworkCount = 1;
             if (header.activeArtworkCount !== expectedArtworkCount) {
               failures.push(
                 `${label}: found ${header.activeArtworkCount} active header artwork elements, expected ${expectedArtworkCount}`,
