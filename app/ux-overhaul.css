@@ -327,9 +327,12 @@ header.ev-final-header .ev-final-header-lockup-image {
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+/* The compact 480-1023 artwork is 2048 x 270. Size its row from that exact
+   canvas ratio so browser zoom and intermediate tablet widths cannot create
+   large letterbox bands around the opaque banner. */
+@media (min-width: 480px) and (max-width: 1023px) {
   :root {
-    --ev-final-header-art-height: clamp(123px, 15.625vw, 136px);
+    --ev-final-header-art-height: max(68px, 13.18359375vw);
   }
 }
 

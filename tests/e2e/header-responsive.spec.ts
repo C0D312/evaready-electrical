@@ -7,6 +7,9 @@ const supportedViewports = [
   { width: 390, height: 844 },
   { width: 412, height: 915 },
   { width: 430, height: 932 },
+  { width: 480, height: 900 },
+  { width: 600, height: 900 },
+  { width: 735, height: 1024 },
   { width: 768, height: 1024 },
   { width: 820, height: 1180 },
   { width: 1024, height: 768 },
@@ -54,7 +57,7 @@ const expectedArtHeight = (width: number) => {
   if (width >= 1920) return 150;
   if (width >= 1440) return 145;
   if (width >= 1024) return 135;
-  if (width >= 768) return Math.min(136, Math.max(123, width * 0.15625));
+  if (width >= 480) return Math.max(68, width * (270 / 2048));
   if (width <= 479) return width * (682 / 2048);
   if (width >= 430) return 120;
   if (width >= 375) return 116;
