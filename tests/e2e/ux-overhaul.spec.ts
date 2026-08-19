@@ -59,6 +59,20 @@ test("core routes keep one H1, landmarks, tracking and viewport-safe layouts", a
     await expect(page.locator('a[href="tel:+61461247247"]')).not.toHaveCount(0);
     await expect(page.locator('[data-conversion-action="quote-click"]')).not.toHaveCount(0);
 
+    const footerTheme = await page
+      .locator("footer[data-site-footer]")
+      .evaluate((footer) => ({
+        backgroundImage: getComputedStyle(footer).backgroundImage,
+        pseudoBackgroundImage: getComputedStyle(footer, "::before").backgroundImage,
+      }));
+
+    expect(footerTheme.backgroundImage, `${route} footer theme`).toContain(
+      "evaready-storm-theme-",
+    );
+    expect(footerTheme.pseudoBackgroundImage, `${route} footer pseudo-layer`).toBe(
+      "none",
+    );
+
     const landmarks = await page.evaluate(() => {
       const skipLink = document.querySelector<HTMLAnchorElement>(
         'a.skip-to-content[href="#main-content"]',

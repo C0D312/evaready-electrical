@@ -1710,11 +1710,19 @@ html body main#main-content.core-storm-about .about-contact-action--email {
   grid-column: 1 / -1 !important;
 }
 
-/* Let the site-wide footer sit on the page-owned storm canvas. */
+/* Continue the approved page storm artwork through the shared footer. The
+   footer keeps one canvas and no pseudo-layer, so it cannot fall back to a
+   flat fill or paint a competing footer-only theme. */
 html body.ev-storm-page .site-footer.ev-footer,
 html body.ev-storm-page main#main-content.core-storm-page.core-storm-home > footer.site-footer.ev-footer {
-  background: transparent !important;
-  background-image: none !important;
+  background:
+    linear-gradient(180deg, rgba(2, 6, 16, 0.32), rgba(2, 6, 16, 0.58)),
+    var(--ee-storm-bg-desktop, var(--ee-electric-bg-image)) !important;
+  background-attachment: scroll !important;
+  background-position: center top !important;
+  background-repeat: repeat-y !important;
+  background-size: max(1280px, 100vw) auto !important;
+  background-blend-mode: normal !important;
   border-top: 0 !important;
   box-shadow: none !important;
 }
@@ -1723,6 +1731,21 @@ html body.ev-storm-page .site-footer.ev-footer::before,
 html body.ev-storm-page main#main-content.core-storm-page.core-storm-home > footer.site-footer.ev-footer::before {
   content: none !important;
   display: none !important;
+}
+
+@media (max-width: 640px) {
+  html body.ev-storm-page .site-footer.ev-footer,
+  html body.ev-storm-page main#main-content.core-storm-page.core-storm-home > footer.site-footer.ev-footer {
+    background-image:
+      linear-gradient(180deg, rgba(2, 6, 16, 0.28), rgba(2, 6, 16, 0.56)),
+      var(
+        --ee-storm-bg-mobile,
+        var(--ee-storm-bg-desktop, var(--ee-electric-bg-image))
+      ) !important;
+    background-position: center top !important;
+    background-repeat: repeat-y !important;
+    background-size: 100% auto !important;
+  }
 }
 
 html body.ev-storm-page .site-footer.ev-footer :is(
