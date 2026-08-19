@@ -3,21 +3,22 @@
 import { useEffect, useRef, useState } from "react";
 import { ExternalLink, Star } from "lucide-react";
 import {
-  getGooglePlaceRating,
-  type GooglePlaceRating,
-} from "@/lib/google-places-rating";
+  getGoogleBusinessProfileRating,
+  type GoogleBusinessProfileRating,
+} from "@/lib/google-business-profile-rating";
 
 type LiveGoogleRatingProps = {
   fallbackReviewsHref: string;
   leaveReviewHref: string;
   reviewsLinkLabel: string;
+  ratingSummaryHref: string;
   showLeaveReview: boolean;
 };
 
 type RatingState =
   | { status: "idle" }
   | { status: "loading" }
-  | { status: "ready"; value: GooglePlaceRating }
+  | { status: "ready"; value: GoogleBusinessProfileRating }
   | { status: "unavailable" };
 
 const NEUTRAL_REVIEW_MESSAGE =
@@ -31,6 +32,7 @@ function formatRating(rating: number) {
 export function LiveGoogleRating({
   fallbackReviewsHref,
   leaveReviewHref,
+  ratingSummaryHref,
   reviewsLinkLabel,
   showLeaveReview,
 }: LiveGoogleRatingProps) {
@@ -51,7 +53,7 @@ export function LiveGoogleRating({
       started = true;
       setRatingState({ status: "loading" });
 
-      void getGooglePlaceRating().then(
+      void getGoogleBusinessProfileRating(ratingSummaryHref).then(
         (value) => {
           if (active) {
             setRatingState({ status: "ready", value });
@@ -89,14 +91,14 @@ export function LiveGoogleRating({
       active = false;
       observer.disconnect();
     };
-  }, []);
+  }, [ratingSummaryHref]);
 
   const isReady = ratingState.status === "ready";
-  const rating = isReady ? ratingState.value.rating : null;
+  const rating = isReady ? ratingState.value.averageRating : null;
   const ratingText = rating === null ? null : formatRating(rating);
   const headingText = isReady ? "Google rating" : "Google Reviews";
   const countText = isReady
-    ? `Based on ${ratingState.value.userRatingCount} Google reviews`
+    ? `Based on ${ratingState.value.totalReviewCount} Google reviews`
     : NEUTRAL_REVIEW_MESSAGE;
   const statusText = isReady
     ? `Google rating ${ratingText}. ${countText}.`
@@ -105,9 +107,7 @@ export function LiveGoogleRating({
       : ratingState.status === "unavailable"
         ? `${NEUTRAL_REVIEW_MESSAGE}.`
         : "Google review information will be checked when this panel approaches the viewport.";
-  const reviewsHref = isReady
-    ? ratingState.value.googleMapsURI
-    : fallbackReviewsHref;
+  const reviewsHref = fallbackReviewsHref;
   const reviewsLabel = isReady
     ? reviewsLinkLabel
     : NEUTRAL_REVIEWS_LINK_LABEL;
@@ -118,6 +118,7 @@ export function LiveGoogleRating({
         ref={loadTriggerRef}
         className="flex min-w-0 items-center gap-3"
         data-google-rating-state={ratingState.status}
+        data-google-rating-source={isReady ? ratingState.value.source : undefined}
         aria-busy={ratingState.status === "loading"}
       >
         <p className="sr-only" aria-live="polite" role="status">
@@ -164,12 +165,6 @@ export function LiveGoogleRating({
         data-google-rating-count
       >
         <span>{countText}</span>
-        <span
-          className="block whitespace-nowrap font-sans text-xs font-normal not-italic tracking-normal text-white sm:ml-2 sm:inline-block"
-          translate="no"
-        >
-          Google Maps
-        </span>
       </p>
 
       <div className="mt-3 flex flex-wrap gap-2 text-sm font-bold">

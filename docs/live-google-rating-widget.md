@@ -1,113 +1,105 @@
-# Live Google rating widget
+# Zero-spend Google rating widget
 
-## Production data policy
+## Current status
 
-The visible `GoogleRatingSeal` must not read a rating or review count from
-repository data. Its numeric values are shown only after the browser receives a
-complete response from Google Places for the configured Place ID.
+The public website does not use Google Maps JavaScript API, Places API, a
+browser API key or a Place ID. Those services are intentionally excluded to
+avoid a billable Maps/Places rating request.
 
-Static trust links use neutral review wording. Metadata and schema intentionally
-publish no review or `AggregateRating` values because a runtime browser response
-is not suitable build-time evidence for those fields. Historical audit documents
-may record dated observations, but they do not feed the production component.
+Google Business Profile API access for the owner-managed EVAREADY ELECTRICAL
+profile is still pending. Until Google approves that access and the owner
+authorises a private OAuth sync, the widget displays:
 
-## Runtime behaviour
+- `Google Reviews`
+- `Read our latest customer reviews on Google`
+- `Read Google reviews`
 
-The browser observes the rating panel and does not load Google Maps until that
-panel approaches the viewport. It then imports the modern Places library and
-creates a `Place` with the configured Place ID. One call to
-`Place.fetchFields()` requests only:
+It does not display `--`, a stored rating or a stored review count. The button
+keeps the existing genuine Google review-profile link.
 
-- `rating`
-- `userRatingCount`
-- `googleMapsURI`
+## Public website behaviour
 
-A shared in-memory promise ensures multiple widgets and React rerenders use at
-most one Places request per browser page load. The response is not written to
-local storage, cookies, a database, build output or any persistent cache. A
-bounded timeout prevents the panel remaining in a loading state indefinitely.
-
-Before and during the request, the widget reserves its rating, stars and review
-text areas. Its status is announced through `aria-live="polite"`. If
-configuration is missing, the API is blocked, the request fails or times out,
-or Google returns incomplete data, the widget keeps its existing structure and
-direct reviews button, shows `--`, and uses the neutral message `View our
-current Google reviews`. It never substitutes a stored number.
-
-The widget is mounted only on selected trust-critical pages: the homepage,
-Services, Emergency Electrician, Switchboard Upgrades and About. Generated
-region, area and suburb pages do not mount it.
-
-The same widget contains visible `Google Maps` attribution. This attribution is
-normal-weight, 12px, white, non-wrapping text and is marked
-`translate="no"`.
-
-## Required environment variables
-
-Both values must be present when the static site is built:
+The browser waits until the widget approaches the viewport, then requests one
+same-origin file:
 
 ```text
-NEXT_PUBLIC_GOOGLE_MAPS_BROWSER_KEY=your_restricted_browser_key
-NEXT_PUBLIC_GOOGLE_PLACE_ID=your_owner_approved_evaready_place_id
+/data/google-business-profile-rating.json
 ```
 
-No owner-approved EVAREADY Place ID or browser key was found in the repository,
-so this document does not guess or embed either value.
+The request is shared across all widget instances and React rerenders, so the
+browser makes no more than one request per page load. It never requests
+`maps.googleapis.com` or `places.googleapis.com`.
 
-`NEXT_PUBLIC_` variables are compiled into browser JavaScript and are visible to
-visitors. The browser key is therefore not a secret and must never be left
-unrestricted.
+The committed file is deliberately unavailable:
 
-## Google Cloud configuration
+```json
+{
+  "status": "unavailable"
+}
+```
 
-1. Confirm the exact EVAREADY ELECTRICAL Place ID in the owner-controlled Google
-   Business Profile. Do not infer it from a similarly named listing.
-2. Use a Google Cloud project with billing enabled.
-3. Enable **Maps JavaScript API** and **Places API (New)**.
-4. Create a browser API key.
-5. Restrict the key by **Websites (HTTP referrers)**. Approve only the owners'
-   required origins, including the GitHub Pages preview and, at launch time,
-   each approved branded-domain origin. Because the loader uses
-   `auth_referrer_policy=origin`, use origin-compatible referrer restrictions
-   rather than relying on a path-only restriction.
-6. Restrict the key by API to **Maps JavaScript API** and **Places API (New)**.
-7. Set conservative daily quota limits and billing-budget alerts appropriate to
-   expected traffic. Quotas are the enforcement control; budget alerts alone do
-   not stop usage.
-8. Add the two environment variables to the build environment; do not commit
-   the key or Place ID to source control.
-9. Rebuild the static export after changing either variable because public Next
-   environment values are inlined at build time.
+Only a private, owner-authorised Google Business Profile sync may produce the
+ready form:
 
-`NEXT_PUBLIC_` browser values are visible in downloaded JavaScript. Referrer and
-API restrictions are therefore mandatory even though the value is supplied via
-an environment variable.
+```json
+{
+  "status": "ready",
+  "source": "google-business-profile-api",
+  "averageRating": 4.9,
+  "totalReviewCount": 127,
+  "fetchedAt": "2026-08-19T01:00:00.000Z"
+}
+```
+
+The numbers above are schema examples used by tests, not EVAREADY production
+values. Production values must come from the exact owner-managed profile.
+
+The client validates the source, rating range, positive integer count and
+timestamp. A summary older than 72 hours, missing, malformed, incomplete,
+failed or timed out keeps the neutral link state. It never substitutes a
+historical count.
+
+## Future approved sync
+
+After Google grants Business Profile API access, the private sync must:
+
+1. use OAuth with an owner-authorised account and the `business.manage` scope;
+2. retrieve only the owner-managed EVAREADY location's reviews summary;
+3. map Google's `averageRating` and `totalReviewCount` into the public summary;
+4. write no access token, refresh token, client secret, account identifier or
+   private profile data into this repository;
+5. run outside the visitor's browser and outside the static GitHub Pages site;
+6. update the summary only through an owner-approved build/release process.
+
+GitHub Pages is a static host, so it cannot safely hold OAuth credentials or
+refresh the Business Profile API itself. A feature-branch push also does not
+deploy a new public summary.
+
+Do not create the OAuth client or add a sync workflow until API access is
+approved and the owner separately approves that external configuration.
 
 Official references:
 
-- <https://developers.google.com/maps/documentation/javascript/place-details>
-- <https://developers.google.com/maps/documentation/javascript/load-maps-js-api>
-- <https://developers.google.com/maps/documentation/javascript/policies>
+- <https://developers.google.com/my-business/reference/rest/v4/accounts.locations.reviews/list>
+- <https://developers.google.com/my-business/content/implement-oauth>
+- <https://developers.google.com/my-business/content/prereqs>
+- <https://developers.google.com/my-business/content/limits>
 
 ## Validation coverage
 
-`tests/e2e/google-rating-live.spec.ts` uses a local API mock and checks:
+`tests/e2e/google-rating-live.spec.ts` checks representative desktop and mobile
+layouts for:
 
-- a successful current rating, review count and Google Maps URI
-- a changed mocked review count, proving the count comes from the response
-- exactly one fetch for multiple widgets
-- the exact three requested fields
-- the configured Place ID
-- viewport-proximity loading with no request before intersection
-- missing configuration without any Google API request
-- invalid Place ID handling
-- quota/API failure handling
-- timeout and incomplete-response handling
-- desktop and mobile layouts
-- reserved widget height and cumulative layout shift
-- keyboard focus, screen-reader status output, reviews link and attribution
-- console errors and uncaught errors
+- a successful owner-authorised summary;
+- a changed mocked count, proving the value is response-driven;
+- unavailable, stale, incomplete, HTTP-error and timeout states;
+- the committed unavailable production summary;
+- at most one same-origin summary request per page load;
+- zero Maps and Places requests;
+- no fake number, no `--` and no `Google Maps` label;
+- reserved height, cumulative layout shift, keyboard focus and status output;
+- no console or uncaught errors.
 
-The test does not call Google or use a real API key. Real live verification
-remains blocked until the owner supplies the exact verified Place ID and a
-properly restricted browser key in the build environment.
+Mocked values do not verify the real business count. Genuine live verification
+remains blocked until Google's approval and an owner-authorised private OAuth
+sync are both available.

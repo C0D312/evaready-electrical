@@ -1,5 +1,5 @@
 import { LiveGoogleRating } from "@/components/live-google-rating";
-import { business } from "@/data/site";
+import { assetPath, business } from "@/data/site";
 
 type GoogleRatingSealProps = {
   className?: string;
@@ -44,6 +44,7 @@ export function GoogleRatingSeal({
       <LiveGoogleRating
         fallbackReviewsHref={reviewsHref}
         leaveReviewHref={leaveReviewHref}
+        ratingSummaryHref={assetPath("/data/google-business-profile-rating.json")}
         reviewsLinkLabel={reviewsLinkLabel}
         showLeaveReview={showLeaveReview}
       />

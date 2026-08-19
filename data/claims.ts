@@ -128,9 +128,9 @@ export const claimSourceOfTruth = {
   googleRating: {
     approvedWording: approvedBusinessClaims.googleReviewProof.approvedWording,
     qualification:
-      "The visible rating and review count must come from the live Google Places widget. Static trust links must not publish a historical count as current.",
+      "The visible rating and review count may be shown only when returned through the owner-authorised Google Business Profile API summary. Static trust links must not publish a historical count as current.",
     evidenceRequired:
-      "Owner-approved EVAREADY ELECTRICAL Place ID and a restricted Google Maps browser key are required for live verification.",
+      "Approved Google Business Profile API access and a successful owner-authorised private OAuth sync for the exact EVAREADY ELECTRICAL profile are required for live verification. The public website must not use Maps or Places browser credentials.",
     visibleLocations: [
       "live Google rating widgets",
       "global footer Google reviews link",
