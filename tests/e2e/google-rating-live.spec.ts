@@ -196,7 +196,12 @@ test("Places loads only when the widget approaches the viewport", async ({
   await expect(widget.locator('[data-google-rating-state="idle"]')).toHaveCount(
     1,
   );
-  await expect(widget).toContainText("View our current Google reviews");
+  await expect(widget).toContainText(
+    "Read our latest customer reviews on Google",
+  );
+  await expect(
+    widget.getByRole("link", { name: "Read Google reviews" }),
+  ).toBeVisible();
   await page.waitForTimeout(300);
   expect(mapsRequestCount).toBe(0);
 
@@ -260,7 +265,12 @@ test("one live Places request updates the widget without layout shift", async ({
   await expect(firstWidget.locator('[data-google-rating-state="loading"]')).toHaveCount(
     1,
   );
-  await expect(firstWidget).toContainText("Loading current Google rating");
+  await expect(firstWidget).toContainText(
+    "Read our latest customer reviews on Google",
+  );
+  await expect(firstWidget.getByRole("status")).toContainText(
+    "Checking for current Google review data.",
+  );
 
   await expect(firstWidget.locator('[data-google-rating-state="ready"]')).toHaveCount(
     1,
@@ -268,6 +278,7 @@ test("one live Places request updates the widget without layout shift", async ({
   await expect(firstWidget.locator("[data-google-rating-value]")).toHaveText(
     "4.9",
   );
+  await expect(firstWidget).toContainText("Google rating");
   await expect(firstWidget.locator("[data-google-rating-count]")).toContainText(
     "Based on 127 Google reviews",
   );
@@ -384,13 +395,20 @@ for (const failure of [
     await expect(
       widget.locator('[data-google-rating-state="unavailable"]'),
     ).toHaveCount(1, { timeout: 7_000 });
-    await expect(widget.locator("[data-google-rating-value]")).toHaveText("--");
-    await expect(widget).toContainText("View our current Google reviews");
+    await expect(widget.locator("[data-google-rating-value]")).toBeEmpty();
+    await expect(widget).not.toContainText("--");
+    await expect(widget).toContainText("Google Reviews");
+    await expect(widget).toContainText(
+      "Read our latest customer reviews on Google",
+    );
+    await expect(
+      widget.getByRole("link", { name: "Read Google reviews" }),
+    ).toBeVisible();
     await expect(widget.locator("[data-google-rating-count]")).not.toContainText(
       /Based on \d+ Google reviews/,
     );
     await expect(widget.getByRole("status")).toContainText(
-      "Live Google rating is unavailable",
+      "Read our latest customer reviews on Google.",
     );
     await expect(widget.locator("[data-google-reviews-link]")).toHaveAttribute(
       "href",
@@ -426,11 +444,19 @@ test("missing configuration makes no API request and shows no false live data", 
   await page.goto("about/", { waitUntil: "domcontentloaded" });
 
   const widget = page.locator(".google-rating-seal").first();
+  await widget.scrollIntoViewIfNeeded();
   await expect(
     widget.locator('[data-google-rating-state="unavailable"]'),
   ).toHaveCount(1);
-  await expect(widget.locator("[data-google-rating-value]")).toHaveText("--");
-  await expect(widget).toContainText("View our current Google reviews");
+  await expect(widget.locator("[data-google-rating-value]")).toBeEmpty();
+  await expect(widget).not.toContainText("--");
+  await expect(widget).toContainText("Google Reviews");
+  await expect(widget).toContainText(
+    "Read our latest customer reviews on Google",
+  );
+  await expect(
+    widget.getByRole("link", { name: "Read Google reviews" }),
+  ).toBeVisible();
   await expect(widget.locator("[data-google-rating-count]")).not.toContainText(
     /Based on \d+ Google reviews/,
   );

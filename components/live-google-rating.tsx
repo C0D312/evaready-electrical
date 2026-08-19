@@ -20,7 +20,9 @@ type RatingState =
   | { status: "ready"; value: GooglePlaceRating }
   | { status: "unavailable" };
 
-const NEUTRAL_REVIEW_MESSAGE = "View our current Google reviews";
+const NEUTRAL_REVIEW_MESSAGE =
+  "Read our latest customer reviews on Google";
+const NEUTRAL_REVIEWS_LINK_LABEL = "Read Google reviews";
 
 function formatRating(rating: number) {
   return rating.toFixed(1);
@@ -92,21 +94,23 @@ export function LiveGoogleRating({
   const isReady = ratingState.status === "ready";
   const rating = isReady ? ratingState.value.rating : null;
   const ratingText = rating === null ? null : formatRating(rating);
+  const headingText = isReady ? "Google rating" : "Google Reviews";
   const countText = isReady
     ? `Based on ${ratingState.value.userRatingCount} Google reviews`
-    : ratingState.status === "loading"
-      ? "Loading current Google rating..."
-      : NEUTRAL_REVIEW_MESSAGE;
+    : NEUTRAL_REVIEW_MESSAGE;
   const statusText = isReady
     ? `Google rating ${ratingText}. ${countText}.`
     : ratingState.status === "loading"
-      ? "Loading current Google rating."
+      ? "Checking for current Google review data."
       : ratingState.status === "unavailable"
-        ? "Live Google rating is unavailable. Use the reviews link to view current Google reviews."
-        : "Google rating will load when this review panel approaches the viewport.";
+        ? `${NEUTRAL_REVIEW_MESSAGE}.`
+        : "Google review information will be checked when this panel approaches the viewport.";
   const reviewsHref = isReady
     ? ratingState.value.googleMapsURI
     : fallbackReviewsHref;
+  const reviewsLabel = isReady
+    ? reviewsLinkLabel
+    : NEUTRAL_REVIEWS_LINK_LABEL;
 
   return (
     <>
@@ -126,13 +130,14 @@ export function LiveGoogleRating({
           G
         </span>
         <div className="min-w-0">
-          <p className="text-sm font-bold text-cyan-100">Google rating</p>
+          <p className="text-sm font-bold text-cyan-100">{headingText}</p>
           <div className="mt-1 flex min-h-8 flex-wrap items-center gap-x-2 gap-y-1">
             <span
-              className="inline-block min-w-[3.2ch] text-3xl font-bold leading-none text-white tabular-nums"
+              className={`inline-block h-8 min-w-[3.2ch] text-3xl font-bold leading-none text-white tabular-nums ${isReady ? "" : "invisible"}`}
               data-google-rating-value
+              aria-hidden={!isReady}
             >
-              {ratingText ?? "--"}
+              {ratingText}
             </span>
             <span
               className={`google-rating-seal__stars flex min-w-[5.75rem] items-center gap-0.5 text-amber-300 ${isReady ? "" : "invisible"}`}
@@ -155,7 +160,7 @@ export function LiveGoogleRating({
       </div>
 
       <p
-        className="mt-3 min-h-10 text-sm leading-5 text-slate-100 sm:min-h-5"
+        className="mt-3 min-h-[3.75rem] text-sm leading-5 text-slate-100 sm:min-h-10"
         data-google-rating-count
       >
         <span>{countText}</span>
@@ -175,7 +180,7 @@ export function LiveGoogleRating({
           className="inline-flex min-h-10 items-center justify-center gap-1 rounded-lg border border-cyan-300/30 bg-white/[0.08] px-3 py-2 text-cyan-50 transition hover:border-cyan-200 hover:bg-white/[0.12] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
           data-google-reviews-link
         >
-          {reviewsLinkLabel}
+          {reviewsLabel}
           <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
         </a>
         {showLeaveReview ? (
