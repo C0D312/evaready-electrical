@@ -59,16 +59,29 @@ test("core routes keep one H1, landmarks, tracking and viewport-safe layouts", a
     await expect(page.locator('a[href="tel:+61461247247"]')).not.toHaveCount(0);
     await expect(page.locator('[data-conversion-action="quote-click"]')).not.toHaveCount(0);
 
-    const footerTheme = await page
-      .locator("footer[data-site-footer]")
-      .evaluate((footer) => ({
+    const footerTheme = await page.locator("body").evaluate((body) => {
+      const footer = document.querySelector<HTMLElement>("footer[data-site-footer]");
+      if (!footer) throw new Error("Site footer is missing");
+
+      return {
+        canvasBackgroundImage: getComputedStyle(body).backgroundImage,
+        canvasEffect: getComputedStyle(body, "::before").backgroundImage,
+        backgroundColor: getComputedStyle(footer).backgroundColor,
         backgroundImage: getComputedStyle(footer).backgroundImage,
         pseudoBackgroundImage: getComputedStyle(footer, "::before").backgroundImage,
-      }));
+      };
+    });
 
-    expect(footerTheme.backgroundImage, `${route} footer theme`).toContain(
+    expect(footerTheme.canvasBackgroundImage, `${route} shared body base`).not.toBe(
+      "none",
+    );
+    expect(footerTheme.canvasEffect, `${route} shared body artwork`).toContain(
       "evaready-storm-theme-",
     );
+    expect(footerTheme.backgroundColor, `${route} footer background colour`).toBe(
+      "rgba(0, 0, 0, 0)",
+    );
+    expect(footerTheme.backgroundImage, `${route} footer artwork layer`).toBe("none");
     expect(footerTheme.pseudoBackgroundImage, `${route} footer pseudo-layer`).toBe(
       "none",
     );
@@ -644,6 +657,7 @@ test("every page family uses one continuous storm canvas", async ({ page }) => {
       const surfaces = Array.from(
         main.querySelectorAll<HTMLElement>(surfaceSelector),
       );
+      surfaces.push(main as HTMLElement);
       const footer = document.querySelector<HTMLElement>("footer.site-footer");
       if (footer) surfaces.push(footer);
 
@@ -677,12 +691,12 @@ test("every page family uses one continuous storm canvas", async ({ page }) => {
         }));
       });
 
-      const mainStyle = getComputedStyle(main);
-      const mainBefore = getComputedStyle(main, "::before");
+      const bodyStyle = getComputedStyle(document.body);
+      const bodyBefore = getComputedStyle(document.body, "::before");
 
       return {
-        canvasBackground: mainStyle.backgroundImage,
-        canvasEffect: mainBefore.backgroundImage,
+        canvasBackground: bodyStyle.backgroundImage,
+        canvasEffect: bodyBefore.backgroundImage,
         independentLayers,
         surfacesChecked: surfaces.length,
       };

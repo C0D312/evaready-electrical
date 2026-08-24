@@ -87,6 +87,46 @@ test("offer terms stay available through native keyboard controls", async ({
   await expect(terms).not.toHaveAttribute("open", "");
 });
 
+test("Google review proof stays readable at the 320px minimum width", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 320, height: 800 });
+  await page.goto("./", { waitUntil: "domcontentloaded" });
+
+  const proof = page.locator("[data-offers-google-proof]");
+  const supportingText = proof.locator("[data-google-rating-count]");
+  const reviewsLink = proof.locator("[data-google-reviews-link]");
+
+  await expect(proof).toBeVisible();
+  await expect(supportingText).toBeVisible();
+  await expect(reviewsLink).toBeVisible();
+
+  const layout = await proof.evaluate((element) => {
+    const text = element.querySelector<HTMLElement>(
+      "[data-google-rating-count]",
+    );
+    const link = element.querySelector<HTMLElement>(
+      "[data-google-reviews-link]",
+    );
+    const textRect = text?.getBoundingClientRect();
+    const linkRect = link?.getBoundingClientRect();
+
+    return {
+      documentOverflow:
+        document.documentElement.scrollWidth -
+        document.documentElement.clientWidth,
+      linkBelowText: Boolean(
+        textRect && linkRect && linkRect.top >= textRect.bottom - 1,
+      ),
+      textOverflow: text ? text.scrollWidth - text.clientWidth : 1,
+    };
+  });
+
+  expect(layout.documentOverflow).toBeLessThanOrEqual(1);
+  expect(layout.linkBelowText).toBe(true);
+  expect(layout.textOverflow).toBeLessThanOrEqual(1);
+});
+
 test("all offers retain shared eligibility and non-stacking terms", async ({
   page,
 }) => {
@@ -129,7 +169,11 @@ test("offer artwork and card grids stay complete, even and viewport-safe", async
     await expect(cards).toHaveCount(offerPage.count);
     await expect(googleProof).toHaveCount(1);
     await expect(googleProof.locator(".google-rating-seal--offers")).toHaveCount(1);
-    await expect(googleProof).toContainText("Google rating");
+    await expect(googleProof).toContainText("Google Reviews");
+    await expect(googleProof).toContainText(
+      "Read our latest customer reviews on Google",
+    );
+    await expect(googleProof).not.toContainText("--");
     await expect(googleProof.locator("[data-google-rating-value]")).toHaveCount(1);
     await expect(googleProof.locator("[data-google-rating-count]")).toHaveCount(1);
     await expect(googleProof.locator("[data-google-reviews-link]")).toHaveCount(1);

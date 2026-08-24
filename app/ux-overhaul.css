@@ -1710,19 +1710,12 @@ html body main#main-content.core-storm-about .about-contact-action--email {
   grid-column: 1 / -1 !important;
 }
 
-/* Continue the approved page storm artwork through the shared footer. The
-   footer keeps one canvas and no pseudo-layer, so it cannot fall back to a
-   flat fill or paint a competing footer-only theme. */
+/* Let the shared body storm canvas continue through the footer. The footer
+   owns no artwork or pseudo-layer, so the theme cannot restart at this
+   landmark or cover the approved page canvas. */
 html body.ev-storm-page .site-footer.ev-footer,
 html body.ev-storm-page main#main-content.core-storm-page.core-storm-home > footer.site-footer.ev-footer {
-  background:
-    linear-gradient(180deg, rgba(2, 6, 16, 0.32), rgba(2, 6, 16, 0.58)),
-    var(--ee-storm-bg-desktop, var(--ee-electric-bg-image)) !important;
-  background-attachment: scroll !important;
-  background-position: center top !important;
-  background-repeat: repeat-y !important;
-  background-size: max(1280px, 100vw) auto !important;
-  background-blend-mode: normal !important;
+  background: transparent !important;
   border-top: 0 !important;
   box-shadow: none !important;
 }
@@ -1731,21 +1724,6 @@ html body.ev-storm-page .site-footer.ev-footer::before,
 html body.ev-storm-page main#main-content.core-storm-page.core-storm-home > footer.site-footer.ev-footer::before {
   content: none !important;
   display: none !important;
-}
-
-@media (max-width: 640px) {
-  html body.ev-storm-page .site-footer.ev-footer,
-  html body.ev-storm-page main#main-content.core-storm-page.core-storm-home > footer.site-footer.ev-footer {
-    background-image:
-      linear-gradient(180deg, rgba(2, 6, 16, 0.28), rgba(2, 6, 16, 0.56)),
-      var(
-        --ee-storm-bg-mobile,
-        var(--ee-storm-bg-desktop, var(--ee-electric-bg-image))
-      ) !important;
-    background-position: center top !important;
-    background-repeat: repeat-y !important;
-    background-size: 100% auto !important;
-  }
 }
 
 html body.ev-storm-page .site-footer.ev-footer :is(
@@ -2199,11 +2177,49 @@ html body.ev-storm-page .brand-internal-hero:has(.brand-internal-hero-image)::be
    artwork now belongs to the document and repeats behind the full page. */
 html body.ev-storm-page,
 html body.ev-electric-theme-bg {
+  background:
+    radial-gradient(ellipse 52% 18% at -8% 13%, rgba(8, 118, 255, 0.34), transparent 76%),
+    radial-gradient(ellipse 48% 17% at 108% 27%, rgba(233, 17, 30, 0.25), transparent 78%),
+    radial-gradient(ellipse 54% 19% at -10% 47%, rgba(98, 216, 255, 0.22), transparent 78%),
+    radial-gradient(ellipse 50% 18% at 108% 64%, rgba(233, 17, 30, 0.2), transparent 78%),
+    radial-gradient(ellipse 54% 19% at -8% 81%, rgba(8, 118, 255, 0.27), transparent 78%),
+    radial-gradient(ellipse 48% 17% at 108% 94%, rgba(233, 17, 30, 0.18), transparent 78%),
+    linear-gradient(
+      180deg,
+      #020610 0%,
+      #041022 16%,
+      #050914 31%,
+      #071320 47%,
+      #020710 62%,
+      #051225 79%,
+      #020610 100%
+    ) !important;
   background-attachment: scroll !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
 }
 
 html body.ev-storm-page::before,
-html body.ev-electric-theme-bg::before,
+html body.ev-electric-theme-bg::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: -2 !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(ellipse 38% 68% at -8% 34%, rgba(8, 118, 255, 0.42), transparent 76%),
+    radial-gradient(ellipse 36% 66% at 108% 68%, rgba(233, 17, 30, 0.34), transparent 76%),
+    linear-gradient(90deg, rgba(8, 118, 255, 0.26), rgba(2, 6, 16, 0.58) 35%, rgba(2, 6, 16, 0.58) 65%, rgba(233, 17, 30, 0.24)),
+    var(--ee-electric-bg-image) !important;
+  background-position: center top !important;
+  background-repeat: repeat-y !important;
+  background-size: max(1280px, 100vw) auto !important;
+  opacity: 0.72 !important;
+  mix-blend-mode: normal !important;
+}
+
 html body.ev-storm-page::after,
 html body.ev-electric-theme-bg::after {
   content: none !important;
@@ -2214,13 +2230,18 @@ html body.ev-storm-page main#main-content:is(
   .core-storm-page,
   .generated-storm-page,
   .ev-storm-legal
+) {
+  background: transparent !important;
+}
+
+html body.ev-storm-page main#main-content:is(
+  .core-storm-page,
+  .generated-storm-page,
+  .ev-storm-legal
 )::before {
-  position: absolute !important;
-  background-position: center top !important;
-  background-repeat: repeat-y !important;
-  background-size: max(1280px, 100vw) auto !important;
-  mix-blend-mode: normal !important;
-  opacity: 0.72 !important;
+  content: none !important;
+  display: none !important;
+  background-image: none !important;
 }
 
 html body.ev-storm-page main#main-content:is(
@@ -2230,6 +2251,20 @@ html body.ev-storm-page main#main-content:is(
 )::after {
   content: none !important;
   display: none !important;
+}
+
+@media (max-width: 767px) {
+  html body.ev-storm-page::before,
+  html body.ev-electric-theme-bg::before {
+    background:
+      radial-gradient(ellipse 64% 54% at -14% 28%, rgba(8, 118, 255, 0.48), transparent 74%),
+      radial-gradient(ellipse 62% 52% at 114% 72%, rgba(233, 17, 30, 0.4), transparent 74%),
+      linear-gradient(90deg, rgba(8, 118, 255, 0.24), rgba(2, 6, 16, 0.52) 34%, rgba(2, 6, 16, 0.54) 66%, rgba(233, 17, 30, 0.22)),
+      var(--ee-storm-bg-mobile) !important;
+    background-position: 48% top !important;
+    background-size: 100% auto !important;
+    opacity: 0.56 !important;
+  }
 }
 
 /* The panels already have opaque navy gradients, so compositing a live blur
