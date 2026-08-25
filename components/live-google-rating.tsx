@@ -96,12 +96,12 @@ export function LiveGoogleRating({
   const isReady = ratingState.status === "ready";
   const rating = isReady ? ratingState.value.averageRating : null;
   const ratingText = rating === null ? null : formatRating(rating);
-  const headingText = isReady ? "Google rating" : "Google Reviews";
-  const countText = isReady
-    ? `Based on ${ratingState.value.totalReviewCount} Google reviews`
+  const reviewCount = isReady ? ratingState.value.totalReviewCount : null;
+  const summaryText = isReady
+    ? `${ratingText} Stars | ${reviewCount} reviews`
     : NEUTRAL_REVIEW_MESSAGE;
   const statusText = isReady
-    ? `Google rating ${ratingText}. ${countText}.`
+    ? `Google Reviews. Rated ${ratingText} stars from ${reviewCount} reviews.`
     : ratingState.status === "loading"
       ? "Checking for current Google review data."
       : ratingState.status === "unavailable"
@@ -131,15 +131,8 @@ export function LiveGoogleRating({
           G
         </span>
         <div className="min-w-0">
-          <p className="text-sm font-bold text-cyan-100">{headingText}</p>
-          <div className="mt-1 flex min-h-8 flex-wrap items-center gap-x-2 gap-y-1">
-            <span
-              className={`inline-block h-8 min-w-[3.2ch] text-3xl font-bold leading-none text-white tabular-nums ${isReady ? "" : "invisible"}`}
-              data-google-rating-value
-              aria-hidden={!isReady}
-            >
-              {ratingText}
-            </span>
+          <p className="text-sm font-bold text-cyan-100">Google Reviews</p>
+          <div className="mt-1 flex min-h-8 items-center">
             <span
               className={`google-rating-seal__stars flex min-w-[5.75rem] items-center gap-0.5 text-amber-300 ${isReady ? "" : "invisible"}`}
               aria-hidden="true"
@@ -164,7 +157,25 @@ export function LiveGoogleRating({
         className="mt-3 min-h-[3.75rem] text-sm leading-5 text-slate-100 sm:min-h-10"
         data-google-rating-count
       >
-        <span>{countText}</span>
+        <span
+          className={isReady ? "font-bold text-white tabular-nums" : "sr-only"}
+          data-google-rating-value
+          aria-hidden={!isReady}
+        >
+          {ratingText}
+        </span>
+        {isReady ? (
+          <>
+            <span> Stars</span>
+            <span aria-hidden="true"> | </span>
+            <span className="font-bold text-white tabular-nums">
+              {reviewCount}
+            </span>
+            <span> reviews</span>
+          </>
+        ) : (
+          <span>{summaryText}</span>
+        )}
       </p>
 
       <div className="mt-3 flex flex-wrap gap-2 text-sm font-bold">

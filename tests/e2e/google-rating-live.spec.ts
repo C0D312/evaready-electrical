@@ -264,9 +264,11 @@ test("one owner-authorised summary updates the widget without layout shift", asy
     "Checking for current Google review data.",
   );
   await expect(widget.locator('[data-google-rating-state="ready"]')).toHaveCount(1);
+  await expect(widget).toContainText("Google Reviews");
+  await expect(widget.locator(".google-rating-seal__stars svg")).toHaveCount(5);
   await expect(widget.locator("[data-google-rating-value]")).toHaveText("4.9");
   await expect(widget.locator("[data-google-rating-count]")).toContainText(
-    "Based on 127 Google reviews",
+    "4.9 Stars | 127 reviews",
   );
   await expect(widget.locator("[data-google-rating-count]")).not.toContainText(
     "Google Maps",
@@ -316,7 +318,7 @@ test("a changed review count comes from the owner-authorised summary", async ({
   const widget = page.locator(".google-rating-seal").first();
   await expect(widget.locator('[data-google-rating-state="ready"]')).toHaveCount(1);
   await expect(widget.locator("[data-google-rating-count]")).toContainText(
-    "Based on 214 Google reviews",
+    "4.9 Stars | 214 reviews",
   );
 });
 
