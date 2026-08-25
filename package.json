@@ -8,6 +8,8 @@
     "build": "next build",
     "postbuild": "tsx scripts/generate-static-segment-aliases.ts",
     "start": "next start",
+    "sync:google-rating": "tsx scripts/sync-google-business-profile-rating.ts",
+    "test:google-rating-sync": "tsx --test tests/audits/google-business-profile-rating-sync.test.ts",
     "lint": "eslint",
     "audit:suburbs": "tsx scripts/audit-suburb-pages.ts",
     "audit:all-suburb-copy": "tsx scripts/audit-all-suburb-visible-copy.ts",

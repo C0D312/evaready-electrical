@@ -1,4 +1,4 @@
-# Zero-spend Google rating widget
+# Zero-spend Google Business Profile rating widget
 
 ## Current status
 
@@ -6,9 +6,9 @@ The public website does not use Google Maps JavaScript API, Places API, a
 browser API key or a Place ID. Those services are intentionally excluded to
 avoid a billable Maps/Places rating request.
 
-Google Business Profile API access for the owner-managed EVAREADY ELECTRICAL
-profile is still pending. Until Google approves that access and the owner
-authorises a private OAuth sync, the widget displays:
+The production widget is ready to consume an official owner-authorised Google
+Business Profile aggregate. Until Google approves the project and the owner
+completes the private OAuth configuration, the widget displays:
 
 - `Google Reviews`
 - `Read our latest customer reviews on Google`
@@ -38,8 +38,8 @@ The committed file is deliberately unavailable:
 }
 ```
 
-Only a private, owner-authorised Google Business Profile sync may produce the
-ready form:
+Only the private, owner-authorised Google Business Profile synchroniser may
+produce the ready form:
 
 ```json
 {
@@ -59,24 +59,56 @@ timestamp. A summary older than 72 hours, missing, malformed, incomplete,
 failed or timed out keeps the neutral link state. It never substitutes a
 historical count.
 
-## Future approved sync
+## Private automatic synchroniser
 
-After Google grants Business Profile API access, the private sync must:
+`npm run sync:google-rating`:
 
-1. use OAuth with an owner-authorised account and the `business.manage` scope;
-2. retrieve only the owner-managed EVAREADY location's reviews summary;
-3. map Google's `averageRating` and `totalReviewCount` into the public summary;
-4. write no access token, refresh token, client secret, account identifier or
-   private profile data into this repository;
-5. run outside the visitor's browser and outside the static GitHub Pages site;
-6. update the summary only through an owner-approved build/release process.
+1. exchanges an owner-authorised OAuth refresh token on the server;
+2. requests the exact configured EVAREADY location using the
+   `business.manage` scope;
+3. asks the reviews endpoint for only `averageRating` and
+   `totalReviewCount`;
+4. validates the response before writing the public summary;
+5. never writes access tokens, refresh tokens, client secrets, account IDs or
+   private review content into the Pages artifact.
 
-GitHub Pages is a static host, so it cannot safely hold OAuth credentials or
-refresh the Business Profile API itself. A feature-branch push also does not
-deploy a new public summary.
+The GitHub Pages workflow runs the synchroniser before the static build when
+all four private secrets exist. It also has a six-hour schedule. Scheduled runs
+become a no-op until configuration is complete; partially configured secrets
+fail closed and do not deploy. This is periodic automatic refresh, not an
+instant review webhook.
 
-Do not create the OAuth client or add a sync workflow until API access is
-approved and the owner separately approves that external configuration.
+GitHub Pages remains a static host. OAuth credentials are available only to the
+private workflow step, while visitors receive the validated public aggregate
+JSON. The browser never receives a Google credential and never calls Google.
+
+## Owner configuration required
+
+Complete these steps only after Google grants the project Business Profile API
+access (the quota page must show 300 QPM rather than 0 QPM):
+
+1. Sign in with the Google account that owns both the Cloud project and the
+   verified EVAREADY ELECTRICAL Business Profile.
+2. Accept any required Google Cloud terms personally. Do not enable Maps,
+   Places, a Maps billing account or a Places browser key.
+3. Enable the approved Google Business Profile APIs for that project.
+4. Create an OAuth client and complete owner consent for the
+   `https://www.googleapis.com/auth/business.manage` scope.
+5. Identify and verify the exact resource in the form
+   `accounts/{accountId}/locations/{locationId}`.
+6. Store these values as GitHub Actions secrets, never repository variables or
+   files:
+   - `GBP_OAUTH_CLIENT_ID`
+   - `GBP_OAUTH_CLIENT_SECRET`
+   - `GBP_OAUTH_REFRESH_TOKEN`
+   - `GBP_LOCATION_RESOURCE`
+7. Run the Pages workflow once and verify that the returned business is exactly
+   EVAREADY ELECTRICAL before relying on the visible aggregate.
+
+The currently open Google Cloud account cannot read project
+`evaready-electrical-web` and is being shown an unaccepted Cloud Terms screen.
+No terms were accepted, no APIs were enabled and no credentials were created
+during this implementation.
 
 Official references:
 
@@ -100,6 +132,11 @@ layouts for:
 - reserved height, cumulative layout shift, keyboard focus and status output;
 - no console or uncaught errors.
 
-Mocked values do not verify the real business count. Genuine live verification
-remains blocked until Google's approval and an owner-authorised private OAuth
-sync are both available.
+`tests/audits/google-business-profile-rating-sync.test.ts` additionally proves
+that the private sync exchanges OAuth server-side, requests only the aggregate
+fields, validates the exact location-resource shape and rejects API failures or
+invalid aggregate data.
+
+Mocked values do not verify the real business count. Genuine production
+verification remains blocked until Google's approval, project access and the
+owner-authorised private OAuth secrets are available.

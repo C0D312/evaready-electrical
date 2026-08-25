@@ -3,6 +3,8 @@ name: Deploy GitHub Pages preview
 on:
   push:
     branches: ["main"]
+  schedule:
+    - cron: "17 */6 * * *"
   workflow_dispatch:
 
 permissions:
@@ -20,7 +22,49 @@ env:
   NEXT_PUBLIC_SITE_URL: https://c0d312.github.io/evaready-electrical
 
 jobs:
+  google-rating-config:
+    runs-on: ubuntu-latest
+    outputs:
+      configured: ${{ steps.check.outputs.configured }}
+    steps:
+      - name: Check private Google Business Profile configuration
+        id: check
+        shell: bash
+        env:
+          GBP_LOCATION_RESOURCE: ${{ secrets.GBP_LOCATION_RESOURCE }}
+          GBP_OAUTH_CLIENT_ID: ${{ secrets.GBP_OAUTH_CLIENT_ID }}
+          GBP_OAUTH_CLIENT_SECRET: ${{ secrets.GBP_OAUTH_CLIENT_SECRET }}
+          GBP_OAUTH_REFRESH_TOKEN: ${{ secrets.GBP_OAUTH_REFRESH_TOKEN }}
+        run: |
+          set -euo pipefail
+          names=(
+            GBP_LOCATION_RESOURCE
+            GBP_OAUTH_CLIENT_ID
+            GBP_OAUTH_CLIENT_SECRET
+            GBP_OAUTH_REFRESH_TOKEN
+          )
+          present=0
+          for name in "${names[@]}"; do
+            if [[ -n "${!name:-}" ]]; then
+              present=$((present + 1))
+            fi
+          done
+
+          if [[ "$present" -gt 0 && "$present" -lt "${#names[@]}" ]]; then
+            echo "::error::Google Business Profile sync is only partially configured."
+            exit 1
+          fi
+
+          if [[ "$present" -eq "${#names[@]}" ]]; then
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "Google Business Profile sync is not configured; the neutral review link remains active."
+          fi
+
   build:
+    needs: google-rating-config
+    if: ${{ github.event_name != 'schedule' || needs.google-rating-config.outputs.configured == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -34,6 +78,15 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Refresh Google Business Profile aggregate
+        if: ${{ needs.google-rating-config.outputs.configured == 'true' }}
+        env:
+          GBP_LOCATION_RESOURCE: ${{ secrets.GBP_LOCATION_RESOURCE }}
+          GBP_OAUTH_CLIENT_ID: ${{ secrets.GBP_OAUTH_CLIENT_ID }}
+          GBP_OAUTH_CLIENT_SECRET: ${{ secrets.GBP_OAUTH_CLIENT_SECRET }}
+          GBP_OAUTH_REFRESH_TOKEN: ${{ secrets.GBP_OAUTH_REFRESH_TOKEN }}
+        run: npm run sync:google-rating
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6.0.0
