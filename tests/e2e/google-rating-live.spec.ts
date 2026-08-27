@@ -192,7 +192,14 @@ test("summary loads only when the widget approaches the viewport", async ({
 
   const widget = page.locator(".google-rating-seal").first();
   await expect(widget.locator('[data-google-rating-state="idle"]')).toHaveCount(1);
-  await expect(widget).toContainText("Read our latest customer reviews on Google");
+  await expect(widget.locator("[data-google-rating-count]")).toContainText(
+    "5.0 Stars | 100+ Google reviews",
+  );
+  await expect(widget.locator(".google-rating-seal__stars svg")).toHaveCount(5);
+  await expect(widget.locator("[data-google-rating-source]")).toHaveAttribute(
+    "data-google-rating-source",
+    "owner-approved-static-claim",
+  );
   expect(getSummaryRequestCount()).toBe(0);
 
   await expect
@@ -346,15 +353,19 @@ for (const failure of [
       1,
       { timeout: 7_000 },
     );
-    await expect(widget.locator("[data-google-rating-value]")).toBeEmpty();
+    await expect(widget.locator("[data-google-rating-value]")).toHaveText("5.0");
     await expect(widget).not.toContainText("--");
     await expect(widget).toContainText("Google Reviews");
-    await expect(widget).toContainText("Read our latest customer reviews on Google");
+    await expect(widget.locator("[data-google-rating-count]")).toContainText(
+      "5.0 Stars | 100+ Google reviews",
+    );
+    await expect(widget.locator(".google-rating-seal__stars svg")).toHaveCount(5);
     await expect(
       widget.getByRole("link", { name: "Read Google reviews" }),
     ).toBeVisible();
-    await expect(widget.locator("[data-google-rating-count]")).not.toContainText(
-      /Based on \d+ Google reviews/,
+    await expect(widget.locator("[data-google-rating-source]")).toHaveAttribute(
+      "data-google-rating-source",
+      "owner-approved-static-claim",
     );
     await expect(widget.locator("[data-google-rating-count]")).not.toContainText(
       "Google Maps",
@@ -372,18 +383,24 @@ for (const failure of [
   });
 }
 
-test("the deployed unavailable summary never shows fake live numbers", async ({
+test("the deployed unavailable summary shows only the approved broad claim", async ({
   page,
-}) => {
+}, testInfo) => {
   const getBillableRequestCount = await blockMapsAndPlaces(page);
   await stubUnchangedExternalScripts(page);
-  await page.goto("about/", { waitUntil: "domcontentloaded" });
+  await page.goto("./", { waitUntil: "domcontentloaded" });
 
-  const widget = page.locator(".google-rating-seal").first();
+  const widget = page.locator(".google-rating-seal--offers").first();
   await widget.scrollIntoViewIfNeeded();
   await expect(widget.locator('[data-google-rating-state="unavailable"]')).toHaveCount(1);
   await expect(widget).not.toContainText("--");
-  await expect(widget).not.toContainText(/Based on \d+ Google reviews/);
+  await expect(widget.locator("[data-google-rating-count]")).toContainText(
+    "5.0 Stars | 100+ Google reviews",
+  );
   await expect(widget.getByRole("link", { name: "Read Google reviews" })).toBeVisible();
   expect(getBillableRequestCount()).toBe(0);
+
+  await widget.screenshot({
+    path: testInfo.outputPath("google-rating-static-fallback.png"),
+  });
 });

@@ -21,9 +21,9 @@ type RatingState =
   | { status: "ready"; value: GoogleBusinessProfileRating }
   | { status: "unavailable" };
 
-const NEUTRAL_REVIEW_MESSAGE =
-  "Read our latest customer reviews on Google";
 const NEUTRAL_REVIEWS_LINK_LABEL = "Read Google reviews";
+const OWNER_APPROVED_FALLBACK_RATING = 5;
+const OWNER_APPROVED_FALLBACK_REVIEW_COUNT = "100+";
 
 function formatRating(rating: number) {
   return rating.toFixed(1);
@@ -94,19 +94,22 @@ export function LiveGoogleRating({
   }, [ratingSummaryHref]);
 
   const isReady = ratingState.status === "ready";
-  const rating = isReady ? ratingState.value.averageRating : null;
-  const ratingText = rating === null ? null : formatRating(rating);
-  const reviewCount = isReady ? ratingState.value.totalReviewCount : null;
-  const summaryText = isReady
-    ? `${ratingText} Stars | ${reviewCount} reviews`
-    : NEUTRAL_REVIEW_MESSAGE;
+  const rating = isReady
+    ? ratingState.value.averageRating
+    : OWNER_APPROVED_FALLBACK_RATING;
+  const ratingText = formatRating(rating);
+  const reviewCount = isReady
+    ? String(ratingState.value.totalReviewCount)
+    : OWNER_APPROVED_FALLBACK_REVIEW_COUNT;
+  const fallbackStatusText =
+    "Google Reviews. Rated 5 stars based on more than 100 Google reviews.";
   const statusText = isReady
     ? `Google Reviews. Rated ${ratingText} stars from ${reviewCount} reviews.`
     : ratingState.status === "loading"
-      ? "Checking for current Google review data."
+      ? `${fallbackStatusText} Checking for current Google review data.`
       : ratingState.status === "unavailable"
-        ? `${NEUTRAL_REVIEW_MESSAGE}.`
-        : "Google review information will be checked when this panel approaches the viewport.";
+        ? `${fallbackStatusText} Current API data is unavailable; use the reviews link to verify the latest total.`
+        : `${fallbackStatusText} Current data will be checked when this panel approaches the viewport.`;
   const reviewsHref = fallbackReviewsHref;
   const reviewsLabel = isReady
     ? reviewsLinkLabel
@@ -118,7 +121,9 @@ export function LiveGoogleRating({
         ref={loadTriggerRef}
         className="flex min-w-0 items-center gap-3"
         data-google-rating-state={ratingState.status}
-        data-google-rating-source={isReady ? ratingState.value.source : undefined}
+        data-google-rating-source={
+          isReady ? ratingState.value.source : "owner-approved-static-claim"
+        }
         aria-busy={ratingState.status === "loading"}
       >
         <p className="sr-only" aria-live="polite" role="status">
@@ -134,18 +139,14 @@ export function LiveGoogleRating({
           <p className="text-sm font-bold text-cyan-100">Google Reviews</p>
           <div className="mt-1 flex min-h-8 items-center">
             <span
-              className={`google-rating-seal__stars flex min-w-[5.75rem] items-center gap-0.5 text-amber-300 ${isReady ? "" : "invisible"}`}
+              className="google-rating-seal__stars flex min-w-[5.75rem] items-center gap-0.5 text-amber-300"
               aria-hidden="true"
             >
               {Array.from({ length: 5 }).map((_, index) => (
                 <Star
                   key={index}
                   className="h-4 w-4"
-                  fill={
-                    rating !== null && index < Math.round(rating)
-                      ? "currentColor"
-                      : "none"
-                  }
+                  fill={index < Math.round(rating) ? "currentColor" : "none"}
                 />
               ))}
             </span>
@@ -158,24 +159,17 @@ export function LiveGoogleRating({
         data-google-rating-count
       >
         <span
-          className={isReady ? "font-bold text-white tabular-nums" : "sr-only"}
+          className="font-bold text-white tabular-nums"
           data-google-rating-value
-          aria-hidden={!isReady}
         >
           {ratingText}
         </span>
-        {isReady ? (
-          <>
-            <span> Stars</span>
-            <span aria-hidden="true"> | </span>
-            <span className="font-bold text-white tabular-nums">
-              {reviewCount}
-            </span>
-            <span> reviews</span>
-          </>
-        ) : (
-          <span>{summaryText}</span>
-        )}
+        <span> Stars</span>
+        <span aria-hidden="true"> | </span>
+        <span className="font-bold text-white tabular-nums">
+          {reviewCount}
+        </span>
+        <span>{isReady ? " reviews" : " Google reviews"}</span>
       </p>
 
       <div className="mt-3 flex flex-wrap gap-2 text-sm font-bold">
