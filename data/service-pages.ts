@@ -10,6 +10,12 @@ export type ServiceProcessStep = {
   title: string;
 };
 
+export type ServiceGuideSection = {
+  copy: string;
+  items: string[];
+  title: string;
+};
+
 export type ServiceLandingPage = {
   audiences?: string[];
   callFirstBlock?: {
@@ -47,6 +53,11 @@ export type ServiceLandingPage = {
     heading?: string;
     items: string[];
     note: string;
+  };
+  serviceGuide?: {
+    heading: string;
+    intro: string;
+    sections: ServiceGuideSection[];
   };
   services: string[];
   slug: string;
@@ -2338,6 +2349,53 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Urgent electrical help for storm damage, unsafe wiring, damaged equipment and emergency appliance disconnections.",
     intro:
       "Storm damage can make electrical systems unsafe quickly, especially around outdoor fixtures, water-affected wiring, damaged switchboards and appliances. Evaready Electrical can assess storm-related electrical faults and help make the affected area safer before repairs proceed.",
+    serviceGuide: {
+      heading: "What an electrician checks after storm damage.",
+      intro:
+        "A storm-damage electrical visit is about finding what became wet, loose, damaged or unsafe, isolating hazards and deciding what can be tested, repaired or returned to service. The electrical scope depends on whether the damage is inside the property, on private service equipment or part of the electricity network.",
+      sections: [
+        {
+          title: "Water and moisture around electrical equipment",
+          copy:
+            "Roof leaks, wind-driven rain and flooding can affect ceiling lights, power points, junctions, outdoor fittings, appliances and switchboard areas. Equipment should stay off until the affected circuits and accessible components have been inspected and tested.",
+          items: [
+            "Do not touch wet switches, outlets, appliances or switchboards",
+            "Do not repeatedly reset a safety switch that trips after rain",
+            "Keep people and pets away from the affected area",
+          ],
+        },
+        {
+          title: "Damaged overhead and private service equipment",
+          copy:
+            "High winds and falling branches can affect private poles, overhead service cables and the point of attachment at a building. Stay clear of low, fallen or pulled-away cables. Public network faults must be handled by the relevant electricity network, while private and property-side electrical work may require a licensed or Level 2 electrician after the area is made safe.",
+          items: [
+            "Treat every fallen or low cable as live",
+            "Do not move branches or debris touching electrical equipment",
+            "Call emergency services or the relevant electricity network for a public powerline hazard",
+          ],
+        },
+        {
+          title: "Outdoor circuits, fittings and connected equipment",
+          copy:
+            "Outdoor lighting, pumps, sheds, gates, air-conditioning equipment and weather-exposed outlets can develop insulation faults or damaged connections after a storm. Testing helps identify the affected circuit instead of returning everything to service and waiting for another trip.",
+          items: [
+            "Note which circuit or safety switch has tripped",
+            "Leave damaged outdoor equipment disconnected where it is safe to do so",
+            "Take photos only from a dry, safe position",
+          ],
+        },
+        {
+          title: "Make-safe work and planned follow-up repairs",
+          copy:
+            "The first electrical visit may involve testing, isolating unsafe sections and disconnecting damaged equipment. Permanent repairs can then be scoped once access is safe and any roofing, tree, structural or network work affecting the electrical installation has been coordinated.",
+          items: [
+            "Send the suburb and a clear description of what happened",
+            "Include safe photos of the switchboard and affected area",
+            "Mention water entry, fallen branches, power loss, tripping, heat, smoke or sparking",
+          ],
+        },
+      ],
+    },
     heroBullets: [
       "Storm-related electrical faults",
       "Water-affected wiring and fixtures",
@@ -2378,6 +2436,11 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     ],
     faqs: [
       {
+        question: "What should I do first after electrical storm damage?",
+        answer:
+          "Keep clear of wet or damaged electrical equipment and do not approach fallen or low cables. Call first for heat, smoke, sparking, electric shock risk, a burning smell or unsafe service wiring. Contact emergency services or the relevant electricity network for a public powerline hazard.",
+      },
+      {
         question: "Should I use power points after water damage?",
         answer:
           "No. Do not use water-damaged fixtures or outlets until they have been checked safely.",
@@ -2391,6 +2454,11 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         question: "What photos help with storm damage?",
         answer:
           "Send photos of the affected area, switchboard, outdoor fixtures, damaged appliance and any visible water entry if it is safe to do so.",
+      },
+      {
+        question: "Does an electrician repair every type of storm damage?",
+        answer:
+          "An electrician handles the electrical inspection, testing, isolation and repair scope. Roofing, structural, tree-removal and public electricity-network work may need the relevant specialist or network provider before permanent electrical repairs can proceed.",
       },
     ],
     relatedServices: [

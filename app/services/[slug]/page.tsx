@@ -21,6 +21,7 @@ import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import {
   getServiceLandingPage,
   serviceLandingPages,
+  type ServiceLandingPage as ServiceLandingPageData,
 } from "@/data/service-pages";
 import {
   level2ClusterLinks,
@@ -233,6 +234,183 @@ function finalCtaEyebrow(service: { slug: string; title: string }) {
   return (
     finalCtaEyebrows[service.slug] ??
     `Need help with ${service.title.replace(/\s+Sydney$/, "")}?`
+  );
+}
+
+function ServiceSpecificOverview({
+  service,
+}: {
+  service: ServiceLandingPageData;
+}) {
+  const quoteLabel = service.quoteCtaLabel ?? business.quoteCta;
+
+  return (
+    <>
+      <section className="service-detail-scope-section ev-storm-section py-20">
+        <div className="service-detail-scope-layout mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+          <div className="service-detail-scope-copy">
+            <p className="text-sm font-black uppercase tracking-[0.28em] text-blue-700">
+              What this page covers
+            </p>
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+              {service.description}
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-slate-700">
+              The service list explains the electrical work covered on this
+              page. The warning signs below help separate urgent hazards from
+              planned work that can start with photos and job details.
+            </p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={business.phoneHref}
+                data-conversion-action="phone-click"
+                aria-label={business.callCta}
+                className="inline-flex items-center justify-center gap-3 rounded-lg border border-red-200/40 bg-gradient-to-r from-red-700 to-red-500 px-6 py-4 font-black text-white shadow-lg shadow-red-900/25 transition hover:border-red-100 hover:from-red-600 hover:to-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-100"
+              >
+                <Phone className="h-5 w-5" />
+                <span className="whitespace-nowrap">{business.callCta}</span>
+              </a>
+              <a
+                href={business.bookingUrl}
+                data-quote-trigger="true"
+                data-conversion-action="quote-click"
+                aria-haspopup="dialog"
+                aria-label="Get a quote from Evaready Electrical"
+                className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
+              >
+                {quoteLabel}
+                <ArrowRight className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+
+          <div className="service-detail-scope-grid grid gap-4 sm:grid-cols-2">
+            {service.services.map((item) => (
+              <article
+                key={item}
+                className="service-action-card service-action-card--scope ev-storm-card rounded-lg border border-cyan-300/20 p-4"
+              >
+                <span className="service-action-card__summary service-action-card__summary--with-end flex items-start gap-3">
+                  <Wrench className="service-action-card__icon mt-0.5 h-5 w-5 shrink-0 text-blue-700" />
+                  <span className="service-action-card__title font-bold text-slate-800">
+                    {item}
+                  </span>
+                  <span
+                    className="service-action-card__end-icon"
+                    aria-hidden="true"
+                  >
+                    <CheckCircle2 className="h-5 w-5" />
+                  </span>
+                </span>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {service.serviceGuide ? (
+        <section className="service-detail-guide-section ev-storm-section py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl">
+              <p className="text-sm font-black uppercase tracking-[0.28em] text-cyan-300">
+                Service guide
+              </p>
+              <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+                {service.serviceGuide.heading}
+              </h2>
+              <p className="mt-5 text-lg leading-8 text-slate-200">
+                {service.serviceGuide.intro}
+              </p>
+            </div>
+
+            <div className="mt-10 grid gap-5 lg:grid-cols-2">
+              {service.serviceGuide.sections.map((section) => (
+                <article
+                  key={section.title}
+                  className="ev-storm-card rounded-lg border border-cyan-300/20 p-6"
+                >
+                  <h3 className="text-2xl font-black text-white">
+                    {section.title}
+                  </h3>
+                  <p className="mt-4 leading-7 text-slate-200">
+                    {section.copy}
+                  </p>
+                  <ul className="mt-5 grid gap-3">
+                    {section.items.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-3 font-semibold leading-7 text-slate-100"
+                      >
+                        <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-cyan-300" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      <section className="service-detail-warning-section ev-storm-section ev-storm-section--emergency py-20">
+        <div className="service-detail-warning-layout mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_0.95fr] lg:px-8">
+          <div className="service-detail-warning-copy">
+            <p className="text-sm font-black uppercase tracking-[0.28em] text-red-600">
+              Warning signs
+            </p>
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+              When this electrical work should be checked.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-slate-700">
+              These page-specific signs help explain when to stop using the
+              affected equipment, when to call first and when planned work can
+              begin with a quote request.
+            </p>
+            <div className="service-detail-warning-cta mt-7 grid gap-3 sm:grid-cols-2">
+              <a
+                href={business.phoneHref}
+                data-conversion-action="phone-click"
+                aria-label={business.callCta}
+                className="inline-flex items-center justify-center gap-3 rounded-lg border border-red-200/40 bg-gradient-to-r from-red-700 to-red-500 px-6 py-4 font-black text-white shadow-lg shadow-red-900/25 transition hover:border-red-100 hover:from-red-600 hover:to-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-100"
+              >
+                <Phone className="h-5 w-5" />
+                <span className="whitespace-nowrap">{business.callCta}</span>
+              </a>
+              <a
+                href={business.bookingUrl}
+                data-quote-trigger="true"
+                data-conversion-action="quote-click"
+                aria-haspopup="dialog"
+                aria-label="Get a quote from Evaready Electrical"
+                className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
+              >
+                {quoteLabel}
+                <ArrowRight className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+
+          <div className="service-detail-warning-panel ev-storm-panel rounded-lg border border-red-300/25 p-6">
+            <div className="service-detail-warning-grid grid gap-4">
+              {service.warningSigns.map((item) => (
+                <article
+                  key={item}
+                  className="warning-action-card warning-action-card--compact ev-storm-card ev-storm-card--emergency rounded-lg border border-red-300/30 p-4 transition hover:border-red-200/55"
+                >
+                  <span className="warning-action-card__summary flex gap-3">
+                    <AlertTriangle className="warning-action-card__icon mt-1 h-5 w-5 shrink-0 text-red-600" />
+                    <span className="warning-action-card__title font-semibold leading-7 text-slate-800">
+                      {item}
+                    </span>
+                  </span>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
 
@@ -566,6 +744,8 @@ export default async function ServiceLandingPage({
           </aside>
         </div>
       </section>
+
+      <ServiceSpecificOverview service={service} />
 
       <TrustSymbolBand className="border-b border-slate-200" />
 
@@ -968,119 +1148,6 @@ export default async function ServiceLandingPage({
         serviceName={service.title}
         variant={processProofVariant}
       />
-
-      <section className="service-detail-scope-section ev-storm-section py-20">
-        <div className="service-detail-scope-layout mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
-          <div className="service-detail-scope-copy">
-            <p className="text-sm font-black uppercase tracking-[0.28em] text-blue-700">
-              What we handle
-            </p>
-            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              {service.description}
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-700">
-              Evaready Electrical checks the right part of the installation,
-              explains the next action clearly, and keeps the work neat from
-              first inspection through to final testing.
-            </p>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={business.phoneHref}
-                data-conversion-action="phone-click"
-                aria-label={business.callCta}
-                className="inline-flex items-center justify-center gap-3 rounded-lg border border-red-200/40 bg-gradient-to-r from-red-700 to-red-500 px-6 py-4 font-black text-white shadow-lg shadow-red-900/25 transition hover:border-red-100 hover:from-red-600 hover:to-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-100"
-              >
-                <Phone className="h-5 w-5" />
-                <span className="whitespace-nowrap">{business.callCta}</span>
-              </a>
-              <a
-                href={business.bookingUrl}
-                data-quote-trigger="true"
-                data-conversion-action="quote-click"
-                aria-haspopup="dialog"
-                aria-label="Get a quote from Evaready Electrical"
-                className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
-              >
-                {quoteCtaLabel}
-                <ArrowRight className="h-5 w-5" />
-              </a>
-            </div>
-          </div>
-
-          <div className="service-detail-scope-grid grid gap-4 sm:grid-cols-2">
-            {service.services.map((item) => (
-              <article
-                key={item}
-                className="service-action-card service-action-card--scope ev-storm-card rounded-lg border border-cyan-300/20 p-4"
-              >
-                <span className="service-action-card__summary service-action-card__summary--with-end flex items-start gap-3">
-                  <Wrench className="service-action-card__icon mt-0.5 h-5 w-5 shrink-0 text-blue-700" />
-                  <span className="service-action-card__title font-bold text-slate-800">{item}</span>
-                  <span className="service-action-card__end-icon" aria-hidden="true">
-                    <CheckCircle2 className="h-5 w-5" />
-                  </span>
-                </span>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="service-detail-warning-section ev-storm-section ev-storm-section--emergency py-20">
-        <div className="service-detail-warning-layout mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_0.95fr] lg:px-8">
-          <div className="service-detail-warning-copy">
-            <p className="text-sm font-black uppercase tracking-[0.28em] text-red-600">
-              Warning signs
-            </p>
-            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Signs the job should be checked.
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-700">
-              Electrical issues can look minor before they become expensive or
-              unsafe. These are the details worth checking before the problem
-              grows.
-            </p>
-            <div className="service-detail-warning-cta mt-7 grid gap-3 sm:grid-cols-2">
-              <a
-                href={business.phoneHref}
-                data-conversion-action="phone-click"
-                aria-label={business.callCta}
-                className="inline-flex items-center justify-center gap-3 rounded-lg border border-red-200/40 bg-gradient-to-r from-red-700 to-red-500 px-6 py-4 font-black text-white shadow-lg shadow-red-900/25 transition hover:border-red-100 hover:from-red-600 hover:to-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-100"
-              >
-                <Phone className="h-5 w-5" />
-                <span className="whitespace-nowrap">{business.callCta}</span>
-              </a>
-              <a
-                href={business.bookingUrl}
-                data-quote-trigger="true"
-                data-conversion-action="quote-click"
-                aria-haspopup="dialog"
-                aria-label="Get a quote from Evaready Electrical"
-                className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-700 px-6 py-4 font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
-              >
-                {quoteCtaLabel}
-                <ArrowRight className="h-5 w-5" />
-              </a>
-            </div>
-          </div>
-
-          <div className="service-detail-warning-panel ev-storm-panel rounded-lg border border-red-300/25 p-6">
-            <div className="service-detail-warning-grid grid gap-4">
-              {service.warningSigns.map((item) => (
-                <article
-                  key={item}
-                  className="warning-action-card warning-action-card--compact ev-storm-card ev-storm-card--emergency rounded-lg border border-red-300/30 p-4 transition hover:border-red-200/55"
-                >
-                  <span className="warning-action-card__summary flex gap-3">
-                    <AlertTriangle className="warning-action-card__icon mt-1 h-5 w-5 shrink-0 text-red-600" />
-                    <span className="warning-action-card__title font-semibold leading-7 text-slate-800">{item}</span>
-                  </span>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section className="ev-storm-section py-20 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
