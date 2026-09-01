@@ -237,6 +237,95 @@ function finalCtaEyebrow(service: { slug: string; title: string }) {
   );
 }
 
+function ElectricShockMedicalSafetyNotice() {
+  return (
+    <>
+      <style>{`
+        @media (max-width: 767px) {
+          body:has([data-electric-shock-medical-safety]) .mobile-sticky-cta {
+            display: none !important;
+          }
+        }
+      `}</style>
+      <section
+        className="border-b border-red-300/30 bg-[#040b1c] py-6 text-white [overflow-wrap:anywhere] sm:py-8"
+        data-electric-shock-medical-safety
+        aria-labelledby="electric-shock-medical-safety-title"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-lg border border-red-300/45 bg-gradient-to-br from-[#750713]/85 via-[#091d42] to-[#040b1c] p-5 shadow-xl shadow-red-950/30 sm:p-7">
+          <div className="flex flex-col items-start gap-4 sm:flex-row">
+            <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-red-200/45 bg-red-500/20 text-red-100">
+              <AlertTriangle className="h-6 w-6" aria-hidden="true" />
+            </span>
+            <div className="min-w-0">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-red-100">
+                Medical safety comes first
+              </p>
+              <h2
+                id="electric-shock-medical-safety-title"
+                className="mt-2 text-2xl font-black leading-tight text-white sm:text-4xl"
+              >
+                Electric shock: protect the person before approaching the source.
+              </h2>
+            </div>
+          </div>
+
+          <div className="mt-6 grid gap-4 lg:grid-cols-2">
+            <ul className="min-w-0 grid gap-3 text-base font-semibold leading-7 text-red-50">
+              <li className="flex items-start gap-3">
+                <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-200" aria-hidden="true" />
+                <span className="min-w-0">
+                  Do not touch someone who may still be connected to electricity.
+                  Keep other people away from the suspected electrical source.
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-200" aria-hidden="true" />
+                <span className="min-w-0">
+                  Disconnect the electricity only when it can be done safely. Do
+                  not approach, touch or retest tingling taps, appliances,
+                  metalwork, pool equipment or suspected live equipment.
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-red-200" aria-hidden="true" />
+                <span className="min-w-0">
+                  Call Triple Zero (<strong>000</strong>) for unconsciousness,
+                  abnormal breathing or heartbeat, serious burns, a significant
+                  fall or injury, or high-voltage exposure.
+                </span>
+              </li>
+            </ul>
+
+            <div className="min-w-0 rounded-lg border border-cyan-300/25 bg-[#06142f]/90 p-5">
+              <p className="text-base font-bold leading-7 text-cyan-50">
+                Even an apparently minor electric shock can cause internal injury
+                and should be medically assessed as soon as possible.
+              </p>
+              <p className="mt-4 leading-7 text-slate-100">
+                EVAREADY can isolate and make the electrical installation safe and
+                investigate the electrical cause, but cannot medically assess or
+                treat the person.
+              </p>
+              <a
+                href="https://www.healthdirect.gov.au/electric-shocks-and-burns"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex min-h-11 min-w-0 max-w-full items-center gap-2 whitespace-normal rounded-lg border border-cyan-200/35 bg-cyan-300/10 px-4 py-2.5 font-black text-cyan-50 transition hover:border-cyan-100 hover:bg-cyan-300/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-100"
+              >
+                Read Healthdirect electric-shock guidance
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
 function ServiceSpecificOverview({
   service,
 }: {
@@ -563,6 +652,8 @@ export default async function ServiceLandingPage({
       : []),
     ...(service.credentialHighlights ?? []),
   ];
+  const isElectricShockService =
+    service.slug === "electric-shock-electrician-sydney";
   const isUrgentService = urgentServiceSlugs.has(service.slug);
   const processProofVariant =
     service.slug === "defect-notice-repairs-sydney"
@@ -638,6 +729,8 @@ export default async function ServiceLandingPage({
         dangerouslySetInnerHTML={schemaJson(breadcrumbSchema)}
       />
 
+      {isElectricShockService ? <ElectricShockMedicalSafetyNotice /> : null}
+
       <section className="brand-internal-hero service-detail-hero relative overflow-hidden bg-[#061E72] text-white">
         <ResponsiveHeroImage
           className="brand-internal-hero-image object-cover object-[68%_center]"
@@ -679,7 +772,7 @@ export default async function ServiceLandingPage({
 
             <div className="service-detail-hero-cta mt-8 flex flex-col gap-3 sm:flex-row">
               {phoneCta}
-              {quoteCta}
+              {isElectricShockService ? null : quoteCta}
             </div>
           </div>
 
@@ -700,7 +793,9 @@ export default async function ServiceLandingPage({
                 </article>
               ))}
             </div>
-            <div className="action-button-row mt-5 grid gap-3 sm:grid-cols-2">
+            <div
+              className={`action-button-row mt-5 grid gap-3 ${isElectricShockService ? "" : "sm:grid-cols-2"}`}
+            >
               <a
                 href={business.phoneHref}
                 data-conversion-action="phone-click"
@@ -710,17 +805,19 @@ export default async function ServiceLandingPage({
                 <Phone className="h-4 w-4" />
                 <span className="whitespace-nowrap">Call Now 0461 247 247</span>
               </a>
-              <a
-                href={business.bookingUrl}
-                data-quote-trigger="true"
-                data-conversion-action="quote-click"
-                aria-haspopup="dialog"
-                aria-label={`${quoteCtaLabel} from Evaready Electrical`}
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-cyan-200/35 bg-gradient-to-r from-blue-700 to-cyan-400 px-4 py-3 text-center text-sm font-black text-white shadow-lg shadow-blue-950/25 transition hover:border-cyan-100 hover:from-blue-600 hover:to-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-100"
-              >
-                {business.quoteCta}
-                <ArrowRight className="h-4 w-4" />
-              </a>
+              {isElectricShockService ? null : (
+                <a
+                  href={business.bookingUrl}
+                  data-quote-trigger="true"
+                  data-conversion-action="quote-click"
+                  aria-haspopup="dialog"
+                  aria-label={`${quoteCtaLabel} from Evaready Electrical`}
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-cyan-200/35 bg-gradient-to-r from-blue-700 to-cyan-400 px-4 py-3 text-center text-sm font-black text-white shadow-lg shadow-blue-950/25 transition hover:border-cyan-100 hover:from-blue-600 hover:to-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-100"
+                >
+                  {business.quoteCta}
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              )}
             </div>
             <div className="mt-6 rounded-lg border border-red-300/30 bg-gradient-to-br from-[#7A0713]/72 via-[#0d2b5c] to-[#091d42] p-5 shadow-xl shadow-red-950/20">
               <p className="text-sm font-black uppercase tracking-[0.16em] text-red-100">

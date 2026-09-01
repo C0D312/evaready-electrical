@@ -192,13 +192,15 @@ test("summary loads only when the widget approaches the viewport", async ({
 
   const widget = page.locator(".google-rating-seal").first();
   await expect(widget.locator('[data-google-rating-state="idle"]')).toHaveCount(1);
-  await expect(widget.locator("[data-google-rating-count]")).toContainText(
-    "5.0 Stars | 100+ Google reviews",
+  await expect(widget.locator("[data-google-rating-count]")).toHaveText(
+    "Read our latest customer reviews on Google",
   );
-  await expect(widget.locator(".google-rating-seal__stars svg")).toHaveCount(5);
+  await expect(widget.locator(".google-rating-seal__stars svg")).toHaveCount(0);
+  await expect(widget.locator("[data-google-rating-placeholder]")).toHaveCount(1);
+  await expect(widget.locator("[data-google-rating-value]")).toHaveCount(0);
   await expect(widget.locator("[data-google-rating-source]")).toHaveAttribute(
     "data-google-rating-source",
-    "owner-approved-static-claim",
+    "unavailable",
   );
   expect(getSummaryRequestCount()).toBe(0);
 
@@ -353,25 +355,29 @@ for (const failure of [
       1,
       { timeout: 7_000 },
     );
-    await expect(widget.locator("[data-google-rating-value]")).toHaveText("5.0");
+    await expect(widget.locator("[data-google-rating-value]")).toHaveCount(0);
     await expect(widget).not.toContainText("--");
     await expect(widget).toContainText("Google Reviews");
-    await expect(widget.locator("[data-google-rating-count]")).toContainText(
-      "5.0 Stars | 100+ Google reviews",
+    await expect(widget.locator("[data-google-rating-count]")).toHaveText(
+      "Read our latest customer reviews on Google",
     );
-    await expect(widget.locator(".google-rating-seal__stars svg")).toHaveCount(5);
+    await expect(widget.locator(".google-rating-seal__stars svg")).toHaveCount(0);
+    await expect(widget.locator("[data-google-rating-placeholder]")).toHaveCount(1);
     await expect(
       widget.getByRole("link", { name: "Read Google reviews" }),
     ).toBeVisible();
     await expect(widget.locator("[data-google-rating-source]")).toHaveAttribute(
       "data-google-rating-source",
-      "owner-approved-static-claim",
+      "unavailable",
     );
     await expect(widget.locator("[data-google-rating-count]")).not.toContainText(
       "Google Maps",
     );
     expect(getSummaryRequestCount()).toBe(1);
     expect(getBillableRequestCount()).toBe(0);
+    const fallbackMarkup = await widget.evaluate((element) => element.outerHTML);
+    expect(fallbackMarkup).not.toMatch(/5\.0|100\+|107/);
+    expect(fallbackMarkup).not.toContain("owner-approved-static-claim");
     if (failure === "http-error") {
       expect(consoleErrors).toEqual([
         expect.stringContaining("503 (Service Unavailable)"),
@@ -383,7 +389,7 @@ for (const failure of [
   });
 }
 
-test("the deployed unavailable summary shows only the approved broad claim", async ({
+test("the deployed unavailable summary shows only the neutral review link", async ({
   page,
 }, testInfo) => {
   const getBillableRequestCount = await blockMapsAndPlaces(page);
@@ -394,13 +400,39 @@ test("the deployed unavailable summary shows only the approved broad claim", asy
   await widget.scrollIntoViewIfNeeded();
   await expect(widget.locator('[data-google-rating-state="unavailable"]')).toHaveCount(1);
   await expect(widget).not.toContainText("--");
-  await expect(widget.locator("[data-google-rating-count]")).toContainText(
-    "5.0 Stars | 100+ Google reviews",
+  await expect(widget.locator("[data-google-rating-count]")).toHaveText(
+    "Read our latest customer reviews on Google",
   );
+  await expect(widget.locator("[data-google-rating-value]")).toHaveCount(0);
+  await expect(widget.locator(".google-rating-seal__stars svg")).toHaveCount(0);
   await expect(widget.getByRole("link", { name: "Read Google reviews" })).toBeVisible();
+  expect(await widget.evaluate((element) => element.outerHTML)).not.toMatch(
+    /5\.0|100\+|107/,
+  );
   expect(getBillableRequestCount()).toBe(0);
 
   await widget.screenshot({
     path: testInfo.outputPath("google-rating-static-fallback.png"),
   });
+});
+
+test("the neutral fallback emits no unsupported review schema", async ({ page }) => {
+  await stubUnchangedExternalScripts(page);
+  await installRatingSummaryMock(page, "unavailable");
+  await blockMapsAndPlaces(page);
+  await page.goto("./", { waitUntil: "domcontentloaded" });
+
+  const widget = page.locator(".google-rating-seal--offers").first();
+  await widget.scrollIntoViewIfNeeded();
+  await expect(widget.locator('[data-google-rating-state="unavailable"]')).toHaveCount(1);
+
+  const schemaText = await page
+    .locator('script[type="application/ld+json"]')
+    .allTextContents();
+  expect(schemaText.join("\n")).not.toMatch(
+    /AggregateRating|ratingValue|reviewCount/,
+  );
+  expect(await widget.evaluate((element) => element.outerHTML)).not.toMatch(
+    /5\.0|100\+|107/,
+  );
 });

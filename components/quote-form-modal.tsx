@@ -41,12 +41,37 @@ type ScrollLockSnapshot = {
   bodyWidth: string;
 };
 
+type BackgroundInertSnapshot = {
+  ariaHidden: string | null;
+  element: HTMLElement;
+  inert: boolean;
+};
+
+const modalFocusableSelector =
+  'a[href], button:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])';
+
+function getModalFocusableControls(panel: HTMLElement | null) {
+  if (!panel) {
+    return [];
+  }
+
+  return Array.from(
+    panel.querySelectorAll<HTMLElement>(modalFocusableSelector),
+  ).filter(
+    (element) =>
+      !element.hasAttribute("disabled") &&
+      !element.hasAttribute("data-quote-focus-guard"),
+  );
+}
+
 export function QuoteFormModal() {
   const [open, setOpen] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const openerRef = useRef<HTMLElement | null>(null);
   const scrollLockRef = useRef<ScrollLockSnapshot | null>(null);
+  const backgroundInertRef = useRef<BackgroundInertSnapshot[]>([]);
   const openRef = useRef(false);
   const modalHistoryPushedRef = useRef(false);
   const historyCloseFallbackRef = useRef<number | null>(null);
@@ -95,6 +120,58 @@ export function QuoteFormModal() {
     });
   }, []);
 
+  const releaseBackgroundInert = useCallback(() => {
+    const snapshots = backgroundInertRef.current;
+    backgroundInertRef.current = [];
+
+    for (const snapshot of snapshots) {
+      snapshot.element.inert = snapshot.inert;
+      if (snapshot.ariaHidden === null) {
+        snapshot.element.removeAttribute("aria-hidden");
+      } else {
+        snapshot.element.setAttribute("aria-hidden", snapshot.ariaHidden);
+      }
+    }
+  }, []);
+
+  const applyBackgroundInert = useCallback(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) {
+      return;
+    }
+
+    releaseBackgroundInert();
+    backgroundInertRef.current = Array.from(document.body.children)
+      .filter(
+        (element): element is HTMLElement =>
+          element instanceof HTMLElement &&
+          element !== dialog &&
+          !["SCRIPT", "STYLE"].includes(element.tagName),
+      )
+      .map((element) => {
+        const snapshot = {
+          ariaHidden: element.getAttribute("aria-hidden"),
+          element,
+          inert: element.inert,
+        };
+        element.inert = true;
+        element.setAttribute("aria-hidden", "true");
+        return snapshot;
+      });
+  }, [releaseBackgroundInert]);
+
+  const focusFirstModalControl = useCallback(() => {
+    getModalFocusableControls(panelRef.current).at(0)?.focus({
+      preventScroll: true,
+    });
+  }, []);
+
+  const focusLastModalControl = useCallback(() => {
+    getModalFocusableControls(panelRef.current).at(-1)?.focus({
+      preventScroll: true,
+    });
+  }, []);
+
   const finishClose = useCallback(() => {
     if (historyCloseFallbackRef.current !== null) {
       window.clearTimeout(historyCloseFallbackRef.current);
@@ -103,9 +180,10 @@ export function QuoteFormModal() {
 
     openRef.current = false;
     modalHistoryPushedRef.current = false;
+    releaseBackgroundInert();
     setOpen(false);
     releaseScrollLock();
-  }, [releaseScrollLock]);
+  }, [releaseBackgroundInert, releaseScrollLock]);
 
   const close = useCallback((syncHistory = true) => {
     if (!openRef.current && !scrollLockRef.current) {
@@ -275,6 +353,7 @@ export function QuoteFormModal() {
     };
 
     scrollLockRef.current = snapshot;
+    applyBackgroundInert();
     syncViewportHeight();
     body.classList.add("quote-modal-open");
     html.style.scrollBehavior = "auto";
@@ -290,6 +369,20 @@ export function QuoteFormModal() {
     }
 
     closeButtonRef.current?.focus();
+
+    function keepFocusInside(event: FocusEvent) {
+      const dialog = dialogRef.current;
+      const target = event.target;
+
+      if (
+        dialog &&
+        target instanceof Node &&
+        !dialog.contains(target) &&
+        openRef.current
+      ) {
+        focusFirstModalControl();
+      }
+    }
 
     function closeOnEscape(event: KeyboardEvent) {
       if (event.key === "Escape") {
@@ -307,11 +400,7 @@ export function QuoteFormModal() {
         return;
       }
 
-      const focusable = Array.from(
-        panel.querySelectorAll<HTMLElement>(
-          'a[href], button:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])',
-        ),
-      ).filter((element) => !element.hasAttribute("disabled"));
+      const focusable = getModalFocusableControls(panel);
       const first = focusable.at(0);
       const last = focusable.at(-1);
 
@@ -328,19 +417,29 @@ export function QuoteFormModal() {
       }
     }
 
+    document.addEventListener("focusin", keepFocusInside, true);
     window.addEventListener("keydown", closeOnEscape);
     window.addEventListener("resize", syncViewportHeight);
     window.visualViewport?.addEventListener("resize", syncViewportHeight);
     window.visualViewport?.addEventListener("scroll", syncViewportHeight);
 
     return () => {
+      document.removeEventListener("focusin", keepFocusInside, true);
       window.removeEventListener("keydown", closeOnEscape);
       window.removeEventListener("resize", syncViewportHeight);
       window.visualViewport?.removeEventListener("resize", syncViewportHeight);
       window.visualViewport?.removeEventListener("scroll", syncViewportHeight);
+      releaseBackgroundInert();
       releaseScrollLock();
     };
-  }, [close, open, releaseScrollLock]);
+  }, [
+    applyBackgroundInert,
+    close,
+    focusFirstModalControl,
+    open,
+    releaseBackgroundInert,
+    releaseScrollLock,
+  ]);
 
   if (!open) {
     return null;
@@ -348,6 +447,8 @@ export function QuoteFormModal() {
 
   return (
     <div
+      ref={dialogRef}
+      data-quote-modal-root
       className="quote-modal-backdrop fixed inset-0 z-[100] grid h-[100dvh] w-[100vw] place-items-center overflow-hidden bg-[#061E72]/88 p-0 backdrop-blur-sm sm:w-auto sm:p-4"
       role="dialog"
       aria-modal="true"
@@ -355,7 +456,8 @@ export function QuoteFormModal() {
     >
       <button
         type="button"
-        aria-label="Close quote form"
+        aria-hidden="true"
+        tabIndex={-1}
         className="absolute inset-0 hidden sm:block"
         onClick={() => close()}
       />
@@ -364,6 +466,14 @@ export function QuoteFormModal() {
         ref={panelRef}
         className="quote-modal-panel fixed inset-0 mx-0 flex h-[100dvh] max-h-[100dvh] min-h-0 w-[100vw] max-w-[100vw] flex-col overflow-hidden overflow-x-hidden rounded-none border-0 border-white/12 bg-[#061E72] text-white shadow-2xl shadow-blue-950/45 sm:relative sm:inset-auto sm:mx-auto sm:h-[85dvh] sm:max-h-[85dvh] sm:w-full sm:max-w-[760px] sm:rounded-[1.35rem] sm:border"
       >
+        <span
+          className="sr-only"
+          data-quote-focus-guard="start"
+          tabIndex={0}
+          onFocus={focusLastModalControl}
+        >
+          Continue at the end of the quote dialog
+        </span>
         <h2 id="quote-modal-title" className="sr-only">
           Request a quote
         </h2>
@@ -400,6 +510,14 @@ export function QuoteFormModal() {
             showFallback={false}
           />
         </div>
+        <span
+          className="sr-only"
+          data-quote-focus-guard="end"
+          tabIndex={0}
+          onFocus={focusFirstModalControl}
+        >
+          Continue at the start of the quote dialog
+        </span>
       </div>
     </div>
   );
