@@ -2,6 +2,33 @@ import { expect, test, type BrowserContext, type Page } from "@playwright/test";
 
 const serviceM8Pattern = "https://book.servicem8.com/**";
 
+const phase3d1SafetyIntroductions = [
+  {
+    phrase: "Do not keep resetting protection that trips again.",
+    slug: "electrical-fault-finding-sydney",
+  },
+  {
+    phrase: "Stop using a hot, discoloured, buzzing, smoking, sparking or damaged power point.",
+    slug: "hot-power-point-electrician-sydney",
+  },
+  {
+    phrase: "For an active fire or smoke emergency, move to safety and call Triple Zero (000).",
+    slug: "smoke-alarm-electrician-sydney",
+  },
+  {
+    phrase: "Keep clear of exposed, hot, wet or damaged wiring",
+    slug: "rewiring-electrician-sydney",
+  },
+  {
+    phrase: "Do not approach wet or storm-damaged electrical equipment.",
+    slug: "surge-protection-electrician-sydney",
+  },
+  {
+    phrase: "Do not keep resetting an RCD, RCBO or safety switch that trips again.",
+    slug: "safety-switch-rcd-installation-sydney",
+  },
+] as const;
+
 async function interceptUnchangedThirdParties(context: BrowserContext) {
   for (const pattern of [
     "https://www.googletagmanager.com/**",
@@ -255,6 +282,43 @@ test("electric-shock medical guidance precedes every page-level conversion contr
     ).toBeLessThanOrEqual(2);
   }
   expect(new URL(page.url()).pathname).toContain("/evaready-electrical/");
+});
+
+test("phase 3D1 imperative safety guidance precedes the first page-level conversion control", async ({
+  page,
+}) => {
+  for (const routeCase of phase3d1SafetyIntroductions) {
+    await page.goto(`services/${routeCase.slug}/`, {
+      waitUntil: "domcontentloaded",
+    });
+
+    const heroCopy = page.locator(".service-detail-hero-copy");
+    await expect(heroCopy).toContainText(routeCase.phrase);
+    await expect(heroCopy).toContainText("Triple Zero (000)");
+
+    const order = await page.locator("main").evaluate((main) => {
+      const safety = main.querySelector(".service-detail-hero-copy");
+      const firstCta = main.querySelector(
+        '[data-conversion-action="phone-click"], [data-conversion-action="quote-click"]',
+      );
+      return Boolean(
+        safety &&
+          firstCta &&
+          safety.compareDocumentPosition(firstCta) &
+            Node.DOCUMENT_POSITION_FOLLOWING,
+      );
+    });
+
+    expect(order, `${routeCase.slug} safety copy must precede its first CTA`).toBe(true);
+    await expect(
+      page.locator('main a[data-conversion-action="phone-click"]').first(),
+    ).toHaveAttribute("href", "tel:+61461247247");
+    await expect(page.locator('main [data-quote-trigger="true"]').first()).toHaveAttribute(
+      "href",
+      /^https:\/\/book\.servicem8\.com\/request_booking\?uuid=/,
+    );
+    expect(new URL(page.url()).pathname).toContain("/evaready-electrical/");
+  }
 });
 
 test("genuine ServiceM8 iframe URL can load without interaction or submission", async ({

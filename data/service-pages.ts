@@ -376,17 +376,17 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     slug: "electrical-fault-finding-sydney",
     metaTitle: "Electrical Fault Finding Sydney | Tripping & Power Faults",
     metaDescription:
-      "Electrical fault finding in Sydney for tripping safety switches, no power and burning smells, damaged wiring and overheating power points and water damage.",
+      "Electrical fault finding in Sydney for repeated tripping, partial power loss, burning smells, hot outlets, damaged wiring and intermittent faults.",
     title: "Electrical Fault Finding Sydney & Surrounding Regions",
     description:
       "Find the cause of circuit tripping, power loss, damaged wiring and unsafe electrical faults.",
     intro:
-      "Electrical faults should be tested, not guessed. Evaready Electrical uses a safety-first fault finding process to identify the cause of circuit tripping, power loss and burning smells and overheating power points and wiring problems.",
+      "Keep clear of hot, wet, sparking or potentially live electrical equipment. Call Triple Zero (000) for fire, smoke, serious electric shock or immediate danger, and use your electricity distributor's emergency service for an area outage or damaged network equipment. Do not keep resetting protection that trips again. For faults within the property, our licensed electricians test before discussing repair options.",
     heroBullets: [
-      "Safety switch and circuit tripping",
-      "Power loss and intermittent faults",
-      "Burning smells, heat or buzzing",
-      "Water-damaged electrical fixtures",
+      "Repeated RCD or circuit breaker trips",
+      "Partial, intermittent or complete power loss",
+      "Burning smells, heat, buzzing or sparking",
+      "Moisture exposure or damaged electrical equipment",
     ],
     warningSigns: [
       "The same circuit trips repeatedly",
@@ -395,29 +395,88 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Power points spark, buzz or feel hot",
     ],
     services: [
-      "Safety switch fault diagnosis",
-      "Circuit testing and isolation",
-      "Damaged cable investigation",
-      "Switchboard fault checks",
-      "Water ingress electrical checks",
-      "Urgent power fault support",
+      "Initial safety assessment and circuit isolation",
+      "RCD and circuit breaker fault testing",
+      "Accessible outlet, wiring and appliance checks",
+      "Switchboard protection and connection checks",
+      "Moisture and water-ingress investigation",
+      "Repair options, retesting and next-step advice",
+    ],
+    serviceGuide: {
+      heading: "How electrical fault finding narrows down the problem.",
+      intro:
+        "Similar symptoms can come from different faults. The testing sequence follows the evidence available at the property and separates an internal electrical problem from an appliance issue or a network supply event.",
+      sections: [
+        {
+          title: "Start with safety and the supply boundary",
+          copy:
+            "The first decision is whether the danger is within the property, involves the electricity network or requires emergency services.",
+          items: [
+            "Move clear and call 000 for fire, smoke, serious electric shock or an immediate threat to life.",
+            "Keep away from fallen powerlines, damaged street equipment and wet network assets; contact the electricity distributor for network emergencies or an area outage.",
+            "Repeated tripping, localised power loss or an affected fitting can require testing within the property.",
+          ],
+        },
+        {
+          title: "Testing follows the symptom",
+          copy:
+            "Our licensed electricians use the fault history and safe access available on site to plan circuit, protection and equipment checks.",
+          items: [
+            "The affected circuit can be isolated before electrical testing starts.",
+            "Testing may compare fixed wiring, outlets, connected equipment and switchboard protection.",
+            "Customers should not remove covers, open electrical equipment or touch suspected live parts.",
+          ],
+        },
+        {
+          title: "Repair options follow the findings",
+          copy:
+            "A repair is discussed after the likely fault area has been narrowed down; diagnosis does not guarantee that every fault can be found or repaired during one visit.",
+          items: [
+            "An accessible defective fitting, connection or cable section may be repairable after approval.",
+            "An unsafe circuit may need to remain isolated until further access or parts are available.",
+            "Intermittent faults may require monitoring, repeat testing or access to concealed wiring.",
+          ],
+        },
+        {
+          title: "Retesting and handover",
+          copy:
+            "After agreed work, the affected installation is retested within the completed scope and the result is explained before handover.",
+          items: [
+            "You are told what was tested, repaired, restored or left isolated.",
+            "Further access, appliance work or distributor action is identified where relevant.",
+            "Required electrical compliance documentation is handled for work within its applicable scope.",
+          ],
+        },
+      ],
+    },
+    inspectionOutcomes: [
+      "A summary of accessible components and circuits tested",
+      "The likely fault area and any repair completed within the agreed scope",
+      "Clear notice of circuits left isolated or work requiring further access",
+      "Applicable test results and compliance documentation where required",
+    ],
+    inspectionLimitations: [
+      "An intermittent fault may not be present during the first inspection.",
+      "Concealed or inaccessible wiring may require separate access approval.",
+      "Appliance faults and electricity-network faults can require a different service pathway.",
+      "Repair scope and timing depend on test results, access, parts and site conditions.",
     ],
     process: [
       {
-        title: "Make it safe",
-        text: "Urgent hazards are isolated before deeper testing continues.",
+        title: "Describe the symptom",
+        text: "The affected rooms, recent changes, trip pattern and any heat, smell, water or sparking are recorded without asking you to test unsafe equipment.",
       },
       {
-        title: "Test the circuit",
-        text: "The affected circuit, switchboard and connected equipment are checked methodically.",
+        title: "Separate supply from property",
+        text: "An area outage or damaged network asset is distinguished from a fault requiring investigation within the property.",
       },
       {
-        title: "Find the cause",
-        text: "The fault is narrowed down so the repair addresses the actual problem.",
+        title: "Test methodically",
+        text: "Accessible circuits, protection devices, fittings and connected equipment are checked in a sequence guided by the symptom.",
       },
       {
-        title: "Repair and retest",
-        text: "The repair is completed where approved, then tested before power is restored.",
+        title: "Agree the next action",
+        text: "Available repair, isolation, monitoring or further-access options are explained, and completed work is retested before handover.",
       },
     ],
     faqs: [
@@ -429,12 +488,22 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Is a burning smell an emergency?",
         answer:
-          "Yes. A burning smell near electrical equipment should be treated as urgent because heat can indicate a dangerous fault.",
+          "Treat a burning smell near electrical equipment as urgent. Stop using the affected area, keep clear, call 000 for fire or smoke, and call an electrician once everyone is safe.",
       },
       {
         question: "Can an appliance cause a circuit to trip?",
         answer:
-          "Yes. Appliances, water ingress, damaged wiring or overloaded circuits can all cause tripping.",
+          "It can. Connected equipment, water ingress, damaged wiring and circuit conditions are among the possible causes, so testing is needed before deciding on a repair.",
+      },
+      {
+        question: "What if the fault only happens sometimes?",
+        answer:
+          "Record when it happens and what was operating, but do not recreate an unsafe condition. Intermittent faults may need monitoring, repeat testing or access to concealed wiring.",
+      },
+      {
+        question: "Is a loss of power always a fault inside the property?",
+        answer:
+          "No. Check the electricity distributor's outage information without approaching damaged equipment. An area outage or network hazard follows the distributor pathway; a localised property fault needs electrical investigation.",
       },
     ],
     relatedServices: [
@@ -597,43 +666,102 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Smoke alarm installation, replacement and testing for homes, rentals and property managers.",
     intro:
-      "Smoke alarms are a small device with a serious job. Evaready Electrical installs and replaces smoke alarms so homes and rental properties have working protection in the right locations.",
+      "For an active fire or smoke emergency, move to safety and call Triple Zero (000). Do not ignore, disable or paint over a smoke alarm. For planned work, our licensed electricians can inspect existing alarms, replace or install hardwired units, assess interconnection options and test operation for the property type and the requirements that apply to it.",
     heroBullets: [
-      "Smoke alarm installation",
-      "Hardwired alarm replacement",
-      "Testing and troubleshooting",
-      "Rental and property support",
+      "Existing alarm condition and location checks",
+      "Hardwired alarm installation or replacement",
+      "Interconnection and compatibility assessment",
+      "Testing, troubleshooting and job notes",
     ],
     warningSigns: [
-      "Smoke alarms are missing or out of date",
-      "The alarm chirps repeatedly",
-      "A hardwired alarm has failed",
-      "A rental property needs smoke alarm attention",
+      "An alarm is missing, damaged or no longer responds to its test control",
+      "An alarm chirps repeatedly or gives unexplained alerts",
+      "A hardwired unit has failed or lost its mains indicator",
+      "A property change raises questions about alarm location or interconnection",
     ],
     services: [
-      "Smoke alarm installation",
-      "Smoke alarm replacement",
-      "Hardwired alarm support",
-      "Alarm testing",
-      "Battery and fault checks",
-      "Rental property smoke alarm work",
+      "Existing smoke alarm condition and location review",
+      "Hardwired smoke alarm replacement",
+      "New hardwired smoke alarm installation",
+      "Interconnection and compatibility checks",
+      "Alarm operation and fault testing",
+      "Owner, agent or property-manager job notes",
+    ],
+    serviceGuide: {
+      heading: "Plan smoke alarm work for the property and its occupants.",
+      intro:
+        "Smoke alarm work starts by separating an active emergency from a planned inspection, replacement or installation. The suitable alarm arrangement depends on the premises, existing wiring, alarm compatibility and the requirements applying to that property.",
+      sections: [
+        {
+          title: "An active fire is not an alarm-service call",
+          copy:
+            "If there is fire or smoke, leave the danger area and call 000 from a safe place. Electrical inspection can follow only after emergency services have made the situation safe.",
+          items: [
+            "Do not re-enter a dangerous area to silence, inspect or retrieve an alarm.",
+            "Do not disable, cover or paint over an alarm that is sounding or faulty.",
+            "A non-emergency chirp or fault can be booked for inspection once there is no fire or smoke danger.",
+          ],
+        },
+        {
+          title: "Check the existing alarm arrangement",
+          copy:
+            "Our licensed electricians review accessible alarms, their power source, location, condition and any existing interconnection before recommending electrical work.",
+          items: [
+            "Property type, sleeping areas and layout affect the assessment.",
+            "The age, model and compatibility of existing alarms can affect replacement choices.",
+            "Rental, strata and other premises can have different duties, so the owner or agent should confirm the records and requirements applying to the property.",
+          ],
+        },
+        {
+          title: "Installation, replacement and interconnection",
+          copy:
+            "The scope may be a like-for-like hardwired replacement, an additional alarm, a new circuit connection or an interconnection review.",
+          items: [
+            "Hardwired electrical work is completed by our licensed electricians.",
+            "Existing wiring and alarm compatibility are checked before units are interconnected.",
+            "Ceiling access, concealed wiring and the condition of the existing installation can change the work required.",
+          ],
+        },
+        {
+          title: "Testing and handover",
+          copy:
+            "Installed or replaced alarms are tested within the completed scope, and the result is explained to the person responsible for the property.",
+          items: [
+            "Operation and interconnection are checked where those features are part of the work.",
+            "Alarm locations, units changed and any outstanding issues can be recorded in the job notes.",
+            "Working smoke alarms provide early warning but cannot eliminate fire risk.",
+          ],
+        },
+      ],
+    },
+    inspectionOutcomes: [
+      "Observed alarm type, location and accessible condition",
+      "Units installed, replaced or left for further review",
+      "Operation and interconnection test results within the completed scope",
+      "Agreed job notes for the owner, agent or property manager",
+    ],
+    inspectionLimitations: [
+      "Ceiling access and concealed wiring can limit what is confirmed without further work.",
+      "Existing alarm models may not be compatible with a proposed interconnected arrangement.",
+      "The owner or agent remains responsible for confirming property-specific tenancy, strata and building obligations.",
+      "A tested alarm reduces risk by providing warning but does not prevent a fire.",
     ],
     process: [
       {
-        title: "Check locations",
-        text: "The home layout and existing alarms are reviewed.",
+        title: "Confirm the property",
+        text: "The premises type, layout, occupants' needs and reason for the alarm work are discussed before the scope is set.",
       },
       {
-        title: "Install or replace",
-        text: "The alarm is installed or replaced using suitable equipment.",
+        title: "Inspect the arrangement",
+        text: "Accessible alarms, power sources, locations, wiring and interconnection are reviewed against the requirements applying to the property.",
       },
       {
-        title: "Test operation",
-        text: "The alarm is tested so operation is confirmed.",
+        title: "Complete agreed work",
+        text: "Suitable hardwired alarms are installed or replaced and interconnected only where the units and installation support it.",
       },
       {
-        title: "Record the work",
-        text: "Job notes can be provided where needed for owners or managers.",
+        title: "Test and explain",
+        text: "Completed alarm work is tested, and operation, maintenance information and any outstanding issues are explained at handover.",
       },
     ],
     faqs: [
@@ -645,12 +773,22 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Why does my smoke alarm keep chirping?",
         answer:
-          "A chirping alarm may have a battery, age or fault issue. It should be checked rather than ignored.",
+          "A chirp can relate to a battery, the unit's age, contamination, power supply or a fault. Do not disable the alarm; follow its manufacturer information and arrange an inspection if the cause is unclear.",
       },
       {
         question: "Do rental properties need working smoke alarms?",
         answer:
-          "Yes. Smoke alarm requirements are important for rental safety and compliance.",
+          "NSW rental properties have smoke alarm duties, but the exact responsibilities and records depend on the premises and tenancy circumstances. Owners and agents should confirm what applies to their property rather than relying on a universal checklist.",
+      },
+      {
+        question: "Can existing smoke alarms be interconnected?",
+        answer:
+          "It depends on the alarm models, power arrangement, wiring and property layout. Compatibility and access should be checked before an interconnection method is selected.",
+      },
+      {
+        question: "Does installing smoke alarms remove all fire risk?",
+        answer:
+          "No. Working smoke alarms provide early warning, but they do not prevent a fire or replace an evacuation plan and other fire-safety measures.",
       },
     ],
     relatedServices: [
@@ -1537,43 +1675,102 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Safety switches, RCDs and RCBO circuit protection installed, repaired and checked carefully.",
     intro:
-      "Safety switches are one of the most important protections in a property. Evaready Electrical installs safety switches and RCBOs, investigates nuisance tripping and checks circuit protection so faults are handled safely.",
+      "Do not keep resetting an RCD, RCBO or safety switch that trips again. Stop using the affected circuit, keep clear of unsafe equipment and call Triple Zero (000) for a serious electric shock, fire or immediate danger; seek medical assessment after any shock. Our licensed electricians can investigate the tripping and assess whether installation, replacement or broader switchboard work is appropriate.",
     heroBullets: [
-      "Safety switch installation",
-      "RCD and RCBO upgrades",
-      "Tripping circuit fault checks",
-      "Switchboard safety protection",
+      "Existing circuit-protection assessment",
+      "RCD and RCBO installation or replacement",
+      "Repeated-tripping fault investigation",
+      "Testing, circuit identification and handover",
     ],
     warningSigns: [
-      "A safety switch keeps tripping",
+      "An RCD, RCBO or safety switch trips again after reset",
       "Only part of the property loses power",
       "The switchboard has limited RCD protection",
-      "Older circuits have no modern safety protection",
+      "Circuit labels or protection coverage are unclear",
     ],
     services: [
-      "Safety switch installation",
-      "RCD repairs and replacement",
-      "RCBO upgrades",
-      "Nuisance tripping fault finding",
-      "Switchboard safety checks",
-      "Circuit protection advice",
+      "Existing RCD, RCBO and circuit-protection review",
+      "Safety switch installation and replacement",
+      "RCBO installation for individual circuits where suitable",
+      "Repeated-tripping fault investigation",
+      "Circuit identification and switchboard condition checks",
+      "Post-work testing and handover information",
+    ],
+    serviceGuide: {
+      heading: "Match safety-switch protection to the circuit and fault.",
+      intro:
+        "An RCD or safety switch monitors current leakage and disconnects when its operating threshold is reached. An RCBO combines residual-current protection with circuit-breaker functions, but neither device prevents every electrical hazard.",
+      sections: [
+        {
+          title: "Repeated tripping needs investigation",
+          copy:
+            "A device that trips again may be responding to a wiring fault, moisture, connected equipment or another circuit condition. Repeated resetting can re-energise an unresolved hazard.",
+          items: [
+            "Stop using the affected circuit and do not bypass or hold a device on.",
+            "Do not open the switchboard or touch internal parts.",
+            "Call 000 for a serious electric shock, fire or immediate danger, and seek medical assessment after any shock.",
+          ],
+        },
+        {
+          title: "RCD and RCBO protection have limits",
+          copy:
+            "Residual-current protection can reduce the risk of serious electric shock in covered fault conditions, but it does not make damaged wiring or unsafe equipment safe.",
+          items: [
+            "An RCD responds to current leaking from its intended path.",
+            "An RCBO also provides overcurrent protection for its circuit.",
+            "Protection does not prevent every shock, fire, overload or wiring fault.",
+          ],
+        },
+        {
+          title: "Assessment before installation",
+          copy:
+            "Our licensed electricians identify circuits, inspect accessible switchboard conditions and test the installation before selecting compatible protection.",
+          items: [
+            "Available switchboard space and the existing enclosure condition are checked.",
+            "Circuit arrangement and neutral configuration can affect the installation method.",
+            "An older or damaged switchboard may require separate work before new protection can be fitted safely.",
+          ],
+        },
+        {
+          title: "Testing and handover",
+          copy:
+            "New or replaced protection is tested within the completed scope, and circuit coverage and operating information are explained at handover.",
+          items: [
+            "Affected circuits and installed devices are identified as part of the job record.",
+            "Test results and any unresolved circuit fault are explained.",
+            "Future testing should follow the device instructions and requirements applying to the property rather than a universal interval stated here.",
+          ],
+        },
+      ],
+    },
+    inspectionOutcomes: [
+      "Observed protection type, circuit coverage and accessible switchboard condition",
+      "Fault findings where repeated tripping was investigated",
+      "Devices installed or replaced and circuits identified within the agreed scope",
+      "Operating information, test results and any follow-up work required",
+    ],
+    inspectionLimitations: [
+      "An RCD or RCBO cannot prevent every electrical hazard or equipment fault.",
+      "Existing switchboard damage, limited space or circuit configuration can require additional work.",
+      "A fault outside accessible wiring may need further testing or access.",
+      "Legal and testing obligations vary with the property and work scope and should be confirmed for that situation.",
     ],
     process: [
       {
-        title: "Check protection",
-        text: "The switchboard and circuit protection are reviewed.",
+        title: "Identify the circuit",
+        text: "Existing devices, circuit labels, affected loads and the reported trip pattern are reviewed before switchboard work begins.",
       },
       {
-        title: "Find tripping causes",
-        text: "Circuit tripping are tested before parts are replaced.",
+        title: "Test before replacing",
+        text: "Repeated tripping is investigated so a wiring, moisture or equipment fault is not mistaken for a defective protection device.",
       },
       {
-        title: "Upgrade where needed",
-        text: "Approved safety switch or RCBO upgrades are completed.",
+        title: "Agree the protection scope",
+        text: "RCD, RCBO or related switchboard work is selected for the identified circuits and existing installation condition.",
       },
       {
-        title: "Test operation",
-        text: "Protection devices are tested before the job is finished.",
+        title: "Install, test and explain",
+        text: "Agreed devices are installed and tested, then their circuit coverage, limitations and any outstanding faults are explained.",
       },
     ],
     faqs: [
@@ -1585,12 +1782,22 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Can you add safety switches to an older switchboard?",
         answer:
-          "Often yes, although some older switchboards may need upgrade work to support modern protection safely.",
+          "Sometimes. Available space, enclosure condition, circuit arrangement and existing damage must be assessed. Separate switchboard work may be needed before new protection can be installed safely.",
       },
       {
         question: "Is an RCBO different from a safety switch?",
         answer:
-          "An RCBO combines circuit breaker and safety switch protection for individual circuits.",
+          "Yes. An RCBO combines residual-current protection with overcurrent circuit-breaker functions for a circuit. The suitable device still depends on the installation and circuit design.",
+      },
+      {
+        question: "Does an RCD prevent every electric shock?",
+        answer:
+          "No. It can reduce risk in covered residual-current fault conditions, but it does not remove every shock, fire, overload or wiring hazard and does not make damaged equipment safe to use.",
+      },
+      {
+        question: "Should I keep resetting a safety switch that trips?",
+        answer:
+          "No. If it trips again, stop using the affected circuit and arrange fault investigation. Do not bypass the device or open the switchboard.",
       },
     ],
     relatedServices: [
@@ -1676,65 +1883,134 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     slug: "surge-protection-electrician-sydney",
     metaTitle: "Surge Protection Electrician Sydney | Switchboard SPDs",
     metaDescription:
-      "Surge protection electrician in Sydney for switchboard surge protection devices, appliance protection, storm risk and sensitive equipment protection.",
+      "Surge protection electrician in Sydney for switchboard SPDs, compatibility checks and layered protection planning for homes and business equipment.",
     title: "Surge Protection Electrician Sydney & Surrounding Regions",
     description:
       "Switchboard surge protection to help protect appliances, electronics and sensitive equipment.",
     intro:
-      "Power surges can damage appliances, office equipment and sensitive electronics. Evaready Electrical installs surge protection devices at the switchboard as part of a practical protection plan for homes and businesses.",
+      "Do not approach wet or storm-damaged electrical equipment. Call Triple Zero (000) for fire, smoke, serious electric shock or immediate danger, and use your electricity distributor's emergency service for damaged network equipment or an area outage. For planned work, our licensed electricians assess switchboard compatibility, earthing and connected equipment before recommending surge protection; no device prevents every surge or all equipment damage.",
     heroBullets: [
-      "Switchboard surge protection",
-      "Appliance and electronics protection",
-      "Storm risk support",
-      "Home and business protection",
+      "Switchboard surge protective devices",
+      "Earthing and switchboard compatibility checks",
+      "Layered protection for sensitive equipment",
+      "Device condition and indicator review",
     ],
     warningSigns: [
-      "Electronics have failed after storms",
-      "A property has expensive equipment to protect",
-      "The switchboard has no surge protection",
-      "You are upgrading the switchboard or circuit capacity",
+      "Equipment has failed or reset after a voltage disturbance",
+      "Sensitive electronics or controls need a protection plan",
+      "The switchboard has no identified surge protective device",
+      "An existing SPD shows a warning or end-of-life indicator",
     ],
     services: [
-      "Surge protection device installation",
-      "Switchboard protection upgrades",
-      "Appliance and electronics protection",
-      "Storm risk electrical checks",
-      "Commercial equipment protection",
-      "Protection advice during switchboard upgrades",
+      "Switchboard surge-protection assessment",
+      "Surge protective device selection and installation",
+      "Switchboard space, condition and compatibility checks",
+      "Earthing and protective-device review within scope",
+      "Layered protection planning for sensitive equipment",
+      "SPD testing, indicator checks and handover advice",
+    ],
+    serviceGuide: {
+      heading: "Build a layered surge-protection plan with clear limits.",
+      intro:
+        "A switchboard surge protective device is one layer in an electrical protection plan. Selection depends on the installation, earthing, switchboard arrangement, exposure and the equipment the customer wants to protect.",
+      sections: [
+        {
+          title: "Switchboard and plug-in protection do different jobs",
+          copy:
+            "A switchboard SPD is installed at the electrical distribution point to limit suitable transient overvoltages. A compatible plug-in protector can add point-of-use protection for particular equipment.",
+          items: [
+            "The switchboard device is selected for the supply and protective arrangement.",
+            "Point-of-use devices must be suitable for the connected equipment and installation.",
+            "Neither layer replaces safe wiring, earthing, circuit protection or equipment maintenance.",
+          ],
+        },
+        {
+          title: "Compatibility is checked before selection",
+          copy:
+            "Our licensed electricians inspect accessible switchboard conditions and discuss the equipment and exposure before recommending an SPD arrangement.",
+          items: [
+            "Switchboard space, enclosure condition and existing protective devices can affect the work.",
+            "Earthing and conductor arrangements are relevant to device selection and performance.",
+            "Additional switchboard work may be needed where the existing installation cannot accept the proposed device safely.",
+          ],
+        },
+        {
+          title: "Protection has practical limits",
+          copy:
+            "Surge protection can reduce risk from suitable voltage transients, but it cannot guarantee protection from direct lightning effects, every surge or all equipment damage.",
+          items: [
+            "A surge may exceed the device rating or reach equipment through another service path.",
+            "Equipment condition and internal protection still affect the outcome.",
+            "Wet or storm-damaged equipment needs a safety assessment, not an assumption that the SPD made it safe.",
+          ],
+        },
+        {
+          title: "Testing, indicators and handover",
+          copy:
+            "After agreed installation work, the completed electrical scope is tested and the SPD position, status indication and replacement considerations are explained.",
+          items: [
+            "You are shown how to identify the device and its normal status indication where applicable.",
+            "An end-of-life or warning indication should be referred for inspection rather than ignored.",
+            "Any recommended point-of-use layer or follow-up switchboard work is recorded separately.",
+          ],
+        },
+      ],
+    },
+    inspectionOutcomes: [
+      "Observed switchboard condition, available space and existing protection",
+      "The proposed SPD arrangement and the equipment or circuits considered",
+      "Installation and test information for work completed within scope",
+      "Device status guidance and any further protection layer discussed",
+    ],
+    inspectionLimitations: [
+      "No SPD can guarantee protection from every surge, direct lightning effect or equipment failure.",
+      "Concealed earthing or wiring conditions may require further testing or access.",
+      "Other service paths and equipment-internal protection are outside a switchboard SPD's complete control.",
+      "Scope and timing depend on switchboard compatibility, access, parts and any prerequisite work.",
     ],
     process: [
       {
-        title: "Review risk",
-        text: "The property type and equipment being protected are discussed.",
+        title: "Define the equipment and exposure",
+        text: "The property, sensitive equipment, recent voltage events and the protection outcome being sought are discussed.",
       },
       {
-        title: "Check switchboard",
-        text: "The switchboard is checked for suitable space and protection arrangement.",
+        title: "Assess the installation",
+        text: "Accessible switchboard space, condition, earthing arrangement and existing protection are checked for compatibility.",
       },
       {
-        title: "Install protection",
-        text: "Approved surge protection is installed neatly.",
+        title: "Agree the protection layers",
+        text: "A suitable switchboard SPD and any separate point-of-use considerations are explained without promising complete protection.",
       },
       {
-        title: "Explain operation",
-        text: "You get clear advice on what the device protects and what to watch for.",
+        title: "Install, test and hand over",
+        text: "Agreed electrical work is completed and tested, and the device location, indicator and limitations are explained.",
       },
     ],
     faqs: [
       {
         question: "Does surge protection stop every electrical problem?",
         answer:
-          "No. It helps reduce risk from voltage spikes but does not replace safe wiring, circuit protection or equipment-specific protection.",
+          "No. It can reduce risk from suitable voltage transients but does not replace safe wiring, earthing, circuit protection or equipment-specific protection, and it cannot guarantee against every surge or lightning effect.",
       },
       {
         question: "Can surge protection be added during a switchboard upgrade?",
         answer:
-          "Yes. Switchboard upgrades are a good time to discuss surge protection.",
+          "It can be considered during an upgrade. The available space, supply, earthing, protective-device arrangement and equipment being protected still need to be assessed before selection.",
       },
       {
         question: "Is surge protection useful for businesses?",
         answer:
-          "Yes. Offices, shops and commercial sites often have sensitive equipment worth protecting.",
+          "It can form part of a protection plan for controls, communications and other sensitive equipment. The appropriate layers depend on the site and connected equipment rather than the business label alone.",
+      },
+      {
+        question: "Is a switchboard SPD the same as a plug-in surge protector?",
+        answer:
+          "No. A switchboard SPD protects at the distribution point, while a compatible plug-in device can add a layer for particular equipment. The two layers have different locations and limits.",
+      },
+      {
+        question: "What should I do if the SPD warning indicator appears?",
+        answer:
+          "Arrange an inspection and do not assume the installation still has the intended surge-protection layer. The device condition and any cause of operation should be reviewed.",
       },
     ],
     relatedServices: [
@@ -1820,65 +2096,134 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     slug: "rewiring-electrician-sydney",
     metaTitle: "Rewiring Electrician Sydney & Surrounding Regions",
     metaDescription:
-      "Rewiring electrician in Sydney for old home wiring, renovation wiring, damaged cables, unsafe wiring, new circuits and safety upgrades.",
+      "Rewiring electrician in Sydney for old or damaged wiring assessments, partial circuit replacement, renovation wiring and complete rewire planning.",
     title: "Rewiring Electrician Sydney & Surrounding Regions",
     description:
       "Rewiring support for older homes, renovations, damaged cables and unsafe electrical wiring.",
     intro:
-      "Old or damaged wiring can hide serious risk behind walls, ceilings and switchboards. Evaready Electrical can inspect wiring concerns, plan renovation wiring and replace unsafe cabling where required.",
+      "Keep clear of exposed, hot, wet or damaged wiring, and do not disturb or test conductors. Call Triple Zero (000) for fire, smoke, serious electric shock or immediate danger. Our licensed electricians assess accessible wiring and test circuits to determine whether a targeted repair, partial circuit replacement or complete rewire is appropriate; an older property does not automatically need a full rewire.",
     heroBullets: [
-      "Old home rewiring",
-      "Renovation and extension wiring",
-      "Damaged cable replacement",
-      "New circuits and safety upgrades",
+      "Existing wiring condition assessment",
+      "Targeted or partial circuit replacement",
+      "Complete rewire scope planning",
+      "Renovation wiring and circuit coordination",
     ],
     warningSigns: [
       "Lights flicker across multiple rooms",
       "Outlets are cracked, loose or hot",
-      "Old wiring is visible in roof spaces",
-      "Renovation work exposes unsafe cabling",
+      "Accessible cables show damaged or deteriorated insulation",
+      "Renovation work exposes wiring that appears unsafe",
     ],
     services: [
-      "Home rewiring assessments",
-      "Renovation wiring",
-      "Damaged cable replacement",
-      "New circuit installation",
-      "Unsafe wiring upgrades",
-      "Switchboard and protection checks",
+      "Accessible wiring and circuit-condition assessment",
+      "Targeted damaged-cable replacement",
+      "Partial circuit rewiring",
+      "Complete property rewire planning",
+      "Renovation and extension wiring coordination",
+      "Circuit testing, identification and handover",
+    ],
+    serviceGuide: {
+      heading: "Set the rewiring scope from inspection, testing and access.",
+      intro:
+        "Rewiring is not one standard job. The safe scope depends on the installation condition, test findings, circuit layout, access, renovation plans and whether the property will remain occupied during the work.",
+      sections: [
+        {
+          title: "Assessment comes before a full-rewire decision",
+          copy:
+            "Age alone does not prove that every circuit needs replacement. Our licensed electricians review accessible wiring, switchboard protection, fault history and test results before recommending a scope.",
+          items: [
+            "A localised defect may support a targeted cable or circuit repair.",
+            "Widespread deterioration or unsuitable wiring can support a broader staged or complete rewire plan.",
+            "Concealed conditions cannot be confirmed until suitable access is available.",
+          ],
+        },
+        {
+          title: "Partial, staged and complete options",
+          copy:
+            "The work can be organised around safety priorities, renovation stages and access where the installation can remain safe between stages.",
+          items: [
+            "A partial rewire can replace defined circuits while suitable wiring remains in service.",
+            "A staged plan can coordinate rooms or renovation zones over agreed phases.",
+            "A complete rewire addresses the agreed property-wide scope but may still exclude supply, communications or non-electrical building work.",
+          ],
+        },
+        {
+          title: "Access, outages and making good",
+          copy:
+            "Cable routes can involve roof, wall, floor or underfloor access. Power interruptions and the amount of building disturbance depend on the existing construction and selected route.",
+          items: [
+            "Furniture access, occupied rooms and safe work areas are planned before work starts.",
+            "Plastering, painting, carpentry and other making-good work are excluded unless specifically included in the agreed scope.",
+            "Switchboard or supply-capacity work is assessed separately when the new circuit plan requires it.",
+          ],
+        },
+        {
+          title: "Circuit testing and documentation",
+          copy:
+            "Completed circuits are tested within the rewiring scope, identified at the switchboard and explained at handover before the project is closed.",
+          items: [
+            "You receive an explanation of circuits replaced, retained or left for a later stage.",
+            "Outstanding access or non-electrical work is recorded for coordination.",
+            "Electrical compliance documentation is provided where the completed work requires it under NSW requirements.",
+          ],
+        },
+      ],
+    },
+    inspectionOutcomes: [
+      "Observed condition of accessible wiring, circuits and switchboard protection",
+      "A targeted, partial, staged or complete rewiring option based on findings",
+      "Known access, outage and non-electrical making-good requirements",
+      "Circuit test and handover information for work completed within scope",
+    ],
+    inspectionLimitations: [
+      "Concealed wiring condition cannot be fully assessed without suitable access.",
+      "Plastering, painting, carpentry and other making good are excluded unless expressly included.",
+      "Supply capacity, switchboard and communications work may require separate scope decisions.",
+      "Duration and staging depend on access, occupancy, construction, test findings and agreed work.",
     ],
     process: [
       {
-        title: "Inspect wiring",
-        text: "Accessible wiring, switchboard condition and problem areas are reviewed.",
+        title: "Inspect and test",
+        text: "Accessible wiring, circuit performance, switchboard protection and the reported problems are reviewed before the extent of work is decided.",
       },
       {
-        title: "Plan stages",
-        text: "Rewiring work is scoped around access, renovation timing and safety priorities.",
+        title: "Define the scope",
+        text: "Targeted, partial, staged or complete options are compared against safety priorities, access and renovation plans.",
       },
       {
-        title: "Replace safely",
-        text: "Approved cabling and circuit work is completed with neat finishes where access allows.",
+        title: "Coordinate access and outages",
+        text: "Cable routes, work areas, power interruptions and any separate making-good requirements are agreed before installation proceeds.",
       },
       {
-        title: "Test circuits",
-        text: "Completed circuits are tested and explained clearly.",
+        title: "Rewire, test and document",
+        text: "Agreed electrical work is completed, circuits are tested and identified, and required compliance and handover information is provided.",
       },
     ],
     faqs: [
       {
         question: "How do I know if my home needs rewiring?",
         answer:
-          "Warning signs include old cabling, frequent faults and overheating power points, flickering lights, limited safety protection or renovation work exposing unsafe wiring.",
+          "Inspection and electrical testing are needed. Frequent faults, heat, damaged insulation, unsuitable wiring or renovation access can justify rewiring, but the property's age alone does not prove that a complete rewire is required.",
       },
       {
         question: "Can rewiring be staged?",
         answer:
-          "Often yes. The work can be prioritised around safety, access and renovation stages.",
+          "It may be possible where the installation can remain safe between stages. The sequence depends on circuit layout, access, occupancy, renovation timing and the highest-priority defects.",
       },
       {
         question: "Is rewiring useful during renovations?",
         answer:
-          "Yes. Renovations are often the best time to update old wiring, add circuits and improve safety protection.",
+          "Renovation access can make it practical to assess and replace wiring, add circuits and coordinate switchboard protection. The electrical scope should still be based on testing and the final room layout.",
+      },
+      {
+        question: "Does rewiring include plaster and paint repairs?",
+        answer:
+          "Not automatically. Plastering, painting, carpentry and other making-good work should be listed separately and are excluded unless the agreed scope expressly includes them.",
+      },
+      {
+        question: "How long does a rewire take?",
+        answer:
+          "It depends on the number of circuits, construction, access, occupancy, staging, test findings and any switchboard or supply work. A timeframe can be discussed after the scope is inspected and agreed.",
       },
     ],
     relatedServices: [
@@ -3535,43 +3880,102 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Urgent electrical fault support for overheating power points and burning smells, buzzing sockets and unsafe power point concerns.",
     intro:
-      "A hot power point can be a warning sign of a loose connection, overload, damaged wiring or failing outlet. If there is heat, smoke, sparking or a burning smell, call first and stop using the outlet until it has been checked.",
+      "Stop using a hot, discoloured, buzzing, smoking, sparking or damaged power point. Do not touch or unplug equipment if it is unsafe; move clear and call Triple Zero (000) for fire, smoke, serious electric shock or immediate danger. Our licensed electricians inspect the outlet, connected equipment, circuit wiring and protection before discussing repair or replacement options.",
     heroBullets: [
-      "Hot outlet fault checks",
-      "Burning smell or buzzing sockets",
-      "Damaged power point repairs",
-      "Call first if unsafe",
+      "Heat, discolouration or burning smells",
+      "Buzzing, crackling or sparking sockets",
+      "Outlet, circuit and connection testing",
+      "Repair or replacement after inspection",
     ],
     warningSigns: [
-      "A power point feels hot to touch",
+      "A power point or plug feels unusually warm or hot",
       "There is a burning smell near an outlet",
       "A plug or socket is discoloured",
       "The outlet buzzes, crackles or sparks",
     ],
     services: [
-      "Hot power point fault finding",
-      "Outlet replacement",
-      "Loose connection checks",
-      "Overload and circuit review",
-      "Damaged wiring assessment",
-      "Switchboard and safety switch checks where relevant",
+      "Immediate safety assessment of the affected outlet",
+      "Power point, plug and accessible connection checks",
+      "Circuit load and fixed-wiring testing",
+      "Damaged outlet repair or replacement options",
+      "Heat-damaged cable assessment where accessible",
+      "Switchboard protection checks where relevant",
+    ],
+    serviceGuide: {
+      heading: "Treat outlet heat as a symptom that needs testing.",
+      intro:
+        "A warm or hot outlet can involve the power point, a loose connection, connected equipment, circuit loading or heat-damaged wiring. The visible outlet alone does not establish the cause or the safe repair scope.",
+      sections: [
+        {
+          title: "What to do before an electrician arrives",
+          copy:
+            "Stop using the affected outlet and keep people away from it. Do not touch, unplug or test anything that is hot, smoking, sparking, wet or visibly damaged.",
+          items: [
+            "Move clear and call 000 for active fire, smoke, serious electric shock or immediate danger.",
+            "Do not remove the faceplate, insert a tester or attempt an internal repair.",
+            "Only unplug equipment when the plug and outlet are cool, undamaged and clearly safe to handle.",
+          ],
+        },
+        {
+          title: "Possible causes are checked, not assumed",
+          copy:
+            "Heat may come from worn contacts, a loose termination, damaged wiring, a high electrical load or a problem with connected equipment.",
+          items: [
+            "The outlet and plug condition can show where heat has been concentrated.",
+            "Circuit testing helps distinguish an outlet fault from a wider wiring or loading issue.",
+            "Switchboard protection is checked where the symptom or test results make it relevant.",
+          ],
+        },
+        {
+          title: "Repair versus replacement",
+          copy:
+            "Our licensed electricians explain the findings before agreed work proceeds. Replacing the faceplate alone may not be enough if a connection, cable or appliance has also been heat damaged.",
+          items: [
+            "A defective outlet may be replaced when the circuit and cable remain suitable.",
+            "Damaged cable or connections can require a broader repair and additional access.",
+            "A suspected appliance or plug fault may need separate appliance assessment.",
+          ],
+        },
+        {
+          title: "Retesting before reuse",
+          copy:
+            "The completed electrical work is tested within its scope before the outlet is returned to service, or the circuit remains isolated if it is not safe to restore.",
+          items: [
+            "You are told what was repaired or replaced and what remains outside the electrical scope.",
+            "Any further cable access, appliance check or switchboard work is identified.",
+            "Do not reuse the outlet until the electrician confirms the completed electrical work is ready for service.",
+          ],
+        },
+      ],
+    },
+    inspectionOutcomes: [
+      "Observed outlet, plug, circuit and accessible connection condition",
+      "Test findings that guide repair, replacement or further investigation",
+      "Confirmation that the outlet was restored or the affected circuit left isolated",
+      "Any follow-up cable, appliance or switchboard work identified",
+    ],
+    inspectionLimitations: [
+      "Concealed heat damage cannot be ruled out where wiring is inaccessible.",
+      "A connected appliance or plug fault may need assessment outside the fixed-wiring scope.",
+      "Repair extent depends on test results, access and the condition of surrounding materials.",
+      "The outlet must remain unused if the circuit cannot be made safe within the agreed visit scope.",
     ],
     process: [
       {
-        title: "Stop using the outlet",
-        text: "Unplug equipment if it is safe and keep clear if there is heat, smoke or sparking.",
+        title: "Make the area safe",
+        text: "Stop using the power point immediately, leave unsafe equipment untouched, and call Triple Zero (000) first for fire, smoke, serious electric shock or immediate danger.",
       },
       {
-        title: "Call for urgent faults",
-        text: "Call directly for overheating power points and burning smells or shock risk so the issue can be triaged first.",
+        title: "Inspect the heat path",
+        text: "The outlet, plug, connected load and accessible wiring are checked for discolouration, damage and signs of overheating.",
       },
       {
-        title: "Inspect and test",
-        text: "The outlet, wiring, circuit and protection are checked before repairs are completed.",
+        title: "Test the circuit",
+        text: "Electrical testing is used to assess connections, circuit condition, loading and protection before a repair option is selected.",
       },
       {
-        title: "Repair and retest",
-        text: "Approved repairs are completed and the circuit is retested before use.",
+        title: "Repair, isolate and explain",
+        text: "Agreed work is completed and retested, or the circuit remains isolated while further access, parts or appliance assessment is arranged.",
       },
     ],
     faqs: [
@@ -3583,12 +3987,22 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Should I keep using a warm outlet?",
         answer:
-          "No. Stop using the outlet if it feels hot, smells burnt or sparks, and call an electrician.",
+          "No. Stop using a hot, discoloured, buzzing, smoking, sparking or damaged outlet. Do not touch or unplug unsafe equipment, and call 000 for fire, smoke, serious shock or immediate danger.",
       },
       {
         question: "Can a hot outlet be caused by overload?",
         answer:
-          "Yes. Overload, loose connections, damaged wiring or a failing outlet can all create heat.",
+          "It can. Circuit loading is one possible cause, alongside worn contacts, loose connections, damaged wiring and faults in the outlet, plug or connected equipment. Testing is needed before deciding.",
+      },
+      {
+        question: "Does the power point always need replacement?",
+        answer:
+          "Not always. The outlet may need replacement, but the circuit, cable, plug and connected equipment should also be considered so hidden heat damage or another cause is not missed.",
+      },
+      {
+        question: "Can I remove the outlet cover to check it?",
+        answer:
+          "No. Do not remove a faceplate or attempt an internal electrical inspection. Keep the outlet unused and arrange licensed electrical testing.",
       },
     ],
     relatedServices: [
