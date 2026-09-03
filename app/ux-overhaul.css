@@ -2374,3 +2374,74 @@ html body.ev-electric-theme-bg .site-footer.ev-footer * {
     overflow-wrap: break-word !important;
   }
 }
+
+/* The scope layout keeps its normal density until enlarged rem-based content
+   no longer has enough inline room. Cards then receive the full row, and the
+   narrowest card summary uses stacked rows without shrinking text or icons. */
+html body.ev-storm-page main#main-content.generated-storm-service
+  :is(h1, h2, h3, h4, h5, h6, p, li) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+html body.ev-storm-page main#main-content > section.service-detail-scope-section {
+  container-name: service-detail-section;
+  container-type: inline-size;
+}
+
+html body.ev-storm-page main#main-content .service-detail-scope-layout {
+  container-name: service-detail-scope;
+  container-type: inline-size;
+}
+
+html body.ev-storm-page main#main-content .service-action-card--scope {
+  container-name: service-action-card;
+  container-type: inline-size;
+}
+
+@container service-detail-section (max-width: 54rem) {
+  html body.ev-storm-page main#main-content
+    > section.service-detail-scope-section
+    > .service-detail-scope-layout.grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+@container service-detail-scope (max-width: 25rem) {
+  html body.ev-storm-page main#main-content
+    > section.service-detail-scope-section
+    .service-detail-scope-layout
+    > .service-detail-scope-grid.grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+@container service-action-card (max-width: 15.5rem) {
+  html body.ev-storm-page main#main-content .service-action-card__summary--with-end {
+    grid-template-columns: minmax(0, 1fr) !important;
+    row-gap: var(--ev-card-gap) !important;
+  }
+
+  html body.ev-storm-page main#main-content
+    .service-action-card__summary--with-end
+    > .service-action-card__icon {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    align-self: start !important;
+  }
+
+  html body.ev-storm-page main#main-content
+    .service-action-card__summary--with-end
+    > .service-action-card__title {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+  }
+
+  html body.ev-storm-page main#main-content
+    .service-action-card__summary--with-end
+    > .service-action-card__end-icon {
+    grid-column: 1 !important;
+    grid-row: 3 !important;
+    justify-self: start !important;
+  }
+}
