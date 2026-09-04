@@ -38,6 +38,8 @@
     "audit:production-domain": "tsx scripts/audit-production-domain.ts",
     "audit:production-smoke": "tsx scripts/audit-production-responsive-smoke.ts",
     "audit:visible-copy": "tsx scripts/audit-visible-copy.ts",
+    "generate:whole-site-register": "tsx scripts/generate-whole-site-completion-register.ts",
+    "audit:whole-site-register": "tsx scripts/generate-whole-site-completion-register.ts --check",
     "test:e2e": "playwright test",
     "test:e2e:report": "playwright show-report"
   },

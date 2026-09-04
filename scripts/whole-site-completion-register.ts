@@ -1,0 +1,370 @@
+import { electricalFaultPages } from "../data/electrical-faults";
+import { serviceLandingPages } from "../data/service-pages";
+import { GITHUB_PAGES_PREVIEW_BASE_PATH } from "../config/deployment";
+import {
+  createAllRouteInventory,
+  createSitemapRouteSet,
+  normalizeRoute,
+  type RouteInventoryItem,
+} from "./route-inventory";
+
+export const WHOLE_SITE_BASELINE_LIVE_SHA =
+  "8d114efe8809f40edc396c9d6e9f8780cc26a737";
+
+export const phase3d1RewrittenRoutes = [
+  "/services/electrical-fault-finding-sydney",
+  "/services/hot-power-point-electrician-sydney",
+  "/services/smoke-alarm-electrician-sydney",
+  "/services/rewiring-electrician-sydney",
+  "/services/surge-protection-electrician-sydney",
+  "/services/safety-switch-rcd-installation-sydney",
+] as const;
+
+export const phase3d2SelectedRoutes = [
+  "/services/circuit-breaker-electrician-sydney",
+  "/services/electrical-load-capacity-checks-sydney",
+  "/services/electrical-safety-inspection-sydney",
+  "/services/emergency-exit-lighting-sydney",
+  "/services/ev-charger-installation-sydney",
+  "/services/hot-water-system-electrician-sydney",
+] as const;
+
+export const specialistHeldRoutes = [
+  "/level-2-electrician-sydney",
+  "/solar-batteries",
+  "/services/consumer-mains-sydney",
+  "/services/defect-notice-repairs-sydney",
+  "/services/private-power-pole-sydney",
+  "/services/metering-services-sydney",
+  "/services/point-of-attachment-repairs-sydney",
+  "/services/overhead-service-lines-sydney",
+  "/services/underground-service-mains-sydney",
+  "/services/disconnect-reconnect-electrician-sydney",
+  "/services/smart-meter-electrician-sydney",
+  "/services/split-system-air-conditioning-sydney",
+  "/services/cctv-security-camera-installation-sydney",
+  "/services/data-cabling-electrician-sydney",
+  "/services/phone-line-electrician-sydney",
+] as const;
+
+export const consolidationHeldRoutes = [
+  "/services/electrical-testing-tagging-reports-sydney",
+  "/services/testing-and-tagging-sydney",
+  "/services/intercom-access-control-electrician-sydney",
+  "/services/intercom-installation-sydney",
+  "/services/tv-antenna-wall-cabling-sydney",
+  "/services/tv-points-antenna-electrician-sydney",
+] as const;
+
+export type IndividualReviewStatus = "pending" | "reviewed";
+export type RewriteStatus = "held" | "pending" | "rewritten";
+export type ValidationStatus = "automated-only" | "pending" | "reviewed";
+export type ClaimEvidenceStatus = "automated-only" | "held" | "reviewed";
+export type PublicationStatus = "live-verified" | "pending";
+
+export type WholeSiteCompletionRecord = {
+  accessibility: ValidationStatus;
+  category: string;
+  claimOwnerEvidence: ClaimEvidenceStatus;
+  individualSemanticContentReview: IndividualReviewStatus;
+  outstandingHolds: string[];
+  publication: PublicationStatus;
+  publishedLiveVerifiedSha: string | null;
+  responsive: ValidationStatus;
+  rewrite: RewriteStatus;
+  route: string;
+  safetyReview: ValidationStatus;
+  seoMetadataSchema: ValidationStatus;
+  sourceRecord: string;
+  template: string;
+};
+
+export type WholeSiteCompletionRegister = {
+  counts: {
+    byCategory: Record<string, number>;
+    individualReview: Record<IndividualReviewStatus, number>;
+    publication: Record<PublicationStatus, number>;
+    rewrite: Record<RewriteStatus, number>;
+    totalRoutes: number;
+  };
+  records: WholeSiteCompletionRecord[];
+  schemaVersion: 1;
+  scope: {
+    authoritativeRouteSource: string;
+    baselineLiveVerifiedSha: string;
+    statement: string;
+  };
+};
+
+const phase3d1Set = new Set<string>(phase3d1RewrittenRoutes);
+const specialistHeldSet = new Set<string>(specialistHeldRoutes);
+const consolidationHeldSet = new Set<string>(consolidationHeldRoutes);
+const serviceSlugs = new Set(serviceLandingPages.map((page) => page.slug));
+const faultSlugs = new Set(electricalFaultPages.map((page) => page.slug));
+
+function createAuthoritativeSitemapRouteSet() {
+  const previewRoot = normalizeRoute(GITHUB_PAGES_PREVIEW_BASE_PATH);
+  const previewPrefix = `${previewRoot}/`;
+
+  return new Set(
+    [...createSitemapRouteSet()].map((route) => {
+      const normalized = normalizeRoute(route);
+      if (normalized === previewRoot) return "/";
+      if (normalized.startsWith(previewPrefix)) {
+        return normalizeRoute(normalized.slice(previewRoot.length));
+      }
+      return normalized;
+    }),
+  );
+}
+
+const staticSourceRecords: Record<string, string> = {
+  "/": "app/page.tsx",
+  "/about": "app/about/page.tsx",
+  "/contact": "app/contact/page.tsx",
+  "/electrical-faults": "app/electrical-faults/page.tsx",
+  "/emergency-electrician-sydney": "app/emergency-electrician-sydney/page.tsx",
+  "/level-2-electrician-sydney": "app/level-2-electrician-sydney/page.tsx",
+  "/privacy-policy": "app/privacy-policy/page.tsx",
+  "/service-areas": "app/service-areas/page.tsx",
+  "/services": "app/services/page.tsx",
+  "/services/switchboard-upgrades-sydney":
+    "app/services/switchboard-upgrades-sydney/page.tsx",
+  "/solar-batteries": "app/solar-batteries/page.tsx",
+  "/terms": "app/terms/page.tsx",
+};
+
+function categoryFor(item: RouteInventoryItem) {
+  switch (item.pageType) {
+    case "homepage":
+      return "homepage";
+    case "services index":
+      return "service-index";
+    case "service page":
+    case "emergency page":
+    case "level 2 page":
+    case "solar batteries page":
+      return "service";
+    case "fault index":
+      return "fault-index";
+    case "fault guide":
+      return "fault-guide";
+    case "service-area index":
+      return "service-area-index";
+    case "region page":
+      return "region";
+    case "area page":
+      return "area";
+    case "suburb page":
+      return "suburb";
+    case "about page":
+    case "contact page":
+      return "company";
+    case "privacy policy":
+    case "terms":
+      return "legal";
+    default:
+      return "other";
+  }
+}
+
+function sourceRecordFor(item: RouteInventoryItem) {
+  const staticSource = staticSourceRecords[item.route];
+  if (staticSource) return staticSource;
+
+  const parts = item.route.split("/").filter(Boolean);
+
+  if (parts[0] === "services" && serviceSlugs.has(parts[1])) {
+    return `data/service-pages.ts#${parts[1]}`;
+  }
+
+  if (parts[0] === "electrical-faults" && faultSlugs.has(parts[1])) {
+    return `data/electrical-faults.ts#${parts[1]}`;
+  }
+
+  if (parts[0] === "service-areas") {
+    if (parts.length === 2) {
+      return `data/service-area-region-data.ts#region:${parts[1]}`;
+    }
+    if (parts.length === 3) {
+      return `data/service-area-region-data.ts#area:${parts[1]}/${parts[2]}`;
+    }
+    if (parts.length === 4) {
+      return `data/service-area-region-data.ts#suburb:${parts.slice(1).join("/")}`;
+    }
+  }
+
+  throw new Error(`No source record mapping exists for ${item.route}`);
+}
+
+function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
+  const rewritten = phase3d1Set.has(item.route);
+  const specialistHeld = specialistHeldSet.has(item.route);
+  const consolidationHeld = consolidationHeldSet.has(item.route);
+
+  const outstandingHolds = rewritten
+    ? []
+    : specialistHeld
+      ? ["Owner credential evidence is required before specialist-content changes."]
+      : consolidationHeld
+        ? [
+            "Separate demand, backlink, canonical and redirect review is required before consolidation.",
+          ]
+        : ["Individual semantic and word-by-word review is pending."];
+
+  return {
+    accessibility: rewritten ? "automated-only" : "pending",
+    category: categoryFor(item),
+    claimOwnerEvidence: specialistHeld
+      ? "held"
+      : rewritten
+        ? "reviewed"
+        : "automated-only",
+    individualSemanticContentReview: rewritten ? "reviewed" : "pending",
+    outstandingHolds,
+    publication: "live-verified",
+    publishedLiveVerifiedSha: WHOLE_SITE_BASELINE_LIVE_SHA,
+    responsive: rewritten ? "reviewed" : "pending",
+    rewrite: rewritten
+      ? "rewritten"
+      : specialistHeld || consolidationHeld
+        ? "held"
+        : "pending",
+    route: item.route,
+    safetyReview: rewritten ? "reviewed" : "pending",
+    seoMetadataSchema: "automated-only",
+    sourceRecord: sourceRecordFor(item),
+    template: item.pageType,
+  };
+}
+
+function countBy<T extends string>(values: T[], expected: readonly T[]) {
+  return Object.fromEntries(
+    expected.map((status) => [status, values.filter((value) => value === status).length]),
+  ) as Record<T, number>;
+}
+
+export function createWholeSiteCompletionRegister(): WholeSiteCompletionRegister {
+  const sitemapRoutes = createAuthoritativeSitemapRouteSet();
+  const inventory = createAllRouteInventory().filter((item) =>
+    sitemapRoutes.has(normalizeRoute(item.route)),
+  );
+  const records = inventory.map(createRecord);
+  const categoryNames = [...new Set(records.map((record) => record.category))].sort();
+
+  return {
+    counts: {
+      byCategory: Object.fromEntries(
+        categoryNames.map((category) => [
+          category,
+          records.filter((record) => record.category === category).length,
+        ]),
+      ),
+      individualReview: countBy(
+        records.map((record) => record.individualSemanticContentReview),
+        ["pending", "reviewed"],
+      ),
+      publication: countBy(
+        records.map((record) => record.publication),
+        ["live-verified", "pending"],
+      ),
+      rewrite: countBy(
+        records.map((record) => record.rewrite),
+        ["held", "pending", "rewritten"],
+      ),
+      totalRoutes: records.length,
+    },
+    records,
+    schemaVersion: 1,
+    scope: {
+      authoritativeRouteSource:
+        "app/sitemap.ts reconciled with scripts/route-inventory.ts",
+      baselineLiveVerifiedSha: WHOLE_SITE_BASELINE_LIVE_SHA,
+      statement:
+        "Automated-only means a machine check ran; it never means an individual word-by-word review was completed.",
+    },
+  };
+}
+
+export function validateWholeSiteCompletionRegister(
+  register: WholeSiteCompletionRegister,
+) {
+  const errors: string[] = [];
+  const expectedRoutes = createAuthoritativeSitemapRouteSet();
+  const actualRoutes = register.records.map((record) => normalizeRoute(record.route));
+  const actualRouteSet = new Set(actualRoutes);
+  const validShas = /^[0-9a-f]{40}$/;
+  const validIndividualReview = new Set<IndividualReviewStatus>([
+    "pending",
+    "reviewed",
+  ]);
+  const validRewrite = new Set<RewriteStatus>(["held", "pending", "rewritten"]);
+  const validValidation = new Set<ValidationStatus>([
+    "automated-only",
+    "pending",
+    "reviewed",
+  ]);
+  const validClaimEvidence = new Set<ClaimEvidenceStatus>([
+    "automated-only",
+    "held",
+    "reviewed",
+  ]);
+  const validPublication = new Set<PublicationStatus>(["live-verified", "pending"]);
+
+  if (register.records.length !== expectedRoutes.size) {
+    errors.push(
+      `Register has ${register.records.length} records; sitemap has ${expectedRoutes.size} routes.`,
+    );
+  }
+  if (actualRoutes.length !== actualRouteSet.size) {
+    errors.push("Register contains duplicate routes.");
+  }
+
+  for (const route of expectedRoutes) {
+    if (!actualRouteSet.has(route)) errors.push(`Register is missing sitemap route ${route}.`);
+  }
+  for (const route of actualRouteSet) {
+    if (!expectedRoutes.has(route)) errors.push(`Register contains unknown route ${route}.`);
+  }
+
+  for (const record of register.records) {
+    if (!validIndividualReview.has(record.individualSemanticContentReview)) {
+      errors.push(`${record.route} has an invalid individual-review status.`);
+    }
+    if (!validRewrite.has(record.rewrite)) {
+      errors.push(`${record.route} has an invalid rewrite status.`);
+    }
+    if (
+      !validValidation.has(record.safetyReview) ||
+      !validValidation.has(record.responsive) ||
+      !validValidation.has(record.accessibility) ||
+      !validValidation.has(record.seoMetadataSchema)
+    ) {
+      errors.push(`${record.route} has an invalid validation status.`);
+    }
+    if (!validClaimEvidence.has(record.claimOwnerEvidence)) {
+      errors.push(`${record.route} has an invalid claim/evidence status.`);
+    }
+    if (!validPublication.has(record.publication)) {
+      errors.push(`${record.route} has an invalid publication status.`);
+    }
+    if (!record.sourceRecord.trim()) {
+      errors.push(`${record.route} has no source record.`);
+    }
+    if (record.publication === "live-verified") {
+      if (!record.publishedLiveVerifiedSha || !validShas.test(record.publishedLiveVerifiedSha)) {
+        errors.push(`${record.route} has no valid live-verified SHA.`);
+      }
+    } else if (record.publishedLiveVerifiedSha !== null) {
+      errors.push(`${record.route} is pending publication but has a live-verified SHA.`);
+    }
+    if (
+      record.individualSemanticContentReview === "pending" &&
+      record.rewrite === "rewritten"
+    ) {
+      errors.push(`${record.route} cannot be rewritten before individual review.`);
+    }
+  }
+
+  return errors;
+}
