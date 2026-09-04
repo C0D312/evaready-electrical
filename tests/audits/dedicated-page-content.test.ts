@@ -403,25 +403,28 @@ test("phase 3D1 static pages preserve CTAs and visible FAQ schema parity", () =>
     const html = mainHtml(rawHtml);
     const text = visibleText(html);
 
+    // The sticky pair is deferred until IntersectionObserver has measured the page.
+    // Browser tests retain the original full marker counts when that pair is visible.
+    assert.doesNotMatch(rawHtml, /<(?:div|nav)\b[^>]*class="[^"]*\bmobile-sticky-cta\b/);
     assert.equal(
       (rawHtml.match(/data-conversion-action="phone-click"/g) ?? []).length,
-      12,
-      `${route} must keep the baseline Call marker count`,
+      11,
+      `${route} must keep every server-rendered Call marker`,
     );
     assert.equal(
       (rawHtml.match(/data-conversion-action="quote-click"/g) ?? []).length,
-      11,
-      `${route} must keep the baseline Quote marker count`,
+      10,
+      `${route} must keep every server-rendered Quote marker`,
     );
     assert.equal(
       (rawHtml.match(/data-quote-trigger="true"/g) ?? []).length,
-      11,
-      `${route} must keep the baseline quote-trigger count`,
+      10,
+      `${route} must keep every server-rendered quote trigger`,
     );
     assert.equal(
       (rawHtml.match(/href="tel:\+61461247247"/g) ?? []).length,
-      12,
-      `${route} must keep every Call destination`,
+      11,
+      `${route} must keep every server-rendered Call destination`,
     );
 
     for (const faq of page.faqs) {

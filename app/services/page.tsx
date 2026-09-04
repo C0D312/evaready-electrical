@@ -1154,7 +1154,7 @@ export default function ServicesPage() {
               and surrounding regions.
             </p>
 
-            <div className="services-index-hero-cta-grid mt-6 grid gap-3 sm:grid-cols-2">
+            <div data-mobile-sticky-cta-guard className="services-index-hero-cta-grid mt-6 grid gap-3 sm:grid-cols-2">
               <a
                 href={business.phoneHref}
                 data-conversion-action="phone-click"

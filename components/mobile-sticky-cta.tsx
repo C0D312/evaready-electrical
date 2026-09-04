@@ -1,79 +1,65 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { ArrowRight, Phone } from "lucide-react";
 import { business } from "@/data/site";
 
 export function MobileStickyCta() {
-  const [footerVisible, setFooterVisible] = useState(false);
-  const [homeHeroVisible, setHomeHeroVisible] = useState(false);
+  const pathname = usePathname();
+
+  // A new route must be measured before its fixed controls can appear.
+  return <ObservedMobileStickyCta key={pathname} />;
+}
+
+function ObservedMobileStickyCta() {
+  const [visible, setVisible] = useState(false);
   const mobileCallLabel = `Call ${business.phoneDisplay}`;
 
   useEffect(() => {
-    const footer = document.querySelector("[data-site-footer]");
-
-    if (!footer || !("IntersectionObserver" in window)) {
+    if (typeof window.IntersectionObserver !== "function") {
       return;
     }
-
-    let frame = 0;
-    const updateFooterVisibility = () => {
-      window.cancelAnimationFrame(frame);
-      frame = window.requestAnimationFrame(() => {
-        const footerRect = footer.getBoundingClientRect();
-        setFooterVisible(
-          footerRect.top < window.innerHeight - 8 && footerRect.bottom > 0,
-        );
-      });
-    };
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setFooterVisible(entry.isIntersecting);
-      },
-      { rootMargin: "0px 0px -72px 0px", threshold: 0.01 },
+    const guards = document.querySelectorAll(
+      "[data-mobile-sticky-cta-guard], .home-brand-hero, [data-site-footer]",
     );
+    if (guards.length === 0) return;
 
-    observer.observe(footer);
-    updateFooterVisibility();
-    window.addEventListener("scroll", updateFooterVisibility, { passive: true });
-    window.addEventListener("resize", updateFooterVisibility);
-
+    const pending = new Set(guards);
+    const intersecting = new Set<Element>();
+    let active = true;
+    let observer: IntersectionObserver | undefined;
+    try {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (!active) return;
+          for (const entry of entries) {
+            pending.delete(entry.target);
+            if (entry.isIntersecting) intersecting.add(entry.target);
+            else intersecting.delete(entry.target);
+          }
+          setVisible(pending.size === 0 && intersecting.size === 0);
+        },
+        { threshold: 0 },
+      );
+      for (const guard of guards) observer.observe(guard);
+    } catch {
+      active = false;
+      observer?.disconnect();
+      return;
+    }
     return () => {
-      observer.disconnect();
-      window.cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", updateFooterVisibility);
-      window.removeEventListener("resize", updateFooterVisibility);
+      active = false;
+      observer?.disconnect();
     };
   }, []);
 
-  useEffect(() => {
-    const homeHero = document.querySelector(".home-brand-hero");
-
-    if (!homeHero || !("IntersectionObserver" in window)) {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setHomeHeroVisible(entry.isIntersecting);
-      },
-      { rootMargin: "0px 0px -18% 0px", threshold: 0.01 },
-    );
-
-    observer.observe(homeHero);
-
-    return () => observer.disconnect();
-  }, []);
+  if (!visible) return null;
 
   return (
     <div
       aria-label="Mobile contact actions"
-      className={`mobile-sticky-cta${
-        footerVisible ? " mobile-sticky-cta--footer-visible" : ""
-      }${
-        homeHeroVisible ? " mobile-sticky-cta--home-hero-visible" : ""
-      }`}
+      className="mobile-sticky-cta"
       role="navigation"
     >
       <a
