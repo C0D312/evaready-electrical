@@ -7,10 +7,19 @@ import {
   consolidationHeldRoutes,
   createWholeSiteCompletionRegister,
   phase3d1RewrittenRoutes,
+  phase3d2SelectedRoutes,
+  normalizeWholeSiteRegisterText,
   specialistHeldRoutes,
   validateWholeSiteCompletionRegister,
   type WholeSiteCompletionRegister,
 } from "../../scripts/whole-site-completion-register";
+
+test("generated register comparison is line-ending neutral", () => {
+  assert.equal(
+    normalizeWholeSiteRegisterText("{\r\n  \"routes\": []\r\n}\r\n"),
+    "{\n  \"routes\": []\n}\n",
+  );
+});
 
 const reportPath = path.resolve("reports", "whole-site-completion-register.json");
 
@@ -30,11 +39,11 @@ test("individual review, rewrite and publication states remain truthful", () => 
   const register = createWholeSiteCompletionRegister();
   const byRoute = new Map(register.records.map((record) => [record.route, record]));
 
-  assert.deepEqual(register.counts.individualReview, { pending: 995, reviewed: 6 });
-  assert.deepEqual(register.counts.rewrite, { held: 21, pending: 974, rewritten: 6 });
+  assert.deepEqual(register.counts.individualReview, { pending: 989, reviewed: 12 });
+  assert.deepEqual(register.counts.rewrite, { held: 21, pending: 968, rewritten: 12 });
   assert.deepEqual(register.counts.publication, {
-    "live-verified": 1001,
-    pending: 0,
+    "live-verified": 995,
+    pending: 6,
   });
 
   for (const route of phase3d1RewrittenRoutes) {
@@ -44,6 +53,17 @@ test("individual review, rewrite and publication states remain truthful", () => 
     assert.equal(record.rewrite, "rewritten");
     assert.equal(record.publication, "live-verified");
     assert.equal(record.publishedLiveVerifiedSha, WHOLE_SITE_BASELINE_LIVE_SHA);
+  }
+
+  for (const route of phase3d2SelectedRoutes) {
+    const record = byRoute.get(route);
+    assert.ok(record, `${route} must be registered`);
+    assert.equal(record.individualSemanticContentReview, "reviewed");
+    assert.equal(record.rewrite, "rewritten");
+    assert.equal(record.responsive, "reviewed");
+    assert.equal(record.safetyReview, "reviewed");
+    assert.equal(record.publication, "pending");
+    assert.equal(record.publishedLiveVerifiedSha, null);
   }
 
   for (const route of specialistHeldRoutes) {

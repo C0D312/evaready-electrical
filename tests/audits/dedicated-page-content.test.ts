@@ -24,6 +24,20 @@ const phase3d1Routes = [
   "safety-switch-rcd-installation-sydney",
 ] as const;
 
+const phase3d2Routes = [
+  "circuit-breaker-electrician-sydney",
+  "electrical-load-capacity-checks-sydney",
+  "electrical-safety-inspection-sydney",
+  "emergency-exit-lighting-sydney",
+  "ev-charger-installation-sydney",
+  "hot-water-system-electrician-sydney",
+] as const;
+
+const rewrittenServiceRoutes = new Set<string>([
+  ...phase3d1Routes,
+  ...phase3d2Routes,
+]);
+
 const phase3d1RequiredCopy: Record<(typeof phase3d1Routes)[number], string[]> = {
   "electrical-fault-finding-sydney": [
     "Do not keep resetting protection that trips again",
@@ -57,6 +71,39 @@ const phase3d1RequiredCopy: Record<(typeof phase3d1Routes)[number], string[]> = 
   ],
 };
 
+const phase3d2RequiredCopy: Record<(typeof phase3d2Routes)[number], string[]> = {
+  "circuit-breaker-electrician-sydney": [
+    "Circuit breakers and safety switches do different jobs",
+    "A circuit breaker primarily protects wiring against overcurrent",
+    "Do not keep resetting protection that trips again",
+  ],
+  "electrical-load-capacity-checks-sydney": [
+    "does not assume that every symptom means the property needs a larger supply",
+    "Separate network or supply process",
+    "Do not buy major equipment solely on an unverified capacity assumption",
+  ],
+  "electrical-safety-inspection-sydney": [
+    "does not automatically include destructive investigation",
+    "Age is context, not a diagnosis",
+    "Testing describes conditions at the time",
+  ],
+  "emergency-exit-lighting-sydney": [
+    "life-safety system",
+    "does not redesign an evacuation path",
+    "follow the site emergency plan",
+  ],
+  "ev-charger-installation-sydney": [
+    "Property and network approvals identified before installation",
+    "does not guarantee an app",
+    "Common-property access and parking arrangements",
+  ],
+  "hot-water-system-electrician-sydney": [
+    "electrical cause cannot be confirmed from the symptom alone",
+    "Separate appropriately licensed work identified before installation proceeds",
+    "does not guarantee tank, valve, plumbing, gas, refrigerant or future equipment performance",
+  ],
+};
+
 const untouchedServiceRecordHashes: Record<string, string> = {
   "residential-electrician-sydney": "0094bb9cf0731d174c1686b158ec67f7e33ac4d5722acbfb1fb302fea1c7add7",
   "commercial-electrician-sydney": "0c0fe05085144a18291d79383b51cac55f5b95d09b64607108946fde25c0d45d",
@@ -64,11 +111,9 @@ const untouchedServiceRecordHashes: Record<string, string> = {
   "property-management-electrician-sydney": "0ce0c605e3c5980bf231951984536b2eef9210586171164371a025c6cf131d20",
   "lighting-electrician-sydney": "175d9123e14daca69dccfea1ffacacdbb835d624b1da0ad68959ba278c4f9e76",
   "power-point-installation-sydney": "7a9942409b54cacd919739ae0f8ca2eb1d080370fc5a04596d919bdc446899dc",
-  "ev-charger-installation-sydney": "74685afcb482863f2993ff8b104020e35b4d0173d335ff864708bf73c08309bf",
   "consumer-mains-sydney": "710716b4417c27bf61ab9bf9e9e09d4b2851be1acea00aeed101c98872182535",
   "defect-notice-repairs-sydney": "3496dc6b4d117c155157533ed2d46a8c55fdfcb8a21d26025046ea723c69b42f",
   "private-power-pole-sydney": "067c9d7665d12267221a992521dbdf26e7b07bbb6a7ba0be512e842020626071",
-  "hot-water-system-electrician-sydney": "99d6f5ea76eb40b83aef243b5899d3430bc4b35b6d191a54fe05f06319eb9197",
   "split-system-air-conditioning-sydney": "c1a082675254f6d9a647412117d636db696584a8d85890f8b3459d31cce58db2",
   "cctv-security-camera-installation-sydney": "d058530711df5d2663660399049e02659f89dd2fc95f75c591c4877bde04de91",
   "data-cabling-electrician-sydney": "553b0fa8e91f40461420fb8561bfd31b3b7e12e5cbb4f04b65519a4bafd07d4f",
@@ -82,20 +127,16 @@ const untouchedServiceRecordHashes: Record<string, string> = {
   "tv-antenna-wall-cabling-sydney": "2cf3f1ca28e9921e523c44cbaeb55a23db9e7ccb42cd15a3c3072af803b79e1f",
   "intercom-access-control-electrician-sydney": "bc870b0f0e876b7b6d0336a416b4ae8c986eb30424fba50a66d5a7a9ba240877",
   "storm-damage-electrician-sydney": "defdae5a99b36798671b842a8504d6771ce09f3700aefd09a4e25a68ffcb44c4",
-  "electrical-load-capacity-checks-sydney": "17e72724a37c973424ff8d63e74af75c97965e4cbb23147fa2bec6450bdbe80e",
   "point-of-attachment-repairs-sydney": "efe779689be803a61fd5872ae9e158156ca04729d4374219241a5401d890e12a",
   "overhead-service-lines-sydney": "840313c7ff884a382837be097e84557e2b44597ec29020caa7f933dac2e21086",
   "underground-service-mains-sydney": "338e198d82dfbbcaa2ab37bd305fd5f16fbf7b0e8f699e25da92e8ff0319e998",
   "disconnect-reconnect-electrician-sydney": "018bd15bf703521651e75db167308d868f3d3e77d671343b532b3edd70b5cb0d",
   "pre-purchase-rental-electrical-inspections-sydney": "43ee6b876f4de0eecfc7d183eefe51ad50428f2e6687ad6373225a25fcebcc00",
-  "electrical-safety-inspection-sydney": "09be73c2e22f0c890a33688e9aa2e3ee32b936ce24569d16daaa5bde824c0d61",
   "testing-and-tagging-sydney": "ffd6ed0363c25b585da9e432467af79d206a206f36c2a704af7fc8facb00d631",
   "phone-line-electrician-sydney": "38045601e80fefe133d66b434a758977bc110622acdc2dc5a8c14da7d7f9c720",
   "intercom-installation-sydney": "92254bb8c3cf2586ab5fdac394a082a4f8f0756fb1252b7ec746d5a79c3c3209",
   "tv-points-antenna-electrician-sydney": "acf43394b7ad4ecaa16aeeeeb21e10366f23952dd7e165a49eab6cb307461461",
-  "emergency-exit-lighting-sydney": "a66a5b52e3c7a3c8a7e5ef41ffec62ca5d9b555f7a39feb7583508336abb2af6",
   "electric-shock-electrician-sydney": "8ddab3d39506bc079913ba4612b32aec1f25757379da65bcc2a86f25fb2e0518",
-  "circuit-breaker-electrician-sydney": "8a81647e1e99f4598b2e09310efae6795191b3fdb15b834259261364bd61efe4",
   "rcd-safety-switch-repairs-sydney": "7bf960877985ba6976b74971d36f8409d23104a995ed449e1398e6ce16c4565d",
   "smart-meter-electrician-sydney": "bf79d048f5235588545f02eee8bea1ced4451b6976b3d33e9a0ab881137bb757",
 };
@@ -301,11 +342,64 @@ test("phase 3D1 wording regressions stay corrected", () => {
   );
 });
 
-test("the other 40 service data records remain semantically identical to 270c0ba", () => {
-  assert.equal(Object.keys(untouchedServiceRecordHashes).length, 40);
+test("phase 3D2 records add distinct safety, inspection, process and limitation guidance", () => {
+  const selected = serviceLandingPages.filter((page) =>
+    phase3d2Routes.includes(page.slug as (typeof phase3d2Routes)[number]),
+  );
+
+  assert.equal(selected.length, phase3d2Routes.length);
+
+  for (const slug of phase3d2Routes) {
+    const page = selected.find((candidate) => candidate.slug === slug);
+    assert.ok(page, `${slug} must remain in the service registry`);
+    assert.ok(page.serviceGuide, `${slug} must include a dedicated service guide`);
+    assert.equal(page.serviceGuide.sections.length, 4, `${slug} needs four guide sections`);
+    assert.ok(page.faqs.length >= 5, `${slug} needs expanded, visible FAQs`);
+    assert.match(page.intro, /Triple Zero \(000\)/);
+    assert.match(page.intro, /our licensed electricians/i);
+    assert.equal(
+      page.responseTrustProof,
+      undefined,
+      `${slug} must not add unrelated response-time or specialist proof`,
+    );
+
+    const content = serviceContent(page);
+    for (const phrase of phase3d2RequiredCopy[slug]) {
+      assert.ok(content.includes(phrase), `${slug} must retain: ${phrase}`);
+    }
+
+    for (const forbidden of [
+      /licensed (?:and|&) insured/i,
+      /fully licensed/i,
+      /\b(?:Level 2|ASP|Ausgrid|Endeavour Energy|ARCtick|registered cabler)\b/i,
+      /\b(?:same[- ]day|24\/7|60[- ]minute|60(?:-|–| to )90[- ]minute)\b/i,
+      /\b(?:fixed|upfront) (?:price|pricing)\b/i,
+      /\bguaranteed (?:diagnosis|repair|response|arrival|outcome|protection|performance)\b/i,
+      /\b(?:warranty|free inspection|discount)\b/i,
+      /\b(?:subcontract|outsourc|referral|partner)\w*\b/i,
+    ]) {
+      assert.doesNotMatch(content, forbidden, `${slug} introduced ${forbidden}`);
+    }
+
+    assert.doesNotMatch(
+      content,
+      /\b(?:you can|try to|should|must)\s+(?:open|remove|repair|rewire|bypass|keep resetting)\b/i,
+      `${slug} must not instruct customers to perform unsafe electrical work`,
+    );
+  }
+
+  assert.equal(
+    new Set(selected.map((page) => page.serviceGuide?.heading)).size,
+    phase3d2Routes.length,
+    "each selected route needs a distinct service-guide purpose",
+  );
+});
+
+test("the other 34 service data records remain semantically identical to 270c0ba", () => {
+  assert.equal(Object.keys(untouchedServiceRecordHashes).length, 34);
 
   for (const page of serviceLandingPages) {
-    if (phase3d1Routes.includes(page.slug as (typeof phase3d1Routes)[number])) {
+    if (rewrittenServiceRoutes.has(page.slug)) {
       continue;
     }
 
@@ -425,6 +519,62 @@ test("phase 3D1 static pages preserve CTAs and visible FAQ schema parity", () =>
       (rawHtml.match(/href="tel:\+61461247247"/g) ?? []).length,
       11,
       `${route} must keep every server-rendered Call destination`,
+    );
+
+    for (const faq of page.faqs) {
+      assert.ok(text.includes(faq.question), `${route} must show FAQ question: ${faq.question}`);
+      assert.ok(text.includes(faq.answer), `${route} must show FAQ answer: ${faq.question}`);
+    }
+
+    const schemas = [...rawHtml.matchAll(
+      /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi,
+    )].map((match) => JSON.parse(match[1]) as Record<string, unknown>);
+    const faqSchema = schemas.find((schema) => schema["@type"] === "FAQPage");
+    assert.ok(faqSchema, `${route} must render FAQPage schema`);
+
+    const schemaQuestions = (
+      faqSchema.mainEntity as Array<{
+        acceptedAnswer: { text: string };
+        name: string;
+      }>
+    ).map((item) => ({
+      answer: item.acceptedAnswer.text,
+      question: item.name,
+    }));
+    assert.deepEqual(
+      schemaQuestions,
+      page.faqs.map((faq) => ({ answer: faq.answer, question: faq.question })),
+      `${route} visible FAQs and schema must agree`,
+    );
+  }
+});
+
+test("phase 3D2 static pages preserve conversion paths and visible FAQ schema parity", () => {
+  for (const slug of phase3d2Routes) {
+    const page = serviceLandingPages.find((candidate) => candidate.slug === slug);
+    assert.ok(page);
+
+    const route = `/services/${slug}`;
+    const rawHtml = readRoute(route);
+    const html = mainHtml(rawHtml);
+    const text = visibleText(html);
+
+    assert.doesNotMatch(rawHtml, /<(?:div|nav)\b[^>]*class="[^"]*\bmobile-sticky-cta\b/);
+    assert.ok(
+      (rawHtml.match(/data-conversion-action="phone-click"/g) ?? []).length >= 11,
+      `${route} must preserve all server-rendered Call paths`,
+    );
+    assert.ok(
+      (rawHtml.match(/data-quote-trigger="true"/g) ?? []).length >= 10,
+      `${route} must preserve all server-rendered Quote paths`,
+    );
+    assert.ok(
+      (rawHtml.match(/href="tel:\+61461247247"/g) ?? []).length >= 11,
+      `${route} must preserve all server-rendered Call destinations`,
+    );
+    assert.ok(
+      text.includes(page.serviceGuide?.heading ?? "missing guide"),
+      `${route} must render its dedicated guide`,
     );
 
     for (const faq of page.faqs) {

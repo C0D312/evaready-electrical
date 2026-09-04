@@ -14,17 +14,17 @@
       "suburb": 873
     },
     "individualReview": {
-      "pending": 995,
-      "reviewed": 6
+      "pending": 989,
+      "reviewed": 12
     },
     "publication": {
-      "live-verified": 1001,
-      "pending": 0
+      "live-verified": 995,
+      "pending": 6
     },
     "rewrite": {
       "held": 21,
-      "pending": 974,
-      "rewritten": 6
+      "pending": 968,
+      "rewritten": 12
     },
     "totalRoutes": 1001
   },
@@ -17220,19 +17220,19 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "automated-only",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Phase 3D2 rewritten content is not yet published or live-verified."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/circuit-breaker-electrician-sydney",
-      "safetyReview": "pending",
+      "safetyReview": "reviewed",
       "seoMetadataSchema": "automated-only",
       "sourceRecord": "data/service-pages.ts#circuit-breaker-electrician-sydney",
       "template": "service page"
@@ -17362,37 +17362,37 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "automated-only",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Phase 3D2 rewritten content is not yet published or live-verified."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/electrical-load-capacity-checks-sydney",
-      "safetyReview": "pending",
+      "safetyReview": "reviewed",
       "seoMetadataSchema": "automated-only",
       "sourceRecord": "data/service-pages.ts#electrical-load-capacity-checks-sydney",
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "automated-only",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Phase 3D2 rewritten content is not yet published or live-verified."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/electrical-safety-inspection-sydney",
-      "safetyReview": "pending",
+      "safetyReview": "reviewed",
       "seoMetadataSchema": "automated-only",
       "sourceRecord": "data/service-pages.ts#electrical-safety-inspection-sydney",
       "template": "service page"
@@ -17416,37 +17416,37 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "automated-only",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Phase 3D2 rewritten content is not yet published or live-verified."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/emergency-exit-lighting-sydney",
-      "safetyReview": "pending",
+      "safetyReview": "reviewed",
       "seoMetadataSchema": "automated-only",
       "sourceRecord": "data/service-pages.ts#emergency-exit-lighting-sydney",
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "automated-only",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Phase 3D2 rewritten content is not yet published or live-verified."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/ev-charger-installation-sydney",
-      "safetyReview": "pending",
+      "safetyReview": "reviewed",
       "seoMetadataSchema": "automated-only",
       "sourceRecord": "data/service-pages.ts#ev-charger-installation-sydney",
       "template": "service page"
@@ -17468,19 +17468,19 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "automated-only",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Phase 3D2 rewritten content is not yet published or live-verified."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/hot-water-system-electrician-sydney",
-      "safetyReview": "pending",
+      "safetyReview": "reviewed",
       "seoMetadataSchema": "automated-only",
       "sourceRecord": "data/service-pages.ts#hot-water-system-electrician-sydney",
       "template": "service page"

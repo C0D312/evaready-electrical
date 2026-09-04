@@ -29,6 +29,10 @@ export const phase3d2SelectedRoutes = [
   "/services/hot-water-system-electrician-sydney",
 ] as const;
 
+export function normalizeWholeSiteRegisterText(value: string) {
+  return value.replace(/\r\n/g, "\n");
+}
+
 export const specialistHeldRoutes = [
   "/level-2-electrician-sydney",
   "/solar-batteries",
@@ -97,6 +101,7 @@ export type WholeSiteCompletionRegister = {
 };
 
 const phase3d1Set = new Set<string>(phase3d1RewrittenRoutes);
+const phase3d2Set = new Set<string>(phase3d2SelectedRoutes);
 const specialistHeldSet = new Set<string>(specialistHeldRoutes);
 const consolidationHeldSet = new Set<string>(consolidationHeldRoutes);
 const serviceSlugs = new Set(serviceLandingPages.map((page) => page.slug));
@@ -199,11 +204,15 @@ function sourceRecordFor(item: RouteInventoryItem) {
 
 function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
   const rewritten = phase3d1Set.has(item.route);
+  const phase3d2Rewritten = phase3d2Set.has(item.route);
+  const individuallyReviewed = rewritten || phase3d2Rewritten;
   const specialistHeld = specialistHeldSet.has(item.route);
   const consolidationHeld = consolidationHeldSet.has(item.route);
 
   const outstandingHolds = rewritten
     ? []
+    : phase3d2Rewritten
+      ? ["Phase 3D2 rewritten content is not yet published or live-verified."]
     : specialistHeld
       ? ["Owner credential evidence is required before specialist-content changes."]
       : consolidationHeld
@@ -213,25 +222,27 @@ function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
         : ["Individual semantic and word-by-word review is pending."];
 
   return {
-    accessibility: rewritten ? "automated-only" : "pending",
+    accessibility: individuallyReviewed ? "automated-only" : "pending",
     category: categoryFor(item),
     claimOwnerEvidence: specialistHeld
       ? "held"
-      : rewritten
+      : individuallyReviewed
         ? "reviewed"
         : "automated-only",
-    individualSemanticContentReview: rewritten ? "reviewed" : "pending",
+    individualSemanticContentReview: individuallyReviewed ? "reviewed" : "pending",
     outstandingHolds,
-    publication: "live-verified",
-    publishedLiveVerifiedSha: WHOLE_SITE_BASELINE_LIVE_SHA,
-    responsive: rewritten ? "reviewed" : "pending",
-    rewrite: rewritten
+    publication: phase3d2Rewritten ? "pending" : "live-verified",
+    publishedLiveVerifiedSha: phase3d2Rewritten
+      ? null
+      : WHOLE_SITE_BASELINE_LIVE_SHA,
+    responsive: individuallyReviewed ? "reviewed" : "pending",
+    rewrite: individuallyReviewed
       ? "rewritten"
       : specialistHeld || consolidationHeld
         ? "held"
         : "pending",
     route: item.route,
-    safetyReview: rewritten ? "reviewed" : "pending",
+    safetyReview: individuallyReviewed ? "reviewed" : "pending",
     seoMetadataSchema: "automated-only",
     sourceRecord: sourceRecordFor(item),
     template: item.pageType,

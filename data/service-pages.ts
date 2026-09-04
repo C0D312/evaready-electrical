@@ -807,7 +807,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Home and business EV charger installation support with load checks, circuit planning and switchboard review.",
     intro:
-      "EV chargers add a serious new load to a property, so the electrical setup needs to be checked carefully. Evaready Electrical can assess switchboard capacity, circuit requirements and installation options before the charger is installed.",
+      "A fixed EV charger can add a substantial new load to a home, strata property or business. Our licensed electricians assess the charger, switchboard, existing demand, cable route and required protection before installation. For smoke, fire, serious electric shock or immediate danger, move clear and call Triple Zero (000) rather than waiting for an electrical booking.",
     heroBullets: [
       "Home EV charger installations",
       "Dedicated EV charger circuits",
@@ -815,52 +815,118 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Future-ready upgrade advice",
     ],
     warningSigns: [
-      "Your switchboard is old or already overloaded",
-      "You are relying on slow charging from a standard outlet",
-      "The charger location is far from the switchboard",
-      "You may need a circuit or supply upgrade",
+      "The switchboard is full, damaged or already shows signs of overloading",
+      "Existing circuits trip when several high-demand appliances operate",
+      "The parking position is remote from the switchboard or crosses common property",
+      "The proposed charger rating may exceed the property's available capacity",
     ],
     services: [
-      "EV charger circuit installation",
-      "Home charger setup",
-      "Switchboard capacity checks",
-      "Load and safety checks",
-      "Cable route planning",
-      "Upgrade advice for higher charging demand",
+      "Dedicated EV charger circuit planning and installation",
+      "Switchboard, protection and available-capacity assessment",
+      "Home, strata and commercial charging enquiries",
+      "Cable-route and mounting-location review",
+      "Load-management and staged-upgrade options where suitable",
+      "Testing, commissioning and electrical handover",
     ],
+    serviceGuide: {
+      heading: "Plan the charger around the vehicle, property and available supply.",
+      intro:
+        "The charger model is only one part of the job. The electrical installation must suit the property's existing demand, wiring, switchboard, parking layout and any approval conditions that apply.",
+      sections: [
+        {
+          title: "What our licensed electricians inspect",
+          copy:
+            "We review the proposed charger rating and manufacturer requirements alongside the switchboard, existing loads and accessible supply equipment. The inspection also considers the practical route from the switchboard to the parking position.",
+          items: [
+            "Charger model, electrical rating and vehicle compatibility information",
+            "Switchboard condition, circuit space and existing protection",
+            "Existing electrical demand and likely charging pattern",
+            "Cable route, mounting surface, weather exposure and vehicle position",
+          ],
+        },
+        {
+          title: "Capacity, approvals and possible enabling work",
+          copy:
+            "A dedicated circuit may be enough at one property, while another may need load management, switchboard work or a separate supply assessment. Strata approval, landlord approval or a distributor connection process may also be required before work proceeds.",
+          items: [
+            "Dedicated circuit and suitable electrical protection",
+            "Load control where simultaneous demand needs to be managed",
+            "Switchboard or supply work only where the assessment supports it",
+            "Property and network approvals identified before installation",
+          ],
+        },
+        {
+          title: "Installation, testing and handover",
+          copy:
+            "Once the scope and approvals are settled, the circuit and charger are installed, electrically tested and commissioned within the agreed scope. The handover explains isolation, normal indicators and who to contact if the unit reports a fault.",
+          items: [
+            "Neat cable support and charger mounting",
+            "Electrical testing before the charger is placed in service",
+            "Basic operating and isolation information at handover",
+            "Required electrical documentation for the completed wiring work",
+          ],
+        },
+        {
+          title: "Important limits before you choose a charging speed",
+          copy:
+            "Quoted charging speed depends on the vehicle, charger, available supply and load-management settings. Electrical installation does not guarantee an app, internet connection, electricity tariff or a particular real-world charging rate.",
+          items: [
+            "Vehicle and charger software support remains product-specific",
+            "Civil work, line marking and extensive surface repairs need separate scope",
+            "Common-property access and parking arrangements remain owner decisions",
+            "Unexpected concealed conditions are discussed before extra work proceeds",
+          ],
+        },
+      ],
+    },
     process: [
       {
-        title: "Review charger needs",
-        text: "The vehicle, charger type, parking location and charging expectations are discussed.",
+        title: "Confirm the charging brief",
+        text: "We review the vehicle, charger model, parking position, property type and expected charging pattern.",
       },
       {
-        title: "Check capacity",
-        text: "The switchboard and available electrical capacity are reviewed.",
+        title: "Inspect the electrical installation",
+        text: "The switchboard, accessible supply, existing demand and proposed cable route are assessed before the scope is confirmed.",
       },
       {
-        title: "Plan the route",
-        text: "Cable path, mounting location and installation access are confirmed.",
+        title: "Resolve scope and approvals",
+        text: "Circuit protection, load management, enabling work and any strata or network process are identified before installation.",
       },
       {
-        title: "Install and test",
-        text: "The charger circuit is installed and tested before use.",
+        title: "Install, test and explain",
+        text: "The approved electrical work is completed, tested and handed over with clear operating and fault guidance.",
       },
     ],
     faqs: [
       {
-        question: "Can any home install an EV charger?",
+        question: "Can every property support a fixed EV charger?",
         answer:
-          "Most homes can, but the switchboard and circuit capacity should be checked first.",
+          "Not automatically. Charger size, existing demand, switchboard condition, available supply, cable route and property approvals all affect what can be installed safely.",
       },
       {
         question: "Will I need a switchboard upgrade?",
         answer:
-          "Some properties do. The answer depends on your current switchboard, supply and charger requirements.",
+          "Only an assessment can confirm that. Some sites have suitable capacity and protection, while others need switchboard work, load management or a broader supply review.",
       },
       {
-        question: "Can businesses install EV chargers?",
+        question: "Can a charger be installed in a strata car space?",
         answer:
-          "Yes. Business installations need careful load planning and a suitable location.",
+          "It may be possible, but common-property routes, metering, building capacity and owners-corporation approval need to be resolved before installation.",
+      },
+      {
+        question: "Does an EV charger always need a network application?",
+        answer:
+          "No. The need depends on the charger and connection. A licensed electrical contractor can assess the proposed work and identify whether notification, approval or a supply change is required.",
+      },
+      {
+        question: "What details help with an EV charger quote?",
+        answer:
+          "Send the charger model and rating, vehicle model, photos of the switchboard and proposed parking location, the approximate cable route and any strata or landlord requirements.",
+      },
+      {
+        question: "What should I do if charging causes heat, smoke or repeated tripping?",
+        answer:
+          "Stop using the charger and do not keep resetting protection. Move clear and call Triple Zero (000) for fire, serious electric shock or immediate danger; otherwise call for an electrical fault assessment.",
       },
     ],
     relatedServices: [
@@ -1146,18 +1212,18 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Electrical support for electric hot water faults, hot water circuits, isolators, replacement wiring and heat pump electrical support.",
     intro:
-      "No hot water can turn into an urgent problem quickly. Evaready handles the electrical side of electric hot water systems, including the circuit, isolator, switchboard protection, wiring, thermostat/element electrical checks and heat-pump electrical supply where relevant. For plumbing work, water leaks, tank replacement, valves or gas hot water work, a licensed plumber or gas fitter may also be required. If the issue involves power, tripping, burning smell, heat, buzzing, sparking or unsafe electrical equipment, call first.",
+      "A loss of hot water can come from the electrical supply, circuit protection, isolator, controls, thermostat or heating element, but testing is needed before the cause is known. Our licensed electricians handle the electrical scope. Keep clear of water near electrical equipment, and call Triple Zero (000) for fire, serious electric shock or immediate danger.",
     heroBullets: [
       "No hot water electrical faults",
       "Hot water circuit and isolator checks",
       "Thermostat and element electrical support",
-      "Eligible hot water heat pump support",
+      "Heat-pump hot-water electrical supply support",
     ],
     warningSigns: [
       "The hot water system has stopped heating",
       "The hot water circuit trips the safety switch",
       "There is heat, smell or buzzing near the isolator",
-      "The system needs electrical work before replacement",
+      "Water has reached the isolator, wiring or switchboard area",
     ],
     callFirstBlock: {
       heading: "Call first if the hot water fault feels unsafe",
@@ -1170,18 +1236,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         "Power loss, electric shock risk or exposed wiring",
       ],
       safetyCopy:
-        "Do not keep resetting breakers or touching damaged fittings. Call first so the fault can be triaged safely.",
-    },
-    responseTrustProof: {
-      items: [
-        business.emergencyResponse.coreServiceType,
-        business.emergencyResponse.greaterServiceType,
-        business.level2Asp.display,
-        "Call first for urgent electrical faults",
-        "Send photos and job details for planned work",
-      ],
-      note:
-        "Level 2 support may be relevant where consumer mains, metering, defect notices, load capacity or supply-side electrical work affects the job.",
+        "Do not keep resetting protection, remove covers or touch wet or damaged fittings. Call first so the electrical risk can be assessed safely.",
     },
     quoteChecklist: {
       heading: "What to send for a hot water electrical quote",
@@ -1193,8 +1248,8 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         "Model label or unit details if visible",
         "Whether the system is electric storage, heat pump or part of a replacement",
         "Whether there is no hot water, tripping, burning smell, buzzing, heat or water exposure",
-        "Suburb, address, access notes and parking details",
-        "Any strata, property-manager or landlord details if relevant",
+        "Suburb and property type",
+        "Any strata, property-manager or landlord approval requirements",
         "Any deadline or replacement booking date",
       ],
       urgentNote:
@@ -1206,8 +1261,59 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Safety switch tripping on hot water circuits",
       "Thermostat and element electrical testing",
       "Replacement electric hot water wiring support",
-      "Hot water heat pump electrical support",
+      "Heat-pump hot-water circuit and isolator support",
     ],
+    serviceGuide: {
+      heading: "Separate the electrical fault from plumbing and equipment faults.",
+      intro:
+        "The symptom may be no hot water, repeated tripping or a failed replacement connection, but the electrical cause cannot be confirmed from the symptom alone. The agreed scope starts with safe testing and a clear boundary between electrical work and other trades.",
+      sections: [
+        {
+          title: "What our licensed electricians inspect",
+          copy:
+            "We inspect the accessible electrical supply to the unit and test the parts of the circuit relevant to the reported fault. The exact checks depend on whether the system is electric storage, instantaneous electric or heat-pump hot water.",
+          items: [
+            "Switchboard protection and hot-water circuit behaviour",
+            "Accessible wiring, terminations and local isolation",
+            "Electrical operation of thermostats and elements where applicable",
+            "Signs of heat, damage or moisture affecting electrical equipment",
+          ],
+        },
+        {
+          title: "Possible causes and repair pathways",
+          copy:
+            "Possible electrical causes include a failed element or thermostat, damaged wiring, a faulty isolator, moisture ingress, circuit-protection operation or a supply-control issue. Testing may instead show that the fault sits within plumbing, gas or refrigeration scope.",
+          items: [
+            "Repair or replacement of damaged electrical components where suitable",
+            "Circuit, isolator or protection work supported by test results",
+            "Electrical connection for a replacement unit within the agreed scope",
+            "Non-electrical equipment or trade work identified as a separate scope when required",
+          ],
+        },
+        {
+          title: "Replacement and heat-pump considerations",
+          copy:
+            "A replacement unit must suit the available circuit, isolation and switchboard protection. Heat-pump systems can also involve plumbing and, for some designs or service work, refrigeration requirements that are outside an ordinary electrical-only scope.",
+          items: [
+            "Unit electrical rating and manufacturer connection requirements",
+            "Circuit capacity and suitable electrical protection",
+            "Local isolation and weather-exposed wiring condition",
+            "Separate appropriately licensed work identified before installation proceeds",
+          ],
+        },
+        {
+          title: "Limits, testing and handover",
+          copy:
+            "Electrical testing is a snapshot of accessible equipment and the agreed fault scope. It does not guarantee tank, valve, plumbing, gas, refrigerant or future equipment performance, and concealed defects may require further investigation.",
+          items: [
+            "Completed electrical work is tested before handover",
+            "Any unresolved or non-electrical fault is explained clearly",
+            "Required electrical documentation is provided for completed wiring work",
+            "Making-good or replacement-unit supply is included only when quoted",
+          ],
+        },
+      ],
+    },
     process: [
       {
         title: "Confirm the fault",
@@ -1215,7 +1321,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Test the supply",
-        text: "The hot water circuit, isolator and switchboard protection are checked safely.",
+        text: "The hot-water circuit, isolator, accessible wiring and switchboard protection are checked safely.",
       },
       {
         title: "Find the electrical cause",
@@ -1230,17 +1336,17 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Can an electrician help when there is no hot water?",
         answer:
-          "Yes. If the issue is electrical, Evaready can check the circuit, isolator, switchboard protection, thermostat, element, wiring and safety switch behaviour.",
+          "Yes. Our licensed electricians can test the electrical supply, circuit, isolator, protection and relevant controls or heating components to determine whether the fault is electrical.",
       },
       {
         question: "Do I need an electrician or a plumber for hot water?",
         answer:
-          "An electrician handles the electrical side, including power supply, circuits, isolators, wiring, safety switches, thermostats and elements. Plumbing, water leaks, tank replacement, valves and gas hot water may require a licensed plumber or gas fitter.",
+          "An electrician handles electrical supply, circuits, isolators, wiring, protection and electrical controls. Plumbing, water leaks, valves, gas work and some heat-pump or refrigeration tasks require a separately appropriate licence.",
       },
       {
         question: "Why does my hot water trip the safety switch?",
         answer:
-          "A hot water system can trip due to a faulty element, wiring issue, water ingress or circuit fault. It should be tested before being reset repeatedly.",
+          "Possible causes include a failed element, insulation breakdown, damaged wiring, moisture ingress or another circuit fault. Do not keep resetting protection; the circuit should be tested.",
       },
       {
         question: "What photos help with a hot water quote?",
@@ -1250,12 +1356,12 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Can you help with hot water heat pumps?",
         answer:
-          "Yes. Evaready Electrical can assist with the electrical side of hot water heat pump installs, including supply, isolator, circuit and switchboard requirements.",
+          "We can assist with the electrical circuit, isolation and switchboard-protection scope. Plumbing and any refrigerant work are separate and must be completed under the appropriate licence.",
       },
       {
         question: "Can Evaready wire a replacement electric hot water system?",
         answer:
-          "Yes, where electrical work is required. Evaready can help with replacement electric hot water wiring, isolator requirements, circuit checks and switchboard protection for the electrical side of the job.",
+          "Yes, where the agreed job includes electrical connection work. The existing circuit, isolation, protection and replacement-unit requirements are checked before connection.",
       },
       {
         question: "Is a burning smell or hot isolator urgent?",
@@ -1265,7 +1371,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Can a hot water upgrade require switchboard or load capacity checks?",
         answer:
-          "Yes. Some electric storage, heat pump or replacement hot water jobs need switchboard capacity, circuit protection, load capacity or supply-side checks before the electrical work is planned.",
+          "Yes. A replacement with different electrical demand may need a capacity assessment, circuit changes or switchboard work before installation can proceed.",
       },
     ],
     relatedServices: [
@@ -2822,7 +2928,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Electrical capacity checks for upgrades, 3 phase enquiries, EV charging, workshops and commercial equipment.",
     intro:
-      "Before adding major loads, it is worth checking whether the existing electrical system is suitable. Evaready Electrical can assess load and capacity questions for EV chargers, workshops, commercial equipment, renovations, 3 phase enquiries and switchboard upgrades.",
+      "Before adding an EV charger, air conditioner, heat pump, workshop equipment or another substantial load, the existing installation needs a capacity assessment. Our licensed electricians review the proposed equipment, current demand, switchboard and accessible supply information. For smoke, fire, serious electric shock or immediate danger, move clear and call Triple Zero (000).",
     credentialHighlights: [
       "Load and supply review",
       "EV, aircon and equipment planning",
@@ -2836,9 +2942,9 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     ],
     warningSigns: [
       "New equipment may need more power than the property has available",
-      "An EV charger is being planned",
-      "A workshop or business needs dedicated circuits",
-      "The switchboard is full or outdated",
+      "Protection trips when several high-demand appliances operate together",
+      "A workshop or business is adding dedicated equipment circuits",
+      "The switchboard is full, damaged, outdated or shows signs of heat",
     ],
     services: [
       "Electrical load checks",
@@ -2850,34 +2956,85 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Consumer mains and supply capacity review",
       "Switchboard upgrade recommendations",
     ],
+    serviceGuide: {
+      heading: "Measure the proposed load against the installation that must supply it.",
+      intro:
+        "A capacity check is not a guess based on switchboard size. It combines equipment information, the way the property is used, accessible installation details and the connection limits that apply to the site.",
+      sections: [
+        {
+          title: "What our licensed electricians inspect",
+          copy:
+            "We start with the equipment to be added and the property's existing electrical demand. The inspection then considers the switchboard, circuit protection, available ways and accessible information about the incoming supply.",
+          items: [
+            "Equipment ratings, operating pattern and simultaneous loads",
+            "Switchboard condition, protection and available circuit space",
+            "Existing high-demand appliances and dedicated circuits",
+            "Accessible supply, metering and consumer-mains information",
+          ],
+        },
+        {
+          title: "Why capacity problems can appear",
+          copy:
+            "Repeated tripping or voltage symptoms can have several causes, including an overloaded circuit, a faulty appliance, poor connections or a broader supply issue. A load assessment does not assume that every symptom means the property needs a larger supply.",
+          items: [
+            "New equipment exceeds the capacity of an existing circuit",
+            "Several loads operate at the same time",
+            "The switchboard lacks suitable space or protection",
+            "A fault or damaged connection is mistaken for a capacity problem",
+          ],
+        },
+        {
+          title: "Possible next steps after assessment",
+          copy:
+            "The result may support a dedicated circuit, load management, staged equipment operation, switchboard work or a separate connection review. Any distributor approval or supply-side work is identified before installation is committed.",
+          items: [
+            "Dedicated circuits sized for the proposed equipment",
+            "Load control where equipment can operate at different times",
+            "Switchboard changes supported by the assessment",
+            "Separate network or supply process where the existing connection is insufficient",
+          ],
+        },
+        {
+          title: "Assessment limits and useful information",
+          copy:
+            "The assessment is based on the equipment details, access and installation information available at the time. Concealed wiring, changing usage, incomplete equipment data or distributor requirements can alter the final scope.",
+          items: [
+            "Provide model numbers and electrical ratings where available",
+            "Explain which appliances may run at the same time",
+            "Include clear switchboard and meter-area photos for initial review",
+            "Do not buy major equipment solely on an unverified capacity assumption",
+          ],
+        },
+      ],
+    },
     process: [
       {
-        title: "Review the load",
-        text: "Equipment ratings, charger details, appliances and intended usage are checked.",
+        title: "Define the proposed load",
+        text: "Equipment ratings, charger details, operating patterns and other simultaneous loads are documented.",
       },
       {
-        title: "Assess the switchboard",
-        text: "The switchboard, circuit space, protection and existing loads are reviewed.",
+        title: "Inspect and assess",
+        text: "The switchboard, existing protection, accessible supply information and current installation are reviewed.",
       },
       {
-        title: "Consider supply needs",
-        text: "Where needed, Level 2 or 3 phase pathways can be discussed.",
+        title: "Compare demand and capacity",
+        text: "The proposed use is assessed against the installation so constraints, faults and viable options can be separated.",
       },
       {
-        title: "Recommend next actions",
-        text: "You get practical advice on circuits, upgrades or staged work before committing.",
+        title: "Document the next scope",
+        text: "The next action may be a dedicated circuit, load management, switchboard work or a separate supply process.",
       },
     ],
     faqs: [
       {
         question: "Do I need a load check before an EV charger?",
         answer:
-          "A load check is strongly recommended so the charger, switchboard and existing electrical demand can be considered together.",
+          "It is a sensible first step because charger rating, existing demand, switchboard condition and available supply need to be considered together.",
       },
       {
-        question: "Can capacity checks lead to Level 2 work?",
+        question: "Does a capacity check always mean a supply upgrade?",
         answer:
-          "Sometimes. Larger upgrades, 3 phase supply or consumer mains changes may involve Level 2 requirements.",
+          "No. The assessment may support the existing supply, load management, a dedicated circuit or staged operation. A connection change is considered only when the measured scope requires it.",
       },
       {
         question: "What should I send for a load check quote?",
@@ -2887,12 +3044,22 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Can air conditioning or heat pumps need capacity checks?",
         answer:
-          "Yes. Split systems, heat pumps and larger appliances can require dedicated circuits, safety protection and switchboard capacity checks.",
+          "Yes. Their ratings, operating pattern, dedicated-circuit needs and interaction with other large loads should be considered before installation.",
       },
       {
         question: "Should urgent overload or burning smells be quoted online?",
         answer:
-          "No. If there is heat, burning smell, sparking, no power or repeated tripping, call first so the fault can be treated as urgent.",
+          "No. Stop using affected equipment and call first for heat, burning smells, sparking or repeated tripping. Call Triple Zero (000) for fire, serious electric shock or immediate danger.",
+      },
+      {
+        question: "Can a load assessment diagnose repeated tripping?",
+        answer:
+          "It can help separate excessive demand from a circuit or equipment fault, but electrical testing is needed because tripping does not prove overload by itself.",
+      },
+      {
+        question: "What can change the result after the assessment?",
+        answer:
+          "Different equipment, changed operating patterns, concealed conditions, incomplete site information or network requirements can change the final installation scope.",
       },
     ],
     relatedServices: [
@@ -3447,7 +3614,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Electrical safety checks for homes, rentals, strata, commercial sites and properties with wiring or switchboard concerns.",
     intro:
-      "Electrical safety inspections help identify visible risks before they become larger problems. Evaready Electrical can check switchboards, safety switches, power points, lighting, wiring condition and fault symptoms so the next action is clear.",
+      "An electrical safety inspection reviews the accessible installation and tests the items agreed for the property; it is not a guarantee that every concealed defect will be found. Our licensed electricians assess switchboards, protection, wiring and fittings relevant to the scope. For fire, serious electric shock or immediate danger, move clear and call Triple Zero (000).",
     heroBullets: [
       "Switchboard and safety checks",
       "Wiring and outlet review",
@@ -3458,7 +3625,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Safety switches keep tripping",
       "Power points are hot, cracked or buzzing",
       "Lights flicker or dim unexpectedly",
-      "A property has older wiring or an outdated switchboard",
+      "There is damaged wiring, moisture exposure or a burning smell",
     ],
     services: [
       "Switchboard safety inspection",
@@ -3466,12 +3633,63 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Power point and lighting review",
       "Visible wiring condition checks",
       "Rental, strata and property manager support",
-      "Written notes or photos where required",
+      "Clear findings and repair priorities within the agreed scope",
     ],
+    serviceGuide: {
+      heading: "Set an inspection scope that matches the property and concern.",
+      intro:
+        "A useful inspection starts with why the check is needed: a fault symptom, older installation, property handover, planned renovation or routine safety review. That purpose determines what is inspected, tested and reported.",
+      sections: [
+        {
+          title: "What our licensed electricians inspect",
+          copy:
+            "The agreed inspection can cover the main switchboard, protective devices, accessible wiring, outlets, switches, lighting and relevant fixed equipment. Testing is selected for the circuits and symptoms within scope.",
+          items: [
+            "Switchboard condition, labelling and accessible terminations",
+            "Circuit breakers, safety switches and other installed protection",
+            "Accessible power points, switches, lighting and fixed wiring",
+            "Reported heat, tripping, flicker, damage or moisture symptoms",
+          ],
+        },
+        {
+          title: "Findings that may require action",
+          copy:
+            "An inspection may identify damaged accessories, unsuitable protection, deteriorated accessible wiring, poor connections or a fault that needs further isolation. Older equipment alone does not prove that a complete rewire or switchboard replacement is required.",
+          items: [
+            "Immediate electrical hazards that need isolation or make-safe work",
+            "Repairs supported by inspection or test results",
+            "Further fault finding where the source is not yet isolated",
+            "Planned improvements separated from urgent safety work",
+          ],
+        },
+        {
+          title: "Inspection process and communication",
+          copy:
+            "We confirm access and the inspection scope, complete the agreed visual checks and electrical tests, then explain the findings in practical terms. Repair work outside the inspection is quoted before it proceeds unless urgent make-safe work is authorised.",
+          items: [
+            "Property history and reported symptoms reviewed first",
+            "Accessible equipment inspected without unsafe customer intervention",
+            "Relevant circuits and protective devices tested",
+            "Urgent, further-investigation and planned items distinguished",
+          ],
+        },
+        {
+          title: "What a safety inspection does not cover automatically",
+          copy:
+            "The inspection is limited by access, the agreed scope and conditions on the day. It does not automatically include destructive investigation, every concealed cable, specialist building advice, appliance certification or a guarantee against future faults.",
+          items: [
+            "Inaccessible or concealed conditions may need a separate investigation",
+            "Building, fire, gas and legal advice remain separate scopes",
+            "Testing describes conditions at the time it is performed",
+            "Any requested report format should be agreed before the visit",
+          ],
+        },
+      ],
+    },
     process: [
       {
         title: "Confirm the concern",
-        text: "Share the property type, suburb, photos and the reason for the safety check.",
+        text: "Share the property type, relevant history, symptoms and reason for the safety check so the scope is clear.",
       },
       {
         title: "Inspect and test",
@@ -3479,7 +3697,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Explain findings",
-        text: "The results are explained in practical terms, including urgent and planned next actions.",
+        text: "The results are explained in practical terms, separating urgent risks, further investigation and planned work.",
       },
       {
         title: "Quote repair work",
@@ -3490,17 +3708,32 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "What does an electrical safety inspection include?",
         answer:
-          "It can include switchboards, safety switches, visible wiring condition, power points, lighting and fault symptoms relevant to the property.",
+          "The agreed scope can include switchboards, protective devices, accessible wiring, power points, lighting, fixed equipment and tests relevant to reported symptoms.",
       },
       {
         question: "Should I call if something feels unsafe?",
         answer:
-          "Yes. If there is heat, smoke, sparking, burning smell or shock risk, call first rather than waiting for a form response.",
+          "Yes. Stop using affected equipment and call first for heat, smoke, sparking, burning smells or shock risk. Call Triple Zero (000) for fire, serious electric shock or immediate danger.",
       },
       {
         question: "Can safety inspections help before buying or renting?",
         answer:
-          "They can help identify electrical items that may need attention, but they do not replace specialist building or legal advice.",
+          "They can identify accessible electrical conditions within an agreed scope, but they do not replace a building inspection, legal advice or investigation of inaccessible parts.",
+      },
+      {
+        question: "Will an inspection find every hidden electrical defect?",
+        answer:
+          "No. Concealed wiring and inaccessible equipment cannot always be assessed without further investigation, and testing only describes conditions at the time of the inspection.",
+      },
+      {
+        question: "Does older wiring automatically mean a full rewire?",
+        answer:
+          "No. Age is context, not a diagnosis. Condition, test results, alterations, protection and the intended use of the installation must be assessed before work is recommended.",
+      },
+      {
+        question: "Can repairs be completed during the inspection?",
+        answer:
+          "Urgent make-safe work or minor agreed repairs may be possible, but broader repairs and upgrades are scoped and authorised separately before they proceed.",
       },
     ],
     relatedServices: [
@@ -3808,7 +4041,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Emergency and exit lighting electrical support for shops, offices, strata, warehouses and commercial sites.",
     intro:
-      "Emergency and exit lighting helps people find a safe path when normal lighting fails. Evaready Electrical can assist with emergency and exit lighting checks, replacements, wiring support and commercial safety lighting enquiries.",
+      "Emergency lighting supports visibility when normal lighting fails, while exit signs help people identify exits and paths of travel. Our licensed electricians inspect and test the electrical installation within the agreed building scope. During a fire or evacuation, follow the site emergency plan, move to safety and call Triple Zero (000); do not wait for a service booking.",
     heroBullets: [
       "Emergency lighting checks",
       "Exit light replacement",
@@ -3817,26 +4050,77 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     ],
     warningSigns: [
       "Exit lights are flickering, damaged or not illuminated",
-      "Emergency lighting has failed a check",
-      "A shop, office or strata area needs safety lighting reviewed",
+      "A fitting does not operate during an emergency-lighting test",
+      "Indicators, batteries, diffusers or housings are damaged",
       "Renovation work has changed paths of travel or exits",
     ],
     services: [
       "Emergency lighting electrical support",
-      "Exit light replacement",
-      "Battery and fitting checks",
+      "Exit sign and emergency fitting replacement where suitable",
+      "Battery, indicator and fitting checks",
       "Commercial and strata lighting reviews",
-      "Testing and tagging coordination where relevant",
-      "Repair quotes for failed fixtures or circuits",
+      "Functional testing and maintenance-record support",
+      "Circuit fault finding and repair options",
     ],
+    serviceGuide: {
+      heading: "Keep evacuation lighting visible, testable and matched to the building.",
+      intro:
+        "Emergency and exit lighting is a life-safety system, not ordinary decorative lighting. Building class, layout, paths of travel, fire-safety schedules and previous records can affect the required scope.",
+      sections: [
+        {
+          title: "What our licensed electricians inspect",
+          copy:
+            "We inspect the accessible emergency and exit fittings included in the agreed scope, their normal supply, indicators, batteries, mounting and visible condition. Functional or discharge testing is planned around site operations and applicable maintenance requirements.",
+          items: [
+            "Exit sign visibility, illumination and physical condition",
+            "Emergency fitting operation when normal supply is interrupted",
+            "Battery, charge indicator and fitting condition",
+            "Relevant circuits, local damage and available maintenance records",
+          ],
+        },
+        {
+          title: "Common faults and possible causes",
+          copy:
+            "A dark, flickering or failed fitting may involve a battery, light source, control gear, normal supply, circuit fault or physical damage. One failed item does not establish the condition of the complete system.",
+          items: [
+            "Battery no longer supports the required test operation",
+            "Damaged fitting, diffuser, indicator or internal component",
+            "Loss of normal supply or a circuit fault",
+            "Building changes that leave signs or lighting poorly positioned",
+          ],
+        },
+        {
+          title: "Repair, replacement and test process",
+          copy:
+            "After the site scope and access are confirmed, fittings and circuits are tested, failed items are identified and electrical repair or replacement options are documented. Work is retested and the result is recorded within the agreed maintenance scope.",
+          items: [
+            "Plan testing to manage access and operational disruption",
+            "Identify failed fittings separately from circuit faults",
+            "Use suitable replacement equipment for the approved scope",
+            "Record completed work and outstanding actions clearly",
+          ],
+        },
+        {
+          title: "Building and compliance limits",
+          copy:
+            "An electrical service visit does not redesign an evacuation path, certify every fire-safety measure or replace advice from the building's fire-safety, design or certifying professionals. Required locations and test obligations depend on the building and applicable documents.",
+          items: [
+            "Provide fire-safety schedules and prior records where available",
+            "Keep exits and paths of travel unobstructed",
+            "Agree whether the work covers selected fittings or the complete system",
+            "Treat design changes and certification as separate scopes",
+          ],
+        },
+      ],
+    },
     process: [
       {
         title: "Confirm site requirements",
-        text: "Share the site type, location, number of fixtures and any inspection notes.",
+        text: "Share the building use, areas in scope, fitting count and any fire-safety schedule, test record or defect note available.",
       },
       {
         title: "Check fixtures and circuits",
-        text: "Emergency and exit lighting fixtures, power and visible wiring are checked.",
+        text: "The included fittings, normal supply, batteries, indicators and relevant circuits are inspected and tested.",
       },
       {
         title: "Repair or replace",
@@ -3844,24 +4128,39 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Record next actions",
-        text: "Any follow-up notes, failed fixtures or planned upgrades are explained clearly.",
+        text: "Completed work, test results, failed items and any separate design or compliance actions are recorded clearly.",
       },
     ],
     faqs: [
       {
         question: "Do commercial sites need emergency and exit lighting?",
         answer:
-          "Many commercial and common areas have emergency and exit lighting requirements. Evaready can help review the electrical side and next actions.",
+          "Many buildings and common areas do, but the exact requirement depends on building class, layout, paths of travel and applicable fire-safety documents. The electrical scope should be matched to those requirements.",
       },
       {
         question: "Can you replace failed exit lights?",
         answer:
-          "Yes. Failed or damaged exit lights can be checked and replacement work can be quoted where suitable.",
+          "Yes. The fitting and supply should be checked first so a suitable replacement and any related circuit repair can be scoped.",
       },
       {
         question: "What should I send for an emergency lighting quote?",
         answer:
-          "Send the suburb, site type, number of fixtures, photos of failed lights and any inspection or maintenance notes.",
+          "Send the suburb, building use, areas in scope, approximate fitting count, clear photos and any fire-safety schedule, defect note or maintenance record available.",
+      },
+      {
+        question: "Why can an emergency light fail a test?",
+        answer:
+          "Possible causes include a failed battery, damaged fitting, control-gear fault, loss of normal supply or a circuit problem. Testing is needed before the cause is confirmed.",
+      },
+      {
+        question: "Does replacing one failed fitting certify the whole system?",
+        answer:
+          "No. The result applies to the equipment and testing within the agreed scope. Other fittings, evacuation design and fire-safety measures remain separate unless expressly included.",
+      },
+      {
+        question: "What should occupants do during an actual emergency?",
+        answer:
+          "Follow the site's emergency procedures, leave by the safe directed route and call Triple Zero (000) for fire or immediate danger. Do not delay evacuation to report a lighting fault.",
       },
     ],
     relatedServices: [
@@ -4093,7 +4392,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Circuit breaker fault checks, replacement support and switchboard protection reviews for homes and businesses.",
     intro:
-      "A circuit breaker that keeps tripping is usually protecting against a fault, overload or unsafe condition. Evaready Electrical can test the circuit, check the switchboard and explain whether repair, replacement or an upgrade is needed.",
+      "A circuit breaker that trips is responding to overcurrent or a fault condition, but repeated tripping does not reveal the cause by itself. Do not keep resetting it. Our licensed electricians test the affected circuit, connected loads and switchboard protection. For fire, serious electric shock or immediate danger, move clear and call Triple Zero (000).",
     heroBullets: [
       "Circuit breaker tripping",
       "Overloaded circuit checks",
@@ -4103,8 +4402,8 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     warningSigns: [
       "A circuit breaker trips repeatedly",
       "A breaker feels hot, loose or damaged",
-      "Lights or outlets fail on one circuit",
-      "New equipment overloads the existing circuit",
+      "There is a burning smell, buzzing or discolouration at the switchboard",
+      "One circuit fails when particular equipment is used",
     ],
     services: [
       "Circuit breaker fault finding",
@@ -4114,18 +4413,69 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "RCBO upgrade advice",
       "Circuit labelling and testing",
     ],
+    serviceGuide: {
+      heading: "Treat repeated breaker operation as a symptom, not a diagnosis.",
+      intro:
+        "A breaker may operate because of excessive load, a short circuit, damaged wiring, faulty equipment or a problem within the protective device. Safe testing is needed before repair or replacement is chosen.",
+      sections: [
+        {
+          title: "What our licensed electricians inspect",
+          copy:
+            "We identify the affected circuit and review the breaker, switchboard condition, connected equipment and accessible wiring relevant to the fault. Test results guide whether the issue is load-related, equipment-related or within the fixed wiring.",
+          items: [
+            "Breaker condition, rating, connections and circuit identification",
+            "Connected loads and when the tripping occurs",
+            "Accessible circuit wiring and signs of heat or moisture",
+            "Related safety-switch or RCBO operation where installed",
+          ],
+        },
+        {
+          title: "Circuit breakers and safety switches do different jobs",
+          copy:
+            "A circuit breaker primarily protects wiring against overcurrent. A safety switch responds to certain leakage-to-earth conditions to reduce electric-shock risk. Some RCBO devices combine both functions, so the device and trip behaviour must be identified correctly.",
+          items: [
+            "A breaker trip does not prove the breaker itself is faulty",
+            "A safety switch is not simply another name for every circuit breaker",
+            "Replacement protection must suit the circuit and switchboard",
+            "No protective device makes damaged wiring safe to ignore",
+          ],
+        },
+        {
+          title: "Possible repairs after testing",
+          copy:
+            "The right action may be repairing a circuit fault, removing a damaged item from service, redistributing or reducing load, replacing a defective breaker, or planning broader switchboard work. Replacement is not automatic.",
+          items: [
+            "Repair damaged wiring or connections within the agreed scope",
+            "Address equipment faults separately from fixed-wiring faults",
+            "Replace a protective device only when suitable and supported by testing",
+            "Plan a dedicated circuit or switchboard change where demand requires it",
+          ],
+        },
+        {
+          title: "Safe next steps and service limits",
+          copy:
+            "Leave a hot, damaged, wet or repeatedly tripping circuit off and keep the switchboard closed. Fault finding covers the accessible installation and agreed circuit; intermittent or concealed faults may need monitoring or further investigation.",
+          items: [
+            "Do not remove the switchboard cover or replace a breaker yourself",
+            "Record what was operating when the trip occurred if it is safe to do so",
+            "Do not keep resetting protection that trips again",
+            "Any wider switchboard or supply work is scoped separately",
+          ],
+        },
+      ],
+    },
     process: [
       {
         title: "Do not keep resetting",
-        text: "Repeated resets can hide a fault. Stop using the affected circuit if it keeps tripping.",
+        text: "Leave the affected circuit off if it trips again, and keep clear of heat, damage, moisture or exposed parts.",
       },
       {
         title: "Test the circuit",
-        text: "The circuit, breaker, connected loads and wiring are tested to identify the likely cause.",
+        text: "The protective device, connected loads and accessible wiring are tested to narrow down the cause.",
       },
       {
         title: "Repair or upgrade",
-        text: "Approved repair, replacement or protection upgrade work is completed.",
+        text: "The agreed fault repair, device replacement, load change or switchboard work is completed where required.",
       },
       {
         title: "Confirm safe operation",
@@ -4136,17 +4486,32 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Why does a circuit breaker keep tripping?",
         answer:
-          "Common causes include overload, damaged wiring, faulty equipment, moisture or a failing breaker.",
+          "Possible causes include excessive load, a short circuit, damaged wiring, faulty equipment, moisture or a defective breaker. Tripping alone cannot confirm which cause applies.",
       },
       {
         question: "Should I replace a breaker myself?",
         answer:
-          "No. Circuit breaker work belongs in the switchboard and should be checked by a licensed electrician.",
+          "No. Do not remove a switchboard cover or replace protective devices. This is electrical work for a licensed electrician.",
       },
       {
         question: "Can circuit breaker issues mean a switchboard upgrade is needed?",
         answer:
-          "Sometimes. Older switchboards, overloaded circuits or missing protection may need upgrade planning.",
+          "Sometimes, but not automatically. The existing board, protection, circuit condition and proposed demand should be assessed before an upgrade is recommended.",
+      },
+      {
+        question: "Is a circuit breaker the same as a safety switch?",
+        answer:
+          "No. A circuit breaker primarily protects wiring from overcurrent, while a safety switch responds to certain leakage-to-earth conditions. An RCBO can combine both functions.",
+      },
+      {
+        question: "What should I do if a breaker is hot or smells burnt?",
+        answer:
+          "Do not touch or reset it. Keep the switchboard closed, move clear and call for urgent electrical help. Call Triple Zero (000) for fire, serious electric shock or immediate danger.",
+      },
+      {
+        question: "Can intermittent breaker trips be tested?",
+        answer:
+          "Yes, although a fault that is not present during the visit may need operating history, staged testing or monitoring before the cause can be confirmed.",
       },
     ],
     relatedServices: [

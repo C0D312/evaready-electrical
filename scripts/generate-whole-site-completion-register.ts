@@ -2,6 +2,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import {
   createWholeSiteCompletionRegister,
+  normalizeWholeSiteRegisterText,
   validateWholeSiteCompletionRegister,
 } from "./whole-site-completion-register";
 
@@ -15,7 +16,7 @@ if (errors.length > 0) {
 
 if (process.argv.includes("--check")) {
   const actual = readFileSync(outputPath, "utf8");
-  if (actual !== expected) {
+  if (normalizeWholeSiteRegisterText(actual) !== expected) {
     throw new Error(
       "reports/whole-site-completion-register.json is stale; run npm run generate:whole-site-register.",
     );
