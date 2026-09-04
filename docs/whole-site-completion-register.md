@@ -15,15 +15,24 @@ drift.
   individually reviewed.
 - `reviewed`: the named review was completed by a person for that route.
 - `rewritten`: route-specific content was rewritten and validated.
+- `sufficient`: the existing route content was individually reviewed and found
+  sufficient without a rewrite; safety, responsive, accessibility and SEO
+  reviews must all also be recorded as reviewed.
 - `held`: a documented owner-evidence or consolidation decision is still needed.
 - `live-verified`: the route body was matched to the deployed artifact at the
   recorded 40-character commit SHA.
 
-Phase 3D1 records only its six authorised service rewrites as individually
-reviewed and rewritten. The previous release evidence verified all 1,001 routes
-live at `8d114efe8809f40edc396c9d6e9f8780cc26a737`, but that deployment fact does
-not elevate an automated route check into an individual content, responsive or
-accessibility review.
+Phase 3D1 records its six authorised service rewrites as individually reviewed
+and rewritten. Phase 3D2 records its six authorised service rewrites as live
+verified at `a351d329817c584e1da1e563514bbe71e5d76092`; their temporary
+publication holds have therefore been removed. Routes unchanged by that release
+retain the earlier per-route live evidence SHA instead of being relabelled.
+
+A deployment fact never elevates an automated route check into an individual
+content, responsive or accessibility review. The generator rejects
+`sufficient` unless individual semantic, safety, responsive, accessibility and
+SEO reviews are all explicitly recorded as reviewed, and it rejects other
+inconsistent manual-review combinations.
 
 ## Commands
 

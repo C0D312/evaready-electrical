@@ -18,13 +18,14 @@
       "reviewed": 12
     },
     "publication": {
-      "live-verified": 995,
-      "pending": 6
+      "live-verified": 1001,
+      "pending": 0
     },
     "rewrite": {
       "held": 21,
       "pending": 968,
-      "rewritten": 12
+      "rewritten": 12,
+      "sufficient": 0
     },
     "totalRoutes": 1001
   },
@@ -17224,11 +17225,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Phase 3D2 rewritten content is not yet published or live-verified."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "a351d329817c584e1da1e563514bbe71e5d76092",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services/circuit-breaker-electrician-sydney",
@@ -17366,11 +17365,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Phase 3D2 rewritten content is not yet published or live-verified."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "a351d329817c584e1da1e563514bbe71e5d76092",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services/electrical-load-capacity-checks-sydney",
@@ -17384,11 +17381,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Phase 3D2 rewritten content is not yet published or live-verified."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "a351d329817c584e1da1e563514bbe71e5d76092",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services/electrical-safety-inspection-sydney",
@@ -17420,11 +17415,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Phase 3D2 rewritten content is not yet published or live-verified."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "a351d329817c584e1da1e563514bbe71e5d76092",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services/emergency-exit-lighting-sydney",
@@ -17438,11 +17431,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Phase 3D2 rewritten content is not yet published or live-verified."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "a351d329817c584e1da1e563514bbe71e5d76092",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services/ev-charger-installation-sydney",
@@ -17472,11 +17463,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Phase 3D2 rewritten content is not yet published or live-verified."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "a351d329817c584e1da1e563514bbe71e5d76092",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services/hot-water-system-electrician-sydney",
@@ -18036,10 +18025,11 @@
       "template": "terms"
     }
   ],
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "scope": {
     "authoritativeRouteSource": "app/sitemap.ts reconciled with scripts/route-inventory.ts",
     "baselineLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
+    "phase3d2LiveVerifiedSha": "a351d329817c584e1da1e563514bbe71e5d76092",
     "statement": "Automated-only means a machine check ran; it never means an individual word-by-word review was completed."
   }
 }

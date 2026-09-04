@@ -11,6 +11,9 @@ import {
 export const WHOLE_SITE_BASELINE_LIVE_SHA =
   "8d114efe8809f40edc396c9d6e9f8780cc26a737";
 
+export const PHASE_3D2_LIVE_VERIFIED_SHA =
+  "a351d329817c584e1da1e563514bbe71e5d76092";
+
 export const phase3d1RewrittenRoutes = [
   "/services/electrical-fault-finding-sydney",
   "/services/hot-power-point-electrician-sydney",
@@ -61,7 +64,7 @@ export const consolidationHeldRoutes = [
 ] as const;
 
 export type IndividualReviewStatus = "pending" | "reviewed";
-export type RewriteStatus = "held" | "pending" | "rewritten";
+export type RewriteStatus = "held" | "pending" | "rewritten" | "sufficient";
 export type ValidationStatus = "automated-only" | "pending" | "reviewed";
 export type ClaimEvidenceStatus = "automated-only" | "held" | "reviewed";
 export type PublicationStatus = "live-verified" | "pending";
@@ -92,10 +95,11 @@ export type WholeSiteCompletionRegister = {
     totalRoutes: number;
   };
   records: WholeSiteCompletionRecord[];
-  schemaVersion: 1;
+  schemaVersion: 2;
   scope: {
     authoritativeRouteSource: string;
     baselineLiveVerifiedSha: string;
+    phase3d2LiveVerifiedSha: string;
     statement: string;
   };
 };
@@ -212,7 +216,7 @@ function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
   const outstandingHolds = rewritten
     ? []
     : phase3d2Rewritten
-      ? ["Phase 3D2 rewritten content is not yet published or live-verified."]
+      ? []
     : specialistHeld
       ? ["Owner credential evidence is required before specialist-content changes."]
       : consolidationHeld
@@ -231,9 +235,9 @@ function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
         : "automated-only",
     individualSemanticContentReview: individuallyReviewed ? "reviewed" : "pending",
     outstandingHolds,
-    publication: phase3d2Rewritten ? "pending" : "live-verified",
+    publication: "live-verified",
     publishedLiveVerifiedSha: phase3d2Rewritten
-      ? null
+      ? PHASE_3D2_LIVE_VERIFIED_SHA
       : WHOLE_SITE_BASELINE_LIVE_SHA,
     responsive: individuallyReviewed ? "reviewed" : "pending",
     rewrite: individuallyReviewed
@@ -281,16 +285,17 @@ export function createWholeSiteCompletionRegister(): WholeSiteCompletionRegister
       ),
       rewrite: countBy(
         records.map((record) => record.rewrite),
-        ["held", "pending", "rewritten"],
+        ["held", "pending", "rewritten", "sufficient"],
       ),
       totalRoutes: records.length,
     },
     records,
-    schemaVersion: 1,
+    schemaVersion: 2,
     scope: {
       authoritativeRouteSource:
         "app/sitemap.ts reconciled with scripts/route-inventory.ts",
       baselineLiveVerifiedSha: WHOLE_SITE_BASELINE_LIVE_SHA,
+      phase3d2LiveVerifiedSha: PHASE_3D2_LIVE_VERIFIED_SHA,
       statement:
         "Automated-only means a machine check ran; it never means an individual word-by-word review was completed.",
     },
@@ -309,7 +314,12 @@ export function validateWholeSiteCompletionRegister(
     "pending",
     "reviewed",
   ]);
-  const validRewrite = new Set<RewriteStatus>(["held", "pending", "rewritten"]);
+  const validRewrite = new Set<RewriteStatus>([
+    "held",
+    "pending",
+    "rewritten",
+    "sufficient",
+  ]);
   const validValidation = new Set<ValidationStatus>([
     "automated-only",
     "pending",
@@ -369,11 +379,39 @@ export function validateWholeSiteCompletionRegister(
     } else if (record.publishedLiveVerifiedSha !== null) {
       errors.push(`${record.route} is pending publication but has a live-verified SHA.`);
     }
-    if (
-      record.individualSemanticContentReview === "pending" &&
-      record.rewrite === "rewritten"
-    ) {
-      errors.push(`${record.route} cannot be rewritten before individual review.`);
+    const manualValidationStatuses = [
+      record.safetyReview,
+      record.responsive,
+      record.accessibility,
+      record.seoMetadataSchema,
+    ];
+    if (record.individualSemanticContentReview === "pending") {
+      if (record.rewrite === "rewritten" || record.rewrite === "sufficient") {
+        errors.push(
+          `${record.route} cannot be ${record.rewrite} before individual review.`,
+        );
+      }
+      if (manualValidationStatuses.includes("reviewed")) {
+        errors.push(
+          `${record.route} cannot have manual validation marked reviewed before individual review.`,
+        );
+      }
+    }
+    if (record.rewrite === "rewritten" && record.safetyReview !== "reviewed") {
+      errors.push(`${record.route} cannot be rewritten without a reviewed safety check.`);
+    }
+    if (record.rewrite === "sufficient") {
+      if (record.individualSemanticContentReview !== "reviewed") {
+        errors.push(`${record.route} cannot be sufficient before individual review.`);
+      }
+      if (manualValidationStatuses.some((status) => status !== "reviewed")) {
+        errors.push(
+          `${record.route} cannot be sufficient until safety, responsive, accessibility and SEO reviews are reviewed.`,
+        );
+      }
+      if (record.outstandingHolds.length > 0) {
+        errors.push(`${record.route} cannot be sufficient with outstanding holds.`);
+      }
     }
   }
 

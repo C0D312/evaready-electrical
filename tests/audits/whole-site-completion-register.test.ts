@@ -4,6 +4,7 @@ import path from "node:path";
 import test from "node:test";
 import {
   WHOLE_SITE_BASELINE_LIVE_SHA,
+  PHASE_3D2_LIVE_VERIFIED_SHA,
   consolidationHeldRoutes,
   createWholeSiteCompletionRegister,
   phase3d1RewrittenRoutes,
@@ -40,10 +41,15 @@ test("individual review, rewrite and publication states remain truthful", () => 
   const byRoute = new Map(register.records.map((record) => [record.route, record]));
 
   assert.deepEqual(register.counts.individualReview, { pending: 989, reviewed: 12 });
-  assert.deepEqual(register.counts.rewrite, { held: 21, pending: 968, rewritten: 12 });
+  assert.deepEqual(register.counts.rewrite, {
+    held: 21,
+    pending: 968,
+    rewritten: 12,
+    sufficient: 0,
+  });
   assert.deepEqual(register.counts.publication, {
-    "live-verified": 995,
-    pending: 6,
+    "live-verified": 1001,
+    pending: 0,
   });
 
   for (const route of phase3d1RewrittenRoutes) {
@@ -62,8 +68,9 @@ test("individual review, rewrite and publication states remain truthful", () => 
     assert.equal(record.rewrite, "rewritten");
     assert.equal(record.responsive, "reviewed");
     assert.equal(record.safetyReview, "reviewed");
-    assert.equal(record.publication, "pending");
-    assert.equal(record.publishedLiveVerifiedSha, null);
+    assert.equal(record.publication, "live-verified");
+    assert.equal(record.publishedLiveVerifiedSha, PHASE_3D2_LIVE_VERIFIED_SHA);
+    assert.deepEqual(record.outstandingHolds, []);
   }
 
   for (const route of specialistHeldRoutes) {
@@ -107,4 +114,32 @@ test("validator rejects missing, duplicate, unknown and invalid states", () => {
   const invalid = structuredClone(register) as WholeSiteCompletionRegister;
   invalid.records[0].rewrite = "complete" as never;
   assert.ok(validateWholeSiteCompletionRegister(invalid).some((error) => /invalid rewrite/i.test(error)));
+
+  const unreviewedRewrite = structuredClone(register);
+  const unreviewedRecord = unreviewedRewrite.records.find(
+    (record) => record.individualSemanticContentReview === "pending",
+  );
+  assert.ok(unreviewedRecord);
+  unreviewedRecord.rewrite = "rewritten";
+  assert.ok(
+    validateWholeSiteCompletionRegister(unreviewedRewrite).some((error) =>
+      /cannot be rewritten before individual review/i.test(error),
+    ),
+  );
+
+  const unsupportedSufficient = structuredClone(register);
+  const sufficientRecord = unsupportedSufficient.records.find(
+    (record) => record.individualSemanticContentReview === "pending",
+  );
+  assert.ok(sufficientRecord);
+  sufficientRecord.individualSemanticContentReview = "reviewed";
+  sufficientRecord.rewrite = "sufficient";
+  sufficientRecord.outstandingHolds = [];
+  assert.ok(
+    validateWholeSiteCompletionRegister(unsupportedSufficient).some((error) =>
+      /cannot be sufficient until safety, responsive, accessibility and SEO reviews are reviewed/i.test(
+        error,
+      ),
+    ),
+  );
 });
