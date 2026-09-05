@@ -5,6 +5,7 @@ import test from "node:test";
 import {
   WHOLE_SITE_BASELINE_LIVE_SHA,
   PHASE_3D2_LIVE_VERIFIED_SHA,
+  PHASE_3D3_LIVE_VERIFIED_SHA,
   consolidationHeldRoutes,
   createWholeSiteCompletionRegister,
   phase3d1RewrittenRoutes,
@@ -49,8 +50,8 @@ test("individual review, rewrite and publication states remain truthful", () => 
     sufficient: 0,
   });
   assert.deepEqual(register.counts.publication, {
-    "live-verified": 995,
-    pending: 6,
+    "live-verified": 1001,
+    pending: 0,
   });
 
   for (const route of phase3d1RewrittenRoutes) {
@@ -83,9 +84,9 @@ test("individual review, rewrite and publication states remain truthful", () => 
     assert.equal(record.safetyReview, "reviewed");
     assert.equal(record.accessibility, "reviewed");
     assert.equal(record.seoMetadataSchema, "reviewed");
-    assert.equal(record.publication, "pending");
-    assert.equal(record.publishedLiveVerifiedSha, null);
-    assert.match(record.outstandingHolds.join(" "), /not yet published/i);
+    assert.equal(record.publication, "live-verified");
+    assert.equal(record.publishedLiveVerifiedSha, PHASE_3D3_LIVE_VERIFIED_SHA);
+    assert.deepEqual(record.outstandingHolds, []);
   }
 
   for (const route of specialistHeldRoutes) {

@@ -14,6 +14,9 @@ export const WHOLE_SITE_BASELINE_LIVE_SHA =
 export const PHASE_3D2_LIVE_VERIFIED_SHA =
   "a351d329817c584e1da1e563514bbe71e5d76092";
 
+export const PHASE_3D3_LIVE_VERIFIED_SHA =
+  "187605f9916b246e875728a5a6e18e4c197540ea";
+
 export const phase3d1RewrittenRoutes = [
   "/services/electrical-fault-finding-sydney",
   "/services/hot-power-point-electrician-sydney",
@@ -229,7 +232,7 @@ function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
     : phase3d2Rewritten
       ? []
       : phase3d3Rewritten
-        ? ["Phase 3D3 reviewed content is not yet published or live-verified."]
+        ? []
     : specialistHeld
       ? ["Owner credential evidence is required before specialist-content changes."]
       : consolidationHeld
@@ -252,9 +255,9 @@ function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
         : "automated-only",
     individualSemanticContentReview: individuallyReviewed ? "reviewed" : "pending",
     outstandingHolds,
-    publication: phase3d3Rewritten ? "pending" : "live-verified",
+    publication: "live-verified",
     publishedLiveVerifiedSha: phase3d3Rewritten
-      ? null
+      ? PHASE_3D3_LIVE_VERIFIED_SHA
       : phase3d2Rewritten
         ? PHASE_3D2_LIVE_VERIFIED_SHA
         : WHOLE_SITE_BASELINE_LIVE_SHA,

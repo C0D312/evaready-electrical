@@ -18,8 +18,8 @@
       "reviewed": 18
     },
     "publication": {
-      "live-verified": 995,
-      "pending": 6
+      "live-verified": 1001,
+      "pending": 0
     },
     "rewrite": {
       "held": 21,
@@ -377,11 +377,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Phase 3D3 reviewed content is not yet published or live-verified."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "187605f9916b246e875728a5a6e18e4c197540ea",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/emergency-electrician-sydney",
@@ -17331,11 +17329,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Phase 3D3 reviewed content is not yet published or live-verified."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "187605f9916b246e875728a5a6e18e4c197540ea",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services/electric-shock-electrician-sydney",
@@ -17695,11 +17691,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Phase 3D3 reviewed content is not yet published or live-verified."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "187605f9916b246e875728a5a6e18e4c197540ea",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services/rcd-safety-switch-repairs-sydney",
@@ -17833,11 +17827,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Phase 3D3 reviewed content is not yet published or live-verified."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "187605f9916b246e875728a5a6e18e4c197540ea",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services/storm-damage-electrician-sydney",
@@ -17885,11 +17877,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Phase 3D3 reviewed content is not yet published or live-verified."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "187605f9916b246e875728a5a6e18e4c197540ea",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services/switchboard-upgrades-sydney",
@@ -17921,11 +17911,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Phase 3D3 reviewed content is not yet published or live-verified."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "187605f9916b246e875728a5a6e18e4c197540ea",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services/three-phase-power-sydney",

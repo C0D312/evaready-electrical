@@ -13,7 +13,7 @@ drift.
 - `pending`: the named review has not been completed for that individual route.
 - `automated-only`: a machine check has run; this never means every word was
   individually reviewed.
-- `reviewed`: the named review was completed by a person for that route.
+- `reviewed`: the named individual review was completed for that route.
 - `rewritten`: route-specific content was rewritten and validated.
 - `sufficient`: the existing route content was individually reviewed and found
   sufficient without a rewrite; safety, responsive, accessibility and SEO
@@ -36,9 +36,11 @@ inconsistent manual-review combinations.
 
 Phase 3D3 records individual semantic, safety, responsive, accessibility and
 SEO review for the final six non-held safety routes. Each required a scoped
-content correction, so all six are marked `rewritten`; they remain
-publication-pending until a later release phase verifies their exact deployed
-artifact. Source and decision notes are in
+content correction, so all six are marked `rewritten`. Phase 3D3-P1 verified
+their deployed artifact and live HTML at
+`187605f9916b246e875728a5a6e18e4c197540ea` (workflow `33955802208`).
+Their six publication holds are removed; earlier route SHAs are preserved.
+Source and decision notes are in
 `docs/phase3d3-service-content-source-notes.md`.
 
 ## Commands
