@@ -14,17 +14,17 @@
       "suburb": 873
     },
     "individualReview": {
-      "pending": 965,
-      "reviewed": 36
+      "pending": 956,
+      "reviewed": 45
     },
     "publication": {
-      "live-verified": 989,
-      "pending": 12
+      "live-verified": 980,
+      "pending": 21
     },
     "rewrite": {
       "held": 21,
-      "pending": 944,
-      "rewritten": 36,
+      "pending": 935,
+      "rewritten": 45,
       "sufficient": 0
     },
     "totalRoutes": 1001
@@ -139,74 +139,74 @@
       "template": "fault guide"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "fault-guide",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/electrical-faults/circuit-breaker-keeps-tripping",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/electrical-faults.ts#circuit-breaker-keeps-tripping",
       "template": "fault guide"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "fault-guide",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/electrical-faults/electric-shock-from-outlet",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/electrical-faults.ts#electric-shock-from-outlet",
       "template": "fault guide"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "fault-guide",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/electrical-faults/hot-power-point",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/electrical-faults.ts#hot-power-point",
       "template": "fault guide"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "fault-guide",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/electrical-faults/lights-flickering",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/electrical-faults.ts#lights-flickering",
       "template": "fault guide"
     },
@@ -247,20 +247,20 @@
       "template": "fault guide"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "fault-guide",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/electrical-faults/power-outage-after-storm",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/electrical-faults.ts#power-outage-after-storm",
       "template": "fault guide"
     },
@@ -283,38 +283,38 @@
       "template": "fault guide"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "fault-guide",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/electrical-faults/power-surge-damage",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/electrical-faults.ts#power-surge-damage",
       "template": "fault guide"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "fault-guide",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/electrical-faults/rcd-trips-when-raining",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/electrical-faults.ts#rcd-trips-when-raining",
       "template": "fault guide"
     },
@@ -337,38 +337,38 @@
       "template": "fault guide"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "fault-guide",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/electrical-faults/safety-switch-trips-at-night",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/electrical-faults.ts#safety-switch-trips-at-night",
       "template": "fault guide"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "fault-guide",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/electrical-faults/smoke-from-electrical-panel",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/electrical-faults.ts#smoke-from-electrical-panel",
       "template": "fault guide"
     },

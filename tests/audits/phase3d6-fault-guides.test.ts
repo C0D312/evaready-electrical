@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 import { electricalFaultPages } from "../../data/electrical-faults";
 import { absoluteUrl, business } from "../../data/site";
-import { createWholeSiteCompletionRegister, phase3d5SelectedRoutes } from "../../scripts/whole-site-completion-register";
+import { createWholeSiteCompletionRegister, phase3d5SelectedRoutes, phase3d6SelectedRoutes } from "../../scripts/whole-site-completion-register";
 
 const baseline = [
   ["safety-switch-keeps-tripping", "28766dc4745221bf55a895253dbb8544327642a952c342bbb62a494d8d7c1b98"],
@@ -24,18 +24,25 @@ const baseline = [
   ["smoke-from-electrical-panel", "9b4515b6747024f023421f6c1562f1129059babc183ff679307a1fe9927a1ee4"],
 ];
 
-test("all fifteen fault routes retain order and the other nine records are unchanged", () => {
+test("all fifteen fault routes retain order and the completed first six remain unchanged", () => {
   assert.deepEqual(electricalFaultPages.map((page) => page.slug), baseline.map(([slug]) => slug));
-  electricalFaultPages.forEach((page, index) => {
+  const completedHashes = [
+    "94b353caa57667535e4523b14baa76ce329be1bb251456c9a670d2f3b9b4aea4",
+    "ae56d3d681a666430dbf91787a82dac5fef9df874da76f927e9bff74273b458f",
+    "a1ff6a2ae7ea09d5e81da9a767573b7a29e9cda372795cded97d2e8954a020c6",
+    "0d73abfc52fb931bdb28114a16f8a24b8d26939ee711b14c6129fde3b89aa3cf",
+    "74f5d97d5e863f36c3b997b87a08c36dd39309f737fec2c2e171ffa95016c197",
+    "7730a358719187ece13a4467258d412daba57968a66b14e640de07ab6fb5dade",
+  ];
+  electricalFaultPages.slice(0, 6).forEach((page, index) => {
     const hash = createHash("sha256").update(JSON.stringify(page)).digest("hex");
-    if (index < 6) assert.notEqual(hash, baseline[index][1]);
-    else assert.equal(hash, baseline[index][1], page.slug);
+    assert.equal(hash, completedHashes[index], page.slug);
   });
 });
 
 const decode = (value: string) => value.replace(/&amp;/g, "&").replace(/&#x27;|&#39;/g, "'").replace(/&quot;/g, '"').replace(/&nbsp;/g, " ");
 
-for (const fault of electricalFaultPages.slice(0, 6)) {
+for (const fault of electricalFaultPages) {
   test(`${fault.slug}: complete visible copy, safety first, FAQ parity and conversion destinations`, () => {
     const html = readFileSync(`out/electrical-faults/${fault.slug}/index.html`, "utf8");
     const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1];
@@ -82,19 +89,19 @@ test("symptom guides explain distinct causes and limitations rather than copying
   assert.match(text[5], /does not certify the whole property/);
 });
 
-test("Phase 3D5 cannot be accidentally labelled live by the next fault-guide batch", () => {
+test("both earlier unpublished batches retain pending publication and no live SHA", () => {
   const register = createWholeSiteCompletionRegister();
-  for (const route of phase3d5SelectedRoutes) {
+  for (const route of [...phase3d5SelectedRoutes, ...phase3d6SelectedRoutes]) {
     const record = register.records.find((item) => item.route === route);
     assert.equal(record?.publication, "pending", route);
     assert.equal(record?.publishedLiveVerifiedSha, null, route);
   }
 });
 
-test("every completion record outside the locked six retains its baseline state", () => {
-  const selected = new Set(baseline.slice(0, 6).map(([slug]) => `/electrical-faults/${slug}`));
+test("Phase 3D7 preserves every completion record outside the authorised last nine", () => {
+  const selected = new Set(baseline.slice(6).map(([slug]) => `/electrical-faults/${slug}`));
   const unchanged = createWholeSiteCompletionRegister().records.filter(record => !selected.has(record.route));
-  assert.equal(unchanged.length, 995);
+  assert.equal(unchanged.length, 992);
   assert.equal(createHash("sha256").update(JSON.stringify(unchanged)).digest("hex"),
-    "d68a0175e4917b99bf48a5cbad340bfadbfcdd9e43a546694dab0bf2d4718a81");
+    "28390fc7efbf533c962d8b073aaaa1b661c451d965f5d422a990743ec7ffedc0");
 });

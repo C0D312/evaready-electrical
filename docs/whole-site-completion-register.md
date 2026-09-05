@@ -62,11 +62,21 @@ Source, failure and validation notes are in
 Phase 3D6 records individual semantic, safety, responsive, accessibility and
 SEO review for the first six electrical fault guides in source order. All six
 required rewriting. Their publication is pending with null live SHAs, as are
-the six Phase 3D5 routes. The register now contains 36 reviewed routes, 965
+the six Phase 3D5 routes. At that checkpoint the register contained 36 reviewed routes, 965
 pending individual reviews, 21 held rewrites, 944 pending rewrites and 12
 pending publications. The other nine fault records and all earlier per-route
 publication evidence remain unchanged. No route is marked `sufficient`.
 See `docs/phase3d6-fault-guide-source-notes.md` for scope and validation.
+
+Phase 3D7 completes individual semantic, safety, responsive, accessibility and
+SEO review of the remaining nine fault guides (source positions 7-15). All nine
+required rewriting. The current register contains 45 reviewed routes, 956
+pending individual reviews, 45 rewritten routes, 935 pending rewrites, 21 held
+rewrites and no `sufficient` routes. There are 21 pending publications with
+null live SHAs: the six Phase 3D5 routes, six Phase 3D6 routes and nine Phase 3D7
+routes. All 992 rows outside the Phase 3D7 batch retain their previous state.
+No new live release is implied. See
+`docs/phase3d7-fault-guide-source-notes.md` for the scope and validation record.
 
 ## Commands
 

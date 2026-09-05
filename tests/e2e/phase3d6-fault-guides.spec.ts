@@ -33,7 +33,7 @@ async function open(page: Page, baseURL: string | undefined, slug: string) {
   expect(new URL(page.url()).pathname).toBe(`/evaready-electrical/electrical-faults/${slug}/`);
 }
 
-for (const fault of electricalFaultPages.slice(0, 6)) {
+for (const fault of electricalFaultPages) {
   test(`${fault.slug}: keyboard quote, Back, safety and visible FAQ`, async ({ page, baseURL }) => {
     await open(page, baseURL, fault.slug);
     await expect(page.locator("main h1")).toHaveText(fault.title);
