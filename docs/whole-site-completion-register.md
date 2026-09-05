@@ -43,16 +43,23 @@ Their six publication holds are removed; earlier route SHAs are preserved.
 Source and decision notes are in
 `docs/phase3d3-service-content-source-notes.md`.
 
-## Commands
-
 Phase 3D4 records the six core service pages as reviewed and rewritten.
 Phase 3D4-P1 matched their live output to the deployed artifact at
 `7972f8dec2620d97c311b1ecd9ce40545b59dc9f` (workflow `33971736127`,
 artifact `9971140993`, deployment `6282046927`). Their six publication holds
-are removed, and earlier route SHAs are preserved. The register contains
-24 individually reviewed routes, 977 pending individual reviews, 21 held
-rewrites, and zero pending publications. General owner credential and business
+are removed, and earlier route SHAs are preserved. General owner credential and business
 claim verification is not implied by a route-content review.
+
+Phase 3D5 records individual semantic, safety, responsive, accessibility and
+SEO review for five remaining general service pages and the Services index.
+All six required scoped corrections and are marked `rewritten`. Their
+publication is pending, with no live SHA. The register now contains 30
+individually reviewed routes, 971 pending individual reviews, 21 held rewrites,
+and six pending publications. This is not a whole-website completion claim.
+Source, failure and validation notes are in
+`docs/phase3d5-service-content-source-notes.md`.
+
+## Commands
 
 ```powershell
 npm run generate:whole-site-register

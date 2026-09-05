@@ -60,6 +60,15 @@ export const phase3d4SelectedRoutes = [
   "/services/power-point-installation-sydney",
 ] as const;
 
+export const phase3d5SelectedRoutes = [
+  "/services/ceiling-fan-installation-sydney",
+  "/services/appliance-installation-electrician-sydney",
+  "/services/new-build-renovation-electrician-sydney",
+  "/services/smart-home-electrician-sydney",
+  "/services/pre-purchase-rental-electrical-inspections-sydney",
+  "/services",
+] as const;
+
 export const specialistHeldRoutes = [
   "/level-2-electrician-sydney",
   "/solar-batteries",
@@ -132,6 +141,7 @@ const phase3d1Set = new Set<string>(phase3d1RewrittenRoutes);
 const phase3d2Set = new Set<string>(phase3d2SelectedRoutes);
 const phase3d3Set = new Set<string>(phase3d3SelectedRoutes);
 const phase3d4Set = new Set<string>(phase3d4SelectedRoutes);
+const phase3d5Set = new Set<string>(phase3d5SelectedRoutes);
 const specialistHeldSet = new Set<string>(specialistHeldRoutes);
 const consolidationHeldSet = new Set<string>(consolidationHeldRoutes);
 const serviceSlugs = new Set(serviceLandingPages.map((page) => page.slug));
@@ -237,11 +247,14 @@ function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
   const phase3d2Rewritten = phase3d2Set.has(item.route);
   const phase3d3Rewritten = phase3d3Set.has(item.route);
   const phase3d4Rewritten = phase3d4Set.has(item.route);
-  const individuallyReviewed = rewritten || phase3d2Rewritten || phase3d3Rewritten || phase3d4Rewritten;
+  const phase3d5Rewritten = phase3d5Set.has(item.route);
+  const individuallyReviewed = rewritten || phase3d2Rewritten || phase3d3Rewritten || phase3d4Rewritten || phase3d5Rewritten;
   const specialistHeld = specialistHeldSet.has(item.route);
   const consolidationHeld = consolidationHeldSet.has(item.route);
 
-  const outstandingHolds = phase3d4Rewritten
+  const outstandingHolds = phase3d5Rewritten
+    ? ["Separate release validation and live artifact verification are required."]
+    : phase3d4Rewritten
     ? []
     : rewritten
     ? []
@@ -258,7 +271,7 @@ function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
         : ["Individual semantic and word-by-word review is pending."];
 
   return {
-    accessibility: phase3d3Rewritten || phase3d4Rewritten
+    accessibility: phase3d3Rewritten || phase3d4Rewritten || phase3d5Rewritten
       ? "reviewed"
       : individuallyReviewed
         ? "automated-only"
@@ -271,8 +284,10 @@ function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
         : "automated-only",
     individualSemanticContentReview: individuallyReviewed ? "reviewed" : "pending",
     outstandingHolds,
-    publication: "live-verified",
-    publishedLiveVerifiedSha: phase3d4Rewritten
+    publication: phase3d5Rewritten ? "pending" : "live-verified",
+    publishedLiveVerifiedSha: phase3d5Rewritten
+      ? null
+      : phase3d4Rewritten
       ? PHASE_3D4_LIVE_VERIFIED_SHA
       : phase3d3Rewritten
       ? PHASE_3D3_LIVE_VERIFIED_SHA
@@ -287,7 +302,7 @@ function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
         : "pending",
     route: item.route,
     safetyReview: individuallyReviewed ? "reviewed" : "pending",
-    seoMetadataSchema: phase3d3Rewritten || phase3d4Rewritten ? "reviewed" : "automated-only",
+    seoMetadataSchema: phase3d3Rewritten || phase3d4Rewritten || phase3d5Rewritten ? "reviewed" : "automated-only",
     sourceRecord: sourceRecordFor(item),
     template: item.pageType,
   };

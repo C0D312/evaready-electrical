@@ -469,7 +469,7 @@ test("phase 3D3 service records provide route-specific safety, scope and boundar
   );
 });
 
-test("24 untouched records retain baseline hashes and six core records match Phase 3D4", () => {
+test("19 untouched records retain baseline hashes and authorised Phase 3D4/3D5 records match snapshots", () => {
   const phase3d4Hashes: Record<string, string> = {
     "residential-electrician-sydney": "f3d8502c06872408c99912ba8f912c9cd518e61166ab796f438b55f92b243676",
     "commercial-electrician-sydney": "1f33761ac25f055900c3a2fb6b275c2472616dd3de3e9dd0dfec6beec8af21be",
@@ -478,9 +478,17 @@ test("24 untouched records retain baseline hashes and six core records match Pha
     "lighting-electrician-sydney": "ed2586e40575e605d71985b0526fbb7a68d7c96d6056a4e6be09e3a38202db58",
     "power-point-installation-sydney": "7765702651da60ef29a53acc3c228745053432deeb29c19f48fa3431b92bf309",
   };
+  const phase3d5Hashes: Record<string, string> = {
+    "ceiling-fan-installation-sydney": "811709f095ad41cea80dfe5f19b09742bebd586883f714664d835ed882f4556c",
+    "appliance-installation-electrician-sydney": "8b0a9a0a918f338a7ade85778507e57a61d8f2400f8c68d01c2caaf076b731ca",
+    "new-build-renovation-electrician-sydney": "fac697904601a150ffcbb31f1b171f4614ad5188dc2575346cf941d9f52c0bc1",
+    "smart-home-electrician-sydney": "08136a606b948bb612fc3fe5791340d301e18020412d493ce64a8e810a4e0b20",
+    "pre-purchase-rental-electrical-inspections-sydney": "75fd23816804183f13041939db221845a5bc046470b5aa9473644f70a648a5a9",
+  };
   assert.equal(Object.keys(untouchedServiceRecordHashes).length, 30);
   assert.equal(Object.keys(phase3d4Hashes).length, 6);
-  assert.equal(serviceLandingPages.filter(page => !rewrittenServiceRoutes.has(page.slug) && !phase3d4Hashes[page.slug]).length, 24);
+  assert.equal(Object.keys(phase3d5Hashes).length, 5);
+  assert.equal(serviceLandingPages.filter(page => !rewrittenServiceRoutes.has(page.slug) && !phase3d4Hashes[page.slug] && !phase3d5Hashes[page.slug]).length, 19);
 
   for (const page of serviceLandingPages) {
     if (rewrittenServiceRoutes.has(page.slug)) {
@@ -489,7 +497,7 @@ test("24 untouched records retain baseline hashes and six core records match Pha
 
     assert.equal(
       sha256(JSON.stringify(page)),
-      phase3d4Hashes[page.slug] ?? untouchedServiceRecordHashes[page.slug],
+      phase3d5Hashes[page.slug] ?? phase3d4Hashes[page.slug] ?? untouchedServiceRecordHashes[page.slug],
       `${page.slug} changed outside its recorded phase content`,
     );
   }

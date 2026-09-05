@@ -1895,7 +1895,33 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Ceiling fans, exhaust fans and bathroom fans installed or replaced with safe wiring and neat finishes.",
     intro:
-      "Fans need secure mounting, safe wiring and sensible switching. Evaready Electrical installs and replaces ceiling fans, exhaust fans and bathroom ventilation fans for homes, apartments and outdoor areas.",
+      "Our licensed electricians install and replace ceiling fans and the electrical connections for exhaust fans. We check the proposed location, mounting support, wiring and controls before agreeing the work. Stop using a fan that is badly wobbling, damaged or smells hot; keep clear, and call Triple Zero (000) for fire, smoke or immediate danger.",
+    serviceGuide: {
+      heading: "Choose a fan that suits the room and the installation.",
+      intro: "A replacement is not always a direct swap. The fan model, ceiling support, clearances and controller determine what can be installed safely.",
+      sections: [
+        {
+          title: "Mounting and location come first",
+          copy: "We assess accessible support and the manufacturer's mounting requirements. A light-fitting position alone does not establish that the ceiling can carry a fan. If suitable support cannot be confirmed, installation waits until that issue is resolved; an electrical visit is not a structural certification.",
+          items: ["Check blade clearances and the proposed position", "Confirm ceiling height, access and any extension-rod requirements", "Use a fan rated for the intended indoor or exposed location"],
+        },
+        {
+          title: "Match the wiring and controller to the fan",
+          copy: "AC and DC fans, remote receivers and fan-light combinations have different control requirements. An existing dimmer or speed controller may not be compatible. We check the supply and switching rather than reusing controls by assumption.",
+          items: ["Review the model and installation instructions before the visit", "Confirm separate light and fan control where supported", "Test operation, switching and the completed electrical work"],
+        },
+        {
+          title: "Exhaust ventilation needs more than a power connection",
+          copy: "For bathroom or exhaust fans, confirm the fan position, moisture suitability and intended discharge route. Electrical connection alone does not resolve undersized ventilation, blocked ducting or building moisture problems.",
+          items: ["Agree whether fan mounting and ducting are included", "Identify roof work, penetrations and making good outside the electrical quote", "Discuss inaccessible wiring or unsuitable existing equipment before proceeding"],
+        },
+      ],
+    },
+    quoteChecklist: {
+      heading: "Send the fan details before booking installation",
+      items: ["Suburb, room and ceiling height", "Fan model and whether it includes a light or remote", "New position or replacement of an existing fan", "Photos from floor level only, without opening covers or approaching a faulty fan"],
+      urgentNote: "Do not keep running a damaged fan to demonstrate the fault. Arrange electrical advice once everyone is safe.",
+    },
     heroBullets: [
       "Ceiling fan installation",
       "Exhaust and bathroom fans",
@@ -2387,7 +2413,33 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Electrical connections, isolators and circuits for cooktops, ovens, rangehoods, dishwashers and dedicated appliances.",
     intro:
-      "Kitchen and laundry appliances need the right electrical connection for safe, reliable use. Evaready Electrical installs and connects electric cooktops, ovens, rangehoods, dishwashers and dedicated appliance circuits where required.",
+      "Our licensed electricians assess and connect the electrical supply for cooktops, ovens, rangehoods and dishwashers. This service covers wiring, circuits, outlets and isolation, not gas, plumbing, cabinetry or internal appliance repairs. Stop using damaged or overheating equipment; for fire, smoke or immediate danger, move to safety and call Triple Zero (000).",
+    serviceGuide: {
+      heading: "Check the electrical requirements before the appliance arrives.",
+      intro: "A new appliance may fit the space but need a different electrical connection. Send the exact model so the circuit and installation requirements can be assessed.",
+      sections: [
+        {
+          title: "A replacement may need more electrical capacity",
+          copy: "We review the manufacturer's specified load and connection method, then inspect the existing circuit, protection and isolation. A larger oven or induction cooktop may need a new circuit or a separate supply-capacity assessment; the old connection is not automatically suitable.",
+          items: ["Confirm plug-in or hardwired connection requirements", "Check cable routes and switchboard space where a new circuit is proposed", "Agree any additional work before connecting the appliance"],
+        },
+        {
+          title: "Agree the electrical-only scope",
+          copy: "An electrical quote does not include gas disconnection, water or drainage connections, benchtop cutting, cabinet alterations or repairs inside an appliance. Confirm physical access and any required non-electrical work before arranging the connection.",
+          items: ["Provide installation instructions and appliance dimensions", "Tell us whether the old appliance needs electrical disconnection", "Confirm lifting, removal and disposal arrangements rather than assuming they are included"],
+        },
+        {
+          title: "Investigate faults rather than repeatedly resetting",
+          copy: "Tripping can come from the appliance, its connection or the circuit. We inspect and test the electrical installation to establish the next step. An internal appliance fault may need a separate repair assessment, not a larger circuit breaker.",
+          items: ["Do not keep resetting protection that trips again", "Do not remove covers or attempt a hardwired connection yourself", "Receive the electrical test outcome and required compliance documentation for completed wiring work"],
+        },
+      ],
+    },
+    quoteChecklist: {
+      heading: "Help us plan the appliance connection",
+      items: ["Exact appliance make and model", "Suburb, installation position and delivery timing", "Replacement or new installation, with accessible photos taken safely", "Known circuit faults and any access or renovation constraints"],
+      urgentNote: "A burning smell, sparking or damaged connection needs urgent electrical advice, not a routine installation booking. Keep away from unsafe equipment.",
+    },
     heroBullets: [
       "Cooktop and oven connections",
       "Rangehood electrical installation",
@@ -2691,7 +2743,33 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Electrical planning, rough-ins, fit-offs and upgrade work for renovations, extensions and new builds.",
     intro:
-      "Renovation and new build electrical work needs planning before walls are closed and finishes go in. Evaready Electrical helps with wiring layouts, power placement, lighting, appliance circuits, switchboards and final fit-off work so the electrical side is safe, tidy and practical.",
+      "Our licensed electricians plan and complete electrical rough-in, fit-off and testing for renovations, extensions and new builds. Agree outlet positions, appliance loads and access before walls are closed. If building work exposes damaged wiring, stop work nearby and keep clear; for fire, smoke or immediate danger, move to safety and call Triple Zero (000).",
+    serviceGuide: {
+      heading: "Plan the electrical work around each building stage.",
+      intro: "Clear plans and a staged scope help avoid reopening finished walls. A renovation also needs an assessment of the installation that will remain in use.",
+      sections: [
+        {
+          title: "Confirm the layout and loads before rough-in",
+          copy: "Provide room plans, appliance specifications and intended lighting and outlet positions. We assess electrical circuit requirements and the existing supply before recommending new circuits or switchboard work. A building approval does not by itself confirm electrical capacity.",
+          items: ["Identify kitchen, laundry and other larger appliance loads", "Agree switching positions and fitting models", "Record changes to the electrical scope before they affect finished surfaces"],
+        },
+        {
+          title: "Coordinate access, isolation and fit-off",
+          copy: "Rough-in places the agreed wiring before finishes; fit-off connects the selected fittings when the site is ready. Occupied properties need planned interruptions and safe separation from work areas. Hidden damaged or unsuitable wiring can change the work required.",
+          items: ["Confirm when walls and ceilings will be accessible", "Tell us about equipment that must remain powered", "Agree additional repairs and any patching or painting exclusions"],
+        },
+        {
+          title: "Keep electrical handover separate from building sign-off",
+          copy: "The completed electrical work is inspected and tested, with required electrical compliance documentation and an explanation of remaining issues. This service is not architectural design, structural engineering, building certification or a guarantee covering other trades' work.",
+          items: ["Confirm circuit identification and operation of installed fittings", "Discuss any incomplete stages before occupation or use", "Keep project approvals and non-electrical work within their separate agreed scopes"],
+        },
+      ],
+    },
+    quoteChecklist: {
+      heading: "Prepare an electrical renovation brief",
+      items: ["Suburb, property type and rooms or extension involved", "Plans, appliance models and preferred power and lighting positions", "Build stages, occupancy and access arrangements", "Safe accessible photos; never open electrical covers or approach exposed wiring"],
+      urgentNote: "Exposed or damaged wiring is not a routine quoting task. Stop nearby work, keep people clear and call for electrical advice.",
+    },
     heroBullets: [
       "Renovation wiring and rough-ins",
       "Kitchen and bathroom electrical work",
@@ -2830,30 +2908,56 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     slug: "smart-home-electrician-sydney",
     metaTitle: "Smart Home Electrician Sydney & Surrounding Regions",
     metaDescription:
-      "Smart home electrician in Sydney for smart switches, lighting control, automation wiring, future-ready cabling, data points and electrical upgrades.",
+      "Smart home electrician in Sydney for smart switches, lighting controls, compatible device wiring and electrical installation checks.",
     title: "Smart Home Electrician Sydney & Surrounding Regions",
     description:
-      "Smart switching, automation wiring, lighting control and future-ready cabling for homes and businesses.",
+      "Electrical installation and compatibility checks for smart switches, lighting controls and agreed home-automation devices.",
     intro:
-      "Smart home electrical work is best planned around the way the property is used. Evaready Electrical helps with smart switches, lighting control, data cabling, low-voltage provisions and the electrical upgrades needed to make automation cleaner and more reliable.",
+      "Our licensed electricians assess the fixed wiring and electrical compatibility for smart switches and lighting controls. Tell us which devices and functions you want before buying equipment. Do not open a switch plate or touch damaged wiring; for fire, smoke or immediate danger, move to safety and call Triple Zero (000).",
+    serviceGuide: {
+      heading: "Check compatibility before choosing smart controls.",
+      intro: "A smart switch is part of an electrical installation and a product ecosystem. The quote needs to distinguish the wiring work from app, network and cloud services.",
+      sections: [
+        {
+          title: "Existing wiring and connected loads matter",
+          copy: "We check the selected device's supply, neutral, load and installation requirements against the existing wiring. Not every switch can replace an ordinary switch or dimmer, and some lighting drivers or multi-way arrangements need a different solution.",
+          items: ["Supply exact switch, dimmer, light and hub models", "Confirm which rooms and switching positions are involved", "Agree any wiring changes before installation"],
+        },
+        {
+          title: "Define what works locally and what depends on a service",
+          copy: "App control, voice assistants, schedules and remote access depend on the chosen products. Some functions need a hub, internet connection, account or cloud service. We do not promise that unrelated brands will work together or that a cloud service will remain available.",
+          items: ["Check product compatibility and ongoing subscription requirements before purchase", "Confirm supported manual operation and behaviour after a power or internet interruption", "Keep passwords and account recovery details private"],
+        },
+        {
+          title: "Agree installation, testing and support boundaries",
+          copy: "We test the agreed electrical installation and supported controls at handover. Household Wi-Fi coverage, broadband faults, software support and fixed communications cabling are separate scopes; this page does not promise a complete networking service.",
+          items: ["Consider the manufacturer's security-update and support period", "Confirm who will manage accounts and future app updates", "Use the dedicated data-cabling page for a separate communications enquiry"],
+        },
+      ],
+    },
+    quoteChecklist: {
+      heading: "Describe the controls you want to use",
+      items: ["Rooms, existing switching and desired functions", "Exact device models and any hub requirements", "New wiring or a proposed replacement", "Exterior photos of switches taken safely without removing plates; no passwords or account details"],
+      urgentNote: "Overheating, sparking or damaged switches need fault assessment before a smart-device upgrade. Keep clear of unsafe equipment.",
+    },
     heroBullets: [
       "Smart switches and lighting control",
       "Automation wiring provisions",
-      "Data and low-voltage cabling",
-      "Future-ready electrical upgrades",
+      "Device and load compatibility checks",
+      "Agreed control testing and handover",
     ],
     warningSigns: [
       "Smart switches need a neutral or wiring check",
       "Lighting control is unreliable or poorly planned",
-      "Renovation work needs future cabling",
-      "Wi-Fi devices are being used where hard-wired points would be better",
+      "A renovation needs control wiring planned before finishes",
+      "A proposed device may not match the existing lights or controls",
     ],
     services: [
       "Smart switch installation enquiries",
       "Lighting control wiring",
-      "Automation-ready cabling",
-      "Data point and network provisions",
-      "Low-voltage pathway planning",
+      "Electrical wiring for agreed automation devices",
+      "Connected-light and dimmer compatibility checks",
+      "Control position planning",
       "Switchboard and circuit checks for upgrades",
     ],
     process: [
@@ -2883,12 +2987,12 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Is smart wiring useful during renovations?",
         answer:
-          "Yes. Renovations are a good time to add data, lighting control and future wiring provisions.",
+          "Planning controls during a renovation can make wiring access easier. Confirm the devices and electrical requirements first; fixed communications cabling is a separate enquiry, not an automatic inclusion.",
       },
       {
         question: "What should I send for a smart home quote?",
         answer:
-          "Send photos of the switchboard and switches, a room list, device details and what you want controlled.",
+          "Send a room list, exact device models and what you want controlled. Photos must be taken from a safe position without opening covers or switch plates. Do not send passwords or private account information.",
       },
     ],
     relatedServices: [
@@ -3688,7 +3792,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Electrical condition checks for home buyers, landlords, property managers, real estate agencies and owners preparing a property for sale or lease.",
     intro:
-      "Evaready Electrical checks accessible electrical equipment, switchboards, safety switches, outlets, lighting and visible wiring concerns for homes being purchased, leased or managed across Sydney and surrounding regions.",
+      "Our licensed electricians inspect the agreed accessible electrical installation for a purchase, rental or property-management decision. The findings are not a guarantee that every concealed defect or legal requirement has been assessed. For fire, smoke, serious electric shock or immediate danger, move to safety and call Triple Zero (000); seek medical assessment after any electric shock.",
     primaryCta: "quote",
     quoteCtaLabel: "Get an Inspection Quote",
     heroBullets: [
@@ -3725,14 +3829,14 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Power points and switches",
       "Lighting operation",
       "Visible wiring concerns",
-      "Smoke-alarm electrical supply where within verified scope",
+      "Smoke-alarm electrical supply within the agreed inspection scope",
       "Outdoor electrical equipment",
       "Hot-water electrical circuits",
       "Air-conditioning circuits and isolators",
       "Meter-box condition",
       "Signs of unsafe modifications",
       "Earthing and bonding checks where appropriate",
-      "Solar or battery electrical equipment only where within verified business scope",
+      "Accessible solar or battery equipment observations; specialist testing requires a separate agreed scope",
     ],
     inspectionOutcomes: [
       "Explanation of visible and tested findings",
@@ -3769,9 +3873,9 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
     ],
     callFirstBlock: {
-      heading: "Call first if the property has an immediate electrical hazard",
+      heading: "Deal with immediate danger before an inspection booking",
       safetyCopy:
-        "Do not wait for an inspection quote if the property has an immediate electrical hazard. Call first so the fault can be triaged safely.",
+        "Keep clear of damaged, sparking or wet electrical equipment. For fire, smoke, serious electric shock or immediate danger, move to safety and call Triple Zero (000). Seek medical assessment after any shock. Once everyone is safe, call for urgent electrical advice rather than waiting for a routine inspection quote.",
       items: [
         "Burning smell",
         "Sparking",
@@ -3786,7 +3890,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     quoteChecklist: {
       heading: "What to send before booking an electrical inspection",
       urgentNote:
-        "If there is burning smell, sparking, shock risk, exposed wiring, smoke, heat, water reaching electrical equipment or power loss, call first.",
+        "Do not approach a hazard for photos or keep resetting a circuit that trips again. For fire, smoke or immediate danger, move to safety and call Triple Zero (000); arrange electrical advice once safe.",
       items: [
         "Property address",
         "Suburb or postcode",
@@ -3795,7 +3899,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         "Known electrical concerns",
         "Access details",
         "Agent or property-manager contact where relevant",
-        "Switchboard photos if available",
+        "Accessible photos taken safely without opening covers or approaching damaged equipment",
         "Defect notices or previous reports if available",
       ],
     },
@@ -3823,7 +3927,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Do I receive a written report?",
         answer:
-          "Evaready can provide an inspection findings summary with visible and tested findings, priority safety items, photos where practical and recommended next actions. A formal compliance certificate is not promised unless specifically confirmed before booking.",
+          "The agreed findings summary records visible and tested conditions, priority safety items and recommended next actions. Confirm the report format before booking. It is not a blanket compliance certificate or legal clearance for a sale or tenancy; required documentation for any separately completed electrical repair is a different matter.",
       },
       {
         question: "Can you quote repairs found during the inspection?",
@@ -3838,12 +3942,12 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "What should I send before booking?",
         answer:
-          "Send the property address, suburb or postcode, purchase or rental purpose, deadline, access details, known concerns, switchboard photos and any defect notices or previous reports if available.",
+          "Send the property address, purpose, deadline, authorised access arrangements, known concerns and relevant previous reports. Only take photos from a safe position without opening covers or approaching damaged equipment.",
       },
       {
         question: "What if there is an urgent electrical hazard?",
         answer:
-          "Call first if there is burning smell, sparking, exposed wiring, shock risk, smoke or heat from the switchboard, water reaching electrical equipment, repeated tripping or power loss.",
+          "Keep clear of unsafe equipment. For fire, smoke, serious electric shock or immediate danger, move to safety and call Triple Zero (000); seek medical assessment after any shock. Do not keep resetting tripping protection. Once everyone is safe, call for electrical advice rather than waiting for an inspection quote.",
       },
     ],
     relatedServices: [

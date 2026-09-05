@@ -849,12 +849,12 @@ const servicesHeroCredentialItems = [
 const servicesHeroIntentCards = [
   {
     label: "Emergency fault",
-    copy: "Call first for no power, burning smells, sparking, repeated safety-switch tripping, switchboard faults, storm damage or unsafe electrical equipment.",
+    copy: "Once everyone is safe, call for no power, burning smells, sparking, repeated tripping or storm damage. Keep clear of damaged equipment and do not keep resetting a circuit that trips again.",
     tone: "emergency",
   },
   {
     label: "Planned work",
-    copy: "Choose the closest service below and send photos, job notes and access details through the quote form.",
+    copy: "Choose the closest service below and send job notes and access details. Only take photos from a safe position without opening electrical covers.",
     tone: "planned",
   },
 ];
@@ -1004,7 +1004,7 @@ const serviceCatalogueCategories: ServiceCatalogueCategory[] = [
     id: "security-data-communications",
     title: "Security, Data & Communications",
     intro:
-      "CCTV, data, communications, intercom and TV cabling services grouped for cleaner routing.",
+      "Choose CCTV, data, phone, intercom or TV cabling to discuss the equipment and installation you need.",
     items: [
       { title: "CCTV & Security Cameras" },
       { title: "Data Cabling & Internet Points" },
@@ -1154,6 +1154,13 @@ export default function ServicesPage() {
               and surrounding regions.
             </p>
 
+            <p className="mt-4 max-w-3xl text-base leading-7 text-slate-200" data-services-safety>
+              For fire, smoke, serious electric shock or immediate danger,
+              move to safety and call Triple Zero (000). Keep clear of damaged
+              or wet electrical equipment. Seek medical assessment after any
+              electric shock.
+            </p>
+
             <div data-mobile-sticky-cta-guard className="services-index-hero-cta-grid mt-6 grid gap-3 sm:grid-cols-2">
               <a
                 href={business.phoneHref}
@@ -1223,7 +1230,7 @@ export default function ServicesPage() {
             </h2>
 
             <p className="mt-5 text-lg font-semibold leading-8 text-slate-200">
-              Call directly if the issue feels unsafe. For planned work,
+              Once everyone is safe, call for urgent electrical faults. For planned work,
               choose the closest category and send the details through the
               quote form so the job can be reviewed.
             </p>
