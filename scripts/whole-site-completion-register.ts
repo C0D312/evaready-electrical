@@ -17,6 +17,9 @@ export const PHASE_3D2_LIVE_VERIFIED_SHA =
 export const PHASE_3D3_LIVE_VERIFIED_SHA =
   "187605f9916b246e875728a5a6e18e4c197540ea";
 
+export const PHASE_3D4_LIVE_VERIFIED_SHA =
+  "7972f8dec2620d97c311b1ecd9ce40545b59dc9f";
+
 export const phase3d1RewrittenRoutes = [
   "/services/electrical-fault-finding-sydney",
   "/services/hot-power-point-electrician-sydney",
@@ -239,7 +242,7 @@ function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
   const consolidationHeld = consolidationHeldSet.has(item.route);
 
   const outstandingHolds = phase3d4Rewritten
-    ? ["Separate release validation and live artifact verification are required."]
+    ? []
     : rewritten
     ? []
     : phase3d2Rewritten
@@ -268,9 +271,9 @@ function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
         : "automated-only",
     individualSemanticContentReview: individuallyReviewed ? "reviewed" : "pending",
     outstandingHolds,
-    publication: phase3d4Rewritten ? "pending" : "live-verified",
+    publication: "live-verified",
     publishedLiveVerifiedSha: phase3d4Rewritten
-      ? null
+      ? PHASE_3D4_LIVE_VERIFIED_SHA
       : phase3d3Rewritten
       ? PHASE_3D3_LIVE_VERIFIED_SHA
       : phase3d2Rewritten

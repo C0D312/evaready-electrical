@@ -45,10 +45,13 @@ Source and decision notes are in
 
 ## Commands
 
-Phase 3D4 records the six core service pages as locally reviewed and rewritten.
-Their publication remains pending, with no live SHA. The register contains
+Phase 3D4 records the six core service pages as reviewed and rewritten.
+Phase 3D4-P1 matched their live output to the deployed artifact at
+`7972f8dec2620d97c311b1ecd9ce40545b59dc9f` (workflow `33971736127`,
+artifact `9971140993`, deployment `6282046927`). Their six publication holds
+are removed, and earlier route SHAs are preserved. The register contains
 24 individually reviewed routes, 977 pending individual reviews, 21 held
-rewrites, and six pending publications. General owner credential and business
+rewrites, and zero pending publications. General owner credential and business
 claim verification is not implied by a route-content review.
 
 ```powershell

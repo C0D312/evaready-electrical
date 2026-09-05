@@ -18,8 +18,8 @@
       "reviewed": 24
     },
     "publication": {
-      "live-verified": 995,
-      "pending": 6
+      "live-verified": 1001,
+      "pending": 0
     },
     "rewrite": {
       "held": 21,
@@ -17239,11 +17239,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "7972f8dec2620d97c311b1ecd9ce40545b59dc9f",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services/commercial-electrician-sydney",
@@ -17511,11 +17509,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "7972f8dec2620d97c311b1ecd9ce40545b59dc9f",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services/lighting-electrician-sydney",
@@ -17619,11 +17615,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "7972f8dec2620d97c311b1ecd9ce40545b59dc9f",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services/power-point-installation-sydney",
@@ -17673,11 +17667,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "7972f8dec2620d97c311b1ecd9ce40545b59dc9f",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services/property-management-electrician-sydney",
@@ -17707,11 +17699,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "7972f8dec2620d97c311b1ecd9ce40545b59dc9f",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services/residential-electrician-sydney",
@@ -17843,11 +17833,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "7972f8dec2620d97c311b1ecd9ce40545b59dc9f",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services/strata-electrician-sydney",
