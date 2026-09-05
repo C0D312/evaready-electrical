@@ -14,17 +14,17 @@
       "suburb": 873
     },
     "individualReview": {
-      "pending": 983,
-      "reviewed": 18
+      "pending": 977,
+      "reviewed": 24
     },
     "publication": {
-      "live-verified": 1001,
-      "pending": 0
+      "live-verified": 995,
+      "pending": 6
     },
     "rewrite": {
       "held": 21,
-      "pending": 962,
-      "rewritten": 18,
+      "pending": 956,
+      "rewritten": 24,
       "sufficient": 0
     },
     "totalRoutes": 1001
@@ -17235,20 +17235,20 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/commercial-electrician-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#commercial-electrician-sydney",
       "template": "service page"
     },
@@ -17507,20 +17507,20 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/lighting-electrician-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#lighting-electrician-sydney",
       "template": "service page"
     },
@@ -17615,20 +17615,20 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/power-point-installation-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#power-point-installation-sydney",
       "template": "service page"
     },
@@ -17669,20 +17669,20 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/property-management-electrician-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#property-management-electrician-sydney",
       "template": "service page"
     },
@@ -17703,20 +17703,20 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/residential-electrician-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#residential-electrician-sydney",
       "template": "service page"
     },
@@ -17839,20 +17839,20 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/strata-electrician-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#strata-electrician-sydney",
       "template": "service page"
     },

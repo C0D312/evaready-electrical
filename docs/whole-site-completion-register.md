@@ -45,6 +45,12 @@ Source and decision notes are in
 
 ## Commands
 
+Phase 3D4 records the six core service pages as locally reviewed and rewritten.
+Their publication remains pending, with no live SHA. The register contains
+24 individually reviewed routes, 977 pending individual reviews, 21 held
+rewrites, and six pending publications. General owner credential and business
+claim verification is not implied by a route-content review.
+
 ```powershell
 npm run generate:whole-site-register
 npm run audit:whole-site-register

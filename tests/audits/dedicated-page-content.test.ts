@@ -469,8 +469,18 @@ test("phase 3D3 service records provide route-specific safety, scope and boundar
   );
 });
 
-test("the other 30 service data records remain semantically identical to 270c0ba", () => {
+test("24 untouched records retain baseline hashes and six core records match Phase 3D4", () => {
+  const phase3d4Hashes: Record<string, string> = {
+    "residential-electrician-sydney": "f3d8502c06872408c99912ba8f912c9cd518e61166ab796f438b55f92b243676",
+    "commercial-electrician-sydney": "1f33761ac25f055900c3a2fb6b275c2472616dd3de3e9dd0dfec6beec8af21be",
+    "strata-electrician-sydney": "07621cb0589f3ee79bfd1df3ed8727bf68e953ec0af3d594a274b27c8fa8d1bc",
+    "property-management-electrician-sydney": "3b47331f0ca084a1ec491ca31e6be5b79a9fd70990f10a546f0a1d03f87580d4",
+    "lighting-electrician-sydney": "ed2586e40575e605d71985b0526fbb7a68d7c96d6056a4e6be09e3a38202db58",
+    "power-point-installation-sydney": "7765702651da60ef29a53acc3c228745053432deeb29c19f48fa3431b92bf309",
+  };
   assert.equal(Object.keys(untouchedServiceRecordHashes).length, 30);
+  assert.equal(Object.keys(phase3d4Hashes).length, 6);
+  assert.equal(serviceLandingPages.filter(page => !rewrittenServiceRoutes.has(page.slug) && !phase3d4Hashes[page.slug]).length, 24);
 
   for (const page of serviceLandingPages) {
     if (rewrittenServiceRoutes.has(page.slug)) {
@@ -479,8 +489,8 @@ test("the other 30 service data records remain semantically identical to 270c0ba
 
     assert.equal(
       sha256(JSON.stringify(page)),
-      untouchedServiceRecordHashes[page.slug],
-      `${page.slug} changed outside the approved six-record boundary`,
+      phase3d4Hashes[page.slug] ?? untouchedServiceRecordHashes[page.slug],
+      `${page.slug} changed outside its recorded phase content`,
     );
   }
 });

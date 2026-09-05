@@ -75,7 +75,38 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Safe, tidy electrical work for homes, units, townhouses, granny flats and renovations across the service area.",
     intro:
-      "Evaready Electrical helps homeowners with everyday electrical repairs, safety upgrades and planned installations. From a faulty power point to a full renovation rough-in, the work is tested carefully and explained clearly before it is completed.",
+      "Our licensed electricians help homeowners with electrical repairs, safety upgrades and planned installations. We assess the affected circuit, existing wiring and access before explaining the work required, from an extra outlet to renovation wiring. Keep clear of damaged electrical equipment; for fire, smoke or immediate danger, move to safety and call Triple Zero (000).",
+    callFirstBlock: {
+      heading: "Make an unsafe household fault the first priority",
+      safetyCopy: "Keep clear of hot, sparking, damaged or wet electrical equipment. Do not remove covers or keep resetting protection that trips again. For fire, smoke or immediate danger, move to safety and call Triple Zero (000).",
+      items: ["Stop using the affected equipment", "Keep children and pets away from the fault", "Call for electrical advice once everyone is safe"],
+    },
+    serviceGuide: {
+      heading: "Plan home electrical work around the existing installation.",
+      intro: "A repair, a new fitting and a renovation need different checks. Describe how you use the room and what has changed so the proposed work solves the right problem.",
+      sections: [
+        {
+          title: "Repairs and new installations have different starting points",
+          copy: "Flickering lights or repeated tripping can have several causes. Our licensed electricians inspect and test the affected installation before recommending a repair; replacing the visible fitting alone may not resolve the fault.",
+          items: ["Review the reported symptoms, affected circuits and connected equipment", "Check circuit protection and accessible wiring relevant to the job", "Discuss outlet, lighting and switching positions for planned work"],
+        },
+        {
+          title: "Access and existing wiring determine the scope",
+          copy: "A new outlet or light may need a cable route, a different circuit or work at the switchboard. Concealed damage cannot be ruled out from photographs or the age of the house alone.",
+          items: ["Confirm roof, wall and underfloor access before agreeing the installation method", "Identify any wall opening, patching or painting that is outside the electrical quote", "Arrange owner or strata approval where the work affects shared property"],
+        },
+        {
+          title: "Agree the work and handover before starting",
+          copy: "We explain the proposed scope, any planned power interruption and issues found during inspection. The agreed installation is tested and the completed work and remaining concerns are explained at handover.",
+          items: ["Supply room plans and fitting specifications for renovations", "Tell us about equipment that must remain powered during the visit", "Keep future upgrades separate from repairs needed for the current fault"],
+        },
+      ],
+    },
+    quoteChecklist: {
+      heading: "Help us scope your home electrical work",
+      items: ["Suburb, dwelling type and rooms involved", "Number and intended use of new lights or outlets", "Accessible photos taken from a safe position without opening covers", "Renovation plans, fitting models and access constraints"],
+      urgentNote: "Do not approach damaged equipment just to take a photo. An unsafe fault needs a call rather than a routine quote request.",
+    },
     heroBullets: [
       "Power points, lighting and ceiling fans",
       "Smoke alarms and safety switches",
@@ -123,7 +154,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Can I send photos before requesting a quote?",
         answer:
-          "Yes. Photos of the switchboard, fitting, outlet or fault area help make the job details clearer.",
+          "Yes, if you can take them from a safe position without touching equipment or opening covers. Include the room and intended use. Photos help with scope but do not replace inspection or testing.",
       },
       {
         question: "Do you work on older homes?",
@@ -140,18 +171,49 @@ export const serviceLandingPages: ServiceLandingPage[] = [
   },
   {
     slug: "commercial-electrician-sydney",
-    metaTitle: "Commercial Electrician Sydney | Shops, Strata & Offices",
+    metaTitle: "Commercial Electrician Sydney | Shops, Offices & Workplaces",
     metaDescription:
-      "Commercial electrician in Sydney for shops, offices, strata, builders and property managers needing power, lighting, faults and maintenance.",
+      "Commercial electrician in Sydney for shops, offices and workplaces needing power, lighting, fault finding and planned electrical maintenance.",
     title: "Commercial Electrician Sydney & Surrounding Regions",
     description:
-      "Electrical maintenance and installation support for Sydney businesses, builders, strata and real estate clients.",
+      "Electrical maintenance, fault finding and installation support for Sydney shops, offices and business premises.",
     intro:
-      "Commercial electrical work needs clear communication, reliable attendance and neat documentation. Evaready Electrical supports shops, offices, strata sites, warehouses, builders and property managers across Sydney and surrounding regions.",
+      "Our licensed electricians help businesses plan electrical repairs and installations around site access, equipment needs and operational disruption. We confirm the affected area and scope with the authorised site contact before work starts. For fire or immediate danger, keep people clear, follow the site emergency plan and call Triple Zero (000) from safety.",
+    callFirstBlock: {
+      heading: "Protect people before restoring business operations",
+      safetyCopy: "Keep staff and visitors clear of sparking, smoking, hot or water-damaged electrical equipment. Do not open switchboards or repeatedly reset tripping protection. For fire or immediate danger, follow the site emergency plan and call Triple Zero (000) from safety.",
+      items: ["Keep people out of the affected area", "Tell the responsible site contact what has happened", "Do not restart affected equipment until its safety has been assessed"],
+    },
+    serviceGuide: {
+      heading: "Scope commercial electrical work around the premises and its loads.",
+      intro: "An office lighting change, a shop fit-out and an equipment supply fault have different access and shutdown requirements. Electrical work should be planned against the actual installation and the business activities it supports.",
+      sections: [
+        {
+          title: "Identify the installation problem before replacing equipment",
+          copy: "We review the symptoms, circuit arrangement and accessible electrical installation. A tripping circuit may involve the wiring, protection or connected equipment; testing is needed before attributing the cause.",
+          items: ["Confirm affected work areas and equipment ratings", "Assess the relevant outlets, lighting, circuits and switchboard", "Separate building wiring work from equipment servicing or network-side issues"],
+        },
+        {
+          title: "Plan access and power interruptions",
+          copy: "Discuss trading hours, induction, security and the people who can approve a shutdown. A preferred work window is subject to access and the agreed scope; uninterrupted trading cannot be promised.",
+          items: ["Identify critical equipment, refrigeration and IT dependencies", "Confirm landlord or building-management approval where required", "Agree safe work areas and notice to affected occupants"],
+        },
+        {
+          title: "Keep maintenance and upgrade decisions clear",
+          copy: "Our licensed electricians explain the findings and options before agreed repairs or installations. Additional load, dedicated circuits or switchboard changes require a separate assessment rather than assuming spare capacity exists.",
+          items: ["Record completed work and any unresolved electrical concerns", "Define recurring maintenance tasks and frequency in the agreed scope", "Use the dedicated emergency-lighting page for evacuation-lighting requirements"],
+        },
+      ],
+    },
+    quoteChecklist: {
+      heading: "Information for a commercial electrical quote",
+      items: ["Site type, suburb and affected work area", "Equipment specifications and the proposed change", "Authorised contact, access hours and shutdown restrictions", "Available circuit schedules or plans and safely obtained photos"],
+      urgentNote: "For an unsafe fault, arrange safety and call first. A quote request does not confirm an attendance time or shutdown booking.",
+    },
     heroBullets: [
-      "Office, retail and strata electrical support",
+      "Office, retail and workplace electrical support",
       "Lighting, power and fault finding",
-      "Builder and real estate maintenance",
+      "Fit-out and planned maintenance enquiries",
       "Switchboards and safety upgrades",
     ],
     warningSigns: [
@@ -164,7 +226,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Commercial fault finding and repairs",
       "Shop, office and warehouse lighting",
       "Power outlets and dedicated circuits",
-      "Strata and real estate maintenance",
+      "Planned workplace electrical maintenance",
       "Builder electrical support",
       "Switchboard and safety device upgrades",
     ],
@@ -188,9 +250,9 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     ],
     faqs: [
       {
-        question: "Do you work with property managers and strata?",
+        question: "Can electrical work be planned around trading hours?",
         answer:
-          "Yes. Evaready Electrical can support common electrical faults, lighting, safety issues and maintenance requests.",
+          "Tell us the available access windows, affected equipment and shutdown limits. We can discuss a suitable plan, but some work requires the affected supply to be isolated. Timing is confirmed when the scope and access are agreed.",
       },
       {
         question: "Can you help with urgent business electrical faults?",
@@ -221,7 +283,38 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Electrical fault and maintenance support for strata managers, owners corporations, common areas and shared-access properties.",
     intro:
-      "Strata electrical work often involves shared areas, access arrangements and more than one contact. Evaready Electrical can help with common-property faults, lighting, switchboards, intercom and access wiring, emergency lighting and planned electrical maintenance across Sydney and surrounding regions.",
+      "Strata electrical work often involves shared areas, access arrangements and more than one contact. Our licensed electricians assess common-property faults, lighting, switchboards and planned electrical maintenance across Sydney and surrounding regions. Keep residents clear of unsafe equipment. For fire, smoke or immediate danger, move to safety and call Triple Zero (000).",
+    callFirstBlock: {
+      heading: "Keep residents clear of unsafe shared equipment",
+      safetyCopy: "Do not touch exposed, wet, hot or sparking electrical equipment. Keep clear and notify the nominated building contact. For fire, smoke or immediate danger, move to safety and call Triple Zero (000) before arranging repairs.",
+      items: ["Do not open shared switchboards or electrical enclosures", "Do not repeatedly reset a shared circuit that trips", "Keep access for emergency responders clear"],
+    },
+    serviceGuide: {
+      heading: "Resolve strata electrical faults with clear property boundaries.",
+      intro: "Our licensed electricians assess the electrical issue while the authorised strata contact confirms access, approval and responsibility. A fault inside a unit is not automatically a common-property repair.",
+      sections: [
+        {
+          title: "Establish who can authorise the work",
+          copy: "Common-property responsibility depends on the strata plan, applicable by-laws and the affected installation. The owners corporation or nominated manager should confirm the approved scope; location alone does not settle who pays.",
+          items: ["Identify whether one lot, several lots or a common area is affected", "Provide relevant plans, prior reports and the authorised contact", "Confirm renovation approvals before altering shared wiring or building fabric"],
+        },
+        {
+          title: "Inspect the shared electrical installation",
+          copy: "We check the reported fault and accessible circuits or equipment. Hallway lights, car-park fittings and shared power may fail for different reasons, including fitting defects, circuit faults or moisture damage.",
+          items: ["Coordinate access to locked plant rooms and affected areas", "Discuss any interruption to residents or shared services", "Separate electrical supply faults from gate mechanics, intercom programming or other specialist work"],
+        },
+        {
+          title: "Document repairs and unresolved concerns",
+          copy: "The agreed repair is completed and tested, with findings and follow-up needs explained to the nominated contact. A fault repair does not automatically constitute a whole-building compliance inspection or fire-safety assessment.",
+          items: ["Keep maintenance requests linked to the affected common area", "Agree any separate inspection or emergency-lighting scope", "Confirm approval for additional work found necessary during testing"],
+        },
+      ],
+    },
+    quoteChecklist: {
+      heading: "Prepare a strata electrical work request",
+      items: ["Building address and exact affected common area or lot", "Nominated approval contact and work-order scope", "Access arrangements, resident notices and shutdown constraints", "Relevant strata plans, equipment details and safe photos"],
+      urgentNote: "Safety action comes before routine approvals. Keep clear of danger and call emergency services where needed; discuss repair authorisation once safe.",
+    },
     audiences: [
       "Strata managers",
       "Owners corporations",
@@ -275,7 +368,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "What details help with a strata electrical quote?",
         answer:
-          "Send the building address, affected area, access and parking notes, site contact, photos and any work order or previous electrical note.",
+          "Send the affected area, nominated approval contact, work order and relevant plans or reports. Photos must be taken from a safe position without opening equipment. Confirm access and whether work affects common property or an individual lot.",
       },
       {
         question: "What should residents do if a common-area fault feels unsafe?",
@@ -301,7 +394,38 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Clear electrical support for property managers, real estate agencies, landlords and managed residential properties.",
     intro:
-      "Managed-property electrical work needs the right address, access contact and job details before attendance. Evaready Electrical can help property managers, real estate agencies and landlords with urgent faults, planned repairs, smoke alarms, lighting, power points, switchboards and electrical inspection enquiries.",
+      "Our licensed electricians help property managers and landlords with rental faults, repairs and planned maintenance. Confirm the property, access and approval contact when requesting work. For fire, smoke or immediate danger, move to safety and call Triple Zero (000); notify the landlord or agent of an urgent repair need as soon as possible.",
+    callFirstBlock: {
+      heading: "Treat a dangerous rental electrical fault as urgent",
+      safetyCopy: "Keep occupants away from exposed, hot, wet or sparking electrical equipment. Do not remove covers or keep resetting tripping protection. For fire, smoke or immediate danger, move to safety and call Triple Zero (000). Notify the landlord or agent of an urgent repair need as soon as possible.",
+      items: ["Stop using the affected equipment", "Report the symptoms without attempting electrical repairs", "Give the responsible contact a clear description of the danger"],
+    },
+    serviceGuide: {
+      heading: "Coordinate rental electrical repairs from report to handover.",
+      intro: "Our licensed electricians assess the installation; the property manager coordinates the work authority and lawful access. A tenant report is a starting point for diagnosis, not proof that a particular part needs replacement.",
+      sections: [
+        {
+          title: "Turn the tenant report into an authorised scope",
+          copy: "Confirm the property, symptoms, affected room and approval contact. Dangerous electrical faults are listed as urgent repairs in NSW, so they should not be left in a routine maintenance queue.",
+          items: ["Distinguish an immediate hazard from a planned improvement", "Confirm the approved inspection or repair scope", "Check whether strata, landlord-owned or tenant-owned equipment is involved"],
+        },
+        {
+          title: "Arrange access and inspect the fault",
+          copy: "The agent or landlord should arrange entry in line with the applicable tenancy requirements. An appointment request does not itself authorise entry. We inspect and test accessible parts relevant to the reported problem.",
+          items: ["Agree the occupant contact, keys and attendance window privately", "Explain any planned interruption to power", "Obtain approval for additional work outside the original scope"],
+        },
+        {
+          title: "Keep maintenance records useful",
+          copy: "Record the fault found, work completed and matters needing follow-up. A repair visit is not a blanket certificate that the entire property is defect-free; broader inspection or smoke-alarm obligations need their own defined scope.",
+          items: ["Link findings to the property and work order", "Separate completed repairs from recommended upgrades", "Plan recurring work by the actual equipment and portfolio needs"],
+        },
+      ],
+    },
+    quoteChecklist: {
+      heading: "Provide a clear property-maintenance brief",
+      items: ["Property address and the tenant-reported symptoms", "Agent or landlord approval contact and work scope", "Agreed access arrangements and any essential powered equipment", "Relevant prior reports and photos taken safely without opening covers"],
+      urgentNote: "Do not wait for a routine quote response if people are at risk. Follow emergency safety advice and report an urgent repair to the landlord or agent.",
+    },
     audiences: [
       "Property managers",
       "Real estate agencies",
@@ -522,7 +646,38 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "LED, indoor, outdoor, security and commercial lighting installed safely across the service area.",
     intro:
-      "Good lighting changes how a home or business feels and functions. Evaready Electrical installs and repairs lighting with careful placement, safe wiring and tidy finishes.",
+      "Our licensed electricians install and repair lighting for homes and business premises. We review the room, existing wiring, fitting specifications and controls before recommending a practical installation or fault-repair scope. Keep clear of damaged or water-affected light fittings. For fire, smoke or immediate danger, move to safety and call Triple Zero (000).",
+    callFirstBlock: {
+      heading: "Stop using unsafe lighting",
+      safetyCopy: "Keep clear of smoking, sparking, damaged or water-affected light fittings. Do not remove fittings, enter a roof space or keep resetting a circuit that trips. For fire, smoke or immediate danger, move to safety and call Triple Zero (000).",
+      items: ["Do not touch a fitting to check whether it is hot", "Keep people away from damaged fittings", "Call for advice before using the affected lighting again"],
+    },
+    serviceGuide: {
+      heading: "Choose lighting that suits the space, wiring and controls.",
+      intro: "A lighting upgrade is more than exchanging lamps. Position, glare, colour temperature, control compatibility and the installation environment affect the result.",
+      sections: [
+        {
+          title: "Diagnose recurring failures before replacing fittings",
+          copy: "Flicker can involve a lamp, driver, dimmer or circuit fault. Our licensed electricians check the relevant fitting and wiring so the proposed repair addresses the cause found during testing.",
+          items: ["Describe whether one fitting or the whole circuit is affected", "Note any relationship to rain, switching or other appliances", "Keep lighting fault repairs separate from a full room redesign"],
+        },
+        {
+          title: "Check installation and product compatibility",
+          copy: "LED fittings, drivers and dimmers must be suitable for use together. Bathroom and outdoor installations need equipment and positioning appropriate to their environment; an indoor fitting is not automatically suitable outside.",
+          items: ["Check fitting dimensions, ceiling openings and available mounting space", "Assess cable access and relevant manufacturer installation requirements", "Agree switching positions, sensor coverage and unwanted glare"],
+        },
+        {
+          title: "Set the limits of the lighting quote",
+          copy: "The quote should identify fitting supply, electrical installation and testing. Ceiling repairs, painting, landscaping, smart-home programming and emergency or exit-lighting compliance are separate unless expressly included.",
+          items: ["Provide product specifications before buying fittings", "Confirm access to high ceilings and outdoor work areas", "Review operation and agreed control settings at handover"],
+        },
+      ],
+    },
+    quoteChecklist: {
+      heading: "Describe the lighting result you need",
+      items: ["Rooms or outdoor areas and the number of fittings", "Repair symptoms or the intended lighting change", "Fitting and dimmer models, ceiling height and safe photos", "Whether fittings are supplied and any access restrictions"],
+      urgentNote: "Do not climb or open a fitting to obtain photos. Call first about a suspected unsafe lighting fault.",
+    },
     heroBullets: [
       "LED downlights and feature lighting",
       "Outdoor and security lighting",
@@ -565,7 +720,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Can you replace old lights with LEDs?",
         answer:
-          "Yes. Evaready Electrical can replace many older fixtures with LED options suited to the space.",
+          "Many fittings can be replaced with LEDs, but wiring, mounting space, drivers and dimmer compatibility must be checked. Send the proposed product details before purchasing so the installation can be assessed.",
       },
       {
         question: "Can outdoor lights be repaired?",
@@ -594,7 +749,38 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Install, replace and repair power points for homes, offices, kitchens, garages and outdoor areas.",
     intro:
-      "Power points should be placed where they are useful and wired safely for the load they support. Evaready Electrical installs and repairs outlets with proper checks, neat finishes and safe testing.",
+      "Our licensed electricians install power points where they are needed, subject to cable access, circuit condition and the intended load. We assess whether an additional outlet, a replacement or a separate circuit is appropriate. Stop using hot, sparking or damaged outlets. For fire, smoke or immediate danger, move to safety and call Triple Zero (000).",
+    callFirstBlock: {
+      heading: "A damaged outlet needs assessment before use",
+      safetyCopy: "Stop using a hot, buzzing, sparking, scorched or loose power point. Do not touch it to test the temperature, remove its cover or attempt a repair. For fire, smoke or immediate danger, move to safety and call Triple Zero (000).",
+      items: ["Keep clear of the affected outlet and connected equipment", "Do not keep resetting protection that trips", "Use the hot-power-point fault service for an active outlet hazard"],
+    },
+    serviceGuide: {
+      heading: "Add useful outlets without assuming extra circuit capacity.",
+      intro: "More sockets do not increase the capacity of the circuit supplying them. Tell us what equipment will be connected so the electrical scope reflects the intended use.",
+      sections: [
+        {
+          title: "Check the circuit and proposed position",
+          copy: "Our licensed electricians assess the relevant wiring, circuit protection and cable route. A nearby outlet does not by itself prove that another one can safely be added to the same circuit.",
+          items: ["Confirm the appliances and their available rating information", "Discuss outlet position, furniture and accessible switching", "Identify any separate circuit or switchboard work needed for the proposed load"],
+        },
+        {
+          title: "Choose equipment for its environment",
+          copy: "Outdoor, garage, kitchen and bathroom locations have different installation considerations. Weather exposure, mounting surfaces and proximity to water must be assessed before agreeing the outlet and position.",
+          items: ["Check wall access and concealed cable routes", "Review customer-supplied outlet specifications before purchase", "Identify patching, painting or excavation that is outside the electrical scope"],
+        },
+        {
+          title: "Separate installation from fault repair and specialist loads",
+          copy: "A hot or damaged outlet requires fault investigation rather than a cosmetic replacement. Fixed appliance connections and EV charging also need their own load and installation assessment; an extra general-purpose outlet is not a substitute.",
+          items: ["Agree the number and type of outlets and any circuit changes", "Test the completed work and explain the intended use", "Confirm property-owner or strata permission where applicable"],
+        },
+      ],
+    },
+    quoteChecklist: {
+      heading: "Plan the outlet locations and intended use",
+      items: ["Suburb, room and number of proposed power points", "Equipment to be connected and available specifications", "Wall type, access restrictions and safely obtained location photos", "Whether the request is a new installation or an existing fault"],
+      urgentNote: "Do not approach a damaged outlet for a photo. Call first if there is heat, sparking, smoke or exposed wiring.",
+    },
     heroBullets: [
       "New and replacement power points",
       "Outdoor and garage outlets",
@@ -637,7 +823,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Can you add extra power points?",
         answer:
-          "Yes. Extra power points can be installed where access and circuit capacity allow.",
+          "Yes, subject to inspection of the wiring, protection, access and intended load. Adding sockets does not increase circuit capacity. Some requests need a separate circuit or other work before an outlet can be added.",
       },
       {
         question: "Can you install outdoor power points?",

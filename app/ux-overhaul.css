@@ -2445,3 +2445,10 @@ html body.ev-storm-page main#main-content .service-action-card--scope {
     justify-self: start !important;
   }
 }
+
+/* Allow long service names to reflow at enlarged text sizes without shrinking. */
+html body.ev-storm-page main#main-content.generated-storm-service
+  .service-detail-hero .service-detail-hero-panel > h1.service-detail-hero-title {
+  overflow-wrap: anywhere !important;
+  white-space: normal !important;
+}

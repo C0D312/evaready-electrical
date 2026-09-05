@@ -1013,12 +1013,14 @@ export default async function ServiceLandingPage({
             {service.audiences ? (
               <div>
                 <p className="text-sm font-black uppercase tracking-[0.24em] text-blue-700">
-                  Who the inspection is for
+                  {service.inspectionOutcomes ? "Who the inspection is for" : "Who we help"}
                 </p>
                 <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-                  Electrical condition checks before buying, leasing or managing a property.
+                  {service.inspectionOutcomes
+                    ? "Electrical condition checks before buying, leasing or managing a property."
+                    : "Electrical work for the people responsible for the property."}
                 </h2>
-                <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="service-detail-scope-grid mt-8 grid gap-3">
                   {service.audiences.map((item) => (
                     <div
                       key={item}
@@ -1143,7 +1145,7 @@ export default async function ServiceLandingPage({
                 </a>
               </div>
             </div>
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="service-detail-scope-grid grid gap-3">
               {service.callFirstBlock.items.map((item) => (
                 <div
                   key={item}
@@ -1224,7 +1226,7 @@ export default async function ServiceLandingPage({
                 </a>
               </div>
             </div>
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="service-detail-scope-grid grid gap-3">
               {service.quoteChecklist.items.map((item) => (
                 <div
                   key={item}
