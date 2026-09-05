@@ -62,6 +62,45 @@ const warningSigns = [
   "You are renovating or adding new circuits",
 ];
 
+const switchboardGuideSections = [
+  {
+    title: "An upgrade is different from a fault repair",
+    text: "Repeated tripping, heat or a burning smell can come from a circuit, connected equipment, moisture, a loose connection or a protective device. Testing determines whether an urgent repair, a targeted change or a broader upgrade is appropriate.",
+    items: [
+      "A tripping breaker does not prove the breaker or switchboard needs replacement",
+      "Unsafe heat, smoke, sparking or damage is assessed before planned upgrade work",
+      "New circuit protection is selected for the actual circuit arrangement",
+    ],
+  },
+  {
+    title: "What our licensed electricians inspect",
+    text: "The review covers accessible switchboard condition, protective devices, circuit identification, signs of heat or damage, available space and the proposed loads relevant to the job.",
+    items: [
+      "Enclosure, main switch, fuses, breakers, RCDs or RCBOs and visible labelling",
+      "Accessible connections, earthing information and damaged or deteriorated components",
+      "Existing and proposed loads such as ovens, hot water, air conditioning or EV charging",
+    ],
+  },
+  {
+    title: "Possible work after assessment",
+    text: "The agreed scope may include replacing ceramic fuses, adding suitable circuit protection, repairing damaged connections, reorganising circuits, improving labels or replacing the enclosure. Work is based on the installation, not a standard package.",
+    items: [
+      "Fault repair and damaged-component work identified during testing",
+      "RCD or RCBO protection suited to the affected circuits",
+      "Separate load, consumer-mains or supply review where capacity is relevant",
+    ],
+  },
+  {
+    title: "Supply, access and making-good limits",
+    text: "A switchboard upgrade does not automatically increase the property's available supply. Distributor approval, metering, authorised supply-side work, asbestos assessment, building access or wall repairs can sit outside the switchboard electrical scope.",
+    items: [
+      "Network and metering responsibilities are identified before affected work proceeds",
+      "Concealed wiring conditions can change the final repair or upgrade scope",
+      "Any non-electrical removal, enclosure or making-good work is confirmed separately",
+    ],
+  },
+] as const;
+
 const process = [
   {
     title: "Inspect",
@@ -69,11 +108,11 @@ const process = [
   },
   {
     title: "Quote",
-    text: "You get a clear explanation of what needs to be upgraded and what the safest option is.",
+    text: "The required repair, protection, load and supply responsibilities are separated so the proposed scope and exclusions are clear.",
   },
   {
     title: "Upgrade",
-    text: "The switchboard is upgraded with neat workmanship, modern protection and clear circuit labelling.",
+    text: "Agreed switchboard work is completed with suitable protection and circuit labelling for the confirmed installation scope.",
   },
   {
     title: "Test",
@@ -96,6 +135,21 @@ const switchboardFaqs = [
     question: "Can a switchboard upgrade help with EV chargers or renovations?",
     answer:
       "Often yes. New loads may require circuit, protection or supply capacity checks before the property is ready for the extra demand.",
+  },
+  {
+    question: "Does repeated tripping always mean I need a switchboard upgrade?",
+    answer:
+      "No. Repeated tripping can result from a circuit fault, moisture, faulty equipment, excessive load or a protective-device problem. Testing is needed before an upgrade is recommended.",
+  },
+  {
+    question: "Will a switchboard upgrade increase the power available to my property?",
+    answer:
+      "Not automatically. Available supply can depend on consumer mains, service equipment, metering and the electricity distributor. A separate load and supply assessment may be required.",
+  },
+  {
+    question: "What should I send for a switchboard quote?",
+    answer:
+      "Send your suburb, safe photos of the closed switchboard and labels, details of tripping or damage, the equipment or renovation being planned, and any defect notice, retailer or distributor paperwork.",
   },
 ];
 
@@ -182,8 +236,8 @@ export default function SwitchboardUpgradesSydneyPage() {
           className="brand-internal-hero-image object-cover object-[68%_center]"
         />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-16">
-          <div className="internal-hero-copy-panel">
+        <div className="switchboard-hero-layout relative mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+          <div className="switchboard-hero-copy-panel internal-hero-copy-panel">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-blue-200">
               <ShieldCheck className="h-4 w-4" />
               Safety Switches - RCBOs - Modern Protection
@@ -194,10 +248,12 @@ export default function SwitchboardUpgradesSydneyPage() {
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">
-              Replace old ceramic fuses, improve circuit protection and make
-              the switchboard easier to understand. Evaready Electrical handles
-              tidy switchboard upgrades for homes and businesses across the
-              service area.
+              Do not touch or open a switchboard that is hot, wet, damaged,
+              smoking or sparking. For fire, serious electric shock or
+              immediate danger, move clear and call Triple Zero (000). For
+              planned work, our licensed electricians assess faults,
+              protection, circuit arrangement and proposed loads before
+              recommending a switchboard upgrade.
             </p>
 
             <ServiceCredentialStrip
@@ -232,7 +288,7 @@ export default function SwitchboardUpgradesSydneyPage() {
           </div>
 
           {/* Quote card */}
-          <div className="rounded-[2rem] border border-white/15 bg-white/10 p-6 shadow-2xl backdrop-blur-xl">
+          <div className="switchboard-hero-aside rounded-[2rem] border border-white/15 bg-white/10 p-6 shadow-2xl backdrop-blur-xl">
             <p className="text-sm font-black uppercase tracking-[0.2em] text-red-300">
               Switchboard electrical help
             </p>
@@ -364,6 +420,39 @@ export default function SwitchboardUpgradesSydneyPage() {
                   <ArrowRight className="h-4 w-4" />
                 </span>
               </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="ev-storm-section py-14">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-sm font-black uppercase tracking-[0.28em] text-cyan-300">
+            Switchboard service guide
+          </p>
+          <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+            Inspect the fault, protection and supply limits before choosing the upgrade.
+          </h2>
+          <div className="mt-8 grid gap-5 lg:grid-cols-2">
+            {switchboardGuideSections.map((section) => (
+              <article
+                key={section.title}
+                className="ev-storm-card rounded-lg border border-cyan-300/20 p-6"
+              >
+                <h3 className="text-2xl font-black text-white">{section.title}</h3>
+                <p className="mt-4 leading-7 text-slate-200">{section.text}</p>
+                <ul className="mt-5 grid gap-3">
+                  {section.items.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-3 font-semibold leading-7 text-slate-100"
+                    >
+                      <ShieldCheck className="mt-1 h-5 w-5 shrink-0 text-cyan-300" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
             ))}
           </div>
         </div>

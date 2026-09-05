@@ -183,12 +183,22 @@ const emergencyFaqs = [
     answer:
       "Yes. Some emergency faults can involve consumer mains, metering, point-of-attachment damage, service equipment or defect notices. Evaready provides Ausgrid and Endeavour Energy Accredited Level 2 ASP support where the job scope requires it.",
   },
+  {
+    question: "Who handles fallen powerlines or public network equipment?",
+    answer:
+      "Keep at least eight metres away from a fallen or low powerline and call Triple Zero (000) for immediate danger. Public network assets remain with the relevant electricity distributor. Our licensed electricians can assess property-side wiring and private service equipment after the area has been made safe.",
+  },
+  {
+    question: "What details help with an emergency electrical call?",
+    answer:
+      "State the suburb, what happened, whether anything is hot, smoking, wet, sparking or repeatedly tripping, and whether power is off. Take photos only from a safe position. Active hazards should be discussed by phone rather than left in a quote form.",
+  },
 ];
 
 const process = [
   {
     title: "Call first for unsafe faults",
-    text: "No power and burning smells, sparking, smoke and overheating power points and repeated tripping should be discussed by phone first.",
+    text: "No power, burning smells, sparking, smoke, overheating power points and repeated tripping should be discussed by phone first.",
   },
   {
     title: "Keep the area clear",
@@ -226,7 +236,7 @@ function EmergencyActionLink({
       )}
     >
       <Phone className="h-5 w-5" aria-hidden="true" />
-      <span className="whitespace-nowrap">{business.callCta}</span>
+      <span className={styles.actionLabel}>{business.callCta}</span>
     </a>
   );
 }
@@ -395,11 +405,13 @@ export default function EmergencyElectricianSydneyPage() {
           className="brand-internal-hero-image object-cover object-[68%_center]"
         />
 
-        <div className={cx(styles.heroInner, "relative mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-16")}>
+        <div className={cx(styles.heroInner, "relative mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 lg:px-8 lg:py-16")}>
           <div className={styles.heroCopyPanel}>
             <div className={cx(styles.eyebrow, "mb-6 inline-flex items-center gap-2 rounded-full border border-red-400/30 bg-red-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-red-200")}>
               <AlertTriangle className="h-4 w-4" aria-hidden="true" />
-              {approvedBusinessClaims.availability.approvedWording}
+              <span className={styles.eyebrowText}>
+                {approvedBusinessClaims.availability.approvedWording}
+              </span>
             </div>
 
             <h1 className={cx(styles.heroTitle, "max-w-5xl text-4xl font-black leading-tight tracking-tight sm:text-5xl lg:text-6xl 2xl:text-7xl")}>
@@ -407,17 +419,19 @@ export default function EmergencyElectricianSydneyPage() {
             </h1>
 
             <p className={cx(styles.heroLead, "mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl")}>
-              Call first for no power, burning smells, sparking, repeated
-              safety-switch tripping, switchboard faults, storm damage or
-              unsafe electrical equipment across Sydney and surrounding
-              regions.
+              Move clear and call Triple Zero (000) for fire, smoke, serious
+              electric shock, a fallen powerline or immediate danger. Do not
+              touch wet, damaged or suspected live equipment. Call Evaready
+              first for no power, burning smells, sparking, repeated
+              safety-switch tripping, switchboard faults or storm damage
+              across Sydney and surrounding regions.
             </p>
 
             <p className={cx(styles.heroPlanned, "mt-3 max-w-2xl text-base font-bold leading-7 text-cyan-100")}>
               For planned work, send photos and job details.
             </p>
 
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <div className={cx(styles.heroActions, "mt-6 flex flex-col gap-3 sm:flex-row")}>
               <EmergencyActionLink className="min-h-14 px-8 py-4 text-lg sm:min-w-[18rem]" />
               <QuoteActionLink secondary className="min-h-14 sm:min-w-[12rem]" />
             </div>
@@ -453,7 +467,7 @@ export default function EmergencyElectricianSydneyPage() {
                       className="mt-0.5 h-5 w-5 shrink-0 text-red-300"
                       aria-hidden="true"
                     />
-                    {step.title}
+                    <span className={styles.cardTitleText}>{step.title}</span>
                   </p>
                   <p className={cx(styles.cardText, "mt-2 pl-8 text-sm leading-6 text-slate-300")}>
                     {step.text}
@@ -474,7 +488,7 @@ export default function EmergencyElectricianSydneyPage() {
       <EmergencyTrustPanel className="border-b border-cyan-300/15" />
 
       <section className={cx(styles.blueSection, "ev-storm-section py-14 sm:py-16")}>
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+        <div className={cx(styles.contentSplit, "mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:px-8")}>
           <div>
             <p className={cx(styles.redEyebrow, "text-sm font-black uppercase tracking-[0.35em] text-red-600")}>
               Emergency Electrical Services
@@ -487,11 +501,15 @@ export default function EmergencyElectricianSydneyPage() {
             <p className={cx(styles.sectionText, "mt-5 text-lg leading-8 text-slate-600")}>
               Start with the symptom you are seeing. If there is heat, smoke,
               sparking, water around electrical equipment or power loss that
-              feels unsafe, use the phone first.
+              feels unsafe, use the phone first. Similar symptoms can come from
+              connected equipment, a circuit fault, damaged wiring, a
+              switchboard problem or the electricity supply, so our licensed
+              electricians test the relevant electrical scope rather than
+              diagnosing from the symptom alone.
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className={cx(styles.hazardGrid, "grid gap-4")}>
             {emergencyServices.map((item) =>
               item.external ? (
                 <a
@@ -544,7 +562,7 @@ export default function EmergencyElectricianSydneyPage() {
       </section>
 
       <section className={cx(styles.blueSection, "ev-storm-section py-14 sm:py-16")}>
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+        <div className={cx(styles.contentSplit, "mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:px-8")}>
           <div>
             <p className={cx(styles.redEyebrow, "text-sm font-black uppercase tracking-[0.35em] text-red-600")}>
               Safety First
@@ -672,7 +690,7 @@ export default function EmergencyElectricianSydneyPage() {
           <h2 className={cx(styles.sectionTitle, "mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl")}>
             Choose the closest fault guide, then call first if it feels unsafe.
           </h2>
-          <div className="emergency-related-grid mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="emergency-related-grid mt-8 grid gap-3">
             {relatedLinks.map((link) => (
               <Link
                 key={link.href}

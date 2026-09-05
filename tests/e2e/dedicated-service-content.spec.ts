@@ -9,7 +9,7 @@ test.beforeEach(async ({ baseURL, context, page }) => {
   await context.route("**/*", async (route) => {
     const requestUrl = new URL(route.request().url());
     if (requestUrl.origin === previewBase.origin) {
-      await route.continue();
+      await route.fallback();
       return;
     }
     await route.abort("blockedbyclient");
@@ -18,7 +18,7 @@ test.beforeEach(async ({ baseURL, context, page }) => {
   await page.route("**/*", async (route) => {
     const requestUrl = new URL(route.request().url());
     if (requestUrl.origin === previewBase.origin) {
-      await route.continue();
+      await route.fallback();
       return;
     }
     if (requestUrl.origin === "https://book.servicem8.com") {
@@ -119,6 +119,51 @@ const phase3d2Cases = [
   },
 ] as const;
 
+const phase3d3Cases = [
+  {
+    guideHeading: "Urgent electrical faults we can help with.",
+    h1: "Emergency Electrician Sydney and Surrounding Regions",
+    path: "emergency-electrician-sydney/",
+    safety: "Move clear and call Triple Zero (000)",
+    slug: "emergency-electrician-sydney",
+  },
+  {
+    guideHeading: "Treat the shock first, then test the electrical cause without guessing.",
+    h1: "Electric Shock Electrician Sydney & Surrounding Regions",
+    path: "services/electric-shock-electrician-sydney/",
+    safety: "Do not touch someone who may still be connected to electricity",
+    slug: "electric-shock-electrician-sydney",
+  },
+  {
+    guideHeading: "Find why the RCD trips before deciding what should be repaired.",
+    h1: "RCD Safety Switch Repairs Sydney & Surrounding Regions",
+    path: "services/rcd-safety-switch-repairs-sydney/",
+    safety: "Do not keep resetting an RCD, RCBO or safety switch that trips again",
+    slug: "rcd-safety-switch-repairs-sydney",
+  },
+  {
+    guideHeading: "What an electrician checks after storm damage.",
+    h1: "Storm Damage Electrician Sydney & Surrounding Regions",
+    path: "services/storm-damage-electrician-sydney/",
+    safety: "Keep clear of wet electrical equipment",
+    slug: "storm-damage-electrician-sydney",
+  },
+  {
+    guideHeading: "Inspect the fault, protection and supply limits before choosing the upgrade.",
+    h1: "Switchboard Upgrades Sydney & Surrounding Regions",
+    path: "services/switchboard-upgrades-sydney/",
+    safety: "Do not touch or open a switchboard that is hot",
+    slug: "switchboard-upgrades-sydney",
+  },
+  {
+    guideHeading: "Confirm the load and connection pathway before choosing 3 phase power.",
+    h1: "3 Phase Power Electrician Sydney & Surrounding Regions",
+    path: "services/three-phase-power-sydney/",
+    safety: "Do not open or alter a switchboard that is hot",
+    slug: "three-phase-power-sydney",
+  },
+] as const;
+
 async function openPhase3d1Route(
   baseURL: string | undefined,
   page: Page,
@@ -142,6 +187,16 @@ async function openPhase3d2Route(
     resolvePreviewUrl(String(baseURL), `services/${slug}/`).toString(),
     { waitUntil: "domcontentloaded" },
   );
+}
+
+async function openPhase3d3Route(
+  baseURL: string | undefined,
+  page: Page,
+  routePath: string,
+) {
+  await page.goto(resolvePreviewUrl(String(baseURL), routePath).toString(), {
+    waitUntil: "domcontentloaded",
+  });
 }
 
 test("strict preview server rejects an origin-root service route", async ({
@@ -419,6 +474,59 @@ for (const routeCase of phase3d2Cases) {
   });
 }
 
+for (const routeCase of phase3d3Cases) {
+  test(`phase 3D3 ${routeCase.slug} renders reviewed safety, scope and conversion paths`, async ({
+    baseURL,
+    page,
+  }) => {
+    await openPhase3d3Route(baseURL, page, routeCase.path);
+
+    await expect(
+      page.getByRole("heading", { level: 1, name: routeCase.h1 }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", { level: 2, name: routeCase.guideHeading }),
+    ).toBeVisible();
+
+    const safety = page.locator("main p").filter({ hasText: routeCase.safety }).first();
+    await expect(safety).toBeVisible();
+    await expect(safety).toContainText("Triple Zero (000)");
+
+    const safetyPrecedesCta = await safety.evaluate((element) => {
+      const main = element.closest("main");
+      const firstCta = main?.querySelector(
+        '[data-conversion-action="phone-click"], [data-conversion-action="quote-click"]',
+      );
+      return Boolean(
+        firstCta &&
+          element.compareDocumentPosition(firstCta) & Node.DOCUMENT_POSITION_FOLLOWING,
+      );
+    });
+    expect(safetyPrecedesCta).toBe(true);
+
+    const call = page.locator('main a[data-conversion-action="phone-click"]').first();
+    await expect(call).toHaveAttribute("href", "tel:+61461247247");
+    await call.focus();
+    await expect(call).toBeFocused();
+
+    const quote = page.locator('main [data-quote-trigger="true"]').first();
+    await expect(quote).toHaveAttribute(
+      "href",
+      /^https:\/\/book\.servicem8\.com\/request_booking\?uuid=/,
+    );
+    await quote.click({ noWaitAfter: true });
+    const dialog = page.getByRole("dialog", { name: "Request a quote" });
+    await expect(dialog).toBeVisible();
+    await page.keyboard.press("Escape");
+    await expect(dialog).toHaveCount(0);
+
+    expect(new URL(page.url()).pathname).toContain("/evaready-electrical/");
+    expect(
+      await page.locator("main").evaluate((main) => main.scrollWidth - main.clientWidth),
+    ).toBeLessThanOrEqual(2);
+  });
+}
+
 test("phase 3D1 copy fits its containers at six review widths and 200% text", async ({
   baseURL,
   page,
@@ -513,6 +621,76 @@ test("phase 3D2 copy fits at all required widths and 200% text", async ({
         expect(
           result.overflow,
           `${routeCase.slug} overflowed at ${width}px / ${textScale}%`,
+        ).toBeLessThanOrEqual(2);
+      }
+    }
+  }
+});
+
+test("phase 3D3 copy fits at all required widths and 200% text", async ({
+  baseURL,
+  page,
+}, testInfo) => {
+  test.skip(
+    testInfo.project.name !== "desktop-chromium-1440",
+    "The deterministic width matrix runs once; browser projects cover representative devices separately.",
+  );
+
+  for (const routeCase of phase3d3Cases) {
+    for (const width of [320, 360, 390, 430, 768, 820, 1024, 1366, 1440, 1920, 2560]) {
+      for (const textScale of [100, 200]) {
+        await page.setViewportSize({ width, height: width < 768 ? 1000 : 1080 });
+        await openPhase3d3Route(baseURL, page, routeCase.path);
+        await page.emulateMedia({ reducedMotion: "reduce" });
+        if (textScale === 200) {
+          await page.addStyleTag({ content: ":root { font-size: 200% !important; }" });
+        }
+
+        const result = await page.locator("main").evaluate((main) => {
+          const viewportWidth = document.documentElement.clientWidth;
+          const changedContent = main.querySelectorAll(
+            "h1, h2, h3, p, li, a, .service-detail-guide-section span",
+          );
+          const clipped = Array.from(changedContent)
+            .filter((element) => element instanceof HTMLElement && element.innerText.trim())
+            .filter((element) => {
+              const rect = element.getBoundingClientRect();
+              return rect.width > 0 && (rect.left < -2 || rect.right > viewportWidth + 2);
+            })
+            .map((element) => element.textContent?.trim().slice(0, 100));
+          const overflowSources = Array.from(main.querySelectorAll("*"))
+            .filter((element) => element instanceof HTMLElement)
+            .map((element) => {
+              const rect = element.getBoundingClientRect();
+              return {
+                className: element.className,
+                clientWidth: element.clientWidth,
+                right: Math.round(rect.right),
+                scrollWidth: element.scrollWidth,
+                tag: element.tagName,
+                text: element.innerText.trim().slice(0, 80),
+              };
+            })
+            .filter(
+              (item) =>
+                item.right > viewportWidth + 2 ||
+                item.scrollWidth > item.clientWidth + 2,
+            )
+            .slice(0, 12);
+          return {
+            clipped,
+            overflow: main.scrollWidth - main.clientWidth,
+            overflowSources,
+          };
+        });
+
+        expect(
+          result.clipped,
+          `${routeCase.slug} clipped text at ${width}px / ${textScale}%`,
+        ).toEqual([]);
+        expect(
+          result.overflow,
+          `${routeCase.slug} overflowed at ${width}px / ${textScale}%: ${JSON.stringify(result.overflowSources)}`,
         ).toBeLessThanOrEqual(2);
       }
     }

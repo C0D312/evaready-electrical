@@ -135,19 +135,19 @@ export function LiveGoogleRating({
           <div className="mt-1 flex min-h-8 items-center">
             {rating === null ? (
               <span
-                className="inline-block min-h-4 min-w-[5.75rem]"
+                className="inline-block min-h-4 min-w-[92px]"
                 data-google-rating-placeholder
                 aria-hidden="true"
               />
             ) : (
               <span
-                className="google-rating-seal__stars flex min-w-[5.75rem] items-center gap-0.5 text-amber-300"
+                className="google-rating-seal__stars flex min-w-[92px] items-center gap-[2px] text-amber-300"
                 aria-hidden="true"
               >
                 {Array.from({ length: 5 }).map((_, index) => (
                   <Star
                     key={index}
-                    className="h-4 w-4"
+                    className="h-[16px] w-[16px]"
                     fill={index < Math.round(rating) ? "currentColor" : "none"}
                   />
                 ))}

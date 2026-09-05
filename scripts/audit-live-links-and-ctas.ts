@@ -41,6 +41,7 @@ const approvedExternalHosts = new Set([
   "g.page",
   "www.google.com",
   "www.googletagmanager.com",
+  "www.healthdirect.gov.au",
   "www.lookforthetick.com.au",
   "www.service.nsw.gov.au",
   "schema.org",

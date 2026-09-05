@@ -34,6 +34,13 @@ content, responsive or accessibility review. The generator rejects
 SEO reviews are all explicitly recorded as reviewed, and it rejects other
 inconsistent manual-review combinations.
 
+Phase 3D3 records individual semantic, safety, responsive, accessibility and
+SEO review for the final six non-held safety routes. Each required a scoped
+content correction, so all six are marked `rewritten`; they remain
+publication-pending until a later release phase verifies their exact deployed
+artifact. Source and decision notes are in
+`docs/phase3d3-service-content-source-notes.md`.
+
 ## Commands
 
 ```powershell

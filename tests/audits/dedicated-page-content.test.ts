@@ -33,9 +33,17 @@ const phase3d2Routes = [
   "hot-water-system-electrician-sydney",
 ] as const;
 
+const phase3d3DataRoutes = [
+  "electric-shock-electrician-sydney",
+  "rcd-safety-switch-repairs-sydney",
+  "storm-damage-electrician-sydney",
+  "three-phase-power-sydney",
+] as const;
+
 const rewrittenServiceRoutes = new Set<string>([
   ...phase3d1Routes,
   ...phase3d2Routes,
+  ...phase3d3DataRoutes,
 ]);
 
 const phase3d1RequiredCopy: Record<(typeof phase3d1Routes)[number], string[]> = {
@@ -104,6 +112,29 @@ const phase3d2RequiredCopy: Record<(typeof phase3d2Routes)[number], string[]> = 
   ],
 };
 
+const phase3d3RequiredCopy: Record<(typeof phase3d3DataRoutes)[number], string[]> = {
+  "electric-shock-electrician-sydney": [
+    "seek medical assessment after any shock",
+    "cannot provide medical care",
+    "Medical and emergency action comes first",
+  ],
+  "rcd-safety-switch-repairs-sydney": [
+    "distinct from planning new RCD coverage",
+    "Tripping is a symptom, not a failed-device diagnosis",
+    "Replace an RCD or RCBO only when testing and compatibility support it",
+  ],
+  "storm-damage-electrician-sydney": [
+    "Keep clear of wet electrical equipment",
+    "public electricity-network work",
+    "Make-safe work and planned follow-up repairs",
+  ],
+  "three-phase-power-sydney": [
+    "Three phase is a type of electricity supply",
+    "A larger switchboard alone does not increase the electricity available",
+    "Do not purchase major equipment solely on an unverified supply assumption",
+  ],
+};
+
 const untouchedServiceRecordHashes: Record<string, string> = {
   "residential-electrician-sydney": "0094bb9cf0731d174c1686b158ec67f7e33ac4d5722acbfb1fb302fea1c7add7",
   "commercial-electrician-sydney": "0c0fe05085144a18291d79383b51cac55f5b95d09b64607108946fde25c0d45d",
@@ -118,7 +149,6 @@ const untouchedServiceRecordHashes: Record<string, string> = {
   "cctv-security-camera-installation-sydney": "d058530711df5d2663660399049e02659f89dd2fc95f75c591c4877bde04de91",
   "data-cabling-electrician-sydney": "553b0fa8e91f40461420fb8561bfd31b3b7e12e5cbb4f04b65519a4bafd07d4f",
   "ceiling-fan-installation-sydney": "33006c942580e3a5dbb41ea2c60daf9065ec361053137aaad99e5225e205c759",
-  "three-phase-power-sydney": "4d8814c62b42f62dde94115d8070d3868c31d2ec4db76dbe63d883bb9d61c002",
   "appliance-installation-electrician-sydney": "7b4a761689625f37e2952bcb6ecdead3ce7c3ba3bf623e63ecf68c00ad7e268e",
   "metering-services-sydney": "f7378ca1aac3674539a10c055b1dbda17f915b8c13b4916deb171b08baaa2dd9",
   "new-build-renovation-electrician-sydney": "67bc95ea1c3cf6a58245844e05520f2667bcd5faa43f7739b482ed948f264b65",
@@ -126,7 +156,6 @@ const untouchedServiceRecordHashes: Record<string, string> = {
   "smart-home-electrician-sydney": "d344c30543a45ce5d33adba4be1449d7bcb6f9074575ea3e065890d0f6dc3c0c",
   "tv-antenna-wall-cabling-sydney": "2cf3f1ca28e9921e523c44cbaeb55a23db9e7ccb42cd15a3c3072af803b79e1f",
   "intercom-access-control-electrician-sydney": "bc870b0f0e876b7b6d0336a416b4ae8c986eb30424fba50a66d5a7a9ba240877",
-  "storm-damage-electrician-sydney": "defdae5a99b36798671b842a8504d6771ce09f3700aefd09a4e25a68ffcb44c4",
   "point-of-attachment-repairs-sydney": "efe779689be803a61fd5872ae9e158156ca04729d4374219241a5401d890e12a",
   "overhead-service-lines-sydney": "840313c7ff884a382837be097e84557e2b44597ec29020caa7f933dac2e21086",
   "underground-service-mains-sydney": "338e198d82dfbbcaa2ab37bd305fd5f16fbf7b0e8f699e25da92e8ff0319e998",
@@ -136,8 +165,6 @@ const untouchedServiceRecordHashes: Record<string, string> = {
   "phone-line-electrician-sydney": "38045601e80fefe133d66b434a758977bc110622acdc2dc5a8c14da7d7f9c720",
   "intercom-installation-sydney": "92254bb8c3cf2586ab5fdac394a082a4f8f0756fb1252b7ec746d5a79c3c3209",
   "tv-points-antenna-electrician-sydney": "acf43394b7ad4ecaa16aeeeeb21e10366f23952dd7e165a49eab6cb307461461",
-  "electric-shock-electrician-sydney": "8ddab3d39506bc079913ba4612b32aec1f25757379da65bcc2a86f25fb2e0518",
-  "rcd-safety-switch-repairs-sydney": "7bf960877985ba6976b74971d36f8409d23104a995ed449e1398e6ce16c4565d",
   "smart-meter-electrician-sydney": "bf79d048f5235588545f02eee8bea1ced4451b6976b3d33e9a0ab881137bb757",
 };
 
@@ -395,8 +422,55 @@ test("phase 3D2 records add distinct safety, inspection, process and limitation 
   );
 });
 
-test("the other 34 service data records remain semantically identical to 270c0ba", () => {
-  assert.equal(Object.keys(untouchedServiceRecordHashes).length, 34);
+test("phase 3D3 service records provide route-specific safety, scope and boundaries", () => {
+  const selected = serviceLandingPages.filter((page) =>
+    phase3d3DataRoutes.includes(page.slug as (typeof phase3d3DataRoutes)[number]),
+  );
+
+  assert.equal(selected.length, phase3d3DataRoutes.length);
+
+  for (const slug of phase3d3DataRoutes) {
+    const page = selected.find((candidate) => candidate.slug === slug);
+    assert.ok(page, `${slug} must remain in the service registry`);
+    assert.ok(page.serviceGuide, `${slug} must include a dedicated service guide`);
+    assert.equal(page.serviceGuide.sections.length, 4, `${slug} needs four guide sections`);
+    assert.ok(page.faqs.length >= 5, `${slug} needs expanded, visible FAQs`);
+    assert.match(page.intro, /Triple Zero \(000\)/);
+    assert.match(page.intro, /our licensed electricians/i);
+
+    const content = serviceContent(page);
+    for (const phrase of phase3d3RequiredCopy[slug]) {
+      assert.ok(content.includes(phrase), `${slug} must retain: ${phrase}`);
+    }
+
+    for (const forbidden of [
+      /licensed (?:and|&) insured/i,
+      /fully licensed/i,
+      /\b(?:same[- ]day|60[- ]minute|60(?:-|–| to )90[- ]minute)\b/i,
+      /\b(?:fixed|upfront) (?:price|pricing)\b/i,
+      /\bguaranteed (?:diagnosis|repair|response|arrival|outcome|protection|performance)\b/i,
+      /\b(?:warranty|free inspection|discount)\b/i,
+      /\b(?:subcontract|outsourc|referral|partner)\w*\b/i,
+    ]) {
+      assert.doesNotMatch(content, forbidden, `${slug} introduced ${forbidden}`);
+    }
+
+    assert.doesNotMatch(
+      content,
+      /\b(?:you can|try to|should|must)\s+(?:open|remove|repair|rewire|bypass|keep resetting)\b/i,
+      `${slug} must not instruct customers to perform unsafe electrical work`,
+    );
+  }
+
+  assert.equal(
+    new Set(selected.map((page) => page.serviceGuide?.heading)).size,
+    phase3d3DataRoutes.length,
+    "each Phase 3D3 service route needs a distinct service-guide purpose",
+  );
+});
+
+test("the other 30 service data records remain semantically identical to 270c0ba", () => {
+  assert.equal(Object.keys(untouchedServiceRecordHashes).length, 30);
 
   for (const page of serviceLandingPages) {
     if (rewrittenServiceRoutes.has(page.slug)) {

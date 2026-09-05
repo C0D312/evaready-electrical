@@ -10822,6 +10822,35 @@ main :is(a:not([data-conversion-action]), button:not([data-conversion-action])):
   border-radius: 1.2rem !important;
 }
 
+.service-detail-hero .service-detail-hero-aside p {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  overflow-wrap: anywhere !important;
+}
+
+.brand-internal-hero .switchboard-hero-layout {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 27rem), 1fr)
+  ) !important;
+}
+
+.brand-internal-hero .switchboard-hero-copy-panel,
+.brand-internal-hero .switchboard-hero-aside {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+.brand-internal-hero .switchboard-hero-copy-panel > h1,
+.brand-internal-hero .switchboard-hero-copy-panel > p,
+.brand-internal-hero .switchboard-hero-aside > p {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  overflow-wrap: anywhere !important;
+}
+
 @media (max-width: 1023px) {
   .service-detail-hero .service-detail-hero-layout {
     justify-items: center !important;

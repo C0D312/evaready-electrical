@@ -14,17 +14,17 @@
       "suburb": 873
     },
     "individualReview": {
-      "pending": 989,
-      "reviewed": 12
+      "pending": 983,
+      "reviewed": 18
     },
     "publication": {
-      "live-verified": 1001,
-      "pending": 0
+      "live-verified": 995,
+      "pending": 6
     },
     "rewrite": {
       "held": 21,
-      "pending": 968,
-      "rewritten": 12,
+      "pending": 962,
+      "rewritten": 18,
       "sufficient": 0
     },
     "totalRoutes": 1001
@@ -373,20 +373,20 @@
       "template": "fault guide"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Phase 3D3 reviewed content is not yet published or live-verified."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/emergency-electrician-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "app/emergency-electrician-sydney/page.tsx",
       "template": "emergency page"
     },
@@ -17327,20 +17327,20 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Phase 3D3 reviewed content is not yet published or live-verified."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/electric-shock-electrician-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#electric-shock-electrician-sydney",
       "template": "service page"
     },
@@ -17691,20 +17691,20 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Phase 3D3 reviewed content is not yet published or live-verified."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/rcd-safety-switch-repairs-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#rcd-safety-switch-repairs-sydney",
       "template": "service page"
     },
@@ -17829,20 +17829,20 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Phase 3D3 reviewed content is not yet published or live-verified."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/storm-damage-electrician-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#storm-damage-electrician-sydney",
       "template": "service page"
     },
@@ -17881,20 +17881,20 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Phase 3D3 reviewed content is not yet published or live-verified."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/switchboard-upgrades-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "app/services/switchboard-upgrades-sydney/page.tsx",
       "template": "service page"
     },
@@ -17917,20 +17917,20 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Phase 3D3 reviewed content is not yet published or live-verified."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/three-phase-power-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#three-phase-power-sydney",
       "template": "service page"
     },

@@ -1922,7 +1922,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "3 phase power support for higher electrical demand, commercial equipment, workshops and major property upgrades.",
     intro:
-      "Some properties need more electrical capacity than single phase supply can comfortably provide. Evaready Electrical can assess 3 phase requirements for equipment, workshops, commercial spaces, EV charging and larger electrical upgrades.",
+      "Do not open or alter a switchboard that is hot, damaged, wet, smoking or sparking. For fire, serious electric shock or immediate danger, move clear and call Triple Zero (000). For planned work, our licensed electricians assess the proposed equipment, existing demand, switchboard and supply information before deciding whether 3 phase power or another load solution is appropriate.",
     heroBullets: [
       "3 phase upgrade enquiries",
       "Commercial and workshop power",
@@ -1930,10 +1930,10 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "EV charger and switchboard support",
     ],
     warningSigns: [
-      "Equipment needs 3 phase power",
-      "A property upgrade needs more capacity",
-      "The switchboard is limiting new loads",
-      "EV charging or machinery needs assessment",
+      "New machinery or equipment is specified for a 3 phase connection",
+      "A load assessment shows the existing installation may not support planned demand",
+      "The switchboard lacks suitable capacity, protection or space for the proposed circuits",
+      "EV charging, air conditioning or workshop equipment needs supply assessment before purchase or installation",
     ],
     services: [
       "3 phase power assessment",
@@ -1943,39 +1943,105 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "EV charger load discussions",
       "Level 2 coordination where required",
     ],
+    serviceGuide: {
+      heading: "Confirm the load and connection pathway before choosing 3 phase power.",
+      intro:
+        "Three phase is a type of electricity supply, not a general cure for tripping or an automatic requirement for every large appliance. The decision must be based on the equipment, calculated demand, existing installation and the connection available to the property.",
+      sections: [
+        {
+          title: "Start with the equipment and actual demand",
+          copy:
+            "Our licensed electricians review the proposed equipment ratings, operating pattern and other significant loads before recommending a circuit or supply change.",
+          items: [
+            "Equipment nameplate, manufacturer requirements and starting current where relevant",
+            "Loads likely to operate at the same time",
+            "Existing single phase or 3 phase circuits and protection",
+            "Options such as a dedicated circuit or load control before a supply upgrade is assumed",
+          ],
+        },
+        {
+          title: "Inspect the installation that must carry the load",
+          copy:
+            "The assessment considers accessible switchboard, circuit, earthing, metering and incoming-supply information. A larger switchboard alone does not increase the electricity available from the connection.",
+          items: [
+            "Switchboard condition, protection, labels and available space",
+            "Existing high-demand circuits and signs of heat or repeated tripping",
+            "Accessible consumer mains, metering and service information",
+            "Cable routes and isolation needs for the proposed equipment",
+          ],
+        },
+        {
+          title: "Separate property work from network and metering work",
+          copy:
+            "A 3 phase project can involve property wiring, switchboard work, metering, the electricity retailer, the distributor and appropriately authorised supply-side work. The required approvals and responsibilities depend on the existing connection and proposed demand.",
+          items: [
+            "Property-side circuits and switchboard work are scoped separately from network assets",
+            "Distributor approval may be required before the available supply can change",
+            "Metering arrangements can involve the retailer or metering provider",
+            "Supply-side work is completed only through the authorisation that applies to that scope",
+          ],
+        },
+        {
+          title: "Document the outcome and its limits",
+          copy:
+            "The review may support a dedicated circuit, load management, switchboard work or a separate supply application. Final scope can change when equipment details, concealed conditions or distributor requirements are confirmed.",
+          items: [
+            "Do not purchase major equipment solely on an unverified supply assumption",
+            "Fault symptoms are tested rather than treated automatically as a capacity problem",
+            "Building, excavation or equipment installation outside the electrical scope is identified separately",
+            "Agreed electrical work is tested and the next actions are explained",
+          ],
+        },
+      ],
+    },
     process: [
       {
-        title: "Confirm load needs",
-        text: "The equipment, charger or property demand is reviewed first.",
+        title: "Confirm the equipment",
+        text: "Equipment ratings, operating pattern and the loads likely to run together are reviewed before a supply change is proposed.",
       },
       {
-        title: "Check the switchboard",
-        text: "Existing supply, switchboard capacity and circuit arrangement are assessed.",
+        title: "Assess the installation",
+        text: "The existing circuits, switchboard, accessible supply information and cable route are checked against the proposed demand.",
       },
       {
-        title: "Plan the upgrade",
-        text: "The required electrical pathway is scoped before approval.",
+        title: "Confirm responsibilities",
+        text: "Property work, metering, distributor approval and any authorised supply-side work are separated before the quote is finalised.",
       },
       {
-        title: "Complete safely",
-        text: "Approved work is completed, tested and explained clearly.",
+        title: "Complete and test",
+        text: "Agreed electrical work is completed and tested, and any outstanding network, metering or equipment steps are recorded.",
       },
     ],
     faqs: [
       {
         question: "Do I need 3 phase power?",
         answer:
-          "It depends on the load. Larger equipment, workshops, some commercial spaces and faster EV charging may need 3 phase assessment.",
+          "It depends on the equipment, calculated demand and existing connection. Some larger equipment uses 3 phase power, but other jobs may be resolved with a dedicated circuit, load management or a different equipment choice after assessment.",
       },
       {
         question: "Can 3 phase power involve Level 2 work?",
         answer:
-          "Sometimes. Supply upgrades can require Level 2 electrical coordination depending on the property and network connection.",
+          "Sometimes. A change to consumer mains or other supply-side equipment may require appropriately authorised Level 2 work, while distributor approval, metering and retailer steps remain separate responsibilities.",
       },
       {
         question: "What should I send for a 3 phase quote?",
         answer:
-          "Send equipment details, photos of the switchboard, your suburb and what the new supply needs to power.",
+          "Send the equipment make, model and electrical rating, expected operating pattern, safe photos of the switchboard and meter area, your suburb, and any retailer or distributor documents already received.",
+      },
+      {
+        question: "Does repeated tripping mean I need 3 phase power?",
+        answer:
+          "No. Repeated tripping can result from excessive circuit load, faulty equipment, damaged wiring, moisture or another fault. The cause should be tested before a supply upgrade is recommended.",
+      },
+      {
+        question: "Will a new 3 phase switchboard increase my available supply?",
+        answer:
+          "Not by itself. Available supply depends on the connection, consumer mains, metering, network approval and other site conditions as well as the switchboard arrangement.",
+      },
+      {
+        question: "Who handles the distributor and meter steps?",
+        answer:
+          "The pathway depends on the project. Property electrical work, authorised supply-side work, distributor approval, retailer requests and metering-provider work are identified separately so each part goes to the responsible party.",
       },
     ],
     relatedServices: [
@@ -2799,7 +2865,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Urgent electrical help for storm damage, unsafe wiring, damaged equipment and emergency appliance disconnections.",
     intro:
-      "Storm damage can make electrical systems unsafe quickly, especially around outdoor fixtures, water-affected wiring, damaged switchboards and appliances. Evaready Electrical can assess storm-related electrical faults and help make the affected area safer before repairs proceed.",
+      "Keep clear of wet electrical equipment, damaged switchboards and fallen or low cables. For fire, serious electric shock, a fallen public powerline or immediate danger, move away and call Triple Zero (000). Our licensed electricians can assess storm-related property faults, isolate unsafe sections and scope electrical repairs once access is safe.",
     serviceGuide: {
       heading: "What an electrician checks after storm damage.",
       intro:
@@ -4320,7 +4386,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Urgent electrical safety support for shock risk, tingles, wet fixtures, faulty appliances and unsafe circuits.",
     intro:
-      "Any electric shock or tingling from an outlet, appliance, switch, tap, pool area or fitting should be treated seriously. Keep clear of the affected item and call first so the fault can be handled safely.",
+      "Do not touch someone who may still be connected to electricity or retest an item that gave a shock or tingle. Disconnect power only if it can be done safely. Call Triple Zero (000) for unconsciousness, abnormal breathing or heartbeat, serious burns, a significant fall or injury, high-voltage exposure or immediate danger, and seek medical assessment after any shock. Our licensed electricians can isolate the electrical hazard and investigate the installation, but cannot provide medical care.",
     heroBullets: [
       "Electric shock risk",
       "Tingles from outlets or fixtures",
@@ -4341,10 +4407,61 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Damaged wiring investigation",
       "Switchboard protection review",
     ],
+    serviceGuide: {
+      heading: "Treat the shock first, then test the electrical cause without guessing.",
+      intro:
+        "A shock or tingle is a safety event, not a diagnosis. The source may involve an appliance, fixed wiring, moisture, earthing, protective devices, metalwork or the electricity supply, so the person and the electrical hazard need separate responses.",
+      sections: [
+        {
+          title: "Medical and emergency action comes first",
+          copy:
+            "Keep the person and bystanders away from the suspected source. Do not touch someone who may still be energised. Emergency services and medical professionals assess the person; our licensed electricians assess the electrical installation.",
+          items: [
+            "Call 000 for serious symptoms, high-voltage exposure or immediate danger",
+            "Seek medical assessment after any electric shock, even if the person initially feels well",
+            "Do not use or retest the affected item while arranging help",
+            "Tell the electrician whether water, a fall, burns or loss of consciousness were involved",
+          ],
+        },
+        {
+          title: "What our licensed electricians inspect and test",
+          copy:
+            "Testing follows the reported contact point and the parts of the installation that could contribute to the hazard. Results, not the symptom alone, determine the repair pathway.",
+          items: [
+            "Affected circuit, outlet, switch, fitting or accessible fixed wiring",
+            "Safety-switch or RCD operation and relevant circuit protection",
+            "Accessible earthing, bonding and connections within the agreed scope",
+            "Moisture, damage and connected equipment relevant to the event",
+          ],
+        },
+        {
+          title: "Possible causes and repair boundaries",
+          copy:
+            "A damaged appliance lead, wet fitting, wiring fault, failed connection, earthing problem or supply issue can produce similar symptoms. Testing may lead to isolation, an electrical repair, separate appliance work or network escalation.",
+          items: [
+            "Customer appliances can require separate repair or replacement outside the fixed-wiring scope",
+            "Tingling taps or metalwork can require urgent supply and network investigation",
+            "Public network assets remain the electricity distributor's responsibility",
+            "Medical assessment remains separate from the electrical work",
+          ],
+        },
+        {
+          title: "Isolation, repair and service limits",
+          copy:
+            "The first safe outcome may be leaving equipment or a circuit isolated. Permanent repair depends on access, test results, parts and whether another responsible party must act first.",
+          items: [
+            "Unsafe equipment is not returned to use merely because the symptom has stopped",
+            "Concealed or intermittent faults may need further access, staged testing or monitoring",
+            "Agreed electrical repairs are retested before the affected installation is returned to service",
+            "Call rather than using a delayed quote form for an active shock or tingle hazard",
+          ],
+        },
+      ],
+    },
     process: [
       {
         title: "Keep clear",
-        text: "Do not touch affected equipment again. For life-threatening danger, call emergency services first.",
+        text: "Do not touch the person or equipment if electricity may still be present. Call 000 for serious symptoms, high voltage or immediate danger.",
       },
       {
         title: "Call directly",
@@ -4352,28 +4469,43 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Test safely",
-        text: "The affected circuit, protection and likely fault source are tested safely.",
+        text: "The affected circuit, accessible wiring, protection and relevant equipment are tested so the source is not guessed.",
       },
       {
         title: "Repair and verify",
-        text: "Approved repairs are completed and safety protection is checked before normal use resumes.",
+        text: "Agreed electrical repairs are completed and retested, or the unsafe circuit remains isolated while another responsible party acts.",
       },
     ],
     faqs: [
       {
         question: "What should I do after an electric shock?",
         answer:
-          "Keep clear of the affected item. If anyone is injured or there is life-threatening danger, call emergency services first.",
+          "Do not touch someone who may still be connected to electricity. Call Triple Zero (000) for serious symptoms, high-voltage exposure or immediate danger, and seek medical assessment after any shock. Keep the electrical source unused until it has been checked.",
       },
       {
         question: "Can a safety switch prevent electric shock?",
         answer:
-          "Safety switches reduce risk by disconnecting power in certain fault conditions, but they do not make unsafe wiring safe.",
+          "Safety switches reduce risk by disconnecting power in certain leakage-to-earth fault conditions, but they do not prevent every shock and do not make damaged wiring or equipment safe.",
       },
       {
         question: "Should I use a form for electric shock faults?",
         answer:
           "No. Call directly for electric shock risk, tingles, wet fixtures, smoke, heat or sparking.",
+      },
+      {
+        question: "What can cause a tingle from a tap or metal fitting?",
+        answer:
+          "Possible causes include an installation fault, earthing or bonding problem, damaged equipment or a supply issue. Keep clear and call immediately; testing is required and the electricity distributor may need to investigate network assets.",
+      },
+      {
+        question: "Will an electrician assess the injured person?",
+        answer:
+          "No. Emergency services and medical professionals assess the person. Our licensed electricians isolate and investigate the electrical hazard and explain the electrical next steps.",
+      },
+      {
+        question: "What information helps when I call?",
+        answer:
+          "State who received the shock, whether 000 or medical help has been arranged, the contact point, whether water or a fall was involved, and whether the suspected source can be kept isolated without approaching it.",
       },
     ],
     relatedServices: [
@@ -4530,7 +4662,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Safety switch and RCD fault checks, repairs and protection upgrades for circuit tripping and switchboard issues.",
     intro:
-      "A safety switch that keeps tripping is usually warning that something needs attention. Evaready Electrical can test the circuit, check the RCD or RCBO, isolate the likely cause and explain the safest repair pathway.",
+      "Do not keep resetting an RCD, RCBO or safety switch that trips again, and do not open the switchboard. Leave the affected circuit off and keep clear of heat, smoke, moisture, exposed parts or damaged equipment. For fire, serious electric shock or immediate danger, move clear and call Triple Zero (000). Our licensed electricians test the trip pattern before deciding whether the fault is in connected equipment, fixed wiring or the protective device.",
     heroBullets: [
       "RCD tripping checks",
       "Safety switch repairs",
@@ -4551,6 +4683,57 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "Moisture and outdoor circuit checks",
       "Switchboard protection review",
     ],
+    serviceGuide: {
+      heading: "Find why the RCD trips before deciding what should be repaired.",
+      intro:
+        "This repair service is for protection that trips unexpectedly or does not operate correctly. It is distinct from planning new RCD coverage: repeated tripping must be investigated before a replacement or upgrade is assumed to be the answer.",
+      sections: [
+        {
+          title: "Tripping is a symptom, not a failed-device diagnosis",
+          copy:
+            "An RCD or RCBO can operate because it detected leakage to earth. Moisture, damaged wiring, a faulty appliance, combined leakage or a defective protective device can produce similar trip behaviour.",
+          items: [
+            "Note the circuit, appliance, weather and time associated with the trip",
+            "Do not bypass, hold on or repeatedly reset the device",
+            "Leave hot, wet, damaged or sparking equipment untouched",
+            "Call first when the affected circuit cannot be left safely isolated",
+          ],
+        },
+        {
+          title: "What our licensed electricians test",
+          copy:
+            "The trip history guides testing of the protective device, affected circuit, accessible wiring and relevant connected equipment. The work separates an installation fault from an appliance issue where the evidence allows.",
+          items: [
+            "RCD or RCBO identification, rating, operation and circuit coverage",
+            "Affected circuit insulation and accessible connections",
+            "Outdoor, wet-area or weather-related parts relevant to the fault",
+            "Connected equipment patterns without assuming every appliance is part of the fixed wiring",
+          ],
+        },
+        {
+          title: "Repair differs from new-protection planning",
+          copy:
+            "A repair may involve wiring, moisture entry, a connection, a faulty protective device or leaving an appliance disconnected. New RCD coverage and broader switchboard upgrades are separate decisions based on the installation.",
+          items: [
+            "Replace an RCD or RCBO only when testing and compatibility support it",
+            "Repair accessible circuit faults within the agreed electrical scope",
+            "Refer appliance faults for separate repair or replacement where required",
+            "Scope new protection or switchboard work separately from the immediate fault",
+          ],
+        },
+        {
+          title: "Retesting and practical limits",
+          copy:
+            "Agreed repairs and protection are retested before normal use. An intermittent fault that is absent during the visit may require operating history, staged isolation, further access or monitoring.",
+          items: [
+            "The affected circuit can remain isolated when a safe repair cannot yet be completed",
+            "Concealed wiring and inaccessible equipment limit what can be confirmed at one visit",
+            "Rain-related faults may need dry and wet-condition evidence over time",
+            "Test results and any outstanding work are explained at handover",
+          ],
+        },
+      ],
+    },
     process: [
       {
         title: "Stop repeated resets",
@@ -4558,22 +4741,22 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Find the fault",
-        text: "Circuits, appliances and connected loads are checked to identify the likely cause.",
+        text: "The protective device, affected circuit, accessible wiring and relevant connected equipment are tested to narrow down the cause.",
       },
       {
         title: "Repair or replace",
-        text: "Approved RCD, RCBO, wiring or circuit repairs are completed.",
+        text: "Agreed wiring, connection or protective-device work is completed, or faulty equipment is left disconnected for separate attention.",
       },
       {
         title: "Retest protection",
-        text: "The safety switch or protection device is retested before the job is closed.",
+        text: "The completed electrical scope is retested and any intermittent or inaccessible issue is recorded before normal use resumes.",
       },
     ],
     faqs: [
       {
         question: "Why does my safety switch keep tripping?",
         answer:
-          "Common causes include faulty appliances, moisture, damaged wiring, overloaded circuits or a failing protection device.",
+          "Possible causes include faulty appliances, moisture, damaged wiring, combined leakage or a failing protection device. The trip by itself does not identify which cause applies.",
       },
       {
         question: "Should I keep resetting an RCD?",
@@ -4584,6 +4767,21 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         question: "Can rain make an RCD trip?",
         answer:
           "Yes. Outdoor circuits, fixtures and water ingress can cause RCD tripping during or after rain.",
+      },
+      {
+        question: "Does repeated tripping mean the RCD needs replacement?",
+        answer:
+          "Not necessarily. The device may be correctly responding to a circuit, moisture or equipment fault. It should be tested before replacement is selected.",
+      },
+      {
+        question: "Is this the same as installing new safety switches?",
+        answer:
+          "No. This page focuses on fault investigation and repair when existing protection trips or is suspected to be faulty. Planning new protection or broader switchboard upgrades is a separate scope.",
+      },
+      {
+        question: "What should I send for an RCD repair enquiry?",
+        answer:
+          "Send your suburb, which device or circuit trips, when it happens, the appliances or equipment operating at the time, any rain or water exposure, and safe photos of the closed switchboard and labels.",
       },
     ],
     relatedServices: [

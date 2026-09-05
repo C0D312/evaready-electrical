@@ -65,7 +65,7 @@ export function EmergencyTrustPanel({ className = "" }: { className?: string }) 
   return (
     <section className={`emergency-trust-panel bg-[#061E72] py-14 text-white sm:py-18 ${className}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div className="emergency-trust-layout grid gap-8 lg:items-start">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border border-red-300/25 bg-red-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-red-100">
               <Clock3 className="h-4 w-4" aria-hidden="true" />
@@ -104,8 +104,8 @@ export function EmergencyTrustPanel({ className = "" }: { className?: string }) 
             </div>
           </div>
 
-          <div className="grid gap-3">
-            <div className="emergency-feature-grid grid gap-3 sm:grid-cols-2">
+          <div className="grid gap-3" data-emergency-details>
+            <div className="emergency-feature-layout grid gap-3">
               {emergencyCards.map((card) => {
                 const Icon = card.icon;
                 const tone =
@@ -146,8 +146,11 @@ export function EmergencyTrustPanel({ className = "" }: { className?: string }) 
               })}
             </div>
 
-            <div className="rounded-[1.35rem] border border-cyan-300/18 bg-white/[0.055] p-4 shadow-xl shadow-blue-950/20">
-              <div className="grid gap-2 sm:grid-cols-2">
+            <div
+              className="rounded-[1.35rem] border border-cyan-300/18 bg-white/[0.055] p-4 shadow-xl shadow-blue-950/20"
+              data-emergency-checklist
+            >
+              <div className="emergency-checklist-grid grid gap-2">
                 {checklist.map((item) => (
                   <Link
                     key={item.label}

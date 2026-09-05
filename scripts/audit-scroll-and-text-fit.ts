@@ -1,7 +1,7 @@
 import { createServer, type Server } from "node:http";
 import { existsSync, readFileSync, statSync, writeFileSync, mkdirSync } from "node:fs";
 import path from "node:path";
-import { chromium, type Page } from "@playwright/test";
+import { chromium, type BrowserContext, type Page } from "@playwright/test";
 import {
   createAllRouteInventory,
   outDir,
@@ -102,6 +102,21 @@ const representativeRoutes = [
   "/privacy-policy",
   "/terms",
 ];
+
+async function installFailClosedRouting(context: BrowserContext) {
+  const allowedOrigin = new URL(auditOrigin).origin;
+
+  await context.route("**/*", async (route) => {
+    const requestOrigin = new URL(route.request().url()).origin;
+
+    if (requestOrigin === allowedOrigin) {
+      await route.fallback();
+      return;
+    }
+
+    await route.abort("blockedbyclient");
+  });
+}
 
 function contentType(filePath: string) {
   switch (path.extname(filePath).toLowerCase()) {
@@ -524,6 +539,7 @@ async function main() {
         reducedMotion: "no-preference",
         viewport: { height: viewport.height, width: viewport.width },
       });
+      await installFailClosedRouting(context);
       const page = await context.newPage();
 
       for (const item of routes) {
@@ -542,6 +558,7 @@ async function main() {
         reducedMotion: "no-preference",
         viewport: { height: viewport.height, width: viewport.width },
       });
+      await installFailClosedRouting(context);
       const page = await context.newPage();
 
       for (const item of representativeItems) {
@@ -556,6 +573,7 @@ async function main() {
         reducedMotion: "no-preference",
         viewport: { height: viewport.height, width: viewport.width },
       });
+      await installFailClosedRouting(context);
       const page = await context.newPage();
 
       for (const route of representativeRoutes) {

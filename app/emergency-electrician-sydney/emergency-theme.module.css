@@ -83,6 +83,19 @@
     0 0 0 1px rgba(255, 255, 255, 0.2) inset;
 }
 
+.callButton {
+  min-width: 0;
+  max-width: 100%;
+  text-align: center;
+}
+
+.actionLabel,
+.cardTitleText {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
 .page :global(.emergency-issue-marquee) {
   border-color: rgba(89, 219, 252, 0.24);
   background:
@@ -112,9 +125,15 @@
 .heroInner {
   position: relative;
   z-index: 4;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 27rem), 1fr)
+  );
 }
 
 .heroCopyPanel {
+  min-width: 0;
+  max-width: 100%;
   border: 1px solid rgba(89, 219, 252, 0.18);
   border-radius: 1.5rem;
   background:
@@ -123,6 +142,14 @@
     0 26px 80px rgba(2, 5, 13, 0.42),
     0 0 0 1px rgba(89, 219, 252, 0.08) inset;
   padding: clamp(1.1rem, 2.6vw, 2rem);
+}
+
+.hero .heroCopyPanel > h1,
+.hero .heroCopyPanel > p {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0;
+  overflow-wrap: anywhere !important;
 }
 
 .eyebrow,
@@ -145,9 +172,23 @@
   background: rgba(3, 157, 254, 0.1);
 }
 
-.heroTitle {
+.redEyebrow {
+  display: block;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.hero .heroTitle {
+  overflow-wrap: anywhere !important;
   color: var(--ev-white);
   text-shadow: 0 8px 34px rgba(4, 28, 112, 0.38);
+}
+
+.eyebrowText {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .heroLead {
@@ -168,6 +209,7 @@
 }
 
 .heroPanel {
+  min-width: 0;
   border-color: rgba(89, 219, 252, 0.28) !important;
   background:
     radial-gradient(circle at 8% 0%, rgba(226, 16, 29, 0.08), transparent 30%),
@@ -182,6 +224,7 @@
 .trustCard,
 .faqCard,
 .relatedCard {
+  min-width: 0;
   border-color: var(--ev-card-border) !important;
   background: var(--ev-blue-panel) !important;
   color: var(--ev-silver);
@@ -193,6 +236,12 @@
 .faqCard p,
 .relatedCard p {
   color: rgba(212, 233, 236, 0.78) !important;
+}
+
+.page .heroPanelItem p {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-wrap: anywhere !important;
 }
 
 .heroPanelItem svg,
@@ -242,7 +291,12 @@
 }
 
 .sectionTitle {
+  overflow-wrap: anywhere;
   color: var(--ev-white);
+}
+
+.heroPanel .sectionTitle {
+  overflow-wrap: anywhere;
 }
 
 .sectionText {
@@ -375,6 +429,9 @@
 }
 
 .cardTitle {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   color: var(--ev-white) !important;
 }
 
@@ -414,6 +471,112 @@
     radial-gradient(circle at 14% 0%, rgba(226, 16, 29, 0.1), transparent 22rem),
     radial-gradient(circle at 78% 4%, rgba(3, 157, 254, 0.16), transparent 24rem),
     linear-gradient(180deg, var(--ev-black), var(--ev-midnight) 62%, var(--ev-void)) !important;
+}
+
+.page :global(.emergency-trust-panel h2) {
+  overflow-wrap: anywhere;
+}
+
+.page :global([data-emergency-checklist]) {
+  container-type: inline-size;
+}
+
+.page :global([data-emergency-details]) {
+  container-type: inline-size;
+}
+
+.page :global(.emergency-trust-layout) {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 24rem), 1fr)
+  );
+}
+
+.page :global(.emergency-feature-layout) {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 14rem), 1fr)
+  );
+}
+
+.page :global(.emergency-checklist-grid) {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 15rem), 1fr)
+  );
+}
+
+.page :global(.emergency-related-grid) {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 11rem), 1fr)
+  );
+}
+
+.contentSplit {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 28rem), 1fr)
+  );
+}
+
+.hazardGrid {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 12rem), 1fr)
+  );
+}
+
+@container (max-width: 242px) {
+  .page.page :global([data-emergency-checklist][data-emergency-checklist] > .grid.grid) {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .page.page :global([data-emergency-checklist][data-emergency-checklist] .emergency-link-card.emergency-link-card) {
+    grid-template-columns: 41px minmax(0, 1fr) 39px !important;
+    gap: 12px !important;
+    padding: 14px !important;
+  }
+
+  .page :global([data-emergency-checklist] .emergency-link-card__icon) {
+    width: 41px !important;
+    height: 41px !important;
+  }
+
+  .page :global([data-emergency-checklist] .emergency-link-card__text) {
+    overflow-wrap: anywhere;
+  }
+
+  .page :global([data-emergency-checklist] .emergency-link-card__arrow) {
+    width: 39px !important;
+    height: 39px !important;
+  }
+}
+
+@container (max-width: 312px) {
+  .page.page :global([data-emergency-details][data-emergency-details] .emergency-feature-layout.emergency-feature-layout) {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .page.page :global([data-emergency-details][data-emergency-details] .emergency-feature-card.emergency-feature-card) {
+    grid-template-columns: 41px minmax(0, 1fr) 38px !important;
+    gap: 12px !important;
+    padding: 20px !important;
+  }
+
+  .page :global([data-emergency-details] .emergency-feature-card__icon) {
+    width: 41px !important;
+    height: 41px !important;
+  }
+
+  .page :global([data-emergency-details] .emergency-feature-card__body) {
+    overflow-wrap: anywhere;
+  }
+
+  .page :global([data-emergency-details] .emergency-feature-card__arrow) {
+    width: 38px !important;
+    height: 38px !important;
+  }
 }
 
 .page :global(.emergency-trust-panel a),
@@ -511,6 +674,13 @@
     min-height: 3.35rem;
   }
 
+  .page .heroCopyPanel .heroActions.heroActions {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, 6.875rem), 1fr)
+    ) !important;
+  }
+
   .hazardCard,
   .warningCard,
   .safetyCard,
@@ -518,10 +688,49 @@
     overflow-wrap: anywhere;
   }
 
+  .page .hazardGrid.hazardGrid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, 8rem), 1fr)
+    ) !important;
+  }
+
+  .page.page :global(.emergency-related-grid.emergency-related-grid) {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, 9.5rem), 1fr)
+    ) !important;
+  }
+
   .hazardCard,
   .safetyCard {
-    grid-template-columns: 0.2rem 2.35rem minmax(0, 1fr) 2rem;
-    gap: 0.7rem;
+    grid-template-columns: 3.2px 37.6px minmax(0, 1fr) 32px;
+    gap: 11.2px;
+  }
+
+  .hazardCard {
+    padding: 16px !important;
+  }
+
+  .safetyCard {
+    padding: 20px !important;
+  }
+
+  .hazardCard::before,
+  .safetyCard::before {
+    width: 3.2px;
+  }
+
+  .hazardCard > svg:first-of-type,
+  .safetyCard > svg:first-of-type {
+    width: 37.6px !important;
+    height: 37.6px !important;
+  }
+
+  .hazardCard > svg:last-of-type,
+  .safetyCard > svg:last-of-type {
+    width: 32px !important;
+    height: 32px !important;
   }
 
   .warningCard {

@@ -239,7 +239,10 @@
   }
 
   .ev-offers-proof .google-rating-seal--offers {
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, 8rem), 1fr)
+    );
     gap: 0.6rem 0.75rem;
     padding: 0.7rem;
   }
@@ -250,13 +253,13 @@
   }
 
   .ev-offers-proof .google-rating-seal--offers > p {
-    grid-column: 1;
-    grid-row: 2;
+    grid-column: auto;
+    grid-row: auto;
   }
 
   .ev-offers-proof .google-rating-seal--offers > div:last-child {
-    grid-column: 2;
-    grid-row: 2;
+    grid-column: auto;
+    grid-row: auto;
   }
 
   .ev-offers-proof .google-rating-seal--offers > div:last-child a {
