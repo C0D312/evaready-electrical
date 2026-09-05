@@ -1,4 +1,4 @@
-import { expect, test, type Locator, type Page } from "@playwright/test";
+import { expect, test, type Locator, type Page } from "./support/contained-test";
 import { resolvePreviewUrl } from "./support/preview-url";
 
 // Run against a local preview with inert integration fixtures, never the public site.

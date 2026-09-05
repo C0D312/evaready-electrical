@@ -1,4 +1,4 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Page } from "./support/contained-test";
 
 const coreRoutes = [
   "./",
@@ -86,7 +86,7 @@ test("core routes keep one H1, landmarks, tracking and viewport-safe layouts", a
       "none",
     );
 
-    const landmarks = await page.evaluate(() => {
+    await expect.poll(() => page.evaluate(() => {
       const skipLink = document.querySelector<HTMLAnchorElement>(
         'a.skip-to-content[href="#main-content"]',
       );
@@ -111,12 +111,10 @@ test("core routes keep one H1, landmarks, tracking and viewport-safe layouts", a
         nestedLandmarkCount: document.querySelectorAll("main header, main footer")
           .length,
         skipBeforeHeader: isBefore(skipLink, header),
-        stickyAfterFooter: isBefore(footer, sticky),
+        stickyAfterFooterWhenMounted: !sticky || isBefore(footer, sticky),
         stickyInsideMain: Boolean(sticky?.closest("main")),
       };
-    });
-
-    expect(landmarks, `${route} landmark structure`).toEqual({
+    }), { message: `${route} landmark structure` }).toEqual({
       footerAfterMain: true,
       footerInsideMain: false,
       headerBeforeMain: true,
@@ -124,7 +122,7 @@ test("core routes keep one H1, landmarks, tracking and viewport-safe layouts", a
       mainCount: 1,
       nestedLandmarkCount: 0,
       skipBeforeHeader: true,
-      stickyAfterFooter: true,
+      stickyAfterFooterWhenMounted: true,
       stickyInsideMain: false,
     });
 
@@ -177,9 +175,9 @@ test("homepage uses the approved H1 and a seamless reduced-motion-safe service s
   if (testInfo.project.name.startsWith("mobile-")) {
     await expect(page.locator(".ev-final-header-art [data-conversion-action='phone-click']")).toHaveCount(0);
     const stickyCta = page.locator(".mobile-sticky-cta");
-    await expect(stickyCta).toHaveCount(1);
-    await page.locator(".home-brand-hero").evaluate((hero) =>
-      window.scrollTo({ top: hero.getBoundingClientRect().bottom + window.scrollY + 24 }),
+    await expect(stickyCta).toHaveCount(0);
+    await page.locator("#current-electrical-offers").evaluate((offers) =>
+      window.scrollTo({ top: offers.getBoundingClientRect().bottom + window.scrollY + 24 }),
     );
     await expect(stickyCta).toBeVisible();
   }
@@ -218,12 +216,10 @@ test("wide desktop header uses complete art-directed artwork proportionally", as
       )
       .toBe(true);
 
+    await expect(page.locator(".ev-final-header-lockup-image")).toHaveCount(1);
+    await expect(page.locator(".ev-final-header-background")).toHaveCount(0);
     const bannerLayout = await page.locator(".ev-final-header-art").evaluate((banner) => {
       const bannerBox = banner.getBoundingClientRect();
-      const background = banner.querySelector<HTMLImageElement>(
-        ".ev-final-header-background",
-      );
-      const backgroundBox = background?.getBoundingClientRect();
       const image = banner.querySelector<HTMLImageElement>(
         ".ev-final-header-lockup-image",
       );
@@ -250,13 +246,12 @@ test("wide desktop header uses complete art-directed artwork proportionally", as
             box.bottom <= bannerBox.bottom + 1 &&
             box.left >= bannerBox.left - 1,
         },
-        backgroundCoversBanner:
-          !!backgroundBox &&
-          Math.abs(backgroundBox.left - bannerBox.left) <= 1 &&
-          Math.abs(backgroundBox.right - bannerBox.right) <= 1 &&
-          Math.abs(backgroundBox.top - bannerBox.top) <= 1 &&
-          Math.abs(backgroundBox.bottom - bannerBox.bottom) <= 1,
-        backgroundObjectFit: background ? getComputedStyle(background).objectFit : "",
+        artworkCoversBanner:
+          !!box &&
+          Math.abs(box.left - bannerBox.left) <= 1 &&
+          Math.abs(box.right - bannerBox.right) <= 1 &&
+          Math.abs(box.top - bannerBox.top) <= 1 &&
+          Math.abs(box.bottom - bannerBox.bottom) <= 1,
         bannerHeight: bannerBox.height,
         bannerWidth: bannerBox.width,
         overflow:
@@ -265,8 +260,7 @@ test("wide desktop header uses complete art-directed artwork proportionally", as
       };
     });
 
-    expect(bannerLayout.backgroundObjectFit).toBe("cover");
-    expect(bannerLayout.backgroundCoversBanner).toBe(true);
+    expect(bannerLayout.artworkCoversBanner).toBe(true);
     expect(Math.abs(bannerLayout.bannerHeight - viewport.expectedBannerHeight)).toBeLessThanOrEqual(1);
     expect(bannerLayout.artwork.objectFit).toBe("cover");
     expect(bannerLayout.artwork.relativeAspectError).toBeLessThanOrEqual(0.005);
@@ -1257,7 +1251,8 @@ test("visible header and footer internal links resolve", async ({ page }) => {
     );
 
   for (const href of links) {
-    const response = await page.request.get(href);
-    expect(response.status(), href).toBeLessThan(400);
+    expect(new URL(href).origin).toBe(new URL(page.url()).origin);
+    const status = await page.evaluate(async url => (await fetch(url, { redirect: "error" })).status, href);
+    expect(status, href).toBe(200);
   }
 });
