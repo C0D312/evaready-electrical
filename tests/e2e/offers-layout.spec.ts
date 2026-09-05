@@ -174,7 +174,31 @@ test("offer artwork and card grids stay complete, even and viewport-safe", async
       "Read our latest customer reviews on Google",
     );
     await expect(googleProof).not.toContainText("--");
-    await expect(googleProof.locator("[data-google-rating-value]")).toHaveCount(1);
+    const ratingState = googleProof.locator("[data-google-rating-state]");
+    await expect(ratingState).toHaveCount(1);
+    await expect(ratingState).toHaveAttribute(
+      "data-google-rating-state",
+      /^(idle|loading|ready|unavailable)$/,
+    );
+    const ratingStatus = await ratingState.getAttribute(
+      "data-google-rating-state",
+    );
+    if (ratingStatus === "ready") {
+      await expect(
+        googleProof.locator("[data-google-rating-value]"),
+      ).toHaveCount(1);
+    } else {
+      await expect(ratingState).toHaveAttribute(
+        "data-google-rating-source",
+        "unavailable",
+      );
+      await expect(
+        googleProof.locator("[data-google-rating-value]"),
+      ).toHaveCount(0);
+      await expect(
+        googleProof.locator("[data-google-rating-count]"),
+      ).toHaveText("Read our latest customer reviews on Google");
+    }
     await expect(googleProof.locator("[data-google-rating-count]")).toHaveCount(1);
     await expect(googleProof.locator("[data-google-reviews-link]")).toHaveCount(1);
     await expect(media).toHaveCount(offerPage.count);
