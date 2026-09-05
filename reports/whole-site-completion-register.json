@@ -14,17 +14,17 @@
       "suburb": 873
     },
     "individualReview": {
-      "pending": 971,
-      "reviewed": 30
+      "pending": 965,
+      "reviewed": 36
     },
     "publication": {
-      "live-verified": 995,
-      "pending": 6
+      "live-verified": 989,
+      "pending": 12
     },
     "rewrite": {
       "held": 21,
-      "pending": 950,
-      "rewritten": 30,
+      "pending": 944,
+      "rewritten": 36,
       "sufficient": 0
     },
     "totalRoutes": 1001
@@ -103,38 +103,38 @@
       "template": "fault index"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "fault-guide",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/electrical-faults/burning-smell-from-outlet",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/electrical-faults.ts#burning-smell-from-outlet",
       "template": "fault guide"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "fault-guide",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/electrical-faults/burning-smell-from-switchboard",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/electrical-faults.ts#burning-smell-from-switchboard",
       "template": "fault guide"
     },
@@ -211,38 +211,38 @@
       "template": "fault guide"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "fault-guide",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/electrical-faults/no-power-in-one-room",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/electrical-faults.ts#no-power-in-one-room",
       "template": "fault guide"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "fault-guide",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/electrical-faults/no-power-to-house",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/electrical-faults.ts#no-power-to-house",
       "template": "fault guide"
     },
@@ -265,20 +265,20 @@
       "template": "fault guide"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "fault-guide",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/electrical-faults/power-point-sparking",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/electrical-faults.ts#power-point-sparking",
       "template": "fault guide"
     },
@@ -319,20 +319,20 @@
       "template": "fault guide"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "fault-guide",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/electrical-faults/safety-switch-keeps-tripping",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/electrical-faults.ts#safety-switch-keeps-tripping",
       "template": "fault guide"
     },

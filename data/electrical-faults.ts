@@ -45,45 +45,45 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
     title: "Safety Switch Keeps Tripping",
     metaTitle: "Safety Switch Keeps Tripping Sydney & Surrounding Regions",
     metaDescription:
-      "Safety switch keeps tripping in Sydney? Evaready Electrical can help test the circuit, isolate the cause and explain the next action.",
+      "Safety switch keeps tripping? Understand leakage faults, safe stop-use steps and what our licensed electricians test in Sydney and surrounding regions.",
     intro:
-      "A safety switch that keeps tripping is usually warning you that something on the circuit needs attention. It may be an appliance, water ingress, damaged wiring or an overloaded circuit.",
+      "A safety switch that keeps tripping can indicate electrical leakage from wiring, an appliance or moisture. Stop using the affected equipment and do not keep resetting it. For fire, serious injury or immediate danger, keep clear and call Triple Zero (000) first. Seek medical advice after any electric shock, even if you feel well.",
     primaryAdvice:
-      "Do not keep resetting the switch over and over. If it trips again after one careful reset, call Evaready Electrical before the fault becomes harder to trace.",
+      "Leave the affected circuit off. Do not bypass the safety switch or open the switchboard. Our licensed electricians can investigate recurring trips once any immediate danger has been addressed.",
     riskNotes: [
-      "A wet or damaged appliance can trip the safety switch.",
-      "Outdoor circuits may trip after rain or moisture enters a fitting.",
-      "Repeated tripping can point to damaged wiring or insulation breakdown.",
-      "Older switchboards may need safety device or circuit protection upgrades.",
+      "An RCD safety switch detects current leaking away from its intended path. A circuit breaker responds to overcurrent; a combined device provides both functions. A trip alone does not identify which fault is present.",
+      "Moisture in an outdoor fitting, deteriorated cable insulation or a faulty appliance can cause leakage. The timing of a trip may help narrow the investigation, but is not a diagnosis.",
+      "Our licensed electricians identify the affected circuit, inspect accessible equipment and test the wiring and protective device under safe isolation. Intermittent faults may need further investigation if they are not present during the visit.",
+      "The next step may be repairing damaged wiring or a fitting, keeping an unsafe appliance disconnected, or replacing a defective protective device. A switchboard upgrade is not automatically the answer to a recurring trip.",
     ],
     checks: [
-      "Check whether one area of the home or business has lost power.",
-      "Unplug appliances on the affected circuit if it is safe to do so.",
-      "Avoid touching wet fixtures, damaged outlets or exposed wiring.",
-      "Call directly if there is heat, smoke, burning smell, sparking or shock risk.",
+      "From a safe place, note which lights or appliances stopped working. Do not move between outlets to recreate the trip or test a suspect appliance yourself.",
+      "Keep people away from wet, damaged, hot or sparking equipment. Do not touch fittings to check their temperature or remove switchboard covers.",
+      "Do not reset repeatedly, hold a switch on or defeat its protection. A circuit staying on later does not prove the original fault has gone.",
+      "After emergency risks are addressed, contact our licensed electricians for recurring trips. If essential medical equipment loses supply, follow its emergency plan and call 000 for immediate danger to the person.",
     ],
     whatToSend: [
-      "A clear photo of the switchboard and the switch that trips.",
-      "Which rooms, outlets or appliances lose power.",
-      "Whether it started after rain, a storm, new appliance use or recent work.",
-      "Your suburb, contact number and best access notes.",
+      "Only if already safe, a photo showing the visible switch labels from outside the closed switchboard. Never approach a hazard, remove a cover or delay emergency help for photos.",
+      "Which rooms, lights or appliances stopped working, and whether one or several devices tripped. Report what you already observed without recreating the fault.",
+      "When the trips occurred and whether rain, outdoor equipment, a particular appliance or recent electrical work coincided with them.",
+      "Your suburb and a way to contact you through the quote form for non-urgent work. Explain any essential equipment affected when calling; do not include private access codes in photos.",
     ],
     relatedServices: commonRelatedServices,
     faqs: [
       {
         question: "Is a tripping safety switch urgent?",
         answer:
-          "It can be urgent if it keeps happening, affects essential power, or comes with heat, burning smell, sparking or water. Call first if the fault feels unsafe.",
+          "Recurring trips need assessment. Keep clear of smoke, sparking, heat or wet equipment. For fire or immediate danger call 000 first; a quote form is not emergency assistance. Leave the affected circuit off until the fault is assessed.",
       },
       {
         question: "Can I keep resetting the safety switch?",
         answer:
-          "No. Repeated resets can hide a real fault and make the problem harder to diagnose. If it trips again, have the circuit tested.",
+          "No. Do not keep re-energising a circuit with an unresolved fault, hold the switch on or bypass it. Our licensed electricians can test the circuit and device instead of relying on trial-and-error resets.",
       },
       {
         question: "Can rain make an RCD trip?",
         answer:
-          "Yes. Outdoor lights, power points, pumps and weather-affected fixtures can trip safety switches after rain.",
+          "Yes. Water entering a fitting or damaged equipment may cause leakage, but rain alone does not prove the source. Keep clear of wet equipment and arrange testing; do not open outdoor fittings or use them again simply because they have dried.",
       },
     ],
   },
@@ -92,45 +92,45 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
     title: "Burning Smell From Switchboard",
     metaTitle: "Burning Smell From Switchboard Sydney & Surrounding Regions",
     metaDescription:
-      "Burning smell near a switchboard in Sydney? Call Evaready Electrical for urgent electrical fault support before touching the board.",
+      "Burning smell near a switchboard? Keep clear, know when to call 000 and understand the electrical inspection and repair process for Sydney properties.",
     intro:
-      "A burning smell near the switchboard should be treated seriously. Heat at a board can come from loose connections, damaged breakers, overloaded circuits, old fuses or burnt wiring.",
+      "A burning smell near a switchboard can indicate overheating or an electrical fire. Keep clear of the board and move people away. For fire, smoke with immediate danger or serious injury, call Triple Zero (000) first from a safe place. Do not touch the board or attempt to locate the smell inside it.",
     primaryAdvice:
-      "Call immediately if you smell burning, see smoke or notice heat around the board. Keep clear of the switchboard until the fault has been checked.",
+      "Do not operate or open a switchboard that smells burnt, is hot, wet, smoking or sparking. Emergency help comes before an electrician booking. Once safe, arrange inspection before affected equipment is used again.",
     riskNotes: [
-      "Loose connections can create heat at terminals.",
-      "Overloaded circuits can leave damage inside the board.",
-      "Old ceramic fuses may hide poor contact or heat marks.",
-      "Burnt wiring needs proper testing before the circuit is used again.",
+      "A loose connection can overheat under load without immediately interrupting supply. A breaker remaining on is not evidence that a burning smell is harmless.",
+      "Damaged protective devices, deteriorated wiring or excessive load are possible causes. Discolouration visible from a safe position is useful information, not a reason to remove covers.",
+      "Our licensed electricians first establish safe isolation, then inspect accessible connections, conductors and protective equipment. Testing and load assessment help distinguish the damaged part from the cause of the overheating.",
+      "Repairs may involve affected wiring, connections or protection, followed by testing before restoration. Network-owned or sealed supply equipment requires the appropriate distributor process and authorisation; a general repair does not authorise access to it.",
     ],
     checks: [
-      "Do not remove switchboard covers.",
-      "Do not spray water or cleaners near electrical equipment.",
-      "If there is smoke, heat or active sparking, keep clear and call emergency services if needed.",
-      "Call Evaready Electrical before turning affected circuits back on.",
+      "Do not remove covers, change fuses, tighten terminals or touch the board to check for heat. Do not approach it to switch off if that exposes you to the hazard.",
+      "Do not use water on electrical equipment or try to extinguish an electrical fire yourself. Leave the danger area and follow emergency-service instructions.",
+      "Keep clear even if the smell stops or the lights remain on. Hidden heat damage needs assessment before the affected installation is put back into service.",
+      "Tell our licensed electricians about the smell after urgent safety needs are addressed. If anyone received an electric shock, seek medical advice even if they feel well; call 000 for serious injury or immediate danger.",
     ],
     whatToSend: [
-      "A photo of the switchboard from a safe distance.",
-      "Which area lost power or which breaker tripped.",
-      "Whether the smell is constant or only when appliances are running.",
-      "Any recent upgrade, renovation, storm or new appliance information.",
+      "Photos are optional and only for a situation already made safe. Do not approach the board, open a cover or delay emergency help to photograph it.",
+      "When you first noticed the smell, any smoke or sound you already observed, and which areas lost power. Do not return to the hazard to collect details.",
+      "Whether a particular load was operating at the time, without switching it on again to reproduce the smell.",
+      "Any recent electrical work, storm or water exposure, and whether emergency services or the distributor have already attended. Pass on their restrictions before arranging work.",
     ],
     relatedServices: commonRelatedServices,
     faqs: [
       {
         question: "Is a burning smell from a switchboard dangerous?",
         answer:
-          "Yes. A burning smell can mean overheating or damaged electrical parts. Treat it as urgent and call before touching the board.",
+          "It may indicate overheating or fire, including damage hidden behind the cover. Keep clear. Call 000 for fire or immediate danger before contacting an electrician; do not wait for a quote response.",
       },
       {
         question: "Should I turn the power off?",
         answer:
-          "If it is safe and you know how to isolate the main switch, turning power off can reduce risk. Do not touch the board if there is heat, smoke, sparking or water.",
+          "Do not approach or operate the suspect board to isolate it. Heat, smoke, water or arcing may make touching it dangerous. Stay clear and follow emergency-service or distributor instructions; safe isolation is part of the professional response.",
       },
       {
         question: "Can a switchboard upgrade fix burning smells?",
         answer:
-          "Sometimes, but the cause must be tested first. The repair may involve wiring, circuit protection, load issues or a full switchboard upgrade.",
+          "An upgrade is not a diagnosis. Testing may identify a damaged connection, circuit or protective device that needs repair, or wider deterioration requiring replacement work. Our licensed electricians explain the findings and limits before recommending the scope.",
       },
     ],
   },
@@ -139,28 +139,28 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
     title: "No Power In One Room",
     metaTitle: "No Power In One Room Sydney & Surrounding Regions",
     metaDescription:
-      "No power in one room in Sydney? Evaready Electrical can trace tripped circuits, faulty outlets, damaged wiring and switchboard issues.",
+      "No power in one room? Learn safe observations, possible circuit faults and what our licensed electricians check before restoring supply in Sydney.",
     intro:
-      "Power loss in one room can come from a tripped circuit, failed outlet, damaged wiring, overloaded power board or a problem at the switchboard.",
+      "If one room loses power, stop using any affected equipment that is damaged, wet, buzzing or smells burnt. For fire, serious injury or immediate danger, keep clear and call Triple Zero (000) first. A room outage may involve a circuit or appliance fault; working lights elsewhere do not prove the affected outlets are safe.",
     primaryAdvice:
-      "If one room has lost power and the issue will not reset, call for fault finding rather than guessing which outlet or appliance caused it.",
+      "Do not repeatedly reset protection or use another appliance to test a dead outlet. Leave the affected equipment unused and arrange fault finding after any immediate danger is addressed.",
     riskNotes: [
-      "A single faulty outlet can affect part of a circuit.",
-      "Power boards and extension leads can overload a room.",
-      "Rodent damage, water or old wiring can interrupt supply.",
-      "A breaker or safety switch may trip again when the fault is still present.",
+      "Room boundaries do not necessarily match circuit boundaries. Lights and power points may use different circuits, while outlets in adjoining rooms may share one circuit.",
+      "A tripped protective device, failed connection, damaged outlet or connected appliance are possible causes. A dead-looking outlet can still contain live conductors; do not remove its cover.",
+      "Our licensed electricians identify what has lost supply, safely isolate the affected circuit and inspect and test accessible wiring, outlets and protection. An appliance problem may need separate appliance assessment.",
+      "The repair may be a damaged outlet or connection, wiring repair or correction of an unsuitable load arrangement. The circuit is tested before restoration; hidden or intermittent faults may require further access or investigation.",
     ],
     checks: [
-      "Check whether lights, power points or both are affected.",
-      "Look for a tripped breaker or safety switch without forcing it repeatedly.",
-      "Unplug appliances if it is safe and dry.",
-      "Stop using any outlet that is hot, cracked, buzzing or discoloured.",
+      "Note which lights and appliances have already stopped working and what still operates nearby. Do not plug equipment into different sockets to map the fault yourself.",
+      "If the switchboard can already be seen safely, report visible switch positions without opening it or operating switches. Do not keep trying resets.",
+      "Keep away from damaged or wet outlets and cords. Do not touch a fitting to check for heat, dismantle a power board or improvise a connection.",
+      "Do not bypass the affected circuit with extension leads or power-board chains. If essential medical equipment is affected, follow its emergency plan and call 000 for immediate danger. Seek medical advice after any electric shock.",
     ],
     whatToSend: [
-      "Which room has lost power and what still works nearby.",
-      "Photos of the switchboard and affected outlets.",
-      "Whether it happened after plugging in an appliance.",
-      "Any smell, noise, heat, water or storm details.",
+      "Which room, lights or appliances stopped working and whether adjoining areas are affected. Use observations you already have rather than testing suspect outlets.",
+      "Optional photos from a safe distance only: never touch equipment, remove a cover or delay emergency help for a photo.",
+      "When power was lost and what was operating at the time, plus any recent electrical work or appliance change. Do not recreate the fault.",
+      "Any smell, sound, water exposure or visible damage already noticed, and whether anyone received a shock. Urgent hazards need a call rather than a quote-form response.",
     ],
     relatedServices: [
       ...commonRelatedServices,
@@ -173,17 +173,17 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
       {
         question: "Why would only one room lose power?",
         answer:
-          "The affected room may be on one circuit, or one damaged outlet may be interrupting part of the circuit. Testing confirms the cause.",
+          "A protective device or connection may interrupt only part of the installation. A circuit may also serve more than one room. Our licensed electricians establish the circuit arrangement and test it rather than assuming the room itself identifies the fault.",
       },
       {
         question: "Can I use an extension lead from another room?",
         answer:
-          "Only as a temporary low-load workaround if everything is safe. Do not run heavy appliances from extension leads while a fault is unresolved.",
+          "Do not improvise an alternative supply while the fault is unresolved. Extension leads and chained power boards can introduce overload, damage and trip hazards. Arrange assessment and explain any essential equipment needs when calling.",
       },
       {
         question: "Should I call if the breaker stays on again?",
         answer:
-          "If the issue returns, the outlet is damaged, or there are signs of heat or burning, call and have it checked.",
+          "Yes, an unexplained or recurring outage needs assessment even if power returns. Keep damaged or suspect equipment unused. A switch remaining on is not proof that wiring or an outlet is safe.",
       },
     ],
   },
@@ -192,28 +192,28 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
     title: "No Power To House",
     metaTitle: "No Power To House Sydney & Surrounding Regions",
     metaDescription:
-      "No power to the house in Sydney? Evaready Electrical can help check switchboards, tripped safety devices, storm faults and supply-side concerns.",
+      "No power to your house? Distinguish a network outage from a property fault, keep clear of hazards and understand the next safe steps in Sydney.",
     intro:
-      "No power to the whole house can come from a network outage, a tripped main switch or safety device, storm damage, damaged consumer mains, metering issues or a switchboard fault.",
+      "When the whole house loses power, keep clear of damaged lines, wet equipment and the switchboard if it looks or smells unsafe. For fire, serious injury or immediate danger, call Triple Zero (000) first. A network outage and a property fault need different responses; an outage does not make electrical equipment safe to touch.",
     primaryAdvice:
-      "If your neighbours still have power, or only your property is affected, call Evaready Electrical before repeatedly resetting the switchboard.",
+      "Check your electricity distributor's outage information from a safe place. Report fallen lines or damaged network equipment to the distributor. Do not repeatedly reset switches or open supply equipment to investigate.",
     riskNotes: [
-      "A full property outage can involve the switchboard, consumer mains or service equipment.",
-      "Storms, water, heat or burnt smells around the board should be treated as urgent.",
-      "A partial supply problem can affect appliances and sensitive equipment.",
-      "Supply-side concerns may need Level 2 electrical support.",
+      "A street outage may be network-related, but neighbouring lights alone do not confirm the cause at your property. Different properties or circuits can be supplied differently.",
+      "A main protective device, switchboard connection or supply cable fault may interrupt the property. Smoke, burning smells, water or damaged service lines require a keep-clear response, not further checks at the board.",
+      "Our licensed electricians can assess the accessible customer installation, establish safe isolation and test the affected equipment. Distributor-owned or sealed equipment must follow the distributor's process and the relevant authorisation requirements.",
+      "Repair may involve customer wiring or protective equipment, or coordination with the distributor where the fault is outside that scope. Network restoration times are controlled by the distributor; a booking cannot guarantee when supply will return.",
     ],
     checks: [
-      "Check from a safe place whether nearby properties also have no power.",
-      "Look for tripped safety switches or breakers without forcing repeated resets.",
-      "Keep clear of wet switchboards, fallen lines, damaged service equipment or burnt smells.",
-      "Call first if the outage is only at your property or the board will not reset safely.",
+      "Use a battery-powered light and check the distributor's outage updates from a safe location. Do not enter a hazardous area to compare neighbouring properties or inspect supply equipment.",
+      "Treat fallen lines and anything touching them as live. Stay at least 8 metres away, keep others clear and contact the electricity distributor; call 000 for immediate danger.",
+      "Do not open the meter enclosure, remove fuses, reset repeatedly or connect a generator through a power point. Solar or battery equipment can remain hazardous during a grid outage.",
+      "If medical equipment depends on mains power, follow its emergency plan and seek emergency help for immediate danger. For a suspected property fault after urgent risks are addressed, contact our licensed electricians and explain what supply is missing.",
     ],
     whatToSend: [
-      "A photo of the switchboard from a safe distance.",
-      "Whether the whole property or only some circuits are affected.",
-      "Whether neighbours or nearby shops still have power.",
-      "Any storm, water, burning smell, buzzing, heat or defect notice details.",
+      "Only safe, optional photos of externally visible equipment. Never approach fallen lines, wet or damaged equipment, remove covers or delay emergency help to take photos.",
+      "When the outage began, whether all or only some equipment stopped, and any distributor outage reference or instructions already received.",
+      "Whether surrounding properties appear affected from your existing safe position, and whether the property has solar, batteries or a generator. Do not operate these systems to test the fault.",
+      "Storm, water, smell, sound or damage already observed. Mention critical medical equipment when seeking help; keep account numbers and private access details out of photographs.",
     ],
     relatedServices: [
       ...commonRelatedServices,
@@ -234,17 +234,17 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
       {
         question: "Who do I call if my whole house has no power?",
         answer:
-          "If the street is out, the electricity network may be involved. If only your property is affected, call Evaready Electrical for switchboard, circuit and supply-side checks.",
+          "Call 000 first for fire or immediate danger. For a network outage or damaged lines, contact your electricity distributor, not just the retailer that sends your bill. Our licensed electricians can assess a suspected customer-installation fault; the distributor manages its own network restoration.",
       },
       {
         question: "Should I keep resetting the main switch?",
         answer:
-          "No. One careful reset may be reasonable if the board is dry and safe, but repeated tripping should be checked before power is forced back on.",
+          "No. Do not repeatedly re-energise an unresolved fault or operate a board that is wet, damaged, hot, smoking or sparking. Keep clear and arrange professional assessment after any emergency response.",
       },
       {
         question: "Can no power to the house require Level 2 work?",
         answer:
-          "Sometimes. If the issue involves consumer mains, metering, overhead service lines or service equipment, Level 2 electrical support may be needed.",
+          "Some customer connection work requires the relevant Level 2 accreditation and distributor authorisation. Other faults belong to the distributor or the ordinary customer installation. The equipment and ownership boundary must be established before deciding who can do the work; not every electrician is authorised for every supply task.",
       },
     ],
   },
@@ -253,28 +253,28 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
     title: "Power Point Sparking",
     metaTitle: "Power Point Sparking Sydney & Surrounding Regions",
     metaDescription:
-      "Power point sparking in Sydney? Stop using the outlet and call Evaready Electrical for safe testing, repair or replacement.",
+      "Power point sparking? Stop using it, keep clear of danger and learn what our licensed electricians inspect before repair or reuse in Sydney.",
     intro:
-      "A power point that sparks, buzzes, feels loose or looks burnt should not be ignored. The issue may be a worn socket, loose connection, damaged wiring or overloaded circuit.",
+      "Repeated sparking, crackling or burn marks at a power point need a stop-use response. Keep people away and do not touch or unplug equipment that is hot, damaged, wet or actively sparking. For fire, serious injury or immediate danger, call Triple Zero (000) first. Seek medical advice after any electric shock, even if you feel well.",
     primaryAdvice:
-      "Stop using the outlet and call if the sparking is repeated, strong, noisy, leaves marks or happens with more than one appliance.",
+      "Do not plug another appliance into the outlet or try the suspect appliance elsewhere. Our licensed electricians can assess the outlet, plug and circuit after immediate hazards have been addressed.",
     riskNotes: [
-      "Loose outlets can arc under load.",
-      "Heat marks or yellowing can show damage behind the plate.",
-      "High-load appliances may need a dedicated circuit.",
-      "Older outlets can become worn and unsafe.",
+      "Worn socket contacts or a loose connection may arc when current flows. Noise, discolouration or a plug that previously fitted poorly are useful observations, but do not touch or wiggle it to investigate.",
+      "A damaged plug or appliance may also be involved. Replacing the visible outlet without checking the associated wiring and equipment may leave the underlying fault unresolved.",
+      "Our licensed electricians establish safe isolation and inspect the outlet, accessible wiring, plug condition and circuit protection. Testing helps decide whether the fault is in the fixed installation or needs separate appliance assessment.",
+      "Work may include replacing a damaged outlet, repairing an affected connection or wiring, and checking the circuit before restoration. A dedicated circuit is only recommended where the assessed load and installation require it, not for every sparking outlet.",
     ],
     checks: [
-      "Unplug the appliance if it is safe and dry.",
-      "Do not use the outlet again until it is checked.",
-      "Do not remove the outlet cover yourself.",
-      "Call first if there is smoke, a burning smell or visible damage.",
+      "Stop using the affected outlet and keep people away. Do not touch a sparking socket or damaged plug to disconnect it; do not approach an unsafe switchboard to isolate it.",
+      "Do not recreate the spark, repeatedly reset a tripped device or test another appliance in the socket. A spark stopping does not establish that it is safe.",
+      "Do not remove the cover, tighten screws, bend plug pins or spray anything into the outlet. Electrical testing and repairs belong with our licensed electricians.",
+      "For fire or immediate danger, move to safety and call 000. Do not use water on electrical equipment. Once urgent risks are addressed, arrange inspection before the outlet or suspect appliance is reused.",
     ],
     whatToSend: [
-      "A photo of the outlet and surrounding wall.",
-      "What appliance was plugged in when it sparked.",
-      "Whether the outlet feels hot, loose or discoloured.",
-      "A switchboard photo if the circuit also tripped.",
+      "Optional photos only from an already safe position, with no touching, unplugging or cover removal. Never delay emergency help or approach a hazard for a photo.",
+      "Which appliance was connected and whether the spark happened on insertion, while running or without anyone touching the outlet. Do not repeat the event to check.",
+      "Any noise, smell, visible damage or earlier loose fit already noticed. Do not touch the outlet to find out whether it is hot.",
+      "Whether lights or other equipment lost power at the same time, and your suburb when requesting help. An urgent hazard needs a call, not a wait for a quote response.",
     ],
     relatedServices: [
       ...commonRelatedServices,
@@ -287,17 +287,17 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
       {
         question: "Is a small spark normal when plugging something in?",
         answer:
-          "A tiny momentary spark can happen with some loads, but repeated, loud, bright or smoky sparking is not normal and should be checked.",
+          "A brief spark can occur as some loads connect, but its appearance is not a reliable safety test. Stop using an outlet with recurring sparks, noise, heat, burning smell or damage. Do not recreate the event to decide whether it is normal; arrange assessment if you are unsure.",
       },
       {
         question: "Can a sparking outlet be replaced?",
         answer:
-          "Often yes, but the wiring and circuit should be checked so the real cause is repaired.",
+          "A damaged outlet may need replacement, but our licensed electricians first check the associated wiring, connection and protection. The plug or appliance may also need assessment. Replacing a faceplate alone is not a complete diagnosis.",
       },
       {
         question: "Should I keep using the appliance elsewhere?",
         answer:
-          "Only if the appliance appears undamaged and safe. If the appliance caused tripping, heat or burning smell, stop using it until assessed.",
+          "No. Keep a suspect appliance out of use until assessed; moving it to another outlet can transfer the hazard. Do not unplug it yourself if touching the plug or outlet would expose you to heat, sparking, water or damage.",
       },
     ],
   },
@@ -306,28 +306,28 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
     title: "Burning Smell From Outlet",
     metaTitle: "Burning Smell From Outlet Sydney & Surrounding Regions",
     metaDescription:
-      "Burning smell from an outlet in Sydney? Stop using the power point and call Evaready Electrical for urgent testing and repair.",
+      "Burning smell from an outlet? Keep clear, know when emergency help comes first and learn how our licensed electricians investigate hidden heat damage.",
     intro:
-      "A burning smell from a power point, switch or nearby wall can point to heat behind the fitting, loose terminals, damaged contacts, overloaded wiring or a failing appliance.",
+      "A burning smell from a power point or nearby wall may mean overheating behind the fitting, even without visible flames. Stop using the area and keep clear. For fire, serious injury or immediate danger, call Triple Zero (000) first from a safe place. Do not touch the outlet, plug or wall to check for heat.",
     primaryAdvice:
-      "Stop using the outlet, unplug the appliance if it is safe, and call before turning the circuit back on or trying another appliance in the same point.",
+      "Do not use the outlet again, try another appliance or approach damaged equipment to disconnect it. After emergency risks are addressed, arrange inspection before the affected equipment is returned to service.",
     riskNotes: [
-      "Heat can build behind an outlet before visible burn marks appear.",
-      "Loose terminals can arc when a load is connected.",
-      "High-load appliances can expose weak outlets or overloaded circuits.",
-      "A damaged plug, socket or cable can continue to smell after the appliance is removed.",
+      "Poor contacts or a loose connection can generate heat behind an otherwise ordinary-looking outlet. A smell can continue after a load stops; the absence of a tripped breaker does not prove safety.",
+      "The source may be the plug, appliance, outlet or wiring rather than the faceplate alone. The smell's location helps direct inspection but cannot establish the cause without testing.",
+      "Our licensed electricians establish safe isolation and inspect the accessible outlet, connections, wiring and protection for heat damage. They assess the connected load and explain if separate appliance testing or additional access is needed.",
+      "Repair may involve affected wiring or connections and a replacement outlet, followed by testing before restoration. Concealed damage can require further investigation; an outlet replacement does not certify the whole property or guarantee every hidden fault has been found.",
     ],
     checks: [
-      "Do not keep using the outlet to see if the smell returns.",
-      "Keep clear if there is smoke, heat, sparking or wall discolouration.",
-      "Avoid touching the fitting if it feels hot or is near water.",
-      "Call first if the smell is strong, repeated or connected to power loss.",
+      "Do not switch the appliance back on to recreate the smell, use another appliance in the outlet or repeatedly reset circuit protection.",
+      "Keep away from smoke, sparking, damaged equipment or wall discolouration. Do not remove covers, feel for heat, spray cleaners or use water on electrical equipment.",
+      "Do not approach an unsafe switchboard to isolate the circuit or touch a suspect plug to remove it. Leave immediate hazards to the emergency response and safe isolation process.",
+      "Seek medical advice after any electric shock, even if symptoms seem minor. Call 000 for serious injury or immediate danger. A smell fading later is not a reason to reuse the affected outlet before assessment.",
     ],
     whatToSend: [
-      "A photo of the outlet and the appliance that was plugged in.",
-      "Whether the outlet feels hot, loose, discoloured or noisy.",
-      "Whether a safety switch or breaker tripped at the same time.",
-      "A switchboard photo and your suburb if it is safe to take one.",
+      "Optional photos from an already safe distance only. Do not approach the fitting, move the appliance, remove covers or delay emergency help to take them.",
+      "When the smell began and any noise, discolouration or smoke already observed. Do not touch the outlet or surrounding wall to collect more information.",
+      "What equipment was operating and whether supply stopped at the same time, without reproducing the fault or testing another outlet.",
+      "Your suburb and any emergency-service or distributor instructions already given. Use the quote form only for non-urgent follow-up after the area is safe.",
     ],
     relatedServices: [
       ...commonRelatedServices,
@@ -340,17 +340,17 @@ export const electricalFaultPages: ElectricalFaultPage[] = [
       {
         question: "Is a burning smell from an outlet urgent?",
         answer:
-          "Yes. Stop using the outlet and call before it is used again. Heat or arcing behind a fitting can become dangerous quickly.",
+          "Treat it seriously and keep the outlet out of use. For fire or immediate danger, keep clear and call 000 before a business booking. Hidden heat damage can exist without flames or a tripped breaker, so arrange inspection even if the smell fades.",
       },
       {
         question: "Could the appliance be causing the smell?",
         answer:
-          "Yes. The appliance, plug top, outlet, wiring or circuit can all be involved, so proper testing is needed before reuse.",
+          "Yes. A plug or appliance fault can resemble an outlet or wiring fault. Do not move the suspect appliance to another socket as a test. Our licensed electricians assess the fixed installation and explain when the appliance needs separate repair or assessment.",
       },
       {
         question: "Can the outlet just be replaced?",
         answer:
-          "Sometimes, but the wiring and load should be checked first so the cause is fixed, not just the visible fitting.",
+          "Replacement may be part of the repair, but the connected wiring, plug and load need assessment too. The agreed work depends on the findings and access available; changing the visible fitting alone may leave heat-damaged wiring or another cause unresolved.",
       },
     ],
   },

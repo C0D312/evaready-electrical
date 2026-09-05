@@ -14,6 +14,7 @@ import {
   phase3d3SelectedRoutes,
   phase3d4SelectedRoutes,
   phase3d5SelectedRoutes,
+  phase3d6SelectedRoutes,
   normalizeWholeSiteRegisterText,
   specialistHeldRoutes,
   validateWholeSiteCompletionRegister,
@@ -45,16 +46,16 @@ test("individual review, rewrite and publication states remain truthful", () => 
   const register = createWholeSiteCompletionRegister();
   const byRoute = new Map(register.records.map((record) => [record.route, record]));
 
-  assert.deepEqual(register.counts.individualReview, { pending: 971, reviewed: 30 });
+  assert.deepEqual(register.counts.individualReview, { pending: 965, reviewed: 36 });
   assert.deepEqual(register.counts.rewrite, {
     held: 21,
-    pending: 950,
-    rewritten: 30,
+    pending: 944,
+    rewritten: 36,
     sufficient: 0,
   });
   assert.deepEqual(register.counts.publication, {
-    "live-verified": 995,
-    pending: 6,
+    "live-verified": 989,
+    pending: 12,
   });
 
   for (const route of phase3d1RewrittenRoutes) {
@@ -106,7 +107,7 @@ test("individual review, rewrite and publication states remain truthful", () => 
     assert.deepEqual(record.outstandingHolds, []);
   }
 
-  for (const route of phase3d5SelectedRoutes) {
+  for (const route of [...phase3d5SelectedRoutes, ...phase3d6SelectedRoutes]) {
     const record = byRoute.get(route);
     assert.ok(record);
     assert.equal(record.individualSemanticContentReview, "reviewed");

@@ -53,11 +53,20 @@ claim verification is not implied by a route-content review.
 Phase 3D5 records individual semantic, safety, responsive, accessibility and
 SEO review for five remaining general service pages and the Services index.
 All six required scoped corrections and are marked `rewritten`. Their
-publication is pending, with no live SHA. The register now contains 30
+publication is pending, with no live SHA. At that checkpoint the register contained 30
 individually reviewed routes, 971 pending individual reviews, 21 held rewrites,
 and six pending publications. This is not a whole-website completion claim.
 Source, failure and validation notes are in
 `docs/phase3d5-service-content-source-notes.md`.
+
+Phase 3D6 records individual semantic, safety, responsive, accessibility and
+SEO review for the first six electrical fault guides in source order. All six
+required rewriting. Their publication is pending with null live SHAs, as are
+the six Phase 3D5 routes. The register now contains 36 reviewed routes, 965
+pending individual reviews, 21 held rewrites, 944 pending rewrites and 12
+pending publications. The other nine fault records and all earlier per-route
+publication evidence remain unchanged. No route is marked `sufficient`.
+See `docs/phase3d6-fault-guide-source-notes.md` for scope and validation.
 
 ## Commands
 
