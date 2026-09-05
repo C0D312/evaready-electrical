@@ -33,12 +33,11 @@ test.beforeEach(async ({ baseURL, context, page }) => {
   });
 });
 
-test.afterEach(async ({ context, page }) => {
+test.afterEach(async ({ page }) => {
   if (!page.isClosed()) {
     await page.unrouteAll({ behavior: "ignoreErrors" });
     await page.close({ runBeforeUnload: false });
   }
-  await context.unrouteAll({ behavior: "wait" });
 });
 
 const phase3d1Cases = [
