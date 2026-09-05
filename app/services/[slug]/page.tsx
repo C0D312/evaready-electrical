@@ -349,7 +349,7 @@ function ServiceSpecificOverview({
               page. The warning signs below help separate urgent hazards from
               planned work that can start with photos and job details.
             </p>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <div className="service-detail-scope-cta mt-7 flex flex-col gap-3 sm:flex-row">
               <a
                 href={business.phoneHref}
                 data-conversion-action="phone-click"
@@ -456,7 +456,7 @@ function ServiceSpecificOverview({
               affected equipment, when to call first and when planned work can
               begin with a quote request.
             </p>
-            <div className="service-detail-warning-cta mt-7 grid gap-3 sm:grid-cols-2">
+            <div className="service-detail-warning-cta mt-7 grid gap-3">
               <a
                 href={business.phoneHref}
                 data-conversion-action="phone-click"
@@ -914,7 +914,7 @@ export default async function ServiceLandingPage({
                 </div>
               </div>
             </div>
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="service-path-grid grid gap-3">
               {switchboardSafetyRelatedLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -1122,7 +1122,7 @@ export default async function ServiceLandingPage({
               <p className="ev-storm-card ev-storm-card--emergency mt-5 rounded-lg border border-red-300/35 p-4 text-base font-bold leading-7 text-red-50">
                 {service.callFirstBlock.safetyCopy}
               </p>
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <div className="service-detail-action-group mt-6 flex flex-col gap-3 sm:flex-row">
                 <a
                   href={business.phoneHref}
                   data-conversion-action="phone-click"
@@ -1203,7 +1203,7 @@ export default async function ServiceLandingPage({
               <p className="ev-storm-card ev-storm-card--emergency mt-5 rounded-lg border border-red-300/30 p-4 text-base font-bold leading-7 text-red-50">
                 {service.quoteChecklist.urgentNote}
               </p>
-              <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <div className="service-detail-action-group mt-6 grid gap-3">
                 <a
                   href={business.phoneHref}
                   data-conversion-action="phone-click"
@@ -1296,7 +1296,7 @@ export default async function ServiceLandingPage({
                 </div>
               ))}
             </div>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <div className="service-detail-action-group mt-7 flex flex-col gap-3 sm:flex-row">
               <a
                 href={business.phoneHref}
                 data-conversion-action="phone-click"
@@ -1408,7 +1408,7 @@ export default async function ServiceLandingPage({
               Call Evaready Electrical or send the job details for review.
             </h2>
           </div>
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <div className="service-detail-action-group flex flex-col gap-3 sm:flex-row">
             <a
               href={business.phoneHref}
               data-conversion-action="phone-click"

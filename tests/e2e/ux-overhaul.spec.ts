@@ -1130,8 +1130,13 @@ test("mobile browser Back closes only the quote dialog and restores page scrolli
   });
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(initialScrollY);
 
-  await page.evaluate(() => window.scrollBy(0, 240));
+  // The service introduction can grow; reach content beyond its actual CTA guard.
+  await page.locator("#service-catalogue").evaluate((element) => element.scrollIntoView({ block: "start" }));
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(initialScrollY);
+  await expect.poll(() => page.locator('[data-mobile-sticky-cta-guard], [data-site-footer]').evaluateAll((elements) => elements.some((element) => {
+    const rect = element.getBoundingClientRect();
+    return rect.bottom >= 0 && rect.top <= window.innerHeight;
+  }))).toBe(false);
   const stickyScrollY = await page.evaluate(() => window.scrollY);
 
   const stickyQuote = page.locator(

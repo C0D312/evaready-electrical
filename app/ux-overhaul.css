@@ -2452,3 +2452,112 @@ html body.ev-storm-page main#main-content.generated-storm-service
   overflow-wrap: anywhere !important;
   white-space: normal !important;
 }
+
+/* Fixed two-column overrides leave long quote labels and supply-path cards
+   too narrow at enlarged text. Let these groups use full rows when needed. */
+html body.ev-storm-page main#main-content.generated-storm-service
+  :is(.service-detail-scope-cta, .service-detail-warning-cta, .service-detail-action-group, .service-path-grid) {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)) !important;
+}
+
+html body.ev-storm-page main#main-content.generated-storm-service
+  .service-path-grid > a {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+html body.ev-storm-page main#main-content.generated-storm-service
+  [data-quote-trigger="true"] {
+  min-width: 0;
+  overflow-wrap: anywhere !important;
+  flex-wrap: wrap;
+}
+
+html body.ev-storm-page main#main-content.generated-storm-service
+  .lead-offer-panel div:has(> a[data-conversion-action="phone-click"]):has(> a[data-conversion-action="quote-click"]) {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)) !important;
+}
+
+/* The service catalogue must remain readable when text enlargement makes
+   its fixed mobile columns narrower than their labels and controls. */
+html body.ev-storm-page main#main-content.core-storm-services
+  :is(h1, h2, h3, h4, p, li, a, span) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+html body.ev-storm-page main#main-content.core-storm-services
+  .services-index-hero-panel > h1 {
+  overflow-wrap: anywhere !important;
+  white-space: normal !important;
+}
+
+html body.ev-storm-page main#main-content.core-storm-services
+  #service-catalogue .services-catalogue-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)) !important;
+}
+
+html body.ev-storm-page main#main-content.core-storm-services
+  #service-catalogue .services-category-shortcuts > a > span:first-child {
+  min-width: 0;
+  white-space: normal;
+}
+
+html body.ev-storm-page main#main-content.core-storm-services
+  #service-catalogue .services-catalogue-related-card__links {
+  padding: 16px;
+  container-type: inline-size;
+  container-name: catalogue-related-links;
+}
+
+@container catalogue-related-links (max-width: 12rem) {
+  html body.ev-storm-page main#main-content.core-storm-services
+    #service-catalogue .services-catalogue-related-card__link {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    padding: 12px;
+    gap: 8px;
+  }
+}
+
+html body.ev-storm-page main#main-content.core-storm-services
+  #service-catalogue .services-catalogue-card {
+  grid-template-columns: minmax(0, 1fr);
+  container-type: inline-size;
+  container-name: catalogue-card;
+}
+
+@container catalogue-card (max-width: 14rem) {
+  html body.ev-storm-page main#main-content.core-storm-services
+    #service-catalogue .services-catalogue-card__head {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  html body.ev-storm-page main#main-content.core-storm-services
+    #service-catalogue .services-catalogue-card__action {
+    flex-wrap: wrap;
+  }
+}
+
+/* Enlarged labels need a real text column, not a narrow gap beside the icon. */
+html body.ev-storm-page main#main-content:is(.generated-storm-service, .core-storm-services)
+  :is(.service-detail-hero-credentials, .services-index-hero-credentials) {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)) !important;
+  container-type: inline-size;
+  container-name: service-hero-credentials;
+}
+
+@container service-hero-credentials (max-width: 9rem) {
+  html body.ev-storm-page main#main-content:is(.generated-storm-service, .core-storm-services)
+    :is(.service-detail-hero-credentials, .services-index-hero-credentials) .service-credential-card {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+@media (max-width: 479px) {
+  html body.ev-storm-page main#main-content.generated-storm-service
+    .service-detail-hero-panel {
+    padding: 20px !important;
+  }
+}
