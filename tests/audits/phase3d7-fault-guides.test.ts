@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import test from "node:test";
 import { electricalFaultPages } from "../../data/electrical-faults";
-import { createWholeSiteCompletionRegister, phase3d7SelectedRoutes } from "../../scripts/whole-site-completion-register";
+import { createWholeSiteCompletionRegister, PHASE_3D5_3D9_LIVE_VERIFIED_SHA, phase3d7SelectedRoutes } from "../../scripts/whole-site-completion-register";
 
 const baseline = [
   ["safety-switch-trips-at-night", "26e87db30e2952f7f682813de64ca5b7663c4cc831eddfeac2a67a1cbe7f3fe5"],
@@ -45,16 +45,16 @@ test("each guide retains a distinct symptom explanation and essential limits", (
   pages.forEach((copy, index) => requirements[index].forEach(pattern => assert.match(copy, pattern)));
 });
 
-test("reviewed fault guides stay unpublished until a separately approved release", () => {
+test("reviewed fault guides record their separately approved and verified release", () => {
   const register = createWholeSiteCompletionRegister();
   assert.deepEqual(phase3d7SelectedRoutes, electricalFaultPages.slice(6).map(page => `/electrical-faults/${page.slug}`));
   for (const route of phase3d7SelectedRoutes) {
     const row = register.records.find(record => record.route === route);
     assert.equal(row?.individualSemanticContentReview, "reviewed");
     assert.equal(row?.rewrite, "rewritten");
-    assert.equal(row?.publication, "pending");
-    assert.equal(row?.publishedLiveVerifiedSha, null);
+    assert.equal(row?.publication, "live-verified");
+    assert.equal(row?.publishedLiveVerifiedSha, PHASE_3D5_3D9_LIVE_VERIFIED_SHA);
   }
   assert.deepEqual(register.counts.individualReview, { pending: 894, reviewed: 107 });
-  assert.deepEqual(register.counts.publication, { "live-verified": 918, pending: 83 });
+  assert.deepEqual(register.counts.publication, { "live-verified": 1001, pending: 0 });
 });

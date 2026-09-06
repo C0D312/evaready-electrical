@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 import { electricalFaultPages } from "../../data/electrical-faults";
 import { absoluteUrl, business } from "../../data/site";
-import { createWholeSiteCompletionRegister, phase3d5SelectedRoutes, phase3d6SelectedRoutes, phase3d8SelectedRoutes, phase3d9SelectedRoutes } from "../../scripts/whole-site-completion-register";
+import { createWholeSiteCompletionRegister, PHASE_3D5_3D9_LIVE_VERIFIED_SHA, phase3d5SelectedRoutes, phase3d6SelectedRoutes, phase3d8SelectedRoutes, phase3d9SelectedRoutes } from "../../scripts/whole-site-completion-register";
 
 const baseline = [
   ["safety-switch-keeps-tripping", "28766dc4745221bf55a895253dbb8544327642a952c342bbb62a494d8d7c1b98"],
@@ -89,12 +89,12 @@ test("symptom guides explain distinct causes and limitations rather than copying
   assert.match(text[5], /does not certify the whole property/);
 });
 
-test("both earlier unpublished batches retain pending publication and no live SHA", () => {
+test("both earlier batches record the independently verified release SHA", () => {
   const register = createWholeSiteCompletionRegister();
   for (const route of [...phase3d5SelectedRoutes, ...phase3d6SelectedRoutes]) {
     const record = register.records.find((item) => item.route === route);
-    assert.equal(record?.publication, "pending", route);
-    assert.equal(record?.publishedLiveVerifiedSha, null, route);
+    assert.equal(record?.publication, "live-verified", route);
+    assert.equal(record?.publishedLiveVerifiedSha, PHASE_3D5_3D9_LIVE_VERIFIED_SHA, route);
   }
 });
 
@@ -103,5 +103,5 @@ test("fault-guide register isolation excludes only later authorised core and loc
   const unchanged = createWholeSiteCompletionRegister().records.filter(record => !selected.has(record.route));
   assert.equal(unchanged.length, 930);
   assert.equal(createHash("sha256").update(JSON.stringify(unchanged)).digest("hex"),
-    "fdc26d6b1ce7c117896bcbb56137a3bc225de81776dfc31ef15c8e8234611403");
+    "10671b2d398a2a8d8a3cb564df3d8e9a00dce9d85284c3b34929e6640e5e2a10");
 });

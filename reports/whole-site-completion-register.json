@@ -18,8 +18,8 @@
       "reviewed": 107
     },
     "publication": {
-      "live-verified": 918,
-      "pending": 83
+      "live-verified": 1001,
+      "pending": 0
     },
     "rewrite": {
       "held": 21,
@@ -36,12 +36,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Live aggregate Google review data requires the authorised private API process; the neutral fallback remains.",
         "Existing offer artwork insurance wording requires owner evidence or separately approved corrected artwork."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/",
@@ -56,11 +55,10 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Live aggregate Google review data requires the authorised private API process; the neutral fallback remains."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/about",
@@ -74,11 +72,9 @@
       "category": "company",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/contact",
@@ -92,11 +88,9 @@
       "category": "fault-index",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/electrical-faults",
@@ -110,11 +104,9 @@
       "category": "fault-guide",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/electrical-faults/burning-smell-from-outlet",
@@ -128,11 +120,9 @@
       "category": "fault-guide",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/electrical-faults/burning-smell-from-switchboard",
@@ -146,11 +136,9 @@
       "category": "fault-guide",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/electrical-faults/circuit-breaker-keeps-tripping",
@@ -164,11 +152,9 @@
       "category": "fault-guide",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/electrical-faults/electric-shock-from-outlet",
@@ -182,11 +168,9 @@
       "category": "fault-guide",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/electrical-faults/hot-power-point",
@@ -200,11 +184,9 @@
       "category": "fault-guide",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/electrical-faults/lights-flickering",
@@ -218,11 +200,9 @@
       "category": "fault-guide",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/electrical-faults/no-power-in-one-room",
@@ -236,11 +216,9 @@
       "category": "fault-guide",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/electrical-faults/no-power-to-house",
@@ -254,11 +232,9 @@
       "category": "fault-guide",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/electrical-faults/power-outage-after-storm",
@@ -272,11 +248,9 @@
       "category": "fault-guide",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/electrical-faults/power-point-sparking",
@@ -290,11 +264,9 @@
       "category": "fault-guide",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/electrical-faults/power-surge-damage",
@@ -308,11 +280,9 @@
       "category": "fault-guide",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/electrical-faults/rcd-trips-when-raining",
@@ -326,11 +296,9 @@
       "category": "fault-guide",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/electrical-faults/safety-switch-keeps-tripping",
@@ -344,11 +312,9 @@
       "category": "fault-guide",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/electrical-faults/safety-switch-trips-at-night",
@@ -362,11 +328,9 @@
       "category": "fault-guide",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/electrical-faults/smoke-from-electrical-panel",
@@ -415,11 +379,10 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner/legal confirmation of information handling, retention, overseas providers, complaints and existing legal provisions is required; see docs/phase3d8-core-page-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/privacy-policy",
@@ -434,12 +397,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas",
@@ -454,12 +416,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/blue-mountains",
@@ -474,12 +435,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/blue-mountains/blue-mountains",
@@ -872,12 +832,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/canterbury-bankstown-and-inner-south-west",
@@ -892,12 +851,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown",
@@ -1542,12 +1500,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/central-coast-south",
@@ -1562,12 +1519,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/central-coast-south/central-coast",
@@ -2248,12 +2204,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/hills-hawkesbury-and-hornsby",
@@ -2268,12 +2223,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/hills-hawkesbury-and-hornsby/hawkesbury",
@@ -2972,12 +2926,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/hills-hawkesbury-and-hornsby/hills-district",
@@ -3406,12 +3359,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/hills-hawkesbury-and-hornsby/hornsby",
@@ -3948,12 +3900,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/inner-west-burwood-and-canada-bay",
@@ -3968,12 +3919,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/inner-west-burwood-and-canada-bay/burwood",
@@ -4060,12 +4010,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/inner-west-burwood-and-canada-bay/canada-bay",
@@ -4368,12 +4317,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/inner-west-burwood-and-canada-bay/inner-west",
@@ -4838,12 +4786,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/inner-west-burwood-and-canada-bay/strathfield",
@@ -4912,12 +4859,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/liverpool-and-fairfield",
@@ -4932,12 +4878,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/liverpool-and-fairfield/fairfield",
@@ -5420,12 +5365,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/liverpool-and-fairfield/liverpool",
@@ -6034,12 +5978,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/macarthur-camden-and-wollondilly",
@@ -6054,12 +5997,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/macarthur-camden-and-wollondilly/camden",
@@ -6470,12 +6412,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/macarthur-camden-and-wollondilly/campbelltown",
@@ -7138,12 +7079,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/macarthur-camden-and-wollondilly/wollondilly",
@@ -7662,12 +7602,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/northern-beaches",
@@ -7682,12 +7621,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/northern-beaches/northern-beaches",
@@ -8656,12 +8594,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/northern-sydney-and-ryde",
@@ -8676,12 +8613,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/northern-sydney-and-ryde/hunters-hill",
@@ -8804,12 +8740,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/northern-sydney-and-ryde/ku-ring-gai",
@@ -9112,12 +9047,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/northern-sydney-and-ryde/lane-cove",
@@ -9294,12 +9228,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/northern-sydney-and-ryde/mosman",
@@ -9332,12 +9265,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/northern-sydney-and-ryde/north-sydney",
@@ -9586,12 +9518,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/northern-sydney-and-ryde/ryde",
@@ -9840,12 +9771,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/northern-sydney-and-ryde/willoughby",
@@ -10040,12 +9970,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/parramatta-and-cumberland",
@@ -10060,12 +9989,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/parramatta-and-cumberland/cumberland",
@@ -10422,12 +10350,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/parramatta-and-cumberland/parramatta",
@@ -10892,12 +10819,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/southern-highlands",
@@ -10912,12 +10838,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/southern-highlands/wingecarribee",
@@ -11436,12 +11361,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/st-george-and-bayside",
@@ -11456,12 +11380,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/st-george-and-bayside/bayside-and-airport",
@@ -11638,12 +11561,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/st-george-and-bayside/georges-river",
@@ -12018,12 +11940,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/st-george-and-bayside/rockdale-and-bexley",
@@ -12308,12 +12229,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/sutherland-shire",
@@ -12328,12 +12248,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/sutherland-shire/sutherland-shire",
@@ -13104,12 +13023,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/sydney-city-and-eastern-suburbs",
@@ -13124,12 +13042,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/sydney-city-and-eastern-suburbs/randwick",
@@ -13396,12 +13313,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/sydney-city-and-eastern-suburbs/sydney",
@@ -13902,12 +13818,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/sydney-city-and-eastern-suburbs/waverley",
@@ -14120,12 +14035,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/sydney-city-and-eastern-suburbs/woollahra",
@@ -14266,12 +14180,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/western-sydney-and-nepean",
@@ -14286,12 +14199,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/western-sydney-and-nepean/blacktown",
@@ -15098,12 +15010,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/western-sydney-and-nepean/penrith",
@@ -15676,12 +15587,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/wollongong-and-illawarra",
@@ -15696,12 +15606,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/wollongong-and-illawarra/minnamurra-and-kiama-downs",
@@ -15788,12 +15697,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/wollongong-and-illawarra/shellharbour",
@@ -16114,12 +16022,11 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/wollongong-and-illawarra/wollongong",
@@ -17267,11 +17174,9 @@
       "category": "service-index",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services",
@@ -17285,11 +17190,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services/appliance-installation-electrician-sydney",
@@ -17321,11 +17224,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services/ceiling-fan-installation-sydney",
@@ -17659,11 +17560,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services/new-build-renovation-electrician-sydney",
@@ -17747,11 +17646,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services/pre-purchase-rental-electrical-inspections-sydney",
@@ -17863,11 +17760,9 @@
       "category": "service",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [
-        "Separate release validation and live artifact verification are required."
-      ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "outstandingHolds": [],
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services/smart-home-electrician-sydney",
@@ -18104,11 +17999,10 @@
       "claimOwnerEvidence": "held",
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate release validation and live artifact verification are required.",
         "Owner/legal confirmation of information handling, retention, overseas providers, complaints and existing legal provisions is required; see docs/phase3d8-core-page-review.md."
       ],
-      "publication": "pending",
-      "publishedLiveVerifiedSha": null,
+      "publication": "live-verified",
+      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/terms",

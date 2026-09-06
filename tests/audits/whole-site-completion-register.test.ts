@@ -7,6 +7,7 @@ import {
   PHASE_3D2_LIVE_VERIFIED_SHA,
   PHASE_3D3_LIVE_VERIFIED_SHA,
   PHASE_3D4_LIVE_VERIFIED_SHA,
+  PHASE_3D5_3D9_LIVE_VERIFIED_SHA,
   consolidationHeldRoutes,
   createWholeSiteCompletionRegister,
   phase3d1RewrittenRoutes,
@@ -16,6 +17,8 @@ import {
   phase3d5SelectedRoutes,
   phase3d6SelectedRoutes,
   phase3d7SelectedRoutes,
+  phase3d8SelectedRoutes,
+  phase3d9SelectedRoutes,
   normalizeWholeSiteRegisterText,
   specialistHeldRoutes,
   validateWholeSiteCompletionRegister,
@@ -55,8 +58,8 @@ test("individual review, rewrite and publication states remain truthful", () => 
     sufficient: 0,
   });
   assert.deepEqual(register.counts.publication, {
-    "live-verified": 918,
-    pending: 83,
+    "live-verified": 1001,
+    pending: 0,
   });
 
   for (const route of phase3d1RewrittenRoutes) {
@@ -117,9 +120,9 @@ test("individual review, rewrite and publication states remain truthful", () => 
     assert.equal(record.accessibility, "reviewed");
     assert.equal(record.safetyReview, "reviewed");
     assert.equal(record.seoMetadataSchema, "reviewed");
-    assert.equal(record.publication, "pending");
-    assert.equal(record.publishedLiveVerifiedSha, null);
-    assert.match(record.outstandingHolds.join(" "), /release validation/);
+    assert.equal(record.publication, "live-verified");
+    assert.equal(record.publishedLiveVerifiedSha, PHASE_3D5_3D9_LIVE_VERIFIED_SHA);
+    assert.deepEqual(record.outstandingHolds, []);
   }
 
   for (const route of specialistHeldRoutes) {
@@ -135,6 +138,23 @@ test("individual review, rewrite and publication states remain truthful", () => 
     assert.equal(record.rewrite, "held");
     assert.match(record.outstandingHolds.join(" "), /consolidation/i);
   }
+});
+
+test("only the 83 newly published routes use the verified Phase 3D5-3D9 SHA", () => {
+  const register = createWholeSiteCompletionRegister();
+  const released = [...phase3d5SelectedRoutes, ...phase3d6SelectedRoutes, ...phase3d7SelectedRoutes, ...phase3d8SelectedRoutes, ...phase3d9SelectedRoutes];
+  assert.equal(new Set(released).size, 83);
+  assert.deepEqual(
+    register.records.filter(row => row.publishedLiveVerifiedSha === PHASE_3D5_3D9_LIVE_VERIFIED_SHA).map(row => row.route).sort(),
+    [...released].sort(),
+  );
+  for (const row of register.records.filter(row => released.includes(row.route))) {
+    assert.equal(row.publication, "live-verified");
+    assert.doesNotMatch(row.outstandingHolds.join(" "), /Separate release validation/);
+  }
+  assert.equal(register.records.filter(row => row.category === "suburb" && row.individualSemanticContentReview === "pending").length, 873);
+  assert.ok(register.records.find(row => row.route === "/terms")?.outstandingHolds.some(hold => /Owner\/legal/.test(hold)));
+  assert.ok(register.records.find(row => row.route === "/")?.outstandingHolds.some(hold => /Google/.test(hold)));
 });
 
 test("generated JSON is deterministic and current", () => {

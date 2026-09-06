@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 import { coverageRegions } from "../../data/service-area-coverage";
 import { absoluteUrl, business } from "../../data/site";
-import { createWholeSiteCompletionRegister, phase3d5SelectedRoutes, phase3d6SelectedRoutes, phase3d7SelectedRoutes, phase3d8SelectedRoutes, phase3d9SelectedRoutes } from "../../scripts/whole-site-completion-register";
+import { createWholeSiteCompletionRegister, PHASE_3D5_3D9_LIVE_VERIFIED_SHA, phase3d5SelectedRoutes, phase3d6SelectedRoutes, phase3d7SelectedRoutes, phase3d8SelectedRoutes, phase3d9SelectedRoutes } from "../../scripts/whole-site-completion-register";
 
 const selected = new Set(phase3d9SelectedRoutes);
 const hash = (value: unknown) => createHash("sha256").update(JSON.stringify(value)).digest("hex");
@@ -21,11 +21,11 @@ test("the scope is exactly one index, sixteen regions and thirty-nine areas", ()
   assert.equal(records.filter(row => row.category === "suburb" && selected.has(row.route)).length, 0);
 });
 
-test("all 945 out-of-scope records and all 873 suburb states retain their exact baseline", () => {
+test("all 945 other records retain their release-reconciled baseline and 873 suburbs remain unchanged", () => {
   const records = createWholeSiteCompletionRegister().records;
   const others = records.filter(row => !selected.has(row.route));
   assert.equal(others.length, 945);
-  assert.equal(hash(others), "80ff569a859ee8fd10d7b4fe8c1112ab3d39923083bc059087182e3e8106e80a");
+  assert.equal(hash(others), "90877fc29a6c2d89501a3b313814be2a2fcfef0228c29ed14f004200da68d6e1");
   const suburbs = records.filter(row => row.category === "suburb");
   assert.equal(suburbs.length, 873);
   assert.equal(hash(suburbs), "27eea24ac3f908989a572338464109442312a101830f0d3e46c592e0cdc1d332");
@@ -33,8 +33,8 @@ test("all 945 out-of-scope records and all 873 suburb states retain their exact 
   assert.equal(earlier.length, 27);
   for (const route of [...earlier, ...selected]) {
     const row = records.find(row => row.route === route)!;
-    assert.equal(row.publication, "pending", route);
-    assert.equal(row.publishedLiveVerifiedSha, null, route);
+    assert.equal(row.publication, "live-verified", route);
+    assert.equal(row.publishedLiveVerifiedSha, PHASE_3D5_3D9_LIVE_VERIFIED_SHA, route);
   }
   for (const route of selected) {
     const row = records.find(row => row.route === route)!;

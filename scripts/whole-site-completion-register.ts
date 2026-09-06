@@ -21,6 +21,9 @@ export const PHASE_3D3_LIVE_VERIFIED_SHA =
 export const PHASE_3D4_LIVE_VERIFIED_SHA =
   "7972f8dec2620d97c311b1ecd9ce40545b59dc9f";
 
+export const PHASE_3D5_3D9_LIVE_VERIFIED_SHA =
+  "e6197fcd00747ae86cabfff675516176c9e66ec6";
+
 export const phase3d1RewrittenRoutes = [
   "/services/electrical-fault-finding-sydney",
   "/services/hot-power-point-electrician-sydney",
@@ -286,12 +289,11 @@ function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
       claimOwnerEvidence: "held",
       individualSemanticContentReview: "reviewed",
       outstandingHolds: [
-        "Separate release validation and live artifact verification are required.",
         "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
         "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md.",
       ],
-      publication: "pending",
-      publishedLiveVerifiedSha: null,
+      publication: "live-verified",
+      publishedLiveVerifiedSha: PHASE_3D5_3D9_LIVE_VERIFIED_SHA,
       responsive: "reviewed",
       rewrite: "rewritten",
       route: item.route,
@@ -310,13 +312,12 @@ function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
       claimOwnerEvidence: legal || reviewWidget ? "held" : "reviewed",
       individualSemanticContentReview: "reviewed",
       outstandingHolds: [
-        "Separate release validation and live artifact verification are required.",
         ...(legal ? ["Owner/legal confirmation of information handling, retention, overseas providers, complaints and existing legal provisions is required; see docs/phase3d8-core-page-review.md."] : []),
         ...(reviewWidget ? ["Live aggregate Google review data requires the authorised private API process; the neutral fallback remains."] : []),
         ...(item.route === "/" ? ["Existing offer artwork insurance wording requires owner evidence or separately approved corrected artwork."] : []),
       ],
-      publication: "pending",
-      publishedLiveVerifiedSha: null,
+      publication: "live-verified",
+      publishedLiveVerifiedSha: PHASE_3D5_3D9_LIVE_VERIFIED_SHA,
       responsive: "reviewed",
       rewrite: "rewritten",
       route: item.route,
@@ -338,7 +339,7 @@ function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
   const consolidationHeld = consolidationHeldSet.has(item.route);
 
   const outstandingHolds = phase3d5Rewritten || phase3d6Rewritten || phase3d7Rewritten
-    ? ["Separate release validation and live artifact verification are required."]
+    ? []
     : phase3d4Rewritten
     ? []
     : rewritten
@@ -369,9 +370,9 @@ function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
         : "automated-only",
     individualSemanticContentReview: individuallyReviewed ? "reviewed" : "pending",
     outstandingHolds,
-    publication: phase3d5Rewritten || phase3d6Rewritten || phase3d7Rewritten ? "pending" : "live-verified",
+    publication: "live-verified",
     publishedLiveVerifiedSha: phase3d5Rewritten || phase3d6Rewritten || phase3d7Rewritten
-      ? null
+      ? PHASE_3D5_3D9_LIVE_VERIFIED_SHA
       : phase3d4Rewritten
       ? PHASE_3D4_LIVE_VERIFIED_SHA
       : phase3d3Rewritten
