@@ -192,19 +192,19 @@ export function getSuburbCredentialItems(
       };
 
   return [
-    { icon: MapPin, title: `Servicing ${suburb}`, text: "Local electrical help" },
-    { icon: ShieldCheck, title: `NSW Licence ${business.licence}`, text: "Licensed electrician" },
+    { icon: MapPin, title: `Servicing ${suburb}`, text: "Confirm availability for your job" },
+    { icon: ShieldCheck, title: `NSW Licence ${business.licence}`, text: "Our licensed electricians" },
     { icon: Clock3, title: response.badgeTitle, text: response.badgeText, tone: "red" },
     {
       icon: Zap,
       title: business.level2Asp.shortDisplay,
-      text: business.level2Asp.networks.join(" & "),
+      text: "Eligible work; network scope confirmed",
     },
-    { icon: Camera, title: "Get a Quote Online", text: "Send notes & photos" },
+    { icon: Camera, title: "Get a Quote Online", text: "Notes first; safe photos optional" },
     {
       icon: ShieldCheck,
-      title: approvedBusinessClaims.credentials.arctick.approvedWording,
-      text: "Where relevant and within licence scope",
+      title: "Job-specific scope",
+      text: "Authorisation confirmed before work",
     },
   ];
 }

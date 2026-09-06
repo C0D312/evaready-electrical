@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import test from "node:test";
+import { phase3e1ReviewedRoutes } from "../../scripts/phase3e1-suburb-review";
 import {
   WHOLE_SITE_BASELINE_LIVE_SHA,
   PHASE_3D2_LIVE_VERIFIED_SHA,
@@ -50,16 +51,16 @@ test("individual review, rewrite and publication states remain truthful", () => 
   const register = createWholeSiteCompletionRegister();
   const byRoute = new Map(register.records.map((record) => [record.route, record]));
 
-  assert.deepEqual(register.counts.individualReview, { pending: 894, reviewed: 107 });
+  assert.deepEqual(register.counts.individualReview, { pending: 894 - phase3e1ReviewedRoutes.size, reviewed: 107 + phase3e1ReviewedRoutes.size });
   assert.deepEqual(register.counts.rewrite, {
     held: 21,
-    pending: 873,
-    rewritten: 107,
+    pending: 873 - phase3e1ReviewedRoutes.size,
+    rewritten: 107 + phase3e1ReviewedRoutes.size,
     sufficient: 0,
   });
   assert.deepEqual(register.counts.publication, {
-    "live-verified": 1001,
-    pending: 0,
+    "live-verified": 128,
+    pending: 873,
   });
 
   for (const route of phase3d1RewrittenRoutes) {
@@ -152,7 +153,7 @@ test("only the 83 newly published routes use the verified Phase 3D5-3D9 SHA", ()
     assert.equal(row.publication, "live-verified");
     assert.doesNotMatch(row.outstandingHolds.join(" "), /Separate release validation/);
   }
-  assert.equal(register.records.filter(row => row.category === "suburb" && row.individualSemanticContentReview === "pending").length, 873);
+  assert.equal(register.records.filter(row => row.category === "suburb" && row.individualSemanticContentReview === "pending").length, 873 - phase3e1ReviewedRoutes.size);
   assert.ok(register.records.find(row => row.route === "/terms")?.outstandingHolds.some(hold => /Owner\/legal/.test(hold)));
   assert.ok(register.records.find(row => row.route === "/")?.outstandingHolds.some(hold => /Google/.test(hold)));
 });

@@ -23,7 +23,7 @@ import {
   getSuburbBySlug,
   getSuburbPaths,
 } from "@/data/service-area-coverage";
-import { rankSuburbsForInternalLinks } from "@/data/internal-links";
+import { getRelatedSuburbs } from "@/data/internal-links";
 import { getApprovedLocationEvidence } from "@/data/location-evidence";
 import { business, getEmergencyResponseForRegion } from "@/data/site";
 import {
@@ -79,17 +79,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
     notFound();
   }
 
-  const nearbySuburbs = rankSuburbsForInternalLinks(
-    region.areas.flatMap((areaItem) =>
-      areaItem.suburbs
-        .filter((nearbySuburb) => nearbySuburb.slug !== suburb.slug)
-        .map((nearbySuburb) => ({
-          ...nearbySuburb,
-          areaName: areaItem.name,
-          areaSlug: areaItem.slug,
-        })),
-    ),
-  ).slice(0, 8);
+  const nearbySuburbs = getRelatedSuburbs(region, area.slug, suburb.slug);
   const emergencyResponse = getEmergencyResponseForRegion(region.name);
   const locality = `${suburb.name} ${suburb.postcode}`;
   const pagePath = `/service-areas/${region.slug}/${area.slug}/${suburb.slug}`;
@@ -98,28 +88,32 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
     area.slug,
     suburb.slug,
   );
-  const visibleServiceDescription = `Evaready Electrical lists ${locality} within ${area.name}, ${region.name}, for urgent electrical faults, eligible Level 2 work and planned electrical services.`;
+  const visibleServiceDescription = `Our licensed electricians handle urgent faults and planned electrical work in ${locality}. Service availability depends on the job, property and required authorisation. We confirm attendance and scope when reviewing your request.`;
   const faqItems = [
     {
       question: `Does Evaready Electrical service ${locality}?`,
-      answer: `Yes. ${locality} is listed in the ${area.name} area of ${region.name}. Evaready Electrical handles urgent electrical faults, eligible Level 2 enquiries and planned electrical work across the listed service area. Job availability still depends on the work, access, safety conditions and current workload.`,
+      answer: `${locality} is listed under ${area.name} in our ${region.name} service directory. Contact our licensed electricians with your suburb and a short description so we can confirm the work, access requirements and availability. A listed suburb does not mean every specialist service is suitable for every property.`,
     },
     {
       question: `What is the emergency response guidance for ${suburb.name}?`,
-      answer: `${emergencyResponse.shortDisplay} applies to urgent electrical call-outs in ${suburb.name}. ${business.emergencyResponse.disclaimer} ${business.emergencyResponse.emergencyOnlyNote} Call first for power loss, burning smells, sparking, shock risk, repeated tripping or storm and water-affected electrical equipment.`,
+      answer: `For fire, smoke or immediate danger, move to safety and call Triple Zero (000) first. Keep clear of fallen powerlines and report them to the electricity distributor. For other urgent faults, call us from a safe location. ${emergencyResponse.shortDisplay} applies to urgent electrical call-outs in ${suburb.name}. ${business.emergencyResponse.disclaimer} ${business.emergencyResponse.emergencyOnlyNote}`,
     },
     {
       question: `Can Evaready help with Level 2 electrical work in ${suburb.name}?`,
-      answer: `Evaready Electrical is an ${business.level2Asp.display}. Eligible work can include consumer mains, metering, service equipment, defect notice repairs, points of attachment, private power poles and overhead or underground service lines. The exact scope depends on the network, site and job requirements.`,
+      answer: `Our accredited Level 2 electricians assess eligible consumer mains, service equipment, defect notices, points of attachment and overhead or underground service work. We first confirm the electricity network, equipment ownership and authorisation required. Metering or reconnection may also need coordination with the retailer, distributor or metering provider; an enquiry is not approval to carry out network work.`,
     },
     {
       question: `What should I send for planned work in ${suburb.name}?`,
-      answer: `Use the quote form to send the job address in ${locality}, your contact details, a clear description, photos of the affected fitting or switchboard, access notes and any defect notice or network paperwork. If the issue feels unsafe, call before using the form.`,
+      answer: `Start with your suburb, contact details, the problem or planned change, and when it started. Photos are optional: take them only from a safe position without opening equipment or approaching a hazard. Do not include access codes, account numbers or unrelated private documents. We can request relevant defect details securely if needed. Never delay emergency help to gather information, and remember that sending a request does not confirm an appointment.`,
+    },
+    {
+      question: "What happens when an electrician attends?",
+      answer: "Our licensed electricians discuss the symptoms and access, inspect the relevant installation, and use appropriate electrical testing to identify the cause. We explain the findings and proposed work before proceeding. Repairs may involve a fitting, circuit, protective device or damaged wiring; a network issue or specialist task may need a separate authorised process. Testing and the job scope determine the next step, not a diagnosis from a photograph alone.",
     },
   ];
   const serviceNames = [
     `Emergency electrician ${suburb.name}`,
-    `${business.level2Asp.display} ${suburb.name}`,
+    `Eligible Level 2 electrical work ${suburb.name}`,
     `Planned electrical work ${suburb.name}`,
   ];
   const serviceSchema = buildServiceSchema({
@@ -130,8 +124,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
     path: pagePath,
     serviceType: [
       `Emergency electrician ${suburb.name}`,
-      `${emergencyResponse.shortDisplay} ${suburb.name}`,
-      `${business.level2Asp.display} ${suburb.name}`,
+      `Eligible Level 2 electrical work ${suburb.name}`,
       `General electrical work ${suburb.name}`,
     ],
   });
@@ -198,6 +191,13 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-100 sm:text-xl">
           {visibleServiceDescription}
         </p>
+        <p data-location-safety="true" className="mt-4 max-w-3xl text-base font-semibold leading-7 text-slate-100">
+          For fire, smoke or immediate danger, move to safety and call Triple
+          Zero (000) first. Keep clear of fallen powerlines and damaged or wet
+          electrical equipment. After an electric shock, seek medical advice;
+          call 000 for collapse, breathing difficulty or an abnormal heartbeat.
+          Do not touch anyone still in contact with electricity.
+        </p>
         <p className="mt-4 max-w-3xl text-base font-semibold leading-7 text-blue-100">
           {emergencyResponse.regionDisplay}{" "}
           {business.emergencyResponse.compactQualification}
@@ -212,6 +212,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
       <LocationServicePathways
         locality={locality}
         responseDisplay={emergencyResponse.suburbDisplay}
+        reviewedDirectory
       />
 
       {locationEvidence ? (
@@ -227,8 +228,9 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
             Find the service that matches the job.
           </h2>
           <p className="mt-4 max-w-3xl text-base leading-7 text-slate-200 sm:text-lg">
-            Check the detailed service pages below, then call for an unsafe
-            fault or send planned work through the quote form.
+            These guides explain fault checks, repairs and specialist work.
+            For fire, smoke or immediate danger, call Triple Zero (000) first.
+            For other faults, call us from safety; use the quote form for planned work.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {locationServiceDirectory.map((service) => (
@@ -274,15 +276,16 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.72fr_1.28fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.28em] text-cyan-300">
-              Nearby service pages
+              More service-area pages
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl">
-              Suburbs near {suburb.name}.
+              Other suburbs in {region.name}.
             </h2>
             <p className="mt-4 leading-7 text-slate-200">
-              Browse the verified coverage hierarchy for {area.name} and
-              {` ${region.name}`}. Each link uses the suburb and postcode stored
-              in this service area.
+              Find other suburb pages in {area.name} and {region.name}. This
+              directory groups enquiries by area; it does not indicate travel
+              distance, council boundaries or a local office. Confirm service
+              availability for your address when you contact us.
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
               <Link
@@ -333,7 +336,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
         </div>
       </section>
 
-      <LocationFinalCta locality={locality} />
+      <LocationFinalCta locality={locality} reviewedDirectory />
     </main>
   );
 }

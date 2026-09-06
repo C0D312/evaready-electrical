@@ -6,16 +6,31 @@ route-by-route register for all 1,001 public sitemap routes.
 Phase 3D9 added all 56 non-suburb location pages: the Service Areas index,
 16 regions and 39 areas. Those pages and the prior 27 Phase 3D5-3D8 routes are
 now live-verified at `e6197fcd00747ae86cabfff675516176c9e66ec6` after the separately
-approved release. The register contains 107 individually reviewed routes and
-894 pending individual reviews. All 1,001 rows have publication evidence;
+approved release. At that release checkpoint the register contained 107 individually reviewed routes and
+894 pending individual reviews. All 1,001 rows then had publication evidence;
 918 retain their earlier per-route SHA and the 83 newly published rows use the
-verified release SHA. All 873 suburb review states remain unchanged and are
-protected by exact baseline hash tests. Coverage, specialist authorisation,
+verified release SHA. Phase 3E1 now reviews the 873 suburbs in controlled region
+checkpoints. Its shared template changes put all 873 feature outputs back into
+pending publication with null live SHAs; this does not change the deployed main.
+Individual review states advance only after each checkpoint passes. The current
+JSON register is authoritative for those counts. All 128 non-suburb records
+remain protected by exact baseline hashes, and the older full-row hash gates
+assert the authorised new suburb states before comparing original baseline fields.
+Coverage, specialist authorisation,
 response capacity, privacy/legal, review-data and offer-artwork holds remain
 explicit. Reviewed does not mean owner evidence or legal certification exists.
 See `docs/phase3d9-nonsuburb-location-review.md` for every selected route.
 See `docs/phase3d5-3d9-verified-release.md` for artifact, live HTTP, browser and
 backup verification. Publication does not mean the remaining review work is done.
+
+Phase 3E1 completed all nine geographic checkpoints: 873 suburb records and
+their shared wording reviewed, 19,206 width/text combinations passed, and
+2,156 browser tests passed with six documented duplicate-content skips. The
+register now has 980 reviewed/rewritten routes and 21 pending specialist or
+consolidation reviews with held rewrites. Publication remains 128 live-verified
+and 873 pending; no new release is implied. The production indexation registry
+still contains zero decisions, and every suburb's owner-evidence hold remains.
+See `docs/phase3e1-suburb-review.md` for the exact scope and limitations.
 
 The register is generated from `app/sitemap.ts` and reconciled with
 `scripts/route-inventory.ts`. The generator fails for missing, duplicate or

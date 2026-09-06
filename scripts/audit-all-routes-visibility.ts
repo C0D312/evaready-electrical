@@ -351,8 +351,8 @@ function localSuburbMarkupWarning(item: RouteInventoryItem, html: string) {
     warnings.push(`expected 8 linked service cards, found ${serviceCardCount}`);
   }
 
-  if (faqCount !== 4) {
-    warnings.push(`expected 4 visible FAQs, found ${faqCount}`);
+  if (faqCount !== 5) {
+    warnings.push(`expected 5 visible FAQs, found ${faqCount}`);
   }
 
   if (nearbyLinkCount !== 8) {

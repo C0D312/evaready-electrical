@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import test from "node:test";
+import { assertAndProjectSuburbReviewState } from "./phase3e1-register-baseline";
 import { electricalFaultPages } from "../../data/electrical-faults";
 import { absoluteUrl, business } from "../../data/site";
 import { createWholeSiteCompletionRegister, PHASE_3D5_3D9_LIVE_VERIFIED_SHA, phase3d5SelectedRoutes, phase3d6SelectedRoutes, phase3d8SelectedRoutes, phase3d9SelectedRoutes } from "../../scripts/whole-site-completion-register";
@@ -100,7 +101,7 @@ test("both earlier batches record the independently verified release SHA", () =>
 
 test("fault-guide register isolation excludes only later authorised core and location batches", () => {
   const selected = new Set([...baseline.slice(6).map(([slug]) => `/electrical-faults/${slug}`), ...phase3d8SelectedRoutes, ...phase3d9SelectedRoutes]);
-  const unchanged = createWholeSiteCompletionRegister().records.filter(record => !selected.has(record.route));
+  const unchanged = createWholeSiteCompletionRegister().records.filter(record => !selected.has(record.route)).map(assertAndProjectSuburbReviewState);
   assert.equal(unchanged.length, 930);
   assert.equal(createHash("sha256").update(JSON.stringify(unchanged)).digest("hex"),
     "10671b2d398a2a8d8a3cb564df3d8e9a00dce9d85284c3b34929e6640e5e2a10");

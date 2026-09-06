@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import test from "node:test";
+import { assertAndProjectSuburbReviewState } from "./phase3e1-register-baseline";
 import { coverageRegions } from "../../data/service-area-coverage";
 import { absoluteUrl, business } from "../../data/site";
 import { createWholeSiteCompletionRegister, PHASE_3D5_3D9_LIVE_VERIFIED_SHA, phase3d5SelectedRoutes, phase3d6SelectedRoutes, phase3d7SelectedRoutes, phase3d8SelectedRoutes, phase3d9SelectedRoutes } from "../../scripts/whole-site-completion-register";
@@ -21,12 +22,12 @@ test("the scope is exactly one index, sixteen regions and thirty-nine areas", ()
   assert.equal(records.filter(row => row.category === "suburb" && selected.has(row.route)).length, 0);
 });
 
-test("all 945 other records retain their release-reconciled baseline and 873 suburbs remain unchanged", () => {
+test("all 945 other records retain their baseline outside explicitly asserted suburb review states", () => {
   const records = createWholeSiteCompletionRegister().records;
-  const others = records.filter(row => !selected.has(row.route));
+  const others = records.filter(row => !selected.has(row.route)).map(assertAndProjectSuburbReviewState);
   assert.equal(others.length, 945);
   assert.equal(hash(others), "90877fc29a6c2d89501a3b313814be2a2fcfef0228c29ed14f004200da68d6e1");
-  const suburbs = records.filter(row => row.category === "suburb");
+  const suburbs = records.filter(row => row.category === "suburb").map(assertAndProjectSuburbReviewState);
   assert.equal(suburbs.length, 873);
   assert.equal(hash(suburbs), "27eea24ac3f908989a572338464109442312a101830f0d3e46c592e0cdc1d332");
   const earlier = [...phase3d5SelectedRoutes, ...phase3d6SelectedRoutes, ...phase3d7SelectedRoutes, ...phase3d8SelectedRoutes];
@@ -87,11 +88,10 @@ for (const route of selected) {
   });
 }
 
-test("reviewed directory variants do not become defaults for suburb or header consumers", () => {
+test("reviewed directory variants remain opt-in and original non-suburb CSS stays isolated", () => {
   const components = readFileSync("components/location-page-sections.tsx", "utf8");
   assert.equal((components.match(/reviewedDirectory = false/g) || []).length, 2);
-  const suburb = readFileSync("app/service-areas/[region]/[area]/[suburb]/page.tsx", "utf8");
-  assert.doesNotMatch(suburb, /reviewedDirectory|qualifyResponse/);
+  // Phase 3E1 explicitly opts suburbs in; shared defaults remain unchanged.
   const css = readFileSync("app/ux-overhaul.css", "utf8").split("/* Directory cards retain")[1].split("html body.ev-storm-page main#main-content.core-storm-fault-detail .grid")[0];
   assert.doesNotMatch(css, /generated-storm-suburb|site-header|footer/);
   assert.match(css, /minmax\(min\(100%, 14rem\), 1fr\)/);

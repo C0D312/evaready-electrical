@@ -1,3 +1,15 @@
+import type { CoverageRegion } from "./service-area-coverage";
+
+export function getRelatedSuburbs(region: CoverageRegion, areaSlug: string, suburbSlug: string) {
+  return region.areas.flatMap(area => area.suburbs
+    .filter(suburb => area.slug !== areaSlug || suburb.slug !== suburbSlug)
+    .map(suburb => ({ ...suburb, areaName: area.name, areaSlug: area.slug })),
+  ).sort((left, right) =>
+    Number(right.areaSlug === areaSlug) - Number(left.areaSlug === areaSlug)
+    || left.name.localeCompare(right.name, "en-AU"),
+  ).slice(0, 8);
+}
+
 export type InternalLink = {
   description?: string;
   href: string;

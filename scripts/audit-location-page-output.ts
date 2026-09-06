@@ -13,7 +13,7 @@ import {
   type CoverageRegion,
   type CoverageSuburb,
 } from "../data/service-area-coverage";
-import { rankSuburbsForInternalLinks } from "../data/internal-links";
+import { getRelatedSuburbs } from "../data/internal-links";
 import { getEmergencyResponseForRegion } from "../data/site";
 
 type PageFamily = "area" | "region" | "suburb";
@@ -281,16 +281,7 @@ function uniqueFactualBlockCount(
 ) {
   if (!page.area || !page.suburb) return 0;
 
-  const nearby = rankSuburbsForInternalLinks(
-    page.region.areas.flatMap((areaItem) =>
-      areaItem.suburbs
-        .filter((nearbySuburb) => nearbySuburb.slug !== page.suburb?.slug)
-        .map((nearbySuburb) => ({
-          ...nearbySuburb,
-          areaName: areaItem.name,
-        })),
-    ),
-  ).slice(0, 8);
+  const nearby = getRelatedSuburbs(page.region, page.area.slug, page.suburb.slug);
   const verifiedFacts = [
     page.suburb.name,
     page.suburb.postcode,
@@ -435,13 +426,7 @@ for (const page of pages.filter((item) => item.family === "suburb")) {
     }
   }
 
-  const nearby = rankSuburbsForInternalLinks(
-    region.areas.flatMap((areaItem) =>
-      areaItem.suburbs
-        .filter((nearbySuburb) => nearbySuburb.slug !== suburb.slug)
-        .map((nearbySuburb) => ({ ...nearbySuburb, areaSlug: areaItem.slug })),
-    ),
-  ).slice(0, 8);
+  const nearby = getRelatedSuburbs(region, area.slug, suburb.slug);
   const html = readFileSync(page.filePath, "utf8");
   for (const nearbySuburb of nearby) {
     const route = `/service-areas/${region.slug}/${nearbySuburb.areaSlug}/${nearbySuburb.slug}`;
@@ -549,7 +534,7 @@ const reportLines = [
   `- Pages with owner-specific local evidence fields: **${pagesWithOwnerEvidence.length}**.`,
   `- Pages without owner-specific local evidence fields: **${suburbPages.length - pagesWithOwnerEvidence.length}**.`,
   "",
-  "The pages provide verified coverage hierarchy, postcode, response classification and nearby-page navigation. They do not claim local jobs, offices, reviews or travel times. The locality-normalised repeated-block word rate remains a transparent template-risk signal; useful shared safety and service information is not presented as unique local proof.",
+  "The pages provide a repository-reconciled directory hierarchy, listed postcode, qualified response classification and related-page navigation. These checks do not independently certify postcodes, serviceability or council boundaries. Directory links do not establish local jobs, offices, reviews or travel times. The locality-normalised repeated-block word rate remains a transparent template-risk signal; useful shared safety and service information is not presented as unique local proof.",
   "",
   "## Recovered user value",
   "",
