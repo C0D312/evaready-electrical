@@ -108,6 +108,10 @@ export const specialistHeldRoutes = [
   "/services/phone-line-electrician-sydney",
 ] as const;
 
+export const phase3d8SelectedRoutes = [
+  "/", "/about", "/contact", "/privacy-policy", "/terms", "/electrical-faults",
+] as const;
+
 export const consolidationHeldRoutes = [
   "/services/electrical-testing-tagging-reports-sydney",
   "/services/testing-and-tagging-sydney",
@@ -266,6 +270,31 @@ function sourceRecordFor(item: RouteInventoryItem) {
 }
 
 function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
+  if ((phase3d8SelectedRoutes as readonly string[]).includes(item.route)) {
+    const legal = item.route === "/privacy-policy" || item.route === "/terms";
+    const reviewWidget = item.route === "/" || item.route === "/about";
+    return {
+      accessibility: "reviewed",
+      category: categoryFor(item),
+      claimOwnerEvidence: legal || reviewWidget ? "held" : "reviewed",
+      individualSemanticContentReview: "reviewed",
+      outstandingHolds: [
+        "Separate release validation and live artifact verification are required.",
+        ...(legal ? ["Owner/legal confirmation of information handling, retention, overseas providers, complaints and existing legal provisions is required; see docs/phase3d8-core-page-review.md."] : []),
+        ...(reviewWidget ? ["Live aggregate Google review data requires the authorised private API process; the neutral fallback remains."] : []),
+        ...(item.route === "/" ? ["Existing offer artwork insurance wording requires owner evidence or separately approved corrected artwork."] : []),
+      ],
+      publication: "pending",
+      publishedLiveVerifiedSha: null,
+      responsive: "reviewed",
+      rewrite: "rewritten",
+      route: item.route,
+      safetyReview: "reviewed",
+      seoMetadataSchema: "reviewed",
+      sourceRecord: sourceRecordFor(item),
+      template: item.pageType,
+    };
+  }
   const rewritten = phase3d1Set.has(item.route);
   const phase3d2Rewritten = phase3d2Set.has(item.route);
   const phase3d3Rewritten = phase3d3Set.has(item.route);

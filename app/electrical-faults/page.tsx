@@ -36,16 +36,34 @@ const trustItems = [
   {
     icon: FileText,
     title: "Clear details",
-    text: "Photos and notes help planned work move faster.",
+    text: "Safe observations and relevant notes help us understand planned work.",
   },
 ];
 
 const fastPath = [
-  "Burning smell, smoke, sparking or heat needs a phone call first.",
-  "For planned faults, open the secure booking form to send your address, photos and job notes.",
-  "Switchboard photos help identify safety switches, breakers, fuses and affected circuits.",
+  "For fire, smoke or immediate danger, move to safety and call Triple Zero (000).",
+  "For other urgent faults, call us rather than waiting for a form reply.",
+  "For planned work, describe what you already noticed. Photos are optional and must be taken from a safe position without opening equipment.",
   "Do not keep resetting a breaker or RCD if it trips again.",
 ];
+
+const guideSummaries: Record<string, string> = {
+  "safety-switch-keeps-tripping": "Repeated RCD trips can indicate leakage from wiring or equipment. Keep the affected circuit off and read about inspection and testing.",
+  "burning-smell-from-switchboard": "An unusual smell at a switchboard can indicate overheating. Keep clear; for smoke or fire call 000. Learn why an inspection is needed.",
+  "no-power-in-one-room": "A partial outage can affect outlets, lighting or a circuit. Learn what observations help without opening equipment or resetting devices repeatedly.",
+  "no-power-to-house": "A whole-property outage may involve the network or the installation. Read how to distinguish reporting pathways without approaching damaged equipment.",
+  "power-point-sparking": "Sparking, crackling or visible damage at an outlet needs attention. Stop using it and learn the warning signs that require urgent help.",
+  "burning-smell-from-outlet": "A burning smell around an outlet may come from a failing connection or appliance. Keep away and review the safe next steps.",
+  "safety-switch-trips-at-night": "Overnight trips can relate to timed equipment or intermittent leakage. Existing timing observations help; do not recreate the fault.",
+  "circuit-breaker-keeps-tripping": "A breaker may trip because of overload or a fault. Learn why repeated resets or changing its rating are not a repair.",
+  "power-surge-damage": "Equipment failure does not by itself prove a surge. Read about electrical checks, appliance limits and surge-protection limitations.",
+  "hot-power-point": "Do not touch an outlet again to check its temperature. Discolouration, smell or heat may indicate a hazardous connection.",
+  "lights-flickering": "Flicker may involve a lamp, dimmer, circuit or supply problem. Multiple affected lights or other warning signs change the urgency.",
+  "rcd-trips-when-raining": "Rain-related trips can indicate moisture entering equipment or wiring. A dry interval does not prove the installation is safe.",
+  "power-outage-after-storm": "Storms can damage network lines and private equipment. Keep clear of fallen lines and learn when to contact the distributor or emergency services.",
+  "electric-shock-from-outlet": "A shock needs medical attention as well as electrical investigation. Do not touch the outlet or approach the switchboard to investigate.",
+  "smoke-from-electrical-panel": "Move to safety and call 000 for smoke from an electrical panel. Do not open it or wait for heavy smoke before getting help.",
+};
 
 export default function ElectricalFaultsPage() {
   const electricianSchema = buildElectricianSchema({
@@ -107,11 +125,16 @@ export default function ElectricalFaultsPage() {
             </h1>
 
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
-              Power loss, tripping safety switches and burning smells and overheating power points
-              and storm damage need clear next actions. Call for urgent hazards
-              or send photos and job notes for planned fault finding.
+              Find guidance for the symptom you have noticed, from power loss
+              and tripping devices to damaged outlets. These guides explain
+              warning signs and what our licensed electricians may inspect;
+              they cannot diagnose your installation remotely.
             </p>
-
+            <p className="mt-4 text-base leading-7 text-slate-100">
+              For fire, smoke or immediate danger, move to safety and call
+              Triple Zero (000). Keep clear of fallen powerlines and contact
+              the electricity distributor. For other urgent faults, call us.
+            </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href={business.phoneHref}
@@ -194,8 +217,9 @@ export default function ElectricalFaultsPage() {
               Find the electrical problem and the safest next action.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-300">
-              These guides help customers recognise when to call immediately
-              and what information to send for a faster quote or diagnosis.
+              Choose the closest symptom below. Do not touch equipment, open
+              covers or reproduce a fault to match a guide. Professional testing
+              is needed to establish the cause and safe repair.
             </p>
           </div>
 
@@ -210,8 +234,8 @@ export default function ElectricalFaultsPage() {
                 <h3 className="mt-5 text-xl font-black leading-tight text-white">
                   {fault.title}
                 </h3>
-                <p className="mt-3 line-clamp-3 text-sm font-semibold leading-6 text-slate-300">
-                  {fault.intro}
+                <p className="mt-3 text-sm font-semibold leading-6 text-slate-300">
+                  {guideSummaries[fault.slug]}
                 </p>
                 <span className="mt-5 inline-flex items-center gap-2 font-black text-red-600">
                   Read guide
@@ -242,8 +266,8 @@ export default function ElectricalFaultsPage() {
           <div className="ev-storm-card ev-storm-card--emergency rounded-lg p-6">
             <div className="grid gap-4">
               {[
-                "Call if there is smoke, sparking, heat, shock risk or burning smell.",
-                "Send the switchboard photo, fault area photo and suburb for planned work.",
+                "For fire, smoke or immediate danger, move to safety and call Triple Zero (000).",
+                "For planned work, send your suburb and relevant notes. Never approach a hazard for a photo or include private access codes.",
                 "Mention whether the fault is constant, intermittent, storm-related or appliance-related.",
                 "Keep clear of wet fixtures, damaged outlets and exposed wiring.",
               ].map((item) => (

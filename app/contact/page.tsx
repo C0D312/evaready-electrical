@@ -48,10 +48,10 @@ const contactOptions = [
 ];
 
 const quoteDetails = [
-  "photos of the switchboard, meter box or affected fitting",
+  "optional photos taken from a safe position, without opening equipment",
   "suburb, postcode and job address",
-  "access notes, parking details or gate information",
-  "defect notices, retailer paperwork or job documents",
+  "parking or appointment constraints, without gate codes or keys",
+  "relevant defect details, with unrelated personal information removed",
   "whether the job is urgent or planned",
 ];
 
@@ -105,14 +105,14 @@ export default function ContactPage() {
                 Contact Evaready Electrical
               </h1>
               <p className="mt-6 max-w-3xl text-base font-semibold leading-7 text-slate-200 sm:text-xl sm:leading-8">
-                For urgent faults, call first. Use the quote form for planned
-                work, photos, access notes and paperwork.
+                For fire, smoke or immediate danger, move to safety and call
+                Triple Zero (000). For other urgent electrical faults, call us
+                rather than wait for an email or form reply.
               </p>
               <p className="mt-5 max-w-3xl text-lg font-semibold leading-8 text-slate-300">
-                Evaready Electrical helps with emergency electrical faults,
-                Level 2 enquiries, switchboards, hot water electrical, air
-                conditioning electrical, CCTV/data, lighting and power across
-                Sydney and surrounding regions.
+                For planned work, tell us your suburb, the work you need and
+                how to contact you. Our licensed electricians can discuss the
+                next step. A quote request does not confirm an appointment.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
@@ -204,8 +204,11 @@ export default function ContactPage() {
                 Send the job details through the quote form.
               </h2>
               <p className="mt-4 text-base font-semibold leading-7 text-slate-300 sm:text-lg">
-                Use the secure online quote form to send photos, job details,
-                access notes and paperwork.
+                The quote form opens through ServiceM8. Send only details
+                relevant to the work. Photos are optional: take them from a
+                safe position without opening equipment or approaching a
+                hazard. Do not send passwords, access codes or unrelated
+                personal documents. Never delay emergency help to take photos.
               </p>
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
                 <a
@@ -321,7 +324,7 @@ export default function ContactPage() {
             <div className="grid gap-8 lg:grid-cols-[0.86fr_1.14fr]">
               <div>
                 <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
-                  Verified contact details
+                  Electrical enquiries
                 </p>
                 <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-5xl">
                   Contact details are kept simple and direct.

@@ -2571,6 +2571,51 @@ html body.ev-storm-page main#main-content.core-storm-fault-detail
   white-space: normal !important;
 }
 
+/* Core-page cards must size tracks from readable text, including enlarged text. */
+html body.ev-storm-page main#main-content:is(.core-storm-home, .core-storm-about, .core-storm-contact, .core-storm-faults, .ev-storm-legal)
+  :is(h1, h2, h3, h4, p, li, a, span, summary) {
+  min-width: 0;
+  overflow-wrap: anywhere !important;
+  white-space: normal;
+}
+
+html body.ev-storm-page main#main-content:is(.core-storm-home, .core-storm-about, .core-storm-contact, .core-storm-faults, .ev-storm-legal)
+  :is(.grid, .flex) > * {
+  min-width: 0;
+}
+
+html body.ev-storm-page main#main-content:is(.core-storm-home, .core-storm-about, .core-storm-contact, .core-storm-faults, .ev-storm-legal)
+  > section .grid:is([class~="grid-cols-2"], [class~="sm:grid-cols-2"], [class~="sm:grid-cols-3"], [class~="md:grid-cols-2"], [class~="lg:grid-cols-4"], [class~="lg:grid-cols-5"]) {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)) !important;
+}
+
+html body.ev-storm-page main#main-content:is(.core-storm-about, .core-storm-contact) a.ev-card-link {
+  grid-template-columns: minmax(0, 1fr) auto !important;
+}
+
+html body.ev-storm-page main#main-content.ev-storm-legal > section.grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+html body.ev-storm-page main#main-content:is(.core-storm-home, .core-storm-about) .google-rating-seal {
+  container-type: inline-size;
+  container-name: core-review-panel;
+}
+
+@container core-review-panel (max-width: 12rem) {
+  html body.ev-storm-page main#main-content:is(.core-storm-home, .core-storm-about)
+    .google-rating-seal > div:first-child {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 479px) {
+  html body.ev-storm-page main#main-content:is(.core-storm-about, .core-storm-contact) > section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
 html body.ev-storm-page main#main-content.core-storm-fault-detail .grid {
   min-width: 0;
   grid-auto-columns: minmax(0, 1fr);
@@ -2611,7 +2656,7 @@ html body.ev-storm-page main#main-content.core-storm-fault-detail
 }
 
 /* Keep safety copy legible over every part of the existing photograph. */
-html body.ev-storm-page main#main-content.core-storm-fault-detail
+html body.ev-storm-page main#main-content:is(.core-storm-fault-detail, .core-storm-faults)
   .fault-guide-hero::after {
   content: "" !important;
   display: block !important;

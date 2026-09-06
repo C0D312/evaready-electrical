@@ -47,16 +47,16 @@ test("individual review, rewrite and publication states remain truthful", () => 
   const register = createWholeSiteCompletionRegister();
   const byRoute = new Map(register.records.map((record) => [record.route, record]));
 
-  assert.deepEqual(register.counts.individualReview, { pending: 956, reviewed: 45 });
+  assert.deepEqual(register.counts.individualReview, { pending: 950, reviewed: 51 });
   assert.deepEqual(register.counts.rewrite, {
     held: 21,
-    pending: 935,
-    rewritten: 45,
+    pending: 929,
+    rewritten: 51,
     sufficient: 0,
   });
   assert.deepEqual(register.counts.publication, {
-    "live-verified": 980,
-    pending: 21,
+    "live-verified": 974,
+    pending: 27,
   });
 
   for (const route of phase3d1RewrittenRoutes) {

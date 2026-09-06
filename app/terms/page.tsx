@@ -6,7 +6,7 @@ import { buildBreadcrumbSchema, schemaJson } from "@/lib/schema";
 
 export const metadata: Metadata = toMetadata(legalSeoMetadata("/terms"));
 
-const updatedDate = "2 June 2026";
+const updatedDate = "6 September 2026";
 
 export default function TermsPage() {
   const breadcrumbSchema = buildBreadcrumbSchema(
@@ -79,8 +79,10 @@ export default function TermsPage() {
           <article className="legal-content-card">
             <h2>Emergency electrical faults</h2>
             <p>
-              For urgent hazards, call first and contact Evaready Electrical
-              directly on{" "}
+              For fire, smoke or immediate danger, move to safety and call
+              Triple Zero (000) first. Keep clear of fallen powerlines and
+              report them to the electricity distributor. For other urgent
+              electrical faults, contact Evaready Electrical on{" "}
               <a href={business.phoneHref} aria-label={business.callCta} data-conversion-action="phone-click">
                 {business.phoneDisplay}
               </a>
@@ -99,9 +101,11 @@ export default function TermsPage() {
             <h2>Safety disclaimer</h2>
             <p>
               Do not touch exposed wires, damaged fixtures, wet electrical
-              equipment or anything that may be live. If it is safe to do so,
-              turn off the affected circuit or main switch and keep people away
-              from the area until qualified help is arranged.
+              equipment or anything that may be live. Keep people away. Do not
+              approach a damaged, wet, hot or smoking switchboard to turn off
+              power, and do not open covers or repeatedly reset a tripping
+              device. Leave inspection, isolation and testing to our licensed
+              electricians or the electricity distributor as appropriate.
             </p>
           </article>
 
@@ -146,7 +150,10 @@ export default function TermsPage() {
             </p>
             <p>
               Photos and documents are used to help understand the request, but
-              they may not show every safety issue or all work required.
+              they may not show every safety issue or all work required. Take
+              photos only from a safe position without opening equipment.
+              Exclude access codes and unrelated personal information; never
+              delay emergency help to collect documents or photographs.
             </p>
           </article>
 

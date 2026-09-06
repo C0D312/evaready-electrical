@@ -111,7 +111,7 @@ const faqs = [
   {
     question: "How do I request a quote?",
     answer:
-      "For urgent faults, call first. For planned work, use the quote form to send your contact details, address, a short job description and photos.",
+      "For fire, smoke or immediate danger, move to safety and call Triple Zero (000). For other urgent faults, call us rather than wait for a form reply. For planned work, send your contact details, suburb and a short job description. Photos are optional: take them only from a safe position without opening equipment. Exclude unrelated personal documents and access codes. A quote request is not a confirmed booking.",
   },
 ] as const;
 
@@ -164,6 +164,10 @@ export default function HomePage() {
               across Sydney and surrounding regions.
             </p>
 
+            <p className="mt-4 text-sm leading-6 text-slate-100">
+              Fire, smoke or immediate danger? Move to safety and call Triple Zero (000).
+              Keep clear of damaged equipment and fallen powerlines.
+            </p>
             <div className="mt-7 grid grid-cols-2 gap-3" aria-label="Choose urgent or planned electrical help">
               <a
                 href={business.phoneHref}
@@ -306,7 +310,7 @@ export default function HomePage() {
             <div className="max-w-3xl">
               <p className="text-sm font-bold text-cyan-100">Why Evaready</p>
               <h2 id="why-heading" className="mt-2 text-3xl font-bold leading-tight sm:text-4xl">
-                Verified electrical credentials
+                Electrical credentials and service scope
               </h2>
             </div>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">

@@ -48,7 +48,7 @@ const trustPoints = [
   },
   {
     title: "Emergency call-first triage",
-    text: "Unsafe faults start with a phone call so risk, access and urgency can be checked.",
+    text: "For fire, smoke or immediate danger, call Triple Zero (000) first. Other urgent faults start with a call to discuss the risk and next step.",
     icon: Phone,
   },
   {
@@ -84,11 +84,11 @@ const helpItems = [
 const processSteps = [
   {
     title: "Call first for urgent faults",
-    text: "Call for power loss, burning smells, sparking, repeated safety-switch tripping, storm damage or unsafe equipment.",
+    text: "Move to safety and call Triple Zero (000) for fire, smoke or immediate danger. For other urgent electrical faults, call us instead of waiting for a form reply.",
   },
   {
     title: "Send photos for planned work",
-    text: "Use the secure ServiceM8 quote form to send photos, job notes, access details and relevant paperwork.",
+    text: "Use the ServiceM8 quote form for relevant job notes and optional photos taken from a safe position. Do not open equipment, approach a hazard or include access codes and unrelated personal documents.",
   },
   {
     title: "Evaready reviews the scope",
@@ -192,15 +192,14 @@ export default function AboutPage() {
                 About Evaready Electrical
               </h1>
               <p className="mt-6 max-w-3xl text-base font-semibold leading-7 text-slate-200 sm:text-xl sm:leading-8">
-                Evaready Electrical helps homes, strata, shops, offices,
-                commercial sites and property managers across Sydney and
-                surrounding regions with emergency faults, Level 2 enquiries,
-                switchboards, hot water, air conditioning electrical, CCTV/data,
-                lighting, power and planned electrical work.
+                Our licensed electricians help households, businesses and
+                strata properties across Sydney and surrounding regions with
+                electrical faults, maintenance and planned upgrades. The work
+                needed depends on the installation, access and inspection findings.
               </p>
               <p className="mt-5 max-w-3xl text-xl font-black leading-8 text-white sm:text-2xl">
-                Emergency, Level 2 and general electrical support across Sydney
-                and surrounding regions.
+                For fire, smoke or immediate danger, move to safety and call
+                Triple Zero (000) before contacting us.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
@@ -281,6 +280,9 @@ export default function AboutPage() {
               <p className="mt-4 text-base font-semibold leading-7 text-slate-300 sm:text-lg">
                 The licence and registration numbers shown on this website can be
                 checked using government or scheme-authorised sources.
+                Specialist work requires the authorisation relevant to that
+                task; these business details do not mean every electrician
+                holds every specialist credential.
               </p>
             </div>
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

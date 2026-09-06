@@ -14,91 +14,94 @@
       "suburb": 873
     },
     "individualReview": {
-      "pending": 956,
-      "reviewed": 45
+      "pending": 950,
+      "reviewed": 51
     },
     "publication": {
-      "live-verified": 980,
-      "pending": 21
+      "live-verified": 974,
+      "pending": 27
     },
     "rewrite": {
       "held": 21,
-      "pending": 935,
-      "rewritten": 45,
+      "pending": 929,
+      "rewritten": 51,
       "sufficient": 0
     },
     "totalRoutes": 1001
   },
   "records": [
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "homepage",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Live aggregate Google review data requires the authorised private API process; the neutral fallback remains.",
+        "Existing offer artwork insurance wording requires owner evidence or separately approved corrected artwork."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "app/page.tsx",
       "template": "homepage"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "company",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Live aggregate Google review data requires the authorised private API process; the neutral fallback remains."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/about",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "app/about/page.tsx",
       "template": "about page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "company",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/contact",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "app/contact/page.tsx",
       "template": "contact page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "fault-index",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "reviewed",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/electrical-faults",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "app/electrical-faults/page.tsx",
       "template": "fault index"
     },
@@ -407,20 +410,21 @@
       "template": "level 2 page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "legal",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner/legal confirmation of information handling, retention, overseas providers, complaints and existing legal provisions is required; see docs/phase3d8-core-page-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/privacy-policy",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "app/privacy-policy/page.tsx",
       "template": "privacy policy"
     },
@@ -17983,20 +17987,21 @@
       "template": "solar batteries page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "legal",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner/legal confirmation of information handling, retention, overseas providers, complaints and existing legal provisions is required; see docs/phase3d8-core-page-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/terms",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "app/terms/page.tsx",
       "template": "terms"
     }

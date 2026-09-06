@@ -5,7 +5,7 @@ import { buildBreadcrumbSchema, schemaJson } from "@/lib/schema";
 
 export const metadata: Metadata = toMetadata(legalSeoMetadata("/privacy-policy"));
 
-const updatedDate = "2 June 2026";
+const updatedDate = "6 September 2026";
 
 export default function PrivacyPolicyPage() {
   const breadcrumbSchema = buildBreadcrumbSchema(
@@ -73,7 +73,7 @@ export default function PrivacyPolicyPage() {
           <article className="legal-content-card">
             <h2>How we collect information</h2>
             <p>
-              Information may be collected when you use the secure booking form,
+              Information may be collected when you use the ServiceM8 quote form,
               call us, email us, click a website link, send photos or documents,
               or communicate with us about an electrical job.
             </p>
@@ -93,9 +93,9 @@ export default function PrivacyPolicyPage() {
               work, keep basic job records and improve the website experience.
             </p>
             <p>
-              For urgent faults such as no power and burning smells, sparking, wet
-              electrical equipment or repeated tripping, you should call
-              directly rather than relying on a form submission.
+              For fire, smoke or immediate danger, move to safety and call
+              Triple Zero (000). For other urgent electrical faults, call us
+              rather than relying on a form submission.
             </p>
           </article>
 
@@ -105,7 +105,10 @@ export default function PrivacyPolicyPage() {
               Photos and documents can help us understand the electrical issue,
               site access, switchboard condition, defect notice details or the
               type of planned work requested. Only send information that is
-              relevant to the job.
+              relevant to the job. Take photographs only from a safe position,
+              without opening equipment or approaching a hazard. Do not send
+              passwords, gate codes, identity documents or unrelated personal
+              information. Never delay emergency help to collect information.
             </p>
             <p>
               Please avoid sending sensitive personal documents unless they are
@@ -117,31 +120,35 @@ export default function PrivacyPolicyPage() {
           <article className="legal-content-card">
             <h2>Booking and service providers</h2>
             <p>
-              We may use trusted third-party tools to manage enquiries,
-              bookings, customer communication, website hosting, email,
-              analytics and business administration. This can include ServiceM8
-              or similar booking and administration tools where relevant.
+              The quote form is hosted by ServiceM8 and opens inside a panel
+              on this website, with an option to open the form separately.
+              Information you submit through that form is sent to ServiceM8.
+              Opening the form also connects your browser to that provider.
             </p>
             <p>
-              These providers may process information only for the purpose of
-              helping us operate the website, manage customer enquiries and
-              provide electrical services.
+              The GitHub Pages preview is hosted by GitHub. Hosting, email
+              and booking providers may process technical or enquiry data
+              under their own privacy policies. Contact us about the handling
+              of information you provide for a job.
             </p>
           </article>
 
           <article className="legal-content-card">
             <h2>Website analytics and advertising tags</h2>
             <p>
-              This website may use analytics and advertising technologies,
-              including Google Ads and the Google tag, to understand website
-              performance, measure advertising activity and improve future
-              customer enquiries.
+              This website loads the Google advertising tag and records
+              configured interactions such as Call and Quote clicks for
+              measurement. A click is an interaction, not confirmation that
+              a call connected or a job was booked. Google may receive
+              technical information when its tag loads.
             </p>
             <p>
               These tools may use cookies or similar technologies. The
-              information collected is generally used in aggregated or
-              advertising measurement form, not to sell your personal
-              information.
+              data handling depends on the provider and its settings. Our
+              review panel requests an aggregate rating summary from this
+              website; it does not require you to sign in to Google. Following
+              a Google reviews link opens Google&apos;s service, where Google&apos;s
+              privacy policy applies.
             </p>
           </article>
 
@@ -187,6 +194,17 @@ export default function PrivacyPolicyPage() {
               information we hold about you. Some information may need to be
               kept for business, safety, legal, compliance or record-keeping
               reasons.
+            </p>
+          </article>
+
+          <article className="legal-content-card">
+            <h2>Privacy concerns</h2>
+            <p>
+              Contact us using the details below if you have a privacy concern.
+              Describe what happened and the information involved, without
+              including passwords or unnecessary sensitive documents. You can
+              also consult the Office of the Australian Information Commissioner
+              for guidance about privacy rights and complaint options.
             </p>
           </article>
 

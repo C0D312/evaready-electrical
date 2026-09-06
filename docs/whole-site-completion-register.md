@@ -3,6 +3,16 @@
 `reports/whole-site-completion-register.json` is the durable, machine-readable
 route-by-route register for all 1,001 public sitemap routes.
 
+Phase 3D8 adds the six core pages: Home, About, Contact, Privacy Policy, Terms
+and the fault-guide index. All six required scoped corrections. They remain
+pending publication with null live SHAs, alongside the 21 pending routes from
+Phases 3D5-3D7. The register contains 51 individually reviewed routes and 950
+pending individual reviews; 974 routes retain their prior live evidence and
+27 await publication. All other 995 row states are protected by a baseline
+hash test. Privacy/legal, review-data and offer-artwork holds are explicit;
+reviewed does not mean owner evidence was supplied or legal compliance certified.
+See `docs/phase3d8-core-page-review.md` for scope and owner holds.
+
 The register is generated from `app/sitemap.ts` and reconciled with
 `scripts/route-inventory.ts`. The generator fails for missing, duplicate or
 unknown routes, invalid states, missing source records and sitemap/register

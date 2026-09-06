@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 import { electricalFaultPages } from "../../data/electrical-faults";
 import { absoluteUrl, business } from "../../data/site";
-import { createWholeSiteCompletionRegister, phase3d5SelectedRoutes, phase3d6SelectedRoutes } from "../../scripts/whole-site-completion-register";
+import { createWholeSiteCompletionRegister, phase3d5SelectedRoutes, phase3d6SelectedRoutes, phase3d8SelectedRoutes } from "../../scripts/whole-site-completion-register";
 
 const baseline = [
   ["safety-switch-keeps-tripping", "28766dc4745221bf55a895253dbb8544327642a952c342bbb62a494d8d7c1b98"],
@@ -98,10 +98,10 @@ test("both earlier unpublished batches retain pending publication and no live SH
   }
 });
 
-test("Phase 3D7 preserves every completion record outside the authorised last nine", () => {
-  const selected = new Set(baseline.slice(6).map(([slug]) => `/electrical-faults/${slug}`));
+test("fault-guide register isolation excludes only the later authorised core-page batch", () => {
+  const selected = new Set([...baseline.slice(6).map(([slug]) => `/electrical-faults/${slug}`), ...phase3d8SelectedRoutes]);
   const unchanged = createWholeSiteCompletionRegister().records.filter(record => !selected.has(record.route));
-  assert.equal(unchanged.length, 992);
+  assert.equal(unchanged.length, 986);
   assert.equal(createHash("sha256").update(JSON.stringify(unchanged)).digest("hex"),
-    "28390fc7efbf533c962d8b073aaaa1b661c451d965f5d422a990743ec7ffedc0");
+    "e073bc9c694abfb9ba2af41ba9d3cc6a063eb4ca0beea640ea51b19bd67c9d4f");
 });
