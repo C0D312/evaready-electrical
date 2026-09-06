@@ -3,15 +3,16 @@
 `reports/whole-site-completion-register.json` is the durable, machine-readable
 route-by-route register for all 1,001 public sitemap routes.
 
-Phase 3D8 adds the six core pages: Home, About, Contact, Privacy Policy, Terms
-and the fault-guide index. All six required scoped corrections. They remain
-pending publication with null live SHAs, alongside the 21 pending routes from
-Phases 3D5-3D7. The register contains 51 individually reviewed routes and 950
-pending individual reviews; 974 routes retain their prior live evidence and
-27 await publication. All other 995 row states are protected by a baseline
-hash test. Privacy/legal, review-data and offer-artwork holds are explicit;
-reviewed does not mean owner evidence was supplied or legal compliance certified.
-See `docs/phase3d8-core-page-review.md` for scope and owner holds.
+Phase 3D9 adds all 56 non-suburb location pages: the Service Areas index,
+16 regions and 39 areas. All required scoped corrections and remain pending
+publication with null live SHAs, alongside the prior 27 pending routes from
+Phases 3D5-3D8. The register contains 107 individually reviewed routes and 894
+pending individual reviews; 918 routes retain their prior live evidence and
+83 await publication. All other 945 row states, including all 873 suburbs,
+are protected by exact baseline hash tests. Coverage, specialist authorisation,
+response capacity, privacy/legal, review-data and offer-artwork holds remain
+explicit. Reviewed does not mean owner evidence or legal certification exists.
+See `docs/phase3d9-nonsuburb-location-review.md` for every selected route.
 
 The register is generated from `app/sitemap.ts` and reconciled with
 `scripts/route-inventory.ts`. The generator fails for missing, duplicate or
@@ -80,13 +81,18 @@ See `docs/phase3d6-fault-guide-source-notes.md` for scope and validation.
 
 Phase 3D7 completes individual semantic, safety, responsive, accessibility and
 SEO review of the remaining nine fault guides (source positions 7-15). All nine
-required rewriting. The current register contains 45 reviewed routes, 956
+required rewriting. At that checkpoint the register contained 45 reviewed routes, 956
 pending individual reviews, 45 rewritten routes, 935 pending rewrites, 21 held
 rewrites and no `sufficient` routes. There are 21 pending publications with
 null live SHAs: the six Phase 3D5 routes, six Phase 3D6 routes and nine Phase 3D7
 routes. All 992 rows outside the Phase 3D7 batch retain their previous state.
 No new live release is implied. See
 `docs/phase3d7-fault-guide-source-notes.md` for the scope and validation record.
+
+Phase 3D8 reviewed and corrected Home, About, Contact, Privacy Policy, Terms and
+the fault-guide index. At that checkpoint: 51 reviewed, 950 pending review,
+51 rewritten, 929 pending rewrite, 21 held and 27 pending publication. Those six
+rows remain unchanged by Phase 3D9, including their owner/legal holds.
 
 ## Commands
 

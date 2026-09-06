@@ -24,6 +24,7 @@ type ServiceAreaSearchProps = {
   items?: SearchItem[];
   onResultNavigate?: () => void;
   variant?: "page" | "navigation";
+  qualifyResponse?: boolean;
 };
 
 const searchIndexCache = new Map<string, SearchItem[]>();
@@ -89,6 +90,7 @@ export function ServiceAreaSearch({
   items = [],
   onResultNavigate,
   variant = "page",
+  qualifyResponse = false,
 }: ServiceAreaSearchProps) {
   const searchId = useId();
   const resultsId = `${searchId}-results`;
@@ -256,7 +258,7 @@ export function ServiceAreaSearch({
           ) : matches.length > 0 ? (
             matches.map((item) => {
               const response = getEmergencyResponseForRegion(item.regionName);
-              const responseLabel = response.isCore
+              const responseLabel = qualifyResponse ? response.shortDisplay : response.isCore
                 ? `${response.minutes}-minute core emergency response`
                 : `${response.shortDisplay} in selected outer regions`;
 

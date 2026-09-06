@@ -23,7 +23,7 @@ import {
 } from "@/lib/schema";
 import { serviceAreaIndexSeoMetadata, toMetadata } from "@/lib/seo-metadata";
 
-const popularLocalAreaNames = [
+const shortcutSuburbNames = [
   "Panania",
   "Bankstown",
   "Revesby",
@@ -37,7 +37,7 @@ const popularLocalAreaNames = [
   "Gosford",
 ] as const;
 
-const popularLocalAreas = popularLocalAreaNames.flatMap((suburbName) => {
+const suburbShortcuts = shortcutSuburbNames.flatMap((suburbName) => {
   const item = coverageSearchItems.find(
     (searchItem) => searchItem.suburbName === suburbName,
   );
@@ -109,11 +109,11 @@ export default function AreasPage() {
     items: coverageRegions.map((region) => ({
       name: region.name,
       path: `/service-areas/${region.slug}`,
-      description: region.description,
+      description: `Browse ${region.areas.length} ${region.areas.length === 1 ? "area" : "areas"} in the ${region.name} website directory.`,
       children: region.areas.map((area) => ({
         name: area.name,
         path: `/service-areas/${region.slug}/${area.slug}`,
-        description: area.description,
+        description: `Find ${area.suburbs.length} listed ${area.suburbs.length === 1 ? "suburb" : "suburbs"} and postcodes in the ${area.name} directory.`,
       })),
     })),
     name: "Electrician Service Areas Sydney",
@@ -149,18 +149,28 @@ export default function AreasPage() {
         title="Electricians Across Sydney & Surrounding Regions"
       >
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
-          Search your suburb or postcode for local emergency, Level 2 and
-          planned electrical service information.
+          Find your suburb or postcode, browse a region, or choose an area to
+          see its full suburb list. Our licensed electricians can discuss urgent
+          faults and planned work, then confirm the service and availability
+          for your address.
+        </p>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-slate-100">
+          For fire, smoke or immediate danger, move to safety and call Triple
+          Zero (000). Keep clear of fallen powerlines and contact the electricity
+          distributor. For other urgent faults, call us rather than wait for a form reply.
         </p>
 
         <div id="find-suburb" className="mt-5 max-w-3xl">
           <ServiceAreaSearch
             indexUrl={assetPath("/service-area-search-index.json")}
+            qualifyResponse
           />
           <p className="mt-3 text-sm font-semibold leading-6 text-slate-200">
-            Start typing a suburb, postcode, area or region. If the job is
-            urgent, call first. For planned work, open the quote form and
-            include photos, access details and any defect notice or paperwork.
+            Search by suburb, postcode, area or region. For planned work, send
+            a short description and contact details. Photos are optional and
+            must be taken from a safe position without opening equipment.
+            Exclude access codes and unrelated private documents. A request
+            is not a confirmed appointment.
           </p>
         </div>
 
@@ -218,8 +228,13 @@ export default function AreasPage() {
             Major regions
           </p>
           <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-            Browse the regions and suburbs we service.
+            Browse the region and area directories.
           </h2>
+          <p className="mt-4 max-w-3xl leading-7 text-slate-200">
+            The directory contains {coverageRegions.length} regions,
+            {` ${coverageRegions.reduce((total, region) => total + region.areas.length, 0)} areas and ${coverageSearchItems.length} suburb pages.`}
+            {" These are website groupings, not office locations or council boundaries. A listing is not a promise of every service at every address."}
+          </p>
 
           <div className="mt-8 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             {coverageRegions.map((region) => {
@@ -239,13 +254,13 @@ export default function AreasPage() {
                       <MapPin className="h-5 w-5" />
                     </div>
                     <span className="rounded-full border border-cyan-300/20 bg-[#0d2b5c] px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-slate-100">
-                      {region.areas.length} areas
+                      {region.areas.length} {region.areas.length === 1 ? "area" : "areas"}
                     </span>
                   </div>
 
                   <h3 className="mt-4 text-xl font-black">{region.name}</h3>
                   <p className="mt-2 text-sm font-black text-cyan-200">
-                    {suburbCount} suburbs covered
+                    {suburbCount} suburbs listed
                   </p>
 
                   <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-cyan-200">
@@ -269,8 +284,10 @@ export default function AreasPage() {
               Core and selected outer-region emergency areas.
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-300">
-              Call first for urgent faults. For planned work, search your suburb
-              or postcode above, then send the job details and photos.
+              The existing guidance below is a target or estimate for emergency
+              calls, not a booked arrival time. Tell us the address and fault so
+              we can confirm current availability. Planned work is scheduled
+              separately; specialist tasks depend on the network and authorisation required.
             </p>
           </div>
 
@@ -328,19 +345,20 @@ export default function AreasPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-black uppercase tracking-[0.35em] text-cyan-300">
-              Popular local pages
+              Suburb shortcuts
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
-              Popular local electrical service areas
+              Quick links to suburb pages
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-300">
-              Quick links to high-intent suburb pages. Use the search above for
-              every listed suburb, postcode, area or region.
+              These selected shortcuts are not a ranking of demand or service
+              availability. Use the search above for every listed suburb,
+              postcode, area or region.
             </p>
           </div>
 
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {popularLocalAreas.map((item) => (
+            {suburbShortcuts.map((item) => (
               <Link
                 key={`${item.regionSlug}-${item.areaSlug}-${item.suburbSlug}`}
                 href={item.href}

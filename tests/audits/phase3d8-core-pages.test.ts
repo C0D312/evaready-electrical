@@ -3,16 +3,17 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 import { createHash } from "node:crypto";
 import { electricalFaultPages } from "../../data/electrical-faults";
-import { createWholeSiteCompletionRegister, phase3d8SelectedRoutes } from "../../scripts/whole-site-completion-register";
+import { createWholeSiteCompletionRegister, phase3d8SelectedRoutes, phase3d9SelectedRoutes } from "../../scripts/whole-site-completion-register";
 
 const files = ["app/page.tsx", "app/about/page.tsx", "app/contact/page.tsx", "app/privacy-policy/page.tsx", "app/terms/page.tsx", "app/electrical-faults/page.tsx"];
 const read = (file: string) => readFileSync(file, "utf8");
 
-test("only six register rows change and every earlier pending publication is preserved", () => {
+test("core-page and later authorised location reviews preserve every other register row", () => {
   const register = createWholeSiteCompletionRegister();
-  const others = register.records.filter(row => !(phase3d8SelectedRoutes as readonly string[]).includes(row.route));
-  assert.equal(others.length, 995);
-  assert.equal(createHash("sha256").update(JSON.stringify(others)).digest("hex"), "2450f34156499dc713aa1542761cabd3fb4b54225d99a059d6a545032ff36d2c");
+  const selected = new Set<string>([...phase3d8SelectedRoutes, ...phase3d9SelectedRoutes]);
+  const others = register.records.filter(row => !selected.has(row.route));
+  assert.equal(others.length, 939);
+  assert.equal(createHash("sha256").update(JSON.stringify(others)).digest("hex"), "17040a8b1344cc2c971483e5d0c6f24afeadf4e2e1958f4dfc5b11c8e6b2552b");
   assert.equal(others.filter(row => row.publication === "pending" && row.publishedLiveVerifiedSha === null).length, 21);
   for (const route of phase3d8SelectedRoutes) {
     const row = register.records.find(row => row.route === route)!;

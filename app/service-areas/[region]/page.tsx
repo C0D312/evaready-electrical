@@ -81,15 +81,19 @@ export default async function RegionPage({ params }: RegionPageProps) {
     },
     {
       question: `Can I call about an unsafe electrical fault in ${region.name}?`,
-      answer: `${emergencyResponse.regionDisplay} ${business.emergencyResponse.disclaimer} ${business.emergencyResponse.emergencyOnlyNote} Call first for power loss, burning smells, sparking, repeated tripping, shock risk or storm and water-affected electrical equipment.`,
+      answer: `For fire, smoke or immediate danger, move to safety and call Triple Zero (000). Keep clear of fallen powerlines and contact the electricity distributor. For other urgent faults, call us rather than wait for a form reply. ${emergencyResponse.regionDisplay} ${business.emergencyResponse.disclaimer} ${business.emergencyResponse.emergencyOnlyNote}`,
     },
     {
       question: `Is Level 2 electrical work available in ${region.name}?`,
-      answer: `Evaready Electrical is an ${business.level2Asp.display}. Eligible enquiries can involve consumer mains, metering, service equipment, defect notice repairs, points of attachment and overhead or underground service lines. The exact scope depends on the network, site and job requirements.`,
+      answer: `We assess Level 2 enquiries against the network, site and job requirements before confirming the work. Consumer mains, service equipment, defect notices and metering-related tasks can require different authorisations or arrangements. A region listing does not mean every specialist task is available at every address.`,
     },
     {
       question: `How do I request planned electrical work in ${region.name}?`,
-      answer: `Use the quote form to send the suburb, postcode, job address, contact details, photos, access notes and any relevant paperwork. The details help confirm the correct service and next step. Availability depends on the job, access, safety conditions and current workload.`,
+      answer: `Send your suburb, postcode, contact details and a short description of the work. Photos are optional: take them only from a safe position, without opening equipment or approaching a hazard. Exclude access codes and unrelated private documents. Our licensed electricians confirm the scope, access and availability; a request is not a confirmed appointment.`,
+    },
+    {
+      question: `Are these directory pages Evaready office locations?`,
+      answer: `No. These are website service-area groupings, not office locations or council boundary maps. Choose an area for its complete suburb list. Confirm the exact address and work required with us before relying on availability.`,
     },
   ];
   const serviceNames = [
@@ -167,9 +171,15 @@ export default async function RegionPage({ params }: RegionPageProps) {
           <span aria-current="page">{region.name}</span>
         </nav>
         <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-100 sm:text-xl">
-          Use this region page to search {region.areas.length === 1 ? "the listed area" : "the listed areas"}
-          {` and ${suburbCount} suburb routes`}, then choose the correct
-          emergency, Level 2 or planned-work pathway.
+          Find electrical help in {region.name} by choosing {region.areas.length === 1 ? "the area below" : "an area below"}
+          {` or searching the ${suburbCount} listed suburbs`}. This regional
+          overview groups the directory; each area page provides its full
+          suburb and postcode list.
+        </p>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-slate-100">
+          For fire, smoke or immediate danger, move to safety and call Triple
+          Zero (000). Keep clear of fallen powerlines and contact the electricity
+          distributor. For other urgent faults, call us to confirm the next step.
         </p>
         <p className="mt-4 max-w-3xl text-base font-semibold leading-7 text-blue-100">
           {emergencyResponse.regionDisplay} {business.emergencyResponse.disclaimer}
@@ -200,12 +210,12 @@ export default async function RegionPage({ params }: RegionPageProps) {
             Search a postcode or choose an area in {region.name}.
           </h2>
           <p className="mt-4 max-w-3xl text-base leading-7 text-slate-200 sm:text-lg">
-            Search the verified routes for this region. Area pages provide the
-            complete suburb directory; suburb pages confirm the stored postcode
-            and response classification.
+            These are website service-area groupings, not office locations or
+            council boundary maps. Search the listed suburbs to find the right
+            page, then confirm your address, work and availability with us.
           </p>
           <div className="mt-7 max-w-3xl">
-            <ServiceAreaSearch items={regionSearchItems} />
+            <ServiceAreaSearch items={regionSearchItems} qualifyResponse />
           </div>
         </div>
       </section>
@@ -242,7 +252,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
                       <MapPin className="h-5 w-5" aria-hidden="true" />
                     </span>
                     <span className="rounded-full border border-cyan-300/20 px-3 py-1 text-xs font-black uppercase tracking-[0.12em] text-slate-100">
-                      {area.suburbs.length} suburbs
+                      {area.suburbs.length} {area.suburbs.length === 1 ? "suburb" : "suburbs"}
                     </span>
                   </div>
                   <h3 className="mt-5 text-2xl font-black text-white">{area.name}</h3>
@@ -296,6 +306,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
       <LocationServicePathways
         locality={region.name}
         responseDisplay={emergencyResponse.regionDisplay}
+        reviewedDirectory
       />
 
       <LocationFaqs
@@ -303,7 +314,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
         items={faqItems}
       />
 
-      <LocationFinalCta locality={region.name} />
+      <LocationFinalCta locality={region.name} reviewedDirectory />
     </main>
   );
 }

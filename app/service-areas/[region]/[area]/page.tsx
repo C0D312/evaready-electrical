@@ -78,19 +78,19 @@ export default async function AreaPage({ params }: AreaPageProps) {
   const faqItems = [
     {
       question: `Which suburbs are listed in ${area.name}?`,
-      answer: `This page lists all ${area.suburbs.length} suburbs covered under ${area.name}. Use the search or suburb directory to open the page with the correct suburb name and postcode.`,
+      answer: `This website directory groups ${area.suburbs.length} ${area.suburbs.length === 1 ? "suburb" : "suburbs"} under ${area.name}, within ${region.name}. Use the suburb name and postcode to choose the correct page. The grouping is not a council boundary or proof of current availability.`,
     },
     {
       question: `Can I call about an unsafe electrical fault in ${area.name}?`,
-      answer: `${emergencyResponse.regionDisplay} ${business.emergencyResponse.disclaimer} Call first for no power, burning smells, sparking, repeated tripping, shock risk or storm and water-affected electrical equipment.`,
+      answer: `For fire, smoke or immediate danger, move to safety and call Triple Zero (000). Keep clear of fallen powerlines and contact the electricity distributor. For other urgent faults, call us rather than wait for a form reply. ${emergencyResponse.regionDisplay} ${business.emergencyResponse.disclaimer}`,
     },
     {
       question: `Is Level 2 electrical work available across ${area.name}?`,
-      answer: `Evaready Electrical is an ${business.level2Asp.display}. Eligible work can include consumer mains, metering, service equipment, defect notice repairs, points of attachment and overhead or underground service lines. The exact scope depends on the network, site and job requirements.`,
+      answer: `We first check the network, equipment and authorisation needed for the requested work. Consumer mains, metering-related tasks, defect notices and service lines can have different requirements. An area listing does not promise every specialist service at every address.`,
     },
     {
       question: `How should I request planned work in ${area.name}?`,
-      answer: `Use the quote form to send the suburb, postcode, job address, contact details, photos, access notes and any relevant defect notice or network paperwork. Call first if the issue feels unsafe or active.`,
+      answer: `Send your suburb, postcode, contact details and a short description. Photos are optional and must be taken from a safe position without opening equipment or approaching hazards. Do not include access codes or unrelated private documents, and never delay emergency help to gather information. Our licensed electricians confirm the scope and availability; a request is not a confirmed appointment.`,
     },
   ];
   const serviceNames = [
@@ -176,9 +176,15 @@ export default async function AreaPage({ params }: AreaPageProps) {
           <span aria-current="page">{area.name}</span>
         </nav>
         <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-100 sm:text-xl">
-          This area directory confirms {area.suburbs.length} listed suburb and
-          postcode {area.suburbs.length === 1 ? "route" : "routes"} for emergency
-          faults, eligible Level 2 work and planned electrical services.
+          Looking for electrical help in {area.name}? This area directory within
+          {` ${region.name} lists ${area.suburbs.length} ${area.suburbs.length === 1 ? "suburb" : "suburbs"}`}
+          {area.suburbs.length === 1 ? " and its postcode." : " and their postcodes."}
+          {" Choose the matching suburb, then tell us the work you need so we can confirm scope and availability."}
+        </p>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-slate-100">
+          For fire, smoke or immediate danger, move to safety and call Triple
+          Zero (000). Keep clear of fallen powerlines and contact the electricity
+          distributor. For other urgent faults, call us rather than wait for a form reply.
         </p>
         <p className="mt-4 max-w-3xl text-base font-semibold leading-7 text-blue-100">
           Region: {region.name}. {emergencyResponse.regionDisplay}
@@ -188,7 +194,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
           <div className="ev-storm-card rounded-lg border border-cyan-300/25 p-4">
             <p className="text-3xl font-black">{area.suburbs.length}</p>
             <p className="mt-1 text-sm font-semibold text-slate-200">
-              Suburbs listed in this area
+              {area.suburbs.length === 1 ? "Suburb" : "Suburbs"} listed in this area
             </p>
           </div>
           <div className="ev-storm-card rounded-lg border border-cyan-300/25 p-4">
@@ -210,12 +216,13 @@ export default async function AreaPage({ params }: AreaPageProps) {
             Find your suburb in {area.name}.
           </h2>
           <p className="mt-4 max-w-3xl text-base leading-7 text-slate-200 sm:text-lg">
-            Search by suburb or postcode, or choose a verified route below.
-            Each suburb page confirms its postcode, area, region and emergency
-            response classification.
+            Search the listed suburbs or use the links below. Area names are
+            website groupings, not council boundaries or office locations.
+            Use the suburb and postcode together; a listing does not confirm
+            that every service is available at every address.
           </p>
           <div className="mt-7 max-w-3xl">
-            <ServiceAreaSearch items={areaSearchItems} />
+            <ServiceAreaSearch items={areaSearchItems} qualifyResponse />
           </div>
         </div>
       </section>
@@ -278,6 +285,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
       <LocationServicePathways
         locality={area.name}
         responseDisplay={emergencyResponse.regionDisplay}
+        reviewedDirectory
       />
 
       <LocationFaqs
@@ -285,7 +293,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
         items={faqItems}
       />
 
-      <LocationFinalCta locality={area.name} />
+      <LocationFinalCta locality={area.name} reviewedDirectory />
     </main>
   );
 }

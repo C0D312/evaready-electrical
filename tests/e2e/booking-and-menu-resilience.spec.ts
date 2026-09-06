@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "./support/contained-test";
+import { observeQuoteEnhancement, expectQuoteEnhancementReady } from "./support/quote-enhancement";
 
 const quoteDialogName = "Request a quote";
 const representativeRoutes = [
@@ -33,6 +34,7 @@ async function expectPageUnlocked(page: Page) {
 test("desktop quote triggers open reliably through repeated Back cycles", async ({
   page,
 }) => {
+  await observeQuoteEnhancement(page);
   await page.goto("./", { waitUntil: "domcontentloaded" });
   const menuTrigger = page.getByRole("button", {
     name: "Open navigation menu",
@@ -46,6 +48,7 @@ test("desktop quote triggers open reliably through repeated Back cycles", async 
   const quoteTrigger = page
     .locator("main [data-quote-trigger='true']")
     .first();
+  await expectQuoteEnhancementReady(page);
 
   for (let attempt = 0; attempt < 5; attempt += 1) {
     await quoteTrigger.click();
@@ -65,14 +68,17 @@ test("desktop quote triggers open reliably through repeated Back cycles", async 
 test("shared quote triggers open on every representative page template", async ({
   page,
 }) => {
+  await observeQuoteEnhancement(page);
   for (const route of representativeRoutes) {
-    await page.goto(route, { waitUntil: "domcontentloaded" });
+    // This checks the enhanced modal; the native pre-JavaScript link is tested separately.
+    await page.goto(route, { waitUntil: "load" });
     const expectedPathname = new URL(page.url()).pathname;
     const quoteTrigger = page
       .locator("main [data-quote-trigger='true']")
       .first();
 
     await expect(quoteTrigger).toBeAttached();
+    await expectQuoteEnhancementReady(page);
     await quoteTrigger.click();
 
     const dialog = page.getByRole("dialog", { name: quoteDialogName });
@@ -91,6 +97,21 @@ test("shared quote triggers open on every representative page template", async (
     );
     await expectPageUnlocked(page);
   }
+});
+
+test.describe("native quote fallback", () => {
+  test.use({ javaScriptEnabled: false });
+
+  test("quote destinations remain usable without JavaScript", async ({ page }) => {
+    for (const route of representativeRoutes) {
+      await page.goto(route, { waitUntil: "load" });
+      const quote = page.locator("main [data-quote-trigger='true']").first();
+      await expect(quote).toHaveAttribute("href", /https:\/\/book\.servicem8\.com\/request_booking\?/);
+      await quote.click();
+      await expect(page).toHaveURL(/https:\/\/book\.servicem8\.com\/request_booking\?/);
+      await expect(page.locator("p")).toHaveText("No submission is possible.");
+    }
+  });
 });
 
 test("mobile menu scroll, quote handoff and browser Back close one layer at a time", async ({

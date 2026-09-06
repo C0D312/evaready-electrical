@@ -55,6 +55,6 @@ test("reviewed fault guides stay unpublished until a separately approved release
     assert.equal(row?.publication, "pending");
     assert.equal(row?.publishedLiveVerifiedSha, null);
   }
-  assert.deepEqual(register.counts.individualReview, { pending: 950, reviewed: 51 });
-  assert.deepEqual(register.counts.publication, { "live-verified": 974, pending: 27 });
+  assert.deepEqual(register.counts.individualReview, { pending: 894, reviewed: 107 });
+  assert.deepEqual(register.counts.publication, { "live-verified": 918, pending: 83 });
 });

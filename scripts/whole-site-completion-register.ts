@@ -1,5 +1,6 @@
 import { electricalFaultPages } from "../data/electrical-faults";
 import { serviceLandingPages } from "../data/service-pages";
+import { coverageRegions } from "../data/service-area-coverage";
 import { GITHUB_PAGES_PREVIEW_BASE_PATH } from "../config/deployment";
 import {
   createAllRouteInventory,
@@ -111,6 +112,14 @@ export const specialistHeldRoutes = [
 export const phase3d8SelectedRoutes = [
   "/", "/about", "/contact", "/privacy-policy", "/terms", "/electrical-faults",
 ] as const;
+
+export const phase3d9SelectedRoutes = [
+  "/service-areas",
+  ...coverageRegions.flatMap(region => [
+    `/service-areas/${region.slug}`,
+    ...region.areas.map(area => `/service-areas/${region.slug}/${area.slug}`),
+  ]),
+];
 
 export const consolidationHeldRoutes = [
   "/services/electrical-testing-tagging-reports-sydney",
@@ -270,6 +279,28 @@ function sourceRecordFor(item: RouteInventoryItem) {
 }
 
 function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
+  if (phase3d9SelectedRoutes.includes(item.route)) {
+    return {
+      accessibility: "reviewed",
+      category: categoryFor(item),
+      claimOwnerEvidence: "held",
+      individualSemanticContentReview: "reviewed",
+      outstandingHolds: [
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md.",
+      ],
+      publication: "pending",
+      publishedLiveVerifiedSha: null,
+      responsive: "reviewed",
+      rewrite: "rewritten",
+      route: item.route,
+      safetyReview: "reviewed",
+      seoMetadataSchema: "reviewed",
+      sourceRecord: sourceRecordFor(item),
+      template: item.pageType,
+    };
+  }
   if ((phase3d8SelectedRoutes as readonly string[]).includes(item.route)) {
     const legal = item.route === "/privacy-policy" || item.route === "/terms";
     const reviewWidget = item.route === "/" || item.route === "/about";

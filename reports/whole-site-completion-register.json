@@ -14,17 +14,17 @@
       "suburb": 873
     },
     "individualReview": {
-      "pending": 950,
-      "reviewed": 51
+      "pending": 894,
+      "reviewed": 107
     },
     "publication": {
-      "live-verified": 974,
-      "pending": 27
+      "live-verified": 918,
+      "pending": 83
     },
     "rewrite": {
       "held": 21,
-      "pending": 929,
-      "rewritten": 51,
+      "pending": 873,
+      "rewritten": 107,
       "sufficient": 0
     },
     "totalRoutes": 1001
@@ -429,56 +429,62 @@
       "template": "privacy policy"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service-area-index",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "app/service-areas/page.tsx",
       "template": "service-area index"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "region",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/blue-mountains",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#region:blue-mountains",
       "template": "region page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/blue-mountains/blue-mountains",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:blue-mountains/blue-mountains",
       "template": "area page"
     },
@@ -861,38 +867,42 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "region",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/canterbury-bankstown-and-inner-south-west",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#region:canterbury-bankstown-and-inner-south-west",
       "template": "region page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:canterbury-bankstown-and-inner-south-west/canterbury-bankstown",
       "template": "area page"
     },
@@ -1527,38 +1537,42 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "region",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/central-coast-south",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#region:central-coast-south",
       "template": "region page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/central-coast-south/central-coast",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:central-coast-south/central-coast",
       "template": "area page"
     },
@@ -2229,38 +2243,42 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "region",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/hills-hawkesbury-and-hornsby",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#region:hills-hawkesbury-and-hornsby",
       "template": "region page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/hills-hawkesbury-and-hornsby/hawkesbury",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:hills-hawkesbury-and-hornsby/hawkesbury",
       "template": "area page"
     },
@@ -2949,20 +2967,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/hills-hawkesbury-and-hornsby/hills-district",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:hills-hawkesbury-and-hornsby/hills-district",
       "template": "area page"
     },
@@ -3381,20 +3401,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/hills-hawkesbury-and-hornsby/hornsby",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:hills-hawkesbury-and-hornsby/hornsby",
       "template": "area page"
     },
@@ -3921,38 +3943,42 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "region",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/inner-west-burwood-and-canada-bay",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#region:inner-west-burwood-and-canada-bay",
       "template": "region page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/inner-west-burwood-and-canada-bay/burwood",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:inner-west-burwood-and-canada-bay/burwood",
       "template": "area page"
     },
@@ -4029,20 +4055,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/inner-west-burwood-and-canada-bay/canada-bay",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:inner-west-burwood-and-canada-bay/canada-bay",
       "template": "area page"
     },
@@ -4335,20 +4363,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/inner-west-burwood-and-canada-bay/inner-west",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:inner-west-burwood-and-canada-bay/inner-west",
       "template": "area page"
     },
@@ -4803,20 +4833,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/inner-west-burwood-and-canada-bay/strathfield",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:inner-west-burwood-and-canada-bay/strathfield",
       "template": "area page"
     },
@@ -4875,38 +4907,42 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "region",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/liverpool-and-fairfield",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#region:liverpool-and-fairfield",
       "template": "region page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/liverpool-and-fairfield/fairfield",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:liverpool-and-fairfield/fairfield",
       "template": "area page"
     },
@@ -5379,20 +5415,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/liverpool-and-fairfield/liverpool",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:liverpool-and-fairfield/liverpool",
       "template": "area page"
     },
@@ -5991,38 +6029,42 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "region",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/macarthur-camden-and-wollondilly",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#region:macarthur-camden-and-wollondilly",
       "template": "region page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/macarthur-camden-and-wollondilly/camden",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:macarthur-camden-and-wollondilly/camden",
       "template": "area page"
     },
@@ -6423,20 +6465,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/macarthur-camden-and-wollondilly/campbelltown",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:macarthur-camden-and-wollondilly/campbelltown",
       "template": "area page"
     },
@@ -7089,20 +7133,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/macarthur-camden-and-wollondilly/wollondilly",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:macarthur-camden-and-wollondilly/wollondilly",
       "template": "area page"
     },
@@ -7611,38 +7657,42 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "region",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/northern-beaches",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#region:northern-beaches",
       "template": "region page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/northern-beaches/northern-beaches",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:northern-beaches/northern-beaches",
       "template": "area page"
     },
@@ -8601,38 +8651,42 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "region",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/northern-sydney-and-ryde",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#region:northern-sydney-and-ryde",
       "template": "region page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/northern-sydney-and-ryde/hunters-hill",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:northern-sydney-and-ryde/hunters-hill",
       "template": "area page"
     },
@@ -8745,20 +8799,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/northern-sydney-and-ryde/ku-ring-gai",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:northern-sydney-and-ryde/ku-ring-gai",
       "template": "area page"
     },
@@ -9051,20 +9107,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/northern-sydney-and-ryde/lane-cove",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:northern-sydney-and-ryde/lane-cove",
       "template": "area page"
     },
@@ -9231,20 +9289,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/northern-sydney-and-ryde/mosman",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:northern-sydney-and-ryde/mosman",
       "template": "area page"
     },
@@ -9267,20 +9327,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/northern-sydney-and-ryde/north-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:northern-sydney-and-ryde/north-sydney",
       "template": "area page"
     },
@@ -9519,20 +9581,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/northern-sydney-and-ryde/ryde",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:northern-sydney-and-ryde/ryde",
       "template": "area page"
     },
@@ -9771,20 +9835,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/northern-sydney-and-ryde/willoughby",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:northern-sydney-and-ryde/willoughby",
       "template": "area page"
     },
@@ -9969,38 +10035,42 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "region",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/parramatta-and-cumberland",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#region:parramatta-and-cumberland",
       "template": "region page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/parramatta-and-cumberland/cumberland",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:parramatta-and-cumberland/cumberland",
       "template": "area page"
     },
@@ -10347,20 +10417,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/parramatta-and-cumberland/parramatta",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:parramatta-and-cumberland/parramatta",
       "template": "area page"
     },
@@ -10815,38 +10887,42 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "region",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/southern-highlands",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#region:southern-highlands",
       "template": "region page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/southern-highlands/wingecarribee",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:southern-highlands/wingecarribee",
       "template": "area page"
     },
@@ -11355,38 +11431,42 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "region",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/st-george-and-bayside",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#region:st-george-and-bayside",
       "template": "region page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/st-george-and-bayside/bayside-and-airport",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:st-george-and-bayside/bayside-and-airport",
       "template": "area page"
     },
@@ -11553,20 +11633,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/st-george-and-bayside/georges-river",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:st-george-and-bayside/georges-river",
       "template": "area page"
     },
@@ -11931,20 +12013,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/st-george-and-bayside/rockdale-and-bexley",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:st-george-and-bayside/rockdale-and-bexley",
       "template": "area page"
     },
@@ -12219,38 +12303,42 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "region",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/sutherland-shire",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#region:sutherland-shire",
       "template": "region page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/sutherland-shire/sutherland-shire",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:sutherland-shire/sutherland-shire",
       "template": "area page"
     },
@@ -13011,38 +13099,42 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "region",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/sydney-city-and-eastern-suburbs",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#region:sydney-city-and-eastern-suburbs",
       "template": "region page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/sydney-city-and-eastern-suburbs/randwick",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:sydney-city-and-eastern-suburbs/randwick",
       "template": "area page"
     },
@@ -13299,20 +13391,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/sydney-city-and-eastern-suburbs/sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:sydney-city-and-eastern-suburbs/sydney",
       "template": "area page"
     },
@@ -13803,20 +13897,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/sydney-city-and-eastern-suburbs/waverley",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:sydney-city-and-eastern-suburbs/waverley",
       "template": "area page"
     },
@@ -14019,20 +14115,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/sydney-city-and-eastern-suburbs/woollahra",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:sydney-city-and-eastern-suburbs/woollahra",
       "template": "area page"
     },
@@ -14163,38 +14261,42 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "region",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/western-sydney-and-nepean",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#region:western-sydney-and-nepean",
       "template": "region page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/western-sydney-and-nepean/blacktown",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:western-sydney-and-nepean/blacktown",
       "template": "area page"
     },
@@ -14991,20 +15093,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/western-sydney-and-nepean/penrith",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:western-sydney-and-nepean/penrith",
       "template": "area page"
     },
@@ -15567,38 +15671,42 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "region",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/wollongong-and-illawarra",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#region:wollongong-and-illawarra",
       "template": "region page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/wollongong-and-illawarra/minnamurra-and-kiama-downs",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:wollongong-and-illawarra/minnamurra-and-kiama-downs",
       "template": "area page"
     },
@@ -15675,20 +15783,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/wollongong-and-illawarra/shellharbour",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:wollongong-and-illawarra/shellharbour",
       "template": "area page"
     },
@@ -15999,20 +16109,22 @@
       "template": "suburb page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "area",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Individual semantic and word-by-word review is pending."
+        "Separate release validation and live artifact verification are required.",
+        "Owner confirmation of current serviceability, response capacity and job-specific specialist scope is required; directory membership is not local business evidence.",
+        "Website region/area groupings are not certified council boundaries; see docs/phase3d9-nonsuburb-location-review.md."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "pending",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/service-areas/wollongong-and-illawarra/wollongong",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-area-region-data.ts#area:wollongong-and-illawarra/wollongong",
       "template": "area page"
     },

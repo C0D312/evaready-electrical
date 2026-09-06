@@ -88,9 +88,11 @@ export function LocationPrimaryActions({ className = "" }: { className?: string 
 export function LocationServicePathways({
   locality,
   responseDisplay,
+  reviewedDirectory = false,
 }: {
   locality: string;
   responseDisplay: string;
+  reviewedDirectory?: boolean;
 }) {
   const pathways = [
     {
@@ -104,7 +106,9 @@ export function LocationServicePathways({
         "Repeated safety-switch or circuit tripping",
         "Storm or water-affected electrical equipment",
       ],
-      text: `Call first when an electrical fault in ${locality} feels unsafe. Keep clear of damaged, wet, hot or live equipment. ${responseDisplay}`,
+      text: reviewedDirectory
+        ? `For fire, smoke or immediate danger in ${locality}, move to safety and call Triple Zero (000). Keep clear of damaged equipment and fallen powerlines. For other urgent faults, call us to discuss the next step. ${responseDisplay}`
+        : `Call first when an electrical fault in ${locality} feels unsafe. Keep clear of damaged, wet, hot or live equipment. ${responseDisplay}`,
       title: `Emergency electrician in ${locality}`,
     },
     {
@@ -118,7 +122,9 @@ export function LocationServicePathways({
         "Point of attachment and private power poles",
         "Overhead and underground service lines",
       ],
-      text: `${business.level2Asp.display} support is available for eligible supply-side and network-related electrical work in ${locality}.`,
+      text: reviewedDirectory
+        ? `For a Level 2 enquiry in ${locality}, our licensed electricians first confirm the network, equipment and authorisation needed for the job. The linked guide explains eligible supply-side work; not every job requires or qualifies for the same service.`
+        : `${business.level2Asp.display} support is available for eligible supply-side and network-related electrical work in ${locality}.`,
       title: `Level 2 electrician in ${locality}`,
     },
     {
@@ -132,7 +138,9 @@ export function LocationServicePathways({
         "Hot water and air-conditioning electrical work",
         "Residential, commercial, strata and data work",
       ],
-      text: `For planned work in ${locality}, use the quote form to send the job address, contact details, photos, access notes and any relevant paperwork.`,
+      text: reviewedDirectory
+        ? `For planned work in ${locality}, send your suburb, contact details and a short description. Photos are optional and must be taken from a safe position without opening equipment. Exclude access codes and unrelated private documents. A request is not a confirmed appointment.`
+        : `For planned work in ${locality}, use the quote form to send the job address, contact details, photos, access notes and any relevant paperwork.`,
       title: `General electrical work in ${locality}`,
     },
   ] as const;
@@ -147,9 +155,9 @@ export function LocationServicePathways({
           Electrical help for {locality}.
         </h2>
         <p className="mt-4 max-w-3xl text-base leading-7 text-slate-200 sm:text-lg">
-          Urgent faults need a phone call. Level 2 enquiries need the relevant
-          supply details. Planned work is easier to review when photos and job
-          notes are included.
+          {reviewedDirectory
+            ? "These links explain different types of work, not a promise that every service is available at every address. We confirm the scope, site access and availability before arranging attendance. Never delay emergency help to gather photographs or paperwork."
+            : "Urgent faults need a phone call. Level 2 enquiries need the relevant supply details. Planned work is easier to review when photos and job notes are included."}
         </p>
 
         <div className="mt-8 grid gap-5 lg:grid-cols-3">
@@ -240,7 +248,7 @@ export function LocationFaqs({
   );
 }
 
-export function LocationFinalCta({ locality }: { locality: string }) {
+export function LocationFinalCta({ locality, reviewedDirectory = false }: { locality: string; reviewedDirectory?: boolean }) {
   return (
     <section className="py-14 text-white sm:py-16" data-location-section="final-action">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -252,6 +260,13 @@ export function LocationFinalCta({ locality }: { locality: string }) {
             <h2 className="mt-2 max-w-3xl text-3xl font-black leading-tight sm:text-4xl">
               Call for an unsafe fault or send planned job details.
             </h2>
+            {reviewedDirectory ? (
+              <p className="mt-3 max-w-3xl leading-7 text-slate-200">
+                For fire, smoke or immediate danger, move to safety and call
+                Triple Zero (000) first. For other faults, our licensed
+                electricians can discuss the work and confirm availability.
+              </p>
+            ) : null}
           </div>
           <LocationPrimaryActions className="w-full shrink-0 lg:max-w-xl" />
         </div>
