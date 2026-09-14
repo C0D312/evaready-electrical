@@ -3,7 +3,9 @@
 Review date: 7 September 2026. Feature baseline:
 `2b0087f0e5f3a76fa10ee47803ca604e471b9553`.
 This is the content-review record, not a completed browser gate or release report.
-Final technical validation and completion-register reconciliation remain pending.
+The later exact-commit technical validation and register reconciliation are
+recorded in `phase3e2-feature-validation.md`. This original editorial assessment
+does not itself establish publication or verify documentary credential holds.
 
 ## Review Method
 

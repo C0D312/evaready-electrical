@@ -1,0 +1,711 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-14T16:10:46.244Z",
+  "phase": "EVAREADY Phase 3E2",
+  "status": "FEATURE-VALIDATION-PASSED-NOT-DEPLOYED",
+  "repository": "C0D312/evaready-electrical",
+  "branch": "codex/whole-site-completion",
+  "startingSha": "2b0087f0e5f3a76fa10ee47803ca604e471b9553",
+  "implementationSha": "7e76f10ef1ef0fb62e46cfc98f76f0c43241b9ff",
+  "testedImplementationSha": "026f6d8bd8b9611f2a5bd259db9c3839f0bd0079",
+  "unchangedMainSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
+  "environment": {
+    "node": "v22.23.1",
+    "platform": "win32",
+    "dependencies": {
+      "next": "16.3.4",
+      "eslint-config-next": "16.3.4",
+      "sharp": "0.35.4",
+      "js-yaml": "4.3.2",
+      "react": "19.2.4",
+      "react-dom": "19.2.4",
+      "@playwright/test": "1.60.0",
+      "typescript": "5.9.3",
+      "tsx": "4.22.4",
+      "esbuild": "0.28.1"
+    },
+    "target": "github-preview",
+    "basePath": "/evaready-electrical",
+    "siteUrl": "https://c0d312.github.io/evaready-electrical",
+    "cleanInstallAndBuild": true
+  },
+  "commands": [
+    {
+      "name": "npm-ci",
+      "command": [
+        "npm",
+        "ci"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:02:43.336Z",
+      "finishedAt": "2026-09-14T16:02:56.856Z",
+      "stdoutSha256": "ca866315f9a5f63cd0d5e073d7d6a53376c7cbd33e908c68771da5795c686a33",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "npm-audit",
+      "command": [
+        "npm",
+        "audit",
+        "--json"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:02:56.857Z",
+      "finishedAt": "2026-09-14T16:02:57.378Z",
+      "stdoutSha256": "46f4004c9e48d1fbf37e13159df6d0bf138de9fe5e980fb8f56382109349664c",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "npm-audit-production",
+      "command": [
+        "npm",
+        "audit",
+        "--omit=dev",
+        "--json"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:02:57.378Z",
+      "finishedAt": "2026-09-14T16:02:57.928Z",
+      "stdoutSha256": "46f4004c9e48d1fbf37e13159df6d0bf138de9fe5e980fb8f56382109349664c",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "lint",
+      "command": [
+        "node",
+        "node_modules/eslint/bin/eslint.js"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:02:57.928Z",
+      "finishedAt": "2026-09-14T16:03:19.986Z",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:03:19.988Z",
+      "finishedAt": "2026-09-14T16:03:54.991Z",
+      "stdoutSha256": "2300ff64363411bf9ab23d8ab70dfe681fbbabd0a7f2265fa89f1c49b4ececa5",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "typescript",
+      "command": [
+        "node",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit",
+        "--incremental",
+        "false"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:03:54.991Z",
+      "finishedAt": "2026-09-14T16:03:58.926Z",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "audit-suburb-pages",
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/audit-suburb-pages.ts"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:03:58.927Z",
+      "finishedAt": "2026-09-14T16:03:59.515Z",
+      "stdoutSha256": "9c8dc5cb3deaa6a6bd2dfd01e5a1663580874486757745853633ceeaf3733fd3",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "audit-all-suburb-visible-copy",
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/audit-all-suburb-visible-copy.ts"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:03:59.515Z",
+      "finishedAt": "2026-09-14T16:05:05.792Z",
+      "stdoutSha256": "42fa261f3f504e3c694b10b742e2c1d5cc1b989aeb523b63b32a79b414bbe4c7",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "audit-internal-links",
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/audit-internal-links.ts"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:05:05.793Z",
+      "finishedAt": "2026-09-14T16:05:18.174Z",
+      "stdoutSha256": "1d7f19564c50ac17caf57bace0bbf4abe7bf87cbd1dc7f5f31e7f5b4606fd56d",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "audit-metadata",
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/audit-metadata.ts"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:05:18.176Z",
+      "finishedAt": "2026-09-14T16:05:18.562Z",
+      "stdoutSha256": "878924f59183c62c20e46bb50b886d8bb990f0e6dc4f393efa4fc23351c46afd",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "audit-page-health",
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/audit-page-health.ts"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:05:18.562Z",
+      "finishedAt": "2026-09-14T16:05:20.352Z",
+      "stdoutSha256": "8aa3422bb65904ef2a68d011b1c193b2876000ca5a14ba08d82699aa2f446d57",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "audit-response-time-classification",
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/audit-response-time-classification.ts"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:05:20.352Z",
+      "finishedAt": "2026-09-14T16:05:21.255Z",
+      "stdoutSha256": "43888918c75e7ecdf92b004254daefacab99b47a0730aa133970f1f5680464f6",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "audit-claims-and-offers",
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/audit-claims-and-offers.ts"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:05:21.255Z",
+      "finishedAt": "2026-09-14T16:05:23.024Z",
+      "stdoutSha256": "571b57d3986dfe5f2f4f7a5c93d288e3b5668581f5980d12b19a35bb6f6ee2b8",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "audit-offer-route-distribution",
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/audit-offer-route-distribution.ts"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:05:23.024Z",
+      "finishedAt": "2026-09-14T16:05:24.109Z",
+      "stdoutSha256": "157ab4df23e2ea97f843b84673b8e7a656715983979d2760520bf2e9e3432a00",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "audit-location-page-output",
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/audit-location-page-output.ts"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:05:24.109Z",
+      "finishedAt": "2026-09-14T16:06:10.128Z",
+      "stdoutSha256": "04986a54f0f915ddbb53b7511f149c707d0854f23422efae9bcb9706af32bc22",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "audit-location-evidence-quality",
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/audit-location-evidence-quality.ts"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:06:10.128Z",
+      "finishedAt": "2026-09-14T16:06:13.590Z",
+      "stdoutSha256": "bb6d063e8b78309bedaea98955d6b9ff2410c65a6071d826497ae3980b9b549d",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "audit-location-indexation-decisions",
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/audit-location-indexation-decisions.ts"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:06:13.590Z",
+      "finishedAt": "2026-09-14T16:06:14.281Z",
+      "stdoutSha256": "31516c40d7fac27b35446f3e0a7bdbddb71787c410c70f5a2a611cdc776d8718",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "audit-location-evidence-privacy",
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/audit-location-evidence-privacy.ts"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:06:14.281Z",
+      "finishedAt": "2026-09-14T16:06:14.619Z",
+      "stdoutSha256": "23e12fb347102fe7a1916b8cec3e00af859037127e11102ba1ccfe77f11e708e",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "audit-performance-assets",
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/audit-performance-assets.ts"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:06:14.620Z",
+      "finishedAt": "2026-09-14T16:06:35.339Z",
+      "stdoutSha256": "bd3ffe39c4bd8ee55438caf1e96c841d5bb5679a06cc70ca28c5ec88638976a4",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "audit-static-export-hardening",
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/audit-static-export-hardening.ts"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:06:35.339Z",
+      "finishedAt": "2026-09-14T16:06:39.146Z",
+      "stdoutSha256": "6dcbb2344aaf07894c7676d1b2b950c048d7fb124e5aa49f9d01beaffccd8586",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "audit-conversion-truth",
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/audit-conversion-truth.ts"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:06:39.146Z",
+      "finishedAt": "2026-09-14T16:06:40.081Z",
+      "stdoutSha256": "c32603c4142c29e361e75c67a8026bc7b7954eeb67479f74ee697df7bc618522",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "audit-all-routes-visibility",
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/audit-all-routes-visibility.ts"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:06:40.082Z",
+      "finishedAt": "2026-09-14T16:06:43.143Z",
+      "stdoutSha256": "7170722904de6a16591b987bf193aca24d454d63c6573522bd43c2938afa9ef2",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "audit-visible-copy",
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/audit-visible-copy.ts"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:06:43.143Z",
+      "finishedAt": "2026-09-14T16:06:44.478Z",
+      "stdoutSha256": "de69102b5b107c936dbd82b356d691ad956761c21796ae5ea5f828479ec19fb4",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "audit-live-links-and-ctas",
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/audit-live-links-and-ctas.ts"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:06:44.479Z",
+      "finishedAt": "2026-09-14T16:06:47.067Z",
+      "stdoutSha256": "bd134855d1b1cfe232a305d96214f22144244f0d2fb590b74e97948510804259",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "audit-production-domain",
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/audit-production-domain.ts"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:06:47.067Z",
+      "finishedAt": "2026-09-14T16:06:50.677Z",
+      "stdoutSha256": "c000dcb770200b3bf45108c0da0b04df5d856eb525cf375cf3a85446c534beb5",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "audit-unit-tests",
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "--test",
+        "--test-concurrency=1",
+        "tests/audits/dedicated-page-content.test.ts",
+        "tests/audits/google-business-profile-rating-sync.test.ts",
+        "tests/audits/location-evidence-privacy-audit.test.ts",
+        "tests/audits/location-indexation-audit.test.ts",
+        "tests/audits/phase3d3-final-nonheld-safety.test.ts",
+        "tests/audits/phase3d4-core-services.test.ts",
+        "tests/audits/phase3d5-general-services.test.ts",
+        "tests/audits/phase3d6-fault-guides.test.ts",
+        "tests/audits/phase3d7-fault-guides.test.ts",
+        "tests/audits/phase3d8-core-pages.test.ts",
+        "tests/audits/phase3d9-location-pages.test.ts",
+        "tests/audits/phase3e1-suburb-pages.test.ts",
+        "tests/audits/phase3e1-suburb-register.test.ts",
+        "tests/audits/phase3e2-card-links.test.ts",
+        "tests/audits/phase3e2-dropdown-focus.test.ts",
+        "tests/audits/phase3e2-focus-settling.test.ts",
+        "tests/audits/phase3e2-focus-visibility.test.ts",
+        "tests/audits/phase3e2-footer-sitemap.test.ts",
+        "tests/audits/phase3e2-harness-lifecycle.test.ts",
+        "tests/audits/phase3e2-header-budget.test.ts",
+        "tests/audits/phase3e2-keyboard-activation.test.ts",
+        "tests/audits/phase3e2-network-evidence.test.ts",
+        "tests/audits/phase3e2-ownership-viewport.test.ts",
+        "tests/audits/phase3e2-register-contract.test.ts",
+        "tests/audits/phase3e2-service-pages.test.ts",
+        "tests/audits/preview-url.test.ts",
+        "tests/audits/whole-site-completion-register.test.ts"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:06:50.678Z",
+      "finishedAt": "2026-09-14T16:07:00.187Z",
+      "stdoutSha256": "ebbb8703e29b9e46a1ef336a96ac37808c561fa0226099aa6d7e6c0fbdc4b3b0",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "register-drift",
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/generate-whole-site-completion-register.ts",
+        "--check"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-09-14T16:07:00.188Z",
+      "finishedAt": "2026-09-14T16:07:00.499Z",
+      "stdoutSha256": "56cd34dd0c28bc1db528efcc0bc7a8986434c5c1e11ac99ce6d2fd2d309e5aef",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "unitTests": {
+    "files": 27,
+    "passed": 1522,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0
+  },
+  "audits": {
+    "npm-audit": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "npm-audit-production": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    }
+  },
+  "output": {
+    "sitemapRoutes": 1001,
+    "htmlFiles": 1004,
+    "files": 7152,
+    "imageFiles": 103,
+    "localMarkerSha": "026f6d8bd8b9611f2a5bd259db9c3839f0bd0079",
+    "markerLimitation": "Legacy mainCommit field is the local build SHA, not a claim that main was updated."
+  },
+  "register": {
+    "reviewed": 1001,
+    "rewritten": 1001,
+    "publicationPending": 895,
+    "historicalLiveVerified": 106,
+    "individuallyReviewedInThisBatch": 21,
+    "separateDerivedCatalogue": "/services",
+    "unchangedOtherRows": 979,
+    "unpublishedReviewedLiveSha": null,
+    "claims": "Owner documentary and business decisions remain held."
+  },
+  "suburbs": {
+    "routes": 873,
+    "indexFollow": 873,
+    "noindex": 0,
+    "selfCanonical": 873,
+    "sitemapEntries": 873,
+    "redirects": 0,
+    "unreviewedIndexationDecisions": 873,
+    "approvedEvidenceRecords": 0,
+    "evidenceDirectoryFiles": 0,
+    "referencedAssets": 0,
+    "orphanAssets": 0,
+    "overallLaunchReadiness": "BLOCKED - OWNER INDEXATION DECISIONS MISSING"
+  },
+  "retainedBrowserEvidence": {
+    "counts": {
+      "total": 4459,
+      "retainedAccepted": 812,
+      "newlyExecutedAccepted": 3647,
+      "failed": 0,
+      "notRun": 0
+    },
+    "profiles": {
+      "desktop-chromium-1440": {
+        "accepted": 1297,
+        "originallyFresh": 1181,
+        "originallyRetained": 116
+      },
+      "desktop-firefox-1440": {
+        "accepted": 1297,
+        "originallyFresh": 1181,
+        "originallyRetained": 116
+      },
+      "desktop-webkit-1440": {
+        "accepted": 373,
+        "originallyFresh": 257,
+        "originallyRetained": 116
+      },
+      "mobile-chrome-390": {
+        "accepted": 373,
+        "originallyFresh": 257,
+        "originallyRetained": 116
+      },
+      "mobile-safari-390": {
+        "accepted": 373,
+        "originallyFresh": 257,
+        "originallyRetained": 116
+      },
+      "ipad-768": {
+        "accepted": 373,
+        "originallyFresh": 257,
+        "originallyRetained": 116
+      },
+      "ipad-pro-1024": {
+        "accepted": 373,
+        "originallyFresh": 257,
+        "originallyRetained": 116
+      }
+    },
+    "newlyExecutedDuringThisContinuation": 0,
+    "ledgerSha256": "6370d127cce74b15679a8e17b16e952ae37b5528cb83c7b4a8a40350e56b6517",
+    "sourceGuardSha256": "642a539c2db724583b139098ea41b125c3daeee468aef2095a2dfa517274c792",
+    "supportingFilesVerified": 1159,
+    "sealedSourceAndTestInputsMatched": 108,
+    "matchingHtmlSurfaces": 1004,
+    "matchingImages": 103,
+    "sitemapAndRobotsUnchanged": true,
+    "allOriginalFailuresPreservedSeparately": true,
+    "limitation": "Retained original browser executions, not newly executed on this commit. Production/test inputs, exact dependency versions, all HTML visible/SEO/schema surfaces, images, sitemap and robots match; Git newline conversion is the only permitted source-text difference. Commit/version markers are validated separately. No physical-device or new Lighthouse/INP claim."
+  },
+  "failuresRepaired": [
+    {
+      "stage": "Original historical register suite",
+      "passed": 1401,
+      "failed": 5,
+      "cause": "Stale temporal register expectations; immutable historical snapshots plus independent direct current-row assertions preserve all original hashes."
+    },
+    {
+      "stage": "First new register contract run",
+      "passed": 201,
+      "failed": 6,
+      "cause": "Incorrect new assumption about six historical claim states; explicit historical automated-only versus current held states now asserted."
+    },
+    {
+      "stage": "First clean commit",
+      "passed": 1497,
+      "failedFile": 1,
+      "blockedCardCases": 23,
+      "testedSha": "7e76f10ef1ef0fb62e46cfc98f76f0c43241b9ff",
+      "cause": "Git LF/CRLF fixture conversion; original pinned LF hash and functional assertions retained.",
+      "failedTapSha256": "1c9a216cc015374df59edcb6ff4896178156cb7888a42962d5f94e150b957683"
+    }
+  ],
+  "privacy": {
+    "originalStagedFiles": 74,
+    "findings": 0,
+    "portabilityFixCommittedBlobFiles": 2,
+    "correction": "The two-file precommit scanner was blocked by sandbox Git identity; exact committed blobs were scanned successfully before push. Not represented as a passed precommit scan.",
+    "limitation": "Configured credential/email/Australian-phone patterns only; not complete PII or repository-history proof. Empty location-evidence scope is explicitly separate."
+  },
+  "implementationFiles": [
+    "app/level-2-electrician-sydney/page.tsx",
+    "app/services/[slug]/page.tsx",
+    "app/solar-batteries/page.tsx",
+    "app/ux-overhaul.css",
+    "components/desktop-primary-nav.tsx",
+    "components/lead-offer-panel.tsx",
+    "components/mobile-primary-nav.tsx",
+    "components/navigation-focus-visibility.ts",
+    "components/quote-form-modal.tsx",
+    "components/route-scroll-manager.tsx",
+    "components/service-card-return.ts",
+    "components/service-review-card.tsx",
+    "components/site-frame.tsx",
+    "components/trust-process-proof.tsx",
+    "data/service-pages.ts",
+    "docs/phase3e2-dependency-security-repair.md",
+    "docs/phase3e2-individual-service-review.md",
+    "docs/phase3e2-register-reconciliation.md",
+    "docs/phase3e2-sources-and-scope.md",
+    "package-lock.json",
+    "package.json",
+    "reports/whole-site-completion-register.json",
+    "scripts/phase3e2-service-review.ts",
+    "scripts/whole-site-completion-register.ts",
+    "tests/audits/dedicated-page-content.test.ts",
+    "tests/audits/phase3d6-fault-guides.test.ts",
+    "tests/audits/phase3d7-fault-guides.test.ts",
+    "tests/audits/phase3d8-core-pages.test.ts",
+    "tests/audits/phase3d9-location-pages.test.ts",
+    "tests/audits/phase3e1-suburb-pages.test.ts",
+    "tests/audits/phase3e1-suburb-register.test.ts",
+    "tests/audits/phase3e2-card-links.test.ts",
+    "tests/audits/phase3e2-dropdown-focus.test.ts",
+    "tests/audits/phase3e2-focus-settling.test.ts",
+    "tests/audits/phase3e2-focus-visibility.test.ts",
+    "tests/audits/phase3e2-footer-sitemap.test.ts",
+    "tests/audits/phase3e2-harness-lifecycle.test.ts",
+    "tests/audits/phase3e2-header-budget.test.ts",
+    "tests/audits/phase3e2-keyboard-activation.test.ts",
+    "tests/audits/phase3e2-network-evidence.test.ts",
+    "tests/audits/phase3e2-ownership-viewport.test.ts",
+    "tests/audits/phase3e2-register-contract.test.ts",
+    "tests/audits/phase3e2-register-contract.ts",
+    "tests/audits/phase3e2-service-pages.test.ts",
+    "tests/audits/whole-site-completion-register.test.ts",
+    "tests/e2e/phase3e2-card-history.spec.ts",
+    "tests/e2e/phase3e2-card-interruption.spec.ts",
+    "tests/e2e/phase3e2-card-links.spec.ts",
+    "tests/e2e/phase3e2-card-return-ownership.spec.ts",
+    "tests/e2e/phase3e2-controls.spec.ts",
+    "tests/e2e/phase3e2-focus-traversal.spec.ts",
+    "tests/e2e/phase3e2-focus-visibility.spec.ts",
+    "tests/e2e/phase3e2-footer-sitemap.spec.ts",
+    "tests/e2e/phase3e2-footer.spec.ts",
+    "tests/e2e/phase3e2-handoff.spec.ts",
+    "tests/e2e/phase3e2-header-height.spec.ts",
+    "tests/e2e/phase3e2-layout-regressions.spec.ts",
+    "tests/e2e/phase3e2-matrix.spec.ts",
+    "tests/e2e/phase3e2-mobile-brand-clearance.spec.ts",
+    "tests/e2e/phase3e2-navigation.spec.ts",
+    "tests/e2e/phase3e2-overlay-regressions.spec.ts",
+    "tests/e2e/phase3e2-quote-boundary.spec.ts",
+    "tests/e2e/phase3e2-quote-history.spec.ts",
+    "tests/e2e/phase3e2-quote-lifecycle.spec.ts",
+    "tests/e2e/support/phase3e2-contained-test.ts",
+    "tests/e2e/support/phase3e2-helpers.ts",
+    "tests/e2e/support/phase3e2-keyboard.ts",
+    "tests/e2e/support/phase3e2-network-evidence.ts",
+    "tests/e2e/support/phase3e2-routes.ts",
+    "tests/e2e/support/phase3e2-sitemap-test.ts",
+    "tests/fixtures/phase3d9-publication-register.json",
+    "tests/fixtures/phase3e2-before-register.json",
+    "tests/fixtures/phase3e2-card-link-baseline.json",
+    "tests/fixtures/phase3e2-quote-lifecycle.tsx"
+  ],
+  "evidenceFiles": [
+    {
+      "name": "clean42/result.json",
+      "sha256": "755f9f5412a15216d9e744f07cfa67a128446f24dd5cc6af0776104bfe67f7d8"
+    },
+    {
+      "name": "clean42/identity.json",
+      "sha256": "c9051fa782ff8a8f9153470fbcebc4cee16fdd913603ffc84a882ebd8a05002d"
+    },
+    {
+      "name": "clean42/commands.json",
+      "sha256": "b930116be291815061e4f9529016245d657230925d2721f48c695f39d7d96126"
+    },
+    {
+      "name": "clean42/retention.json",
+      "sha256": "d7a523150b454f28d863fa21942de3c4921915a9e356f9a044018310ee520b2a"
+    },
+    {
+      "name": "clean42/audit-unit-tests.stdout.log",
+      "sha256": "ebbb8703e29b9e46a1ef336a96ac37808c561fa0226099aa6d7e6c0fbdc4b3b0"
+    },
+    {
+      "name": "clean42/npm-audit.stdout.log",
+      "sha256": "46f4004c9e48d1fbf37e13159df6d0bf138de9fe5e980fb8f56382109349664c"
+    },
+    {
+      "name": "clean42/npm-audit-production.stdout.log",
+      "sha256": "46f4004c9e48d1fbf37e13159df6d0bf138de9fe5e980fb8f56382109349664c"
+    },
+    {
+      "name": "ev3e2-register41-isolation-01.json",
+      "sha256": "ab416da52fc8634804edc0d732a4e7bc357f8f39c3f7cab2c12643e3477365be"
+    },
+    {
+      "name": "ev3e2-register41-ledger-integrity-01.json",
+      "sha256": "eff45b36e806911ded313478452bc9c5186c328d3d6bc5f5d25b3788e35c0083"
+    },
+    {
+      "name": "ev3e2-register41-staged-scan-01.json",
+      "sha256": "3d59505482de613c585cab33a7b4b049bf6865683ca63558f9356c2b4bce6fde"
+    },
+    {
+      "name": "ev3e2-card42-committed-scan-01.json",
+      "sha256": "fb2a2d87fa2995aad64ad8d940b5c5c853d95698bdfcaf1dc804a22c022120c7"
+    }
+  ],
+  "protected": {
+    "ownerCheckoutUnchanged": true,
+    "artworkUnchanged": true,
+    "mainUnchanged": true,
+    "noPrMergeWorkflowTriggerOrDeployment": true,
+    "externalAccountsAndDomainHostingUnchanged": true,
+    "noRealSubmissionsOrConversions": true
+  },
+  "limitation": "The historical sources-and-scope guide preserves prior failed/uncommitted checkpoints. This is the final tested-implementation record, not its own evidence-commit SHA, live publication, physical-device testing or whole-site perfection."
+}

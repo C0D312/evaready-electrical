@@ -5,11 +5,12 @@ Research date: 7 September 2026. Starting feature SHA:
 This is a working source and decision record, not a completed validation report.
 The live release remains `e6197fcd00747ae86cabfff675516176c9e66ec6`.
 
-Current evidence status: this candidate is uncommitted. A passing individual
-batch does not satisfy the whole phase. Earlier batches using a prior shared
-helper are historical source-specific evidence, not current clean-SHA acceptance.
-Final clean-implementation validation and the remaining full gates are required
-before any feature push; no new main deployment is authorised by this phase.
+Current final validation is recorded in `phase3e2-feature-validation.md` and
+`../reports/phase3e2-feature-validation.json`, tested at
+`026f6d8bd8b9611f2a5bd259db9c3839f0bd0079`. The checkpoints below are chronological
+history, including earlier uncommitted and failed states; they are not the final
+delivery status. Matching browser evidence is explicitly retained, not relabelled
+as fresh exact-commit execution. No new main deployment is authorised.
 
 ## Build33 / Observation36: Current Checkpoint
 
