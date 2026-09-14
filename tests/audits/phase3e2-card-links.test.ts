@@ -17,10 +17,27 @@ const { parse } = createRequire(import.meta.url)("next/dist/compiled/node-html-p
 const baselineParserOptions = { comment: true,
   blockTextElements: { script: true, noscript: true, style: true, pre: true } };
 const baselineText = readFileSync("tests/fixtures/phase3e2-card-link-baseline.json", "utf8");
-assert.equal(createHash("sha256").update(baselineText).digest("hex"), "70e09ae94b071da14dda3d51c0f3ab9f7d0373b239fb45cd16f1c4b5cf610c3a");
+function assertBaselineIntegrity(text: string) {
+  // Git may convert this immutable text fixture to CRLF in a Windows checkout.
+  assert.equal(createHash("sha256").update(text.replace(/\r\n/g, "\n")).digest("hex"),
+    "70e09ae94b071da14dda3d51c0f3ab9f7d0373b239fb45cd16f1c4b5cf610c3a");
+}
+assertBaselineIntegrity(baselineText);
 const baseline = JSON.parse(baselineText) as { records: { route: string; hrefs: string[];
   contentBlocks: { tag: string; text: string }[]; contract: { schema: unknown[]; canonical: unknown[];
     metadata: { titles: string[]; metas: unknown[] } } }[] };
+
+test("A11 immutable fixture accepts only Git LF/CRLF equivalence", () => {
+  const lf = baselineText.replace(/\r\n/g, "\n");
+  assert.doesNotThrow(() => assertBaselineIntegrity(lf));
+  assert.doesNotThrow(() => assertBaselineIntegrity(lf.replace(/\n/g, "\r\n")));
+});
+
+test("A11 immutable fixture rejects changed content and other whitespace changes", () => {
+  assert.throws(() => assertBaselineIntegrity(baselineText.replace(/records/, "changedRecords")));
+  assert.throws(() => assertBaselineIntegrity(`${baselineText} `));
+  assert.throws(() => assertBaselineIntegrity(baselineText.replace(/\r\n/g, "\n").replace(/\n/g, "\r")));
+});
 
 test("A11 disabled helper preserves the original native Next link rendering", () => {
   const props = { href: "/services/fixture", className: "fixture-card", children: createElement("span", null, "Synthetic service") };

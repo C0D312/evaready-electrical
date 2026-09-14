@@ -56,3 +56,11 @@ node --import tsx scripts/generate-whole-site-completion-register.ts --check
 ```
 
 The separate exact-commit validation record must identify its tested SHA. No document can identify its own final commit SHA in advance, and these working-candidate results are not a clean-commit or deployment claim.
+
+## Clean Checkout Line-Ending Defect
+
+The first isolated validation of implementation `7e76f10ef1ef0fb62e46cfc98f76f0c43241b9ff` passed installation, both npm audits, lint, production build, TypeScript and all nineteen static audits. Its full unit run recorded 1,497 passes and one file-level failure before the 23 card-link cases could execute. Git's Windows checkout converted the immutable card-link fixture's 15,976 LF endings to CRLF: raw SHA-256 changed from `70e09ae94b071da14dda3d51c0f3ab9f7d0373b239fb45cd16f1c4b5cf610c3a` to `779ebdfee8d15ce921178d8a1125c73f9346741de41865e9542b78d7ae7164b4`. Converting CRLF back to LF reproduces the original hash exactly.
+
+The narrowly scoped test correction retains the original pinned LF hash and every functional assertion. Two added regression cases accept LF/CRLF only and reject changed content, trailing whitespace and bare-CR conversion. The fixture and production code are unchanged. The failed clean run is preserved, not reported as passing. A separate exact-commit rerun is required before feature push.
+
+The first clean build separately matched the accepted 108 source/test inputs (byte-identical or Git line endings only), all 1,004 HTML visible/metadata/schema surfaces, 103 images, sitemap and robots. This supports retention of existing contained browser evidence; it is not new browser execution or a deployment claim.
