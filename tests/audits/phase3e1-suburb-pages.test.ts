@@ -6,6 +6,7 @@ import { coverageRegions, type CoverageRegion } from "../../data/service-area-co
 import { getRelatedSuburbs } from "../../data/internal-links";
 import { absoluteUrl, business } from "../../data/site";
 import { createWholeSiteCompletionRegister } from "../../scripts/whole-site-completion-register";
+import { phase3e2SelectedRoutes } from "../../scripts/phase3e2-service-review";
 
 const hash = (text: string) => createHash("sha256").update(text).digest("hex");
 const decode = (text: string) => text.replace(/&amp;/g, "&").replace(/&#x27;|&#39;/g, "'").replace(/&quot;/g, '"').replace(/&nbsp;/g, " ");
@@ -99,15 +100,25 @@ for(const {route,region,area,suburb} of routes) {
   });
 }
 
-test("all 128 non-suburb pages retain main content, metadata, schemas, header and footer output", () => {
-  const rows = createWholeSiteCompletionRegister().records.filter(row=>row.category!=="suburb").map(row=>{
+test("106 non-suburb pages retain sealed output apart from the exact A8 sitemap attribute order", () => {
+  assert.equal(phase3e2SelectedRoutes.length, 21);
+  const rows = createWholeSiteCompletionRegister().records.filter(row=>row.category!=="suburb" && !phase3e2SelectedRoutes.includes(row.route) && row.route!=="/services").map(row=>{
     const html=readFileSync(`out${row.route==="/"?"":row.route}/index.html`,"utf8");
+    const footer=html.match(/<footer\b[\s\S]*?<\/footer>/)?.[0]||"";
+    const nativeSitemap='<a href="/evaready-electrical/sitemap.xml" class="footer-link ev-footer-legal-link">Sitemap</a>';
+    const originalSitemap='<a class="footer-link ev-footer-legal-link" href="/evaready-electrical/sitemap.xml">Sitemap</a>';
+    assert.equal(footer.split(nativeSitemap).length,2,`${row.route}: one exact native sitemap anchor`);
     return {route:row.route,main:html.match(/<main\b[^>]*>[\s\S]*?<\/main>/i)?.[0]||"",
       schemas:[...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(match=>JSON.parse(match[1])),
       title:decode(html.match(/<title>([\s\S]*?)<\/title>/)?.[1]||""),description:decode(html.match(/<meta name="description" content="([^"]*)"/)?.[1]||""),
       canonical:html.match(/<link rel="canonical" href="([^"]*)"/)?.[1],robots:html.match(/<meta name="robots" content="([^"]*)"/)?.[1],
-      headerHash:hash(html.match(/<header\b[\s\S]*?<\/header>/)?.[0]||""),footerHash:hash(html.match(/<footer\b[\s\S]*?<\/footer>/)?.[0]||"")};
+      headerHash:hash(html.match(/<header\b[\s\S]*?<\/header>/)?.[0]||""),footerHash:hash(footer.replace(nativeSitemap,originalSitemap))};
   });
-  assert.equal(rows.length,128);
-  assert.equal(hash(JSON.stringify(rows)),"ae60e21338a93643d345c9968f8f3597ee6b2b8279729fde72d8f09e995ac0ca");
+  assert.equal(rows.length,106);
+  // Derived from the sealed 2b0087f export before any Phase 3E2 edit, not the candidate.
+  // The original 107-route hash was e841b2914cba0599f84403acd01e8f80b6af0fb9eae3c27697cbd1ad3b216385.
+  // A2 catalogue deltas are independently checked in phase3e2-service-pages.test.ts.
+  // A8 emits the same native anchor with href before class. Only that exact
+  // attribute-order delta is reversed; every other footer/header/main byte stays sealed.
+  assert.equal(hash(JSON.stringify(rows)),"ac55a2ad149b15e3ecaa8e9bd4bead252289d2999717a97b134fdcf21bd38452");
 });

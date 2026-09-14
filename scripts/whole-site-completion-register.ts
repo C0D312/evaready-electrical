@@ -3,6 +3,7 @@ import { serviceLandingPages } from "../data/service-pages";
 import { coverageRegions } from "../data/service-area-coverage";
 import { GITHUB_PAGES_PREVIEW_BASE_PATH } from "../config/deployment";
 import { phase3e1ReviewedRoutes } from "./phase3e1-suburb-review";
+import { phase3e2EvidenceHolds, phase3e2SelectedRoutes } from "./phase3e2-service-review";
 import {
   createAllRouteInventory,
   createSitemapRouteSet,
@@ -182,6 +183,7 @@ const phase3d4Set = new Set<string>(phase3d4SelectedRoutes);
 const phase3d5Set = new Set<string>(phase3d5SelectedRoutes);
 const phase3d6Set = new Set<string>(phase3d6SelectedRoutes);
 const phase3d7Set = new Set<string>(phase3d7SelectedRoutes);
+const phase3e2Set = new Set(phase3e2SelectedRoutes);
 const specialistHeldSet = new Set<string>(specialistHeldRoutes);
 const consolidationHeldSet = new Set<string>(consolidationHeldRoutes);
 const serviceSlugs = new Set(serviceLandingPages.map((page) => page.slug));
@@ -307,6 +309,27 @@ function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
       template: item.pageType,
     };
   }
+  if (phase3e2Set.has(item.route)) {
+    return {
+      accessibility: "reviewed",
+      category: categoryFor(item),
+      claimOwnerEvidence: "held",
+      individualSemanticContentReview: "reviewed",
+      outstandingHolds: [
+        ...phase3e2EvidenceHolds(item.route),
+        "Phase 3E2 changes require separate exact-SHA release approval and live verification.",
+      ],
+      publication: "pending",
+      publishedLiveVerifiedSha: null,
+      responsive: "reviewed",
+      rewrite: "rewritten",
+      route: item.route,
+      safetyReview: "reviewed",
+      seoMetadataSchema: "reviewed",
+      sourceRecord: sourceRecordFor(item),
+      template: item.pageType,
+    };
+  }
   if (phase3d9SelectedRoutes.includes(item.route)) {
     return {
       accessibility: "reviewed",
@@ -362,6 +385,7 @@ function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
   const individuallyReviewed = rewritten || phase3d2Rewritten || phase3d3Rewritten || phase3d4Rewritten || phase3d5Rewritten || phase3d6Rewritten || phase3d7Rewritten;
   const specialistHeld = specialistHeldSet.has(item.route);
   const consolidationHeld = consolidationHeldSet.has(item.route);
+  const derivedCatalogueChange = item.route === "/services";
 
   const outstandingHolds = phase3d5Rewritten || phase3d6Rewritten || phase3d7Rewritten
     ? []
@@ -394,9 +418,13 @@ function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
         ? "reviewed"
         : "automated-only",
     individualSemanticContentReview: individuallyReviewed ? "reviewed" : "pending",
-    outstandingHolds,
-    publication: "live-verified",
-    publishedLiveVerifiedSha: phase3d5Rewritten || phase3d6Rewritten || phase3d7Rewritten
+    outstandingHolds: derivedCatalogueChange
+      ? [...outstandingHolds, `Phase 3E2 changes exactly two derived OfferCatalog descriptions, not a new individual page review. Previous live verification: ${PHASE_3D5_3D9_LIVE_VERIFIED_SHA}. Separate exact-SHA release approval and live verification are required.`]
+      : outstandingHolds,
+    publication: derivedCatalogueChange ? "pending" : "live-verified",
+    publishedLiveVerifiedSha: derivedCatalogueChange
+      ? null
+      : phase3d5Rewritten || phase3d6Rewritten || phase3d7Rewritten
       ? PHASE_3D5_3D9_LIVE_VERIFIED_SHA
       : phase3d4Rewritten
       ? PHASE_3D4_LIVE_VERIFIED_SHA

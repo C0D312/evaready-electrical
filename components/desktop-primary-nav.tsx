@@ -3,8 +3,9 @@
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { DeferredServiceAreaSearch } from "@/components/deferred-service-area-search";
+import { installDropdownFocusVisibility } from "@/components/navigation-focus-visibility";
 import {
   getServiceNavigationLinks,
   serviceNavigationMenus,
@@ -48,6 +49,35 @@ export function DesktopPrimaryNav({ items }: { items: PrimaryNavItem[] }) {
     isCurrentRoute(pathname, item.href),
   );
 
+  useLayoutEffect(() => {
+    const container = navRef.current?.closest<HTMLElement>(".ev-final-desktop-nav");
+    if (!container) return;
+
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const root = document.documentElement;
+    const property = "--ev-measured-desktop-nav-height";
+    function measure() {
+      if (!desktop.matches || !container?.getClientRects().length) {
+        root.style.removeProperty(property);
+        return;
+      }
+      // Only offset consumers use this value, never the observed container.
+      const height = `${container.getBoundingClientRect().height}px`;
+      if (root.style.getPropertyValue(property) !== height) {
+        root.style.setProperty(property, height);
+      }
+    }
+    const observer = new ResizeObserver(measure);
+    observer.observe(container, { box: "border-box" });
+    desktop.addEventListener("change", measure);
+    measure();
+    return () => {
+      observer.disconnect();
+      desktop.removeEventListener("change", measure);
+      root.style.removeProperty(property);
+    };
+  }, []);
+
   function clearHoverTimer() {
     if (hoverTimerRef.current) {
       window.clearTimeout(hoverTimerRef.current);
@@ -85,6 +115,8 @@ export function DesktopPrimaryNav({ items }: { items: PrimaryNavItem[] }) {
     }
 
     const activeMenu = openMenu;
+    const panel = document.getElementById(`desktop-${activeMenu}-services-menu`);
+    const removeFocusVisibility = panel ? installDropdownFocusVisibility(panel) : undefined;
 
     function closeFromOutside(event: PointerEvent) {
       if (
@@ -113,6 +145,7 @@ export function DesktopPrimaryNav({ items }: { items: PrimaryNavItem[] }) {
     document.addEventListener("keydown", closeWithEscape);
 
     return () => {
+      removeFocusVisibility?.();
       document.removeEventListener("pointerdown", closeFromOutside);
       document.removeEventListener("keydown", closeWithEscape);
     };

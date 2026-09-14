@@ -8,6 +8,7 @@ type LeadOfferPanelProps = {
   intro?: string;
   items?: string[];
   compact?: boolean;
+  safetyNote?: string;
 };
 
 const defaultItems = [
@@ -28,6 +29,7 @@ export function LeadOfferPanel({
   intro = "Evaready Electrical helps with call-first emergency triage and planned electrical work across Sydney and surrounding regions, including core and selected outer service areas.",
   items = defaultItems,
   compact = false,
+  safetyNote,
 }: LeadOfferPanelProps) {
   return (
     <section
@@ -93,9 +95,9 @@ export function LeadOfferPanel({
               </div>
 
               <p className="mt-4 rounded-lg border border-red-300/25 bg-red-500/10 p-4 text-sm leading-6 text-red-50">
-                Call first for burning smells, smoke, sparking, power loss,
+                {safetyNote ?? <>Call first for burning smells, smoke, sparking, power loss,
                 unsafe wiring or urgent Level 2 issues. Planned work can be
-                reviewed through the quote form.
+                reviewed through the quote form.</>}
               </p>
             </div>
           </div>

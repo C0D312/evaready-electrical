@@ -1,4 +1,4 @@
-import { approvedBusinessClaims, business } from "./site";
+import { approvedBusinessClaims } from "./site";
 
 export type ServiceFaq = {
   answer: string;
@@ -41,6 +41,7 @@ export type ServiceLandingPage = {
   metaDescription: string;
   metaTitle: string;
   primaryCta?: "phone" | "quote";
+  scopeBoundary?: string;
   process: ServiceProcessStep[];
   quoteCtaLabel?: string;
   quoteChecklist?: {
@@ -1131,7 +1132,17 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Consumer mains checks, upgrades and repair discussions for Sydney properties that need supply-side electrical work.",
     intro:
-      "Consumer mains carry power from the service connection to the switchboard. If they are old, damaged, undersized or part of a defect notice, the work needs the right electrical process and documentation.",
+      "Consumer mains carry electricity from the connection point to the main switchboard. Our licensed electricians assess damaged or ageing mains, proposed loads and the connection arrangement before explaining any repair or upgrade. Keep clear of damaged supply cables. For fire or immediate danger, move to safety and call Triple Zero (000).",
+    scopeBoundary: "Consumer mains are not the same as network service assets. We confirm the connection boundary, isolation requirements and job-specific network authorisation before supply work is accepted. A larger cable alone does not guarantee extra supply capacity.",
+    serviceGuide: {
+      heading: "Assess the mains, demand and connection together.",
+      intro: "A new appliance, renovation or defect notice may expose a limitation in the existing supply. The assessment needs to establish whether the concern is the customer mains, service connection, protection or another part of the installation.",
+      sections: [
+        { title: "What we inspect", copy: "Our licensed electricians review the accessible mains route, cable condition, switchboard entry and protection against the existing and proposed load. Testing and safe isolation are planned for the installation; photographs alone cannot confirm cable capacity or concealed condition.", items: ["Existing phases and proposed equipment ratings", "Accessible terminations, protection and signs of damage", "Cable route, length and installation conditions"] },
+        { title: "Repair, replacement or a wider supply change", copy: "The findings may support repairing a damaged section, replacing mains or reviewing the switchboard and network connection. Any network approval, outage, metering involvement and enabling work are identified before the scope is agreed.", items: ["Confirm which assets are customer-owned", "Separate property wiring from authorised service work", "Agree access, isolation and any building work"] },
+        { title: "Testing, records and quote information", copy: "Completed electrical work is tested and the required documentation supplied. Send the suburb, reason for the review, new equipment details and any notice. Optional photos must be taken from a safe accessible position without opening covers; do not send account numbers or access codes.", items: ["Tell us about shared supply or critical equipment", "State whether power is connected or disconnected", "Approval and reconnection timing cannot be guaranteed"] },
+      ],
+    },
     credentialHighlights: [
       "Level 2 electrical enquiries",
       "Consumer mains and supply capacity",
@@ -1196,7 +1207,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "What photos help with a consumer mains quote?",
         answer:
-          "Send photos of the switchboard, meter area, point of attachment or service path, any defect notice, your suburb and the reason the mains are being reviewed.",
+          "Send the suburb, reason for the consumer mains review, proposed loads and a summary of any defect notice. Photos are optional: use only safe accessible positions with covers and enclosures closed. Do not climb, enter roof spaces, dig, open equipment or approach hazards for a photo. Never delay an emergency call to collect details.",
       },
       {
         question: "Can new loads trigger consumer mains upgrades?",
@@ -1225,7 +1236,17 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Help understanding and responding to electrical defect notices before they become a bigger problem.",
     intro:
-      "An electrical defect notice should be acted on quickly. Evaready Electrical can review the notice, inspect the affected equipment and explain what needs to be done to bring the issue back toward compliance.",
+      "An electrical defect notice identifies a problem that needs attention within the issuer's instructions. Our licensed electricians review the listed defect and explain the inspection and repair scope. Do not approach exposed, smoking or sparking equipment; for fire or immediate danger, move to safety and call Triple Zero (000).",
+    scopeBoundary: "The notice determines the required action. Ordinary wiring repairs, network-authorised service work and metering-provider work have different boundaries. Repairing a defect does not itself guarantee network clearance or immediate reconnection.",
+    serviceGuide: {
+      heading: "Follow the notice, assess the defect and document the repair.",
+      intro: "A defect notice is not a standard package of work. It may concern damaged wiring, an attachment, a private pole, customer mains or a meter area, so the exact wording and connection status matter.",
+      sections: [
+        { title: "Understand the notice and deadline", copy: "Tell us who issued the notice, what it lists and the stated deadline. Follow any immediate safety instructions and contact the issuer about its requirements. Do not assume a quote request pauses a deadline or prevents disconnection.", items: ["Identify the affected equipment without approaching a hazard", "State whether the supply has already been disconnected", "Flag any critical equipment or affected occupants privately"] },
+        { title: "Inspect before specifying repairs", copy: "We assess the listed defect and accessible related equipment. The repair may require ordinary electrical work, a defined Level 2 activity or a separate metering-provider process. Structural damage and concealed conditions can add work that a notice photograph cannot establish.", items: ["Confirm asset ownership and authority for the work", "Agree isolation, access and repair responsibilities", "Explain any further assessment before extra work"] },
+        { title: "Close out the agreed work", copy: "The agreed repair is tested and required electrical records are provided. The issuer may require notification, review or inspection. Supply restoration remains subject to the relevant requirements, not simply completion of our visit.", items: ["Keep the notice and repair documentation together", "Share necessary paperwork only through a private enquiry", "Only take optional equipment photos from a safe position"] },
+      ],
+    },
     credentialHighlights: [
       "Defect notice review",
       "Photos, deadlines and paperwork",
@@ -1283,7 +1304,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "What information should I send?",
         answer:
-          "Send the notice, your address, photos of the switchboard or affected equipment, and any deadline listed.",
+          "Share the notice, its deadline, the property location and whether supply is connected through the private enquiry process, with unrelated personal details removed. Photos are optional: use only safe accessible positions with covers and enclosures closed. Do not climb, enter roof spaces, dig, open equipment or approach hazards for a photo. Never delay an emergency call to collect details.",
       },
       {
         question: "Can a defect notice involve Level 2 work?",
@@ -1293,7 +1314,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Should I call if the defect looks unsafe?",
         answer:
-          "Yes. If there is no power, smoke, sparking, heat, a burning smell or exposed equipment, call first before touching the affected area.",
+          "Keep clear of the affected equipment and do not touch it. For fire, smoke or immediate danger, move to safety and call Triple Zero (000) first. Notify the electricity distributor if supply lines or service equipment are damaged. Once immediate danger is controlled, call Evaready to discuss the listed defect and assessment; do not wait for a quote-form response.",
       },
     ],
     relatedServices: [
@@ -1315,7 +1336,17 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Electrical support for private power pole concerns, overhead service issues and related defect notices.",
     intro:
-      "Private power poles and overhead services can become a serious safety issue when damaged, leaning or flagged in a defect notice. Evaready Electrical can assess the electrical side of the issue and explain the next actions.",
+      "A damaged or leaning private power pole can threaten the attached supply and nearby people. Stay at least eight metres from fallen powerlines and anything touching them; call Triple Zero (000) for immediate danger and notify the electricity distributor. Once the area is safe, our licensed electricians can assess the electrical scope and required authorisation.",
+    scopeBoundary: "Pole ownership, structural condition and the connection arrangement must be established. A Level 2 title alone does not authorise every pole-replacement or network task. We confirm the permitted electrical scope and any structural or civil work before accepting it.",
+    serviceGuide: {
+      heading: "Private poles need both structural and electrical assessment.",
+      intro: "A private pole may support service cables, customer wiring or equipment. Storm damage, deterioration and a defect notice each need a site-specific response; a distant photograph cannot certify the pole's remaining life.",
+      sections: [
+        { title: "Identify the asset and risk", copy: "We review the notice, accessible connection arrangement and reported damage after the immediate hazard has been controlled. Ownership, shared supplies and easements need confirmation rather than being inferred from the pole's position.", items: ["Keep people away from damaged poles and attached lines", "Do not climb, brace, cut or touch the pole", "Tell us whether other properties depend on the supply"] },
+        { title: "Plan the complete replacement or repair scope", copy: "Electrical isolation, cable loading, attachment positions, site access and structural requirements affect the options. Pole replacement may involve lifting equipment, excavation, approved materials and a planned outage; these are not included automatically in an electrical assessment.", items: ["Confirm network-authorised activities and approvals", "Define structural, excavation and reinstatement work", "Plan access without approaching energised assets"] },
+        { title: "Useful details and handover", copy: "Send the suburb, notice details, connection status and a description of access. Safe distant photos are optional. After authorised work, testing and required records support the next connection step, but cannot guarantee distributor attendance or future pole life.", items: ["Do not photograph labels by approaching damaged equipment", "Share property records privately", "Ask which inspections and follow-up items remain"] },
+      ],
+    },
     credentialHighlights: [
       "Private pole enquiries",
       "Overhead supply and defects",
@@ -1362,7 +1393,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Is a damaged private pole urgent?",
         answer:
-          "Yes, it can be. Keep clear of damaged poles and overhead cables and call for advice immediately.",
+          "Yes. Keep clear of damaged poles and attached cables; do not touch, climb or brace the pole. Stay at least eight metres from fallen powerlines and anything touching them. For fire, smoke or immediate danger, call Triple Zero (000) from safety first, then notify the electricity distributor. Arrange electrical assessment after the area is made safe.",
       },
       {
         question: "Can storm damage affect the electrical supply?",
@@ -1372,12 +1403,12 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "What details should I send for the quote?",
         answer:
-          "Send photos of the pole, overhead cables, switchboard and any defect notice you received.",
+          "Send the suburb, notice details, connection status and a description of access. Stay at least eight metres from fallen powerlines and anything touching them. Photos are optional: use only safe accessible positions with covers and enclosures closed. Do not climb, enter roof spaces, dig, open equipment or approach hazards for a photo. Never delay an emergency call to collect details.",
       },
       {
         question: "What if a line is down or close to danger?",
         answer:
-          "Keep clear and call emergency services or the relevant distributor first if there is immediate danger, fallen lines or life-threatening risk.",
+          "Stay at least eight metres from fallen powerlines and anything touching them. Do not approach the pole or wires. For fire, smoke or immediate danger, call Triple Zero (000) from safety first, then notify the electricity distributor. Do not wait for a quote or collect photos.",
       },
     ],
     relatedServices: [
@@ -1576,10 +1607,20 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Air-conditioning electrical support, split-system air conditioning, AC isolators, dedicated circuits, heat pump support and switchboard capacity checks.",
     intro:
-      "Evaready helps with the electrical side of split-system air conditioning, including dedicated circuits, AC isolators, outdoor unit power, safety switch protection, switchboard capacity checks and heat-pump electrical supply where relevant. Air-conditioning installation or refrigeration work is handled by appropriately licensed technicians. If the job involves electrical supply, tripping, burning smell, heat, buzzing, sparking, unsafe wiring, isolators, switchboard capacity or power to the unit, call first or send photos for review.",
+      "Our licensed electricians assess the electrical supply for split-system air conditioning, including circuits, isolators, protection and switchboard capacity. Stop using equipment that repeatedly trips and keep clear of damaged or wet fittings. For fire, smoke or immediate danger, move to safety and call Triple Zero (000).",
+    scopeBoundary: "Electrical supply work is separate from refrigerant installation, charging, servicing and commissioning. We confirm the equipment and the relevant electrical, air-conditioning and refrigerant permissions before accepting each part of the job; an electrical licence does not imply every refrigeration authorisation.",
+    serviceGuide: {
+      heading: "Match the electrical supply to the air-conditioning equipment.",
+      intro: "A new unit, replacement system and tripping existing circuit need different assessments. The manufacturer requirements, existing wiring and intended installation determine whether a circuit, isolator or protection change is needed.",
+      sections: [
+        { title: "What our licensed electricians inspect", copy: "We review the unit's electrical rating, accessible wiring, local isolation, switchboard protection and available capacity. Fault testing helps distinguish a supply or circuit issue from a fault inside the equipment; a symptom alone does not identify the failed part.", items: ["Indoor and outdoor model details", "Existing circuit and switchboard condition", "Cable route, weather exposure and access"] },
+        { title: "Define the installation boundaries", copy: "The quote must identify whether it covers electrical work only or any separately authorised air-conditioning work. Refrigerant pipework, charging, drainage, equipment mounting, removal and commissioning are not automatically included with a new power circuit.", items: ["Confirm the permitted work for the specific system", "Agree responsibility for installation and commissioning", "Check whether larger loads need a supply review"] },
+        { title: "Safe information and handover", copy: "Send the suburb, unit model and whether the job is new, replacement or a fault. Safe photos are optional; do not open equipment, climb or enter a roof space to obtain them. Agreed electrical work is tested and explained, without guaranteeing cooling performance or equipment life.", items: ["Tell us about tripping, heat or water damage", "Confirm property permissions and access privately", "Do not keep resetting a repeatedly tripping circuit"] },
+      ],
+    },
     credentialHighlights: [
-      approvedBusinessClaims.credentials.arctick.approvedWording,
-      approvedBusinessClaims.credentials.arctick.qualification,
+      "Electrical circuits and isolators",
+      "Equipment-specific scope confirmed",
     ],
     heroBullets: [
       "Air-conditioning electrical support",
@@ -1594,7 +1635,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "A hot water or swimming pool heat pump needs electrical support",
     ],
     callFirstBlock: {
-      heading: "Call first if the aircon electrical fault feels unsafe",
+      heading: "Keep clear of unsafe air-conditioning equipment",
       items: [
         "The AC circuit or safety switch keeps tripping",
         "Burning smell near the switchboard, isolator or outdoor unit",
@@ -1605,16 +1646,16 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         "Switchboard capacity or protection looks overloaded",
       ],
       safetyCopy:
-        "Do not keep resetting breakers or touching damaged fittings. Call first so the electrical fault can be triaged safely.",
+        "Do not keep resetting breakers or touch damaged or wet fittings. For fire, smoke or immediate danger, move to safety and call Triple Zero (000) first. Arrange electrical assessment only after immediate danger is controlled.",
     },
     responseTrustProof: {
-      heading: "Trusted air-conditioning electrical support without overclaiming.",
+      heading: "Confirm the electrical and equipment scope before booking.",
       items: [
-        business.emergencyResponse.coreServiceType,
-        business.emergencyResponse.greaterServiceType,
-        business.level2Asp.display,
-        "Call first for urgent electrical faults",
-        "Send photos and job details for planned work",
+        "Circuit and isolator assessment",
+        "Protection and load-capacity review",
+        "Equipment requirements checked",
+        "Work and exclusions agreed before starting",
+        "Safe photos optional; notes are enough to enquire",
       ],
       note:
         "Level 2 support may be relevant where consumer mains, metering, defect notices, switchboard capacity, load capacity or supply-side electrical work affects the job.",
@@ -1658,7 +1699,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         "Any installation date, builder/installer booking or deadline",
       ],
       urgentNote:
-        "If there is heat, smoke, sparking, burning smell, shock risk, water exposure or loss of power, call first.",
+        "For fire, smoke or immediate danger, move to safety and call Triple Zero (000) first. Keep clear of damaged or wet equipment. For planned circuit or isolator work, send notes first; photos are optional from safe accessible positions with covers closed. Do not climb, enter roof spaces, dig or open equipment, and never delay an emergency call to collect details.",
     },
     services: [
       "Air-conditioning electrical support",
@@ -1684,8 +1725,8 @@ export const serviceLandingPages: ServiceLandingPage[] = [
         text: "The switchboard, circuit space, dedicated supply, safety switch protection and isolator requirements are reviewed before work begins.",
       },
       {
-        title: "Arrange the right technician",
-        text: "Evaready plans the electrical work and can arrange an appropriately licensed technician where the air-conditioning scope requires one.",
+        title: "Confirm the authorised scope",
+        text: "We identify the electrical and any refrigeration requirements and agree exactly which work is included before starting.",
       },
       {
         title: "Install, test and explain",
@@ -1721,7 +1762,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "What photos help with an air-conditioning quote?",
         answer:
-          "Send photos of the indoor and outdoor unit if installed, the AC isolator, switchboard, any tripped breaker, RCD or RCBO, the model label if visible, access notes, parking details and whether the job is a new split-system, replacement, relocation or fault.",
+          "Send the suburb, unit model if already known, whether the job is new, replacement, relocation or a fault, and any tripping or water-damage symptoms. Describe access and the proposed electrical work. Photos are optional: use only safe accessible positions with covers and enclosures closed. Do not climb, enter roof spaces, dig, open equipment or approach hazards for a photo. Never delay an emergency call to collect details.",
       },
       {
         question: "Can Evaready help with heat pump electrical supply?",
@@ -1736,7 +1777,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "When should I call first instead of requesting a quote?",
         answer:
-          "Call first if there is heat, smoke, sparking, burning smell, shock risk, water exposure, loss of power, repeated tripping or damaged electrical equipment. Planned work can use the quote form with photos and job details.",
+          "For fire, smoke or immediate danger, move to safety and call Triple Zero (000) first. Keep clear of damaged or wet electrical equipment and do not keep resetting a tripping circuit. After immediate danger is controlled, call Evaready about electrical fault assessment. For planned circuit or isolator work, send notes first; safe accessible photos with covers closed are optional.",
       },
     ],
     relatedServices: [
@@ -1750,16 +1791,26 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     slug: "cctv-security-camera-installation-sydney",
     metaTitle: "CCTV Electrician Sydney | Cameras & Security Cabling",
     metaDescription:
-      "CCTV electrician in Sydney for security camera installation, camera wiring, recorder support, home CCTV and business CCTV cabling.",
+      "CCTV electrical supply and cabling enquiries in Sydney. Security installation, configuration and authorisation are confirmed before work is accepted.",
     title: "CCTV Electrician Sydney & Surrounding Regions",
     description:
-      "Security camera and CCTV cabling installed neatly for homes, shops, offices and strata sites.",
-    intro: `A good CCTV setup depends on camera placement, clean cabling and reliable power. Evaready Electrical helps with CCTV and security camera installation for homes and businesses, including camera wiring, power supplies, recorder locations and future camera provisions. ${approvedBusinessClaims.credentials.openCabler.approvedWording} applies to eligible data, CCTV and communications cabling work.`,
+      "Electrical supply assessment and eligible cabling enquiries for CCTV projects, with any security-equipment work subject to confirmed authorisations and scope.",
+    intro: "CCTV projects need suitable power, cabling and a clearly defined security-equipment scope. Our licensed electricians can assess the electrical supply requirements. Camera installation, security advice and configuration require the applicable security authority to be confirmed separately. Keep clear of damaged electrical equipment; for fire or immediate danger, call Triple Zero (000) from safety.",
+    scopeBoundary: "Electrical licensing and cabling registration do not, by themselves, establish authority for regulated security-equipment work. This enquiry starts with electrical requirements; camera design, installation, configuration and commissioning are not promised before the permitted scope is confirmed.",
+    serviceGuide: {
+      heading: "Separate electrical preparation from security-system installation.",
+      intro: "An unreliable camera can be affected by power, cabling, equipment, network settings or the recording system. Electrical preparation must not be mistaken for a complete security assessment or a guarantee that every incident will be recorded.",
+      sections: [
+        { title: "Electrical supply and cabling needs", copy: "The assessment identifies the proposed equipment supply, accessible power points, cable pathways and any regulated customer-cabling requirements. Camera hardware, recorder capacity and configuration remain explicitly identified parts of the security-system scope.", items: ["Equipment make and existing supply arrangement", "Proposed locations and accessible cable routes", "Property or strata permission for the work"] },
+        { title: "Security, privacy and commissioning", copy: "Confirm the relevant security-equipment authority before installation or security advice is accepted. Camera views, audio, retention and remote access need a privacy and security review appropriate to the property. A cabling visit does not establish lawful surveillance or guarantee crime prevention.", items: ["Agree who commissions and hands over the system", "Do not send passwords or recordings in a quote request", "Keep access to footage under the owner's control"] },
+        { title: "What to send and what remains separate", copy: "Provide the suburb, equipment model, electrical concern and a description of the proposed locations. Safe photos of accessible equipment are optional. Do not climb or expose wiring. Scope, authorisations and exclusions must be confirmed before a complete installation is booked.", items: ["Distinguish a power fault from a missing-picture symptom", "State whether the equipment is existing or proposed", "Cloud subscriptions and network performance are not included by default"] },
+      ],
+    },
     heroBullets: [
-      "Home CCTV installation",
-      "Business security cameras",
-      "Camera cabling and power",
-      "Recorder and camera location planning",
+      "CCTV electrical supply enquiries",
+      "Equipment power requirements",
+      "Eligible cabling scope review",
+      "Installation responsibilities confirmed",
     ],
     warningSigns: [
       "Cameras keep losing power or signal",
@@ -1768,45 +1819,45 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       "You need extra cameras for a growing system",
     ],
     services: [
-      "CCTV camera installation",
-      "Security camera cabling",
-      "Camera power supplies",
-      "Eligible CCTV and data cabling work",
-      "Recorder location planning",
-      "Home and commercial CCTV support",
+      "CCTV electrical supply assessment",
+      "Power-point and circuit requirements",
+      "Accessible power-supply checks",
+      "Customer-cabling requirements review",
+      "Electrical cable-path assessment",
+      "Security-installation scope confirmation",
     ],
     process: [
       {
-        title: "Plan camera views",
-        text: "Entry points, driveways, yards, shopfronts and blind spots are reviewed.",
+        title: "Confirm the electrical brief",
+        text: "Identify the equipment, power requirements and whether the request concerns preparation or an existing fault.",
       },
       {
         title: "Choose cable paths",
         text: "Cable routes are planned for a neat result and reliable operation.",
       },
       {
-        title: "Install equipment",
-        text: "Cameras, cabling and power supplies are installed safely and tidily.",
+        title: "Complete agreed electrical work",
+        text: "Only the accepted, appropriately authorised work is completed; security installation and configuration must be expressly scoped.",
       },
       {
-        title: "Test the view",
-        text: "Camera views and power are checked before the job is finished.",
+        title: "Test and explain the boundary",
+        text: "Completed electrical work is tested and any outstanding security-equipment or commissioning requirement is explained.",
       },
     ],
     faqs: [
       {
         question: "Can you install CCTV at a home or business?",
-        answer: `Yes. Evaready Electrical can assist with CCTV camera wiring and installation for residential and commercial properties, including eligible cabling work under ${approvedBusinessClaims.credentials.openCabler.approvedWording}.`,
+        answer: "We can review electrical requirements for a home or business CCTV project. A complete camera installation is not confirmed until the relevant security authority, cabling competencies, equipment and commissioning scope have been checked.",
       },
       {
         question: "Where should CCTV cameras be installed?",
         answer:
-          "Common locations include entrances, driveways, side paths, yards, shopfronts, warehouses and shared access areas.",
+          "Placement depends on the property's needs, permissions, privacy and the authorised security design. Do not assume a general electrical assessment includes security advice or approval of camera views.",
       },
       {
         question: "Can you add extra cameras later?",
         answer:
-          "Yes. The cabling path and recorder capacity can be considered so future cameras are easier to add.",
+          "That depends on equipment compatibility, recorder capacity, permitted cabling and the agreed security-equipment scope. Extra cameras are not automatically supported by the existing installation.",
       },
     ],
     relatedServices: [
@@ -1824,7 +1875,17 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     title: "Data Cabling Electrician Sydney & Surrounding Regions",
     description:
       "Network data cabling, internet points and communication outlets for homes, offices and renovations.",
-    intro: `Reliable internet and network points need tidy cabling and sensible placement. Evaready Electrical installs data cabling, internet points and communication outlets for homes, offices, renovations and commercial spaces. ${approvedBusinessClaims.credentials.openCabler.approvedWording} applies to eligible data and communications cabling work.`,
+    intro: "Our registered cablers assess customer-side data outlets and cable routes for homes, offices and renovations, with the registration and competencies needed for the work confirmed. A hardwired outlet can connect your equipment without relying on Wi-Fi, but it cannot guarantee your internet speed. Keep clear of damaged electrical equipment; for fire or immediate danger, call Triple Zero (000) from safety.",
+    scopeBoundary: "Customer cabling, electrical power and carrier-owned infrastructure have different boundaries. The required registration and any structured-cabling competencies are confirmed for the job. Internet activation, retailer faults, Wi-Fi coverage and plan speeds are not guaranteed by installing an outlet.",
+    serviceGuide: {
+      heading: "Plan the outlets, cable paths and testing your network needs.",
+      intro: "A home office, additional room or business fit-out can need a different mix of outlets, patching and equipment. The scope starts with the existing connection and the devices that need to communicate, not a promise of faster internet.",
+      sections: [
+        { title: "Assess locations and existing cabling", copy: "Our registered cablers review the router or patching location, outlet count, accessible routes and the intended cable system. Telecommunications cabling must remain appropriately separated from electrical wiring; hidden pathways cannot be assumed clear from a room photograph.", items: ["Outlet positions and equipment connections", "Cable type and required competencies", "Access, wall construction and property permissions"] },
+        { title: "Installation, labelling and records", copy: "Agreed cabling is installed and checked within the relevant registration scope. Specify whether the job includes outlet identification, patching and particular performance testing. Required cabling-completion certification is provided; it is not an internet-provider speed guarantee.", items: ["Confirm the test and documentation deliverables", "Distinguish new cabling from equipment configuration", "Identify any inaccessible or unsuitable existing cable"] },
+        { title: "Useful quote information", copy: "Send the suburb, outlet count, room locations and current connection type. Safe room or outlet photos are optional. Do not enter ceiling spaces, open outlets or share router passwords, network credentials or private business data.", items: ["State whether the job is new, additional or fault-related", "Describe the symptom and affected devices", "Carrier-side faults remain with the telecommunications provider"] },
+      ],
+    },
     heroBullets: [
       "Network data points",
       "Internet outlet installation",
@@ -2652,7 +2713,17 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Metering support, service equipment checks and Level 2 electrical coordination for supply-side electrical issues.",
     intro:
-      "Metering and service equipment sits at the point where property wiring and electricity supply requirements meet. Evaready Electrical can assess metering-related electrical issues, service equipment concerns, defect notices and upgrade enquiries.",
+      "Metering and service equipment sit at the boundary between the electricity provider and property wiring. Our licensed electricians assess property-side preparation, defects and accessible supply equipment. Keep clear of hot, wet, smoking or damaged equipment; for fire or immediate danger, move to safety and call Triple Zero (000).",
+    scopeBoundary: "Electrical licensing or Level 2 status alone does not authorise every meter installation or alteration. We distinguish property wiring from retailer, metering-provider and network responsibilities and confirm the permissions needed for the agreed work.",
+    serviceGuide: {
+      heading: "Separate meter work from the electrical work around it.",
+      intro: "Meter relocation, a damaged panel, a switchboard upgrade and a billing concern are different enquiries. Identifying the equipment owner and the reason for the visit prevents preparation work being mistaken for a complete meter replacement.",
+      sections: [
+        { title: "Review the meter area safely", copy: "We inspect accessible property wiring, panel condition, protection and the proposed work area. Older meter panels can contain asbestos, so do not drill, cut or remove a panel yourself. Material assessment and specialist removal, if needed, are separate scope.", items: ["Record any provider-requested preparation", "Check access and required outage arrangements", "Review controlled loads, solar and supply phases"] },
+        { title: "Confirm who does each part", copy: "The retailer or metering provider generally arranges modern meter installation and commissioning. Our agreed work may include switchboard preparation, wiring repairs or authorised service activities. A meter reading, tariff or billing dispute belongs with the retailer.", items: ["Identify who supplies and installs the meter", "Confirm network involvement before service work", "Do not remove seals or interfere with provider equipment"] },
+        { title: "Quote and completion information", copy: "Send the suburb, purpose of the work and a summary of provider instructions or a failed-installation notice. Photos are optional and must not involve opening covers. Necessary account-linked paperwork should be shared only through an agreed private channel.", items: ["State whether the meter is being moved or replaced", "Mention shared boards and critical supply needs", "Provider appointments and tariff outcomes are not guaranteed"] },
+      ],
+    },
     credentialHighlights: [
       "Meter area checks",
       "Retailer and provider notes",
@@ -2711,7 +2782,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "What should I send for a metering quote?",
         answer:
-          "Send photos of the meter area, switchboard, any notice or job request, and your suburb.",
+          "Send the suburb, purpose of the metering enquiry and a summary of any provider request or notice. Share necessary paperwork privately with unrelated account details removed. Photos are optional: use only safe accessible positions with covers and enclosures closed. Do not climb, enter roof spaces, dig, open equipment or approach hazards for a photo. Never delay an emergency call to collect details.",
       },
       {
         question: "Can you install the smart meter itself?",
@@ -2721,7 +2792,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Can metering issues be urgent?",
         answer:
-          "If the meter area or service equipment is hot, smoking, sparking, damaged or unsafe, call first before touching the area.",
+          "Keep clear of hot, smoking, sparking, wet or damaged meter and service equipment. Do not touch it, open covers or remove seals. For fire, smoke or immediate danger, move to safety and call Triple Zero (000) first. Notify the electricity distributor about damaged supply equipment. Electrical assessment and any retailer or metering-provider work can be discussed after immediate danger is controlled.",
       },
     ],
     relatedServices: [
@@ -2841,7 +2912,17 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Electrical safety checks, testing, tagging and reporting support for homes, businesses, rentals and managed properties.",
     intro:
-      "Testing and reporting helps owners, businesses and property managers understand what is safe, what needs repair and what should be planned next. Evaready Electrical can assist with electrical safety checks, testing, tagging and clear notes for repair or maintenance decisions.",
+      "Our licensed electricians assess an agreed electrical scope and explain the findings for owners, businesses and property managers. This page focuses on property-related testing and reporting; portable-equipment tagging is a separate scope. Keep clear of unsafe equipment. For fire or immediate danger, move to safety and call Triple Zero (000).",
+    scopeBoundary: "A findings report records the agreed checks, accessible conditions and limitations at the time. It is not a guarantee that every circuit, appliance or concealed part is safe, or a substitute for every certificate a regulator, insurer or building authority might require.",
+    serviceGuide: {
+      heading: "Agree what the report must answer before testing begins.",
+      intro: "A property manager investigating faults needs different information from a business organising portable-equipment tags. Tell us the purpose and intended recipient so the testing and written deliverable can be defined before booking.",
+      sections: [
+        { title: "Define the property assessment", copy: "We identify the circuits, equipment and accessible areas included in the review. Existing fault history, prior reports and any requested inspection criteria inform the scope. Further access or isolation may be needed to assess concealed or energised parts safely.", items: ["Reason for testing and areas included", "Access, shutdown and occupant arrangements", "Known defects and previous recommendations"] },
+        { title: "Findings, priorities and limitations", copy: "The agreed report explains observations and test results, defects requiring action and items not assessed. An urgent hazard needs a safety response rather than waiting for a written report. Repair recommendations and repair work are separate unless expressly included.", items: ["Identify the actual tests and accessible equipment", "Separate observations from verified test findings", "Record exclusions and recommended follow-up"] },
+        { title: "Choose the right testing service", copy: "Use portable-equipment testing and tagging when the main task is an inventory of appliances, leads and associated records. For a property report, provide the suburb, property type, purpose, areas to inspect and any document requirements without sending private tenant or account information.", items: ["Confirm the written deliverable before accepting a quote", "Do not assume a standard report satisfies every recipient", "Optional photos must not involve opening covers"] },
+      ],
+    },
     heroBullets: [
       "Electrical safety checks",
       "Testing and tagging",
@@ -3011,7 +3092,17 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "TV points, antenna points, wall-mount power, hidden cabling and tidy media wiring.",
     intro:
-      "TV and media wiring should look clean and work reliably. Evaready Electrical can help with TV points, antenna outlets, wall-mount power, hidden cabling and combined media or data wiring for homes, units, offices and renovations.",
+      "Our licensed electricians assess power and accessible cable routes around a planned TV or media wall. This page focuses on coordinating outlet positions and concealment within the wall layout, not promising rooftop antenna work or reception repair. Keep clear of damaged outlets; for fire or immediate danger, call Triple Zero (000) from safety.",
+    scopeBoundary: "Concealment depends on wall construction, safe cable separation and access. Television mounting, structural fixing, plaster repairs, painting, antenna installation and reception guarantees are not included automatically. Regulated communications cabling requires the appropriate registration and competencies.",
+    serviceGuide: {
+      heading: "Plan power and media cabling around the wall layout.",
+      intro: "A wall-mounted screen, cabinet and connected devices need coordinated outlet positions. Existing masonry, insulation, fire-rated construction and inaccessible cavities can limit how much wiring can be concealed.",
+      sections: [
+        { title: "Confirm the screen and equipment layout", copy: "Tell us the intended screen position, cabinet location, connected devices and existing outlets. We review the electrical supply and accessible pathways before agreeing outlet positions. Mounting suitability and structural support need separate confirmation.", items: ["Proposed heights and device connections", "Power, data, antenna and media requirements", "Property or strata permissions before changes"] },
+        { title: "Assess concealment without unsafe shortcuts", copy: "The cable type, bend limits, separation from power and available route determine the options. A neat result must not involve concealing unsuitable power leads or assuming a blocked cavity can be used. Surface routes or additional access may be necessary.", items: ["Inspect existing outlet positions and accessible routes", "Agree any openings and making-good responsibility", "Do not cut walls or enter roof spaces for quote photos"] },
+        { title: "Scope the installation and finish", copy: "Agreed electrical and eligible cabling work is checked and explained. Send the suburb, a room photo taken safely and proposed equipment details. An additional antenna outlet alone is covered more directly by the TV points page; the final scope must still be confirmed.", items: ["List supplied equipment and work exclusions", "Confirm mounting and cosmetic repairs separately", "No guarantee of broadcast reception or streaming speed"] },
+      ],
+    },
     heroBullets: [
       "TV and antenna points",
       "Wall-mount power and hidden cabling",
@@ -3064,7 +3155,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "What photos help with a TV cabling quote?",
         answer:
-          "Send photos of the wall, existing outlets, TV location, roof or cavity access if visible, and the switchboard if new power is needed.",
+          "Send the suburb, proposed TV position, nearby outlets and whether new electrical power or concealed media cabling is needed. Describe known wall access without investigating roof spaces or cavities. Photos are optional: use only safe accessible positions with covers and enclosures closed. Do not climb, enter roof spaces, dig, open equipment or approach hazards for a photo. Never delay an emergency call to collect details.",
       },
     ],
     relatedServices: [
@@ -3078,12 +3169,22 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     slug: "intercom-access-control-electrician-sydney",
     metaTitle: "Intercom & Access Control Electrician Sydney",
     metaDescription:
-      "Intercom and access control electrician in Sydney for entry systems, intercom wiring, gate provisions, strata access and security wiring.",
+      "Intercom and access-control electrical enquiries in Sydney. Confirm the power, cabling, security authority and building-access scope before booking.",
     title: "Intercom & Access Control Electrician Sydney & Surrounding Regions",
     description:
       "Intercom, entry, access control and security wiring support for homes, strata and commercial sites.",
     intro:
-      "Entry and access systems need tidy cabling, sensible placement and safe electrical support. Evaready Electrical can assist with intercom wiring, access control provisions, gate wiring, strata entry enquiries and security-related electrical work.",
+      "Our licensed electricians assess electrical supply requirements around entry and access systems. This page focuses on door or gate power and agreed cabling provisions; security design, locks, access permissions and commissioning require a separately confirmed scope. For an immediate safety threat, move clear and call Triple Zero (000).",
+    scopeBoundary: "Electrical licensing does not establish authority for every security or access-control activity. Relevant security licensing, cabling competencies and building requirements must be confirmed before regulated work is accepted. Do not change locks, emergency egress or access controls yourself.",
+    serviceGuide: {
+      heading: "Define the electrical work without compromising building access.",
+      intro: "A shared entry door, gate motor and intercom can involve different equipment and responsibilities. Start with the authorised property contact, the electrical requirement and how occupants will safely enter and leave during the work.",
+      sections: [
+        { title: "Review power and cable provisions", copy: "We assess the accessible electrical supply, intended equipment and proposed cable routes within the accepted scope. Security-equipment selection, access-control logic and commissioning are not inferred from a power or cabling enquiry.", items: ["Existing equipment model and reported electrical issue", "Location of the door or gate and available supply", "Agreed cabling, hardware and commissioning responsibilities"] },
+        { title: "Protect access and emergency egress", copy: "Entry-system changes must not casually alter required escape or fire-safety arrangements. The building's responsible contact needs to confirm approvals and relevant requirements before work affects a shared door or gate. We do not promise a complete building security or fire-safety certification.", items: ["Confirm owner or strata authority for changes", "Agree temporary access arrangements privately", "Never include gate codes or resident access lists in public notes"] },
+        { title: "Quote the specific electrical scope", copy: "Send the suburb, property type, equipment model and whether the issue is new work or a fault. Safe equipment photos are optional. For a new or replacement intercom station, use the intercom installation page to describe the station and compatibility needs.", items: ["No need to provide passwords or access credentials", "Keep covers closed and avoid moving gate equipment", "Required security permissions remain a separate check"] },
+      ],
+    },
     heroBullets: [
       "Intercom wiring support",
       "Access control provisions",
@@ -3136,7 +3237,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "What should I send for an intercom quote?",
         answer:
-          "Send photos of the entry point, indoor station, existing wiring, gate or door area, and your suburb.",
+          "Send the suburb, property type, equipment model and the power or cabling issue around the door or gate. Confirm the authorised property contact; do not send entry codes, resident lists or passwords. Photos are optional: use only safe accessible positions with covers and enclosures closed. Do not climb, enter roof spaces, dig, open equipment or approach hazards for a photo. Never delay an emergency call to collect details.",
       },
     ],
     relatedServices: [
@@ -3436,7 +3537,17 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Supply-side electrical support for damaged point of attachment issues, overhead supply enquiries and defect notice work.",
     intro:
-      "The point of attachment is where the overhead service connects to the property. If it is damaged, loose, affected by storm damage or listed on a defect notice, Evaready Electrical can review the electrical side of the issue and explain the next action clearly.",
+      "The point of attachment supports the overhead service where it reaches the property. Keep clear of a damaged attachment and attached wires. Stay at least eight metres from fallen powerlines and anything touching them; call Triple Zero (000) for immediate danger and notify the distributor. Our licensed electricians assess repairs after the area is safe.",
+    scopeBoundary: "An attachment failure can involve the building structure as well as electrical equipment. We confirm the network-authorised scope and any building or engineering assessment before specifying a repair; replacing a bracket alone may not resolve the cause.",
+    serviceGuide: {
+      heading: "Check the support, cable loading and building structure.",
+      intro: "A pulled-away bracket, damaged fascia or changed cable clearance needs more than a visual tidy-up. Safe isolation, structural support and the service arrangement determine how the attachment can be repaired or relocated.",
+      sections: [
+        { title: "What the assessment covers", copy: "Once safe access is arranged, we review the accessible attachment, related service equipment and visible building damage. The support must suit the service loading. Where the structure is inadequate or uncertain, building repairs or an engineering assessment may be required.", items: ["Reported movement, storm damage or a defect notice", "Attachment location and service clearances", "Condition of the supporting structure and accessible wiring"] },
+        { title: "Agree the repair sequence", copy: "The plan identifies isolation, authorised service work, structural repairs and reconnection requirements. A relocation can change the route or clearances, so an existing arrangement is not automatically suitable to reuse.", items: ["Confirm responsibility for building repairs", "Arrange the required access and outage", "Test completed electrical work before the connection step"] },
+        { title: "Prepare an enquiry without approaching wires", copy: "Send the suburb, notice details and whether the supply remains connected. Describe visible damage from a safe position. Do not climb onto a roof, use a ladder near wires or get closer for a photograph.", items: ["Safe distant photos are optional", "Tell us about planned roof or fascia work", "Network approval and attendance remain separate requirements"] },
+      ],
+    },
     credentialHighlights: [
       "Point of attachment review",
       "Overhead service and defect support",
@@ -3483,7 +3594,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Is a damaged point of attachment urgent?",
         answer:
-          "It can be. If the service line looks damaged, loose, sparking or unsafe, keep clear and call directly before touching the area.",
+          "Yes. Keep clear of loose or damaged attachments and service wires; do not touch them. Stay at least eight metres from fallen powerlines and anything touching them. For fire, smoke or immediate danger, call Triple Zero (000) from safety first, then notify the electricity distributor. Arrange assessment only after the area has been made safe.",
       },
       {
         question: "Can a defect notice mention the point of attachment?",
@@ -3493,7 +3604,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "What should I send for a point of attachment quote?",
         answer:
-          "Send the defect notice, your suburb, photos of the overhead connection, switchboard, meter area and any visible damage if safe.",
+          "Send the suburb, a summary of any notice, whether supply is connected and what you observed from safety. Stay at least eight metres from fallen powerlines and anything touching them. Photos are optional: use only safe accessible positions with covers and enclosures closed. Do not climb, enter roof spaces, dig, open equipment or approach hazards for a photo. Never delay an emergency call to collect details.",
       },
       {
         question: "Can this involve a private power pole?",
@@ -3503,7 +3614,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Who should I call if the service line is fallen or dangerous?",
         answer:
-          "Keep clear and call emergency services or the relevant distributor first if there is immediate danger, fallen lines or life-threatening risk.",
+          "Stay at least eight metres from fallen powerlines and anything touching them. For fire, smoke or immediate danger, call Triple Zero (000) from safety first, then notify the electricity distributor. Do not approach the attachment or wires for a photo or wait for a quote response.",
       },
     ],
     relatedServices: [
@@ -3524,7 +3635,17 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Supply-side electrical support for overhead service line enquiries, storm damage, private poles and defect notice work.",
     intro:
-      "Overhead service issues need careful handling because they can involve the property connection, point of attachment, private poles, consumer mains and network requirements. Evaready Electrical can review overhead service enquiries and guide the correct next action.",
+      "Overhead service lines connect the electricity supply to a property and can remain live when damaged. Stay at least eight metres from fallen lines and anything touching them. Call Triple Zero (000) for immediate danger and notify the distributor before arranging repairs. Our licensed electricians review planned or made-safe service work within the required authorisation.",
+    scopeBoundary: "Overhead service work is not unrestricted work on the distribution network. We confirm asset ownership, the permitted activity and network requirements before accepting the electrical scope. Clearance or route changes may require additional approval.",
+    serviceGuide: {
+      heading: "Plan the service route, clearances and safe connection.",
+      intro: "An overhead enquiry may follow a storm, a defect notice, building work or a proposed supply change. The line, attachment, supporting pole and nearby work area must be considered together.",
+      sections: [
+        { title: "Assess the service arrangement", copy: "We review the accessible connection points, route, reported damage and property-side requirements after hazards are controlled. Cable clearances, road crossings, vegetation and proposed building work can affect the permitted arrangement.", items: ["Do not move branches, ladders or equipment near lines", "Tell us about planned construction or access equipment", "Warning sleeves on wires are not electrical insulation"] },
+        { title: "Define authorised work and enabling tasks", copy: "The agreed scope identifies service repair or alteration, supporting structure, isolation and any network involvement. An existing route cannot be promised for reuse before its clearances and support are assessed.", items: ["Separate network assets from customer-owned wiring", "Confirm attachment or private-pole work separately", "Agree access, outages and required notices"] },
+        { title: "Enquiry details and completion", copy: "Provide the suburb, whether power is connected, the reason for the work and any notice. Photos taken from a safe distance are optional. Testing and required records follow completed electrical work; network attendance and approvals cannot be promised.", items: ["Never approach a sagging line for a photo", "Mention shared supply and critical equipment", "Remove unrelated account details before sharing a notice"] },
+      ],
+    },
     credentialHighlights: [
       "Overhead service enquiries",
       "Point of attachment and private pole links",
@@ -3556,7 +3677,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
       {
         title: "Send safe photos",
-        text: "Photos of the service line, pole, point of attachment, switchboard and defect notice help the job be reviewed.",
+        text: "Describe the supply issue, suburb and any notice. Distant photos already available from safety are optional; do not approach wires, poles or damaged equipment.",
       },
       {
         title: "Check the electrical scope",
@@ -3571,7 +3692,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Who should I call if an overhead line is down?",
         answer:
-          "Keep clear and call emergency services or the relevant distributor first if there is immediate danger, fallen lines or life-threatening risk.",
+          "Stay at least eight metres from fallen powerlines and anything touching them. Do not approach the line. For fire, smoke or immediate danger, call Triple Zero (000) from safety first, then notify the electricity distributor. Do not wait for a quote response or collect photos.",
       },
       {
         question: "Can overhead service work involve Level 2 electrical work?",
@@ -3586,7 +3707,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "What photos help with an overhead service enquiry?",
         answer:
-          "Send photos of the service line, point of attachment, private pole if present, switchboard, meter area and any defect notice if it is safe.",
+          "Send the suburb, a summary of any notice, connection status and what you observed from safety. Stay at least eight metres from fallen powerlines and anything touching them. Photos are optional: use only safe accessible positions with covers and enclosures closed. Do not climb, enter roof spaces, dig, open equipment or approach hazards for a photo. Never delay an emergency call to collect details.",
       },
       {
         question: "Can you guarantee network attendance times?",
@@ -3613,7 +3734,17 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Supply-side electrical support for underground consumer mains, defect notices and service upgrade enquiries.",
     intro:
-      "Underground service mains can be involved in renovations, supply upgrades, defect notices, damaged consumer mains and property supply issues. Evaready Electrical can review the electrical scope and explain the right pathway before work proceeds.",
+      "Underground supply work can involve network service cables, customer mains and other buried utilities. Our licensed electricians assess the connection and proposed work before a route or repair is agreed. Do not dig to find a fault or touch an exposed cable. For a cable strike, fire or immediate danger, move clear, call Triple Zero (000) and notify the affected utility.",
+    scopeBoundary: "The underground service and customer mains are not interchangeable assets. Their ownership and connection points determine the required authorisation. Excavation, network-interface work and reinstatement need explicit scope; no live cable work is a customer task.",
+    serviceGuide: {
+      heading: "Locate the services and confirm the electrical boundary first.",
+      intro: "Renovations, driveways and supply upgrades can affect buried cables even when the original route is unclear. Plans are a starting point, not proof of the exact cable location or depth.",
+      sections: [
+        { title: "Review the supply and site information", copy: "We assess accessible switchboard and meter equipment, the proposed load, existing plans and the intended route. Current utility information, locating and site-specific precautions are needed before excavation is planned.", items: ["Identify existing services and property approvals", "Check entry points, access and surface conditions", "Do not undertake exploratory digging yourself"] },
+        { title: "Define electrical and civil work", copy: "A repair or upgrade may involve cable replacement, conduits, excavation and changes at the network connection. Required materials and installation details depend on the actual design and utility rules, not a universal trench-depth promise.", items: ["Confirm whether the agreed scope includes locating and excavation", "Itemise surface removal and reinstatement", "Plan isolation and any network-authorised connection work"] },
+        { title: "Quote details and completion limits", copy: "Send the suburb, planned works, proposed equipment loads and available non-sensitive route information. Mention known services and access constraints. Concealed obstructions may change the scope; testing, documentation and connection requirements still apply after installation.", items: ["Use only safe accessible photos with covers closed", "Agree treatment of unexpected buried conditions", "Supply capacity and approval are not guaranteed by cable replacement"] },
+      ],
+    },
     credentialHighlights: [
       "Underground supply enquiries",
       "Consumer mains and access planning",
@@ -3670,7 +3801,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "What details help with an underground service mains quote?",
         answer:
-          "Send photos of the switchboard, meter area, any notice, property access and the reason the supply work is being reviewed.",
+          "Send the suburb, reason for the underground supply review, any notice, known route information and access constraints. Do not dig to locate cables or obtain quote details. Photos are optional: use only safe accessible positions with covers and enclosures closed. Do not climb, enter roof spaces, dig, open equipment or approach hazards for a photo. Never delay an emergency call to collect details.",
       },
       {
         question: "Can excavation or renovations affect underground mains?",
@@ -3680,7 +3811,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Should I call if underground supply equipment looks unsafe?",
         answer:
-          "Yes. If there is no power, exposed wiring, heat, smoke, sparking or water-affected equipment, call first and keep clear.",
+          "Keep clear of exposed, damaged or water-affected supply equipment; do not touch cables or dig to inspect them. For a cable strike, fire, smoke or immediate danger, move to safety and call Triple Zero (000) first, then notify the affected utility. Once immediate danger is controlled, call Evaready about property-side assessment. Loss of power alone does not establish the cause.",
       },
     ],
     relatedServices: [
@@ -3702,7 +3833,17 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Electrical disconnect and reconnect planning for supply-side work, renovations, defect notices and service equipment changes.",
     intro:
-      "Some jobs need a safe disconnect and reconnect process before work can proceed, especially around consumer mains, metering, major renovations or supply-side equipment. Evaready Electrical can review the job and explain the right electrical pathway.",
+      "Renovations and supply-equipment repairs may require a planned supply disconnection, not just switching off one circuit. Our licensed electricians review the connection, authorised activities and outage arrangements. Do not remove service fuses or seals. For fire, exposed supply cables or immediate danger, move to safety and call Triple Zero (000).",
+    scopeBoundary: "Supply disconnection and reconnection are different from disconnecting an individual fixed appliance. We confirm the network permissions, metering involvement and testing needed for this job. Booking electrical work does not book a network outage or guarantee reconnection.",
+    serviceGuide: {
+      heading: "Agree the outage and reconnection conditions before work starts.",
+      intro: "A switchboard replacement, demolition stage or damaged service may need more isolation than the main switch provides. The safe isolation point and who may operate it depend on the connection arrangement.",
+      sections: [
+        { title: "Confirm why and where isolation is needed", copy: "We review the planned work, service type and equipment affected. Overhead and underground connections can require different authorisations. A restriction applying to one activity must not be treated as permission for all supply work.", items: ["State whether the disconnection is temporary or permanent", "Identify who disconnected an existing supply", "Confirm access and other work scheduled during the outage"] },
+        { title: "Plan for occupants and critical equipment", copy: "The outage plan needs to account for affected tenants, shared supplies, business operations and critical equipment. Tell us privately about essential supply needs; do not rely on an unconfirmed restoration time for life-support arrangements.", items: ["Coordinate with the retailer or distributor where required", "Agree notice and access responsibilities", "Do not connect a generator to property wiring yourself"] },
+        { title: "Testing before reconnection", copy: "Completed wiring work must be tested and relevant defects resolved before energisation. Documentation, provider attendance or additional approval may still be required. Send a summary of the job and notices first; safe photos are optional and covers must stay closed.", items: ["Define the scope of repair separately from connection work", "Confirm any outstanding defects or documentation", "Third-party approval and restoration timing are not guaranteed"] },
+      ],
+    },
     credentialHighlights: [
       "Disconnect and reconnect planning",
       "Supply-side electrical pathway",
@@ -3759,7 +3900,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "What should I send for disconnect and reconnect planning?",
         answer:
-          "Send photos of the switchboard, meter area, service connection, any notice or paperwork, plus the suburb and job deadline.",
+          "Send the suburb, reason for the planned disconnection or reconnection, present connection status and any notice or deadline. Share necessary provider instructions privately with unrelated account details removed. Photos are optional: use only safe accessible positions with covers and enclosures closed. Do not climb, enter roof spaces, dig, open equipment or approach hazards for a photo. Never delay an emergency call to collect details.",
       },
       {
         question: "Can renovations need disconnect and reconnect planning?",
@@ -3769,7 +3910,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "Should I use the booking form for an unsafe supply fault?",
         answer:
-          "No. If there is smoke, sparking, heat, burning smell, exposed equipment or no power, call first rather than waiting for a form response.",
+          "Do not use a booking form for an immediate hazard. Keep clear of exposed or damaged supply equipment; do not touch cables, fuses or seals. For fire, smoke or immediate danger, move to safety and call Triple Zero (000) first, then notify the electricity distributor about damaged supply equipment. Discuss repair and isolation requirements with Evaready after immediate danger is controlled.",
       },
     ],
     relatedServices: [
@@ -4109,7 +4250,17 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Testing and tagging support for workplaces, managed sites, appliances and practical electrical safety records.",
     intro:
-      "Testing and tagging helps workplaces and managed sites keep portable electrical equipment checks organised. Evaready Electrical can assist with testing, tagging, safety checks and related electrical notes for homes, businesses, strata and managed properties.",
+      "Portable-equipment testing and tagging helps a workplace organise checks of appliances, leads and plugs within an agreed inventory. Our licensed electricians confirm the equipment and records required before booking. Stop using damaged equipment; for fire, smoke or immediate danger, move to safety and call Triple Zero (000).",
+    scopeBoundary: "Testing and tagging concerns the equipment and checks included at that time. A tag is not a whole-property safety certificate or a guarantee against future faults. Required inspection intervals depend on equipment, use and the applicable workplace requirements, not one universal timetable.",
+    serviceGuide: {
+      heading: "Identify the equipment, checks and records the workplace needs.",
+      intro: "An office equipment list is different from a construction or other demanding work environment. The responsible site contact should identify the equipment, use conditions and applicable requirements so the testing scope is appropriate.",
+      sections: [
+        { title: "Prepare the equipment inventory", copy: "Agree approximate item numbers, types, locations and availability for inspection. Leads, plugs and equipment condition are considered within the testing scope. Fixed wiring, switchboard testing and a building-wide inspection must be requested separately.", items: ["Site type and equipment use", "Access and operational shutdown constraints", "Existing asset list or previous records where available"] },
+        { title: "Deal with defects and record results", copy: "Equipment found unsafe needs to be removed from use through the site's safety process. Testing does not automatically include repair. Agree identification, results, tags and the written records to be supplied so the responsible contact can follow up failed or inaccessible items.", items: ["Separate failed items from items not tested", "Record the equipment and tests actually included", "Confirm whether repair assessment is a separate quote"] },
+        { title: "Keep ongoing checks in perspective", copy: "Damage or a change in use can occur after testing, so a current tag is not a reason to ignore a damaged lead or unsafe appliance. Send the suburb, site type, approximate item count and scheduling constraints. For property condition findings, request the broader testing and reports service.", items: ["Do not keep using damaged equipment until the next visit", "Avoid a blanket interval without checking requirements", "Do not send employee lists or private equipment data publicly"] },
+      ],
+    },
     heroBullets: [
       "Testing and tagging",
       "Workplace electrical safety checks",
@@ -4181,7 +4332,17 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Internal phone outlet, communications cabling and data point support under the relevant cabling scope.",
     intro:
-      "Phone and communications cabling can be affected by renovations, damaged outlets, older cabling and internet changes. Evaready Electrical can assist with eligible internal phone line and communications cabling work under the relevant cabling scope.",
+      "Our registered cablers assess internal phone outlets and customer-side communications cabling affected by damage, renovations or equipment changes. We confirm the connection type and permitted work before altering outlets. Keep clear of damaged electrical equipment; for fire or immediate danger, move to safety and call Triple Zero (000).",
+    scopeBoundary: "Internal customer cabling is separate from carrier or NBN-owned equipment and the telecommunications service. Registration and the competencies required for the actual cabling are confirmed. Carrier repairs, activation, service restoration and internet speeds are not promised.",
+    serviceGuide: {
+      heading: "Establish whether the fault is inside the property or with the service.",
+      intro: "An old phone socket may not be used by the current connection technology. Moving a socket without understanding the service can leave equipment disconnected, so the existing setup and requested outcome need to be identified first.",
+      sections: [
+        { title: "Identify the connection and symptoms", copy: "We review the customer-side outlet arrangement, accessible cabling and equipment location. Service outages, activation problems and faults in carrier-owned equipment should be reported to the telecommunications provider rather than treated as an internal wiring repair.", items: ["Connection type and affected outlet locations", "Whether the issue followed building work or equipment changes", "Any provider advice about the internal cabling boundary"] },
+        { title: "Complete the agreed customer-cabling work", copy: "Eligible work can include outlet relocation, replacement or repair within the confirmed registration scope. Testing and required completion certification relate to that cabling; they do not certify the carrier network or guarantee a service outcome.", items: ["Confirm cable routes and property permissions", "Separate power work from telecommunications cabling", "Explain any issue outside the agreed boundary"] },
+        { title: "Send safe, relevant details", copy: "Provide the suburb, requested outlet changes and a description of the fault. Safe photos of closed outlets and equipment are optional. Do not open sockets, enter roof spaces or send account logins, router passwords or access codes.", items: ["Tell us whether the service has ever worked at this outlet", "Describe any recent changes", "Share necessary provider paperwork privately with unrelated details removed"] },
+      ],
+    },
     heroBullets: [
       "Internal phone outlets",
       "Communications cabling",
@@ -4205,7 +4366,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     process: [
       {
         title: "Confirm the cabling need",
-        text: "Share photos of the outlet, equipment, wall location and suburb so the job can be assessed.",
+        text: "Describe the outlet, equipment, room location and suburb. Photos of closed outlets from a safe accessible position are optional; do not inspect concealed or damaged cabling.",
       },
       {
         title: "Check cable pathways",
@@ -4233,7 +4394,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "What photos help with a phone line quote?",
         answer:
-          "Send photos of the outlet, modem or phone equipment, the room location, access points and any damaged cabling.",
+          "Send the suburb, affected room or outlet, connection type if known and a description of the fault. Do not send router passwords, account logins or access codes. Photos are optional: use only safe accessible positions with covers and enclosures closed. Do not climb, enter roof spaces, dig, open equipment or approach hazards for a photo. Never delay an emergency call to collect details.",
       },
     ],
     credentialHighlights: [approvedBusinessClaims.credentials.openCabler.approvedWording],
@@ -4248,12 +4409,22 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     slug: "intercom-installation-sydney",
     metaTitle: "Intercom Installation Sydney | Electrician",
     metaDescription:
-      "Intercom installation electrician in Sydney for homes, strata, entry systems, gate cabling and access control support.",
+      "Plan intercom power and cabling in Sydney. Installation, security permissions and commissioning responsibilities are confirmed for the proposed system.",
     title: "Intercom Installation Electrician Sydney & Surrounding Regions",
     description:
-      "Intercom installation, entry system wiring and access control electrical support for homes, strata and commercial sites.",
+      "Electrical power and eligible cabling support for intercom projects, subject to site and system compatibility and the required authorisations.",
     intro:
-      "A reliable intercom setup needs the right power, cabling pathway and entry-point planning. Evaready Electrical can assist with intercom installation wiring, replacement support, gate provisions and access control electrical work.",
+      "A new or replacement intercom needs compatible stations, suitable power and an understood cable route. Our licensed electricians assess the electrical requirements, with eligible communications and security-equipment work confirmed separately. Do not open powered equipment; for fire or immediate danger, move to safety and call Triple Zero (000).",
+    scopeBoundary: "A wiring assessment is not a promise to supply, program or commission every intercom system. Equipment compatibility, security licensing, cabling registration and property approvals must be confirmed for the accepted work. Existing cables cannot be promised suitable without assessment.",
+    serviceGuide: {
+      heading: "Check new or replacement intercom compatibility before installation.",
+      intro: "An additional indoor station, a replacement door unit and a complete system change are different jobs. Shared apartment systems can have central equipment and settings that cannot be altered through an individual unit enquiry.",
+      sections: [
+        { title: "Identify the existing and proposed system", copy: "We review the equipment model, intended station locations and accessible power and cable arrangements. The scope distinguishes electrical preparation from hardware supply, system programming, security work and commissioning.", items: ["New installation, replacement or fault", "Indoor and entry-station model details", "Shared-system ownership and authorised property contact"] },
+        { title: "Confirm compatibility and cable reuse", copy: "Older wiring is not automatically compatible with a proposed system. Cable condition, conductor requirements, route access and the manufacturer's specifications affect reuse. Confirm the permitted work and any building approval before replacing a station or changing shared equipment.", items: ["Agree what equipment is supplied", "Identify any separate security authority required", "Define testing and handover responsibilities"] },
+        { title: "Safe quote details and limits", copy: "Send the suburb, equipment model and desired station changes. Photos from normal accessible positions are optional; do not remove covers, climb or send passwords. Door or gate power beyond the station installation belongs in the broader access-control electrical scope.", items: ["No resident lists or entry codes in quote notes", "No guaranteed compatibility from a photograph", "Commissioning and ongoing support must be explicitly included"] },
+      ],
+    },
     heroBullets: [
       "Intercom installation wiring",
       "Gate and entry provisions",
@@ -4306,7 +4477,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "What should I send for an intercom quote?",
         answer:
-          "Send photos of the entry point, internal monitor area, existing wiring, gate or door hardware and your suburb.",
+          "Send the suburb, equipment model, proposed station changes and whether the system is shared. Confirm the authorised property contact; do not send access codes, resident lists or passwords. Photos are optional: use only safe accessible positions with covers and enclosures closed. Do not climb, enter roof spaces, dig, open equipment or approach hazards for a photo. Never delay an emergency call to collect details.",
       },
     ],
     relatedServices: [
@@ -4325,7 +4496,17 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "TV points, antenna outlets, wall cabling and tidy media electrical support for homes, apartments and renovations.",
     intro:
-      "TV and media areas work best when power, outlets and cabling are planned together. Evaready Electrical can assist with TV points, antenna outlets, wall-mount power, hidden cabling and tidy media setups.",
+      "An additional or relocated TV outlet needs a suitable connection to the property's existing antenna or media cabling. Our licensed electricians assess nearby power needs and the eligible cabling scope. Keep clear of damaged electrical fittings; for fire or immediate danger, move to safety and call Triple Zero (000).",
+    scopeBoundary: "An outlet installation does not guarantee broadcast reception or include rooftop antenna work, shared-system alterations or television mounting. Existing feeds, equipment and property permissions determine the work; regulated communications cabling needs the appropriate registration and competencies.",
+    serviceGuide: {
+      heading: "Assess the existing feed before adding or moving a TV point.",
+      intro: "A new room outlet, a damaged wall plate and missing channels are different requests. An outlet change may not solve a problem originating at the antenna, shared distribution system or television equipment.",
+      sections: [
+        { title: "Identify the outlet and connection need", copy: "We review accessible outlet locations, the existing feed and the proposed room layout. Apartment systems may belong to common property. A new connection or split needs assessment rather than an assumption that every feed can support more outlets.", items: ["Existing and proposed TV point locations", "Whether the issue affects one outlet or several", "Shared antenna or building-management requirements"] },
+        { title: "Scope cabling and power separately", copy: "The agreed work identifies outlet changes, cable routes, nearby electrical power and the checks included. Rooftop antenna replacement, reception diagnostics and shared-system work are not automatically part of the quote.", items: ["Confirm wall and cable-path access", "Agree any required making good", "Do not climb onto a roof to inspect an antenna"] },
+        { title: "Prepare the enquiry", copy: "Send the suburb, number of outlets and whether you need a new point, relocation or fault assessment. Safe photos of closed wall plates are optional. For a complete media-wall layout with concealed power and data routes, the wall-cabling page covers that broader planning purpose.", items: ["Describe existing equipment and known symptoms", "Keep outlet covers closed", "No promise of signal strength or streaming performance"] },
+      ],
+    },
     heroBullets: [
       "TV points and antenna outlets",
       "Wall-mount power and cabling",
@@ -4349,7 +4530,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     process: [
       {
         title: "Confirm the room layout",
-        text: "Share photos of the wall, TV position, nearby outlets and roof or wall access if known.",
+        text: "Describe the TV position, nearby outlets and known wall access. Photos of closed outlets from safe accessible positions are optional; do not enter roof spaces or investigate cavities.",
       },
       {
         title: "Plan cable routes",
@@ -4378,7 +4559,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "What photos help with a TV point quote?",
         answer:
-          "Send photos of the wall, existing outlets, TV location, roof or ceiling access and any current antenna point.",
+          "Send the suburb, number of TV outlets, proposed room locations and whether the request is a new point, relocation or fault. Describe known wall and cable access without investigating concealed areas. Photos are optional: use only safe accessible positions with covers and enclosures closed. Do not climb, enter roof spaces, dig, open equipment or approach hazards for a photo. Never delay an emergency call to collect details.",
       },
     ],
     relatedServices: [
@@ -5090,7 +5271,17 @@ export const serviceLandingPages: ServiceLandingPage[] = [
     description:
       "Meter area electrical support, switchboard preparation and service equipment checks for smart meter related enquiries.",
     intro:
-      "Smart meter work can involve the meter provider, retailer and the property electrical setup. Evaready Electrical can help with the electrical side: meter area checks, switchboard preparation, service equipment issues and clear guidance on what may need to happen next.",
+      "Your electricity retailer arranges smart-meter installation through its metering provider. Our licensed electricians assess property-side preparation or defects that prevent the planned meter work. Do not open a meter panel or remove seals. Keep clear of damaged equipment; for fire or immediate danger, move to safety and call Triple Zero (000).",
+    scopeBoundary: "This service covers the agreed property electrical work, not a promise to supply or commission the retailer's meter. Metering-provider appointments, tariff choices and billing questions remain with your retailer. Level 2 status alone does not establish metering-provider authority.",
+    serviceGuide: {
+      heading: "Resolve the preparation issue identified by the meter provider.",
+      intro: "A smart-meter appointment may reveal an unsuitable panel, wiring defect, access problem or required switchboard work. The provider's instructions help distinguish a customer electrical repair from the meter installation itself.",
+      sections: [
+        { title: "Check the requested preparation", copy: "We review the provider's stated issue and inspect the accessible board, panel, wiring and space relevant to that request. Older panels may contain asbestos; material assessment or removal must be planned separately rather than disturbed during an enquiry.", items: ["Existing solar, controlled loads and supply phases", "Access to shared or locked meter areas", "Whether power is already disconnected"] },
+        { title: "Agree work and provider responsibilities", copy: "The quote identifies electrical repairs or preparation, any required isolation and who arranges the return meter appointment. A new meter does not automatically include a free switchboard upgrade or resolve every wiring defect.", items: ["Clarify who supplies and commissions the meter", "Check required network-authorised work", "Separate retailer tariffs and billing from wiring work"] },
+        { title: "Prepare for the next appointment", copy: "After agreed work is tested, the required electrical records and any remaining issues are explained. Share the provider's request privately with unnecessary account information removed; optional photos must be safely accessible with all covers closed.", items: ["Give the suburb and requested appointment or deadline", "Do not send passwords, meter portal logins or access codes", "Retailer scheduling and tariff outcomes cannot be guaranteed"] },
+      ],
+    },
     heroBullets: [
       "Smart meter related enquiries",
       "Meter area checks",
@@ -5143,7 +5334,7 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       {
         question: "What should I send for a smart meter enquiry?",
         answer:
-          "Send provider notes, photos of the meter area and switchboard, your suburb, and any defect notice or deadline.",
+          "Send the suburb, the retailer or metering provider's requested preparation and any notice or deadline. Share necessary provider paperwork privately with unrelated account information removed; do not send meter-portal logins or access codes. Photos are optional: use only safe accessible positions with covers and enclosures closed. Do not climb, enter roof spaces, dig, open equipment or approach hazards for a photo. Never delay an emergency call to collect details.",
       },
     ],
     relatedServices: [

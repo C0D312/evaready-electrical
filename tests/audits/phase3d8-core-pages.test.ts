@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
-import { assertAndProjectSuburbReviewState } from "./phase3e1-register-baseline";
+import { assertCurrentRegisterContract, historicalRegister } from "./phase3e2-register-contract";
 import { createHash } from "node:crypto";
 import { electricalFaultPages } from "../../data/electrical-faults";
 import { createWholeSiteCompletionRegister, PHASE_3D5_3D9_LIVE_VERIFIED_SHA, phase3d8SelectedRoutes, phase3d9SelectedRoutes } from "../../scripts/whole-site-completion-register";
@@ -9,13 +9,14 @@ import { createWholeSiteCompletionRegister, PHASE_3D5_3D9_LIVE_VERIFIED_SHA, pha
 const files = ["app/page.tsx", "app/about/page.tsx", "app/contact/page.tsx", "app/privacy-policy/page.tsx", "app/terms/page.tsx", "app/electrical-faults/page.tsx"];
 const read = (file: string) => readFileSync(file, "utf8");
 
-test("core-page and later authorised location reviews preserve every other register row", () => {
+test("core-page historical isolation and current authorised register deltas remain independently protected", () => {
   const register = createWholeSiteCompletionRegister();
   const selected = new Set<string>([...phase3d8SelectedRoutes, ...phase3d9SelectedRoutes]);
-  const others = register.records.filter(row => !selected.has(row.route)).map(assertAndProjectSuburbReviewState);
+  const others = historicalRegister("publication").records.filter(row => !selected.has(row.route));
   assert.equal(others.length, 939);
   assert.equal(createHash("sha256").update(JSON.stringify(others)).digest("hex"), "33bc3c011c20244a6bce5712c6e47de4f43c765dbb1746966c17fda2cefe98ec");
   assert.equal(others.filter(row => row.publication === "live-verified" && row.publishedLiveVerifiedSha === PHASE_3D5_3D9_LIVE_VERIFIED_SHA).length, 21);
+  assertCurrentRegisterContract(register);
   for (const route of phase3d8SelectedRoutes) {
     const row = register.records.find(row => row.route === route)!;
     assert.equal(row.publication, "live-verified");

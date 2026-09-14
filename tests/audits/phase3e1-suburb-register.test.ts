@@ -6,11 +6,17 @@ import { coverageRegions } from "../../data/service-area-coverage";
 import { locationIndexationDecisionRegistry } from "../../data/location-indexation-decisions";
 import { createWholeSiteCompletionRegister } from "../../scripts/whole-site-completion-register";
 import { createSuburbIndexationRecommendations, phase3e1ReviewedRegions, phase3e1ReviewedRoutes } from "../../scripts/phase3e1-suburb-review";
+import { phase3e2SelectedRoutes } from "../../scripts/phase3e2-service-review";
 
-test("Phase 3E1 preserves all 128 non-suburb register records byte-semantically", () => {
+test("106 non-suburb records outside the explicit Phase 3E2 exception remain byte-semantically unchanged", () => {
   const rows = createWholeSiteCompletionRegister().records.filter(row => row.category !== "suburb");
   assert.equal(rows.length, 128);
-  assert.equal(createHash("sha256").update(JSON.stringify(rows)).digest("hex"), "5a02ff92eeb40fad97b2f6b37216adf649aae72057fcf8759394246bd22ecf45");
+  const authorised = new Set([...phase3e2SelectedRoutes, "/services"]);
+  assert.equal(authorised.size, 22);
+  const protectedRows = rows.filter(row => !authorised.has(row.route));
+  assert.equal(protectedRows.length, 106);
+  // Derived from the sealed 128-row Phase 3E1 baseline, not from the candidate.
+  assert.equal(createHash("sha256").update(JSON.stringify(protectedRows)).digest("hex"), "23241b4786c6100a84fecf8420318b4f7bf75a34ad877f4f0a5aeb47ea9c9be8");
 });
 
 test("suburb checkpoint states cannot imply publication or owner approval", () => {

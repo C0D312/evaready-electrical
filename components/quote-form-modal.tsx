@@ -75,6 +75,35 @@ export function QuoteFormModal() {
   const openRef = useRef(false);
   const modalHistoryPushedRef = useRef(false);
   const historyCloseFallbackRef = useRef<number | null>(null);
+  const restorationGenerationRef = useRef(0);
+  const restorationFrameRef = useRef<number | null>(null);
+  const restorationCleanupRef = useRef<(() => void) | null>(null);
+  const mountedRef = useRef(true);
+  const openerUrlRef = useRef("");
+  const boundaryGenerationRef = useRef(0);
+
+  const cancelBoundaryTransfer = useCallback(() => {
+    boundaryGenerationRef.current += 1;
+  }, []);
+
+  const cancelRestoration = useCallback(() => {
+    restorationGenerationRef.current += 1;
+    if (restorationFrameRef.current !== null) {
+      window.cancelAnimationFrame(restorationFrameRef.current);
+      restorationFrameRef.current = null;
+    }
+    restorationCleanupRef.current?.();
+    restorationCleanupRef.current = null;
+  }, []);
+
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+      cancelBoundaryTransfer();
+      cancelRestoration();
+    };
+  }, [cancelBoundaryTransfer, cancelRestoration]);
 
   const removeQuoteModalHistoryMarker = useCallback(() => {
     if (window.history.state?.quoteModal !== true) {
@@ -94,6 +123,12 @@ export function QuoteFormModal() {
       return;
     }
 
+    cancelRestoration();
+    const generation = restorationGenerationRef.current;
+    const opener = openerRef.current;
+    const url = openerUrlRef.current;
+    const closingDialog = dialogRef.current;
+
     const html = document.documentElement;
     const body = document.body;
 
@@ -109,16 +144,51 @@ export function QuoteFormModal() {
     body.style.right = locked.bodyRight;
     body.style.width = locked.bodyWidth;
     window.scrollTo(locked.scrollX, locked.scrollY);
+    html.style.scrollBehavior = locked.htmlScrollBehavior;
 
-    if (openerRef.current?.isConnected) {
-      openerRef.current.focus({ preventScroll: true });
+    if (!mountedRef.current || !opener?.isConnected || window.location.href !== url) return;
+    opener.focus({ preventScroll: true });
+
+    const fragmentLandmark = window.location.hash === "#main-content"
+      ? document.querySelector('main#main-content[tabindex="-1"]') : null;
+    const isPlaceholder = (target: Node | null) => target === body || target === html ||
+      !!closingDialog?.contains(target) || (!!fragmentLandmark && target === fragmentLandmark);
+    function preserveIntentionalFocus(event: FocusEvent) {
+      const target = event.target;
+      if (target instanceof Node && target !== opener && !isPlaceholder(target)) {
+        cancelRestoration();
+      }
     }
-
-    window.requestAnimationFrame(() => {
-      window.scrollTo(locked.scrollX, locked.scrollY);
-      html.style.scrollBehavior = locked.htmlScrollBehavior;
+    function cancelAfterNavigation() {
+      if (window.location.href !== url) cancelRestoration();
+    }
+    document.addEventListener("focusin", preserveIntentionalFocus, true);
+    document.addEventListener("pointerdown", cancelRestoration, true);
+    document.addEventListener("keydown", cancelRestoration, true);
+    window.addEventListener("hashchange", cancelAfterNavigation);
+    window.addEventListener("pagehide", cancelRestoration);
+    restorationCleanupRef.current = () => {
+      document.removeEventListener("focusin", preserveIntentionalFocus, true);
+      document.removeEventListener("pointerdown", cancelRestoration, true);
+      document.removeEventListener("keydown", cancelRestoration, true);
+      window.removeEventListener("hashchange", cancelAfterNavigation);
+      window.removeEventListener("pagehide", cancelRestoration);
+    };
+    // Native fragment history can clear the synchronous focus after popstate.
+    restorationFrameRef.current = window.requestAnimationFrame(() => {
+      if (generation !== restorationGenerationRef.current) return;
+      restorationFrameRef.current = null;
+      cancelRestoration();
+      const active = document.activeElement;
+      if (!mountedRef.current || openRef.current || scrollLockRef.current ||
+          window.location.href !== url || !opener.isConnected || !opener.getClientRects().length ||
+          opener.matches(":disabled") || opener.closest('[inert], [aria-hidden="true"]') || body.style.position === "fixed" ||
+          body.classList.contains("mobile-menu-open") || body.classList.contains("quote-modal-open") ||
+          (active !== opener && !isPlaceholder(active))) return;
+      window.scrollTo({ left: locked.scrollX, top: locked.scrollY, behavior: "instant" });
+      if (active !== opener) opener.focus({ preventScroll: true });
     });
-  }, []);
+  }, [cancelRestoration]);
 
   const releaseBackgroundInert = useCallback(() => {
     const snapshots = backgroundInertRef.current;
@@ -166,13 +236,36 @@ export function QuoteFormModal() {
     });
   }, []);
 
-  const focusLastModalControl = useCallback(() => {
-    getModalFocusableControls(panelRef.current).at(-1)?.focus({
-      preventScroll: true,
+  const focusBoundaryControl = useCallback((target: HTMLElement | undefined) => {
+    if (!target) return;
+    cancelBoundaryTransfer();
+    const generation = boundaryGenerationRef.current;
+    const source = document.activeElement;
+    const dialog = dialogRef.current;
+    const url = window.location.href;
+    const historyLength = window.history.length;
+    target.focus({ preventScroll: true });
+    if (!(target instanceof HTMLIFrameElement) || document.activeElement === target) return;
+
+    // Firefox can ignore iframe focus during native reverse-Tab dispatch.
+    queueMicrotask(() => {
+      const active = document.activeElement;
+      if (generation !== boundaryGenerationRef.current || !mountedRef.current || !openRef.current ||
+          !dialog?.isConnected || dialogRef.current !== dialog || !target.isConnected || !dialog.contains(target) ||
+          !target.getClientRects().length || target.closest('[inert], [aria-hidden="true"]') ||
+          window.location.href !== url || window.history.length !== historyLength || window.history.state?.quoteModal !== true ||
+          !document.body.classList.contains("quote-modal-open") || document.body.classList.contains("mobile-menu-open") ||
+          (active !== source && active !== document.body && active !== document.documentElement)) return;
+      target.focus({ preventScroll: true });
     });
-  }, []);
+  }, [cancelBoundaryTransfer]);
+
+  const focusLastModalControl = useCallback(() => {
+    focusBoundaryControl(getModalFocusableControls(panelRef.current).at(-1));
+  }, [focusBoundaryControl]);
 
   const finishClose = useCallback(() => {
+    cancelBoundaryTransfer();
     if (historyCloseFallbackRef.current !== null) {
       window.clearTimeout(historyCloseFallbackRef.current);
       historyCloseFallbackRef.current = null;
@@ -183,9 +276,10 @@ export function QuoteFormModal() {
     releaseBackgroundInert();
     setOpen(false);
     releaseScrollLock();
-  }, [releaseBackgroundInert, releaseScrollLock]);
+  }, [cancelBoundaryTransfer, releaseBackgroundInert, releaseScrollLock]);
 
   const close = useCallback((syncHistory = true) => {
+    cancelBoundaryTransfer();
     if (!openRef.current && !scrollLockRef.current) {
       return;
     }
@@ -207,7 +301,7 @@ export function QuoteFormModal() {
     }
 
     finishClose();
-  }, [finishClose, removeQuoteModalHistoryMarker]);
+  }, [cancelBoundaryTransfer, finishClose, removeQuoteModalHistoryMarker]);
 
   const openModal = useCallback((
     opener: HTMLElement,
@@ -216,6 +310,10 @@ export function QuoteFormModal() {
     if (openRef.current) {
       return;
     }
+
+    cancelBoundaryTransfer();
+    cancelRestoration();
+    openerUrlRef.current = window.location.href;
 
     const currentState =
       window.history.state && typeof window.history.state === "object"
@@ -241,7 +339,7 @@ export function QuoteFormModal() {
     openerRef.current = opener;
     openRef.current = true;
     setOpen(true);
-  }, []);
+  }, [cancelBoundaryTransfer, cancelRestoration]);
 
   useEffect(() => {
     function handleClick(event: MouseEvent) {
@@ -410,7 +508,7 @@ export function QuoteFormModal() {
 
       if (event.shiftKey && document.activeElement === first) {
         event.preventDefault();
-        last.focus();
+        focusBoundaryControl(last);
       } else if (!event.shiftKey && document.activeElement === last) {
         event.preventDefault();
         first.focus();
@@ -418,13 +516,28 @@ export function QuoteFormModal() {
     }
 
     document.addEventListener("focusin", keepFocusInside, true);
+    document.addEventListener("focusin", cancelBoundaryTransfer, true);
+    document.addEventListener("focusout", cancelBoundaryTransfer, true);
+    document.addEventListener("keydown", cancelBoundaryTransfer, true);
+    document.addEventListener("pointerdown", cancelBoundaryTransfer, true);
+    window.addEventListener("hashchange", cancelBoundaryTransfer);
+    window.addEventListener("popstate", cancelBoundaryTransfer);
+    window.addEventListener("pagehide", cancelBoundaryTransfer);
     window.addEventListener("keydown", closeOnEscape);
     window.addEventListener("resize", syncViewportHeight);
     window.visualViewport?.addEventListener("resize", syncViewportHeight);
     window.visualViewport?.addEventListener("scroll", syncViewportHeight);
 
     return () => {
+      cancelBoundaryTransfer();
       document.removeEventListener("focusin", keepFocusInside, true);
+      document.removeEventListener("focusin", cancelBoundaryTransfer, true);
+      document.removeEventListener("focusout", cancelBoundaryTransfer, true);
+      document.removeEventListener("keydown", cancelBoundaryTransfer, true);
+      document.removeEventListener("pointerdown", cancelBoundaryTransfer, true);
+      window.removeEventListener("hashchange", cancelBoundaryTransfer);
+      window.removeEventListener("popstate", cancelBoundaryTransfer);
+      window.removeEventListener("pagehide", cancelBoundaryTransfer);
       window.removeEventListener("keydown", closeOnEscape);
       window.removeEventListener("resize", syncViewportHeight);
       window.visualViewport?.removeEventListener("resize", syncViewportHeight);
@@ -434,7 +547,9 @@ export function QuoteFormModal() {
     };
   }, [
     applyBackgroundInert,
+    cancelBoundaryTransfer,
     close,
+    focusBoundaryControl,
     focusFirstModalControl,
     open,
     releaseBackgroundInert,

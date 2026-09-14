@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import test from "node:test";
-import { assertAndProjectSuburbReviewState } from "./phase3e1-register-baseline";
+import { assertCurrentRegisterContract, historicalRegister } from "./phase3e2-register-contract";
 import { coverageRegions } from "../../data/service-area-coverage";
 import { absoluteUrl, business } from "../../data/site";
 import { createWholeSiteCompletionRegister, PHASE_3D5_3D9_LIVE_VERIFIED_SHA, phase3d5SelectedRoutes, phase3d6SelectedRoutes, phase3d7SelectedRoutes, phase3d8SelectedRoutes, phase3d9SelectedRoutes } from "../../scripts/whole-site-completion-register";
@@ -22,18 +22,28 @@ test("the scope is exactly one index, sixteen regions and thirty-nine areas", ()
   assert.equal(records.filter(row => row.category === "suburb" && selected.has(row.route)).length, 0);
 });
 
-test("all 945 other records retain their baseline outside explicitly asserted suburb review states", () => {
+test("945 historical rows retain their baseline and current rows satisfy the independent full-row contract", () => {
   const records = createWholeSiteCompletionRegister().records;
-  const others = records.filter(row => !selected.has(row.route)).map(assertAndProjectSuburbReviewState);
+  const historical = historicalRegister("publication").records;
+  const others = historical.filter(row => !selected.has(row.route));
   assert.equal(others.length, 945);
   assert.equal(hash(others), "90877fc29a6c2d89501a3b313814be2a2fcfef0228c29ed14f004200da68d6e1");
-  const suburbs = records.filter(row => row.category === "suburb").map(assertAndProjectSuburbReviewState);
+  const suburbs = historical.filter(row => row.category === "suburb");
   assert.equal(suburbs.length, 873);
   assert.equal(hash(suburbs), "27eea24ac3f908989a572338464109442312a101830f0d3e46c592e0cdc1d332");
+  assertCurrentRegisterContract(createWholeSiteCompletionRegister());
   const earlier = [...phase3d5SelectedRoutes, ...phase3d6SelectedRoutes, ...phase3d7SelectedRoutes, ...phase3d8SelectedRoutes];
   assert.equal(earlier.length, 27);
   for (const route of [...earlier, ...selected]) {
+    const released = historical.find(row => row.route === route)!;
+    assert.equal(released.publication, "live-verified", route);
+    assert.equal(released.publishedLiveVerifiedSha, PHASE_3D5_3D9_LIVE_VERIFIED_SHA, route);
     const row = records.find(row => row.route === route)!;
+    if (route === "/services") {
+      assert.equal(row.publication, "pending");
+      assert.equal(row.publishedLiveVerifiedSha, null);
+      continue;
+    }
     assert.equal(row.publication, "live-verified", route);
     assert.equal(row.publishedLiveVerifiedSha, PHASE_3D5_3D9_LIVE_VERIFIED_SHA, route);
   }

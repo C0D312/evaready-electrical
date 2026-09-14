@@ -470,7 +470,11 @@ function SiteFooter() {
             Copyright &copy; <CurrentYear /> Evaready Electrical. All rights reserved.
           </p>
           <div className="ev-footer-legal-links">
-            {legalLinks.map((link) => (
+            {legalLinks.map((link) => link.href === "/sitemap.xml" ? (
+              <a key={link.href} href={assetPath(link.href)} className="footer-link ev-footer-legal-link">
+                {link.label}
+              </a>
+            ) : (
               <Link key={link.href} href={link.href} className="footer-link ev-footer-legal-link">
                 {link.label}
               </Link>

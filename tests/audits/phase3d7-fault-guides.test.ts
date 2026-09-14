@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import test from "node:test";
-import { phase3e1ReviewedRoutes } from "../../scripts/phase3e1-suburb-review";
+import { assertCurrentRegisterContract, historicalRegister } from "./phase3e2-register-contract";
 import { electricalFaultPages } from "../../data/electrical-faults";
 import { createWholeSiteCompletionRegister, PHASE_3D5_3D9_LIVE_VERIFIED_SHA, phase3d7SelectedRoutes } from "../../scripts/whole-site-completion-register";
 
@@ -56,6 +56,10 @@ test("reviewed fault guides record their separately approved and verified releas
     assert.equal(row?.publication, "live-verified");
     assert.equal(row?.publishedLiveVerifiedSha, PHASE_3D5_3D9_LIVE_VERIFIED_SHA);
   }
-  assert.deepEqual(register.counts.individualReview, { pending: 894 - phase3e1ReviewedRoutes.size, reviewed: 107 + phase3e1ReviewedRoutes.size });
-  assert.deepEqual(register.counts.publication, { "live-verified": 128, pending: 873 });
+  const before = historicalRegister("before3e2");
+  assert.deepEqual(before.counts.individualReview, { pending: 21, reviewed: 980 });
+  assert.deepEqual(before.counts.publication, { "live-verified": 128, pending: 873 });
+  assert.deepEqual(register.counts.individualReview, { pending: 0, reviewed: 1001 });
+  assert.deepEqual(register.counts.publication, { "live-verified": 106, pending: 895 });
+  assertCurrentRegisterContract(register);
 });

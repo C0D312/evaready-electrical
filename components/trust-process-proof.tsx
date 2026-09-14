@@ -36,6 +36,7 @@ type TrustProcessProofProps = {
   locality?: string;
   serviceName?: string;
   variant?: TrustProcessProofVariant;
+  scopeBoundary?: string;
 };
 
 const baseProofItems: ProofItem[] = [
@@ -309,9 +310,18 @@ export function TrustProcessProof({
   locality,
   serviceName,
   variant = "general",
+  scopeBoundary,
 }: TrustProcessProofProps) {
-  const proofItems = getProofItems(variant);
-  const checklistGroups = checklistGroupsByVariant[variant];
+  const proofItems: ProofItem[] = scopeBoundary ? [
+    { title: "Confirm the work", text: "Our licensed electricians confirm the work and the specialist authorisations relevant to the accepted scope before starting.", icon: ShieldCheck },
+    { title: "Explain the findings", text: "The assessment identifies accessible conditions, necessary work and anything that needs further investigation.", icon: Wrench },
+    { title: "Agree the next step", text: "A quote request does not confirm attendance, third-party approval or a completed booking. Scope and timing are confirmed separately.", icon: ClipboardCheck },
+    { title: "Test and hand over", text: "Completed work is checked within the agreed scope, with required records and any remaining limitations explained.", icon: FileText },
+  ] : getProofItems(variant);
+  const checklistGroups: ChecklistGroup[] = scopeBoundary ? [
+    { title: "Useful first details", items: ["Suburb, property type and the reason for the enquiry", "Equipment details or a summary of relevant instructions", "Whether the work is planned or there is an unsafe fault"] },
+    { title: "Keep the enquiry safe", items: ["Notes are enough to start; safe photos are optional", "Do not open covers, climb or approach electrical hazards", "Do not send passwords, access codes or unrelated private documents"] },
+  ] : checklistGroupsByVariant[variant];
 
   return (
     <section
@@ -322,21 +332,21 @@ export function TrustProcessProof({
         <div className="grid gap-8 lg:grid-cols-[0.76fr_1.24fr] lg:items-start">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">
-              Trust and process
+              {scopeBoundary ? "Scope and process" : "Trust and process"}
             </p>
             <h2
               id={`trust-process-proof-${variant}`}
               className={`${compact ? "mt-3 text-3xl sm:text-4xl" : "mt-3 text-3xl sm:text-5xl"} max-w-4xl font-black leading-tight tracking-tight`}
             >
-              {getHeading(variant, serviceName, locality)}
+              {scopeBoundary ? "Clear scope before work starts." : getHeading(variant, serviceName, locality)}
             </h2>
             <p className="mt-4 max-w-3xl text-base font-semibold leading-7 text-slate-300 sm:text-lg">
-              {getIntro(variant, serviceName, locality)}
+              {scopeBoundary ?? getIntro(variant, serviceName, locality)}
             </p>
             <p className="mt-5 rounded-2xl border border-red-300/25 bg-red-500/10 p-4 text-sm font-bold leading-6 text-red-50">
-              For burning smells, smoke, sparking, power loss, wet electrical
+              {scopeBoundary ? "For fire, smoke or immediate danger, move to safety and call Triple Zero (000). Keep clear of damaged electrical equipment; arrange electrical assessment after the immediate risk is controlled." : <>For burning smells, smoke, sparking, power loss, wet electrical
               equipment or unsafe wiring, call first. For life-threatening
-              danger, keep clear and call emergency services first.
+              danger, keep clear and call emergency services first.</>}
             </p>
           </div>
 

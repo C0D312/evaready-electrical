@@ -14,17 +14,17 @@
       "suburb": 873
     },
     "individualReview": {
-      "pending": 21,
-      "reviewed": 980
+      "pending": 0,
+      "reviewed": 1001
     },
     "publication": {
-      "live-verified": 128,
-      "pending": 873
+      "live-verified": 106,
+      "pending": 895
     },
     "rewrite": {
-      "held": 21,
+      "held": 0,
       "pending": 0,
-      "rewritten": 980,
+      "rewritten": 1001,
       "sufficient": 0
     },
     "totalRoutes": 1001
@@ -356,20 +356,22 @@
       "template": "emergency page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
       "claimOwnerEvidence": "held",
-      "individualSemanticContentReview": "pending",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Owner credential evidence is required before specialist-content changes."
+        "Owner documentary evidence remains required for current licence scope and any specialist authorisation relevant to the accepted work.",
+        "Confirm the permitted service activity, current network authorisation, asset boundary and any metering-provider involvement before work is accepted.",
+        "Phase 3E2 changes require separate exact-SHA release approval and live verification."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "held",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/level-2-electrician-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "app/level-2-electrician-sydney/page.tsx",
       "template": "level 2 page"
     },
@@ -18920,9 +18922,11 @@
       "category": "service-index",
       "claimOwnerEvidence": "reviewed",
       "individualSemanticContentReview": "reviewed",
-      "outstandingHolds": [],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "e6197fcd00747ae86cabfff675516176c9e66ec6",
+      "outstandingHolds": [
+        "Phase 3E2 changes exactly two derived OfferCatalog descriptions, not a new individual page review. Previous live verification: e6197fcd00747ae86cabfff675516176c9e66ec6. Separate exact-SHA release approval and live verification are required."
+      ],
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/services",
@@ -18948,20 +18952,22 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
       "claimOwnerEvidence": "held",
-      "individualSemanticContentReview": "pending",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Owner credential evidence is required before specialist-content changes."
+        "Owner documentary evidence remains required for current licence scope and any specialist authorisation relevant to the accepted work.",
+        "Security-equipment authority and applicable business licensing arrangement are unverified; electrical/cabling statements do not establish permission for security installation or advice.",
+        "Phase 3E2 changes require separate exact-SHA release approval and live verification."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "held",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/cctv-security-camera-installation-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#cctv-security-camera-installation-sydney",
       "template": "service page"
     },
@@ -19014,74 +19020,82 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
       "claimOwnerEvidence": "held",
-      "individualSemanticContentReview": "pending",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Owner credential evidence is required before specialist-content changes."
+        "Owner documentary evidence remains required for current licence scope and any specialist authorisation relevant to the accepted work.",
+        "Confirm the permitted service activity, current network authorisation, asset boundary and any metering-provider involvement before work is accepted.",
+        "Phase 3E2 changes require separate exact-SHA release approval and live verification."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "held",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/consumer-mains-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#consumer-mains-sydney",
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
       "claimOwnerEvidence": "held",
-      "individualSemanticContentReview": "pending",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Owner credential evidence is required before specialist-content changes."
+        "Owner documentary evidence remains required for current licence scope and any specialist authorisation relevant to the accepted work.",
+        "Confirm current cabling registration and additional competencies; carrier, rooftop antenna, mounting and reception work are not inferred.",
+        "Phase 3E2 changes require separate exact-SHA release approval and live verification."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "held",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/data-cabling-electrician-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#data-cabling-electrician-sydney",
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
       "claimOwnerEvidence": "held",
-      "individualSemanticContentReview": "pending",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Owner credential evidence is required before specialist-content changes."
+        "Owner documentary evidence remains required for current licence scope and any specialist authorisation relevant to the accepted work.",
+        "Confirm the permitted service activity, current network authorisation, asset boundary and any metering-provider involvement before work is accepted.",
+        "Phase 3E2 changes require separate exact-SHA release approval and live verification."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "held",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/defect-notice-repairs-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#defect-notice-repairs-sydney",
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
       "claimOwnerEvidence": "held",
-      "individualSemanticContentReview": "pending",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Owner credential evidence is required before specialist-content changes."
+        "Owner documentary evidence remains required for current licence scope and any specialist authorisation relevant to the accepted work.",
+        "Confirm the permitted service activity, current network authorisation, asset boundary and any metering-provider involvement before work is accepted.",
+        "Phase 3E2 changes require separate exact-SHA release approval and live verification."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "held",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/disconnect-reconnect-electrician-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#disconnect-reconnect-electrician-sydney",
       "template": "service page"
     },
@@ -19150,20 +19164,22 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate demand, backlink, canonical and redirect review is required before consolidation."
+        "Owner documentary evidence remains required for current licence scope and any specialist authorisation relevant to the accepted work.",
+        "Confirm the actual property-report and portable-equipment testing deliverables; no whole-property certification is implied by a tag.",
+        "Phase 3E2 changes require separate exact-SHA release approval and live verification."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "held",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/electrical-testing-tagging-reports-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#electrical-testing-tagging-reports-sydney",
       "template": "service page"
     },
@@ -19232,38 +19248,44 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate demand, backlink, canonical and redirect review is required before consolidation."
+        "Owner documentary evidence remains required for current licence scope and any specialist authorisation relevant to the accepted work.",
+        "Security-equipment authority and applicable business licensing arrangement are unverified; electrical/cabling statements do not establish permission for security installation or advice.",
+        "Confirm security authority, actual installation/commissioning scope and legitimate query demand before a consolidation decision.",
+        "Phase 3E2 changes require separate exact-SHA release approval and live verification."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "held",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/intercom-access-control-electrician-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#intercom-access-control-electrician-sydney",
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate demand, backlink, canonical and redirect review is required before consolidation."
+        "Owner documentary evidence remains required for current licence scope and any specialist authorisation relevant to the accepted work.",
+        "Security-equipment authority and applicable business licensing arrangement are unverified; electrical/cabling statements do not establish permission for security installation or advice.",
+        "Confirm security authority, actual installation/commissioning scope and legitimate query demand before a consolidation decision.",
+        "Phase 3E2 changes require separate exact-SHA release approval and live verification."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "held",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/intercom-installation-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#intercom-installation-sydney",
       "template": "service page"
     },
@@ -19284,20 +19306,22 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
       "claimOwnerEvidence": "held",
-      "individualSemanticContentReview": "pending",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Owner credential evidence is required before specialist-content changes."
+        "Owner documentary evidence remains required for current licence scope and any specialist authorisation relevant to the accepted work.",
+        "Confirm the permitted service activity, current network authorisation, asset boundary and any metering-provider involvement before work is accepted.",
+        "Phase 3E2 changes require separate exact-SHA release approval and live verification."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "held",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/metering-services-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#metering-services-sydney",
       "template": "service page"
     },
@@ -19318,56 +19342,62 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
       "claimOwnerEvidence": "held",
-      "individualSemanticContentReview": "pending",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Owner credential evidence is required before specialist-content changes."
+        "Owner documentary evidence remains required for current licence scope and any specialist authorisation relevant to the accepted work.",
+        "Confirm the permitted service activity, current network authorisation, asset boundary and any metering-provider involvement before work is accepted.",
+        "Phase 3E2 changes require separate exact-SHA release approval and live verification."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "held",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/overhead-service-lines-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#overhead-service-lines-sydney",
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
       "claimOwnerEvidence": "held",
-      "individualSemanticContentReview": "pending",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Owner credential evidence is required before specialist-content changes."
+        "Owner documentary evidence remains required for current licence scope and any specialist authorisation relevant to the accepted work.",
+        "Confirm current cabling registration and additional competencies; carrier, rooftop antenna, mounting and reception work are not inferred.",
+        "Phase 3E2 changes require separate exact-SHA release approval and live verification."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "held",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/phone-line-electrician-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#phone-line-electrician-sydney",
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
       "claimOwnerEvidence": "held",
-      "individualSemanticContentReview": "pending",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Owner credential evidence is required before specialist-content changes."
+        "Owner documentary evidence remains required for current licence scope and any specialist authorisation relevant to the accepted work.",
+        "Confirm the permitted service activity, current network authorisation, asset boundary and any metering-provider involvement before work is accepted.",
+        "Phase 3E2 changes require separate exact-SHA release approval and live verification."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "held",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/point-of-attachment-repairs-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#point-of-attachment-repairs-sydney",
       "template": "service page"
     },
@@ -19404,20 +19434,22 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
       "claimOwnerEvidence": "held",
-      "individualSemanticContentReview": "pending",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Owner credential evidence is required before specialist-content changes."
+        "Owner documentary evidence remains required for current licence scope and any specialist authorisation relevant to the accepted work.",
+        "Confirm the permitted service activity, current network authorisation, asset boundary and any metering-provider involvement before work is accepted.",
+        "Phase 3E2 changes require separate exact-SHA release approval and live verification."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "held",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/private-power-pole-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#private-power-pole-sydney",
       "template": "service page"
     },
@@ -19518,20 +19550,22 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
       "claimOwnerEvidence": "held",
-      "individualSemanticContentReview": "pending",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Owner credential evidence is required before specialist-content changes."
+        "Owner documentary evidence remains required for current licence scope and any specialist authorisation relevant to the accepted work.",
+        "Confirm the permitted service activity, current network authorisation, asset boundary and any metering-provider involvement before work is accepted.",
+        "Phase 3E2 changes require separate exact-SHA release approval and live verification."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "held",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/smart-meter-electrician-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#smart-meter-electrician-sydney",
       "template": "service page"
     },
@@ -19552,20 +19586,22 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
       "claimOwnerEvidence": "held",
-      "individualSemanticContentReview": "pending",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Owner credential evidence is required before specialist-content changes."
+        "Owner documentary evidence remains required for current licence scope and any specialist authorisation relevant to the accepted work.",
+        "Confirm electrical versus refrigerant work, NSW air-conditioning scope and ARC permissions for the actual equipment; no unrestricted refrigeration inference.",
+        "Phase 3E2 changes require separate exact-SHA release approval and live verification."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "held",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/split-system-air-conditioning-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#split-system-air-conditioning-sydney",
       "template": "service page"
     },
@@ -19634,20 +19670,22 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate demand, backlink, canonical and redirect review is required before consolidation."
+        "Owner documentary evidence remains required for current licence scope and any specialist authorisation relevant to the accepted work.",
+        "Confirm the actual property-report and portable-equipment testing deliverables; no whole-property certification is implied by a tag.",
+        "Phase 3E2 changes require separate exact-SHA release approval and live verification."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "held",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/testing-and-tagging-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#testing-and-tagging-sydney",
       "template": "service page"
     },
@@ -19668,74 +19706,84 @@
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate demand, backlink, canonical and redirect review is required before consolidation."
+        "Owner documentary evidence remains required for current licence scope and any specialist authorisation relevant to the accepted work.",
+        "Confirm current cabling registration and additional competencies; carrier, rooftop antenna, mounting and reception work are not inferred.",
+        "Review actual media/outlet scope, demand and backlinks before selecting any future surviving URL or redirect. No reception or rooftop capability is inferred.",
+        "Phase 3E2 changes require separate exact-SHA release approval and live verification."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "held",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/tv-antenna-wall-cabling-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#tv-antenna-wall-cabling-sydney",
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
-      "claimOwnerEvidence": "automated-only",
-      "individualSemanticContentReview": "pending",
+      "claimOwnerEvidence": "held",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Separate demand, backlink, canonical and redirect review is required before consolidation."
+        "Owner documentary evidence remains required for current licence scope and any specialist authorisation relevant to the accepted work.",
+        "Confirm current cabling registration and additional competencies; carrier, rooftop antenna, mounting and reception work are not inferred.",
+        "Review actual media/outlet scope, demand and backlinks before selecting any future surviving URL or redirect. No reception or rooftop capability is inferred.",
+        "Phase 3E2 changes require separate exact-SHA release approval and live verification."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "held",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/tv-points-antenna-electrician-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#tv-points-antenna-electrician-sydney",
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
       "claimOwnerEvidence": "held",
-      "individualSemanticContentReview": "pending",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Owner credential evidence is required before specialist-content changes."
+        "Owner documentary evidence remains required for current licence scope and any specialist authorisation relevant to the accepted work.",
+        "Confirm the permitted service activity, current network authorisation, asset boundary and any metering-provider involvement before work is accepted.",
+        "Phase 3E2 changes require separate exact-SHA release approval and live verification."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "held",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/services/underground-service-mains-sydney",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "data/service-pages.ts#underground-service-mains-sydney",
       "template": "service page"
     },
     {
-      "accessibility": "pending",
+      "accessibility": "reviewed",
       "category": "service",
       "claimOwnerEvidence": "held",
-      "individualSemanticContentReview": "pending",
+      "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
-        "Owner credential evidence is required before specialist-content changes."
+        "Owner documentary evidence remains required for current licence scope and any specialist authorisation relevant to the accepted work.",
+        "Confirm system-specific solar/battery accreditation, design/install/commissioning scope and any incentive or network requirements; no rebate, savings or backup guarantee.",
+        "Phase 3E2 changes require separate exact-SHA release approval and live verification."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "8d114efe8809f40edc396c9d6e9f8780cc26a737",
-      "responsive": "pending",
-      "rewrite": "held",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
+      "responsive": "reviewed",
+      "rewrite": "rewritten",
       "route": "/solar-batteries",
-      "safetyReview": "pending",
-      "seoMetadataSchema": "automated-only",
+      "safetyReview": "reviewed",
+      "seoMetadataSchema": "reviewed",
       "sourceRecord": "app/solar-batteries/page.tsx",
       "template": "solar batteries page"
     },

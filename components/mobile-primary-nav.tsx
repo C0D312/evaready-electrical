@@ -30,6 +30,7 @@ import {
 } from "lucide-react";
 import { DeferredServiceAreaSearch } from "@/components/deferred-service-area-search";
 import { HomeNavigationLink } from "@/components/home-navigation-link";
+import { installDropdownFocusVisibility } from "@/components/navigation-focus-visibility";
 import { requestQuoteFormOpen } from "@/components/quote-form-events";
 import {
   getServiceNavigationLinks,
@@ -130,6 +131,12 @@ export function MobilePrimaryNav() {
   const openRef = useRef(false);
   const menuHistoryPushedRef = useRef(false);
   const historyCloseFallbackRef = useRef<number | null>(null);
+  const scrollLockVersionRef = useRef(0);
+
+  useEffect(() => {
+    if (!open || !panelRef.current) return;
+    return installDropdownFocusVisibility(panelRef.current, "mobile");
+  }, [open]);
 
   const removeMobileMenuHistoryMarker = useCallback(() => {
     if (window.history.state?.mobileMenu !== true) {
@@ -263,6 +270,8 @@ export function MobilePrimaryNav() {
 
     const html = document.documentElement;
     const body = document.body;
+    const lockVersions = scrollLockVersionRef;
+    const lockVersion = ++lockVersions.current;
     const trigger = triggerRef.current;
     const snapshot: ScrollLockSnapshot = {
       scrollX: window.scrollX,
@@ -350,10 +359,20 @@ export function MobilePrimaryNav() {
       body.style.width = snapshot.bodyWidth;
       body.classList.remove("mobile-menu-open");
       window.scrollTo(snapshot.scrollX, snapshot.scrollY);
+      // A quote handoff must snapshot the original value, not our temporary lock.
+      html.style.scrollBehavior = snapshot.htmlScrollBehavior;
       trigger?.focus({ preventScroll: true });
       window.requestAnimationFrame(() => {
+        if (
+          lockVersions.current !== lockVersion ||
+          body.style.position === "fixed" ||
+          body.classList.contains("quote-modal-open") ||
+          body.classList.contains("mobile-menu-open")
+        ) return;
+        const scrollBehavior = html.style.scrollBehavior;
+        html.style.scrollBehavior = "auto";
         window.scrollTo(snapshot.scrollX, snapshot.scrollY);
-        html.style.scrollBehavior = snapshot.htmlScrollBehavior;
+        html.style.scrollBehavior = scrollBehavior;
       });
     };
   }, [closeMenu, open]);

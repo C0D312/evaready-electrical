@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { ServiceReviewCard, ServiceReviewCardAction } from "@/components/service-review-card";
 import type { Metadata } from "next";
 import {
   AlertTriangle,
@@ -10,7 +10,6 @@ import {
   SunMedium,
 } from "lucide-react";
 import { TrustProcessProof } from "@/components/trust-process-proof";
-import { TrustSymbolBand } from "@/components/trust-symbol-band";
 import { ResponsiveHeroImage } from "@/components/performance-images";
 import { absoluteUrl, business } from "@/data/site";
 import {
@@ -25,6 +24,13 @@ import { solarBatteriesSeoMetadata, toMetadata } from "@/lib/seo-metadata";
 export const metadata: Metadata = toMetadata(solarBatteriesSeoMetadata());
 
 const pagePath = "/solar-batteries";
+const scopeBoundary = "Our licensed electricians confirm the electrical work and any system-specific solar or battery accreditation needed for the job. Design, installation, network approval, manufacturer commissioning and incentive eligibility are distinct requirements; none is assumed from an electrical licence alone.";
+const solarGuide = [
+  { title: "Assessment and system requirements", copy: "Start with how the property uses electricity, existing solar or battery equipment, proposed loads and the intended outcome. We assess accessible switchboard and supply conditions. Roof structure, equipment location, fire-safety separation and access can affect the final design and may need additional assessment." },
+  { title: "Solar and battery installation boundaries", copy: "The agreed scope identifies design, equipment supply, electrical installation, required accreditation, metering and network connection steps. Solar and battery accreditation categories are not interchangeable. Eligibility for an incentive also depends on the equipment and scheme requirements; a quotation is not approval." },
+  { title: "Backup is a specific function", copy: "Not every grid-connected system operates during a blackout. Backup depends on the inverter, battery, switching arrangement, selected circuits and available stored energy. Agree the essential loads and expected operating limits rather than assuming whole-home backup or an unlimited duration." },
+  { title: "Commissioning and handover", copy: "The required electrical tests, manufacturer commissioning and connection steps are identified before handover. The owner needs clear isolation and fault guidance, operating limits and the applicable records. Export settings, future savings, battery life and third-party approval times cannot be guaranteed by an electrical preparation visit." },
+];
 
 const safeServices = [
   "Switchboard capacity checks",
@@ -39,7 +45,7 @@ const safeServices = [
   "Existing-system electrical checks",
   "Point-of-attachment or supply review",
   "EV charger load planning",
-  "Coordination with appropriately accredited solar or battery specialists",
+  "System-specific installation scope and authorisation review",
 ];
 
 const planningChecks = [
@@ -102,7 +108,7 @@ const faqs = [
   {
     question: "Can Evaready help with solar and batteries?",
     answer:
-      "Evaready can help with the electrical side of solar and battery projects, including switchboard capacity, consumer mains, metering, load checks, isolators, dedicated circuits and coordination with appropriately accredited solar or battery specialists where required.",
+      "Our licensed electricians assess the electrical side of solar and battery projects, including switchboard capacity, consumer mains, metering, load checks, isolation and circuit needs. Any design, installation or commissioning work is accepted only after the required system-specific scope and authorisations are confirmed.",
   },
   {
     question: "Do I need a switchboard upgrade before solar or a battery?",
@@ -127,12 +133,12 @@ const faqs = [
   {
     question: "Can you investigate a tripping solar circuit?",
     answer:
-      "Evaready can triage electrical symptoms such as repeated tripping, heat, burning smells, damaged isolators or visible wiring damage. Inverter error codes or battery-system faults may also require the original manufacturer or an appropriately accredited specialist.",
+      "Do not open or reset the system. For smoke, fire, unusual battery heat or immediate danger, move clear, keep others away and call Triple Zero (000) first. Once immediate danger is controlled, Evaready can assess electrical symptoms such as repeated tripping or damaged isolators. Inverter error codes or battery-system faults may also require the manufacturer or an appropriately accredited specialist.",
   },
   {
     question: "What photos should I send?",
     answer:
-      "Send switchboard photos, meter-box photos, existing inverter or battery labels, proposed equipment details, access photos, electricity bill or supply details if available, and any defect notices or network paperwork.",
+      "Start with the suburb, proposed work, existing equipment models and essential backup loads. Safe accessible photos are optional; do not open covers, climb or approach damaged equipment. Share necessary supply paperwork privately with unrelated account details removed, and do not send passwords or access codes.",
   },
   {
     question: "Do you guarantee network approval?",
@@ -142,7 +148,7 @@ const faqs = [
   {
     question: "Do I need an accredited solar or battery installer?",
     answer:
-      "Solar-panel, inverter and battery installation work must be completed within the relevant licence, accreditation, network and manufacturer requirements. Evaready can confirm whether a separate solar or battery specialist is required for the job.",
+      "The electrical licence, relevant solar or battery accreditation, network rules and manufacturer requirements must match the actual work. Accreditation requirements can also affect incentive eligibility. Confirm the design, installation and commissioning scope before accepting a complete system quote.",
   },
   {
     question: "Can EV charging be planned with solar and batteries?",
@@ -154,7 +160,7 @@ const faqs = [
 const serviceSchema = buildServiceSchema({
   name: "Solar & Battery Electrical Support Sydney",
   description:
-    "Electrical support for solar and battery projects across Sydney, including switchboard capacity, consumer mains, metering, load checks, backup-circuit planning and specialist coordination.",
+    "Electrical support for solar and battery projects across Sydney, including switchboard capacity, consumer mains, metering, load checks and backup-circuit planning within the confirmed scope.",
   serviceType: [
     "Solar and battery electrical support",
     "Switchboard capacity checks",
@@ -175,10 +181,12 @@ const electricianSchema = buildElectricianSchema({
     "Solar and battery electrical support",
     "Switchboard capacity checks",
     "Electrical load-capacity checks",
-    business.level2Asp.display,
   ],
   url: absoluteUrl(pagePath),
 });
+electricianSchema.identifier = electricianSchema.identifier.filter(
+  (identifier) => identifier.value === business.licence || identifier.value === business.abn,
+);
 
 const breadcrumbSchema = buildBreadcrumbSchema(
   [
@@ -197,6 +205,7 @@ export default function SolarBatteriesPage() {
       tabIndex={-1}
       className="core-storm-page core-storm-solar ev-storm-page min-h-screen text-white"
       data-storm-system="ev-storm-section ev-storm-card ev-storm-panel"
+      data-service-scope="solar-batteries"
     >
       <script
         type="application/ld+json"
@@ -235,11 +244,12 @@ export default function SolarBatteriesPage() {
               and supply upgrades across Sydney and surrounding regions.
             </p>
             <p className="mt-5 rounded-lg border border-cyan-300/25 bg-[#0d2b5c] p-4 text-sm font-bold leading-6 text-cyan-50 sm:text-base">
-              Solar-panel, inverter and battery installation work is completed
-              only within the relevant licence, accreditation, network and
-              manufacturer requirements. Evaready can review the electrical
-              scope and confirm whether an appropriately accredited solar or
-              battery specialist is also required.
+              {scopeBoundary}
+            </p>
+            <p data-service-scope-boundary className="mt-4 rounded-lg border border-red-300/30 bg-red-500/10 p-4 font-semibold leading-7 text-red-50">
+              Solar panels and batteries can remain energised after the mains supply is off.
+              Do not open, reset or work on damaged equipment. For smoke, fire, unusual battery
+              heat or immediate danger, move clear, keep others away and call Triple Zero (000).
             </p>
             <div className="mt-8 grid gap-3 lg:grid-cols-2">
               <a
@@ -269,7 +279,6 @@ export default function SolarBatteriesPage() {
         </div>
       </section>
 
-      <TrustSymbolBand className="border-b border-cyan-300/15" />
 
       <section className="border-b border-cyan-300/15 bg-[#091d42] py-14 sm:py-18">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
@@ -284,9 +293,8 @@ export default function SolarBatteriesPage() {
               Before solar or battery work proceeds, Evaready can review
               switchboard capacity, electrical load, consumer mains, metering,
               dedicated circuits, isolators and supply requirements. The
-              electrical scope can then be confirmed, including whether an
-              appropriately accredited solar or battery specialist is also
-              required.
+              electrical scope and any system-specific authorisations are
+              confirmed before the work is accepted.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
@@ -299,6 +307,18 @@ export default function SolarBatteriesPage() {
                 <p className="font-bold leading-7 text-slate-100">{item}</p>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-cyan-300/15 bg-[#06142f] py-14 sm:py-18">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-black leading-tight text-white">From assessment to commissioning.</h2>
+          <div className="mt-8 grid gap-5 lg:grid-cols-2">
+            {solarGuide.map((section) => <article key={section.title} className="rounded-lg border border-cyan-300/20 bg-[#0a234d] p-5">
+              <h3 className="text-xl font-black leading-7 text-white">{section.title}</h3>
+              <p className="mt-3 leading-7 text-slate-200">{section.copy}</p>
+            </article>)}
           </div>
         </div>
       </section>
@@ -337,7 +357,7 @@ export default function SolarBatteriesPage() {
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.84fr_1.16fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.22em] text-red-200">
-              Call first for hazards
+              Keep clear of unsafe equipment
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight text-white sm:text-5xl">
               Electrical symptoms around solar or batteries should be treated carefully.
@@ -351,7 +371,9 @@ export default function SolarBatteriesPage() {
             </p>
             <p className="mt-4 text-sm font-semibold leading-6 text-slate-300">
               Do not open, reset or work on batteries, inverters or switchboards
-              yourself. If the equipment feels unsafe, keep clear and call.
+              yourself. For smoke, fire, unusual battery heat or immediate danger,
+              move clear, keep others away and call Triple Zero (000) first.
+              Arrange electrical assessment only after immediate danger is controlled.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
@@ -378,9 +400,9 @@ export default function SolarBatteriesPage() {
               What to send for a solar or battery electrical quote.
             </h2>
             <p className="mt-5 text-base font-semibold leading-7 text-slate-300 sm:text-lg sm:leading-8">
-              Photos and supply details help Evaready review the electrical
-              side and identify whether a separate accredited solar or battery
-              specialist is needed.
+              Start with notes about the proposed work and equipment. Safe photos are optional:
+              keep covers closed and do not climb or approach a hazard. Share necessary supply
+              documents privately, with unrelated account information removed.
             </p>
             <div className="mt-6 grid gap-3 xl:grid-cols-2">
               <a
@@ -433,14 +455,17 @@ export default function SolarBatteriesPage() {
           </div>
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {relatedServices.map((service) => (
-              <Link
+              <ServiceReviewCard
                 key={service.href}
                 href={service.href}
-                className="group flex min-h-24 items-center justify-between gap-4 rounded-lg border border-cyan-300/20 bg-[#0a234d] p-5 font-black text-white transition hover:border-cyan-200 hover:bg-[#0d2b5c]"
+                className="group flex min-h-24 flex-wrap items-center justify-between gap-4 rounded-lg border border-cyan-300/20 bg-[#0a234d] p-5 font-black text-white transition hover:border-cyan-200 hover:bg-[#0d2b5c]"
               >
                 <span>{service.label}</span>
                 <ArrowRight className="h-5 w-5 shrink-0 text-cyan-200 transition group-hover:translate-x-1" />
-              </Link>
+                <ServiceReviewCardAction href={service.href} label={service.label} action="View service" className="basis-full text-sm font-black text-cyan-200">
+                  View service
+                </ServiceReviewCardAction>
+              </ServiceReviewCard>
             ))}
           </div>
         </div>
@@ -451,6 +476,7 @@ export default function SolarBatteriesPage() {
         className="border-b border-cyan-300/15"
         serviceName="solar and battery electrical support"
         variant="level2"
+        scopeBoundary={scopeBoundary}
       />
 
       <section className="bg-[#06142f] py-16 sm:py-20">
@@ -486,7 +512,7 @@ export default function SolarBatteriesPage() {
               Solar & Batteries
             </p>
             <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight sm:text-5xl">
-              Send the electrical details or call first if the equipment feels unsafe.
+              Discuss planned solar or battery electrical work.
             </h2>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">

@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import test from "node:test";
-import { assertAndProjectSuburbReviewState } from "./phase3e1-register-baseline";
+import { assertCurrentRegisterContract, historicalRegister } from "./phase3e2-register-contract";
 import { electricalFaultPages } from "../../data/electrical-faults";
 import { absoluteUrl, business } from "../../data/site";
 import { createWholeSiteCompletionRegister, PHASE_3D5_3D9_LIVE_VERIFIED_SHA, phase3d5SelectedRoutes, phase3d6SelectedRoutes, phase3d8SelectedRoutes, phase3d9SelectedRoutes } from "../../scripts/whole-site-completion-register";
@@ -92,17 +92,28 @@ test("symptom guides explain distinct causes and limitations rather than copying
 
 test("both earlier batches record the independently verified release SHA", () => {
   const register = createWholeSiteCompletionRegister();
+  const historical = historicalRegister("publication");
+  assertCurrentRegisterContract(register);
   for (const route of [...phase3d5SelectedRoutes, ...phase3d6SelectedRoutes]) {
+    const released = historical.records.find((item) => item.route === route);
+    assert.equal(released?.publication, "live-verified", route);
+    assert.equal(released?.publishedLiveVerifiedSha, PHASE_3D5_3D9_LIVE_VERIFIED_SHA, route);
     const record = register.records.find((item) => item.route === route);
+    if (route === "/services") {
+      assert.equal(record?.publication, "pending");
+      assert.equal(record?.publishedLiveVerifiedSha, null);
+      continue;
+    }
     assert.equal(record?.publication, "live-verified", route);
     assert.equal(record?.publishedLiveVerifiedSha, PHASE_3D5_3D9_LIVE_VERIFIED_SHA, route);
   }
 });
 
-test("fault-guide register isolation excludes only later authorised core and location batches", () => {
+test("fault-guide historical isolation and current authorised register deltas remain independently protected", () => {
   const selected = new Set([...baseline.slice(6).map(([slug]) => `/electrical-faults/${slug}`), ...phase3d8SelectedRoutes, ...phase3d9SelectedRoutes]);
-  const unchanged = createWholeSiteCompletionRegister().records.filter(record => !selected.has(record.route)).map(assertAndProjectSuburbReviewState);
+  const unchanged = historicalRegister("publication").records.filter(record => !selected.has(record.route));
   assert.equal(unchanged.length, 930);
   assert.equal(createHash("sha256").update(JSON.stringify(unchanged)).digest("hex"),
     "10671b2d398a2a8d8a3cb564df3d8e9a00dce9d85284c3b34929e6640e5e2a10");
+  assertCurrentRegisterContract(createWholeSiteCompletionRegister());
 });

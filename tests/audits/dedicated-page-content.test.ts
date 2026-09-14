@@ -5,6 +5,7 @@ import path from "node:path";
 import test from "node:test";
 import { electricalFaultPages } from "../../data/electrical-faults";
 import { serviceLandingPages } from "../../data/service-pages";
+import { phase3e2SelectedRoutes } from "../../scripts/phase3e2-service-review";
 
 const outDirectory = path.resolve("out");
 
@@ -469,7 +470,30 @@ test("phase 3D3 service records provide route-specific safety, scope and boundar
   );
 });
 
-test("19 untouched records retain baseline hashes and authorised Phase 3D4/3D5 records match snapshots", () => {
+test("reviewed Phase 3E2 records match explicit snapshots and earlier phase records remain unchanged", () => {
+  // The original 19 hashes remain in untouchedServiceRecordHashes as history.
+  // These replacements follow the reviewed semantic diff, not a blanket update.
+  const phase3e2Hashes: Record<string, string> = {
+    "consumer-mains-sydney": "cb3f2084af528674a15fff380f2388e158c5020307304f3506a9ef8982dcb3d4",
+    "defect-notice-repairs-sydney": "c8d69c5a9d20543975f4bc77eb63001d3729121982b8723cc858872286607749",
+    "private-power-pole-sydney": "1be3fb1e6ca72dc6a4be1a62b4cb8c0aaa7163eb6671b311545129e6eb23d023",
+    "split-system-air-conditioning-sydney": "ffd97acb98e2b0867ed02a22b07b91b765454ba2cf796d1e13a7acdf00452a3b",
+    "cctv-security-camera-installation-sydney": "2777d524890a7b08b1b0b5b9eec56552ccf93c4dae87af9ca1fa4cdbe27f9a07",
+    "data-cabling-electrician-sydney": "dd25f0f5f47fafc37aaf0a7cd5c0f29619c8c22e79a8847106198179b68e5f2e",
+    "metering-services-sydney": "f193249fe92dd87e37144209e50cbace11edf3364f92a3cd3288ed757f309a7e",
+    "electrical-testing-tagging-reports-sydney": "8537eb6854db00b20919cfe7cb977a29b88044ba363242fee71a938677dfb9a4",
+    "tv-antenna-wall-cabling-sydney": "6dd6b01dfbb7b07fa630ca266520be48316ef5a4ef52455d86b9e5d4a987d343",
+    "intercom-access-control-electrician-sydney": "ac60e60b743ac4cf58a31a3bb0bf264769561ebe0e9f56c3f66aeb2b7af94edc",
+    "point-of-attachment-repairs-sydney": "defa09c136e486cdec99f455cf505678bdf9862b933af2fc37d3e62709be7a53",
+    "overhead-service-lines-sydney": "2acfdaafe718265e5a93c5919785f301f204c7295aa94232c508ee5844855e7c",
+    "underground-service-mains-sydney": "48f097687d8c1fce426e83f15cc279e291fb49e42c23117d0a476fd3df2dec0f",
+    "disconnect-reconnect-electrician-sydney": "a790b01336e30d8d04858ca98fb84dda2e538c5c37dfd28d5d09f6e420d30fd2",
+    "testing-and-tagging-sydney": "be0d98cabddcc62e211feaaf31a262133d2caf52153e31a425f150ad6a80b5f5",
+    "phone-line-electrician-sydney": "1d155ef984621a2a27fa300352c8d492ae32459a7b17145986e520e2616daf43",
+    "intercom-installation-sydney": "627fee050d06a7b8b0e8768fbccc96ea8ee217751e6177b8c218979737d26a85",
+    "tv-points-antenna-electrician-sydney": "cf9d94072f0efc19432717a13f01f97ad80fea134222e1ea82b9a2b5bf309cba",
+    "smart-meter-electrician-sydney": "011c2617406ddcece63c143337461b009634d80a8be68d4b1ca4efb9377e25fa",
+  };
   const phase3d4Hashes: Record<string, string> = {
     "residential-electrician-sydney": "f3d8502c06872408c99912ba8f912c9cd518e61166ab796f438b55f92b243676",
     "commercial-electrician-sydney": "1f33761ac25f055900c3a2fb6b275c2472616dd3de3e9dd0dfec6beec8af21be",
@@ -488,6 +512,14 @@ test("19 untouched records retain baseline hashes and authorised Phase 3D4/3D5 r
   assert.equal(Object.keys(untouchedServiceRecordHashes).length, 30);
   assert.equal(Object.keys(phase3d4Hashes).length, 6);
   assert.equal(Object.keys(phase3d5Hashes).length, 5);
+  assert.equal(Object.keys(phase3e2Hashes).length, 19);
+  assert.deepEqual(Object.keys(phase3e2Hashes).map(slug => `/services/${slug}`).sort(),
+    phase3e2SelectedRoutes.filter(route => route.startsWith("/services/")));
+  for (const [slug, current] of Object.entries(phase3e2Hashes)) {
+    assert.ok(untouchedServiceRecordHashes[slug]);
+    assert.notEqual(current, untouchedServiceRecordHashes[slug]);
+    assert.ok(!phase3d4Hashes[slug] && !phase3d5Hashes[slug] && !rewrittenServiceRoutes.has(slug));
+  }
   assert.equal(serviceLandingPages.filter(page => !rewrittenServiceRoutes.has(page.slug) && !phase3d4Hashes[page.slug] && !phase3d5Hashes[page.slug]).length, 19);
 
   for (const page of serviceLandingPages) {
@@ -497,7 +529,7 @@ test("19 untouched records retain baseline hashes and authorised Phase 3D4/3D5 r
 
     assert.equal(
       sha256(JSON.stringify(page)),
-      phase3d5Hashes[page.slug] ?? phase3d4Hashes[page.slug] ?? untouchedServiceRecordHashes[page.slug],
+      phase3e2Hashes[page.slug] ?? phase3d5Hashes[page.slug] ?? phase3d4Hashes[page.slug] ?? untouchedServiceRecordHashes[page.slug],
       `${page.slug} changed outside its recorded phase content`,
     );
   }

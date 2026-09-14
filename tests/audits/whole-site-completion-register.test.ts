@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import test from "node:test";
 import { phase3e1ReviewedRoutes } from "../../scripts/phase3e1-suburb-review";
+import { phase3e2EvidenceHolds, phase3e2SelectedRoutes } from "../../scripts/phase3e2-service-review";
 import {
   WHOLE_SITE_BASELINE_LIVE_SHA,
   PHASE_3D2_LIVE_VERIFIED_SHA,
@@ -51,16 +52,16 @@ test("individual review, rewrite and publication states remain truthful", () => 
   const register = createWholeSiteCompletionRegister();
   const byRoute = new Map(register.records.map((record) => [record.route, record]));
 
-  assert.deepEqual(register.counts.individualReview, { pending: 894 - phase3e1ReviewedRoutes.size, reviewed: 107 + phase3e1ReviewedRoutes.size });
+  assert.deepEqual(register.counts.individualReview, { pending: 873 - phase3e1ReviewedRoutes.size, reviewed: 128 + phase3e1ReviewedRoutes.size });
   assert.deepEqual(register.counts.rewrite, {
-    held: 21,
+    held: 0,
     pending: 873 - phase3e1ReviewedRoutes.size,
-    rewritten: 107 + phase3e1ReviewedRoutes.size,
+    rewritten: 128 + phase3e1ReviewedRoutes.size,
     sufficient: 0,
   });
   assert.deepEqual(register.counts.publication, {
-    "live-verified": 128,
-    pending: 873,
+    "live-verified": 106,
+    pending: 895,
   });
 
   for (const route of phase3d1RewrittenRoutes) {
@@ -113,6 +114,7 @@ test("individual review, rewrite and publication states remain truthful", () => 
   }
 
   for (const route of [...phase3d5SelectedRoutes, ...phase3d6SelectedRoutes, ...phase3d7SelectedRoutes]) {
+    if (route === "/services") continue; // The two derived catalogue descriptions await release.
     const record = byRoute.get(route);
     assert.ok(record);
     assert.equal(record.individualSemanticContentReview, "reviewed");
@@ -129,27 +131,59 @@ test("individual review, rewrite and publication states remain truthful", () => 
   for (const route of specialistHeldRoutes) {
     const record = byRoute.get(route);
     assert.ok(record, `${route} must be registered`);
-    assert.equal(record.rewrite, "held");
+    assert.equal(record.rewrite, "rewritten");
     assert.equal(record.claimOwnerEvidence, "held");
   }
 
   for (const route of consolidationHeldRoutes) {
     const record = byRoute.get(route);
     assert.ok(record, `${route} must be registered`);
-    assert.equal(record.rewrite, "held");
-    assert.match(record.outstandingHolds.join(" "), /consolidation/i);
+    assert.equal(record.rewrite, "rewritten");
+    assert.equal(record.claimOwnerEvidence, "held");
+    assert.deepEqual(record.outstandingHolds.slice(0, -1), phase3e2EvidenceHolds(route));
   }
 });
 
-test("only the 83 newly published routes use the verified Phase 3D5-3D9 SHA", () => {
+test("Phase 3E2 marks exactly 21 reviewed rewrites pending without clearing evidence holds", () => {
+  const register = createWholeSiteCompletionRegister();
+  assert.deepEqual([...phase3e2SelectedRoutes].sort(), [...specialistHeldRoutes, ...consolidationHeldRoutes].sort());
+  const selected = register.records.filter(row => phase3e2SelectedRoutes.includes(row.route));
+  assert.equal(selected.length, 21);
+  for (const row of selected) {
+    assert.equal(row.individualSemanticContentReview, "reviewed");
+    assert.equal(row.rewrite, "rewritten");
+    for (const field of ["accessibility", "responsive", "safetyReview", "seoMetadataSchema"] as const) assert.equal(row[field], "reviewed");
+    assert.equal(row.claimOwnerEvidence, "held");
+    assert.deepEqual(row.outstandingHolds, [...phase3e2EvidenceHolds(row.route),
+      "Phase 3E2 changes require separate exact-SHA release approval and live verification."]);
+    assert.equal(row.publication, "pending");
+    assert.equal(row.publishedLiveVerifiedSha, null);
+  }
+});
+
+test("derived catalogue publication changes do not invent another individual review", () => {
+  const row = createWholeSiteCompletionRegister().records.find(row => row.route === "/services");
+  assert.deepEqual(row, {
+    accessibility: "reviewed", category: "service-index", claimOwnerEvidence: "reviewed",
+    individualSemanticContentReview: "reviewed",
+    outstandingHolds: [`Phase 3E2 changes exactly two derived OfferCatalog descriptions, not a new individual page review. Previous live verification: ${PHASE_3D5_3D9_LIVE_VERIFIED_SHA}. Separate exact-SHA release approval and live verification are required.`],
+    publication: "pending", publishedLiveVerifiedSha: null, responsive: "reviewed", rewrite: "rewritten",
+    route: "/services", safetyReview: "reviewed", seoMetadataSchema: "reviewed",
+    sourceRecord: "app/services/page.tsx", template: "services index",
+  });
+  assert.equal(phase3e2SelectedRoutes.includes("/services"), false);
+});
+
+test("82 unchanged released rows retain their SHA while the catalogue awaits a new release", () => {
   const register = createWholeSiteCompletionRegister();
   const released = [...phase3d5SelectedRoutes, ...phase3d6SelectedRoutes, ...phase3d7SelectedRoutes, ...phase3d8SelectedRoutes, ...phase3d9SelectedRoutes];
   assert.equal(new Set(released).size, 83);
   assert.deepEqual(
     register.records.filter(row => row.publishedLiveVerifiedSha === PHASE_3D5_3D9_LIVE_VERIFIED_SHA).map(row => row.route).sort(),
-    [...released].sort(),
+    released.filter(route => route !== "/services").sort(),
   );
-  for (const row of register.records.filter(row => released.includes(row.route))) {
+  assert.equal(register.records.filter(row => row.publishedLiveVerifiedSha === PHASE_3D5_3D9_LIVE_VERIFIED_SHA).length, 82);
+  for (const row of register.records.filter(row => released.includes(row.route) && row.route !== "/services")) {
     assert.equal(row.publication, "live-verified");
     assert.doesNotMatch(row.outstandingHolds.join(" "), /Separate release validation/);
   }
@@ -186,10 +220,11 @@ test("validator rejects missing, duplicate, unknown and invalid states", () => {
   assert.ok(validateWholeSiteCompletionRegister(invalid).some((error) => /invalid rewrite/i.test(error)));
 
   const unreviewedRewrite = structuredClone(register);
-  const unreviewedRecord = unreviewedRewrite.records.find(
-    (record) => record.individualSemanticContentReview === "pending",
-  );
-  assert.ok(unreviewedRecord);
+  const unreviewedRecord = unreviewedRewrite.records[0];
+  unreviewedRecord.individualSemanticContentReview = "pending";
+  unreviewedRecord.rewrite = "pending";
+  for (const field of ["safetyReview", "responsive", "accessibility", "seoMetadataSchema"] as const) unreviewedRecord[field] = "pending";
+  assert.deepEqual(validateWholeSiteCompletionRegister(unreviewedRewrite), []);
   unreviewedRecord.rewrite = "rewritten";
   assert.ok(
     validateWholeSiteCompletionRegister(unreviewedRewrite).some((error) =>
@@ -198,13 +233,11 @@ test("validator rejects missing, duplicate, unknown and invalid states", () => {
   );
 
   const unsupportedSufficient = structuredClone(register);
-  const sufficientRecord = unsupportedSufficient.records.find(
-    (record) => record.individualSemanticContentReview === "pending",
-  );
-  assert.ok(sufficientRecord);
+  const sufficientRecord = unsupportedSufficient.records[0];
   sufficientRecord.individualSemanticContentReview = "reviewed";
   sufficientRecord.rewrite = "sufficient";
   sufficientRecord.outstandingHolds = [];
+  sufficientRecord.responsive = "pending";
   assert.ok(
     validateWholeSiteCompletionRegister(unsupportedSufficient).some((error) =>
       /cannot be sufficient until safety, responsive, accessibility and SEO reviews are reviewed/i.test(

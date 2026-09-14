@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { LeadOfferPanel } from "@/components/lead-offer-panel";
 import { ResponsiveHeroImage } from "@/components/performance-images";
+import { ServiceReviewCard, ServiceReviewCardAction } from "@/components/service-review-card";
 import {
   getServiceCredentialItems,
   ServiceCredentialStrip,
@@ -345,9 +346,9 @@ function ServiceSpecificOverview({
               {service.description}
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
-              The service list explains the electrical work covered on this
+              {service.scopeBoundary ?? <>The service list explains the electrical work covered on this
               page. The warning signs below help separate urgent hazards from
-              planned work that can start with photos and job details.
+              planned work that can start with photos and job details.</>}
             </p>
             <div className="service-detail-scope-cta mt-7 flex flex-col gap-3 sm:flex-row">
               <a
@@ -446,15 +447,15 @@ function ServiceSpecificOverview({
         <div className="service-detail-warning-layout mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_0.95fr] lg:px-8">
           <div className="service-detail-warning-copy">
             <p className="text-sm font-black uppercase tracking-[0.28em] text-red-600">
-              Warning signs
+              {service.scopeBoundary ? "Reasons for an assessment" : "Warning signs"}
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
               When this electrical work should be checked.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
-              These page-specific signs help explain when to stop using the
+              {service.scopeBoundary ? "Some requests are planned changes; others involve a fault. Keep clear of unsafe equipment. For fire or immediate danger, move to safety and call Triple Zero (000) before arranging electrical work." : <>These page-specific signs help explain when to stop using the
               affected equipment, when to call first and when planned work can
-              begin with a quote request.
+              begin with a quote request.</>}
             </p>
             <div className="service-detail-warning-cta mt-7 grid gap-3">
               <a
@@ -569,7 +570,7 @@ export default async function ServiceLandingPage({
     offerNames: service.services,
     serviceTypes: [
       service.title,
-      ...(isLevel2ResponseService
+      ...(isLevel2ResponseService && !service.scopeBoundary
         ? [
             business.level2Asp.display,
             business.emergencyResponse.coreServiceType,
@@ -579,6 +580,11 @@ export default async function ServiceLandingPage({
     ],
     url: serviceUrl,
   });
+  if (service.scopeBoundary) {
+    electricianSchema.identifier = electricianSchema.identifier.filter(
+      (identifier) => identifier.value === business.licence || identifier.value === business.abn,
+    );
+  }
   const breadcrumbSchema = buildBreadcrumbSchema(
     [
       {
@@ -600,7 +606,7 @@ export default async function ServiceLandingPage({
   const serviceSchema = buildServiceSchema({
     name: service.title,
     description: service.metaDescription,
-    serviceType: isLevel2ResponseService
+    serviceType: isLevel2ResponseService && !service.scopeBoundary
       ? [
           service.title,
           business.level2Asp.display,
@@ -639,7 +645,12 @@ export default async function ServiceLandingPage({
     (link, index, links) =>
       links.findIndex((candidate) => candidate.href === link.href) === index,
   );
-  const bookingTrustItems = [
+  const bookingTrustItems = service.scopeBoundary ? [
+    "Our licensed electricians",
+    "Job-specific scope confirmed",
+    "Safe photos optional",
+    "Timing confirmed before booking",
+  ] : [
     `Electrical Licence ${business.licence}`,
     `ABN ${business.abn}`,
     "Booking Details & Photos",
@@ -711,6 +722,7 @@ export default async function ServiceLandingPage({
       tabIndex={-1}
       className="generated-storm-page generated-storm-service ev-storm-page min-h-screen bg-[#02050d] text-white"
       data-storm-system="ev-storm-page ev-storm-section ev-storm-card ev-storm-panel"
+      data-service-scope={service.scopeBoundary ? service.slug : undefined}
     >
       <script
         type="application/ld+json"
@@ -752,11 +764,18 @@ export default async function ServiceLandingPage({
             </p>
 
             <ServiceCredentialStrip
-              items={getServiceCredentialItems(service.slug)}
+              items={service.scopeBoundary ? [
+                { icon: ShieldCheck, title: "Our licensed electricians", text: "Work within the agreed scope" },
+                { icon: ClipboardList, title: "Authorisation confirmed", text: "Specific to the work required" },
+                { icon: Wrench, title: "Assessment before work", text: "Findings and limits explained" },
+                { icon: CheckCircle2, title: "Clear next steps", text: "Timing confirmed before booking" },
+              ] : getServiceCredentialItems(service.slug)}
               className="service-detail-hero-credentials mt-6 max-w-4xl"
             />
 
-            {isLevel2ResponseService ? (
+            {service.scopeBoundary ? (
+              <p data-service-scope-boundary className="mt-5 max-w-3xl rounded-lg border border-cyan-300/20 bg-cyan-300/10 p-4 text-sm font-bold leading-6 text-cyan-50">{service.scopeBoundary}</p>
+            ) : isLevel2ResponseService ? (
               <p className="mt-5 max-w-3xl rounded-2xl border border-cyan-300/20 bg-cyan-300/10 p-4 text-sm font-bold leading-6 text-cyan-50">
                 {business.level2Asp.display}.{" "}
                 {business.emergencyResponse.combinedDisplay}{" "}
@@ -824,9 +843,9 @@ export default async function ServiceLandingPage({
                 Urgent electrical issue?
               </p>
               <p className="mt-2 leading-7 text-slate-100">
-                If there is heat, smoke, sparking, a burning smell, electric
+                {service.scopeBoundary ? "For fire, smoke or immediate danger, move to safety and call Triple Zero (000). Do not touch damaged or wet equipment. Arrange an electrical assessment once the immediate risk is controlled." : <>If there is heat, smoke, sparking, a burning smell, electric
                 shock risk or power loss, call before touching the affected
-                area.
+                area.</>}
               </p>
               <a
                 href={business.phoneHref}
@@ -844,23 +863,24 @@ export default async function ServiceLandingPage({
 
       <ServiceSpecificOverview service={service} />
 
-      <TrustSymbolBand className="border-b border-slate-200" />
+      {!service.scopeBoundary ? <TrustSymbolBand className="border-b border-slate-200" /> : null}
 
       <LeadOfferPanel
         compact
         className="border-b border-cyan-300/15"
         eyebrow={isLevel2ResponseService ? "Level 2 details" : "Quote support"}
         heading={
-          isLevel2ResponseService
+          service.scopeBoundary ? "Describe the work you need." : isLevel2ResponseService
             ? "Send notices, photos and service details for review."
             : "Send photos and notes for planned electrical work."
         }
         intro={
-          isLevel2ResponseService
+          service.scopeBoundary ? "Send the suburb, the reason for the enquiry and relevant equipment details. Safe photos are optional: keep covers closed and do not approach hazards. Scope, authorisations and timing are confirmed before work is accepted." : isLevel2ResponseService
             ? `${business.level2Asp.display}. For ${service.title.toLowerCase()} across Sydney and surrounding regions, send documents and photos for planned work, or call first if the issue is unsafe.`
             : `For ${service.title.toLowerCase()} across Sydney and surrounding regions, photos help us quote faster. Call first if there is heat, smoke, sparking, power loss or unsafe wiring.`
         }
-        items={offerItems}
+        items={service.scopeBoundary ? ["Describe the work or fault", "Notes first; safe photos optional", "Keep passwords and access codes private"] : offerItems}
+        safetyNote={service.scopeBoundary ? "For fire, smoke or immediate danger, move to safety and call Triple Zero (000). Keep clear of unsafe equipment. A quote request is not an emergency response or a confirmed appointment." : undefined}
       />
 
       {switchboardSafetyRelatedLinks.length ? (
@@ -916,7 +936,8 @@ export default async function ServiceLandingPage({
             </div>
             <div className="service-path-grid grid gap-3">
               {switchboardSafetyRelatedLinks.map((link) => (
-                <Link
+                <ServiceReviewCard
+                  enabled={Boolean(service.scopeBoundary)}
                   key={link.href}
                   href={link.href}
                   className="group grid min-h-28 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-lg border border-cyan-300/20 bg-[#091d42] p-4 shadow-lg shadow-blue-950/20 transition hover:-translate-y-0.5 hover:border-cyan-200 hover:bg-[#0d2b5c]"
@@ -937,7 +958,12 @@ export default async function ServiceLandingPage({
                   >
                     <ArrowRight className="h-4 w-4" />
                   </span>
-                </Link>
+                  {service.scopeBoundary ? (
+                    <ServiceReviewCardAction href={link.href} label={link.label} action="View service" className="text-sm font-black text-cyan-200">
+                      View service
+                    </ServiceReviewCardAction>
+                  ) : null}
+                </ServiceReviewCard>
               ))}
             </div>
           </div>
@@ -955,17 +981,17 @@ export default async function ServiceLandingPage({
                 Related Level 2 electrical support.
               </h2>
               <p className="mt-5 text-base font-semibold leading-7 text-slate-200 sm:text-lg sm:leading-8">
-                {business.level2Asp.display}. For {service.title.toLowerCase()},
+                {service.scopeBoundary ?? <>{business.level2Asp.display}. For {service.title.toLowerCase()},
                 Evaready can review the electrical scope, photos and paperwork,
                 then confirm the practical next action for the supply-side
-                work.
+                work.</>}
               </p>
               <div className="mt-6 rounded-lg border border-cyan-300/20 bg-[#091d42] p-5 shadow-lg shadow-blue-950/25">
                 <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">
                   What to send
                 </p>
                 <ul className="mt-4 grid gap-3">
-                  {level2NextStepItems.map((item) => (
+                  {(service.scopeBoundary ? ["Describe the supply issue and connection status", "Summarise any notice and its deadline", "Safe distant photos are optional; keep covers closed", "Keep clear of hazards and use emergency services for immediate danger"] : level2NextStepItems).map((item) => (
                     <li
                       key={item}
                       className="flex items-start gap-3 text-sm font-bold leading-6 text-slate-100"
@@ -979,7 +1005,8 @@ export default async function ServiceLandingPage({
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
               {level2RelatedLinks.map((link) => (
-                <Link
+                <ServiceReviewCard
+                  enabled={Boolean(service.scopeBoundary)}
                   key={link.href}
                   href={link.href}
                   className="group grid min-h-28 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-lg border border-cyan-300/20 bg-[#091d42] p-4 shadow-lg shadow-blue-950/20 transition hover:-translate-y-0.5 hover:border-cyan-200 hover:bg-[#0d2b5c]"
@@ -1000,7 +1027,12 @@ export default async function ServiceLandingPage({
                   >
                     <ArrowRight className="h-4 w-4" />
                   </span>
-                </Link>
+                  {service.scopeBoundary ? (
+                    <ServiceReviewCardAction href={link.href} label={link.label} action="View service" className="text-sm font-black text-cyan-200">
+                      View service
+                    </ServiceReviewCardAction>
+                  ) : null}
+                </ServiceReviewCard>
               ))}
             </div>
           </div>
@@ -1176,14 +1208,20 @@ export default async function ServiceLandingPage({
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
               {service.loadCapacitySection.links.map((link) => (
-                <Link
+                <ServiceReviewCard
+                  enabled={Boolean(service.scopeBoundary)}
                   key={link.href}
                   href={link.href}
                   className="ev-storm-card group flex min-h-24 items-center justify-between gap-4 rounded-lg border border-cyan-300/20 p-5 font-black text-white transition hover:border-cyan-200 hover:text-cyan-100"
                 >
                   <span>{link.label}</span>
                   <ArrowRight className="h-5 w-5 shrink-0 text-blue-700 transition group-hover:translate-x-1" />
-                </Link>
+                  {service.scopeBoundary ? (
+                    <ServiceReviewCardAction href={link.href} label={link.label} action="View service" className="basis-full text-sm font-black text-cyan-200">
+                      View service
+                    </ServiceReviewCardAction>
+                  ) : null}
+                </ServiceReviewCard>
               ))}
             </div>
           </div>
@@ -1246,6 +1284,7 @@ export default async function ServiceLandingPage({
         className="border-b border-cyan-300/15"
         serviceName={service.title}
         variant={processProofVariant}
+        scopeBoundary={service.scopeBoundary}
       />
 
       <section className="ev-storm-section py-20 text-white">
@@ -1281,9 +1320,9 @@ export default async function ServiceLandingPage({
               Details that make the job easier to scope.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
-              For planned work, send the suburb, photos, access notes and a
+              {service.scopeBoundary ? "Start with the suburb, work required and relevant equipment details. Safe photos are optional; do not open covers or approach hazards. Keep passwords, access codes and unrelated private paperwork out of the enquiry." : <>For planned work, send the suburb, photos, access notes and a
               clear description of what you need. For urgent hazards, call
-              directly.
+              directly.</>}
             </p>
             <div className="mt-5 grid gap-2 text-xs font-black uppercase tracking-[0.08em] text-slate-700 sm:grid-cols-2">
               {bookingTrustItems.map((item) => (
@@ -1380,7 +1419,8 @@ export default async function ServiceLandingPage({
 
           <div className="service-related-grid mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {relatedLinks.map((link) => (
-              <Link
+              <ServiceReviewCard
+                enabled={Boolean(service.scopeBoundary)}
                 key={link.href}
                 href={link.href}
                 className="service-related-card group"
@@ -1388,11 +1428,14 @@ export default async function ServiceLandingPage({
                 <span className="service-related-card__title font-black">
                   {link.label}
                 </span>
-                <span className="service-related-card__action">
+                {service.scopeBoundary ? <ServiceReviewCardAction href={link.href} label={link.label} action="Learn more" className="service-related-card__action">
                   Learn more
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                </span>
-              </Link>
+                </ServiceReviewCardAction> : <span className="service-related-card__action">
+                  Learn more
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                </span>}
+              </ServiceReviewCard>
             ))}
           </div>
         </div>

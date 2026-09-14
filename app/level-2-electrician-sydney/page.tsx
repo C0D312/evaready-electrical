@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import {
   AlertTriangle,
   ArrowRight,
@@ -12,9 +11,9 @@ import {
 } from "lucide-react";
 import {
   ServiceCredentialStrip,
-  serviceCredentialPresets,
 } from "@/components/service-credential-strip";
 import { ResponsiveHeroImage } from "@/components/performance-images";
+import { ServiceReviewCard, ServiceReviewCardAction } from "@/components/service-review-card";
 import { level2ClusterLinks } from "@/data/internal-links";
 import {
   absoluteUrl,
@@ -27,6 +26,8 @@ import { level2SeoMetadata, toMetadata } from "@/lib/seo-metadata";
 export const metadata: Metadata = toMetadata(level2SeoMetadata());
 
 const pageUrl = absoluteUrl("/level-2-electrician-sydney");
+const scopeBoundary = "Our accredited Level 2 electricians work within the activities and network authorisations confirmed for the job. ASP accreditation and permission to work on a particular network are separate. Metering-provider work, structural work and network construction are not automatically included.";
+const serviceDescription = "Level 2 electrical enquiries for consumer mains, defect notices, metering preparation and overhead or underground service work, with job-specific authorisation confirmed before work is accepted.";
 
 const serviceCards = [
   {
@@ -36,7 +37,7 @@ const serviceCards = [
   },
   {
     title: "Defect notice repairs",
-    text: "Send the defect notice, deadline, photos and site details so the issue can be reviewed clearly.",
+    text: "Share the defect notice and deadline privately. Photos are optional and must be taken from a safe position without approaching damaged equipment.",
     href: "/services/defect-notice-repairs-sydney",
   },
   {
@@ -51,7 +52,7 @@ const serviceCards = [
   },
   {
     title: "Point of attachment repairs",
-    text: "Loose, damaged or pulled-away attachment points need photos, site details and the right supply-side pathway.",
+    text: "Keep clear of loose, damaged or pulled-away attachment points. Tell us what you observed from safety; do not approach the equipment for a photo.",
     href: "/services/point-of-attachment-repairs-sydney",
   },
   {
@@ -96,16 +97,16 @@ const serviceCards = [
   },
   {
     title: "Level 2 electrician service areas",
-    text: "Check Sydney and surrounding region pages for local emergency response wording and service-area coverage.",
+    text: "Find the relevant service area, then confirm access, availability and the job-specific authorisation before booking.",
     href: "/service-areas",
   },
 ];
 
 const detailsChecklist = [
-  "Photos of the switchboard",
-  "Photos of the meter box",
-  "Photos of the point of attachment",
-  "Photos of overhead service lines or underground service location if relevant",
+  "Optional photos already available from a safe position",
+  "Switchboard or meter enclosure details without opening covers",
+  "What you noticed about the attachment point from safety",
+  "Known cable-route information; never dig or approach damaged lines for a photo",
   "Any defect notice or supply authority paperwork",
   "Metering or retailer paperwork if relevant",
   "Suburb, address and access notes",
@@ -147,7 +148,7 @@ const whenToCall = [
   },
   {
     title: "The fault feels unsafe",
-    text: "If there is smoke, sparking, burning smell, heat or no power, call first before touching the area.",
+    text: "Keep clear of damaged equipment. For fire or immediate danger, call Triple Zero (000) from safety; notify the distributor about damaged supply lines.",
     href: "/emergency-electrician-sydney",
   },
 ];
@@ -155,7 +156,7 @@ const whenToCall = [
 const authorityTopics = [
   {
     title: "Ausgrid and Endeavour Energy requirements",
-    text: `${business.level2Asp.display}. If you have been told the job needs Ausgrid or Endeavour Energy Level 2 work, send the paperwork so the job can be reviewed against the correct process for that connection.`,
+    text: "Ausgrid and Endeavour Energy have their own authorisation processes. Tell us the distributor and requested activity so the current permissions and connection requirements can be confirmed; accreditation alone is not blanket authority for every activity.",
   },
   {
     title: "No control over network timing",
@@ -175,7 +176,7 @@ const level2Faqs = [
   {
     question: "What is Level 2 electrical work?",
     answer:
-      "Level 2 electrical work generally involves supply-side electrical tasks such as consumer mains, metering, service equipment, overhead service lines, underground service mains, point of attachment issues and defect notice repairs.",
+      "Level 2 work covers defined contestable service activities around electricity connections. The permitted activity and network authorisation matter: ordinary property wiring, meter-provider work and network construction are not all interchangeable Level 2 tasks.",
   },
   {
     question: "When do I need a Level 2 electrician?",
@@ -185,12 +186,12 @@ const level2Faqs = [
   {
     question: "Can Evaready help with Ausgrid and Endeavour Energy Level 2 work?",
     answer:
-      `Yes. Evaready Electrical is an ${business.level2Asp.display}. Level 2 ASP work is handled within the relevant network, licence and job scope.`,
+      "We review the requested work and confirm the applicable accreditation, activity and network authorisation before accepting it. Do not assume every Level 2 activity or connection arrangement is covered by a general service enquiry.",
   },
   {
     question: "What should I send with a defect notice enquiry?",
     answer:
-      "Send photos of the defect notice, switchboard, meter box, point of attachment, overhead service lines or underground service location if relevant, plus your suburb, address, access notes and any deadline shown on the notice.",
+      "Share the notice, deadline and property details privately through the enquiry process. Photos are optional: use only images taken from a safe position without opening covers, climbing, digging or approaching damaged equipment. Never delay an emergency call to collect information.",
   },
   {
     question: "Can Level 2 work be needed for EV chargers or air conditioning upgrades?",
@@ -210,7 +211,7 @@ const level2Faqs = [
   {
     question: "Can Level 2 work be urgent?",
     answer:
-      "Yes. Call first if the issue involves unsafe service equipment, damaged point of attachment, exposed service wiring, storm damage, heat, smoke, sparking, repeated power loss or a defect notice with an urgent deadline.",
+      "Yes. Keep clear of damaged service equipment. Stay at least eight metres from fallen powerlines and anything touching them; call Triple Zero (000) for immediate danger and notify the distributor. A notice deadline needs prompt planning but is not, by itself, evidence of an immediate electrical hazard.",
   },
   {
     question: "Do you guarantee network approval times?",
@@ -220,7 +221,7 @@ const level2Faqs = [
   {
     question: "Should I call or request a quote?",
     answer:
-      "Call first if the fault feels unsafe or urgent. For planned Level 2 work, use the quote form and send photos, defect notices, meter box details, access notes and job paperwork.",
+      "For fire, smoke or immediate danger, move to safety and call Triple Zero (000) first. Stay at least eight metres from fallen powerlines and anything touching them, and notify the electricity distributor about damaged supply equipment. Once immediate danger is controlled, call Evaready about assessment. For planned work, send notes first; photos are optional from safe accessible positions with covers closed. Do not climb, enter roof spaces, dig or open equipment, and never delay an emergency call to collect details.",
   },
 ];
 
@@ -284,16 +285,6 @@ function buildSchema() {
             name: "ABN",
             value: business.abn,
           },
-          {
-            "@type": "PropertyValue",
-            name: approvedBusinessClaims.credentials.openCabler.label,
-            value: business.openCablerRegistration,
-          },
-          {
-            "@type": "PropertyValue",
-            name: approvedBusinessClaims.credentials.arctick.label,
-            value: business.arctickLicence,
-          },
         ],
       },
       {
@@ -301,7 +292,6 @@ function buildSchema() {
         "@id": `${pageUrl}#service`,
         name: "Accredited Level 2 ASP electrical work in Sydney",
         serviceType: [
-          business.level2Asp.display,
           "Consumer mains",
           "Defect notices",
           "Metering",
@@ -309,15 +299,12 @@ function buildSchema() {
           "Underground service mains",
           "Point of attachment",
           "Supply-side electrical work",
-          business.emergencyResponse.coreServiceType,
-          business.emergencyResponse.greaterServiceType,
           "Level 2 electrical work",
         ],
         url: pageUrl,
         provider: { "@id": `${pageUrl}#electrician` },
         areaServed: "Sydney and surrounding regions",
-        description:
-          "Ausgrid and Endeavour Energy accredited Level 2 ASP enquiries for consumer mains, defect notices, metering, overhead service lines, underground service mains, point of attachment issues, private poles and supply-side electrical work across Sydney and surrounding regions.",
+        description: serviceDescription,
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Level 2 electrical services",
@@ -372,6 +359,7 @@ export default function Level2ElectricianSydneyPage() {
       tabIndex={-1}
       className="core-storm-page core-storm-level2 ev-storm-page min-h-screen text-white"
       data-storm-system="ev-storm-section ev-storm-card ev-storm-panel"
+      data-service-scope="level-2-electrician-sydney"
     >
       <script
         type="application/ld+json"
@@ -395,9 +383,13 @@ export default function Level2ElectricianSydneyPage() {
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">
-              {business.level2Asp.display} support for consumer mains, defect
-              notices, metering, point of attachment issues, overhead service
-              lines, underground service mains and supply-side electrical work.
+              {serviceDescription}
+            </p>
+
+            <p data-service-scope-boundary className="mt-4 max-w-2xl rounded-lg border border-red-300/25 bg-red-500/10 p-4 font-semibold leading-7 text-red-50">
+              Stay at least eight metres from fallen powerlines and anything touching them.
+              For fire or immediate danger, move to safety and call Triple Zero (000),
+              then notify the electricity distributor. Do not approach supply equipment for photos.
             </p>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -406,22 +398,23 @@ export default function Level2ElectricianSydneyPage() {
             </div>
 
             <p className="mt-4 max-w-2xl rounded-2xl border border-red-300/25 bg-red-500/10 p-4 text-sm font-bold leading-6 text-slate-100">
-              Call first if a Level 2 issue involves unsafe service equipment,
-              supply loss, storm damage or exposed service wiring.{" "}
-              {business.emergencyResponse.combinedDisplay}{" "}
-              {business.emergencyResponse.disclaimer}{" "}
-              {business.emergencyResponse.emergencyOnlyNote}
+              {scopeBoundary}
             </p>
 
             <p className="mt-4 max-w-2xl text-sm font-semibold leading-6 text-slate-300">
-              For planned Level 2 work, send photos, defect notices, meter box
-              details, switchboard photos, access notes and job paperwork.
-              Evaready does not control distributor, retailer or network
-              approval timing.
+              Describe the work, suburb and any notice first. Safe distant photos are optional;
+              keep covers closed and do not climb, dig or approach hazards. Share necessary
+              paperwork privately without access codes or unrelated account details.
+              Distributor and retailer approvals and timing remain outside our control.
             </p>
 
             <ServiceCredentialStrip
-              items={serviceCredentialPresets.level2}
+              items={[
+                { icon: BadgeCheck, title: "Our accredited Level 2 electricians", text: "Job-specific activities confirmed" },
+                { icon: ClipboardCheck, title: "Network requirements", text: "Authorisation checked for the work" },
+                { icon: HardHat, title: "Scope before work", text: "Access and isolation planned" },
+                { icon: Bolt, title: "Testing and records", text: "Required completion steps explained" },
+              ]}
               className="mt-6 max-w-4xl"
             />
 
@@ -449,9 +442,11 @@ export default function Level2ElectricianSydneyPage() {
             </ul>
 
             <p className="mt-5 rounded-xl border border-red-300/20 bg-red-500/10 p-4 text-sm font-bold leading-6 text-red-50">
-              If the issue involves heat, smoke, sparking, exposed service
-              wiring, storm damage or damaged service equipment, call first
-              instead of waiting for a quote response.
+              Keep clear of damaged service equipment. Stay at least eight metres
+              from fallen powerlines and anything touching them. For fire, smoke
+              or immediate danger, call Triple Zero (000) from safety first, then
+              notify the electricity distributor. Do not wait for a quote response
+              or approach the equipment to collect photos.
             </p>
 
             <p className="mt-4 text-center text-xs text-slate-400">
@@ -482,7 +477,7 @@ export default function Level2ElectricianSydneyPage() {
 
           <div className="grid gap-4 sm:grid-cols-2">
             {serviceCards.map((item) => (
-              <Link
+              <ServiceReviewCard
                 key={item.title}
                 href={item.href}
                 className="ev-storm-card group flex min-h-36 flex-col rounded-2xl p-5 transition hover:border-cyan-200/60"
@@ -494,11 +489,11 @@ export default function Level2ElectricianSydneyPage() {
                 <p className="mt-2 flex-1 text-sm font-semibold leading-6 text-slate-300">
                   {item.text}
                 </p>
-                <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-cyan-200">
+                <ServiceReviewCardAction href={item.href} label={item.title} action="View service" className="mt-4 inline-flex items-center gap-2 text-sm font-black text-cyan-200">
                   View service
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                </span>
-              </Link>
+                </ServiceReviewCardAction>
+              </ServiceReviewCard>
             ))}
           </div>
         </div>
@@ -523,9 +518,11 @@ export default function Level2ElectricianSydneyPage() {
             </p>
 
             <p className="mt-4 text-lg leading-8 text-slate-300">
-              For urgent supply faults, no power, sparking, heat or a burning
-              smell, phone first so the unsafe part of the job can be triaged
-              before photos and paperwork are reviewed.
+              For fire, smoke or immediate danger, move to safety and call
+              Triple Zero (000) first. Keep clear of damaged supply equipment
+              and notify the electricity distributor. Once immediate danger is
+              controlled, call Evaready to discuss the electrical assessment;
+              notes are enough to begin and photos are optional.
             </p>
 
           </div>
@@ -533,7 +530,7 @@ export default function Level2ElectricianSydneyPage() {
           <div className="ev-storm-panel rounded-[2rem] p-6">
             <div className="grid gap-4">
               {whenToCall.map((item) => (
-                <Link
+                <ServiceReviewCard
                   key={item.title}
                   href={item.href}
                   className="ev-storm-card group rounded-xl p-4 transition hover:border-cyan-200/60"
@@ -548,7 +545,10 @@ export default function Level2ElectricianSydneyPage() {
                     </div>
                     <ArrowRight className="ml-auto mt-1 h-4 w-4 shrink-0 text-cyan-200 transition group-hover:translate-x-1" />
                   </div>
-                </Link>
+                  <ServiceReviewCardAction href={item.href} label={item.title} action="View service" className="mt-4 text-sm font-black text-cyan-200">
+                    View service
+                  </ServiceReviewCardAction>
+                </ServiceReviewCard>
               ))}
             </div>
           </div>
@@ -621,20 +621,37 @@ export default function Level2ElectricianSydneyPage() {
           </h2>
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {relatedLinks.map((link) => (
-              <Link
+              <ServiceReviewCard
                 key={link.href}
                 href={link.href}
-                className="ev-card-link group flex min-h-14 items-center gap-3 rounded-xl px-4 py-3 font-black"
+                className="ev-card-link group flex min-h-14 flex-wrap items-center gap-3 rounded-xl px-4 py-3 font-black"
               >
                 <Zap className="h-5 w-5 shrink-0 text-cyan-200" />
                 <span>{link.label}</span>
                 <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-cyan-200 transition group-hover:translate-x-1" />
-              </Link>
+                <ServiceReviewCardAction href={link.href} label={link.label} action="View service" className="basis-full text-sm font-black text-cyan-200">
+                  View service
+                </ServiceReviewCardAction>
+              </ServiceReviewCard>
             ))}
           </div>
         </div>
       </section>
 
+      <section className="ev-storm-section py-14 text-white" data-service-final-actions>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="max-w-3xl text-2xl font-black leading-tight">Discuss the Level 2 work your property needs.</h2>
+          <p className="mt-4 max-w-3xl leading-7 text-slate-200">
+            Start with the suburb, supply arrangement and reason for the enquiry.
+            We confirm the permitted work, assessment and timing before a booking is agreed.
+            Keep clear of unsafe supply equipment; use emergency services first for immediate danger.
+          </p>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <CallActionLink />
+            <QuoteActionLink />
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
