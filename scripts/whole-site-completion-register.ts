@@ -26,6 +26,9 @@ export const PHASE_3D4_LIVE_VERIFIED_SHA =
 export const PHASE_3D5_3D9_LIVE_VERIFIED_SHA =
   "e6197fcd00747ae86cabfff675516176c9e66ec6";
 
+export const PHASE_3E1_3E2_LIVE_VERIFIED_SHA =
+  "1b0a996285a7651657ccf8801c3f3a95ed298994";
+
 export const phase3d1RewrittenRoutes = [
   "/services/electrical-fault-finding-sydney",
   "/services/hot-power-point-electrician-sydney",
@@ -296,10 +299,10 @@ function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
         ...(!reviewed ? ["Individual review and regional browser checkpoint are pending."] : []),
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
         "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
-        "Phase 3E1 changes require separate exact-SHA release approval and live verification.",
+        ...(!reviewed ? ["Phase 3E1 changes require separate exact-SHA release approval and live verification."] : []),
       ],
-      publication: "pending",
-      publishedLiveVerifiedSha: null,
+      publication: reviewed ? "live-verified" : "pending",
+      publishedLiveVerifiedSha: reviewed ? PHASE_3E1_3E2_LIVE_VERIFIED_SHA : null,
       responsive: reviewed ? "reviewed" : "pending",
       rewrite: reviewed ? "rewritten" : "pending",
       route: item.route,
@@ -315,12 +318,9 @@ function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
       category: categoryFor(item),
       claimOwnerEvidence: "held",
       individualSemanticContentReview: "reviewed",
-      outstandingHolds: [
-        ...phase3e2EvidenceHolds(item.route),
-        "Phase 3E2 changes require separate exact-SHA release approval and live verification.",
-      ],
-      publication: "pending",
-      publishedLiveVerifiedSha: null,
+      outstandingHolds: phase3e2EvidenceHolds(item.route),
+      publication: "live-verified",
+      publishedLiveVerifiedSha: PHASE_3E1_3E2_LIVE_VERIFIED_SHA,
       responsive: "reviewed",
       rewrite: "rewritten",
       route: item.route,
@@ -418,12 +418,10 @@ function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
         ? "reviewed"
         : "automated-only",
     individualSemanticContentReview: individuallyReviewed ? "reviewed" : "pending",
-    outstandingHolds: derivedCatalogueChange
-      ? [...outstandingHolds, `Phase 3E2 changes exactly two derived OfferCatalog descriptions, not a new individual page review. Previous live verification: ${PHASE_3D5_3D9_LIVE_VERIFIED_SHA}. Separate exact-SHA release approval and live verification are required.`]
-      : outstandingHolds,
-    publication: derivedCatalogueChange ? "pending" : "live-verified",
+    outstandingHolds,
+    publication: "live-verified",
     publishedLiveVerifiedSha: derivedCatalogueChange
-      ? null
+      ? PHASE_3E1_3E2_LIVE_VERIFIED_SHA
       : phase3d5Rewritten || phase3d6Rewritten || phase3d7Rewritten
       ? PHASE_3D5_3D9_LIVE_VERIFIED_SHA
       : phase3d4Rewritten

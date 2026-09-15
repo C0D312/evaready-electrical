@@ -3,6 +3,23 @@
 `reports/whole-site-completion-register.json` is the durable, machine-readable
 route-by-route register for all 1,001 public sitemap routes.
 
+## Current Verified Checkpoint
+
+Phase 3E2-P2 verified the owner-approved preview release
+`1b0a996285a7651657ccf8801c3f3a95ed298994` on 15 September 2026. Exactly 895
+pending publication rows (873 suburbs, 21 Phase 3E2 routes and the Services
+catalogue) now record that live SHA. All 106 other rows and their historical
+SHAs remain unchanged. All 1,001 routes are live-verified, with zero pending
+publication rows. Individual review states and unresolved owner holds are
+unchanged; deployment does not constitute credential, legal, review-API or
+indexation approval. See `docs/phase3e2-verified-preview-release.md` and
+`reports/phase3e2-preview-release.json` for the actual release and route proofs.
+
+## Historical Checkpoints
+
+The following checkpoint counts describe their original phases. The generated
+JSON register and current checkpoint above describe the present state.
+
 Phase 3D9 added all 56 non-suburb location pages: the Service Areas index,
 16 regions and 39 areas. Those pages and the prior 27 Phase 3D5-3D8 routes are
 now live-verified at `e6197fcd00747ae86cabfff675516176c9e66ec6` after the separately

@@ -10,6 +10,7 @@ import {
   PHASE_3D3_LIVE_VERIFIED_SHA,
   PHASE_3D4_LIVE_VERIFIED_SHA,
   PHASE_3D5_3D9_LIVE_VERIFIED_SHA,
+  PHASE_3E1_3E2_LIVE_VERIFIED_SHA,
   consolidationHeldRoutes,
   createWholeSiteCompletionRegister,
   phase3d1RewrittenRoutes,
@@ -60,8 +61,8 @@ test("individual review, rewrite and publication states remain truthful", () => 
     sufficient: 0,
   });
   assert.deepEqual(register.counts.publication, {
-    "live-verified": 106,
-    pending: 895,
+    "live-verified": 1001,
+    pending: 0,
   });
 
   for (const route of phase3d1RewrittenRoutes) {
@@ -114,7 +115,7 @@ test("individual review, rewrite and publication states remain truthful", () => 
   }
 
   for (const route of [...phase3d5SelectedRoutes, ...phase3d6SelectedRoutes, ...phase3d7SelectedRoutes]) {
-    if (route === "/services") continue; // The two derived catalogue descriptions await release.
+    if (route === "/services") continue; // Its two derived descriptions have a newer release below.
     const record = byRoute.get(route);
     assert.ok(record);
     assert.equal(record.individualSemanticContentReview, "reviewed");
@@ -140,11 +141,11 @@ test("individual review, rewrite and publication states remain truthful", () => 
     assert.ok(record, `${route} must be registered`);
     assert.equal(record.rewrite, "rewritten");
     assert.equal(record.claimOwnerEvidence, "held");
-    assert.deepEqual(record.outstandingHolds.slice(0, -1), phase3e2EvidenceHolds(route));
+    assert.deepEqual(record.outstandingHolds, phase3e2EvidenceHolds(route));
   }
 });
 
-test("Phase 3E2 marks exactly 21 reviewed rewrites pending without clearing evidence holds", () => {
+test("Phase 3E2 publishes exactly 21 reviewed rewrites without clearing evidence holds", () => {
   const register = createWholeSiteCompletionRegister();
   assert.deepEqual([...phase3e2SelectedRoutes].sort(), [...specialistHeldRoutes, ...consolidationHeldRoutes].sort());
   const selected = register.records.filter(row => phase3e2SelectedRoutes.includes(row.route));
@@ -154,10 +155,9 @@ test("Phase 3E2 marks exactly 21 reviewed rewrites pending without clearing evid
     assert.equal(row.rewrite, "rewritten");
     for (const field of ["accessibility", "responsive", "safetyReview", "seoMetadataSchema"] as const) assert.equal(row[field], "reviewed");
     assert.equal(row.claimOwnerEvidence, "held");
-    assert.deepEqual(row.outstandingHolds, [...phase3e2EvidenceHolds(row.route),
-      "Phase 3E2 changes require separate exact-SHA release approval and live verification."]);
-    assert.equal(row.publication, "pending");
-    assert.equal(row.publishedLiveVerifiedSha, null);
+    assert.deepEqual(row.outstandingHolds, phase3e2EvidenceHolds(row.route));
+    assert.equal(row.publication, "live-verified");
+    assert.equal(row.publishedLiveVerifiedSha, PHASE_3E1_3E2_LIVE_VERIFIED_SHA);
   }
 });
 
@@ -166,15 +166,15 @@ test("derived catalogue publication changes do not invent another individual rev
   assert.deepEqual(row, {
     accessibility: "reviewed", category: "service-index", claimOwnerEvidence: "reviewed",
     individualSemanticContentReview: "reviewed",
-    outstandingHolds: [`Phase 3E2 changes exactly two derived OfferCatalog descriptions, not a new individual page review. Previous live verification: ${PHASE_3D5_3D9_LIVE_VERIFIED_SHA}. Separate exact-SHA release approval and live verification are required.`],
-    publication: "pending", publishedLiveVerifiedSha: null, responsive: "reviewed", rewrite: "rewritten",
+    outstandingHolds: [],
+    publication: "live-verified", publishedLiveVerifiedSha: PHASE_3E1_3E2_LIVE_VERIFIED_SHA, responsive: "reviewed", rewrite: "rewritten",
     route: "/services", safetyReview: "reviewed", seoMetadataSchema: "reviewed",
     sourceRecord: "app/services/page.tsx", template: "services index",
   });
   assert.equal(phase3e2SelectedRoutes.includes("/services"), false);
 });
 
-test("82 unchanged released rows retain their SHA while the catalogue awaits a new release", () => {
+test("82 unchanged released rows retain their SHA while the catalogue records the new release", () => {
   const register = createWholeSiteCompletionRegister();
   const released = [...phase3d5SelectedRoutes, ...phase3d6SelectedRoutes, ...phase3d7SelectedRoutes, ...phase3d8SelectedRoutes, ...phase3d9SelectedRoutes];
   assert.equal(new Set(released).size, 83);

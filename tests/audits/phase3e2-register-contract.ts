@@ -53,14 +53,27 @@ export const reviewedRouteHolds: Readonly<Record<string, readonly string[]>> = {
 export function assertCurrentRegisterContract(actual: WholeSiteCompletionRegister): void {
   const before = historicalRegister("before3e2");
   const reviewed = Object.keys(reviewedRouteHolds);
-  const changed = new Set([...reviewed, "/services"]);
+  const suburbs = before.records.filter(row => row.category === "suburb");
+  const changed = new Set([...reviewed, "/services", ...suburbs.map(row => row.route)]);
   assert.equal(reviewed.length, 21);
-  assert.equal(changed.size, 22);
+  assert.equal(suburbs.length, 873);
+  assert.equal(changed.size, 895);
   assert.deepEqual(actual.records.map(row => row.route), before.records.map(row => row.route));
   const protectedBefore = before.records.filter(row => !changed.has(row.route));
-  assert.equal(protectedBefore.length, 979);
+  assert.equal(protectedBefore.length, 106);
   // Compare the actual rows directly, including all fields, holds, order and publication SHAs.
   assert.deepEqual(actual.records.filter(row => !changed.has(row.route)), protectedBefore);
+  for (const baseline of suburbs) {
+    assert.equal(baseline.publication, "pending");
+    assert.equal(baseline.publishedLiveVerifiedSha, null);
+    assert.equal(baseline.outstandingHolds.at(-1), "Phase 3E1 changes require separate exact-SHA release approval and live verification.");
+    assert.deepEqual(actual.records.find(row => row.route === baseline.route), {
+      ...baseline,
+      outstandingHolds: baseline.outstandingHolds.slice(0, -1),
+      publication: "live-verified",
+      publishedLiveVerifiedSha: "1b0a996285a7651657ccf8801c3f3a95ed298994",
+    }, baseline.route);
+  }
   for (const route of reviewed) {
     const baseline = before.records.find(row => row.route === route);
     assert.ok(baseline, route);
@@ -71,8 +84,8 @@ export function assertCurrentRegisterContract(actual: WholeSiteCompletionRegiste
     const expected = {
       ...baseline,
       accessibility: "reviewed", claimOwnerEvidence: "held", individualSemanticContentReview: "reviewed",
-      outstandingHolds: [authority, ...reviewedRouteHolds[route], "Phase 3E2 changes require separate exact-SHA release approval and live verification."],
-      publication: "pending", publishedLiveVerifiedSha: null, responsive: "reviewed",
+      outstandingHolds: [authority, ...reviewedRouteHolds[route]],
+      publication: "live-verified", publishedLiveVerifiedSha: "1b0a996285a7651657ccf8801c3f3a95ed298994", responsive: "reviewed",
       rewrite: "rewritten", safetyReview: "reviewed", seoMetadataSchema: "reviewed",
     };
     assert.deepEqual(actual.records.find(row => row.route === route), expected, route);
@@ -82,13 +95,13 @@ export function assertCurrentRegisterContract(actual: WholeSiteCompletionRegiste
   assert.equal(catalogue.individualSemanticContentReview, "reviewed");
   assert.deepEqual(actual.records.find(row => row.route === "/services"), {
     ...catalogue,
-    outstandingHolds: ["Phase 3E2 changes exactly two derived OfferCatalog descriptions, not a new individual page review. Previous live verification: e6197fcd00747ae86cabfff675516176c9e66ec6. Separate exact-SHA release approval and live verification are required."],
-    publication: "pending", publishedLiveVerifiedSha: null,
+    outstandingHolds: [],
+    publication: "live-verified", publishedLiveVerifiedSha: "1b0a996285a7651657ccf8801c3f3a95ed298994",
   });
   assert.deepEqual(actual.counts, {
     ...before.counts,
     individualReview: { pending: 0, reviewed: 1001 },
-    publication: { "live-verified": 106, pending: 895 },
+    publication: { "live-verified": 1001, pending: 0 },
     rewrite: { held: 0, pending: 0, rewritten: 1001, sufficient: 0 },
   });
   assert.deepEqual(actual.scope, before.scope);

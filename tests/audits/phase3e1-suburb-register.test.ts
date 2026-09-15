@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 import { coverageRegions } from "../../data/service-area-coverage";
 import { locationIndexationDecisionRegistry } from "../../data/location-indexation-decisions";
-import { createWholeSiteCompletionRegister } from "../../scripts/whole-site-completion-register";
+import { createWholeSiteCompletionRegister, PHASE_3E1_3E2_LIVE_VERIFIED_SHA } from "../../scripts/whole-site-completion-register";
 import { createSuburbIndexationRecommendations, phase3e1ReviewedRegions, phase3e1ReviewedRoutes } from "../../scripts/phase3e1-suburb-review";
 import { phase3e2SelectedRoutes } from "../../scripts/phase3e2-service-review";
 
@@ -19,7 +19,7 @@ test("106 non-suburb records outside the explicit Phase 3E2 exception remain byt
   assert.equal(createHash("sha256").update(JSON.stringify(protectedRows)).digest("hex"), "23241b4786c6100a84fecf8420318b4f7bf75a34ad877f4f0a5aeb47ea9c9be8");
 });
 
-test("suburb checkpoint states cannot imply publication or owner approval", () => {
+test("suburb publication uses the verified release without implying owner evidence approval", () => {
   assert.equal(new Set(phase3e1ReviewedRegions).size, phase3e1ReviewedRegions.length);
   for (const slug of phase3e1ReviewedRegions) assert.ok(coverageRegions.some(region => region.slug === slug));
   const rows = createWholeSiteCompletionRegister().records.filter(row => row.category === "suburb");
@@ -31,11 +31,12 @@ test("suburb checkpoint states cannot imply publication or owner approval", () =
     for (const field of ["responsive", "accessibility", "safetyReview"] as const) assert.equal(row[field], reviewed ? "reviewed" : "pending", row.route);
     assert.equal(row.seoMetadataSchema, reviewed ? "reviewed" : "automated-only");
     assert.equal(row.claimOwnerEvidence, "held");
-    assert.equal(row.publication, "pending");
-    assert.equal(row.publishedLiveVerifiedSha, null);
+    assert.equal(row.publication, "live-verified");
+    assert.equal(row.publishedLiveVerifiedSha, PHASE_3E1_3E2_LIVE_VERIFIED_SHA);
     assert.match(row.outstandingHolds.join(" "), /Owner confirmation/);
     assert.match(row.outstandingHolds.join(" "), /private owner.*outside GitHub/);
-    assert.match(row.outstandingHolds.join(" "), /exact-SHA release approval/);
+    assert.doesNotMatch(row.outstandingHolds.join(" "), /exact-SHA release approval/);
+    assert.match(row.outstandingHolds.join(" "), /explicit owner indexation decision/);
   }
 });
 

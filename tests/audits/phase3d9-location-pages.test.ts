@@ -40,8 +40,8 @@ test("945 historical rows retain their baseline and current rows satisfy the ind
     assert.equal(released.publishedLiveVerifiedSha, PHASE_3D5_3D9_LIVE_VERIFIED_SHA, route);
     const row = records.find(row => row.route === route)!;
     if (route === "/services") {
-      assert.equal(row.publication, "pending");
-      assert.equal(row.publishedLiveVerifiedSha, null);
+      assert.equal(row.publication, "live-verified");
+      assert.equal(row.publishedLiveVerifiedSha, "1b0a996285a7651657ccf8801c3f3a95ed298994");
       continue;
     }
     assert.equal(row.publication, "live-verified", route);

@@ -100,8 +100,8 @@ test("both earlier batches record the independently verified release SHA", () =>
     assert.equal(released?.publishedLiveVerifiedSha, PHASE_3D5_3D9_LIVE_VERIFIED_SHA, route);
     const record = register.records.find((item) => item.route === route);
     if (route === "/services") {
-      assert.equal(record?.publication, "pending");
-      assert.equal(record?.publishedLiveVerifiedSha, null);
+      assert.equal(record?.publication, "live-verified");
+      assert.equal(record?.publishedLiveVerifiedSha, "1b0a996285a7651657ccf8801c3f3a95ed298994");
       continue;
     }
     assert.equal(record?.publication, "live-verified", route);
