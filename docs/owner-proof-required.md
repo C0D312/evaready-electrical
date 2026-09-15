@@ -1,5 +1,11 @@
 # Owner and Project Proof Requirements
 
+> Historical inventory dated 3 August 2026, not a current whole-site status or
+> live Google rating record. Use the [current owner decision sheet](whole-site-owner-decisions.md)
+> for the remaining programme decisions. The provenance requirements below
+> remain applicable; historical asset counts and numerical review examples
+> must not be presented as current evidence.
+
 Status: NEEDS OWNER INPUT
 
 Audit date: 2026-08-03

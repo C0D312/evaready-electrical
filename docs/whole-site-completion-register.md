@@ -15,6 +15,11 @@ unchanged; deployment does not constitute credential, legal, review-API or
 indexation approval. See `docs/phase3e2-verified-preview-release.md` and
 `reports/phase3e2-preview-release.json` for the actual release and route proofs.
 
+The [owner decision sheet](whole-site-owner-decisions.md) consolidates the
+remaining holds without changing register states. It also separates current
+delivery/functional proof from historical performance evidence: the existing
+mobile Lighthouse launch requirement has not been cleared by this release.
+
 ## Historical Checkpoints
 
 The following checkpoint counts describe their original phases. The generated
