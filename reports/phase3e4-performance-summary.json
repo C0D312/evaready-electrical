@@ -1,0 +1,1295 @@
+{
+  "schemaVersion": 1,
+  "phase": "3E4",
+  "recorded": "2026-09-16",
+  "status": "MEASURED_MOBILE_TARGET_UNRESOLVED",
+  "repository": "C0D312/evaready-electrical",
+  "measuredSource": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+  "investigationFeature": "1df6b7ee6a2e4cc75e9c6ad93538594376b76e27",
+  "sourceKind": "Downloaded Linux-produced GitHub Pages artifact, tested locally on Windows; diagnostic Windows source builds are separate.",
+  "release": {
+    "artifactId": 10379489454,
+    "artifactZipSha256": "eb9e868c0c00df53dcdb09e56c35cb506fd1f7df63ef674be3d2924f8e96ddbe",
+    "publicManifestSha256": "e0a3ddda7115b5439850e496c5113c7af3056d16812cfe7b086d2cab8d48748f",
+    "workflow": "https://github.com/C0D312/evaready-electrical/actions/runs/34927499974",
+    "deployment": "https://github.com/C0D312/evaready-electrical/deployments/6451497662"
+  },
+  "environment": {
+    "node": "v22.23.1",
+    "npm": "10.9.8",
+    "next": "16.3.4",
+    "lighthouse": "13.4.1",
+    "chrome": "152.0.7977.84",
+    "baseURL": "http://127.0.0.1:4224/evaready-electrical/",
+    "measuredFrom": "2026-09-15T14:57:48.358Z",
+    "measuredThrough": "2026-09-15T15:06:26.563Z",
+    "concurrency": 1,
+    "cache": "Fresh Chrome process/profile per run, storage reset, no-store local export, cache disabled.",
+    "compression": "Brotli quality5",
+    "integrations": "Inert Google and ServiceM8 fixtures; no genuine submissions/conversions.",
+    "profiles": {
+      "mobile": {
+        "viewport": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate"
+      },
+      "desktop": {
+        "viewport": {
+          "mobile": false,
+          "width": 1350,
+          "height": 940,
+          "deviceScaleFactor": 1,
+          "disabled": false
+        },
+        "throttling": {
+          "rttMs": 40,
+          "throughputKbps": 10240,
+          "requestLatencyMs": 0,
+          "downloadThroughputKbps": 0,
+          "uploadThroughputKbps": 0,
+          "cpuSlowdownMultiplier": 1
+        },
+        "throttlingMethod": "simulate"
+      }
+    }
+  },
+  "measurements": {
+    "valid": 60,
+    "mobile": 30,
+    "desktop": 30,
+    "routes": 10,
+    "runsPerRouteProfile": 3,
+    "invalidAttempts": 1,
+    "aggregation": "Independent median of all three valid original runs per route/profile. No diagnostic or historical results mixed in.",
+    "mobilePerformancePass": 1,
+    "mobileLcpPass": 0,
+    "desktopPerformancePass": 10,
+    "maxCls": 0,
+    "maxTbtMs": 146.26375000000007,
+    "consoleErrors": 0,
+    "httpErrors": 0,
+    "requestFailures": 2455,
+    "auditErrors": 0,
+    "intentionalRootProbes": 60,
+    "unauthorisedForwards": 0,
+    "thirdPartyDelivery": 0
+  },
+  "targets": {
+    "mobilePerformance": 90,
+    "mobileLcpMs": 2500,
+    "cls": 0.05,
+    "tbtMs": 200,
+    "desktopPerformance": 95,
+    "desktopLcp": "No material regression in a controlled selected-repair comparison; no repair selected yet."
+  },
+  "requestAccounting": {
+    "abortedHttp200Fetches": 2455,
+    "intentionalOriginRootRobotsProbes": 60,
+    "probeStatus": 403,
+    "probeEnforcement": "Rejected before DNS/upstream, separate from page errors.",
+    "sentinelConnections": 0,
+    "sentinelRequests": 0,
+    "sentinelBytes": 0
+  },
+  "routeProfiles": [
+    {
+      "label": "Homepage",
+      "route": "/",
+      "profile": "mobile",
+      "runs": 3,
+      "medians": {
+        "performance": 86,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "fcpMs": 1533.84385,
+        "lcpMs": 4057.6876999999995,
+        "cls": 0,
+        "tbtMs": 75.22419999999966,
+        "speedIndexMs": 1533.84385,
+        "totalTransferBytes": 566080,
+        "imageTransferBytes": 279917,
+        "cssTransferBytes": 64983,
+        "jsTransferBytes": 159987,
+        "fontTransferBytes": 0,
+        "requestCount": 26,
+        "simulated_ttfbMs": 454,
+        "simulated_estimatedResourceLoadDelayMs": 235,
+        "simulated_estimatedResourceLoadDurationMs": 94,
+        "simulated_unattributedAfterLoadMs": 3208.5516,
+        "simulated_elementRenderDelayMs": null,
+        "observed_timeToFirstByte": 4.836,
+        "observed_resourceLoadDelay": 15.059,
+        "observed_resourceLoadDuration": 7.862,
+        "observed_elementRenderDelay": 132.35,
+        "observedLcpMs": 178
+      },
+      "ranges": {
+        "performance": {
+          "min": 86,
+          "max": 87
+        },
+        "lcpMs": {
+          "min": 4057.0067,
+          "max": 4063.5516
+        }
+      },
+      "targets": {
+        "performance": false,
+        "lcp": false,
+        "cls": true,
+        "tbt": true
+      },
+      "lcpElements": [
+        "body.ev-electric-theme-bg > main#main-content > section.home-brand-hero > img.brand-hero-image"
+      ],
+      "lcpResourcePaths": [
+        "/evaready-electrical/images/performance/evaready-service-van-768.webp"
+      ]
+    },
+    {
+      "label": "Homepage",
+      "route": "/",
+      "profile": "desktop",
+      "runs": 3,
+      "medians": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "fcpMs": 432.88505,
+        "lcpMs": 1125.7701000000002,
+        "cls": 0,
+        "tbtMs": 0,
+        "speedIndexMs": 432.88505,
+        "totalTransferBytes": 1040745,
+        "imageTransferBytes": 661241,
+        "cssTransferBytes": 68101,
+        "jsTransferBytes": 162444,
+        "fontTransferBytes": 0,
+        "requestCount": 55,
+        "simulated_ttfbMs": 123,
+        "simulated_estimatedResourceLoadDelayMs": 108,
+        "simulated_estimatedResourceLoadDurationMs": 38,
+        "simulated_unattributedAfterLoadMs": 871.3378,
+        "simulated_elementRenderDelayMs": null,
+        "observed_timeToFirstByte": 5.124,
+        "observed_resourceLoadDelay": 22.692,
+        "observed_resourceLoadDuration": 10.661,
+        "observed_elementRenderDelay": 114.433,
+        "observedLcpMs": 145
+      },
+      "ranges": {
+        "performance": {
+          "min": 98,
+          "max": 98
+        },
+        "lcpMs": {
+          "min": 1125.139,
+          "max": 1173.3378
+        }
+      },
+      "targets": {
+        "performance": true,
+        "desktopLcpHistoricalRatio": 0.8116583273251623
+      },
+      "lcpElements": [
+        "body.ev-electric-theme-bg > main#main-content > section.home-brand-hero > img.brand-hero-image"
+      ],
+      "lcpResourcePaths": [
+        "/evaready-electrical/images/evaready-electrical-sydney-service-van.webp"
+      ]
+    },
+    {
+      "label": "Services",
+      "route": "/services/",
+      "profile": "mobile",
+      "runs": 3,
+      "medians": {
+        "performance": 88,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "fcpMs": 1532.8676500000001,
+        "lcpMs": 3905.7353000000003,
+        "cls": 0,
+        "tbtMs": 8,
+        "speedIndexMs": 1532.8676500000001,
+        "totalTransferBytes": 506723,
+        "imageTransferBytes": 213201,
+        "cssTransferBytes": 64983,
+        "jsTransferBytes": 159987,
+        "fontTransferBytes": 0,
+        "requestCount": 21,
+        "simulated_ttfbMs": 453,
+        "simulated_estimatedResourceLoadDelayMs": 0,
+        "simulated_estimatedResourceLoadDurationMs": 64,
+        "simulated_unattributedAfterLoadMs": 3388.3848,
+        "simulated_elementRenderDelayMs": null,
+        "observed_timeToFirstByte": 4.757,
+        "observed_resourceLoadDelay": 7.096000003814697,
+        "observed_resourceLoadDuration": 8.06,
+        "observed_elementRenderDelay": 126.708,
+        "observedLcpMs": 153
+      },
+      "ranges": {
+        "performance": {
+          "min": 88,
+          "max": 88
+        },
+        "lcpMs": {
+          "min": 3905.3848,
+          "max": 3905.8157
+        }
+      },
+      "targets": {
+        "performance": false,
+        "lcp": false,
+        "cls": true,
+        "tbt": true
+      },
+      "lcpElements": [
+        "body.ev-electric-theme-bg > main#main-content > section.brand-internal-hero > img.brand-internal-hero-image"
+      ],
+      "lcpResourcePaths": [
+        "/evaready-electrical/images/performance/evaready-service-van-768.webp"
+      ]
+    },
+    {
+      "label": "Services",
+      "route": "/services/",
+      "profile": "desktop",
+      "runs": 3,
+      "medians": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "fcpMs": 432.3559,
+        "lcpMs": 1125.4487,
+        "cls": 0,
+        "tbtMs": 0,
+        "speedIndexMs": 445.0277053143709,
+        "totalTransferBytes": 1060707,
+        "imageTransferBytes": 661241,
+        "cssTransferBytes": 68101,
+        "jsTransferBytes": 162444,
+        "fontTransferBytes": 0,
+        "requestCount": 54,
+        "simulated_ttfbMs": 122,
+        "simulated_estimatedResourceLoadDelayMs": 88,
+        "simulated_estimatedResourceLoadDurationMs": 26,
+        "simulated_unattributedAfterLoadMs": 916.7117999999998,
+        "simulated_elementRenderDelayMs": null,
+        "observed_timeToFirstByte": 5.863000003814697,
+        "observed_resourceLoadDelay": 31.3569999961853,
+        "observed_resourceLoadDuration": 11.126999996185303,
+        "observed_elementRenderDelay": 178.18000000381468,
+        "observedLcpMs": 222
+      },
+      "ranges": {
+        "performance": {
+          "min": 98,
+          "max": 98
+        },
+        "lcpMs": {
+          "min": 1124.2033,
+          "max": 1164.7117999999998
+        }
+      },
+      "targets": {
+        "performance": true,
+        "desktopLcpHistoricalRatio": 0.811426604181687
+      },
+      "lcpElements": [
+        "body.ev-electric-theme-bg > main#main-content > section.brand-internal-hero > img.brand-internal-hero-image"
+      ],
+      "lcpResourcePaths": [
+        "/evaready-electrical/images/evaready-electrical-sydney-service-van.webp"
+      ]
+    },
+    {
+      "label": "Service Areas",
+      "route": "/service-areas/",
+      "profile": "mobile",
+      "runs": 3,
+      "medians": {
+        "performance": 88,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "fcpMs": 1532.37495,
+        "lcpMs": 3904.7499,
+        "cls": 0,
+        "tbtMs": 30,
+        "speedIndexMs": 1532.37495,
+        "totalTransferBytes": 508682,
+        "imageTransferBytes": 213201,
+        "cssTransferBytes": 64983,
+        "jsTransferBytes": 162444,
+        "fontTransferBytes": 0,
+        "requestCount": 22,
+        "simulated_ttfbMs": 452,
+        "simulated_estimatedResourceLoadDelayMs": 231,
+        "simulated_estimatedResourceLoadDurationMs": 126,
+        "simulated_unattributedAfterLoadMs": 3081.7499,
+        "simulated_elementRenderDelayMs": null,
+        "observed_timeToFirstByte": 5.5200000038146975,
+        "observed_resourceLoadDelay": 21.187999996185304,
+        "observed_resourceLoadDuration": 8.817999996185304,
+        "observed_elementRenderDelay": 140.162,
+        "observedLcpMs": 168
+      },
+      "ranges": {
+        "performance": {
+          "min": 88,
+          "max": 88
+        },
+        "lcpMs": {
+          "min": 3904.2209000000003,
+          "max": 3905.929
+        }
+      },
+      "targets": {
+        "performance": false,
+        "lcp": false,
+        "cls": true,
+        "tbt": true
+      },
+      "lcpElements": [
+        "body.ev-electric-theme-bg > main#main-content > section.brand-internal-hero > img.brand-internal-hero-image"
+      ],
+      "lcpResourcePaths": [
+        "/evaready-electrical/images/performance/evaready-service-van-768.webp"
+      ]
+    },
+    {
+      "label": "Service Areas",
+      "route": "/service-areas/",
+      "profile": "desktop",
+      "runs": 3,
+      "medians": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "fcpMs": 433.07365,
+        "lcpMs": 1086.1473,
+        "cls": 0,
+        "tbtMs": 0,
+        "speedIndexMs": 433.07365,
+        "totalTransferBytes": 971055,
+        "imageTransferBytes": 594525,
+        "cssTransferBytes": 68101,
+        "jsTransferBytes": 162444,
+        "fontTransferBytes": 0,
+        "requestCount": 50,
+        "simulated_ttfbMs": 123,
+        "simulated_estimatedResourceLoadDelayMs": 154,
+        "simulated_estimatedResourceLoadDurationMs": 37,
+        "simulated_unattributedAfterLoadMs": 771.5135,
+        "simulated_elementRenderDelayMs": null,
+        "observed_timeToFirstByte": 6.1,
+        "observed_resourceLoadDelay": 29.583,
+        "observed_resourceLoadDuration": 12.031,
+        "observed_elementRenderDelay": 113.88100000381469,
+        "observedLcpMs": 158
+      },
+      "ranges": {
+        "performance": {
+          "min": 98,
+          "max": 98
+        },
+        "lcpMs": {
+          "min": 1085.5135,
+          "max": 1087.4245
+        }
+      },
+      "targets": {
+        "performance": true,
+        "desktopLcpHistoricalRatio": 0.8057472551928784
+      },
+      "lcpElements": [
+        "body.ev-electric-theme-bg > main#main-content > section.brand-internal-hero > img.brand-internal-hero-image"
+      ],
+      "lcpResourcePaths": [
+        "/evaready-electrical/images/evaready-electrical-sydney-service-van.webp"
+      ]
+    },
+    {
+      "label": "Emergency Electrician Sydney",
+      "route": "/emergency-electrician-sydney/",
+      "profile": "mobile",
+      "runs": 3,
+      "medians": {
+        "performance": 87,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "fcpMs": 1656.427,
+        "lcpMs": 3906.4269999999997,
+        "cls": 0,
+        "tbtMs": 106.27637499999946,
+        "speedIndexMs": 1656.427,
+        "totalTransferBytes": 512812,
+        "imageTransferBytes": 213201,
+        "cssTransferBytes": 68101,
+        "jsTransferBytes": 159987,
+        "fontTransferBytes": 0,
+        "requestCount": 22,
+        "simulated_ttfbMs": 453,
+        "simulated_estimatedResourceLoadDelayMs": 0,
+        "simulated_estimatedResourceLoadDurationMs": 6,
+        "simulated_unattributedAfterLoadMs": 3447.4269999999997,
+        "simulated_elementRenderDelayMs": null,
+        "observed_timeToFirstByte": 5.471000003814697,
+        "observed_resourceLoadDelay": 9.971000003814698,
+        "observed_resourceLoadDuration": 7.4350000038146975,
+        "observed_elementRenderDelay": 171.2800000038147,
+        "observedLcpMs": 193
+      },
+      "ranges": {
+        "performance": {
+          "min": 86,
+          "max": 87
+        },
+        "lcpMs": {
+          "min": 3906.3149999999996,
+          "max": 3907.6314999999995
+        }
+      },
+      "targets": {
+        "performance": false,
+        "lcp": false,
+        "cls": true,
+        "tbt": true
+      },
+      "lcpElements": [
+        "body.ev-electric-theme-bg > main#main-content > section.emergency-theme-module__6nHNpG__hero > img.brand-internal-hero-image"
+      ],
+      "lcpResourcePaths": [
+        "/evaready-electrical/images/performance/evaready-service-van-768.webp"
+      ]
+    },
+    {
+      "label": "Emergency Electrician Sydney",
+      "route": "/emergency-electrician-sydney/",
+      "profile": "desktop",
+      "runs": 3,
+      "medians": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "fcpMs": 432.1345,
+        "lcpMs": 1164.269,
+        "cls": 0,
+        "tbtMs": 0,
+        "speedIndexMs": 432.79806785189487,
+        "totalTransferBytes": 1063531,
+        "imageTransferBytes": 661241,
+        "cssTransferBytes": 68101,
+        "jsTransferBytes": 162444,
+        "fontTransferBytes": 0,
+        "requestCount": 54,
+        "simulated_ttfbMs": 122,
+        "simulated_estimatedResourceLoadDelayMs": 0,
+        "simulated_estimatedResourceLoadDurationMs": 25,
+        "simulated_unattributedAfterLoadMs": 977.2038,
+        "simulated_elementRenderDelayMs": null,
+        "observed_timeToFirstByte": 5.021999996185302,
+        "observed_resourceLoadDelay": 5.984999996185302,
+        "observed_resourceLoadDuration": 10.067000003814698,
+        "observed_elementRenderDelay": 142.5119999961853,
+        "observedLcpMs": 178
+      },
+      "ranges": {
+        "performance": {
+          "min": 98,
+          "max": 98
+        },
+        "lcpMs": {
+          "min": 1124.2038,
+          "max": 1164.8507
+        }
+      },
+      "targets": {
+        "performance": true,
+        "desktopLcpHistoricalRatio": 0.8394152847873108
+      },
+      "lcpElements": [
+        "body.ev-electric-theme-bg > main#main-content > section.emergency-theme-module__6nHNpG__hero > img.brand-internal-hero-image"
+      ],
+      "lcpResourcePaths": [
+        "/evaready-electrical/images/evaready-electrical-sydney-service-van.webp"
+      ]
+    },
+    {
+      "label": "Level 2 Electrician Sydney",
+      "route": "/level-2-electrician-sydney/",
+      "profile": "mobile",
+      "runs": 3,
+      "medians": {
+        "performance": 89,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "fcpMs": 1531.5382,
+        "lcpMs": 3755.9298,
+        "cls": 0,
+        "tbtMs": 15,
+        "speedIndexMs": 1531.5382,
+        "totalTransferBytes": 500121,
+        "imageTransferBytes": 213201,
+        "cssTransferBytes": 64983,
+        "jsTransferBytes": 159987,
+        "fontTransferBytes": 0,
+        "requestCount": 21,
+        "simulated_ttfbMs": 452,
+        "simulated_estimatedResourceLoadDelayMs": 0,
+        "simulated_estimatedResourceLoadDurationMs": 112,
+        "simulated_unattributedAfterLoadMs": 3301.0764,
+        "simulated_elementRenderDelayMs": null,
+        "observed_timeToFirstByte": 4.737,
+        "observed_resourceLoadDelay": 6.827,
+        "observed_resourceLoadDuration": 7.139000003814697,
+        "observed_elementRenderDelay": 122.4119999961853,
+        "observedLcpMs": 143
+      },
+      "ranges": {
+        "performance": {
+          "min": 88,
+          "max": 89
+        },
+        "lcpMs": {
+          "min": 3753.0764,
+          "max": 3902.544
+        }
+      },
+      "targets": {
+        "performance": false,
+        "lcp": false,
+        "cls": true,
+        "tbt": true
+      },
+      "lcpElements": [
+        "body.ev-electric-theme-bg > main#main-content > section.brand-internal-hero > img.brand-internal-hero-image"
+      ],
+      "lcpResourcePaths": [
+        "/evaready-electrical/images/performance/evaready-service-van-768.webp"
+      ]
+    },
+    {
+      "label": "Level 2 Electrician Sydney",
+      "route": "/level-2-electrician-sydney/",
+      "profile": "desktop",
+      "runs": 3,
+      "medians": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "fcpMs": 432.6227,
+        "lcpMs": 1085.2454,
+        "cls": 0,
+        "tbtMs": 0,
+        "speedIndexMs": 433.21015,
+        "totalTransferBytes": 987301,
+        "imageTransferBytes": 594525,
+        "cssTransferBytes": 68101,
+        "jsTransferBytes": 162444,
+        "fontTransferBytes": 0,
+        "requestCount": 50,
+        "simulated_ttfbMs": 123,
+        "simulated_estimatedResourceLoadDelayMs": 37,
+        "simulated_estimatedResourceLoadDurationMs": 24,
+        "simulated_unattributedAfterLoadMs": 902.4203,
+        "simulated_elementRenderDelayMs": null,
+        "observed_timeToFirstByte": 5.608999996185303,
+        "observed_resourceLoadDelay": 18.723000003814697,
+        "observed_resourceLoadDuration": 8.743000003814696,
+        "observed_elementRenderDelay": 159.6579999961853,
+        "observedLcpMs": 196
+      },
+      "ranges": {
+        "performance": {
+          "min": 98,
+          "max": 98
+        },
+        "lcpMs": {
+          "min": 1083.9906999999998,
+          "max": 1086.4203
+        }
+      },
+      "targets": {
+        "performance": true,
+        "desktopLcpHistoricalRatio": 0.8296983180428135
+      },
+      "lcpElements": [
+        "body.ev-electric-theme-bg > main#main-content > section.brand-internal-hero > img.brand-internal-hero-image"
+      ],
+      "lcpResourcePaths": [
+        "/evaready-electrical/images/evaready-electrical-sydney-service-van.webp"
+      ]
+    },
+    {
+      "label": "Switchboard Upgrades Sydney",
+      "route": "/services/switchboard-upgrades-sydney/",
+      "profile": "mobile",
+      "runs": 3,
+      "medians": {
+        "performance": 87,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "fcpMs": 1532.6693500000001,
+        "lcpMs": 4055.3387000000002,
+        "cls": 0,
+        "tbtMs": 11,
+        "speedIndexMs": 1532.6693500000001,
+        "totalTransferBytes": 576471,
+        "imageTransferBytes": 279917,
+        "cssTransferBytes": 64983,
+        "jsTransferBytes": 159987,
+        "fontTransferBytes": 0,
+        "requestCount": 25,
+        "simulated_ttfbMs": 453,
+        "simulated_estimatedResourceLoadDelayMs": 431,
+        "simulated_estimatedResourceLoadDurationMs": 148,
+        "simulated_unattributedAfterLoadMs": 3035.6971000000003,
+        "simulated_elementRenderDelayMs": null,
+        "observed_timeToFirstByte": 4.636,
+        "observed_resourceLoadDelay": 21.136,
+        "observed_resourceLoadDuration": 8.186,
+        "observed_elementRenderDelay": 99.4280000038147,
+        "observedLcpMs": 133
+      },
+      "ranges": {
+        "performance": {
+          "min": 87,
+          "max": 87
+        },
+        "lcpMs": {
+          "min": 4054.6971000000003,
+          "max": 4055.7291999999998
+        }
+      },
+      "targets": {
+        "performance": false,
+        "lcp": false,
+        "cls": true,
+        "tbt": true
+      },
+      "lcpElements": [
+        "body.ev-electric-theme-bg > main#main-content > section.brand-internal-hero > img.brand-internal-hero-image"
+      ],
+      "lcpResourcePaths": [
+        "/evaready-electrical/images/performance/evaready-service-van-768.webp"
+      ]
+    },
+    {
+      "label": "Switchboard Upgrades Sydney",
+      "route": "/services/switchboard-upgrades-sydney/",
+      "profile": "desktop",
+      "runs": 3,
+      "medians": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "fcpMs": 432.4004,
+        "lcpMs": 1124.8008,
+        "cls": 0,
+        "tbtMs": 24,
+        "speedIndexMs": 432.5575,
+        "totalTransferBytes": 1049504,
+        "imageTransferBytes": 661241,
+        "cssTransferBytes": 68101,
+        "jsTransferBytes": 162444,
+        "fontTransferBytes": 0,
+        "requestCount": 54,
+        "simulated_ttfbMs": 122,
+        "simulated_estimatedResourceLoadDelayMs": 102,
+        "simulated_estimatedResourceLoadDurationMs": 24,
+        "simulated_unattributedAfterLoadMs": 863.115,
+        "simulated_elementRenderDelayMs": null,
+        "observed_timeToFirstByte": 4.928,
+        "observed_resourceLoadDelay": 32.215,
+        "observed_resourceLoadDuration": 11.059,
+        "observed_elementRenderDelay": 165.4279999961853,
+        "observedLcpMs": 211
+      },
+      "ranges": {
+        "performance": {
+          "min": 98,
+          "max": 98
+        },
+        "lcpMs": {
+          "min": 1124.4926,
+          "max": 1125.115
+        }
+      },
+      "targets": {
+        "performance": true,
+        "desktopLcpHistoricalRatio": 0.8109594808940158
+      },
+      "lcpElements": [
+        "body.ev-electric-theme-bg > main#main-content > section.brand-internal-hero > img.brand-internal-hero-image"
+      ],
+      "lcpResourcePaths": [
+        "/evaready-electrical/images/evaready-electrical-sydney-service-van.webp"
+      ]
+    },
+    {
+      "label": "No Power In One Room fault guide",
+      "route": "/electrical-faults/no-power-in-one-room/",
+      "profile": "mobile",
+      "runs": 3,
+      "medians": {
+        "performance": 90,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "fcpMs": 1532.91215,
+        "lcpMs": 3605.8242999999998,
+        "cls": 0,
+        "tbtMs": 17,
+        "speedIndexMs": 1532.91215,
+        "totalTransferBytes": 543250,
+        "imageTransferBytes": 255219,
+        "cssTransferBytes": 64983,
+        "jsTransferBytes": 159987,
+        "fontTransferBytes": 0,
+        "requestCount": 25,
+        "simulated_ttfbMs": 453,
+        "simulated_estimatedResourceLoadDelayMs": null,
+        "simulated_estimatedResourceLoadDurationMs": null,
+        "simulated_unattributedAfterLoadMs": null,
+        "simulated_elementRenderDelayMs": null,
+        "observed_timeToFirstByte": 4.503,
+        "observed_resourceLoadDelay": 43.03,
+        "observed_resourceLoadDuration": 48.1129999961853,
+        "observed_elementRenderDelay": 57.114,
+        "observedLcpMs": 159
+      },
+      "ranges": {
+        "performance": {
+          "min": 90,
+          "max": 90
+        },
+        "lcpMs": {
+          "min": 3604.0887999999995,
+          "max": 3606.6478
+        }
+      },
+      "targets": {
+        "performance": true,
+        "lcp": false,
+        "cls": true,
+        "tbt": true
+      },
+      "lcpElements": [
+        "body.ev-electric-theme-bg > main#main-content > section.brand-internal-hero"
+      ],
+      "lcpResourcePaths": [
+        null
+      ]
+    },
+    {
+      "label": "No Power In One Room fault guide",
+      "route": "/electrical-faults/no-power-in-one-room/",
+      "profile": "desktop",
+      "runs": 3,
+      "medians": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "fcpMs": 431.91075,
+        "lcpMs": 1088.4675,
+        "cls": 0,
+        "tbtMs": 0,
+        "speedIndexMs": 431.91075,
+        "totalTransferBytes": 990707,
+        "imageTransferBytes": 594525,
+        "cssTransferBytes": 68101,
+        "jsTransferBytes": 162444,
+        "fontTransferBytes": 0,
+        "requestCount": 53,
+        "simulated_ttfbMs": 122,
+        "simulated_estimatedResourceLoadDelayMs": null,
+        "simulated_estimatedResourceLoadDurationMs": null,
+        "simulated_unattributedAfterLoadMs": null,
+        "simulated_elementRenderDelayMs": null,
+        "observed_timeToFirstByte": 5.256,
+        "observed_resourceLoadDelay": 52.306,
+        "observed_resourceLoadDuration": 47.586999996185305,
+        "observed_elementRenderDelay": 93.873,
+        "observedLcpMs": 199
+      },
+      "ranges": {
+        "performance": {
+          "min": 97,
+          "max": 98
+        },
+        "lcpMs": {
+          "min": 1085.73225,
+          "max": 1205.63865
+        }
+      },
+      "targets": {
+        "performance": true,
+        "desktopLcpHistoricalRatio": 0.7945018248175182
+      },
+      "lcpElements": [
+        "body.ev-electric-theme-bg > main#main-content > section.brand-internal-hero"
+      ],
+      "lcpResourcePaths": [
+        null
+      ]
+    },
+    {
+      "label": "Canterbury-Bankstown region",
+      "route": "/service-areas/canterbury-bankstown-and-inner-south-west/",
+      "profile": "mobile",
+      "runs": 3,
+      "medians": {
+        "performance": 88,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "fcpMs": 1531.86875,
+        "lcpMs": 3903.7375,
+        "cls": 0,
+        "tbtMs": 8,
+        "speedIndexMs": 1531.86875,
+        "totalTransferBytes": 516498,
+        "imageTransferBytes": 213201,
+        "cssTransferBytes": 64983,
+        "jsTransferBytes": 162444,
+        "fontTransferBytes": 0,
+        "requestCount": 25,
+        "simulated_ttfbMs": 452,
+        "simulated_estimatedResourceLoadDelayMs": null,
+        "simulated_estimatedResourceLoadDurationMs": null,
+        "simulated_unattributedAfterLoadMs": null,
+        "simulated_elementRenderDelayMs": null,
+        "observed_timeToFirstByte": 4.78,
+        "observed_elementRenderDelay": 115.909,
+        "observedLcpMs": 121
+      },
+      "ranges": {
+        "performance": {
+          "min": 88,
+          "max": 88
+        },
+        "lcpMs": {
+          "min": 3903.5269,
+          "max": 3905.1164
+        }
+      },
+      "targets": {
+        "performance": false,
+        "lcp": false,
+        "cls": true,
+        "tbt": true
+      },
+      "lcpElements": [
+        "section.brand-internal-hero > div.ev-hero-grid > div.internal-hero-copy-panel > h1.text-3xl"
+      ],
+      "lcpResourcePaths": [
+        null
+      ]
+    },
+    {
+      "label": "Canterbury-Bankstown region",
+      "route": "/service-areas/canterbury-bankstown-and-inner-south-west/",
+      "profile": "desktop",
+      "runs": 3,
+      "medians": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "fcpMs": 432.2735,
+        "lcpMs": 1084.547,
+        "cls": 0,
+        "tbtMs": 0,
+        "speedIndexMs": 432.2735,
+        "totalTransferBytes": 979820,
+        "imageTransferBytes": 594525,
+        "cssTransferBytes": 68101,
+        "jsTransferBytes": 162444,
+        "fontTransferBytes": 0,
+        "requestCount": 50,
+        "simulated_ttfbMs": 122,
+        "simulated_estimatedResourceLoadDelayMs": 153,
+        "simulated_estimatedResourceLoadDurationMs": 30,
+        "simulated_unattributedAfterLoadMs": 779.2192,
+        "simulated_elementRenderDelayMs": null,
+        "observed_timeToFirstByte": 5.119999996185303,
+        "observed_resourceLoadDelay": 29.674,
+        "observed_resourceLoadDuration": 9.111,
+        "observed_elementRenderDelay": 119.086,
+        "observedLcpMs": 161
+      },
+      "ranges": {
+        "performance": {
+          "min": 98,
+          "max": 98
+        },
+        "lcpMs": {
+          "min": 1084.2192,
+          "max": 1085.5827
+        }
+      },
+      "targets": {
+        "performance": true,
+        "desktopLcpHistoricalRatio": 0.8051573867854491
+      },
+      "lcpElements": [
+        "body.ev-electric-theme-bg > main#main-content > section.brand-internal-hero > img.brand-internal-hero-image"
+      ],
+      "lcpResourcePaths": [
+        "/evaready-electrical/images/evaready-electrical-sydney-service-van.webp"
+      ]
+    },
+    {
+      "label": "Canterbury-Bankstown area",
+      "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/",
+      "profile": "mobile",
+      "runs": 3,
+      "medians": {
+        "performance": 88,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "fcpMs": 1531.90555,
+        "lcpMs": 3903.8111,
+        "cls": 0,
+        "tbtMs": 7,
+        "speedIndexMs": 1531.90555,
+        "totalTransferBytes": 526336,
+        "imageTransferBytes": 213201,
+        "cssTransferBytes": 64983,
+        "jsTransferBytes": 162444,
+        "fontTransferBytes": 0,
+        "requestCount": 28,
+        "simulated_ttfbMs": 452,
+        "simulated_estimatedResourceLoadDelayMs": 544,
+        "simulated_estimatedResourceLoadDurationMs": 140,
+        "simulated_unattributedAfterLoadMs": 2767.4829,
+        "simulated_elementRenderDelayMs": null,
+        "observed_timeToFirstByte": 4.557,
+        "observed_resourceLoadDelay": 25.616,
+        "observed_resourceLoadDuration": 7.462,
+        "observed_elementRenderDelay": 88.643,
+        "observedLcpMs": 142
+      },
+      "ranges": {
+        "performance": {
+          "min": 88,
+          "max": 88
+        },
+        "lcpMs": {
+          "min": 3903.4829,
+          "max": 3904.0837
+        }
+      },
+      "targets": {
+        "performance": false,
+        "lcp": false,
+        "cls": true,
+        "tbt": true
+      },
+      "lcpElements": [
+        "body.ev-electric-theme-bg > main#main-content > section.brand-internal-hero > img.brand-internal-hero-image"
+      ],
+      "lcpResourcePaths": [
+        "/evaready-electrical/images/performance/evaready-service-van-768.webp"
+      ]
+    },
+    {
+      "label": "Canterbury-Bankstown area",
+      "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/",
+      "profile": "desktop",
+      "runs": 3,
+      "medians": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "fcpMs": 432.09825,
+        "lcpMs": 1123.8341,
+        "cls": 0,
+        "tbtMs": 0,
+        "speedIndexMs": 432.09825,
+        "totalTransferBytes": 979165,
+        "imageTransferBytes": 594525,
+        "cssTransferBytes": 68101,
+        "jsTransferBytes": 162444,
+        "fontTransferBytes": 0,
+        "requestCount": 53,
+        "simulated_ttfbMs": 122,
+        "simulated_estimatedResourceLoadDelayMs": 144,
+        "simulated_estimatedResourceLoadDurationMs": 32,
+        "simulated_unattributedAfterLoadMs": 792.8341,
+        "simulated_elementRenderDelayMs": null,
+        "observed_timeToFirstByte": 5.024,
+        "observed_resourceLoadDelay": 28.92,
+        "observed_resourceLoadDuration": 11.667,
+        "observed_elementRenderDelay": 117.222,
+        "observedLcpMs": 162
+      },
+      "ranges": {
+        "performance": {
+          "min": 98,
+          "max": 98
+        },
+        "lcpMs": {
+          "min": 1084.1965,
+          "max": 1124.8683
+        }
+      },
+      "targets": {
+        "performance": true,
+        "desktopLcpHistoricalRatio": 0.8343237564959168
+      },
+      "lcpElements": [
+        "body.ev-electric-theme-bg > main#main-content > section.brand-internal-hero > img.brand-internal-hero-image"
+      ],
+      "lcpResourcePaths": [
+        "/evaready-electrical/images/evaready-electrical-sydney-service-van.webp"
+      ]
+    },
+    {
+      "label": "Panania suburb",
+      "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+      "profile": "mobile",
+      "runs": 3,
+      "medians": {
+        "performance": 89,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "fcpMs": 1531.9863500000001,
+        "lcpMs": 3753.9727000000003,
+        "cls": 0,
+        "tbtMs": 9.5,
+        "speedIndexMs": 1531.9863500000001,
+        "totalTransferBytes": 535845,
+        "imageTransferBytes": 213201,
+        "cssTransferBytes": 64983,
+        "jsTransferBytes": 162444,
+        "fontTransferBytes": 0,
+        "requestCount": 31,
+        "simulated_ttfbMs": 452,
+        "simulated_estimatedResourceLoadDelayMs": 217,
+        "simulated_estimatedResourceLoadDurationMs": 125,
+        "simulated_unattributedAfterLoadMs": 2960.0078,
+        "simulated_elementRenderDelayMs": null,
+        "observed_timeToFirstByte": 4.530999996185303,
+        "observed_resourceLoadDelay": 16.735000003814697,
+        "observed_resourceLoadDuration": 7.132,
+        "observed_elementRenderDelay": 90.537,
+        "observedLcpMs": 121
+      },
+      "ranges": {
+        "performance": {
+          "min": 89,
+          "max": 89
+        },
+        "lcpMs": {
+          "min": 3753.7411,
+          "max": 3754.0078
+        }
+      },
+      "targets": {
+        "performance": false,
+        "lcp": false,
+        "cls": true,
+        "tbt": true
+      },
+      "lcpElements": [
+        "body.ev-electric-theme-bg > main#main-content > section.brand-internal-hero > img.brand-internal-hero-image"
+      ],
+      "lcpResourcePaths": [
+        "/evaready-electrical/images/performance/evaready-service-van-768.webp"
+      ]
+    },
+    {
+      "label": "Panania suburb",
+      "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania/",
+      "profile": "desktop",
+      "runs": 3,
+      "medians": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "fcpMs": 432.05215,
+        "lcpMs": 1084.1043,
+        "cls": 0,
+        "tbtMs": 0,
+        "speedIndexMs": 432.05215,
+        "totalTransferBytes": 1005013,
+        "imageTransferBytes": 594525,
+        "cssTransferBytes": 68101,
+        "jsTransferBytes": 162444,
+        "fontTransferBytes": 0,
+        "requestCount": 56,
+        "simulated_ttfbMs": 122,
+        "simulated_estimatedResourceLoadDelayMs": 2,
+        "simulated_estimatedResourceLoadDurationMs": 41,
+        "simulated_unattributedAfterLoadMs": 901.1043,
+        "simulated_elementRenderDelayMs": null,
+        "observed_timeToFirstByte": 5.163,
+        "observed_resourceLoadDelay": 5.204,
+        "observed_resourceLoadDuration": 9.265999996185302,
+        "observed_elementRenderDelay": 112.604,
+        "observedLcpMs": 141
+      },
+      "ranges": {
+        "performance": {
+          "min": 98,
+          "max": 98
+        },
+        "lcpMs": {
+          "min": 1084.1000999999999,
+          "max": 1085.1745999999998
+        }
+      },
+      "targets": {
+        "performance": true,
+        "desktopLcpHistoricalRatio": 0.8288259174311926
+      },
+      "lcpElements": [
+        "body.ev-electric-theme-bg > main#main-content > section.brand-internal-hero > img.brand-internal-hero-image"
+      ],
+      "lcpResourcePaths": [
+        "/evaready-electrical/images/evaready-electrical-sydney-service-van.webp"
+      ]
+    }
+  ],
+  "evidence": {
+    "status": "Retained; documentation reconciliation only, not fresh benchmark validation",
+    "previousVerification": {
+      "rawFilesVerified": 975,
+      "representativeArchivesRead": 20,
+      "measurementsChecked": 60,
+      "routeProfileGroups": 20
+    },
+    "files": [
+      {
+        "label": "results-v2/summary.json",
+        "sha256": "2a20ff0909054929ffd38b5c1747e88ff7a0a1ca3e23f6bddec1e7daaa707bf8",
+        "storage": "Retained locally; raw evidence not committed"
+      },
+      {
+        "label": "results-v2/medians.json",
+        "sha256": "6ba21a5e3fef52bbcea5e2db8679284d2d26644c766971df78ffd97d5881ce9e",
+        "storage": "Retained locally; raw evidence not committed"
+      },
+      {
+        "label": "results-v2/all-runs.json",
+        "sha256": "4135d4636249b67f91cd800b9946381afb247eb196f6b8eb65e840d522a9c0f8",
+        "storage": "Retained locally; raw evidence not committed"
+      },
+      {
+        "label": "results-v2/verification.json",
+        "sha256": "ad3b253f76e55d934b1196ea79a146e689c4676c9491c93d15bbd8b3cd15a92e",
+        "storage": "Retained locally; raw evidence not committed"
+      },
+      {
+        "label": "results-v2/raw-sha256-manifest.json",
+        "sha256": "ad441fca6b28080f2e4043b62bce04e02c690a26293ef42463d30820c7c19832",
+        "storage": "Retained locally; raw evidence not committed"
+      },
+      {
+        "label": "results-v2/failure-inventory.json",
+        "sha256": "dcc43923386ef7a316b03d3724d76db71479199d07aa479bf825adff66eb2ca4",
+        "storage": "Retained locally; raw evidence not committed"
+      },
+      {
+        "label": "qualification-11-qualified.json",
+        "sha256": "977f1750b4d591f44a378e6b65471376d4e165014dfa3c36dd3ef0dae7daa223",
+        "storage": "Retained locally; raw evidence not committed"
+      },
+      {
+        "label": "r1/F-sensitivity.json",
+        "sha256": "57202f625f71f358e6589fefdb0493a0dacfc18e05562dd3ea8db639924220d3",
+        "storage": "Retained locally; raw evidence not committed"
+      },
+      {
+        "label": "r1/G-delivery-check.json",
+        "sha256": "8446bb2e0ec6335b75ddb343275a1869d7e889b3c00d3a85de385c18747395b1",
+        "storage": "Retained locally; raw evidence not committed"
+      },
+      {
+        "label": "r1/G-cascade-proof.json",
+        "sha256": "d0cd48493ca89eef3cc24c71e65d7d563fcdb292107f5ce57213ae515526eca0",
+        "storage": "Retained locally; raw evidence not committed"
+      }
+    ]
+  },
+  "diagnostics": [
+    {
+      "id": "A",
+      "status": "TRAFFIC_ONLY_NOT_ADOPTED",
+      "finding": "Home-link prefetch change removes off-page traffic; navigation tradeoffs remain. Not an accepted LCP repair."
+    },
+    {
+      "id": "B",
+      "status": "REJECTED",
+      "finding": "Smaller-dimension lossless header derivatives exceeded original bytes."
+    },
+    {
+      "id": "C",
+      "status": "REJECTED",
+      "finding": "Guide hero preload did not establish reliable LCP improvement."
+    },
+    {
+      "id": "D",
+      "status": "REJECTED",
+      "finding": "CSS relocation saved about501B on unrelated routes and added about431B on consumers; no causal substantial LCP benefit."
+    },
+    {
+      "id": "E",
+      "status": "TRAFFIC_ONLY_NOT_ADOPTED",
+      "finding": "Parent-guide prefetch suppression removes automatic requests; navigation tradeoffs remain. Latest comparison Performance90 to88; LCP3609.75 to3911.47ms, preserved as worse."
+    },
+    {
+      "id": "F",
+      "status": "PLANNING_ONLY",
+      "finding": "Offline transfer-only sensitivity estimates with dependencies, CPU and model rules unchanged; not measurements, feasible-savings proof or proof of impossibility."
+    },
+    {
+      "id": "G",
+      "status": "REJECTED",
+      "finding": "520 exact redundant declaration removals; actual CSS bodies64558 to63994B, Emergency67470 to66906B.564B saved per route, same requests, less than1%. No browser acceptance or LCP claim."
+    }
+  ],
+  "ownerConstraint": "Header/background artwork, colours, styling and layout unchanged. Compression/replacement not authorised. Do not repeat the same permission request. This is not a finding that design change is the only solution.",
+  "limits": [
+    "Laboratory simulated-throttling results, not field Core Web Vitals or INP.",
+    "Inert integrations omit real third-party cost and do not prove conversion delivery.",
+    "Observed LCP phases remain distinct from simulated LCP; simulated render delay is unavailable/null.",
+    "Historical and diagnostic variants do not enter current baseline medians.",
+    "No diagnostic candidate committed, adopted or deployed.",
+    "Mobile targets and all existing owner/publication/indexation holds remain unchanged.",
+    "A selected substantial repair requires the original60-run matrix and relevant regression gates."
+  ]
+}

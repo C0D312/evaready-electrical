@@ -75,14 +75,18 @@ That empty-dataset privacy result does not prove that no PII can exist elsewhere
 | --- | --- |
 | Current release proof | Exact approved source, artifact digest and all 7,153 HTTP comparisons passed; 196 fresh contained artifact-browser tests passed across seven profiles. The feature reconciliation separately passed lint, TypeScript and 1,524 audit-unit tests. These prove their recorded delivery/functional contracts, not new load-performance measurements or universal device coverage. |
 | Qualified retained proof | The original 4,459-case acceptance ledger retains 3,647 executed and 812 supported retained results under the documented source/test/dependency qualification. It is not 4,459 freshly run deployed-artifact cases. Historical Phase 3E1 records 19,206 width/text cells and 2,156 browser tests, not a fresh all-suburb browser run after every later shared change. |
-| Missing current performance proof | The latest comparable historical matrix cited by the programme is commit `668a05941e84de514081228b7077b8677e01ef55`: mobile Performance 81-84 and LCP 4.584-5.108 seconds. Those are historical source/environment results, not scores for deployed `1b0a99`. The previously required mobile medians remain Performance at least 90 and LCP at most 2.5 seconds, CLS at most 0.05 and TBT at most 200 ms; desktop Performance at least 95 and no material LCP regression. The original ten-route, three-mobile/three-desktop comparison and error inventory are not replaced by delivery tests. Current measurements and any necessary correction remain a technical launch obligation. |
-| Limits, not newly invented gates | Existing browser proof is local emulation with inert integrations, not physical-device/macOS Safari certification or genuine conversion delivery. No new Lighthouse run, field Core Web Vitals, INP measurement or WCAG certification is claimed. This documentation phase adds no testing programme and repeats no completed release gates. |
+| Current performance measured; mobile repair unresolved | The [Phase 3E4 status](phase3e4-performance-status.md) records the completed 60-run contained baseline for deployed `1b0a996285a7651657ccf8801c3f3a95ed298994`: mobile Performance meets its target on 1/10 routes and LCP on 0/10; desktop Performance passes on 10/10. Current measurement is no longer missing. No diagnostic candidate is adopted. Targets remain mobile Performance at least 90, LCP at most 2.5 seconds, CLS at most 0.05 and TBT at most 200ms; desktop Performance at least 95 and no material LCP regression. A selected substantial repair still requires the original ten-route comparison and relevant regression gates. |
+| Limits, not newly invented gates | Existing browser and Phase 3E4 performance proof is local emulation with inert integrations, not physical-device/macOS Safari certification or genuine conversion delivery. This documentation reconciliation retains those measurements; it claims no new Lighthouse run, field Core Web Vitals, INP measurement or WCAG certification and repeats no completed release gates. |
 
 The programme is therefore **not waiting only on owner decisions**: current
-performance proof remains missing and the previously recorded mobile launch
-blocker has not been cleared. A later authorised technical phase can address it
-independently. Branded-domain launch is not approved, and any future main SHA
-requires separate direct owner approval.
+performance measurement is complete, but the mobile launch blocker remains.
+The investigated approaches have not established a substantial repair within the
+present scope; that does not prove the targets impossible. Header and background
+artwork, colours, styling and layout remain unchanged; compression/replacement is
+not authorised. A later supported technical scope can address the unresolved
+performance problem without repeating rejected experiments. Branded-domain
+launch is not approved, and any future main SHA requires separate direct owner
+approval.
 
 ## Short Owner Response Checklist
 
