@@ -1,14 +1,16 @@
 # Phase 3E4 Performance Status
 
-Documentation checkpoint: 16 September 2026. Measured deployed source:
+Documentation checkpoint: 18 September 2026. Measured deployed source:
 `1b0a996285a7651657ccf8801c3f3a95ed298994`. Investigation feature checkpoint:
-`1df6b7ee6a2e4cc75e9c6ad93538594376b76e27`.
+`182ee024561564c5892009327a93009083d7bbef`.
 
-**Current measurement is complete; the mobile performance target is unresolved.**
-The original ten-route matrix has 60 valid measurements: three mobile and three
-desktop runs per route. One invalid collection attempt is preserved separately
-and excluded from medians. No diagnostic candidate was committed, adopted or
-deployed. This document does not approve a release or clear any owner hold.
+**The deployed baseline and L-high qualification matrices are complete; mobile
+performance remains unresolved.** Each matrix contains 60 valid measurements:
+three mobile and three desktop runs per route. The original deployed baseline
+retains one excluded invalid collection attempt; L-high has no invalid attempts.
+L-high's original candidate matrix is **completed and failed**, not unexecuted.
+No performance candidate was committed, adopted or deployed. This documentation
+does not approve a release, alter acceptance gates or clear any owner hold.
 
 The [machine-readable summary](../reports/phase3e4-performance-summary.json)
 contains all route/profile medians, ranges, measurement settings, source identity
@@ -16,6 +18,10 @@ and hashes of retained evidence. Raw traces, screenshots, logs and local account
 paths are deliberately not committed. The
 [verified preview release](phase3e2-verified-preview-release.md) remains the
 publication record; [owner decisions](whole-site-owner-decisions.md) remain open.
+The separate [R2 qualification record](../reports/phase3e4-r2-qualification.json)
+preserves sanitised H-M findings and all 60 N measurements with 20 median/range
+groups. The original deployed-artifact JSON summary is unchanged. Different
+source builds and simulated/applied methods are not pooled.
 
 ## Measured Baseline
 
@@ -87,6 +93,13 @@ unthrottled phase timings are separate from simulated LCP.
 | E: guide parent-link prefetch disabled, isolated with A | Removed four automatic guide-index requests in the recorded mobile case, with navigation tradeoffs. Current comparison median Performance worsened 90 to 88 and LCP 3609.75 to 3911.47ms. Traffic reduction is not an accepted LCP repair; not adopted. |
 | F: offline sensitivity analysis | Reproduced retained graph results, then varied transfer sizes only while preserving CPU work, dependencies, latency and model rules. Hypothetical reductions are planning estimates, not measured improvements or proof that the assumed savings are feasible. |
 | G: bounded exact CSS redundancy removal | 520 earlier identical declarations removed in an isolated source variant with retained later cascade witnesses. Actual production saving was only 564 compressed bytes per route, with unchanged request counts. Rejected at the material-delivery screen; no browser performance claim. |
+| H / H1: experimental inline CSS | Original compressed HTML+CSS growth of 11.27%-12.90% failed the 5% size screen. Twelve matched mobile measurements then found only about 76ms homepage LCP improvement, essentially unchanged guide LCP, roughly 300ms worse FCP on both routes and higher transfer/parsing costs. HTML/RSC repeats CSS and loses independent stylesheet caching. No warm-cache penalty was measured. Rejected and unadopted; the measurement exercise did not retrospectively pass the size screen. |
+| I: selective CSS feasibility | Offline projections and cascade inspection did not establish a substantial, dependency-complete safe split. The optimistic narrow-width media projection saved 5,592 BR5 bytes, while order-preserving segmentation increased shared payload and requests. Five concrete source-order conflicts were identified. No pilot, build or browser benchmark followed the feasibility stop; this is not proof that every selective CSS approach is impossible. |
+| J: client-data import boundary | An isolated shared-contact import split saved about 2.3KB of initial compressed JavaScript, but increased total emitted JavaScript by 2,287 BR5 bytes. Twelve matched runs showed no meaningful LCP benefit. Functional/export checks passed in their recorded scope; retained separately, not adopted as a speed repair. |
+| K: applied-throttling diagnosis | Six baseline request-level laboratory runs, after a two-fixture transport qualification, identified the guide's actual LCP as the existing mobile storm background discovered after CSS. The homepage's preloaded van and initial style/layout work remained relevant. These observations justified testing the background preload; they did not replace simulated acceptance or establish field performance. |
+| L: high-priority mobile storm preload | Eighteen measurements kept simulated and applied results separate. The matched applied guide median improved by about 0.90s, but one candidate observation still exceeded 2.5s. Header completion was about 231ms later and TBT increased. The simulated guide comparison had graph-inclusion variation and was not a robust benefit. No appearance or artwork change; isolated and unadopted. |
+| L1: independent high/auto comparison | Eighteen measurements confirmed about 0.88s applied guide improvement with high priority, with about 233ms later header completion and increased TBT. The matched primary simulated high-priority median worsened by about 152ms and Performance fell 90 to 89. Auto priority lost the applied benefit and was rejected. L and L1 are separate small-sample comparisons, not pooled evidence or speed proof for all 15 guides. |
+| M: rendering ownership | Reanalysis of three retained baseline traces attributed the 351-360ms CSS-to-FCP interval chiefly to initial style/layout, not a demonstrated avoidable JavaScript loop. Two instrumented ownership loads were substantially perturbed and are diagnostic observations, not performance medians. Relevant selectors/container rules had consumers; no safe substantial removal was established and no candidate was created. |
 
 Shared header transfer, render-blocking CSS and framework/application traffic
 contribute to the examined dependency graphs despite low TBT. Resource inclusion
@@ -99,6 +112,50 @@ impossible or that changing the design is the only solution.
 The owner requires header and background artwork, colours, styling and layout to
 remain unchanged. Compression or replacement is **not authorised**. Do not renew
 the same image-permission request or infer permission from continued autopilot.
+
+## L-high Qualification (Phase N)
+
+The exact candidate is the investigation feature commit above plus only the
+isolated fault-detail renderer preload and its focused test. Its candidate commit
+is **null**. The two-file patch and raw diagnostics remain local; this record
+does not incorporate the patch into the feature branch.
+
+All 15 valid fault-detail exports consume the existing mobile storm background
+under the hint's max-width 767px condition. Each has one hint; the other 989 HTML
+outputs do not. Invalid slugs exit before preloading. This is consumer correctness
+coverage, not a measured speed improvement on all 15 routes.
+
+The fresh complete audit-unit suite passed 1,527/1,527 tests. Matching production
+build, lint, TypeScript, export parity, protected-asset identity and focused
+normal/enlarged-text, menu, Quote, focus and history evidence were retained by
+input hashes, not described as fresh executions. No 4,459-case replay occurred.
+
+The exact original ten-route candidate-only simulated matrix completed once,
+with all 60 valid results retained and no score-based retries:
+
+| Gate | Route median result |
+| --- | --- |
+| Mobile Performance >=90 | **0/10 pass**; scores 86-89 |
+| Mobile LCP <=2500ms | **0/10 pass**; medians about 3764-4070ms |
+| Mobile CLS <=0.05 | **10/10 pass**; every run CLS 0 |
+| Mobile TBT <=200ms | **10/10 pass** |
+| Desktop Performance >=95 | **10/10 pass**; every run scored 98 |
+| Controlled desktop LCP no-regression proof | **Not established** by this candidate-only matrix |
+
+The earlier baseline is a deployed Linux export; N is a Windows export from the
+feature checkpoint plus L-high. Historical desktop LCP ratios are context only,
+not a controlled before/after pass. The mobile hint being inactive on desktop
+does not independently establish performance non-regression. All 60 request
+reconciliations passed, with zero unauthorised forwards, third-party delivery,
+unexpected page-resource HTTP errors, console errors or Lighthouse audit errors.
+
+L-high is a mechanism-supported partial applied-laboratory improvement on the
+measured guide, but **not eligible for adoption under the unchanged primary
+gates**. Its simulated regression, header scheduling cost and higher applied TBT
+remain recorded. Owner approval cannot turn failed measurements into passes.
+No assertion is made that artwork changes are necessary or every code-only
+approach is impossible. Approved main remains the deployed website; none of
+these performance candidates changed it.
 
 ## Retained Validation And Next Gate
 
@@ -114,10 +171,12 @@ passed. Its less-than-1% CSS saving failed the selection screen, so it was not
 promoted to browser/visual acceptance or the original 60-run matrix. No production
 assertions or thresholds were weakened.
 
-This documentation phase reconciles existing numbers and hashes, validates JSON
-and document links, and reviews/scans only its exact staged files. It does not
-rebuild or rerun performance, functional or browser matrices. A future selected
-substantial repair still requires the original ten-route 60-run comparison and
-relevant regression gates. The mobile launch blocker, all business/legal,
+This documentation phase reconciles sealed structured numbers and hashes,
+validates JSON and document links, and reviews/scans only its exact two staged
+files. It does not rebuild or rerun performance, functional or browser matrices.
+N completed and failed the original candidate matrix; it must not be repeated
+without a concrete new authorised reason. A different future selected repair
+requires its applicable regression and original performance gates. The mobile
+launch blocker, all business/legal,
 credential, review-integration, serviceability and indexation holds remain open.
 No route, publication or owner-hold register state changes here.
