@@ -9,6 +9,41 @@ const fixtures = {
   before3e2: ["phase3e2-before-register.json", "6d012198ddbbb6c1ff384b0266f852d291a5340cb4f842a5bbcc2ad6e98d20a8"],
 } as const;
 
+// Independent five-route exception; do not derive it from candidate content.
+export const editorialBatch01Routes = new Set([
+  "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/bankstown",
+  "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/padstow",
+  "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/panania",
+  "/service-areas/sydney-city-and-eastern-suburbs/waverley/bondi-junction",
+  "/service-areas/parramatta-and-cumberland/parramatta/parramatta",
+]);
+export const editorialPublicationHold = "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical.";
+
+export function registerBeforeEditorialBatch(actual: WholeSiteCompletionRegister): WholeSiteCompletionRegister {
+  const restored = structuredClone(actual);
+  const before = historicalRegister("before3e2");
+  assert.equal(actual.records.filter(row => editorialBatch01Routes.has(row.route)).length, 5);
+  assert.deepEqual(actual.counts.publication, { "live-verified": 996, pending: 5 });
+  for (const row of restored.records.filter(row => editorialBatch01Routes.has(row.route))) {
+    const baseline = before.records.find(candidate => candidate.route === row.route)!;
+    assert.deepEqual(row, {
+      ...baseline,
+      outstandingHolds: [...baseline.outstandingHolds.slice(0, -1), editorialPublicationHold],
+      publication: "pending",
+      publishedLiveVerifiedSha: null,
+      sourceRecord: `data/suburb-editorial.ts#${row.route}`,
+    }, row.route);
+    Object.assign(row, {
+      outstandingHolds: baseline.outstandingHolds.slice(0, -1),
+      publication: "live-verified",
+      publishedLiveVerifiedSha: "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      sourceRecord: baseline.sourceRecord,
+    });
+  }
+  restored.counts.publication = { "live-verified": 1001, pending: 0 };
+  return restored;
+}
+
 export function historicalRegister(version: keyof typeof fixtures): WholeSiteCompletionRegister {
   const [file, expectedHash] = fixtures[version];
   // Git may check text fixtures out with CRLF on Windows; only line endings differ.
@@ -50,7 +85,8 @@ export const reviewedRouteHolds: Readonly<Record<string, readonly string[]>> = {
   "/solar-batteries": ["Confirm system-specific solar/battery accreditation, design/install/commissioning scope and any incentive or network requirements; no rebate, savings or backup guarantee."],
 };
 
-export function assertCurrentRegisterContract(actual: WholeSiteCompletionRegister): void {
+export function assertCurrentRegisterContract(candidate: WholeSiteCompletionRegister): void {
+  const actual = registerBeforeEditorialBatch(candidate);
   const before = historicalRegister("before3e2");
   const reviewed = Object.keys(reviewedRouteHolds);
   const suburbs = before.records.filter(row => row.category === "suburb");

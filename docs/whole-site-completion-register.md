@@ -5,12 +5,24 @@ route-by-route register for all 1,001 public sitemap routes.
 
 ## Current Verified Checkpoint
 
+The R4 editorial continuation has five unpublished candidate pages: Bankstown,
+Padstow, Panania, Bondi Junction and Parramatta. Their current register rows have
+`publication: pending` and null live SHAs. The other 996 rows and their historical
+release evidence remain unchanged. No new release or cleared owner hold is
+implied. See `suburb-editorial-batch-01.md` for current validation and
+`reports/suburb-editorial-progress.json` for the separate all-873 originality and
+individual editorial continuation ledger. The remaining 868 pages are still
+pending that deeper pass; historical shared-template review is not proof of
+route-specific original content.
+
+### Previous verified publication
+
 Phase 3E2-P2 verified the owner-approved preview release
 `1b0a996285a7651657ccf8801c3f3a95ed298994` on 15 September 2026. Exactly 895
 pending publication rows (873 suburbs, 21 Phase 3E2 routes and the Services
 catalogue) now record that live SHA. All 106 other rows and their historical
-SHAs remain unchanged. All 1,001 routes are live-verified, with zero pending
-publication rows. Individual review states and unresolved owner holds are
+SHAs remained unchanged. At that checkpoint all 1,001 routes were live-verified,
+with zero pending publication rows. Individual review states and unresolved owner holds were
 unchanged; deployment does not constitute credential, legal, review-API or
 indexation approval. See `docs/phase3e2-verified-preview-release.md` and
 `reports/phase3e2-preview-release.json` for the actual release and route proofs.

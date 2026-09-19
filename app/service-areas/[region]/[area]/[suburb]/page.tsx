@@ -25,6 +25,7 @@ import {
 } from "@/data/service-area-coverage";
 import { getRelatedSuburbs } from "@/data/internal-links";
 import { getApprovedLocationEvidence } from "@/data/location-evidence";
+import { suburbEditorial } from "@/data/suburb-editorial";
 import { business, getEmergencyResponseForRegion } from "@/data/site";
 import {
   buildBreadcrumbSchema,
@@ -83,14 +84,15 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
   const emergencyResponse = getEmergencyResponseForRegion(region.name);
   const locality = `${suburb.name} ${suburb.postcode}`;
   const pagePath = `/service-areas/${region.slug}/${area.slug}/${suburb.slug}`;
+  const editorial = suburbEditorial[pagePath];
   const locationEvidence = getApprovedLocationEvidence(
     region.slug,
     area.slug,
     suburb.slug,
   );
-  const visibleServiceDescription = `Our licensed electricians handle urgent faults and planned electrical work in ${locality}. Service availability depends on the job, property and required authorisation. We confirm attendance and scope when reviewing your request.`;
+  const visibleServiceDescription = editorial?.description ?? `Our licensed electricians handle urgent faults and planned electrical work in ${locality}. Service availability depends on the job, property and required authorisation. We confirm attendance and scope when reviewing your request.`;
   const faqItems = [
-    {
+    editorial?.firstFaq ?? {
       question: `Does Evaready Electrical service ${locality}?`,
       answer: `${locality} is listed under ${area.name} in our ${region.name} service directory. Contact our licensed electricians with your suburb and a short description so we can confirm the work, access requirements and availability. A listed suburb does not mean every specialist service is suitable for every property.`,
     },
@@ -106,7 +108,7 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
       question: `What should I send for planned work in ${suburb.name}?`,
       answer: `Start with your suburb, contact details, the problem or planned change, and when it started. Photos are optional: take them only from a safe position without opening equipment or approaching a hazard. Do not include access codes, account numbers or unrelated private documents. We can request relevant defect details securely if needed. Never delay emergency help to gather information, and remember that sending a request does not confirm an appointment.`,
     },
-    {
+    editorial?.finalFaq ?? {
       question: "What happens when an electrician attends?",
       answer: "Our licensed electricians discuss the symptoms and access, inspect the relevant installation, and use appropriate electrical testing to identify the cause. We explain the findings and proposed work before proceeding. Repairs may involve a fitting, circuit, protective device or damaged wiring; a network issue or specialist task may need a separate authorised process. Testing and the job scope determine the next step, not a diagnosis from a photograph alone.",
     },
@@ -217,6 +219,34 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
 
       {locationEvidence ? (
         <LocationEvidenceSection evidence={locationEvidence} />
+      ) : null}
+
+      {editorial ? (
+        <section className="py-14 text-white sm:py-16" data-location-section="researched-guidance">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto" style={{ maxWidth: 768 }} data-editorial-reading-column="true">
+              <h2 className="max-w-4xl text-3xl font-black leading-tight sm:text-5xl">
+                {editorial.heading}
+              </h2>
+              <div className="mt-8 grid gap-8">
+                {editorial.sections.map((section) => (
+                  <div key={section.heading} className="min-w-0">
+                    <h3 className="text-xl font-black text-white">{section.heading}</h3>
+                    {section.paragraphs.map((paragraph) => (
+                      <p key={paragraph} className="mt-4 text-base leading-7 text-slate-200">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                ))}
+              </div>
+              <p className="mt-6 max-w-3xl text-sm leading-6 text-slate-200" data-editorial-source="true">
+                Housing context: <a href={editorial.censusUrl} className="font-bold text-cyan-100 underline hover:text-white">ABS 2021 Census, {suburb.name}</a>.
+                {" "}Historical suburb data is not a property inspection.
+              </p>
+            </div>
+          </div>
+        </section>
       ) : null}
 
       <section className="py-14 text-white sm:py-16" data-location-section="service-directory">

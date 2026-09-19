@@ -2,9 +2,9 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import { createWholeSiteCompletionRegister } from "../../scripts/whole-site-completion-register";
-import { assertCurrentRegisterContract, historicalRegister, reviewedRouteHolds } from "./phase3e2-register-contract";
+import { assertCurrentRegisterContract, historicalRegister, reviewedRouteHolds, registerBeforeEditorialBatch, editorialBatch01Routes } from "./phase3e2-register-contract";
 
-test("current register preserves 106 full rows and exactly the authorised 895 publication deltas", () => {
+test("current register preserves historical release deltas and only five unpublished editorial exceptions", () => {
   assertCurrentRegisterContract(createWholeSiteCompletionRegister());
 });
 
@@ -33,7 +33,7 @@ test("publication receipt binds every newly published route to the approved depl
   assert.equal(receipt.live.passed, 7153);
   assert.deepEqual(receipt.live.failures, []);
   assert.equal(receipt.live.publicJavaScriptExecuted, false);
-  const current = createWholeSiteCompletionRegister();
+  const current = registerBeforeEditorialBatch(createWholeSiteCompletionRegister());
   const published = current.records.filter(row => row.publishedLiveVerifiedSha === release);
   const changes = receipt.publicationReconciliation.changes as Array<{ route: string; artifactFile: string; liveBodySha256: string; retainedOwnerHolds: number }>;
   assert.equal(changes.length, 895);
@@ -48,6 +48,20 @@ test("publication receipt binds every newly published route to the approved depl
   assert.equal(receipt.publicationReconciliation.ownerHoldsPreserved, true);
   assert.equal(receipt.publicationReconciliation.individualReviewStatesUnchanged, true);
   assert.deepEqual(receipt.publicationReconciliation.allowedFields, ["publication", "publishedLiveVerifiedSha", "outstandingHolds"]);
+});
+
+test("all five editorial rows reject invented publication and cleared owner holds", () => {
+  for (const route of editorialBatch01Routes) {
+    for (const field of ["publication", "publishedLiveVerifiedSha", "sourceRecord", "outstandingHolds"] as const) {
+      const mutated = createWholeSiteCompletionRegister();
+      const row = mutated.records.find(candidate => candidate.route === route)!;
+      if (field === "publication") row.publication = "live-verified";
+      else if (field === "publishedLiveVerifiedSha") row.publishedLiveVerifiedSha = "1b0a996285a7651657ccf8801c3f3a95ed298994";
+      else if (field === "sourceRecord") row.sourceRecord = "unapproved/source.ts";
+      else row.outstandingHolds = row.outstandingHolds.slice(1);
+      assert.throws(() => assertCurrentRegisterContract(mutated), `${route}: ${field}`);
+    }
+  }
 });
 
 test("release browser receipt preserves exact project counts and containment boundaries", () => {

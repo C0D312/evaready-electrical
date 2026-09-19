@@ -1,6 +1,7 @@
 import { electricalFaultPages } from "../data/electrical-faults";
 import { serviceLandingPages } from "../data/service-pages";
 import { coverageRegions } from "../data/service-area-coverage";
+import { suburbEditorial } from "../data/suburb-editorial";
 import { GITHUB_PAGES_PREVIEW_BASE_PATH } from "../config/deployment";
 import { phase3e1ReviewedRoutes } from "./phase3e1-suburb-review";
 import { phase3e2EvidenceHolds, phase3e2SelectedRoutes } from "./phase3e2-service-review";
@@ -290,6 +291,7 @@ function sourceRecordFor(item: RouteInventoryItem) {
 function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
   if (item.pageType === "suburb page") {
     const reviewed = phase3e1ReviewedRoutes.has(item.route);
+    const editorialCandidate = Boolean(suburbEditorial[item.route]);
     return {
       accessibility: reviewed ? "reviewed" : "pending",
       category: "suburb",
@@ -300,15 +302,16 @@ function createRecord(item: RouteInventoryItem): WholeSiteCompletionRecord {
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
         "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
         ...(!reviewed ? ["Phase 3E1 changes require separate exact-SHA release approval and live verification."] : []),
+        ...(editorialCandidate ? ["R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."] : []),
       ],
-      publication: reviewed ? "live-verified" : "pending",
-      publishedLiveVerifiedSha: reviewed ? PHASE_3E1_3E2_LIVE_VERIFIED_SHA : null,
+      publication: reviewed && !editorialCandidate ? "live-verified" : "pending",
+      publishedLiveVerifiedSha: reviewed && !editorialCandidate ? PHASE_3E1_3E2_LIVE_VERIFIED_SHA : null,
       responsive: reviewed ? "reviewed" : "pending",
       rewrite: reviewed ? "rewritten" : "pending",
       route: item.route,
       safetyReview: reviewed ? "reviewed" : "pending",
       seoMetadataSchema: reviewed ? "reviewed" : "automated-only",
-      sourceRecord: sourceRecordFor(item),
+      sourceRecord: editorialCandidate ? `data/suburb-editorial.ts#${item.route}` : sourceRecordFor(item),
       template: item.pageType,
     };
   }
