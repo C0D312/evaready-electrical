@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 import { coverageSearchItems } from "../../data/service-area-coverage";
 import { suburbEditorial } from "../../data/suburb-editorial";
+import { editorialRoutes } from "./phase3e2-register-contract";
 import { distinctPercentage, extractEditorialText, normaliseEditorialText, sevenWordSequences } from "../../scripts/suburb-editorial-originality";
 
 test("editorial measurement retains safety and FAQ copy but excludes chrome and controls", () => {
@@ -20,8 +21,9 @@ test("place substitution and paragraph reordering cannot earn editorial novelty"
   assert.equal(distinctPercentage(tokens, new Set()), 100);
 });
 
-test("five researched entries map to existing routes without invented business evidence", () => {
-  assert.equal(Object.keys(suburbEditorial).length, 5);
+test("fifteen researched entries map exactly to the two authorised route batches", () => {
+  assert.deepEqual(Object.keys(suburbEditorial).sort(), [...editorialRoutes].sort());
+  assert.equal(Object.keys(suburbEditorial).length, 15);
   for (const [route, entry] of Object.entries(suburbEditorial)) {
     assert.ok(coverageSearchItems.some((row) => row.href === route), route);
     assert.match(entry.censusUrl, /^https:\/\/www\.abs\.gov\.au\/census\/find-census-data\/quickstats\/2021\/SAL\d+$/);

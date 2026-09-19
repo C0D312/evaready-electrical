@@ -17,14 +17,31 @@ export const editorialBatch01Routes = new Set([
   "/service-areas/sydney-city-and-eastern-suburbs/waverley/bondi-junction",
   "/service-areas/parramatta-and-cumberland/parramatta/parramatta",
 ]);
+// Separate, explicit second-batch scope; neither set is inferred from production data.
+export const editorialBatch02Routes = new Set([
+  "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/revesby",
+  "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/condell-park",
+  "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/yagoona",
+  "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/bass-hill",
+  "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/chester-hill",
+  "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/punchbowl",
+  "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/roselands",
+  "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/greenacre",
+  "/service-areas/liverpool-and-fairfield/liverpool/liverpool",
+  "/service-areas/liverpool-and-fairfield/fairfield/fairfield",
+]);
+export const editorialRoutes = new Set([...editorialBatch01Routes, ...editorialBatch02Routes]);
 export const editorialPublicationHold = "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical.";
 
 export function registerBeforeEditorialBatch(actual: WholeSiteCompletionRegister): WholeSiteCompletionRegister {
   const restored = structuredClone(actual);
   const before = historicalRegister("before3e2");
-  assert.equal(actual.records.filter(row => editorialBatch01Routes.has(row.route)).length, 5);
-  assert.deepEqual(actual.counts.publication, { "live-verified": 996, pending: 5 });
-  for (const row of restored.records.filter(row => editorialBatch01Routes.has(row.route))) {
+  assert.equal(editorialBatch01Routes.size, 5);
+  assert.equal(editorialBatch02Routes.size, 10);
+  assert.equal(editorialRoutes.size, 15);
+  assert.equal(actual.records.filter(row => editorialRoutes.has(row.route)).length, 15);
+  assert.deepEqual(actual.counts.publication, { "live-verified": 986, pending: 15 });
+  for (const row of restored.records.filter(row => editorialRoutes.has(row.route))) {
     const baseline = before.records.find(candidate => candidate.route === row.route)!;
     assert.deepEqual(row, {
       ...baseline,

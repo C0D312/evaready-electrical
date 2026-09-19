@@ -7,7 +7,7 @@ import { locationIndexationDecisionRegistry } from "../../data/location-indexati
 import { createWholeSiteCompletionRegister, PHASE_3E1_3E2_LIVE_VERIFIED_SHA } from "../../scripts/whole-site-completion-register";
 import { createSuburbIndexationRecommendations, phase3e1ReviewedRegions, phase3e1ReviewedRoutes } from "../../scripts/phase3e1-suburb-review";
 import { phase3e2SelectedRoutes } from "../../scripts/phase3e2-service-review";
-import { editorialBatch01Routes, editorialPublicationHold } from "./phase3e2-register-contract";
+import { editorialRoutes, editorialPublicationHold } from "./phase3e2-register-contract";
 
 test("106 non-suburb records outside the explicit Phase 3E2 exception remain byte-semantically unchanged", () => {
   const rows = createWholeSiteCompletionRegister().records.filter(row => row.category !== "suburb");
@@ -32,7 +32,7 @@ test("suburb publication uses the verified release without implying owner eviden
     for (const field of ["responsive", "accessibility", "safetyReview"] as const) assert.equal(row[field], reviewed ? "reviewed" : "pending", row.route);
     assert.equal(row.seoMetadataSchema, reviewed ? "reviewed" : "automated-only");
     assert.equal(row.claimOwnerEvidence, "held");
-    const editorialCandidate = editorialBatch01Routes.has(row.route);
+    const editorialCandidate = editorialRoutes.has(row.route);
     assert.equal(row.publication, editorialCandidate ? "pending" : "live-verified");
     assert.equal(row.publishedLiveVerifiedSha, editorialCandidate ? null : PHASE_3E1_3E2_LIVE_VERIFIED_SHA);
     assert.match(row.outstandingHolds.join(" "), /Owner confirmation/);

@@ -5,13 +5,15 @@ route-by-route register for all 1,001 public sitemap routes.
 
 ## Current Verified Checkpoint
 
-The R4 editorial continuation has five unpublished candidate pages: Bankstown,
-Padstow, Panania, Bondi Junction and Parramatta. Their current register rows have
-`publication: pending` and null live SHAs. The other 996 rows and their historical
-release evidence remain unchanged. No new release or cleared owner hold is
-implied. See `suburb-editorial-batch-01.md` for current validation and
+The R4 editorial continuation has fifteen unpublished page versions: the first
+five (Bankstown, Padstow, Panania, Bondi Junction and Parramatta), plus Revesby,
+Condell Park, Yagoona, Bass Hill, Chester Hill, Punchbowl, Roselands, Greenacre,
+Liverpool and Fairfield. Their current register rows have `publication: pending`
+and null live SHAs. The other 986 rows and their historical release evidence
+remain unchanged. No new release or cleared owner hold is implied. See
+`suburb-editorial-batch-01.md` and `suburb-editorial-batch-02.md` for validation and
 `reports/suburb-editorial-progress.json` for the separate all-873 originality and
-individual editorial continuation ledger. The remaining 868 pages are still
+individual editorial continuation ledger. The remaining 858 pages are still
 pending that deeper pass; historical shared-template review is not proof of
 route-specific original content.
 

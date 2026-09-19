@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import { createWholeSiteCompletionRegister } from "../../scripts/whole-site-completion-register";
-import { assertCurrentRegisterContract, historicalRegister, reviewedRouteHolds, registerBeforeEditorialBatch, editorialBatch01Routes } from "./phase3e2-register-contract";
+import { assertCurrentRegisterContract, historicalRegister, reviewedRouteHolds, registerBeforeEditorialBatch, editorialRoutes } from "./phase3e2-register-contract";
 
 test("current register preserves historical release deltas and only five unpublished editorial exceptions", () => {
   assertCurrentRegisterContract(createWholeSiteCompletionRegister());
@@ -51,7 +51,7 @@ test("publication receipt binds every newly published route to the approved depl
 });
 
 test("all five editorial rows reject invented publication and cleared owner holds", () => {
-  for (const route of editorialBatch01Routes) {
+  for (const route of editorialRoutes) {
     for (const field of ["publication", "publishedLiveVerifiedSha", "sourceRecord", "outstandingHolds"] as const) {
       const mutated = createWholeSiteCompletionRegister();
       const row = mutated.records.find(candidate => candidate.route === route)!;
