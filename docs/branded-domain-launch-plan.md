@@ -4,7 +4,14 @@
 
 **Plan only. Not authorised for execution.**
 
-Prepared: 4 August 2026
+Prepared: 4 August 2026. Planning refresh: 20 September 2026.
+
+**Current status: NOT READY; all external actions remain inactive.** See the
+source-linked hosting eligibility/cost assessment and current workflow contract
+in `branded-domain-launch-readiness.md`. GitHub Pages is not assumed eligible for
+commercial production, Vercel Hobby is non-commercial only, and no replacement
+host or paid plan is selected. The 19-path legacy ledger has been rechecked by
+public HTTP only. This refresh does not clear any owner or performance hold.
 
 This document describes a future controlled migration from the existing GitHub
 Pages preview to the branded production domain. Creating or approving this
@@ -74,7 +81,7 @@ does not yet authorise any external change.
 
 Before any external change, capture and store securely:
 
-- Feature-branch SHA, approved merge SHA, `main` SHA, and Pages publishing SHA.
+- Feature-branch SHA, exact approved release SHA, `main` SHA, and publishing SHA.
 - A signed or checksummed archive of the approved root-hosted static export.
 - A second archive of the current GitHub preview export.
 - Complete DNS zone export, record names, record types, values, TTLs, proxy
@@ -95,46 +102,51 @@ that another authorised person can locate and use it.
 **Owner checkpoint B:** Approve the backup record and exact rollback target
 before DNS, hosting, or Pages settings are touched.
 
-## 3. Required GitHub Review and Merge Sequence
+## 3. Required Source Review and Release Sequence
 
 The future GitHub sequence is:
 
-1. Finish all launch fixes on `codex/responsive-ux-overhaul`.
-2. Rebase or merge the latest approved `main` changes without rewriting
-   history.
+1. Finish authorised fixes on `codex/whole-site-completion`, preserving unrelated
+   dirty owner work and isolated diagnostic candidates.
+2. Fetch and verify repository, feature/main SHAs and ancestry. Do not rebase,
+   reset, force-push or create an unnecessary merge commit. Divergence requires
+   an explicit owner decision, not an automatic history repair.
 3. Rerun the complete local launch gate on the exact resulting SHA.
 4. Review the full diff and identify every production file, asset, migration
    file, workflow change, and generated file.
-5. Open a pull request only after separate owner approval.
+5. Do not open a pull request unless the owner explicitly requests one.
 6. Require human review of domain configuration, deployment workflow, CNAME
    handling, redirects, analytics, and rollback steps.
 7. Require all branch-protection checks to pass.
-8. Record the approved merge commit before merging.
-9. Merge only during the approved launch window.
+8. Obtain direct owner approval for the exact release SHA and destination.
+9. Where authorised, normally fast-forward only to that exact descendant SHA
+   after verifying the recovery branch and local committed-content backup.
 10. Do not manually dispatch a deployment until the owner authorises the next
     checkpoint.
 
-The current workflow triggers on pushes to `main` or manual dispatch. The
-launch coordinator must therefore treat a future merge to `main` as a
-potential external action and confirm its exact behaviour immediately before
-approval.
+The existing preview workflow triggers on `main` pushes, manual dispatch and a
+six-hourly schedule (`17 */6 * * *`). Scheduled builds are conditional on complete
+Google Business Profile configuration. Any main update can therefore publish a
+preview; neither a feature push nor a successful build proves deployment. Record
+the actual workflow, artifact digest, source marker and live verification. No
+workflow setting, secret or integration change is authorised by this plan.
 
-**Owner checkpoint C:** Approve the pull request and merge separately. No merge
-is permitted merely because tests pass.
+**Owner checkpoint C:** Approve the exact release SHA and external publication
+separately. Passing tests do not authorise main or branded-domain publication.
 
 ## 4. DNS Records
 
-Do not copy historical IP addresses from an old report. On launch day, obtain
-the required record values from the current official GitHub Pages
-documentation and the repository Pages settings.
+Do not copy historical IP addresses from an old report. Only after commercial
+hosting eligibility and the platform are approved, obtain launch-day values from
+that provider's official instructions and the owner's actual configuration.
 
 Prepare a DNS change sheet containing:
 
 | Purpose | Record plan | Launch-day requirement |
 | --- | --- | --- |
-| Apex host | GitHub Pages apex `A` records and, if approved, current `AAAA` records | Copy only current official values |
-| `www` host | `CNAME` to the GitHub Pages account host, not a repository path | Confirm exact target in GitHub |
-| Domain verification | GitHub-provided `TXT` record | Add before cutover where possible |
+| Apex host | Exact records required by the selected eligible provider | No target selected or copied yet |
+| `www` host | Provider-specific record and preferred-host redirect | Confirm current target; do not infer from the preview |
+| Domain verification | Provider-supplied ownership record, if required | Owner approval before adding it |
 | Search Console | Google-provided verification `TXT` record | Add only after Search Console approval |
 | Existing mail and services | Preserve all unrelated `MX`, SPF, DKIM, DMARC, and verification records | Compare before and after |
 
@@ -145,33 +157,33 @@ multiple public resolvers before proceeding.
 **Owner checkpoint D:** Approve the exact DNS diff, values, TTLs, and rollback
 values. A generic approval to "point the domain" is insufficient.
 
-## 5. GitHub Pages Custom-Domain Configuration
+## 5. Selected Host's Custom-Domain Configuration
 
 The future sequence should be:
 
-1. Verify the domain in the correct GitHub organisation or account.
-2. Confirm the Pages publishing branch or Actions source.
-3. Confirm whether this repository's publishing method requires a generated
-   `CNAME` file.
-4. Set the custom-domain field to the approved apex hostname.
-5. Confirm GitHub reports the DNS check as successful.
-6. Keep HTTPS enforcement off only while GitHub is provisioning the
-   certificate, then enable it at the HTTPS checkpoint.
+1. Verify commercial use, applicable terms, limits and costs with the owner.
+2. Identify the exact account, publishing source and isolated root-build artifact.
+3. Confirm whether the selected platform needs a `CNAME` file or another domain
+   configuration mechanism. Do not create one speculatively.
+4. Obtain owner approval for the exact domain-setting and DNS changes.
+5. Follow that provider's domain verification and certificate procedure without
+   disabling existing security or disturbing email records.
+6. Verify TLS and both host variants before considering cutover complete.
 
 Do not create a `CNAME` file or change the Pages setting until this sequence is
-approved. Never leave a repository `CNAME` and the Pages UI configured for
-different hosts.
+approved. Never leave repository domain configuration and hosting settings
+inconsistent. The current GitHub preview is not automatically moved or removed.
 
-**Owner checkpoint E:** Approve the GitHub Pages custom-domain value and any
-required `CNAME` commit before either is applied.
+**Owner checkpoint E:** Approve the selected provider's custom-domain settings and
+any required repository configuration before either is applied.
 
 ## 6. HTTPS Verification
 
-After DNS resolves to the approved Pages target:
+After DNS resolves to the separately approved hosting target:
 
-- Wait for GitHub to provision a valid certificate for the approved hostnames.
+- Verify the selected provider has provisioned valid certificates for the approved hostnames.
 - Verify certificate subject names, issuer, validity dates, and full chain.
-- Enable **Enforce HTTPS** only when GitHub makes it available.
+- Verify HTTPS enforcement using the selected provider's documented controls.
 - Verify HTTP to HTTPS and `www` to apex behaviour in one hop.
 - Check for mixed-content requests, blocked scripts, insecure form targets, and
   insecure canonical or schema URLs.
@@ -439,7 +451,7 @@ and iPad where available. Verify:
 
 During the first 24 hours:
 
-- Monitor uptime, certificate status, DNS consistency, and Pages build status.
+- Monitor uptime, certificate status, DNS consistency, and the selected host's build status.
 - Crawl priority pages at launch, two hours, six hours, and 24 hours.
 - Watch 404s, redirect errors, asset failures, console errors, and form errors.
 - Confirm analytics page views and conversion events without duplicate firing.
@@ -487,20 +499,20 @@ Rollback must use recorded values, never memory.
 
 1. The owner declares rollback and records the reason, time, and affected
    release SHA.
-2. Freeze further code, DNS, Pages, analytics, advertising, and redirect
+2. Freeze further code, DNS, hosting, analytics, advertising, and redirect
    changes.
 3. Capture the failing state, errors, DNS answers, certificate details, and
    current deployment SHA for diagnosis.
 4. If the application build is faulty but DNS and HTTPS are healthy, republish
    the signed previous branded root export or revert the release through a new
    reviewed commit. Do not rewrite Git history.
-5. If Pages custom-domain or certificate handling is faulty, restore the exact
-   previous GitHub Pages setting and publishing artifact from the backup
-   record.
+5. If the selected host's custom-domain or certificate handling is faulty,
+   restore that host's exact previous setting and publishing artifact from the
+   backup record. Do not assume GitHub Pages is the branded production host.
 6. If DNS is faulty, restore the exact pre-launch DNS records, TTLs, and proxy
    states from the zone export. Preserve mail and verification records.
-7. Remove or restore a `CNAME` file only when the approved Pages publishing
-   method requires it and the repository state matches the Pages UI.
+7. Remove or restore a `CNAME` file only when the approved host's publishing
+   method requires it and the repository state matches its recorded settings.
 8. Restore the previously approved redirect rules. Never route all failures to
    the homepage.
 9. Wait for the recorded TTL and verify DNS from multiple resolvers.
@@ -525,9 +537,9 @@ existing written incident policy explicitly authorises the named responder.
 | --- | --- | --- | --- |
 | A | Release preparation | Scope, release candidate, claim review | Prepare candidate only |
 | B | Backup and rollback | SHAs, exports, DNS and settings snapshots | Continue planning |
-| C | GitHub merge | Reviewed PR, green checks, workflow impact | Merge during launch window |
+| C | Exact-SHA publication | Green checks, normal ancestry, recovery backup, workflow impact | Publish only the approved commit |
 | D | DNS | Exact record diff and rollback values | Apply approved DNS changes |
-| E | GitHub Pages | Custom domain, publishing source, CNAME plan | Configure Pages |
+| E | Selected commercial host | Eligibility, costs, custom domain, source and configuration plan | Configure only the approved host |
 | F | HTTPS | Valid certificate and clean asset checks | Enforce HTTPS |
 | G | Branded build | Root-path export and complete URL audits | Publish candidate |
 | H | Redirects | Complete source-to-target ledger and platform | Activate redirects |
