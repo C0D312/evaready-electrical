@@ -82,7 +82,12 @@ export const editorialMilestone07Routes = new Set([
 export const editorialMilestone08Routes = new Set([
   "/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra",
 ]);
-export const editorialRoutes = new Set([...editorialBatch01Routes, ...editorialBatch02Routes, ...editorialBatch03Routes, ...editorialBatch04Routes, ...editorialMilestone07Routes, ...editorialMilestone08Routes]);
+export const editorialMilestone09Routes = new Set([
+  "/service-areas/sutherland-shire/sutherland-shire/miranda",
+  "/service-areas/sutherland-shire/sutherland-shire/cronulla",
+  "/service-areas/sutherland-shire/sutherland-shire/sutherland",
+]);
+export const editorialRoutes = new Set([...editorialBatch01Routes, ...editorialBatch02Routes, ...editorialBatch03Routes, ...editorialBatch04Routes, ...editorialMilestone07Routes, ...editorialMilestone08Routes, ...editorialMilestone09Routes]);
 export const editorialPublicationHold = "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical.";
 
 export function registerBeforeEditorialBatch(actual: WholeSiteCompletionRegister): WholeSiteCompletionRegister {
@@ -94,9 +99,10 @@ export function registerBeforeEditorialBatch(actual: WholeSiteCompletionRegister
   assert.equal(editorialBatch04Routes.size, 20);
   assert.equal(editorialMilestone07Routes.size, 1);
   assert.equal(editorialMilestone08Routes.size, 1);
-  assert.equal(editorialRoutes.size, 57);
-  assert.equal(actual.records.filter(row => editorialRoutes.has(row.route)).length, 57);
-  assert.deepEqual(actual.counts.publication, { "live-verified": 944, pending: 57 });
+  assert.equal(editorialMilestone09Routes.size, 3);
+  assert.equal(editorialRoutes.size, 60);
+  assert.equal(actual.records.filter(row => editorialRoutes.has(row.route)).length, 60);
+  assert.deepEqual(actual.counts.publication, { "live-verified": 941, pending: 60 });
   for (const row of restored.records.filter(row => editorialRoutes.has(row.route))) {
     const baseline = before.records.find(candidate => candidate.route === row.route)!;
     assert.deepEqual(row, {
