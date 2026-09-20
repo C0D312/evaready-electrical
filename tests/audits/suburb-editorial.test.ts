@@ -23,7 +23,7 @@ test("place substitution and paragraph reordering cannot earn editorial novelty"
 
 test("researched entries map exactly to the authorised route batches", () => {
   assert.deepEqual(Object.keys(suburbEditorial).sort(), [...editorialRoutes].sort());
-  assert.equal(Object.keys(suburbEditorial).length, 64);
+  assert.equal(Object.keys(suburbEditorial).length, 68);
   for (const [route, entry] of Object.entries(suburbEditorial)) {
     assert.ok(coverageSearchItems.some((row) => row.href === route), route);
     if (["/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/windsor", "/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra"].includes(route)) {
@@ -35,6 +35,9 @@ test("researched entries map exactly to the authorised route batches", () => {
     } else if (["/service-areas/sutherland-shire/sutherland-shire/engadine", "/service-areas/sutherland-shire/sutherland-shire/caringbah", "/service-areas/northern-beaches/northern-beaches/dee-why", "/service-areas/northern-beaches/northern-beaches/freshwater"].includes(route)) {
       assert.equal(entry.censusUrl, undefined);
       assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/caringbah") ? 3 : 2);
+    } else if (["/service-areas/northern-beaches/northern-beaches/warriewood", "/service-areas/northern-beaches/northern-beaches/manly", "/service-areas/hills-hawkesbury-and-hornsby/hills-district/dural", "/service-areas/blue-mountains/blue-mountains/blaxland"].includes(route)) {
+      assert.equal(entry.censusUrl, undefined);
+      assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/warriewood") ? 3 : 2);
     } else {
       assert.ok(entry.censusUrl);
       assert.match(entry.censusUrl, /^https:\/\/www\.abs\.gov\.au\/census\/find-census-data\/quickstats\/2021\/SAL\d+$/);
@@ -45,6 +48,50 @@ test("researched entries map exactly to the authorised route batches", () => {
     assert.match(entry.description, /required authorisation/);
     assert.doesNotMatch(JSON.stringify(entry), /our local office|guaranteed arrival|we recently completed|100\+|5\.0 rating|subcontract|outsource/i);
   }
+});
+
+test("milestone 11 separates public assets, private scope and material uncertainty", () => {
+  const beaches = "/service-areas/northern-beaches/northern-beaches/";
+  const dural = "/service-areas/hills-hawkesbury-and-hornsby/hills-district/dural";
+  const blaxland = "/service-areas/blue-mountains/blue-mountains/blaxland";
+  const expected: Record<string, string[]> = {
+    [beaches + "warriewood"]: [
+      "https://www.ausgrid.com.au/About-Us/News/Ausgrid-battery-storage-continues-to-ramp-up",
+      "https://www.ausgrid.com.au/your-energy-use/smarter-energy-use/energy-storage-as-a-service/esaas-sign-up",
+      "https://www.ausgrid.com.au/transforming-the-grid/innovating-for-the-future/community-batteries/community-battery-faq",
+    ],
+    [beaches + "manly"]: [
+      "https://www.northernbeaches.nsw.gov.au/services/roads-and-paths/public-roads",
+      "https://www.ausgrid.com.au/in-your-community/in-your-neighbourhood/streetlights",
+    ],
+    [dural]: [
+      "https://www.ausgrid.com.au/your-energy-use/your-meter-and-supply/private-poles-and-powerlines",
+      "https://www.ausgrid.com.au/safety/safety-at-home/tree-trimming-responsibilities",
+    ],
+    [blaxland]: [
+      "https://www.asbestos.nsw.gov.au/bituminous-electrical-backing-board-and-asbestos",
+      "https://www.asbestos.nsw.gov.au/identify-asbestos/how-do-i-know-if-its-asbestos",
+    ],
+  };
+  for (const [route, urls] of Object.entries(expected)) {
+    const entry = suburbEditorial[route];
+    assert.equal(entry.censusUrl, undefined);
+    assert.deepEqual(entry.sections.flatMap(section => section.resources?.map(resource => resource.href) ?? []), urls);
+  }
+  const text = (route: string) => JSON.stringify(suburbEditorial[route]);
+  assert.match(suburbEditorial[beaches + "warriewood"].firstFaq.answer, /switch off when grid power fails and cannot supply customers during a blackout/);
+  assert.match(text(beaches + "warriewood"), /does not confirm eligibility for every address/);
+  assert.match(text(beaches + "warriewood"), /not its operating status today/);
+  assert.match(text(beaches + "manly"), /most, but not all, public streetlights/);
+  assert.match(text(beaches + "manly"), /directs streetlight-glare concerns and requests for additional lighting to the local council/);
+  assert.match(text(beaches + "manly"), /If a pole number cannot be read safely, say that it is unavailable/);
+  assert.match(text(dural), /If your distributor and notice identify Ausgrid/);
+  assert.match(text(dural), /not a comprehensive inspection of all wiring/);
+  assert.match(text(dural), /gives no universal clearance distance, deadline, permit exemption/);
+  assert.match(text(blaxland), /cannot be confirmed or ruled out by sight alone/);
+  assert.match(text(blaxland), /no need to open the enclosure, look behind a panel or obtain a sample/);
+  assert.match(text(blaxland), /ordinary electrical qualification does not itself establish asbestos-assessment or removal authority/);
+  assert.match(text(blaxland), /Do not scrape, drill, cut, sample or remove it yourself/);
 });
 
 test("milestone 10 keeps planning information separate from site approval and safe operation", () => {

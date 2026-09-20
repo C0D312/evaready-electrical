@@ -9,11 +9,11 @@ test("the deeper editorial ledger accounts for all suburbs without promoting unp
   const ledger = JSON.parse(readFileSync("reports/suburb-editorial-progress.json", "utf8"));
   const master = JSON.parse(readFileSync("reports/whole-site-completion-register.json", "utf8"));
   const audit = auditSuburbOriginality("out");
-  assert.deepEqual(ledger.counts, { routes: 873, reviewed: 64, editorialPending: 809, originalityPassed: 64, unpublishedNewVersions: 64 });
+  assert.deepEqual(ledger.counts, { routes: 873, reviewed: 68, editorialPending: 805, originalityPassed: 68, unpublishedNewVersions: 68 });
   assert.equal(ledger.method, audit.method);
   assert.equal(ledger.target, 30);
   assert.equal(ledger.minimum, 25);
-  assert.deepEqual(ledger.originalitySummary, { bothMinimums: 64, bothTargets: 64, acceptedUnderTolerance: 0 });
+  assert.deepEqual(ledger.originalitySummary, { bothMinimums: 68, bothTargets: 68, acceptedUnderTolerance: 0 });
   assert.equal(ledger.googleRequirement, false);
   assert.equal(new Set(ledger.records.map((row: { route: string }) => row.route)).size, 873);
   assert.equal(ledger.records.length, audit.records.length);
@@ -24,6 +24,10 @@ test("the deeper editorial ledger accounts for all suburbs without promoting unp
     assert.equal(recorded.distinctPercent, actual.distinctPercent, actual.route);
     assert.equal(recorded.normalisedWords, actual.normalisedWords, actual.route);
     assert.equal(recorded.distinctPercentRaw, actual.distinctPercentRaw, actual.route);
+    assert.equal(recorded.closestRoute, actual.closestRoutes[0], actual.route);
+    assert.equal(recorded.closestTieCount, actual.closestRoutes.length, actual.route);
+    if (suburbEditorial[actual.route]) assert.deepEqual(recorded.closestRoutes, actual.closestRoutes, actual.route);
+    else assert.equal(Object.hasOwn(recorded, "closestRoutes"), false, "Pending rows retain first match and tie count without duplicate route arrays");
     const decision = assessOriginality(actual.distinctPercentRaw, recorded.versusPreviousTemplatePercentRaw);
     assert.equal(recorded.originalityScreenPassed, decision.minimumPassed, actual.route);
     assert.equal(recorded.targetMetBoth, decision.targetMetBoth, actual.route);

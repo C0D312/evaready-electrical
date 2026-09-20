@@ -18,8 +18,8 @@
       "reviewed": 1001
     },
     "publication": {
-      "live-verified": 937,
-      "pending": 64
+      "live-verified": 933,
+      "pending": 68
     },
     "rewrite": {
       "held": 0,
@@ -475,16 +475,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/blue-mountains/blue-mountains/blaxland",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:blue-mountains/blue-mountains/blaxland",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/blue-mountains/blue-mountains/blaxland",
       "template": "suburb page"
     },
     {
@@ -3232,16 +3233,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/hills-hawkesbury-and-hornsby/hills-district/dural",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:hills-hawkesbury-and-hornsby/hills-district/dural",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/hills-hawkesbury-and-hornsby/hills-district/dural",
       "template": "suburb page"
     },
     {
@@ -8690,16 +8692,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/northern-beaches/northern-beaches/manly",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:northern-beaches/northern-beaches/manly",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/northern-beaches/northern-beaches/manly",
       "template": "suburb page"
     },
     {
@@ -9013,16 +9016,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/northern-beaches/northern-beaches/warriewood",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:northern-beaches/northern-beaches/warriewood",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/northern-beaches/northern-beaches/warriewood",
       "template": "suburb page"
     },
     {
