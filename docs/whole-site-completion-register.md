@@ -5,19 +5,21 @@ route-by-route register for all 1,001 public sitemap routes.
 
 ## Current Verified Checkpoint
 
-The R4 editorial continuation has sixty unpublished page versions: the
+The R4 editorial continuation has sixty-four unpublished page versions: the
 first five, the ten-page second batch, two subsequent twenty-page batches and
 Windsor in milestone 07, Berowra in milestone 08, and Miranda, Cronulla and
-Sutherland in milestone 09. Their
+Sutherland in milestone 09, then Engadine, Caringbah, Dee Why and Freshwater in
+milestone 10. Their
 current register rows have `publication: pending` and null live SHAs. The other
-941 rows and their historical release evidence remain unchanged. No new release
+937 rows and their historical release evidence remain unchanged. No new release
 or cleared owner hold is implied. See `suburb-editorial-batch-01.md`,
 `suburb-editorial-batch-02.md`, `suburb-editorial-batch-03.md` and
 `suburb-editorial-batch-04.md`, `suburb-editorial-milestone-07.md` and
-`suburb-editorial-milestone-08.md` and `suburb-editorial-milestone-09.md` for the exact
+`suburb-editorial-milestone-08.md`, `suburb-editorial-milestone-09.md` and
+`suburb-editorial-milestone-10.md` for the exact
 route inventories, sources, preserved failures and focused validation, and
 `reports/suburb-editorial-progress.json` for the separate all-873 originality and
-individual editorial continuation ledger. The remaining 813 pages are still
+individual editorial continuation ledger. The remaining 809 pages are still
 pending that deeper pass; historical shared-template review is not proof of
 route-specific original content.
 

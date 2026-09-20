@@ -4,7 +4,7 @@ import test from "node:test";
 import { createWholeSiteCompletionRegister } from "../../scripts/whole-site-completion-register";
 import { assertCurrentRegisterContract, historicalRegister, reviewedRouteHolds, registerBeforeEditorialBatch, editorialRoutes } from "./phase3e2-register-contract";
 
-test("current register preserves historical release deltas and the sixty unpublished editorial exceptions", () => {
+test("current register preserves historical release deltas and the sixty-four unpublished editorial exceptions", () => {
   assertCurrentRegisterContract(createWholeSiteCompletionRegister());
 });
 
