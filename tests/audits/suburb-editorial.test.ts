@@ -23,7 +23,7 @@ test("place substitution and paragraph reordering cannot earn editorial novelty"
 
 test("researched entries map exactly to the authorised route batches", () => {
   assert.deepEqual(Object.keys(suburbEditorial).sort(), [...editorialRoutes].sort());
-  assert.equal(Object.keys(suburbEditorial).length, 68);
+  assert.equal(Object.keys(suburbEditorial).length, 73);
   for (const [route, entry] of Object.entries(suburbEditorial)) {
     assert.ok(coverageSearchItems.some((row) => row.href === route), route);
     if (["/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/windsor", "/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra"].includes(route)) {
@@ -38,6 +38,9 @@ test("researched entries map exactly to the authorised route batches", () => {
     } else if (["/service-areas/northern-beaches/northern-beaches/warriewood", "/service-areas/northern-beaches/northern-beaches/manly", "/service-areas/hills-hawkesbury-and-hornsby/hills-district/dural", "/service-areas/blue-mountains/blue-mountains/blaxland"].includes(route)) {
       assert.equal(entry.censusUrl, undefined);
       assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/warriewood") ? 3 : 2);
+    } else if (["/service-areas/blue-mountains/blue-mountains/glenbrook", "/service-areas/western-sydney-and-nepean/penrith/st-marys", "/service-areas/st-george-and-bayside/georges-river/hurstville", "/service-areas/st-george-and-bayside/rockdale-and-bexley/rockdale", "/service-areas/st-george-and-bayside/rockdale-and-bexley/bexley"].includes(route)) {
+      assert.equal(entry.censusUrl, undefined);
+      assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/glenbrook") ? 3 : route.endsWith("/st-marys") ? 2 : 1);
     } else {
       assert.ok(entry.censusUrl);
       assert.match(entry.censusUrl, /^https:\/\/www\.abs\.gov\.au\/census\/find-census-data\/quickstats\/2021\/SAL\d+$/);
@@ -48,6 +51,40 @@ test("researched entries map exactly to the authorised route batches", () => {
     assert.match(entry.description, /required authorisation/);
     assert.doesNotMatch(JSON.stringify(entry), /our local office|guaranteed arrival|we recently completed|100\+|5\.0 rating|subcontract|outsource/i);
   }
+});
+
+test("milestone 12 separates supply records, appointments and actual electrical authority", () => {
+  const expected: Record<string, string[]> = {
+    "/service-areas/blue-mountains/blue-mountains/glenbrook": ["https://www.byda.com.au/before-you-dig/for-homeowners/", "https://www.byda.com.au/before-you-dig/guide-to-free-plans/", "https://www.byda.com.au/faqs/"],
+    "/service-areas/western-sydney-and-nepean/penrith/st-marys": ["https://www.endeavourenergy.com.au/for-your-home/connecting-your-home/connecting-power-to-your-home", "https://www.endeavourenergy.com.au/for-your-home/connecting-your-home"],
+    "/service-areas/st-george-and-bayside/georges-river/hurstville": ["https://www.aer.gov.au/consumers/smart-meter-rollout/consumer-rights-and-smart-meters"],
+    "/service-areas/st-george-and-bayside/rockdale-and-bexley/rockdale": ["https://www.aer.gov.au/consumers/understanding-energy/embedded-networks-customers"],
+    "/service-areas/st-george-and-bayside/rockdale-and-bexley/bexley": ["https://www.ausgrid.com.au/outages-and-issues/hot-water-faults"],
+  };
+  const texts: Record<string, string> = {};
+  for (const [route, urls] of Object.entries(expected)) {
+    const entry = suburbEditorial[route];
+    assert.equal(entry.censusUrl, undefined);
+    assert.deepEqual(entry.sections.flatMap(section => section.resources?.map(resource => resource.href) ?? []), urls);
+    texts[route.split("/").at(-1)!] = JSON.stringify(entry);
+  }
+  assert.match(texts.glenbrook, /receiving all responses is not excavation approval/);
+  assert.match(texts.glenbrook, /does not establish that every private cable appears/);
+  assert.match(texts.glenbrook, /Do not dig exploratory holes, probe the ground or expose cables yourself/);
+  assert.match(texts["st-marys"], /Confirm the actual distributor/);
+  assert.match(texts["st-marys"], /Do not assume a temporary connection automatically becomes/);
+  assert.match(texts["st-marys"], /requested site date is not an approved connection date/);
+  assert.match(texts.hurstville, /meter replacement is not a whole-property electrical clearance/);
+  assert.match(texts.hurstville, /electricity retailer as the first contact/);
+  assert.match(texts.hurstville, /without sending an unredacted bill, account number, access code/);
+  assert.match(texts.rockdale, /does not establish that a particular Rockdale building has one/);
+  assert.match(texts.rockdale, /company issuing a bill does not reveal where a physical fault is/);
+  assert.match(texts.rockdale, /not a cheaper-energy offer, refund decision/);
+  assert.match(texts.bexley, /checked on 21 September 2026/);
+  assert.match(texts.bexley, /mid-July 2026/);
+  assert.match(texts.bexley, /Do not assume heating must occur overnight only/);
+  assert.match(texts.bexley, /Do not remove fuses, bridge a relay, open the heater/);
+  assert.match(texts.bexley, /not evidence that every Bexley installation has changed/);
 });
 
 test("milestone 11 separates public assets, private scope and material uncertainty", () => {

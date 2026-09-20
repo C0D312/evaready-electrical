@@ -18,8 +18,8 @@
       "reviewed": 1001
     },
     "publication": {
-      "live-verified": 933,
-      "pending": 68
+      "live-verified": 928,
+      "pending": 73
     },
     "rewrite": {
       "held": 0,
@@ -533,16 +533,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/blue-mountains/blue-mountains/glenbrook",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:blue-mountains/blue-mountains/glenbrook",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/blue-mountains/blue-mountains/glenbrook",
       "template": "suburb page"
     },
     {
@@ -12333,16 +12334,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/st-george-and-bayside/georges-river/hurstville",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:st-george-and-bayside/georges-river/hurstville",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/st-george-and-bayside/georges-river/hurstville",
       "template": "suburb page"
     },
     {
@@ -12694,16 +12696,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/st-george-and-bayside/rockdale-and-bexley/bexley",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:st-george-and-bayside/rockdale-and-bexley/bexley",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/st-george-and-bayside/rockdale-and-bexley/bexley",
       "template": "suburb page"
     },
     {
@@ -12827,16 +12830,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/st-george-and-bayside/rockdale-and-bexley/rockdale",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:st-george-and-bayside/rockdale-and-bexley/rockdale",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/st-george-and-bayside/rockdale-and-bexley/rockdale",
       "template": "suburb page"
     },
     {
@@ -16370,16 +16374,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/western-sydney-and-nepean/penrith/st-marys",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:western-sydney-and-nepean/penrith/st-marys",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/western-sydney-and-nepean/penrith/st-marys",
       "template": "suburb page"
     },
     {
