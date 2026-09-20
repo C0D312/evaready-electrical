@@ -21,12 +21,19 @@ test("place substitution and paragraph reordering cannot earn editorial novelty"
   assert.equal(distinctPercentage(tokens, new Set()), 100);
 });
 
-test("fifty-five researched entries map exactly to the four authorised route batches", () => {
+test("researched entries map exactly to the authorised route batches", () => {
   assert.deepEqual(Object.keys(suburbEditorial).sort(), [...editorialRoutes].sort());
-  assert.equal(Object.keys(suburbEditorial).length, 55);
+  assert.equal(Object.keys(suburbEditorial).length, 56);
   for (const [route, entry] of Object.entries(suburbEditorial)) {
     assert.ok(coverageSearchItems.some((row) => row.href === route), route);
-    assert.match(entry.censusUrl, /^https:\/\/www\.abs\.gov\.au\/census\/find-census-data\/quickstats\/2021\/SAL\d+$/);
+    if (route === "/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/windsor") {
+      assert.equal(entry.censusUrl, undefined);
+      assert.equal(entry.sections.flatMap((section) => section.resources ?? []).length, 5);
+    } else {
+      assert.ok(entry.censusUrl);
+      assert.match(entry.censusUrl, /^https:\/\/www\.abs\.gov\.au\/census\/find-census-data\/quickstats\/2021\/SAL\d+$/);
+      assert.ok(entry.sections.every((section) => section.resources === undefined));
+    }
     assert.equal(entry.sections.length, 3);
     assert.match(entry.description, /Our licensed electricians/);
     assert.match(entry.description, /required authorisation/);
@@ -46,7 +53,12 @@ test("only the selected exports include researched guidance with matching visibl
       assert.ok(text.includes(section.heading), row.href);
       for (const paragraph of section.paragraphs) assert.ok(text.includes(paragraph), paragraph);
     }
-    assert.ok(html.includes(entry.censusUrl), row.href);
+    if (entry.censusUrl) assert.ok(html.includes(entry.censusUrl), row.href);
+    else assert.ok(entry.sections.some((section) => section.resources?.length), row.href);
+    for (const resource of entry.sections.flatMap((section) => section.resources ?? [])) {
+      assert.ok(html.includes(resource.href), row.href);
+      assert.ok(text.includes(resource.label), row.href);
+    }
     const schemas = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
     const faq = schemas.find((item) => item["@type"] === "FAQPage");
     assert.equal(faq.mainEntity.length, 5);

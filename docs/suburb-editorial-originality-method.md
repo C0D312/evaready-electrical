@@ -9,8 +9,10 @@ ranking rule or evidence that a page is useful, accurate or ready for indexation
 1. Read server-exported main content. Exclude script/style, navigation, forms,
    buttons and conversion/quote controls. Retain main headings, paragraphs, list
    copy and FAQ questions/answers, including shared safety and qualification text.
-   Do not count header/footer, asset alt text, JSON-LD or source-link labels as
-   original main-page prose. Audit those separately for accuracy and accessibility.
+   Do not count header/footer, asset alt text, JSON-LD or source-link labels inside
+   the attribution footnote as original main-page prose. Ordinary resource-link
+   paragraphs remain included, with no new extraction exclusion. Audit sources
+   separately for accuracy and accessibility.
 2. Decode HTML, normalise Unicode and case, then replace every known suburb,
    postcode, area and region name with fixed locality tokens. Match longest names
    first at word boundaries. Hyphenation/punctuation/whitespace do not create
@@ -24,9 +26,23 @@ ranking rule or evidence that a page is useful, accurate or ready for indexation
    routes with their own pre-rewrite exports/shared-template baseline. Deduplicate
    identical normalised texts only as a computation optimisation; retain every
    route in the output register.
-5. A numerical screen passes at >=30% against the closest other route. Record
-   below-target results as unresolved, not waived. Do not adjust the formula,
-   exclusions, token window or threshold after seeing scores to manufacture a pass.
+5. The original screen required >=30%. For milestone 07 the owner directly
+   approved a five-percentage-point tolerance on 20 September 2026: require
+   >=25% on BOTH the closest-other-route and original-template comparisons.
+   Keep 30% as the target. Values in [25%,30%) may pass the numerical minimum
+   but must be labelled accepted under owner tolerance with the target unmet.
+   Use raw scores, never rounded display values. Missing baseline evidence fails
+   the two-comparison acceptance gate. No page is promoted solely by this change.
+   The extraction, normalisation, formula and seven-word window are unchanged;
+   do not tune them after seeing scores. Historical reports retain their old rule.
+
+Reports preserve three-decimal display fields and additionally retain both raw
+scores. `targetPassed` keeps its historical meaning: the corpus-only 30% screen.
+`minimumPassed`, `targetMetBoth` and `acceptedUnderTolerance` distinguish the
+two-comparison decisions. A full-corpus-only run cannot grant acceptance without
+the separate original-template evidence. Qualitative review and all other gates
+remain mandatory. The rejected pilot scores 20.546% and 24.829% remain below
+the minimum; this tolerance does not rescue substantive failures in earlier drafts.
 
 Seven-word matching is an auditable wording screen, not semantic understanding.
 Synonym substitution can inflate a score, while necessary repeated safety advice

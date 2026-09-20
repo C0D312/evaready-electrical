@@ -3,14 +3,42 @@ type EditorialFaq = { question: string; answer: string };
 export type SuburbEditorial = {
   description: string;
   heading: string;
-  sections: { heading: string; paragraphs: string[] }[];
-  censusUrl: string;
+  sections: { heading: string; paragraphs: string[]; resources?: { label: string; href: string }[] }[];
+  censusUrl?: string;
   firstFaq: EditorialFaq;
   finalFaq: EditorialFaq;
 };
 
 // These are individually researched editorial pages, not evidence of local jobs.
 export const suburbEditorial: Readonly<Record<string, SuburbEditorial>> = {
+  "/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/windsor": {
+    description: "Our licensed electricians assess Windsor 2756 household electrical concerns once safe access, availability and required authorisation are confirmed. For a flood-related enquiry, tell us about water exposure and any distributor notice. An electrical booking does not replace emergency directions or establish that a property is safe to enter or reconnect.",
+    heading: "Flood plans and safe power checks",
+    sections: [
+      { heading: "Plan before roads close", paragraphs: [
+        "The NSW SES Richmond/Windsor floodplain guide explains that flooding can interrupt roads and essential services, including power to some places outside the flooded area. Its March 2022 maps describe regional risk, not today's conditions at your address. Use current NSW SES warnings and traffic advice for decisions about leaving. A house that stayed dry in a previous event is not a reason to disregard a new warning.",
+        "Include a torch, a battery radio, useful contact details and a charged phone in your household preparations. Decide where you will go and how you will receive updates if power or communications fail. Follow the evacuation advice for your location promptly; do not wait for an electrician, a repair quote or a convenient appointment. Never enter floodwater or approach wet electrical equipment to prepare for a visit. This page does not provide live warnings or an evacuation route.",
+      ], resources: [
+        { label: "NSW SES Richmond/Windsor flood guide (March 2022 PDF)", href: "https://www.ses.nsw.gov.au/sites/default/files/2024-02/ins9832_2_flood_events_6pp_richmond_windsor_v8.pdf" },
+        { label: "NSW SES advice during a flood", href: "https://www.ses.nsw.gov.au/during-emergency/during-flood" },
+      ] },
+      { heading: "Return only when advised", paragraphs: [
+        "NSW SES advises when people may return to a flood-affected area. That advice is not a clearance to use water-damaged sockets, appliances or an electric hot-water system. Its recovery guidance requires affected electrical equipment to be inspected by a qualified electrician before use. Do not switch an item on to find out whether it still works, and do not mistake a dry-looking outer cover for an inspection of the equipment behind it.",
+        "Before arranging an assessment, describe the rooms or equipment known to have been exposed and pass on any warning notice already available. Do not re-enter an unsafe building, remove covers or handle wet equipment to collect more detail. An electrician's assessment addresses the agreed electrical concern; it does not resolve structural damage, contamination or other hazards that may prevent entry. For life-threatening emergencies call 000; for flood or storm emergency assistance contact NSW SES on 132 500.",
+      ], resources: [
+        { label: "NSW SES recovery and safe return advice", href: "https://www.ses.nsw.gov.au/recovery" },
+      ] },
+      { heading: "Use the right power contact", paragraphs: [
+        "If Endeavour Energy has disconnected the property, follow its inspection advice and warning tags. A household repair and restoration of the network connection can be separate steps. Confirm the next action with the distributor rather than assuming an electrician's arrival means the street supply can immediately be restored. If the retailer arranged the disconnection, contact the retailer first. Our enquiry form is not an outage report to the network, and we cannot promise a restoration time.",
+        "Mention solar, batteries or a generator when describing the installation. Solar equipment can remain an electrical hazard during a street outage. Do not reconnect flood-affected equipment yourself or improvise a generator feed through a household socket. Portable generator exhaust must not enter occupied spaces; follow the manufacturer's safety instructions. System-specific assessment and network work need the relevant authority, which is not established by a general electrical booking. Keep the distributor's restrictions in place until the required checks and restoration process are complete.",
+      ], resources: [
+        { label: "Endeavour Energy flood and electrical safety advice", href: "https://www.endeavourenergy.com.au/for-your-home/preparing-for-the-unexpected/after-a-flood" },
+        { label: "Endeavour Energy connection and restoration guidance", href: "https://www.endeavourenergy.com.au/for-your-home/connecting-your-home" },
+      ] },
+    ],
+    firstFaq: { question: "Does advice to return to Windsor mean I can use flooded electrical equipment?", answer: "No. Permission to return to an area and the condition of an electrical installation are separate matters. Follow NSW SES recovery advice, keep away from wet equipment and have water-damaged electrical items assessed before use. A restored street supply or a dry-looking appliance does not establish that the equipment inside your home is safe." },
+    finalFaq: { question: "Can an electrical appointment guarantee power will be restored after a flood?", answer: "No. Safe access, inspection findings, necessary repairs and any distributor requirements affect the next step. Follow the notice left for the property and confirm who must carry out each action. Do not remove warning tags or reconnect equipment yourself. We confirm the authorised electrical scope and availability without promising that every network, metering or specialist-system activity can be completed in the same visit." },
+  },
   "/service-areas/hills-hawkesbury-and-hornsby/hills-district/baulkham-hills": {
     description: "Our licensed electricians assess Baulkham Hills 2153 household electrical concerns and planned maintenance. Describe the symptoms, affected rooms and any previous work records you already hold. We confirm availability, inspection limits and required authorisation before separating necessary repairs from optional improvements or further investigation.",
     heading: "Set clear limits for a home wiring check",

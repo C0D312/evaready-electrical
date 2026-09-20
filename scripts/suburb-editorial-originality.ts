@@ -55,6 +55,14 @@ export function distinctPercentage(tokens: string[], comparison: Set<string>): n
   return 100 * (tokens.length - covered.reduce((sum, value) => sum + value, 0)) / tokens.length;
 }
 
+export function assessOriginality(corpusPercent: number, templatePercent: number | null) {
+  assert.ok(Number.isFinite(corpusPercent) && corpusPercent >= 0 && corpusPercent <= 100);
+  assert.ok(templatePercent === null || (Number.isFinite(templatePercent) && templatePercent >= 0 && templatePercent <= 100));
+  const minimumPassed = templatePercent !== null && corpusPercent >= 25 && templatePercent >= 25;
+  const targetMetBoth = templatePercent !== null && corpusPercent >= 30 && templatePercent >= 30;
+  return { minimumPassed, targetMetBoth, acceptedUnderTolerance: minimumPassed && !targetMetBoth };
+}
+
 export function auditSuburbOriginality(exportDirectory: string, baselineDirectory?: string) {
   const rows = coverageSearchItems.map((row) => {
     const html = readFileSync(path.join(exportDirectory, row.href, "index.html"), "utf8");
@@ -85,17 +93,21 @@ export function auditSuburbOriginality(exportDirectory: string, baselineDirector
     const rewritten = Boolean(suburbEditorial[row.route]);
     const baselineTokens = baselineDirectory && rewritten
       ? normaliseEditorialText(extractEditorialText(readFileSync(path.join(baselineDirectory, row.route, "index.html"), "utf8"))) : null;
+    const templatePercent = baselineTokens ? distinctPercentage(row.tokens, sevenWordSequences(baselineTokens)) : null;
     return {
       route: row.route,
       htmlSha256: row.htmlSha256,
       normalisedWords: row.tokens.length,
       distinctPercent: Number(result.distinctPercent.toFixed(3)),
+      distinctPercentRaw: result.distinctPercent,
       closestRoutes: result.closestRoutes.filter((route) => route !== row.route),
-      versusPreviousTemplatePercent: baselineTokens ? Number(distinctPercentage(row.tokens, sevenWordSequences(baselineTokens)).toFixed(3)) : null,
+      versusPreviousTemplatePercent: templatePercent === null ? null : Number(templatePercent.toFixed(3)),
+      versusPreviousTemplatePercentRaw: templatePercent,
       targetPassed: result.distinctPercent >= 30,
+      ...assessOriginality(result.distinctPercent, templatePercent),
       reviewedForThisBatch: rewritten,
       rewritten,
-      factualSource: rewritten ? suburbEditorial[row.route].censusUrl : null,
+      factualSource: rewritten ? suburbEditorial[row.route].censusUrl ?? suburbEditorial[row.route].sections.flatMap((section) => section.resources ?? [])[0]?.href ?? null : null,
       evidenceDate: rewritten ? "2026-09-20" : null,
       responsive: "pending",
       accessibility: "pending",
@@ -108,11 +120,15 @@ export function auditSuburbOriginality(exportDirectory: string, baselineDirector
   return {
     method: "suburb-editorial-originality-v1-seven-word-coverage",
     editorialTargetPercent: 30,
+    editorialMinimumPercent: 25,
     googleRequirement: false,
     routes: records.length,
     distinctNormalisedTexts: groups.size,
     researchedCandidates: records.filter((row) => row.rewritten).length,
     passingMetric: records.filter((row) => row.targetPassed).length,
+    passingBothMinimums: records.filter((row) => row.minimumPassed).length,
+    passingBothTargets: records.filter((row) => row.targetMetBoth).length,
+    usingOwnerTolerance: records.filter((row) => row.acceptedUnderTolerance).length,
     records,
   };
 }

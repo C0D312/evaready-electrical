@@ -237,13 +237,18 @@ export default async function SuburbPage({ params }: SuburbPageProps) {
                         {paragraph}
                       </p>
                     ))}
+                    {section.resources?.map((resource) => (
+                      <p key={resource.href} className="mt-4 text-base leading-7 text-slate-200">
+                        <a href={resource.href} style={{ scrollMarginBlock: "8rem" }} className="font-bold text-cyan-100 underline hover:text-white">{resource.label}</a>
+                      </p>
+                    ))}
                   </div>
                 ))}
               </div>
-              <p className="mt-6 max-w-3xl text-sm leading-6 text-slate-200" data-editorial-source="true">
+              {editorial.censusUrl ? <p className="mt-6 max-w-3xl text-sm leading-6 text-slate-200" data-editorial-source="true">
                 Housing context: <a href={editorial.censusUrl} className="font-bold text-cyan-100 underline hover:text-white">ABS 2021 Census, {suburb.name}</a>.
                 {" "}Historical suburb data is not a property inspection.
-              </p>
+              </p> : null}
             </div>
           </div>
         </section>

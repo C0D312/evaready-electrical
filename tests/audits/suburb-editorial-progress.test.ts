@@ -3,15 +3,17 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import { suburbEditorial } from "../../data/suburb-editorial";
-import { auditSuburbOriginality } from "../../scripts/suburb-editorial-originality";
+import { assessOriginality, auditSuburbOriginality } from "../../scripts/suburb-editorial-originality";
 
 test("the deeper editorial ledger accounts for all suburbs without promoting unpublished content", () => {
   const ledger = JSON.parse(readFileSync("reports/suburb-editorial-progress.json", "utf8"));
   const master = JSON.parse(readFileSync("reports/whole-site-completion-register.json", "utf8"));
   const audit = auditSuburbOriginality("out");
-  assert.deepEqual(ledger.counts, { routes: 873, reviewed: 55, editorialPending: 818, originalityPassed: 55, unpublishedNewVersions: 55 });
+  assert.deepEqual(ledger.counts, { routes: 873, reviewed: 56, editorialPending: 817, originalityPassed: 56, unpublishedNewVersions: 56 });
   assert.equal(ledger.method, audit.method);
   assert.equal(ledger.target, 30);
+  assert.equal(ledger.minimum, 25);
+  assert.deepEqual(ledger.originalitySummary, { bothMinimums: 56, bothTargets: 56, acceptedUnderTolerance: 0 });
   assert.equal(ledger.googleRequirement, false);
   assert.equal(new Set(ledger.records.map((row: { route: string }) => row.route)).size, 873);
   assert.equal(ledger.records.length, audit.records.length);
@@ -21,7 +23,12 @@ test("the deeper editorial ledger accounts for all suburbs without promoting unp
     assert.ok(recorded, actual.route);
     assert.equal(recorded.distinctPercent, actual.distinctPercent, actual.route);
     assert.equal(recorded.normalisedWords, actual.normalisedWords, actual.route);
-    assert.equal(recorded.originalityScreenPassed, actual.targetPassed, actual.route);
+    assert.equal(recorded.distinctPercentRaw, actual.distinctPercentRaw, actual.route);
+    const decision = assessOriginality(actual.distinctPercentRaw, recorded.versusPreviousTemplatePercentRaw);
+    assert.equal(recorded.originalityScreenPassed, decision.minimumPassed, actual.route);
+    assert.equal(recorded.targetMetBoth, decision.targetMetBoth, actual.route);
+    assert.equal(recorded.acceptedUnderTolerance, decision.acceptedUnderTolerance, actual.route);
+    assert.equal(actual.minimumPassed, false, "A corpus-only test run must not manufacture original-template evidence");
     assert.equal(recorded.factualSource, actual.factualSource, actual.route);
     assert.equal(recorded.publication, published.publication, actual.route);
     assert.equal(recorded.liveSha, published.publishedLiveVerifiedSha, actual.route);
@@ -29,7 +36,12 @@ test("the deeper editorial ledger accounts for all suburbs without promoting unp
     if (suburbEditorial[actual.route]) {
       assert.equal(recorded.liveSha, null);
       assert.equal(recorded.publication, "pending");
-      assert.ok(recorded.versusPreviousTemplatePercent >= 30);
+      assert.ok(recorded.versusPreviousTemplatePercentRaw >= 25);
+      assert.equal(recorded.versusPreviousTemplatePercent, Number(recorded.versusPreviousTemplatePercentRaw.toFixed(3)));
+      assert.equal(recorded.targetMetBoth, true, "Every currently accepted entry actually exceeds both 30% targets");
+    } else {
+      assert.equal(recorded.versusPreviousTemplatePercentRaw, null);
+      assert.equal(recorded.originalityScreenPassed, false);
     }
   }
   for (const input of ledger.sourceInputs) {
