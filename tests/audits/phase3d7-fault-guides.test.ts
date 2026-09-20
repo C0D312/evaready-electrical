@@ -60,6 +60,6 @@ test("reviewed fault guides record their separately approved and verified releas
   assert.deepEqual(before.counts.individualReview, { pending: 21, reviewed: 980 });
   assert.deepEqual(before.counts.publication, { "live-verified": 128, pending: 873 });
   assert.deepEqual(register.counts.individualReview, { pending: 0, reviewed: 1001 });
-  assert.deepEqual(register.counts.publication, { "live-verified": 945, pending: 56 });
+  assert.deepEqual(register.counts.publication, { "live-verified": 944, pending: 57 });
   assertCurrentRegisterContract(register);
 });

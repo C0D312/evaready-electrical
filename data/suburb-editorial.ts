@@ -11,6 +11,34 @@ export type SuburbEditorial = {
 
 // These are individually researched editorial pages, not evidence of local jobs.
 export const suburbEditorial: Readonly<Record<string, SuburbEditorial>> = {
+  "/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra": {
+    description: "Our licensed electricians review Berowra 2081 household electrical concerns and planned work after confirming availability, safe access and required authorisation. Describe the equipment involved and any limits on access. A routine electrical assessment does not replace a bush fire survival plan, emergency directions or advice about essential medical equipment.",
+    heading: "Prepare for a loss of power",
+    sections: [
+      { heading: "Start with local fire advice", paragraphs: [
+        "NSW RFS lists a Berowra Community Protection Plan, with maps explaining community-level bushfire preparation and survival options. The linked maps were approved in 2015 and reprinted in 2017. They are background for preparation, not live warnings or evidence that a particular home is safe. Do not rely on an old map's route or refuge details without checking current official advice.",
+        "Use the RFS bush fire survival planning guidance to discuss decisions with everyone in the household before an emergency. Include how you will keep informed and what you will do if circumstances change. This electrical page cannot assess your bushfire exposure, choose an evacuation route or advise you to stay and defend. Follow current emergency directions, and never delay leaving to wait for a tradesperson or finish a household repair.",
+      ], resources: [
+        { label: "NSW RFS community plans, including Berowra", href: "https://www.rfs.nsw.gov.au/plan-and-prepare/know-your-risk/community-protection-plans?result_1335_result_page=2" },
+        { label: "NSW RFS bush fire survival planning", href: "https://www.rfs.nsw.gov.au/plan-and-prepare/bush-fire-survival-plan" },
+      ] },
+      { heading: "Plan for more than dark rooms", paragraphs: [
+        "Ausgrid warns that bushfires can interrupt electricity, phone and internet services, and power may be disconnected without notice. Before fire conditions develop, find out how your electric garage door or gate operates manually, using the manufacturer's instructions or help from its service provider. Do not dismantle a powered mechanism or test an unfamiliar release during an emergency. An exit plan should not depend on a working remote control.",
+        "Keep a battery radio, torch and spare batteries available, and charge your phone and portable charger. A charged phone does not guarantee mobile reception. Hornsby Council's emergency page brings together warning and outage contacts; identify your electricity distributor before you need it. Council notes that most of the Shire uses Ausgrid but some western areas use Endeavour Energy. A suburb name alone should not decide which network contact you save.",
+      ], resources: [
+        { label: "Ausgrid bushfire and power-loss advice", href: "https://www.ausgrid.com.au/safety/keeping-communities-safe/bushfire-safety" },
+        { label: "Hornsby Council emergency and outage contacts", href: "https://www.hornsby.nsw.gov.au/Community/Services/Emergencies" },
+      ] },
+      { heading: "Resolve essential needs early", paragraphs: [
+        "If someone relies on powered medical equipment, discuss an outage action plan with their treating team and check life-support registration with the electricity retailer. Ausgrid explains that registration supports advance notice of planned interruptions, while an action plan is also needed for unexpected outages. Keep contact details current. An electrician's booking, a charged phone or a household battery is not a substitute for an equipment-specific medical contingency plan.",
+        "For an ordinary electrical enquiry, separate an existing fault from a proposed improvement. Give the equipment model where readily available and explain what you expect it to do when power is lost. We confirm which electrical work can be assessed rather than promising emergency access, uninterrupted supply or support for every specialist system. Leave medical records and account passwords out of the enquiry. Keep the agreed repair scope distinct from your household's wider emergency arrangements.",
+      ], resources: [
+        { label: "Ausgrid life-support and outage planning guidance", href: "https://www.ausgrid.com.au/outages-and-issues/in-an-emergency/life-support" },
+      ] },
+    ],
+    firstFaq: { question: "Does the Berowra community map replace a household fire plan?", answer: "No. It is community-level background, and the linked maps carry older approval and reprint dates. Use current RFS planning guidance and warnings for your household's decisions. An electrical inspection cannot certify a safe evacuation route or decide whether you should remain at the property. Arrange preparation early and follow emergency directions when conditions change." },
+    finalFaq: { question: "Does life-support registration mean the power cannot go off?", answer: "No. Ausgrid asks registered customers to plan for both scheduled and unexpected interruptions. Discuss the person's needs and contingency arrangements with their treating team, and keep registration details current with the retailer. Do not assume generic backup equipment will meet a medical device's requirements. Call 000 immediately if a situation becomes life-threatening; our enquiry form is not an emergency service." },
+  },
   "/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/windsor": {
     description: "Our licensed electricians assess Windsor 2756 household electrical concerns once safe access, availability and required authorisation are confirmed. For a flood-related enquiry, tell us about water exposure and any distributor notice. An electrical booking does not replace emergency directions or establish that a property is safe to enter or reconnect.",
     heading: "Flood plans and safe power checks",
