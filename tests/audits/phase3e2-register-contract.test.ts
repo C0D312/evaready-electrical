@@ -4,7 +4,7 @@ import test from "node:test";
 import { createWholeSiteCompletionRegister } from "../../scripts/whole-site-completion-register";
 import { assertCurrentRegisterContract, historicalRegister, reviewedRouteHolds, registerBeforeEditorialBatch, editorialRoutes } from "./phase3e2-register-contract";
 
-test("current register preserves historical release deltas and only five unpublished editorial exceptions", () => {
+test("current register preserves historical release deltas and the thirty-five unpublished editorial exceptions", () => {
   assertCurrentRegisterContract(createWholeSiteCompletionRegister());
 });
 
@@ -50,7 +50,7 @@ test("publication receipt binds every newly published route to the approved depl
   assert.deepEqual(receipt.publicationReconciliation.allowedFields, ["publication", "publishedLiveVerifiedSha", "outstandingHolds"]);
 });
 
-test("all five editorial rows reject invented publication and cleared owner holds", () => {
+test("all thirty-five editorial rows reject invented publication and cleared owner holds", () => {
   for (const route of editorialRoutes) {
     for (const field of ["publication", "publishedLiveVerifiedSha", "sourceRecord", "outstandingHolds"] as const) {
       const mutated = createWholeSiteCompletionRegister();

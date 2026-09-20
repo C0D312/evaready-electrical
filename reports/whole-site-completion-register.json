@@ -18,8 +18,8 @@
       "reviewed": 1001
     },
     "publication": {
-      "live-verified": 986,
-      "pending": 15
+      "live-verified": 966,
+      "pending": 35
     },
     "rewrite": {
       "held": 0,
@@ -933,16 +933,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/belfield",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:canterbury-bankstown-and-inner-south-west/canterbury-bankstown/belfield",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/belfield",
       "template": "suburb page"
     },
     {
@@ -952,16 +953,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/belmore",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:canterbury-bankstown-and-inner-south-west/canterbury-bankstown/belmore",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/belmore",
       "template": "suburb page"
     },
     {
@@ -1009,16 +1011,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/campsie",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:canterbury-bankstown-and-inner-south-west/canterbury-bankstown/campsie",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/campsie",
       "template": "suburb page"
     },
     {
@@ -1028,16 +1031,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/canterbury",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:canterbury-bankstown-and-inner-south-west/canterbury-bankstown/canterbury",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/canterbury",
       "template": "suburb page"
     },
     {
@@ -1106,16 +1110,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/earlwood",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:canterbury-bankstown-and-inner-south-west/canterbury-bankstown/earlwood",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/earlwood",
       "template": "suburb page"
     },
     {
@@ -1202,16 +1207,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/lakemba",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:canterbury-bankstown-and-inner-south-west/canterbury-bankstown/lakemba",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/lakemba",
       "template": "suburb page"
     },
     {
@@ -1530,16 +1536,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/wiley-park",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:canterbury-bankstown-and-inner-south-west/canterbury-bankstown/wiley-park",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/wiley-park",
       "template": "suburb page"
     },
     {
@@ -4590,16 +4597,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/inner-west-burwood-and-canada-bay/inner-west/ashfield",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:inner-west-burwood-and-canada-bay/inner-west/ashfield",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/inner-west-burwood-and-canada-bay/inner-west/ashfield",
       "template": "suburb page"
     },
     {
@@ -4609,16 +4617,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/inner-west-burwood-and-canada-bay/inner-west/balmain",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:inner-west-burwood-and-canada-bay/inner-west/balmain",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/inner-west-burwood-and-canada-bay/inner-west/balmain",
       "template": "suburb page"
     },
     {
@@ -4723,16 +4732,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/inner-west-burwood-and-canada-bay/inner-west/dulwich-hill",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:inner-west-burwood-and-canada-bay/inner-west/dulwich-hill",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/inner-west-burwood-and-canada-bay/inner-west/dulwich-hill",
       "template": "suburb page"
     },
     {
@@ -4799,16 +4809,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/inner-west-burwood-and-canada-bay/inner-west/leichhardt",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:inner-west-burwood-and-canada-bay/inner-west/leichhardt",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/inner-west-burwood-and-canada-bay/inner-west/leichhardt",
       "template": "suburb page"
     },
     {
@@ -4856,16 +4867,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/inner-west-burwood-and-canada-bay/inner-west/marrickville",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:inner-west-burwood-and-canada-bay/inner-west/marrickville",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/inner-west-burwood-and-canada-bay/inner-west/marrickville",
       "template": "suburb page"
     },
     {
@@ -5217,16 +5229,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/liverpool-and-fairfield/fairfield/cabramatta",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:liverpool-and-fairfield/fairfield/cabramatta",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/liverpool-and-fairfield/fairfield/cabramatta",
       "template": "suburb page"
     },
     {
@@ -5274,16 +5287,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/liverpool-and-fairfield/fairfield/canley-vale",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:liverpool-and-fairfield/fairfield/canley-vale",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/liverpool-and-fairfield/fairfield/canley-vale",
       "template": "suburb page"
     },
     {
@@ -5541,16 +5555,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/liverpool-and-fairfield/fairfield/smithfield",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:liverpool-and-fairfield/fairfield/smithfield",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/liverpool-and-fairfield/fairfield/smithfield",
       "template": "suburb page"
     },
     {
@@ -5598,16 +5613,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/liverpool-and-fairfield/fairfield/wetherill-park",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:liverpool-and-fairfield/fairfield/wetherill-park",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/liverpool-and-fairfield/fairfield/wetherill-park",
       "template": "suburb page"
     },
     {
@@ -5769,16 +5785,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/liverpool-and-fairfield/liverpool/casula",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:liverpool-and-fairfield/liverpool/casula",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/liverpool-and-fairfield/liverpool/casula",
       "template": "suburb page"
     },
     {
@@ -5807,16 +5824,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/liverpool-and-fairfield/liverpool/chipping-norton",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:liverpool-and-fairfield/liverpool/chipping-norton",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/liverpool-and-fairfield/liverpool/chipping-norton",
       "template": "suburb page"
     },
     {
@@ -6112,16 +6130,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/liverpool-and-fairfield/liverpool/moorebank",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:liverpool-and-fairfield/liverpool/moorebank",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/liverpool-and-fairfield/liverpool/moorebank",
       "template": "suburb page"
     },
     {
@@ -6150,16 +6169,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/liverpool-and-fairfield/liverpool/prestons",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:liverpool-and-fairfield/liverpool/prestons",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/liverpool-and-fairfield/liverpool/prestons",
       "template": "suburb page"
     },
     {

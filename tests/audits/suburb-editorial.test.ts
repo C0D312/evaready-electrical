@@ -21,9 +21,9 @@ test("place substitution and paragraph reordering cannot earn editorial novelty"
   assert.equal(distinctPercentage(tokens, new Set()), 100);
 });
 
-test("fifteen researched entries map exactly to the two authorised route batches", () => {
+test("thirty-five researched entries map exactly to the three authorised route batches", () => {
   assert.deepEqual(Object.keys(suburbEditorial).sort(), [...editorialRoutes].sort());
-  assert.equal(Object.keys(suburbEditorial).length, 15);
+  assert.equal(Object.keys(suburbEditorial).length, 35);
   for (const [route, entry] of Object.entries(suburbEditorial)) {
     assert.ok(coverageSearchItems.some((row) => row.href === route), route);
     assert.match(entry.censusUrl, /^https:\/\/www\.abs\.gov\.au\/census\/find-census-data\/quickstats\/2021\/SAL\d+$/);

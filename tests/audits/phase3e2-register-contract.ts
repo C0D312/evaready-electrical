@@ -30,7 +30,30 @@ export const editorialBatch02Routes = new Set([
   "/service-areas/liverpool-and-fairfield/liverpool/liverpool",
   "/service-areas/liverpool-and-fairfield/fairfield/fairfield",
 ]);
-export const editorialRoutes = new Set([...editorialBatch01Routes, ...editorialBatch02Routes]);
+// Predeclared third batch, independent of the candidate content and generator.
+export const editorialBatch03Routes = new Set([
+  "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/belfield",
+  "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/belmore",
+  "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/campsie",
+  "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/canterbury",
+  "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/earlwood",
+  "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/lakemba",
+  "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/wiley-park",
+  "/service-areas/liverpool-and-fairfield/fairfield/cabramatta",
+  "/service-areas/liverpool-and-fairfield/fairfield/canley-vale",
+  "/service-areas/liverpool-and-fairfield/fairfield/smithfield",
+  "/service-areas/liverpool-and-fairfield/fairfield/wetherill-park",
+  "/service-areas/liverpool-and-fairfield/liverpool/casula",
+  "/service-areas/liverpool-and-fairfield/liverpool/chipping-norton",
+  "/service-areas/liverpool-and-fairfield/liverpool/moorebank",
+  "/service-areas/liverpool-and-fairfield/liverpool/prestons",
+  "/service-areas/inner-west-burwood-and-canada-bay/inner-west/ashfield",
+  "/service-areas/inner-west-burwood-and-canada-bay/inner-west/balmain",
+  "/service-areas/inner-west-burwood-and-canada-bay/inner-west/dulwich-hill",
+  "/service-areas/inner-west-burwood-and-canada-bay/inner-west/leichhardt",
+  "/service-areas/inner-west-burwood-and-canada-bay/inner-west/marrickville",
+]);
+export const editorialRoutes = new Set([...editorialBatch01Routes, ...editorialBatch02Routes, ...editorialBatch03Routes]);
 export const editorialPublicationHold = "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical.";
 
 export function registerBeforeEditorialBatch(actual: WholeSiteCompletionRegister): WholeSiteCompletionRegister {
@@ -38,9 +61,10 @@ export function registerBeforeEditorialBatch(actual: WholeSiteCompletionRegister
   const before = historicalRegister("before3e2");
   assert.equal(editorialBatch01Routes.size, 5);
   assert.equal(editorialBatch02Routes.size, 10);
-  assert.equal(editorialRoutes.size, 15);
-  assert.equal(actual.records.filter(row => editorialRoutes.has(row.route)).length, 15);
-  assert.deepEqual(actual.counts.publication, { "live-verified": 986, pending: 15 });
+  assert.equal(editorialBatch03Routes.size, 20);
+  assert.equal(editorialRoutes.size, 35);
+  assert.equal(actual.records.filter(row => editorialRoutes.has(row.route)).length, 35);
+  assert.deepEqual(actual.counts.publication, { "live-verified": 966, pending: 35 });
   for (const row of restored.records.filter(row => editorialRoutes.has(row.route))) {
     const baseline = before.records.find(candidate => candidate.route === row.route)!;
     assert.deepEqual(row, {
