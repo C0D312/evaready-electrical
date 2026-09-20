@@ -53,7 +53,30 @@ export const editorialBatch03Routes = new Set([
   "/service-areas/inner-west-burwood-and-canada-bay/inner-west/leichhardt",
   "/service-areas/inner-west-burwood-and-canada-bay/inner-west/marrickville",
 ]);
-export const editorialRoutes = new Set([...editorialBatch01Routes, ...editorialBatch02Routes, ...editorialBatch03Routes]);
+// Fourth batch declared before writing; never infer the authorised routes from production.
+export const editorialBatch04Routes = new Set([
+  "/service-areas/inner-west-burwood-and-canada-bay/burwood/burwood",
+  "/service-areas/inner-west-burwood-and-canada-bay/burwood/strathfield",
+  "/service-areas/inner-west-burwood-and-canada-bay/canada-bay/concord",
+  "/service-areas/inner-west-burwood-and-canada-bay/canada-bay/rhodes",
+  "/service-areas/parramatta-and-cumberland/cumberland/auburn",
+  "/service-areas/parramatta-and-cumberland/cumberland/lidcombe",
+  "/service-areas/parramatta-and-cumberland/cumberland/merrylands",
+  "/service-areas/parramatta-and-cumberland/cumberland/wentworthville",
+  "/service-areas/parramatta-and-cumberland/cumberland/westmead",
+  "/service-areas/parramatta-and-cumberland/parramatta/eastwood",
+  "/service-areas/parramatta-and-cumberland/parramatta/epping",
+  "/service-areas/parramatta-and-cumberland/parramatta/granville",
+  "/service-areas/western-sydney-and-nepean/blacktown/blacktown",
+  "/service-areas/western-sydney-and-nepean/blacktown/seven-hills",
+  "/service-areas/western-sydney-and-nepean/penrith/penrith",
+  "/service-areas/hills-hawkesbury-and-hornsby/hills-district/baulkham-hills",
+  "/service-areas/hills-hawkesbury-and-hornsby/hills-district/castle-hill",
+  "/service-areas/hills-hawkesbury-and-hornsby/hills-district/kellyville",
+  "/service-areas/hills-hawkesbury-and-hornsby/hills-district/rouse-hill",
+  "/service-areas/northern-sydney-and-ryde/ryde/ryde",
+]);
+export const editorialRoutes = new Set([...editorialBatch01Routes, ...editorialBatch02Routes, ...editorialBatch03Routes, ...editorialBatch04Routes]);
 export const editorialPublicationHold = "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical.";
 
 export function registerBeforeEditorialBatch(actual: WholeSiteCompletionRegister): WholeSiteCompletionRegister {
@@ -62,9 +85,10 @@ export function registerBeforeEditorialBatch(actual: WholeSiteCompletionRegister
   assert.equal(editorialBatch01Routes.size, 5);
   assert.equal(editorialBatch02Routes.size, 10);
   assert.equal(editorialBatch03Routes.size, 20);
-  assert.equal(editorialRoutes.size, 35);
-  assert.equal(actual.records.filter(row => editorialRoutes.has(row.route)).length, 35);
-  assert.deepEqual(actual.counts.publication, { "live-verified": 966, pending: 35 });
+  assert.equal(editorialBatch04Routes.size, 20);
+  assert.equal(editorialRoutes.size, 55);
+  assert.equal(actual.records.filter(row => editorialRoutes.has(row.route)).length, 55);
+  assert.deepEqual(actual.counts.publication, { "live-verified": 946, pending: 55 });
   for (const row of restored.records.filter(row => editorialRoutes.has(row.route))) {
     const baseline = before.records.find(candidate => candidate.route === row.route)!;
     assert.deepEqual(row, {

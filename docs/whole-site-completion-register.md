@@ -5,15 +5,16 @@ route-by-route register for all 1,001 public sitemap routes.
 
 ## Current Verified Checkpoint
 
-The R4 editorial continuation has thirty-five unpublished page versions: the
-first five, the ten-page second batch and the twenty-page third batch. Their
+The R4 editorial continuation has fifty-five unpublished page versions: the
+first five, the ten-page second batch and two subsequent twenty-page batches. Their
 current register rows have `publication: pending` and null live SHAs. The other
-966 rows and their historical release evidence remain unchanged. No new release
+946 rows and their historical release evidence remain unchanged. No new release
 or cleared owner hold is implied. See `suburb-editorial-batch-01.md`,
-`suburb-editorial-batch-02.md` and `suburb-editorial-batch-03.md` for the exact
+`suburb-editorial-batch-02.md`, `suburb-editorial-batch-03.md` and
+`suburb-editorial-batch-04.md` for the exact
 route inventories, sources, preserved failures and focused validation, and
 `reports/suburb-editorial-progress.json` for the separate all-873 originality and
-individual editorial continuation ledger. The remaining 838 pages are still
+individual editorial continuation ledger. The remaining 818 pages are still
 pending that deeper pass; historical shared-template review is not proof of
 route-specific original content.
 
