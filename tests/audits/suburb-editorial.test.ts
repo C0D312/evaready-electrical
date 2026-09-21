@@ -23,7 +23,7 @@ test("place substitution and paragraph reordering cannot earn editorial novelty"
 
 test("researched entries map exactly to the authorised route batches", () => {
   assert.deepEqual(Object.keys(suburbEditorial).sort(), [...editorialRoutes].sort());
-  assert.equal(Object.keys(suburbEditorial).length, 100);
+  assert.equal(Object.keys(suburbEditorial).length, 102);
   for (const [route, entry] of Object.entries(suburbEditorial)) {
     assert.ok(coverageSearchItems.some((row) => row.href === route), route);
     if (["/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/windsor", "/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra"].includes(route)) {
@@ -62,6 +62,9 @@ test("researched entries map exactly to the authorised route batches", () => {
     } else if (["/service-areas/parramatta-and-cumberland/cumberland/girraween", "/service-areas/parramatta-and-cumberland/cumberland/holroyd"].includes(route)) {
       assert.equal(entry.censusUrl, undefined);
       assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/holroyd") ? 3 : 2);
+    } else if (["/service-areas/parramatta-and-cumberland/cumberland/merrylands-west", "/service-areas/parramatta-and-cumberland/cumberland/pendle-hill"].includes(route)) {
+      assert.equal(entry.censusUrl, undefined);
+      assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, 2);
     } else {
       assert.ok(entry.censusUrl);
       assert.match(entry.censusUrl, /^https:\/\/www\.abs\.gov\.au\/census\/find-census-data\/quickstats\/2021\/SAL\d+$/);
@@ -72,6 +75,36 @@ test("researched entries map exactly to the authorised route batches", () => {
     assert.match(entry.description, /required authorisation/);
     assert.doesNotMatch(JSON.stringify(entry), /our local office|guaranteed arrival|we recently completed|100\+|5\.0 rating|subcontract|outsource/i);
   }
+});
+
+test("milestone 18 cohort 03 distinguishes heater precautions and functional smart-plug switching", () => {
+  const base = "/service-areas/parramatta-and-cumberland/cumberland/";
+  const expected: Record<string, string[]> = {
+    [base + "merrylands-west"]: ["https://www.fire.nsw.gov.au/__data/assets/pdf_file/0009/5040/Home-Fire-Safety-English-web.pdf", "https://www.fire.nsw.gov.au/gallery/files/pdf/community/Get%20Ready%20For%20Winter%20Checklist.pdf"],
+    [base + "pendle-hill"]: ["https://www.tp-link.com/au/document/42014/", "https://www.nsw.gov.au/legal-and-justice/consumer-rights-and-protection/safety/electrical-safety/electrical-safety-requirements-and-consumer-rights"],
+  };
+  for (const [route, urls] of Object.entries(expected)) {
+    const entry = suburbEditorial[route];
+    assert.equal(entry.censusUrl, undefined);
+    assert.deepEqual(entry.sections.flatMap(section => section.resources?.map(resource => resource.href) ?? []), urls);
+    assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, 2);
+    assert.match(entry.description, /Our licensed electricians/);
+    assert.match(entry.description, /required authorisation/);
+  }
+  for (const name of ["pemulwuy", "south-granville", "south-wentworthville"]) assert.equal(suburbEditorial[base + name], undefined);
+  const heater = JSON.stringify(suburbEditorial[base + "merrylands-west"]);
+  assert.match(heater, /at least one metre away/);
+  assert.match(heater, /connect directly to a wall socket/);
+  assert.match(heater, /Turn the heater off when leaving home and before getting into bed/);
+  assert.match(heater, /A direct connection is a precaution, not proof of the circuit's condition or capacity/);
+  assert.match(heater, /do not promise repairs for every portable heater/);
+  const plug = JSON.stringify(suburbEditorial[base + "pendle-hill"]);
+  assert.match(plug, /functional switching and micro-disconnection/);
+  assert.match(plug, /An app indication is not an electrical safety test/);
+  assert.match(plug, /not a specification for every smart plug/);
+  assert.match(plug, /No experiment with the smart plug is needed/);
+  assert.match(plug, /do not send passwords, network credentials/);
+  assert.match(plug, /does not select loads, give switching-capacity calculations/);
 });
 
 test("milestone 18 cohort 02 separates dryer care from faults and contractor authority from worker roles", () => {
