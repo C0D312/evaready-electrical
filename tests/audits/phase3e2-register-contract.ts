@@ -132,7 +132,14 @@ export const editorialMilestone16Routes = new Set([
   "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/padstow-heights",
   "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/riverwood",
 ]);
-export const editorialRoutes = new Set([...editorialBatch01Routes, ...editorialBatch02Routes, ...editorialBatch03Routes, ...editorialBatch04Routes, ...editorialMilestone07Routes, ...editorialMilestone08Routes, ...editorialMilestone09Routes, ...editorialMilestone10Routes, ...editorialMilestone11Routes, ...editorialMilestone12Routes, ...editorialMilestone13Routes, ...editorialMilestone14Routes, ...editorialMilestone15Routes, ...editorialMilestone16Routes]);
+export const editorialMilestone17Routes = new Set([
+  "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/sefton",
+  "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/birrong",
+  "/service-areas/parramatta-and-cumberland/cumberland/regents-park",
+  "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/potts-hill",
+  "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/villawood",
+]);
+export const editorialRoutes = new Set([...editorialBatch01Routes, ...editorialBatch02Routes, ...editorialBatch03Routes, ...editorialBatch04Routes, ...editorialMilestone07Routes, ...editorialMilestone08Routes, ...editorialMilestone09Routes, ...editorialMilestone10Routes, ...editorialMilestone11Routes, ...editorialMilestone12Routes, ...editorialMilestone13Routes, ...editorialMilestone14Routes, ...editorialMilestone15Routes, ...editorialMilestone16Routes, ...editorialMilestone17Routes]);
 export const editorialPublicationHold = "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical.";
 
 export function registerBeforeEditorialBatch(actual: WholeSiteCompletionRegister): WholeSiteCompletionRegister {
@@ -152,9 +159,10 @@ export function registerBeforeEditorialBatch(actual: WholeSiteCompletionRegister
   assert.equal(editorialMilestone14Routes.size, 3);
   assert.equal(editorialMilestone15Routes.size, 5);
   assert.equal(editorialMilestone16Routes.size, 5);
-  assert.equal(editorialRoutes.size, 89);
-  assert.equal(actual.records.filter(row => editorialRoutes.has(row.route)).length, 89);
-  assert.deepEqual(actual.counts.publication, { "live-verified": 912, pending: 89 });
+  assert.equal(editorialMilestone17Routes.size, 5);
+  assert.equal(editorialRoutes.size, 94);
+  assert.equal(actual.records.filter(row => editorialRoutes.has(row.route)).length, 94);
+  assert.deepEqual(actual.counts.publication, { "live-verified": 907, pending: 94 });
   for (const row of restored.records.filter(row => editorialRoutes.has(row.route))) {
     const baseline = before.records.find(candidate => candidate.route === row.route)!;
     assert.deepEqual(row, {

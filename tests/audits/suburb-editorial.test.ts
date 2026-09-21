@@ -23,7 +23,7 @@ test("place substitution and paragraph reordering cannot earn editorial novelty"
 
 test("researched entries map exactly to the authorised route batches", () => {
   assert.deepEqual(Object.keys(suburbEditorial).sort(), [...editorialRoutes].sort());
-  assert.equal(Object.keys(suburbEditorial).length, 89);
+  assert.equal(Object.keys(suburbEditorial).length, 94);
   for (const [route, entry] of Object.entries(suburbEditorial)) {
     assert.ok(coverageSearchItems.some((row) => row.href === route), route);
     if (["/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/windsor", "/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra"].includes(route)) {
@@ -53,6 +53,9 @@ test("researched entries map exactly to the authorised route batches", () => {
     } else if (["/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/picnic-point", "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/revesby-heights", "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/east-hills", "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/padstow-heights", "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/riverwood"].includes(route)) {
       assert.equal(entry.censusUrl, undefined);
       assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/east-hills") ? 1 : 2);
+    } else if (["/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/sefton", "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/birrong", "/service-areas/parramatta-and-cumberland/cumberland/regents-park", "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/potts-hill", "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/villawood"].includes(route)) {
+      assert.equal(entry.censusUrl, undefined);
+      assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/birrong") ? 3 : route.endsWith("/regents-park") || route.endsWith("/villawood") ? 1 : 2);
     } else {
       assert.ok(entry.censusUrl);
       assert.match(entry.censusUrl, /^https:\/\/www\.abs\.gov\.au\/census\/find-census-data\/quickstats\/2021\/SAL\d+$/);
@@ -63,6 +66,41 @@ test("researched entries map exactly to the authorised route batches", () => {
     assert.match(entry.description, /required authorisation/);
     assert.doesNotMatch(JSON.stringify(entry), /our local office|guaranteed arrival|we recently completed|100\+|5\.0 rating|subcontract|outsource/i);
   }
+});
+
+test("milestone 17 distinguishes product, protection, billing, asset and inspection scopes", () => {
+  const base = "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/";
+  const regents = "/service-areas/parramatta-and-cumberland/cumberland/regents-park";
+  const expected: Record<string, string[]> = {
+    [base + "sefton"]: ["https://www.tesla.com/en_au/support/charging/mobile-connector", "https://digitalassets.tesla.com/tesla-contents/image/upload/gen-2-mobile-connector-owners-manual-en-au.pdf"],
+    [base + "birrong"]: ["https://www.electricalsafety.qld.gov.au/electrical-safety-home/safety-switches", "https://www.clipsal.com/clipsal-media-centre/home-owner-blogs/safe-and-sound-with-clipsal", "https://www.clipsal.com/products/circuit-protection/surge-protection-device-spd"],
+    [regents]: ["https://www.ewon.com.au/page/customer-resources/high-and-disputed-bills"],
+    [base + "potts-hill"]: ["https://www.ausgrid.com.au/connections/apply-for-a-connection/existing-connections", "https://www.ausgrid.com.au/connections/apply-for-a-connection/existing-connections/moving-poles-and-assets"],
+    [base + "villawood"]: ["https://www.nsw.gov.au/housing-and-construction/buying-and-selling-property/buying-property-nsw/inspecting-a-property/inspection-reports"],
+  };
+  for (const [route, urls] of Object.entries(expected)) {
+    const entry = suburbEditorial[route];
+    assert.equal(entry.censusUrl, undefined);
+    assert.deepEqual(entry.sections.flatMap(section => section.resources?.map(resource => resource.href) ?? []), urls);
+    assert.match(entry.description, /Our licensed electricians/);
+    assert.match(entry.description, /required authorisation/);
+  }
+  const text = (name: string) => JSON.stringify(suburbEditorial[name === "regents-park" ? regents : base + name]);
+  assert.match(text("sefton"), /one manufacturer's example/);
+  assert.match(text("sefton"), /do not need to demonstrate charging, try another socket or change an adapter/);
+  assert.match(text("sefton"), /not a universal specification, purchase recommendation or promised charging speed/);
+  assert.match(text("birrong"), /not a statement of NSW legal requirements/);
+  assert.match(text("birrong"), /does not, on its own, establish its cause/);
+  assert.match(text("birrong"), /not protection against every cause of failure or every lightning event/);
+  assert.match(text("regents-park"), /amount alone is not an electrical diagnosis/);
+  assert.match(text("regents-park"), /Do not delay reporting a safety concern/);
+  assert.match(text("regents-park"), /offers no tariff advice, payment-withholding instruction, refund outcome or savings promise/);
+  assert.match(text("potts-hill"), /If Ausgrid is the distributor/);
+  assert.match(text("potts-hill"), /does not determine ownership, relocation feasibility, fees or completion dates/);
+  assert.match(text("potts-hill"), /does not lodge a network application/);
+  assert.match(text("villawood"), /electrical inspection can sometimes be included/);
+  assert.match(text("villawood"), /Read exclusions and access limitations alongside the findings/);
+  assert.match(text("villawood"), /does not guarantee discovery of every concealed or future fault/);
 });
 
 test("milestone 16 separates pool plans, outdoor products, retailer moves, outage notices and private cabling", () => {
