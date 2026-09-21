@@ -23,7 +23,7 @@ test("place substitution and paragraph reordering cannot earn editorial novelty"
 
 test("researched entries map exactly to the authorised route batches", () => {
   assert.deepEqual(Object.keys(suburbEditorial).sort(), [...editorialRoutes].sort());
-  assert.equal(Object.keys(suburbEditorial).length, 79);
+  assert.equal(Object.keys(suburbEditorial).length, 84);
   for (const [route, entry] of Object.entries(suburbEditorial)) {
     assert.ok(coverageSearchItems.some((row) => row.href === route), route);
     if (["/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/windsor", "/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra"].includes(route)) {
@@ -47,6 +47,9 @@ test("researched entries map exactly to the authorised route batches", () => {
     } else if (["/service-areas/st-george-and-bayside/georges-river/peakhurst", "/service-areas/st-george-and-bayside/georges-river/mortdale", "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/beverly-hills"].includes(route)) {
       assert.equal(entry.censusUrl, undefined);
       assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/mortdale") ? 1 : 2);
+    } else if (["/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/narwee", "/service-areas/st-george-and-bayside/georges-river/oatley", "/service-areas/st-george-and-bayside/georges-river/south-hurstville", "/service-areas/st-george-and-bayside/georges-river/lugarno", "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/lansdowne"].includes(route)) {
+      assert.equal(entry.censusUrl, undefined);
+      assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/oatley") || route.endsWith("/lugarno") ? 2 : 1);
     } else {
       assert.ok(entry.censusUrl);
       assert.match(entry.censusUrl, /^https:\/\/www\.abs\.gov\.au\/census\/find-census-data\/quickstats\/2021\/SAL\d+$/);
@@ -57,6 +60,45 @@ test("researched entries map exactly to the authorised route batches", () => {
     assert.match(entry.description, /required authorisation/);
     assert.doesNotMatch(JSON.stringify(entry), /our local office|guaranteed arrival|we recently completed|100\+|5\.0 rating|subcontract|outsource/i);
   }
+});
+
+test("milestone 15 separates connection power, replacement trades, solar reports and equipment testing", () => {
+  const narwee = "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/narwee";
+  const oatley = "/service-areas/st-george-and-bayside/georges-river/oatley";
+  const southHurstville = "/service-areas/st-george-and-bayside/georges-river/south-hurstville";
+  const lugarno = "/service-areas/st-george-and-bayside/georges-river/lugarno";
+  const lansdowne = "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/lansdowne";
+  const expected: Record<string, string[]> = {
+    [narwee]: ["https://www.nbnco.com.au/learn/what-happens-in-a-power-blackout"],
+    [oatley]: [
+      "https://www.arctick.org/information/report-a-breach-relating-to-regulated-refrigerants/what-work-requires-a-refrigerant-handling-licence/",
+      "https://www.arctick.org/information/faqs/rhl/",
+    ],
+    [southHurstville]: ["https://www.energy.nsw.gov.au/households/upgrades/heat-pump"],
+    [lugarno]: [
+      "https://www.energy.gov.au/solar/use-your-solar-system/monitor-your-solar-system",
+      "https://www.energy.gov.au/solar/use-your-solar-system/look-after-your-solar-system",
+    ],
+    [lansdowne]: ["https://www.safework.nsw.gov.au/hazards-a-z/electrical-and-power/electrical-inspection-and-testing"],
+  };
+  for (const [route, urls] of Object.entries(expected)) {
+    const entry = suburbEditorial[route];
+    assert.equal(entry.censusUrl, undefined);
+    assert.deepEqual(entry.sections.flatMap(section => section.resources?.map(resource => resource.href) ?? []), urls);
+    assert.match(entry.description, /Our licensed electricians/);
+    assert.match(entry.description, /required authorisation/);
+  }
+  const text = (route: string) => JSON.stringify(suburbEditorial[route]);
+  assert.match(text(narwee), /Keeping a router running cannot restore an upstream service/);
+  assert.match(text(narwee), /cannot promise emergency-call or medical-alarm continuity/);
+  assert.match(text(oatley), /national scheme covers fluorocarbon refrigerants and does not cover every refrigerant/);
+  assert.match(text(oatley), /no EVAREADY refrigerant-handling licence claim/);
+  assert.match(text(southHurstville), /qualified gas work when a gas system is replaced/);
+  assert.match(text(southHurstville), /does not establish rebate eligibility/);
+  assert.match(text(lugarno), /No reset, isolator operation, panel cleaning or trial shutdown/);
+  assert.match(text(lugarno), /no EVAREADY solar-accreditation claim/);
+  assert.match(text(lansdowne), /no universal interval/);
+  assert.match(text(lansdowne), /Do not regard a tag as clearance for later damage or a new fault/);
 });
 
 test("milestone 14 distinguishes fire assessment, work records and insulation preparation", () => {
