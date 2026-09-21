@@ -23,7 +23,7 @@ test("place substitution and paragraph reordering cannot earn editorial novelty"
 
 test("researched entries map exactly to the authorised route batches", () => {
   assert.deepEqual(Object.keys(suburbEditorial).sort(), [...editorialRoutes].sort());
-  assert.equal(Object.keys(suburbEditorial).length, 117);
+  assert.equal(Object.keys(suburbEditorial).length, 122);
   for (const [route, entry] of Object.entries(suburbEditorial)) {
     assert.ok(coverageSearchItems.some((row) => row.href === route), route);
     if (["/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/windsor", "/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra"].includes(route)) {
@@ -74,6 +74,9 @@ test("researched entries map exactly to the authorised route batches", () => {
     } else if (["/service-areas/parramatta-and-cumberland/parramatta/telopea", "/service-areas/parramatta-and-cumberland/parramatta/wentworth-point", "/service-areas/western-sydney-and-nepean/blacktown/acacia-gardens", "/service-areas/western-sydney-and-nepean/blacktown/arndell-park", "/service-areas/western-sydney-and-nepean/blacktown/bidwill"].includes(route)) {
       assert.equal(entry.censusUrl, undefined);
       assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/wentworth-point") ? 1 : 2);
+    } else if (["/service-areas/western-sydney-and-nepean/blacktown/blackett", "/service-areas/western-sydney-and-nepean/blacktown/bungarribee", "/service-areas/western-sydney-and-nepean/blacktown/colebee", "/service-areas/western-sydney-and-nepean/blacktown/dean-park", "/service-areas/western-sydney-and-nepean/blacktown/dharruk"].includes(route)) {
+      assert.equal(entry.censusUrl, undefined);
+      assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/blackett") || route.endsWith("/dean-park") ? 1 : 2);
     } else {
       assert.ok(entry.censusUrl);
       assert.match(entry.censusUrl, /^https:\/\/www\.abs\.gov\.au\/census\/find-census-data\/quickstats\/2021\/SAL\d+$/);
@@ -84,6 +87,35 @@ test("researched entries map exactly to the authorised route batches", () => {
     assert.match(entry.description, /required authorisation/);
     assert.doesNotMatch(JSON.stringify(entry), /our local office|guaranteed arrival|we recently completed|100\+|5\.0 rating|subcontract|outsource/i);
   }
+});
+
+test("milestone 19 cohort 04 distinguishes timing, grouping, output and cooling from electrical faults", () => {
+  const base = "/service-areas/western-sydney-and-nepean/blacktown/";
+  const expected: Record<string, string[]> = {
+    [base + "blackett"]: ["https://ventair.com.au/product/fan2444"],
+    [base + "bungarribee"]: ["https://www.beaconlighting.com.au/media/catalog/product/file/im/211004_211004.pdf", "https://tradesupport.beaconlighting.com.au/hc/en-us/articles/56327493459737-Which-Ceiling-Fans-Come-With-a-Remote-or-Wall-Switch"],
+    [base + "colebee"]: ["https://www.clipsal.com/products/power-points-switches/clipsal-iconic/usb-type-c-fast-charger-module-for-pro-series-iconic-ranges-25w-220-240v-ac-40e1usbcm?itemno=40E1USBCM-VW", "https://www.clipsal.com/products/power-points-switches/clipsal-iconic/clipsal-iconic-usb-charger-mechanism-dual-type-a-c-31a-40e2usbacm?itemno=40E2USBACM-VW"],
+    [base + "dean-park"]: ["https://media3.bosch-home.com/Documents/9001639663_C.pdf"],
+    [base + "dharruk"]: ["https://supporthub.electrolux.com.au/support-articles/article/oven-cooling-fan-runs-all-the-time", "https://supporthub.electrolux.com.au/support-articles/article/cooling-fan-not-running-after-using-the-oven"],
+  };
+  for (const [route, urls] of Object.entries(expected)) {
+    const entry = suburbEditorial[route];
+    assert.equal(entry.censusUrl, undefined);
+    assert.deepEqual(entry.sections.flatMap(section => section.resources?.map(resource => resource.href) ?? []), urls);
+    assert.match(entry.description, /Our licensed electricians/);
+    assert.match(entry.description, /required authorisation/);
+  }
+  const text = (name: string) => JSON.stringify(suburbEditorial[base + name]);
+  assert.match(text("blackett"), /does not establish that this accessory is installed in your home/);
+  assert.match(text("blackett"), /A switch position or quiet fan is not proof of safe electrical isolation/);
+  assert.match(text("bungarribee"), /Do not apply its pairing sequence to another fan or experiment with resets/);
+  assert.match(text("bungarribee"), /do not send account credentials/);
+  assert.match(text("colebee"), /Do not silently add the largest numbers/);
+  assert.match(text("colebee"), /charging ports do not automatically provide a network or data connection/);
+  assert.match(text("dean-park"), /A displayed setting is therefore not always a measurement of delivered power/);
+  assert.match(text("dean-park"), /Do not run an all-zones test or change hidden settings/);
+  assert.match(text("dharruk"), /does not turn a general support article into a fixed countdown for every oven/);
+  assert.match(text("dharruk"), /no reset procedure, thermal test, safe-touch temperature/);
 });
 
 test("milestone 19 cohort 03 distinguishes equipment states, ventilation, controls and protection", () => {

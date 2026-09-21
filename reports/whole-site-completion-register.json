@@ -18,8 +18,8 @@
       "reviewed": 1001
     },
     "publication": {
-      "live-verified": 884,
-      "pending": 117
+      "live-verified": 879,
+      "pending": 122
     },
     "rewrite": {
       "held": 0,
@@ -15104,16 +15104,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/western-sydney-and-nepean/blacktown/blackett",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:western-sydney-and-nepean/blacktown/blackett",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/western-sydney-and-nepean/blacktown/blackett",
       "template": "suburb page"
     },
     {
@@ -15143,16 +15144,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/western-sydney-and-nepean/blacktown/bungarribee",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:western-sydney-and-nepean/blacktown/bungarribee",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/western-sydney-and-nepean/blacktown/bungarribee",
       "template": "suburb page"
     },
     {
@@ -15162,16 +15164,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/western-sydney-and-nepean/blacktown/colebee",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:western-sydney-and-nepean/blacktown/colebee",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/western-sydney-and-nepean/blacktown/colebee",
       "template": "suburb page"
     },
     {
@@ -15181,16 +15184,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/western-sydney-and-nepean/blacktown/dean-park",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:western-sydney-and-nepean/blacktown/dean-park",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/western-sydney-and-nepean/blacktown/dean-park",
       "template": "suburb page"
     },
     {
@@ -15200,16 +15204,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/western-sydney-and-nepean/blacktown/dharruk",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:western-sydney-and-nepean/blacktown/dharruk",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/western-sydney-and-nepean/blacktown/dharruk",
       "template": "suburb page"
     },
     {
