@@ -23,7 +23,7 @@ test("place substitution and paragraph reordering cannot earn editorial novelty"
 
 test("researched entries map exactly to the authorised route batches", () => {
   assert.deepEqual(Object.keys(suburbEditorial).sort(), [...editorialRoutes].sort());
-  assert.equal(Object.keys(suburbEditorial).length, 76);
+  assert.equal(Object.keys(suburbEditorial).length, 79);
   for (const [route, entry] of Object.entries(suburbEditorial)) {
     assert.ok(coverageSearchItems.some((row) => row.href === route), route);
     if (["/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/windsor", "/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra"].includes(route)) {
@@ -44,6 +44,9 @@ test("researched entries map exactly to the authorised route batches", () => {
     } else if (["/service-areas/st-george-and-bayside/georges-river/kogarah", "/service-areas/st-george-and-bayside/georges-river/penshurst", "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/kingsgrove"].includes(route)) {
       assert.equal(entry.censusUrl, undefined);
       assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/kogarah") ? 1 : 2);
+    } else if (["/service-areas/st-george-and-bayside/georges-river/peakhurst", "/service-areas/st-george-and-bayside/georges-river/mortdale", "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/beverly-hills"].includes(route)) {
+      assert.equal(entry.censusUrl, undefined);
+      assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/mortdale") ? 1 : 2);
     } else {
       assert.ok(entry.censusUrl);
       assert.match(entry.censusUrl, /^https:\/\/www\.abs\.gov\.au\/census\/find-census-data\/quickstats\/2021\/SAL\d+$/);
@@ -54,6 +57,40 @@ test("researched entries map exactly to the authorised route batches", () => {
     assert.match(entry.description, /required authorisation/);
     assert.doesNotMatch(JSON.stringify(entry), /our local office|guaranteed arrival|we recently completed|100\+|5\.0 rating|subcontract|outsource/i);
   }
+});
+
+test("milestone 14 distinguishes fire assessment, work records and insulation preparation", () => {
+  const peakhurst = "/service-areas/st-george-and-bayside/georges-river/peakhurst";
+  const mortdale = "/service-areas/st-george-and-bayside/georges-river/mortdale";
+  const beverlyHills = "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/beverly-hills";
+  const expected: Record<string, string[]> = {
+    [peakhurst]: [
+      "https://www.planning.nsw.gov.au/the-planning-system/buildings/fire-safety-in-buildings/fire-safety-certification",
+      "https://www.nsw.gov.au/housing-and-construction/compliance-and-regulation/fire-safety-practitioners",
+    ],
+    [mortdale]: ["https://www.nsw.gov.au/housing-and-construction/compliance-and-regulation/electricians/electrical-compliance-requirements"],
+    [beverlyHills]: [
+      "https://www.energy.gov.au/households/insulation-and-draught-proofing",
+      "https://www.energy.nsw.gov.au/households/upgrades/insulation",
+    ],
+  };
+  for (const [route, urls] of Object.entries(expected)) {
+    const entry = suburbEditorial[route];
+    assert.equal(entry.censusUrl, undefined);
+    assert.deepEqual(entry.sections.flatMap(section => section.resources?.map(resource => resource.href) ?? []), urls);
+    assert.match(entry.description, /Our licensed electricians/);
+    assert.match(entry.description, /required authorisation/);
+  }
+  const text = (route: string) => JSON.stringify(suburbEditorial[route]);
+  assert.match(text(peakhurst), /does not claim EVAREADY fire-safety assessment accreditation/);
+  assert.match(text(peakhurst), /no universal testing interval/);
+  assert.match(text(peakhurst), /customers should not disconnect lights or simulate a power failure/);
+  assert.match(text(mortdale), /submission process now uses BCNSW eCert/);
+  assert.match(text(mortdale), /Missing paperwork alone does not diagnose an electrical defect/);
+  assert.match(text(mortdale), /not an undertaking to validate, recreate or retrospectively certify/);
+  assert.match(text(beverlyHills), /Calling a fitting LED does not establish that it can be covered/);
+  assert.match(text(beverlyHills), /Do not lift a fitting, move insulation or measure roof-space clearances yourself/);
+  assert.match(text(beverlyHills), /EVAREADY does not offer insulation supply/);
 });
 
 test("milestone 13 preserves recall, accessible warning and fan scope boundaries", () => {
