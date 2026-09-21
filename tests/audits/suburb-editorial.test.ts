@@ -23,7 +23,7 @@ test("place substitution and paragraph reordering cannot earn editorial novelty"
 
 test("researched entries map exactly to the authorised route batches", () => {
   assert.deepEqual(Object.keys(suburbEditorial).sort(), [...editorialRoutes].sort());
-  assert.equal(Object.keys(suburbEditorial).length, 127);
+  assert.equal(Object.keys(suburbEditorial).length, 131);
   for (const [route, entry] of Object.entries(suburbEditorial)) {
     assert.ok(coverageSearchItems.some((row) => row.href === route), route);
     if (["/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/windsor", "/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra"].includes(route)) {
@@ -80,6 +80,9 @@ test("researched entries map exactly to the authorised route batches", () => {
     } else if (["/service-areas/western-sydney-and-nepean/blacktown/doonside", "/service-areas/western-sydney-and-nepean/blacktown/eastern-creek", "/service-areas/western-sydney-and-nepean/blacktown/emerton", "/service-areas/western-sydney-and-nepean/blacktown/glendenning", "/service-areas/western-sydney-and-nepean/blacktown/glenwood"].includes(route)) {
       assert.equal(entry.censusUrl, undefined);
       assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/glenwood") ? 3 : route.endsWith("/eastern-creek") || route.endsWith("/glendenning") ? 1 : 2);
+    } else if (["/service-areas/western-sydney-and-nepean/blacktown/hebersham", "/service-areas/western-sydney-and-nepean/blacktown/kellyville-ridge", "/service-areas/western-sydney-and-nepean/blacktown/kings-langley", "/service-areas/western-sydney-and-nepean/blacktown/kings-park"].includes(route)) {
+      assert.equal(entry.censusUrl, undefined);
+      assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/hebersham") || route.endsWith("/kings-park") ? 2 : 1);
     } else {
       assert.ok(entry.censusUrl);
       assert.match(entry.censusUrl, /^https:\/\/www\.abs\.gov\.au\/census\/find-census-data\/quickstats\/2021\/SAL\d+$/);
@@ -90,6 +93,33 @@ test("researched entries map exactly to the authorised route batches", () => {
     assert.match(entry.description, /required authorisation/);
     assert.doesNotMatch(JSON.stringify(entry), /our local office|guaranteed arrival|we recently completed|100\+|5\.0 rating|subcontract|outsource/i);
   }
+});
+
+test("milestone 20 cohort 01 separates product purpose, connectivity, portable faults and garage access", () => {
+  const base = "/service-areas/western-sydney-and-nepean/blacktown/";
+  const expected: Record<string, string[]> = {
+    [base + "hebersham"]: ["https://www.thermogroup.com.au/heated-towel-rails/more-about-heated-towel-rails/", "https://www.thermogroup.com.au/what-should-be-my-expectations-of-a-heated-towel-rail/"],
+    [base + "kellyville-ridge"]: ["https://www.tesla.com/en_au/support/charging/wall-connector/power-management"],
+    [base + "kings-langley"]: ["https://www.fire.nsw.gov.au/media/campaigns/winter-fire-safety-campaign-kit"],
+    [base + "kings-park"]: ["https://www.bnd.com.au/support/faqs", "https://www.bnd.com.au/garage-doors/options-and-upgrades/safety-security-upgrades/battery-back-up/"],
+  };
+  assert.equal(suburbEditorial[base + "hassall-grove"], undefined);
+  for (const [route, urls] of Object.entries(expected)) {
+    const entry = suburbEditorial[route];
+    assert.equal(entry.censusUrl, undefined);
+    assert.deepEqual(entry.sections.flatMap(section => section.resources?.map(resource => resource.href) ?? []), urls);
+    assert.match(entry.description, /Our licensed electricians/);
+    assert.match(entry.description, /required authorisation/);
+  }
+  const text = (name: string) => JSON.stringify(suburbEditorial[base + name]);
+  assert.match(text("hebersham"), /towel warmers, not bathroom heaters/);
+  assert.match(text("hebersham"), /Do not remove a rail, open its connections/);
+  assert.match(text("kellyville-ridge"), /not a promise that every charger/);
+  assert.match(text("kellyville-ridge"), /Do not enter commissioning menus, alter charging limits, disable network protections or cycle breakers/);
+  assert.match(text("kings-langley"), /Do not try the blanket in another room/);
+  assert.match(text("kings-langley"), /satisfactory finding on the fixed supply does not certify a damaged blanket/);
+  assert.match(text("kings-park"), /does not establish that EVAREADY is a B&D service agent/);
+  assert.match(text("kings-park"), /Do not create an outage, disconnect the opener/);
 });
 
 test("milestone 19 cohort 05 distinguishes age, export, water handling, air paths and heating states", () => {

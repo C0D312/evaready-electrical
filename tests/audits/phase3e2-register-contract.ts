@@ -188,7 +188,13 @@ export const editorialMilestone19Cohort05Routes = new Set([
   "/service-areas/western-sydney-and-nepean/blacktown/glendenning",
   "/service-areas/western-sydney-and-nepean/blacktown/glenwood",
 ]);
-export const editorialRoutes = new Set([...editorialBatch01Routes, ...editorialBatch02Routes, ...editorialBatch03Routes, ...editorialBatch04Routes, ...editorialMilestone07Routes, ...editorialMilestone08Routes, ...editorialMilestone09Routes, ...editorialMilestone10Routes, ...editorialMilestone11Routes, ...editorialMilestone12Routes, ...editorialMilestone13Routes, ...editorialMilestone14Routes, ...editorialMilestone15Routes, ...editorialMilestone16Routes, ...editorialMilestone17Routes, ...editorialMilestone18Cohort01Routes, ...editorialMilestone18Cohort02Routes, ...editorialMilestone18Cohort03Routes, ...editorialMilestone19Cohort01Routes, ...editorialMilestone19Cohort02Routes, ...editorialMilestone19Cohort03Routes, ...editorialMilestone19Cohort04Routes, ...editorialMilestone19Cohort05Routes]);
+export const editorialMilestone20Cohort01Routes = new Set([
+  "/service-areas/western-sydney-and-nepean/blacktown/hebersham",
+  "/service-areas/western-sydney-and-nepean/blacktown/kellyville-ridge",
+  "/service-areas/western-sydney-and-nepean/blacktown/kings-langley",
+  "/service-areas/western-sydney-and-nepean/blacktown/kings-park",
+]);
+export const editorialRoutes = new Set([...editorialBatch01Routes, ...editorialBatch02Routes, ...editorialBatch03Routes, ...editorialBatch04Routes, ...editorialMilestone07Routes, ...editorialMilestone08Routes, ...editorialMilestone09Routes, ...editorialMilestone10Routes, ...editorialMilestone11Routes, ...editorialMilestone12Routes, ...editorialMilestone13Routes, ...editorialMilestone14Routes, ...editorialMilestone15Routes, ...editorialMilestone16Routes, ...editorialMilestone17Routes, ...editorialMilestone18Cohort01Routes, ...editorialMilestone18Cohort02Routes, ...editorialMilestone18Cohort03Routes, ...editorialMilestone19Cohort01Routes, ...editorialMilestone19Cohort02Routes, ...editorialMilestone19Cohort03Routes, ...editorialMilestone19Cohort04Routes, ...editorialMilestone19Cohort05Routes, ...editorialMilestone20Cohort01Routes]);
 export const editorialPublicationHold = "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical.";
 
 export function registerBeforeEditorialBatch(actual: WholeSiteCompletionRegister): WholeSiteCompletionRegister {
@@ -217,9 +223,10 @@ export function registerBeforeEditorialBatch(actual: WholeSiteCompletionRegister
   assert.equal(editorialMilestone19Cohort03Routes.size, 5);
   assert.equal(editorialMilestone19Cohort04Routes.size, 5);
   assert.equal(editorialMilestone19Cohort05Routes.size, 5);
-  assert.equal(editorialRoutes.size, 127);
-  assert.equal(actual.records.filter(row => editorialRoutes.has(row.route)).length, 127);
-  assert.deepEqual(actual.counts.publication, { "live-verified": 874, pending: 127 });
+  assert.equal(editorialMilestone20Cohort01Routes.size, 4);
+  assert.equal(editorialRoutes.size, 131);
+  assert.equal(actual.records.filter(row => editorialRoutes.has(row.route)).length, 131);
+  assert.deepEqual(actual.counts.publication, { "live-verified": 870, pending: 131 });
   for (const row of restored.records.filter(row => editorialRoutes.has(row.route))) {
     const baseline = before.records.find(candidate => candidate.route === row.route)!;
     assert.deepEqual(row, {
