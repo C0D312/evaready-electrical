@@ -9,11 +9,11 @@ test("the deeper editorial ledger accounts for all suburbs without promoting unp
   const ledger = JSON.parse(readFileSync("reports/suburb-editorial-progress.json", "utf8"));
   const master = JSON.parse(readFileSync("reports/whole-site-completion-register.json", "utf8"));
   const audit = auditSuburbOriginality("out");
-  assert.deepEqual(ledger.counts, { routes: 873, reviewed: 94, editorialPending: 779, originalityPassed: 94, unpublishedNewVersions: 94 });
+  assert.deepEqual(ledger.counts, { routes: 873, reviewed: 98, editorialPending: 775, originalityPassed: 98, unpublishedNewVersions: 98 });
   assert.equal(ledger.method, audit.method);
   assert.equal(ledger.target, 30);
   assert.equal(ledger.minimum, 25);
-  assert.deepEqual(ledger.originalitySummary, { bothMinimums: 94, bothTargets: 94, acceptedUnderTolerance: 0 });
+  assert.deepEqual(ledger.originalitySummary, { bothMinimums: 98, bothTargets: 98, acceptedUnderTolerance: 0 });
   assert.equal(ledger.googleRequirement, false);
   assert.equal(new Set(ledger.records.map((row: { route: string }) => row.route)).size, 873);
   assert.equal(ledger.records.length, audit.records.length);

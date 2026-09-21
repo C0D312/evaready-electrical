@@ -61,8 +61,8 @@ test("individual review, rewrite and publication states remain truthful", () => 
     sufficient: 0,
   });
   assert.deepEqual(register.counts.publication, {
-    "live-verified": 907,
-    pending: 94,
+    "live-verified": 903,
+    pending: 98,
   });
 
   for (const route of phase3d1RewrittenRoutes) {
