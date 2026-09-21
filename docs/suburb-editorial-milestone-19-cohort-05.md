@@ -32,7 +32,8 @@ Doonside uses Fire and Rescue NSW's smoke-alarm maintenance guide and questions
 and answers. The whole sensing unit's age differs from battery-care dates.
 Manufacture, expiry, batch and purchase records do not mean the same thing;
 mixed-age units need separate records. This extends beyond Old Toongabbie's
-alarm power/hush functions and Chester Hill's device selection. The source's
+alarm power/hush functions and Chester Hill's replacement scope and building-
+system responsibility. The source's
 ten-year replacement interval retains the earlier-manufacturer exception.
 No climbing, unit removal, wiring, placement or legal compliance instruction.
 
@@ -40,16 +41,17 @@ Eastern Creek uses Endeavour Energy's solar-installer guidance. An approved
 maximum export capacity is a ceiling, not guaranteed observed output; local
 consumption and conditions matter. This is not an assertion of the property's
 distributor or a universal local limit. Labels, units and periods preserve the
-meaning of existing records. Penshurst's approval/provider scope, Lugarno's
-system records and Rydalmere's ventilation questions are distinct. No export
+meaning of existing records. Lugarno's fault-reporting scope, Engadine's model
+inputs/site readiness and Rydalmere's bathroom air-path questions are distinct. No export
 control changes, numerical limit, tariff, savings, rollout or accreditation claim.
 
 Emerton uses Fisher and Paykel's Australian DH8060P3 quick guide and AU/NZ
 installation guide. No external exhaust duct does not remove ventilation,
 condensate-destination or physical-support requirements. The model's tank/drain
 and freestanding/compatible-stacking options are not a DIY setup recipe.
-Engadine's replacement/connection scope and Girraween's drying performance do
-not already answer this installation-planning distinction. No hose dimensions,
+Girraween's lint/electrical warnings, Northmead's dishwasher access/leaks and
+Wentworth Point's fridge cabinetry do not already answer this water/support
+distinction. No hose dimensions,
 drain procedure, wall mounting, clearance or plumbing instruction is supplied.
 
 Glendenning uses Bosch Australia's rangehood buying guide. Recirculation and
@@ -62,8 +64,8 @@ cleaning recipe, conversion sequence, airflow rating or combustion-safety findin
 Glenwood uses Daikin Australia's hot-start explanation and controller-symbol
 guide, with a qualified global troubleshooting example of defrost. Operating
 state is not equivalent to error, safety warning or confirmed power failure.
-Northmead's operating-control/isolator distinction, Wentworth Point's building
-controller scope, Blackett's extraction timing, Dharruk's cooling after-run and
+Northmead's dishwasher scope, Wentworth Point's refrigerator fit,
+Blackett's extraction timing, Dharruk's cooling after-run and
 the current proposed Emerton condensate/support guidance remain distinct.
 No waiting period, reset, service-menu sequence or smoke-as-vapour reassurance.
 
@@ -147,6 +149,18 @@ test execution or website mutation occurred; this is not a failed audit run.
 The private guard helper supports three-digit attempt indices without changing
 its identity, owner, frozen-candidate or scope checks. The original helper
 remains preserved. No global Git trust or assertion relaxation occurred.
+
+The initial delivered cohort05 document mislabelled several comparator topics,
+including Northmead and Wentworth Point. The retained complete-body semantic
+review correctly described dishwasher scope and refrigerator fit. The erroneous
+document, all11 delivery inputs,12 relevant evidence files and4 unsent report
+files were preserved before correction at18:52:24UTC, with all7152 current/tested
+artifacts verified against the identical retained export. The initial commit
+`b98c114e780cf887e06675aa59ddfece20859bf6` remains in history. A normal documentation-
+only follow-up corrects these labels; production data, comparisons, originality,
+FAQs, fixtures, ledgers and browser results are unchanged. The follow-up requires
+its own scope/privacy/audit and exact-commit rebuild checks before delivery.
+No milestone19 report had been sent when the error was found.
 
 ## Validation Checkpoint
 
