@@ -5,7 +5,7 @@ route-by-route register for all 1,001 public sitemap routes.
 
 ## Current Verified Checkpoint
 
-The R4 editorial continuation has one hundred and seven unpublished page versions: the
+The R4 editorial continuation has one hundred and twelve unpublished page versions: the
 first five, the ten-page second batch, two subsequent twenty-page batches and
 Windsor in milestone 07, Berowra in milestone 08, and Miranda, Cronulla and
 Sutherland in milestone 09, then Engadine, Caringbah, Dee Why and Freshwater in
@@ -19,9 +19,10 @@ Regents Park, Potts Hill and Villawood in milestone 17, then Georges Hall,
 Milperra, Mount Lewis and Berala in milestone 18 cohort 01, then Girraween and
 Holroyd in milestone 18 cohort 02, then Merrylands West and Pendle Hill in
 milestone 18 cohort 03, then Newington, North Parramatta, North Rocks, Northmead
-and Oatlands in milestone 19 cohort 01. Their
+and Oatlands in milestone 19 cohort 01, then Old Toongabbie, Rosehill, Rydalmere,
+Silverwater and Sydney Olympic Park in milestone 19 cohort 02. Their
 current register rows have `publication: pending` and null live SHAs. The other
-894 rows and their historical release evidence remain unchanged. No new release
+889 rows and their historical release evidence remain unchanged. No new release
 or cleared owner hold is implied. See `suburb-editorial-batch-01.md`,
 `suburb-editorial-batch-02.md`, `suburb-editorial-batch-03.md` and
 `suburb-editorial-batch-04.md`, `suburb-editorial-milestone-07.md` and
@@ -33,10 +34,11 @@ or cleared owner hold is implied. See `suburb-editorial-batch-01.md`,
 `suburb-editorial-milestone-18-cohort-01.md` and
 `suburb-editorial-milestone-18-cohort-02.md` and
 `suburb-editorial-milestone-18-cohort-03.md` and
-`suburb-editorial-milestone-19-cohort-01.md` for the exact
+`suburb-editorial-milestone-19-cohort-01.md` and
+`suburb-editorial-milestone-19-cohort-02.md` for the exact
 route inventories, sources, preserved failures and focused validation, and
 `reports/suburb-editorial-progress.json` for the separate all-873 originality and
-individual editorial continuation ledger. The remaining 766 pages are still
+individual editorial continuation ledger. The remaining 761 pages are still
 pending that deeper pass; historical shared-template review is not proof of
 route-specific original content.
 

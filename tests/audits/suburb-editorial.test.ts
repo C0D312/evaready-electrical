@@ -23,7 +23,7 @@ test("place substitution and paragraph reordering cannot earn editorial novelty"
 
 test("researched entries map exactly to the authorised route batches", () => {
   assert.deepEqual(Object.keys(suburbEditorial).sort(), [...editorialRoutes].sort());
-  assert.equal(Object.keys(suburbEditorial).length, 107);
+  assert.equal(Object.keys(suburbEditorial).length, 112);
   for (const [route, entry] of Object.entries(suburbEditorial)) {
     assert.ok(coverageSearchItems.some((row) => row.href === route), route);
     if (["/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/windsor", "/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra"].includes(route)) {
@@ -68,6 +68,9 @@ test("researched entries map exactly to the authorised route batches", () => {
     } else if (["/service-areas/parramatta-and-cumberland/parramatta/newington", "/service-areas/parramatta-and-cumberland/parramatta/north-parramatta", "/service-areas/parramatta-and-cumberland/parramatta/north-rocks", "/service-areas/parramatta-and-cumberland/parramatta/northmead", "/service-areas/parramatta-and-cumberland/parramatta/oatlands"].includes(route)) {
       assert.equal(entry.censusUrl, undefined);
       assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/north-parramatta") ? 3 : route.endsWith("/newington") || route.endsWith("/north-rocks") ? 2 : 1);
+    } else if (["/service-areas/parramatta-and-cumberland/parramatta/old-toongabbie", "/service-areas/parramatta-and-cumberland/parramatta/rosehill", "/service-areas/parramatta-and-cumberland/parramatta/rydalmere", "/service-areas/parramatta-and-cumberland/parramatta/silverwater", "/service-areas/parramatta-and-cumberland/parramatta/sydney-olympic-park"].includes(route)) {
+      assert.equal(entry.censusUrl, undefined);
+      assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/rosehill") ? 1 : 2);
     } else {
       assert.ok(entry.censusUrl);
       assert.match(entry.censusUrl, /^https:\/\/www\.abs\.gov\.au\/census\/find-census-data\/quickstats\/2021\/SAL\d+$/);
@@ -78,6 +81,37 @@ test("researched entries map exactly to the authorised route batches", () => {
     assert.match(entry.description, /required authorisation/);
     assert.doesNotMatch(JSON.stringify(entry), /our local office|guaranteed arrival|we recently completed|100\+|5\.0 rating|subcontract|outsource/i);
   }
+});
+
+test("milestone 19 cohort 02 distinguishes model signals, airflow, backup and cookware from supply work", () => {
+  const base = "/service-areas/parramatta-and-cumberland/parramatta/";
+  const expected: Record<string, string[]> = {
+    [base + "old-toongabbie"]: ["https://www.clipsal.com/support-hub/faqs/faqs-smoke-alarms", "https://www.clipsal.com/products/security-safety/755-series-smoke-alarms/photoelectric-smoke-alarm-surface-mount-lithium-battery-powered-only-built-in-wireless-int-755lpsma4?itemno=755LPSMA4"],
+    [base + "rosehill"]: ["https://updates.clipsal.com/clipsalonline/files/brochures/w0001475.pdf"],
+    [base + "rydalmere"]: ["https://www.ixlappliances.com.au/faq", "https://www.yourhome.gov.au/passive-design/ventilation-airtightness"],
+    [base + "silverwater"]: ["https://iportal.se.com/Contents/docs/UPS-ASTE-6Z7V27_R0_EN.PDF", "https://www.se.com/us/en/work/support/product-support/ups-buying-guide-for-selecting-a-battery-backup-system/"],
+    [base + "sydney-olympic-park"]: ["https://www.bosch-home.com.au/en/product/00570366", "https://media3.bosch-home.com/Documents/9001485683_B.pdf"],
+  };
+  for (const [route, urls] of Object.entries(expected)) {
+    const entry = suburbEditorial[route];
+    assert.equal(entry.censusUrl, undefined);
+    assert.deepEqual(entry.sections.flatMap(section => section.resources?.map(resource => resource.href) ?? []), urls);
+    assert.match(entry.description, /Our licensed electricians/);
+    assert.match(entry.description, /required authorisation/);
+  }
+  const text = (name: string) => JSON.stringify(suburbEditorial[base + name]);
+  assert.match(text("old-toongabbie"), /not a rule that all hard-wired alarms have replaceable batteries/);
+  assert.match(text("old-toongabbie"), /temporary hush or snooze is not evidence of a completed repair/);
+  assert.match(text("rosehill"), /a daylight threshold is not a clock schedule/);
+  assert.match(text("rosehill"), /does not establish the features or permitted settings/);
+  assert.match(text("rydalmere"), /Do not remove a grille, insert objects, use smoke to trace airflow or enter a roof space/);
+  assert.match(text("rydalmere"), /no air-change rate, fan size, moisture diagnosis/);
+  assert.match(text("silverwater"), /not which sockets or connectors appear on a current Australian product/);
+  assert.match(text("silverwater"), /does not automatically include installing management software/);
+  assert.match(text("silverwater"), /whole-site continuity plan or a guarantee for medical equipment/);
+  assert.match(text("sydney-olympic-park"), /not verified as the manual for the appliance at your property/);
+  assert.match(text("sydney-olympic-park"), /A compatible pan does not demonstrate circuit suitability/);
+  assert.match(text("sydney-olympic-park"), /Do not heat an empty pan/);
 });
 
 test("milestone 19 cohort 01 distinguishes timing, tariffs, lamp choice and connection conditions", () => {
