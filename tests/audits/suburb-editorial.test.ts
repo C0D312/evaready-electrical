@@ -23,7 +23,7 @@ test("place substitution and paragraph reordering cannot earn editorial novelty"
 
 test("researched entries map exactly to the authorised route batches", () => {
   assert.deepEqual(Object.keys(suburbEditorial).sort(), [...editorialRoutes].sort());
-  assert.equal(Object.keys(suburbEditorial).length, 84);
+  assert.equal(Object.keys(suburbEditorial).length, 89);
   for (const [route, entry] of Object.entries(suburbEditorial)) {
     assert.ok(coverageSearchItems.some((row) => row.href === route), route);
     if (["/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/windsor", "/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra"].includes(route)) {
@@ -50,6 +50,9 @@ test("researched entries map exactly to the authorised route batches", () => {
     } else if (["/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/narwee", "/service-areas/st-george-and-bayside/georges-river/oatley", "/service-areas/st-george-and-bayside/georges-river/south-hurstville", "/service-areas/st-george-and-bayside/georges-river/lugarno", "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/lansdowne"].includes(route)) {
       assert.equal(entry.censusUrl, undefined);
       assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/oatley") || route.endsWith("/lugarno") ? 2 : 1);
+    } else if (["/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/picnic-point", "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/revesby-heights", "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/east-hills", "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/padstow-heights", "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/riverwood"].includes(route)) {
+      assert.equal(entry.censusUrl, undefined);
+      assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/east-hills") ? 1 : 2);
     } else {
       assert.ok(entry.censusUrl);
       assert.match(entry.censusUrl, /^https:\/\/www\.abs\.gov\.au\/census\/find-census-data\/quickstats\/2021\/SAL\d+$/);
@@ -60,6 +63,40 @@ test("researched entries map exactly to the authorised route batches", () => {
     assert.match(entry.description, /required authorisation/);
     assert.doesNotMatch(JSON.stringify(entry), /our local office|guaranteed arrival|we recently completed|100\+|5\.0 rating|subcontract|outsource/i);
   }
+});
+
+test("milestone 16 separates pool plans, outdoor products, retailer moves, outage notices and private cabling", () => {
+  const picnicPoint = "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/picnic-point";
+  const revesbyHeights = "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/revesby-heights";
+  const eastHills = "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/east-hills";
+  const padstowHeights = "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/padstow-heights";
+  const riverwood = "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/riverwood";
+  const expected: Record<string, string[]> = {
+    [picnicPoint]: ["https://www.electricalsafety.qld.gov.au/electrical-safety-home/electricity-around-water", "https://www.nsw.gov.au/housing-and-construction/compliance-and-regulation/electricians/electrical-compliance-requirements"],
+    [revesbyHeights]: ["https://www.essentialenergy.com.au/safety/christmas-lights-safety", "https://www.ausgrid.com.au/safety/safety-at-home/outdoor-safety"],
+    [eastHills]: ["https://www.energymadeeasy.gov.au/article/moving-house-or-business"],
+    [padstowHeights]: ["https://www.ausgrid.com.au/outages-and-issues/power-outage-support/preparing-for-a-planned-power-outage", "https://www.ausgrid.com.au/outages-and-issues/sms-notifications"],
+    [riverwood]: ["https://www.acma.gov.au/cabling-your-home-or-office", "https://www.acma.gov.au/find-registered-cabler"],
+  };
+  for (const [route, urls] of Object.entries(expected)) {
+    const entry = suburbEditorial[route];
+    assert.equal(entry.censusUrl, undefined);
+    assert.deepEqual(entry.sections.flatMap(section => section.resources?.map(resource => resource.href) ?? []), urls);
+    assert.match(entry.description, /Our licensed electricians/);
+    assert.match(entry.description, /required authorisation/);
+  }
+  const text = (route: string) => JSON.stringify(suburbEditorial[route]);
+  assert.match(text(picnicPoint), /not Queensland legal procedures for a NSW job/);
+  assert.match(text(picnicPoint), /does not prescribe a connection for every metal item or provide clearance measurements/);
+  assert.match(text(revesbyHeights), /do not identify the network serving a Revesby Heights address/);
+  assert.match(text(revesbyHeights), /Neither an outdoor label nor the presence of a safety switch guarantees/);
+  assert.match(text(eastHills), /dated October 2023/);
+  assert.match(text(eastHills), /does not close an account, open a new one or guarantee/);
+  assert.match(text(padstowHeights), /outage notice does not prove that an installation is isolated/);
+  assert.match(text(padstowHeights), /does not set a notification interval/);
+  assert.match(text(riverwood), /no new claim about EVAREADY cabler registration/);
+  assert.match(text(riverwood), /ACMA form or an equivalent statement/);
+  assert.match(text(riverwood), /not a retailer's activation confirmation or a guarantee of internet speed/);
 });
 
 test("milestone 15 separates connection power, replacement trades, solar reports and equipment testing", () => {

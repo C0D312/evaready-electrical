@@ -18,8 +18,8 @@
       "reviewed": 1001
     },
     "publication": {
-      "live-verified": 917,
-      "pending": 84
+      "live-verified": 912,
+      "pending": 89
     },
     "rewrite": {
       "held": 0,
@@ -1133,16 +1133,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/east-hills",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:canterbury-bankstown-and-inner-south-west/canterbury-bankstown/east-hills",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/east-hills",
       "template": "suburb page"
     },
     {
@@ -1329,16 +1330,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/padstow-heights",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:canterbury-bankstown-and-inner-south-west/canterbury-bankstown/padstow-heights",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/padstow-heights",
       "template": "suburb page"
     },
     {
@@ -1368,16 +1370,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/picnic-point",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:canterbury-bankstown-and-inner-south-west/canterbury-bankstown/picnic-point",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/picnic-point",
       "template": "suburb page"
     },
     {
@@ -1446,16 +1449,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/revesby-heights",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:canterbury-bankstown-and-inner-south-west/canterbury-bankstown/revesby-heights",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/revesby-heights",
       "template": "suburb page"
     },
     {
@@ -1465,16 +1469,17 @@
       "individualSemanticContentReview": "reviewed",
       "outstandingHolds": [
         "Owner confirmation of address-level serviceability, response capacity and job-specific authorisation is required; repository directory data is not verified postal or council-boundary evidence.",
-        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required."
+        "No approved local job evidence is configured. Keep private owner search, conversion, revenue and job records outside GitHub; an explicit owner indexation decision is still required.",
+        "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical."
       ],
-      "publication": "live-verified",
-      "publishedLiveVerifiedSha": "1b0a996285a7651657ccf8801c3f3a95ed298994",
+      "publication": "pending",
+      "publishedLiveVerifiedSha": null,
       "responsive": "reviewed",
       "rewrite": "rewritten",
       "route": "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/riverwood",
       "safetyReview": "reviewed",
       "seoMetadataSchema": "reviewed",
-      "sourceRecord": "data/service-area-region-data.ts#suburb:canterbury-bankstown-and-inner-south-west/canterbury-bankstown/riverwood",
+      "sourceRecord": "data/suburb-editorial.ts#/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/riverwood",
       "template": "suburb page"
     },
     {
