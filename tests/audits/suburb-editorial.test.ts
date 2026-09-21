@@ -23,7 +23,7 @@ test("place substitution and paragraph reordering cannot earn editorial novelty"
 
 test("researched entries map exactly to the authorised route batches", () => {
   assert.deepEqual(Object.keys(suburbEditorial).sort(), [...editorialRoutes].sort());
-  assert.equal(Object.keys(suburbEditorial).length, 122);
+  assert.equal(Object.keys(suburbEditorial).length, 127);
   for (const [route, entry] of Object.entries(suburbEditorial)) {
     assert.ok(coverageSearchItems.some((row) => row.href === route), route);
     if (["/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/windsor", "/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra"].includes(route)) {
@@ -77,6 +77,9 @@ test("researched entries map exactly to the authorised route batches", () => {
     } else if (["/service-areas/western-sydney-and-nepean/blacktown/blackett", "/service-areas/western-sydney-and-nepean/blacktown/bungarribee", "/service-areas/western-sydney-and-nepean/blacktown/colebee", "/service-areas/western-sydney-and-nepean/blacktown/dean-park", "/service-areas/western-sydney-and-nepean/blacktown/dharruk"].includes(route)) {
       assert.equal(entry.censusUrl, undefined);
       assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/blackett") || route.endsWith("/dean-park") ? 1 : 2);
+    } else if (["/service-areas/western-sydney-and-nepean/blacktown/doonside", "/service-areas/western-sydney-and-nepean/blacktown/eastern-creek", "/service-areas/western-sydney-and-nepean/blacktown/emerton", "/service-areas/western-sydney-and-nepean/blacktown/glendenning", "/service-areas/western-sydney-and-nepean/blacktown/glenwood"].includes(route)) {
+      assert.equal(entry.censusUrl, undefined);
+      assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/glenwood") ? 3 : route.endsWith("/eastern-creek") || route.endsWith("/glendenning") ? 1 : 2);
     } else {
       assert.ok(entry.censusUrl);
       assert.match(entry.censusUrl, /^https:\/\/www\.abs\.gov\.au\/census\/find-census-data\/quickstats\/2021\/SAL\d+$/);
@@ -87,6 +90,35 @@ test("researched entries map exactly to the authorised route batches", () => {
     assert.match(entry.description, /required authorisation/);
     assert.doesNotMatch(JSON.stringify(entry), /our local office|guaranteed arrival|we recently completed|100\+|5\.0 rating|subcontract|outsource/i);
   }
+});
+
+test("milestone 19 cohort 05 distinguishes age, export, water handling, air paths and heating states", () => {
+  const base = "/service-areas/western-sydney-and-nepean/blacktown/";
+  const expected: Record<string, string[]> = {
+    [base + "doonside"]: ["https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/smoke-alarms/smoke-alarm-maintenance-guide", "https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/smoke-alarms/smoke-alarm-questions-and-answers"],
+    [base + "eastern-creek"]: ["https://www.endeavourenergy.com.au/Working-with-us/Providers/Solar-installers"],
+    [base + "emerton"]: ["https://www.fisherpaykel.com/on/demandware.static/-/Sites-fpa-master-catalog/default/dw8cd42baa/QRG/AU/QRG-AU-93281.pdf", "https://www.fisherpaykel.com/on/demandware.static/-/Sites-fpa-master-catalog/default/dw17ddba19/InstallationManuals-FisherPaykelAU/FP-InstallGuide-DH8060P3-HeatPumpCondensingDryer-AU-NZ-479829A.pdf"],
+    [base + "glendenning"]: ["https://www.bosch-home.com.au/products/cooking-baking/rangehoods/buying-guide"],
+    [base + "glenwood"]: ["https://www.daikin.com.au/article/staying-warm-without-breaking-budget", "https://www.daikin.com.au/faq/controllers/what-controller-symbols-mean", "https://www.daikin.com/products/ac/services/troubleshooting"],
+  };
+  for (const [route, urls] of Object.entries(expected)) {
+    const entry = suburbEditorial[route];
+    assert.equal(entry.censusUrl, undefined);
+    assert.deepEqual(entry.sections.flatMap(section => section.resources?.map(resource => resource.href) ?? []), urls);
+    assert.match(entry.description, /Our licensed electricians/);
+    assert.match(entry.description, /required authorisation/);
+  }
+  const text = (name: string) => JSON.stringify(suburbEditorial[base + name]);
+  assert.match(text("doonside"), /A battery changed last month does not make an older sensing unit new/);
+  assert.match(text("doonside"), /Do not climb, remove the unit from its base or open a hard-wired connection/);
+  assert.match(text("eastern-creek"), /not confirmation of your property's network or a universal limit/);
+  assert.match(text("eastern-creek"), /Do not alter export controls, enter installer menus, operate isolators/);
+  assert.match(text("emerton"), /cannot be inverted or mounted on a wall/);
+  assert.match(text("emerton"), /provides no drain height, hose length, plumbing method/);
+  assert.match(text("glendenning"), /A request for a filter replacement is not the same scope as changing how the hood discharges air/);
+  assert.match(text("glendenning"), /no cleaning recipe or universal replacement interval/);
+  assert.match(text("glenwood"), /supplies no waiting period after which equipment can be declared safe/);
+  assert.match(text("glenwood"), /Do not reset breakers, enter service menus, open units or restart suspect equipment/);
 });
 
 test("milestone 19 cohort 04 distinguishes timing, grouping, output and cooling from electrical faults", () => {
