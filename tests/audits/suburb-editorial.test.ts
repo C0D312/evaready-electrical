@@ -23,7 +23,7 @@ test("place substitution and paragraph reordering cannot earn editorial novelty"
 
 test("researched entries map exactly to the authorised route batches", () => {
   assert.deepEqual(Object.keys(suburbEditorial).sort(), [...editorialRoutes].sort());
-  assert.equal(Object.keys(suburbEditorial).length, 73);
+  assert.equal(Object.keys(suburbEditorial).length, 76);
   for (const [route, entry] of Object.entries(suburbEditorial)) {
     assert.ok(coverageSearchItems.some((row) => row.href === route), route);
     if (["/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/windsor", "/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra"].includes(route)) {
@@ -41,6 +41,9 @@ test("researched entries map exactly to the authorised route batches", () => {
     } else if (["/service-areas/blue-mountains/blue-mountains/glenbrook", "/service-areas/western-sydney-and-nepean/penrith/st-marys", "/service-areas/st-george-and-bayside/georges-river/hurstville", "/service-areas/st-george-and-bayside/rockdale-and-bexley/rockdale", "/service-areas/st-george-and-bayside/rockdale-and-bexley/bexley"].includes(route)) {
       assert.equal(entry.censusUrl, undefined);
       assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/glenbrook") ? 3 : route.endsWith("/st-marys") ? 2 : 1);
+    } else if (["/service-areas/st-george-and-bayside/georges-river/kogarah", "/service-areas/st-george-and-bayside/georges-river/penshurst", "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/kingsgrove"].includes(route)) {
+      assert.equal(entry.censusUrl, undefined);
+      assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/kogarah") ? 1 : 2);
     } else {
       assert.ok(entry.censusUrl);
       assert.match(entry.censusUrl, /^https:\/\/www\.abs\.gov\.au\/census\/find-census-data\/quickstats\/2021\/SAL\d+$/);
@@ -51,6 +54,38 @@ test("researched entries map exactly to the authorised route batches", () => {
     assert.match(entry.description, /required authorisation/);
     assert.doesNotMatch(JSON.stringify(entry), /our local office|guaranteed arrival|we recently completed|100\+|5\.0 rating|subcontract|outsource/i);
   }
+});
+
+test("milestone 13 preserves recall, accessible warning and fan scope boundaries", () => {
+  const kogarah = "/service-areas/st-george-and-bayside/georges-river/kogarah";
+  const penshurst = "/service-areas/st-george-and-bayside/georges-river/penshurst";
+  const kingsgrove = "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/kingsgrove";
+  const expected: Record<string, string[]> = {
+    [kogarah]: ["https://www.productsafety.gov.au/consumers/respond-to-recalls-and-unsafe-products/what-to-do-when-a-product-is-recalled"],
+    [penshurst]: [
+      "https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/topics/smoke-alarms-for-the-deaf-and-hard-of-hearing",
+      "https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/safety-visits",
+    ],
+    [kingsgrove]: [
+      "https://hunterpacificinternational.com.au/product-downloads/",
+      "https://hunterpacificinternational.com.au/downloads/installation/Polar-V2-installation-instruction-manual-POLV2-IUM-v2-0_07-2022.pdf",
+    ],
+  };
+  for (const [route, urls] of Object.entries(expected)) {
+    const entry = suburbEditorial[route];
+    assert.equal(entry.censusUrl, undefined);
+    assert.deepEqual(entry.sections.flatMap(section => section.resources?.map(resource => resource.href) ?? []), urls);
+  }
+  const text = (route: string) => JSON.stringify(suburbEditorial[route]);
+  assert.match(text(kogarah), /Not finding an item in a recall search is not a safety clearance/);
+  assert.match(text(kogarah), /has not checked an individual product or recall claim/);
+  assert.match(text(kogarah), /do not administer recalls or promise a refund/);
+  assert.match(text(penshurst), /do not need to send audiology results, diagnoses or medical records/);
+  assert.match(text(penshurst), /does not book that program, establish eligibility/);
+  assert.match(text(penshurst), /no alarm arrangement can be promised to wake every person/);
+  assert.match(text(kingsgrove), /not a recommendation to buy it or a rule for every ceiling fan/);
+  assert.match(text(kingsgrove), /do not remove its canopy, climb to examine its mounting or expose wiring/);
+  assert.match(text(kingsgrove), /No fixed replacement time is promised/);
 });
 
 test("milestone 12 separates supply records, appointments and actual electrical authority", () => {
