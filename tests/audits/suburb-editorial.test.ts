@@ -23,7 +23,7 @@ test("place substitution and paragraph reordering cannot earn editorial novelty"
 
 test("researched entries map exactly to the authorised route batches", () => {
   assert.deepEqual(Object.keys(suburbEditorial).sort(), [...editorialRoutes].sort());
-  assert.equal(Object.keys(suburbEditorial).length, 131);
+  assert.equal(Object.keys(suburbEditorial).length, 135);
   for (const [route, entry] of Object.entries(suburbEditorial)) {
     assert.ok(coverageSearchItems.some((row) => row.href === route), route);
     if (["/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/windsor", "/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra"].includes(route)) {
@@ -83,6 +83,9 @@ test("researched entries map exactly to the authorised route batches", () => {
     } else if (["/service-areas/western-sydney-and-nepean/blacktown/hebersham", "/service-areas/western-sydney-and-nepean/blacktown/kellyville-ridge", "/service-areas/western-sydney-and-nepean/blacktown/kings-langley", "/service-areas/western-sydney-and-nepean/blacktown/kings-park"].includes(route)) {
       assert.equal(entry.censusUrl, undefined);
       assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/hebersham") || route.endsWith("/kings-park") ? 2 : 1);
+    } else if (["/service-areas/western-sydney-and-nepean/blacktown/lalor-park", "/service-areas/western-sydney-and-nepean/blacktown/lethbridge-park", "/service-areas/western-sydney-and-nepean/blacktown/marayong", "/service-areas/western-sydney-and-nepean/blacktown/marsden-park"].includes(route)) {
+      assert.equal(entry.censusUrl, undefined);
+      assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/lethbridge-park") || route.endsWith("/marsden-park") ? 2 : 1);
     } else {
       assert.ok(entry.censusUrl);
       assert.match(entry.censusUrl, /^https:\/\/www\.abs\.gov\.au\/census\/find-census-data\/quickstats\/2021\/SAL\d+$/);
@@ -93,6 +96,33 @@ test("researched entries map exactly to the authorised route batches", () => {
     assert.match(entry.description, /required authorisation/);
     assert.doesNotMatch(JSON.stringify(entry), /our local office|guaranteed arrival|we recently completed|100\+|5\.0 rating|subcontract|outsource/i);
   }
+});
+
+test("milestone 20 cohort 02 separates circuit coverage, alarm links, battery power and vehicle AC limits", () => {
+  const base = "/service-areas/western-sydney-and-nepean/blacktown/";
+  const expected: Record<string, string[]> = {
+    [base + "lalor-park"]: ["https://www.electricalsafety.qld.gov.au/electrical-safety-home/safety-switches"],
+    [base + "lethbridge-park"]: ["https://www.clipsal.com/products/security-safety/755-series-smoke-alarms/smoke-alarm-surface-mounting-base-220-240v-ac-mains-power-wireless-interconnect-gen-2-755rfb2?itemno=755RFB2", "https://www.clipsal.com/featured-ranges-hub/smoke-alarms"],
+    [base + "marayong"]: ["https://ring.com/au/en/support/articles/7hvj2/Hardwiring-your-battery-powered-Ring-doorbell"],
+    [base + "marsden-park"]: ["https://ask.porsche.com/au/en-AU/increase-charging-speed/", "https://www.volvocars.com/au/news/technology/what-is-the-difference-between-ac-and-dc-charging/"],
+  };
+  assert.equal(suburbEditorial[base + "minchinbury"], undefined);
+  for (const [route, urls] of Object.entries(expected)) {
+    const entry = suburbEditorial[route];
+    assert.equal(entry.censusUrl, undefined);
+    assert.deepEqual(entry.sections.flatMap(section => section.resources?.map(resource => resource.href) ?? []), urls);
+    assert.match(entry.description, /Our licensed electricians/);
+    assert.match(entry.description, /required authorisation/);
+  }
+  const text = (name: string) => JSON.stringify(suburbEditorial[base + name]);
+  assert.match(text("lalor-park"), /which circuits the installed protection actually serves/);
+  assert.match(text("lalor-park"), /Do not press test buttons, switch circuits, remove board covers/);
+  assert.match(text("lethbridge-park"), /Power source and interconnection are separate attributes/);
+  assert.match(text("lethbridge-park"), /Do not climb, remove an alarm from its base, open wiring or try pairing, hush or reset controls/);
+  assert.match(text("marayong"), /provides a trickle charge to its battery/);
+  assert.match(text("marayong"), /does not establish that EVAREADY is a Ring service agent or authorised to install or service a security system/);
+  assert.match(text("marsden-park"), /vehicle's onboard charger has a maximum AC capability/);
+  assert.match(text("marsden-park"), /Do not alter charging limits, enter installer menus, reset breakers or substitute cables/);
 });
 
 test("milestone 20 cohort 01 separates product purpose, connectivity, portable faults and garage access", () => {
