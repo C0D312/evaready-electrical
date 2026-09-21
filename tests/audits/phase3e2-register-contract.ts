@@ -153,7 +153,14 @@ export const editorialMilestone18Cohort03Routes = new Set([
   "/service-areas/parramatta-and-cumberland/cumberland/merrylands-west",
   "/service-areas/parramatta-and-cumberland/cumberland/pendle-hill",
 ]);
-export const editorialRoutes = new Set([...editorialBatch01Routes, ...editorialBatch02Routes, ...editorialBatch03Routes, ...editorialBatch04Routes, ...editorialMilestone07Routes, ...editorialMilestone08Routes, ...editorialMilestone09Routes, ...editorialMilestone10Routes, ...editorialMilestone11Routes, ...editorialMilestone12Routes, ...editorialMilestone13Routes, ...editorialMilestone14Routes, ...editorialMilestone15Routes, ...editorialMilestone16Routes, ...editorialMilestone17Routes, ...editorialMilestone18Cohort01Routes, ...editorialMilestone18Cohort02Routes, ...editorialMilestone18Cohort03Routes]);
+export const editorialMilestone19Cohort01Routes = new Set([
+  "/service-areas/parramatta-and-cumberland/parramatta/newington",
+  "/service-areas/parramatta-and-cumberland/parramatta/north-parramatta",
+  "/service-areas/parramatta-and-cumberland/parramatta/north-rocks",
+  "/service-areas/parramatta-and-cumberland/parramatta/northmead",
+  "/service-areas/parramatta-and-cumberland/parramatta/oatlands",
+]);
+export const editorialRoutes = new Set([...editorialBatch01Routes, ...editorialBatch02Routes, ...editorialBatch03Routes, ...editorialBatch04Routes, ...editorialMilestone07Routes, ...editorialMilestone08Routes, ...editorialMilestone09Routes, ...editorialMilestone10Routes, ...editorialMilestone11Routes, ...editorialMilestone12Routes, ...editorialMilestone13Routes, ...editorialMilestone14Routes, ...editorialMilestone15Routes, ...editorialMilestone16Routes, ...editorialMilestone17Routes, ...editorialMilestone18Cohort01Routes, ...editorialMilestone18Cohort02Routes, ...editorialMilestone18Cohort03Routes, ...editorialMilestone19Cohort01Routes]);
 export const editorialPublicationHold = "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical.";
 
 export function registerBeforeEditorialBatch(actual: WholeSiteCompletionRegister): WholeSiteCompletionRegister {
@@ -177,9 +184,10 @@ export function registerBeforeEditorialBatch(actual: WholeSiteCompletionRegister
   assert.equal(editorialMilestone18Cohort01Routes.size, 4);
   assert.equal(editorialMilestone18Cohort02Routes.size, 2);
   assert.equal(editorialMilestone18Cohort03Routes.size, 2);
-  assert.equal(editorialRoutes.size, 102);
-  assert.equal(actual.records.filter(row => editorialRoutes.has(row.route)).length, 102);
-  assert.deepEqual(actual.counts.publication, { "live-verified": 899, pending: 102 });
+  assert.equal(editorialMilestone19Cohort01Routes.size, 5);
+  assert.equal(editorialRoutes.size, 107);
+  assert.equal(actual.records.filter(row => editorialRoutes.has(row.route)).length, 107);
+  assert.deepEqual(actual.counts.publication, { "live-verified": 894, pending: 107 });
   for (const row of restored.records.filter(row => editorialRoutes.has(row.route))) {
     const baseline = before.records.find(candidate => candidate.route === row.route)!;
     assert.deepEqual(row, {

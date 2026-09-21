@@ -23,7 +23,7 @@ test("place substitution and paragraph reordering cannot earn editorial novelty"
 
 test("researched entries map exactly to the authorised route batches", () => {
   assert.deepEqual(Object.keys(suburbEditorial).sort(), [...editorialRoutes].sort());
-  assert.equal(Object.keys(suburbEditorial).length, 102);
+  assert.equal(Object.keys(suburbEditorial).length, 107);
   for (const [route, entry] of Object.entries(suburbEditorial)) {
     assert.ok(coverageSearchItems.some((row) => row.href === route), route);
     if (["/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/windsor", "/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra"].includes(route)) {
@@ -65,6 +65,9 @@ test("researched entries map exactly to the authorised route batches", () => {
     } else if (["/service-areas/parramatta-and-cumberland/cumberland/merrylands-west", "/service-areas/parramatta-and-cumberland/cumberland/pendle-hill"].includes(route)) {
       assert.equal(entry.censusUrl, undefined);
       assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, 2);
+    } else if (["/service-areas/parramatta-and-cumberland/parramatta/newington", "/service-areas/parramatta-and-cumberland/parramatta/north-parramatta", "/service-areas/parramatta-and-cumberland/parramatta/north-rocks", "/service-areas/parramatta-and-cumberland/parramatta/northmead", "/service-areas/parramatta-and-cumberland/parramatta/oatlands"].includes(route)) {
+      assert.equal(entry.censusUrl, undefined);
+      assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/north-parramatta") ? 3 : route.endsWith("/newington") || route.endsWith("/north-rocks") ? 2 : 1);
     } else {
       assert.ok(entry.censusUrl);
       assert.match(entry.censusUrl, /^https:\/\/www\.abs\.gov\.au\/census\/find-census-data\/quickstats\/2021\/SAL\d+$/);
@@ -75,6 +78,36 @@ test("researched entries map exactly to the authorised route batches", () => {
     assert.match(entry.description, /required authorisation/);
     assert.doesNotMatch(JSON.stringify(entry), /our local office|guaranteed arrival|we recently completed|100\+|5\.0 rating|subcontract|outsource/i);
   }
+});
+
+test("milestone 19 cohort 01 distinguishes timing, tariffs, lamp choice and connection conditions", () => {
+  const base = "/service-areas/parramatta-and-cumberland/parramatta/";
+  const expected: Record<string, string[]> = {
+    [base + "newington"]: ["https://www.tesla.com/ownersmanual/model3/en_au/GUID-76995CEC-6402-4BFF-99FA-CEFA36E64A19.html", "https://www.energymadeeasy.gov.au/article/electricity-tariffs"],
+    [base + "north-parramatta"]: ["https://www.energymadeeasy.gov.au/article/electricity-tariffs", "https://www.energymadeeasy.gov.au/frequently-asked-questions/what-is-a-controlled-load", "https://www.ausgrid.com.au/your-energy-use/smarter-energy-use/understanding-network-tariffs/controlled-load-pricing"],
+    [base + "north-rocks"]: ["https://www.energyrating.gov.au/consumer-information/products/lighting/comparing-lumens-watts", "https://www.energyrating.gov.au/consumer-information/products/lighting/choosing-right-lamp"],
+    [base + "northmead"]: ["https://media3.bosch-home.com/Documents/9001243862_A.pdf"],
+    [base + "oatlands"]: ["https://www.clipsal.com/products/power-points-switches/iconic-outdoor/twin-switched-socket-outlet-horizontal-10a-250v-o3025?itemno=O3025-BK"],
+  };
+  for (const [route, urls] of Object.entries(expected)) {
+    const entry = suburbEditorial[route];
+    assert.equal(entry.censusUrl, undefined);
+    assert.deepEqual(entry.sections.flatMap(section => section.resources?.map(resource => resource.href) ?? []), urls);
+    assert.match(entry.description, /Our licensed electricians/);
+    assert.match(entry.description, /required authorisation/);
+  }
+  const text = (name: string) => JSON.stringify(suburbEditorial[base + name]);
+  assert.match(text("newington"), /one manufacturer's example, not a specification for every charging system/);
+  assert.match(text("newington"), /Scheduling does not establish the suitability of an outlet, cable or protective device/);
+  assert.match(text("north-parramatta"), /time-of-use plan changes the price/);
+  assert.match(text("north-parramatta"), /not confirmation that it serves a North Parramatta address/);
+  assert.match(text("north-parramatta"), /timer changes the retailer's charges/);
+  assert.match(text("north-rocks"), /Lumens describe light output; watts describe electrical power used/);
+  assert.match(text("north-rocks"), /Kelvin describes colour temperature/);
+  assert.match(text("northmead"), /not the verified manual for every dishwasher/);
+  assert.match(text("northmead"), /not a declaration that an appliance affected by a leak is electrically safe/);
+  assert.match(text("oatlands"), /advertised IP54 rating from testing with a plug inserted/);
+  assert.match(text("oatlands"), /does not interpret electrical standards/);
 });
 
 test("milestone 18 cohort 03 distinguishes heater precautions and functional smart-plug switching", () => {
