@@ -5,7 +5,7 @@ route-by-route register for all 1,001 public sitemap routes.
 
 ## Current Verified Checkpoint
 
-The R4 editorial continuation has ninety-eight unpublished page versions: the
+The R4 editorial continuation has one hundred unpublished page versions: the
 first five, the ten-page second batch, two subsequent twenty-page batches and
 Windsor in milestone 07, Berowra in milestone 08, and Miranda, Cronulla and
 Sutherland in milestone 09, then Engadine, Caringbah, Dee Why and Freshwater in
@@ -16,9 +16,10 @@ Beverly Hills in milestone 14, then Narwee, Oatley, South Hurstville, Lugarno an
 Lansdowne in milestone 15, then Picnic Point, Revesby Heights, East Hills,
 Padstow Heights and Riverwood in milestone 16, then Sefton, Birrong,
 Regents Park, Potts Hill and Villawood in milestone 17, then Georges Hall,
-Milperra, Mount Lewis and Berala in milestone 18 cohort 01. Their
+Milperra, Mount Lewis and Berala in milestone 18 cohort 01, then Girraween and
+Holroyd in milestone 18 cohort 02. Their
 current register rows have `publication: pending` and null live SHAs. The other
-903 rows and their historical release evidence remain unchanged. No new release
+901 rows and their historical release evidence remain unchanged. No new release
 or cleared owner hold is implied. See `suburb-editorial-batch-01.md`,
 `suburb-editorial-batch-02.md`, `suburb-editorial-batch-03.md` and
 `suburb-editorial-batch-04.md`, `suburb-editorial-milestone-07.md` and
@@ -27,10 +28,11 @@ or cleared owner hold is implied. See `suburb-editorial-batch-01.md`,
 `suburb-editorial-milestone-12.md`, `suburb-editorial-milestone-13.md` and
 `suburb-editorial-milestone-14.md`, `suburb-editorial-milestone-15.md` and
 `suburb-editorial-milestone-16.md`, `suburb-editorial-milestone-17.md` and
-`suburb-editorial-milestone-18-cohort-01.md` for the exact
+`suburb-editorial-milestone-18-cohort-01.md` and
+`suburb-editorial-milestone-18-cohort-02.md` for the exact
 route inventories, sources, preserved failures and focused validation, and
 `reports/suburb-editorial-progress.json` for the separate all-873 originality and
-individual editorial continuation ledger. The remaining 775 pages are still
+individual editorial continuation ledger. The remaining 773 pages are still
 pending that deeper pass; historical shared-template review is not proof of
 route-specific original content.
 

@@ -23,7 +23,7 @@ test("place substitution and paragraph reordering cannot earn editorial novelty"
 
 test("researched entries map exactly to the authorised route batches", () => {
   assert.deepEqual(Object.keys(suburbEditorial).sort(), [...editorialRoutes].sort());
-  assert.equal(Object.keys(suburbEditorial).length, 98);
+  assert.equal(Object.keys(suburbEditorial).length, 100);
   for (const [route, entry] of Object.entries(suburbEditorial)) {
     assert.ok(coverageSearchItems.some((row) => row.href === route), route);
     if (["/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/windsor", "/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra"].includes(route)) {
@@ -59,6 +59,9 @@ test("researched entries map exactly to the authorised route batches", () => {
     } else if (["/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/georges-hall", "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/milperra", "/service-areas/canterbury-bankstown-and-inner-south-west/canterbury-bankstown/mount-lewis", "/service-areas/parramatta-and-cumberland/cumberland/berala"].includes(route)) {
       assert.equal(entry.censusUrl, undefined);
       assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, 2);
+    } else if (["/service-areas/parramatta-and-cumberland/cumberland/girraween", "/service-areas/parramatta-and-cumberland/cumberland/holroyd"].includes(route)) {
+      assert.equal(entry.censusUrl, undefined);
+      assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/holroyd") ? 3 : 2);
     } else {
       assert.ok(entry.censusUrl);
       assert.match(entry.censusUrl, /^https:\/\/www\.abs\.gov\.au\/census\/find-census-data\/quickstats\/2021\/SAL\d+$/);
@@ -69,6 +72,32 @@ test("researched entries map exactly to the authorised route batches", () => {
     assert.match(entry.description, /required authorisation/);
     assert.doesNotMatch(JSON.stringify(entry), /our local office|guaranteed arrival|we recently completed|100\+|5\.0 rating|subcontract|outsource/i);
   }
+});
+
+test("milestone 18 cohort 02 separates dryer care from faults and contractor authority from worker roles", () => {
+  const base = "/service-areas/parramatta-and-cumberland/cumberland/";
+  const expected: Record<string, string[]> = {
+    [base + "girraween"]: ["https://www.fire.nsw.gov.au/__data/assets/pdf_file/0009/5040/Home-Fire-Safety-English-web.pdf", "https://www.nsw.gov.au/legal-and-justice/consumer-rights-and-protection/safety/electrical-safety/electrical-safety-requirements-and-consumer-rights"],
+    [base + "holroyd"]: ["https://www.nsw.gov.au/housing-and-construction/building-or-renovating-a-home/preparing/checking-your-contractor-or-tradesperson-qualified", "https://www.nsw.gov.au/business-and-economy/licences-and-credentials/building-and-trade-licences-and-registrations/apply", "https://www.nsw.gov.au/business-and-economy/licences-and-credentials/building-and-trade-licences-and-registrations/electrical"],
+  };
+  for (const [route, urls] of Object.entries(expected)) {
+    const entry = suburbEditorial[route];
+    assert.equal(entry.censusUrl, undefined);
+    assert.deepEqual(entry.sections.flatMap(section => section.resources?.map(resource => resource.href) ?? []), urls);
+    assert.match(entry.description, /Our licensed electricians/);
+    assert.match(entry.description, /required authorisation/);
+  }
+  for (const name of ["greystanes", "guildford", "guildford-west"]) assert.equal(suburbEditorial[base + name], undefined);
+  const dryer = JSON.stringify(suburbEditorial[base + "girraween"]);
+  assert.match(dryer, /not leaving it operating while nobody is home/);
+  assert.match(dryer, /not an invitation to clean the filter and run another cycle/);
+  assert.match(dryer, /do not promise universal dryer repairs, duct cleaning or manufacturer warranty work/);
+  assert.match(dryer, /not give a universal clearance or ventilation design/);
+  const licence = JSON.stringify(suburbEditorial[base + "holroyd"]);
+  assert.match(licence, /does not itself permit contracting or advertising for work/);
+  assert.match(licence, /has not searched a holder's record, authenticated a document or assessed EVAREADY's credentials/);
+  assert.match(licence, /not an exhaustive account of every pathway/);
+  assert.match(licence, /Do not infer that every mismatch is unlawful/);
 });
 
 test("milestone 18 cohort 01 keeps ratings, backup, bathroom functions and product approvals distinct", () => {
