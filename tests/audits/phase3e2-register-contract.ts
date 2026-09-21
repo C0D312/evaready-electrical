@@ -167,7 +167,14 @@ export const editorialMilestone19Cohort02Routes = new Set([
   "/service-areas/parramatta-and-cumberland/parramatta/silverwater",
   "/service-areas/parramatta-and-cumberland/parramatta/sydney-olympic-park",
 ]);
-export const editorialRoutes = new Set([...editorialBatch01Routes, ...editorialBatch02Routes, ...editorialBatch03Routes, ...editorialBatch04Routes, ...editorialMilestone07Routes, ...editorialMilestone08Routes, ...editorialMilestone09Routes, ...editorialMilestone10Routes, ...editorialMilestone11Routes, ...editorialMilestone12Routes, ...editorialMilestone13Routes, ...editorialMilestone14Routes, ...editorialMilestone15Routes, ...editorialMilestone16Routes, ...editorialMilestone17Routes, ...editorialMilestone18Cohort01Routes, ...editorialMilestone18Cohort02Routes, ...editorialMilestone18Cohort03Routes, ...editorialMilestone19Cohort01Routes, ...editorialMilestone19Cohort02Routes]);
+export const editorialMilestone19Cohort03Routes = new Set([
+  "/service-areas/parramatta-and-cumberland/parramatta/telopea",
+  "/service-areas/parramatta-and-cumberland/parramatta/wentworth-point",
+  "/service-areas/western-sydney-and-nepean/blacktown/acacia-gardens",
+  "/service-areas/western-sydney-and-nepean/blacktown/arndell-park",
+  "/service-areas/western-sydney-and-nepean/blacktown/bidwill",
+]);
+export const editorialRoutes = new Set([...editorialBatch01Routes, ...editorialBatch02Routes, ...editorialBatch03Routes, ...editorialBatch04Routes, ...editorialMilestone07Routes, ...editorialMilestone08Routes, ...editorialMilestone09Routes, ...editorialMilestone10Routes, ...editorialMilestone11Routes, ...editorialMilestone12Routes, ...editorialMilestone13Routes, ...editorialMilestone14Routes, ...editorialMilestone15Routes, ...editorialMilestone16Routes, ...editorialMilestone17Routes, ...editorialMilestone18Cohort01Routes, ...editorialMilestone18Cohort02Routes, ...editorialMilestone18Cohort03Routes, ...editorialMilestone19Cohort01Routes, ...editorialMilestone19Cohort02Routes, ...editorialMilestone19Cohort03Routes]);
 export const editorialPublicationHold = "R4 researched suburb content requires separate exact-SHA release approval and live verification; prior live evidence remains historical.";
 
 export function registerBeforeEditorialBatch(actual: WholeSiteCompletionRegister): WholeSiteCompletionRegister {
@@ -193,9 +200,10 @@ export function registerBeforeEditorialBatch(actual: WholeSiteCompletionRegister
   assert.equal(editorialMilestone18Cohort03Routes.size, 2);
   assert.equal(editorialMilestone19Cohort01Routes.size, 5);
   assert.equal(editorialMilestone19Cohort02Routes.size, 5);
-  assert.equal(editorialRoutes.size, 112);
-  assert.equal(actual.records.filter(row => editorialRoutes.has(row.route)).length, 112);
-  assert.deepEqual(actual.counts.publication, { "live-verified": 889, pending: 112 });
+  assert.equal(editorialMilestone19Cohort03Routes.size, 5);
+  assert.equal(editorialRoutes.size, 117);
+  assert.equal(actual.records.filter(row => editorialRoutes.has(row.route)).length, 117);
+  assert.deepEqual(actual.counts.publication, { "live-verified": 884, pending: 117 });
   for (const row of restored.records.filter(row => editorialRoutes.has(row.route))) {
     const baseline = before.records.find(candidate => candidate.route === row.route)!;
     assert.deepEqual(row, {

@@ -23,7 +23,7 @@ test("place substitution and paragraph reordering cannot earn editorial novelty"
 
 test("researched entries map exactly to the authorised route batches", () => {
   assert.deepEqual(Object.keys(suburbEditorial).sort(), [...editorialRoutes].sort());
-  assert.equal(Object.keys(suburbEditorial).length, 112);
+  assert.equal(Object.keys(suburbEditorial).length, 117);
   for (const [route, entry] of Object.entries(suburbEditorial)) {
     assert.ok(coverageSearchItems.some((row) => row.href === route), route);
     if (["/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/windsor", "/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra"].includes(route)) {
@@ -71,6 +71,9 @@ test("researched entries map exactly to the authorised route batches", () => {
     } else if (["/service-areas/parramatta-and-cumberland/parramatta/old-toongabbie", "/service-areas/parramatta-and-cumberland/parramatta/rosehill", "/service-areas/parramatta-and-cumberland/parramatta/rydalmere", "/service-areas/parramatta-and-cumberland/parramatta/silverwater", "/service-areas/parramatta-and-cumberland/parramatta/sydney-olympic-park"].includes(route)) {
       assert.equal(entry.censusUrl, undefined);
       assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/rosehill") ? 1 : 2);
+    } else if (["/service-areas/parramatta-and-cumberland/parramatta/telopea", "/service-areas/parramatta-and-cumberland/parramatta/wentworth-point", "/service-areas/western-sydney-and-nepean/blacktown/acacia-gardens", "/service-areas/western-sydney-and-nepean/blacktown/arndell-park", "/service-areas/western-sydney-and-nepean/blacktown/bidwill"].includes(route)) {
+      assert.equal(entry.censusUrl, undefined);
+      assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/wentworth-point") ? 1 : 2);
     } else {
       assert.ok(entry.censusUrl);
       assert.match(entry.censusUrl, /^https:\/\/www\.abs\.gov\.au\/census\/find-census-data\/quickstats\/2021\/SAL\d+$/);
@@ -81,6 +84,37 @@ test("researched entries map exactly to the authorised route batches", () => {
     assert.match(entry.description, /required authorisation/);
     assert.doesNotMatch(JSON.stringify(entry), /our local office|guaranteed arrival|we recently completed|100\+|5\.0 rating|subcontract|outsource/i);
   }
+});
+
+test("milestone 19 cohort 03 distinguishes equipment states, ventilation, controls and protection", () => {
+  const parramatta = "/service-areas/parramatta-and-cumberland/parramatta/";
+  const blacktown = "/service-areas/western-sydney-and-nepean/blacktown/";
+  const expected: Record<string, string[]> = {
+    [parramatta + "telopea"]: ["https://www.clipsal.com/faq/faq000261709", "https://www.clipsal.com/faq/faq000196803"],
+    [parramatta + "wentworth-point"]: ["https://www.fisherpaykel.com/download/user-guide/Kitchen/Cool/Fridges/846684E-integrated-refrigerator-freezer-user-guide-RB60V18.pdf"],
+    [blacktown + "acacia-gardens"]: ["https://www.thermogroup.com.au/product/thermotouch-4-3dc-dual-control-thermostat/", "https://www.thermogroup.com.au/product/5289-eco-timer-excludes-switch-plate/"],
+    [blacktown + "arndell-park"]: ["https://service.brennenstuhl.com/hc/en-us/articles/11189162265373-What-is-the-maximum-load-capacity-of-my-cable-drum", "https://www.brennenstuhl.co.uk/en-GB/selection-of-themes/safety/why-you-should-always-unwind-a-cable-reel-completely-and-untangle-an-extension-cable-completely"],
+    [blacktown + "bidwill"]: ["https://www.dimplex.com.au/en-au/ceramic-heaters-how-to-use", "https://www.dimplex.com.au/sites/g/files/emiian331/files/2024-01/Instruction%20Manual%20-%20DHCHT20M.pdf"],
+  };
+  for (const [route, urls] of Object.entries(expected)) {
+    const entry = suburbEditorial[route];
+    assert.equal(entry.censusUrl, undefined);
+    assert.deepEqual(entry.sections.flatMap(section => section.resources?.map(resource => resource.href) ?? []), urls);
+    assert.match(entry.description, /Our licensed electricians/);
+    assert.match(entry.description, /required authorisation/);
+  }
+  const text = (route: string) => JSON.stringify(suburbEditorial[route]);
+  assert.match(text(parramatta + "telopea"), /not proof that either explanation applies to your installation/);
+  assert.match(text(parramatta + "telopea"), /Do not remove a faceplate, pull down a light, exchange drivers or enter the ceiling/);
+  assert.match(text(parramatta + "wentworth-point"), /supplies no generic clearance measurement/);
+  assert.match(text(parramatta + "wentworth-point"), /does not assess food safety/);
+  assert.match(text(blacktown + "acacia-gardens"), /share the same on\/off schedule/);
+  assert.match(text(blacktown + "acacia-gardens"), /does not prescribe temperatures, wiring changes or a timer setup/);
+  assert.match(text(blacktown + "arndell-park"), /does not supply a safe watt limit for an unidentified Australian reel/);
+  assert.match(text(blacktown + "arndell-park"), /Do not repeatedly reset a reel, bypass its thermal device/);
+  assert.match(text(blacktown + "bidwill"), /does not establish that a particular stop was normal/);
+  assert.match(text(blacktown + "bidwill"), /Do not interpret a successful restart as proof of repair/);
+  assert.match(text(blacktown + "bidwill"), /does not provide reset sequences, operating tests or bypass methods/);
 });
 
 test("milestone 19 cohort 02 distinguishes model signals, airflow, backup and cookware from supply work", () => {
