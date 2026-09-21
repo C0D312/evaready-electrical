@@ -23,7 +23,7 @@ test("place substitution and paragraph reordering cannot earn editorial novelty"
 
 test("researched entries map exactly to the authorised route batches", () => {
   assert.deepEqual(Object.keys(suburbEditorial).sort(), [...editorialRoutes].sort());
-  assert.equal(Object.keys(suburbEditorial).length, 135);
+  assert.equal(Object.keys(suburbEditorial).length, 140);
   for (const [route, entry] of Object.entries(suburbEditorial)) {
     assert.ok(coverageSearchItems.some((row) => row.href === route), route);
     if (["/service-areas/hills-hawkesbury-and-hornsby/hawkesbury/windsor", "/service-areas/hills-hawkesbury-and-hornsby/hornsby/berowra"].includes(route)) {
@@ -86,6 +86,9 @@ test("researched entries map exactly to the authorised route batches", () => {
     } else if (["/service-areas/western-sydney-and-nepean/blacktown/lalor-park", "/service-areas/western-sydney-and-nepean/blacktown/lethbridge-park", "/service-areas/western-sydney-and-nepean/blacktown/marayong", "/service-areas/western-sydney-and-nepean/blacktown/marsden-park"].includes(route)) {
       assert.equal(entry.censusUrl, undefined);
       assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/lethbridge-park") || route.endsWith("/marsden-park") ? 2 : 1);
+    } else if (["/service-areas/western-sydney-and-nepean/blacktown/mount-druitt", "/service-areas/western-sydney-and-nepean/blacktown/oakhurst", "/service-areas/western-sydney-and-nepean/blacktown/parklea", "/service-areas/western-sydney-and-nepean/blacktown/plumpton", "/service-areas/western-sydney-and-nepean/blacktown/prospect"].includes(route)) {
+      assert.equal(entry.censusUrl, undefined);
+      assert.equal(entry.sections.flatMap(section => section.resources ?? []).length, route.endsWith("/parklea") ? 1 : 2);
     } else {
       assert.ok(entry.censusUrl);
       assert.match(entry.censusUrl, /^https:\/\/www\.abs\.gov\.au\/census\/find-census-data\/quickstats\/2021\/SAL\d+$/);
@@ -96,6 +99,36 @@ test("researched entries map exactly to the authorised route batches", () => {
     assert.match(entry.description, /required authorisation/);
     assert.doesNotMatch(JSON.stringify(entry), /our local office|guaranteed arrival|we recently completed|100\+|5\.0 rating|subcontract|outsource/i);
   }
+});
+
+test("milestone 20 cohort 03 separates power, airflow, element roles, plug input and solar backup", () => {
+  const base = "/service-areas/western-sydney-and-nepean/blacktown/";
+  const expected: Record<string, string[]> = {
+    [base + "mount-druitt"]: ["https://www.belkin.com/support-article?articleNum=315142", "https://www.belkin.com/support-article/?articleNum=315200"],
+    [base + "oakhurst"]: ["https://www.beaconlighting.com.au/blog/all-types-of-ceiling-fans-explained", "https://www.beaconlighting.com.au/media/im/211000-002_IM_Ver_1.1_2015-10-30__1.pdf"],
+    [base + "parklea"]: ["https://www.rheem.com.au/rheem/products/Residential/Electric/Rheem-491-492-Series-Electric/Rheem-160L-Twin-Element-Electric-Water-Heater/p/492160G6"],
+    [base + "plumpton"]: ["https://www.electricalsafetyfirst.org.uk/safety-advice/travel-advice/", "https://support.apple.com/en-au/102747"],
+    [base + "prospect"]: ["https://www.energy.gov.au/solar/get-know-solar-technology/batteries", "https://www.energy.gov.au/solar/solar-system-design/design-considerations"],
+  };
+  for (const [route, urls] of Object.entries(expected)) {
+    const entry = suburbEditorial[route];
+    assert.equal(entry.censusUrl, undefined);
+    assert.deepEqual(entry.sections.flatMap(section => section.resources?.map(resource => resource.href) ?? []), urls);
+    assert.match(entry.description, /Our licensed electricians/);
+    assert.match(entry.description, /required authorisation/);
+  }
+  const text = (name: string) => JSON.stringify(suburbEditorial[base + name]);
+  assert.match(text("mount-druitt"), /continue passing power after its surge-protection function is no longer available/);
+  assert.match(text("mount-druitt"), /not an invitation to try other outlets/);
+  assert.match(text("oakhurst"), /circulates warm air already present/);
+  assert.match(text("oakhurst"), /Do not climb to a reversing switch/);
+  assert.match(text("parklea"), /two elements do not operate simultaneously/);
+  assert.match(text("parklea"), /Do not create a draw-off test, change timers or repeatedly switch supplies/);
+  assert.match(text("plumpton"), /does not change supply voltage or frequency/);
+  assert.match(text("plumpton"), /Do not connect equipment as a trial, modify pins or replace a lead/);
+  assert.match(text("prospect"), /some use the stored battery energy during an outage while solar generation stops/);
+  assert.match(text("prospect"), /Do not interrupt grid supply, operate isolators or use an app/);
+  assert.match(text("prospect"), /does not establish that EVAREADY installs, commissions or services solar or battery systems/);
 });
 
 test("milestone 20 cohort 02 separates circuit coverage, alarm links, battery power and vehicle AC limits", () => {
