@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import test from "node:test";
+import { historicalValue, sealedLabel } from "./deployment-profile-contract";
 import { serviceLandingPages } from "../../data/service-pages";
 import { absoluteUrl, business } from "../../data/site";
 import { phase3e2SelectedRoutes, phase3e2SpecialistRoutes, phase3e2ConsolidationPairs, phase3e2EvidenceHolds } from "../../scripts/phase3e2-service-review";
@@ -23,7 +24,7 @@ const amendedDescriptions = {
   "intercom-installation-sydney": "Electrical power and eligible cabling support for intercom projects, subject to site and system compatibility and the required authorisations.",
 };
 
-test("A2 changes exactly two descriptions and two catalogue entries, preserving the other 48 offers", () => {
+test(sealedLabel("A2 changes exactly two descriptions and two catalogue entries, preserving the other 48 offers"), () => {
   const otherDescriptions = serviceLandingPages.filter(page => !(page.slug in amendedDescriptions))
     .map(({ slug, description }) => ({ slug, description }));
   assert.equal(otherDescriptions.length, 44);
@@ -40,7 +41,7 @@ test("A2 changes exactly two descriptions and two catalogue entries, preserving 
   const affectedUrls = Object.keys(amendedDescriptions).map(slug => absoluteUrl(`/services/${slug}`));
   const unchanged = offers.filter(offer => !affectedUrls.includes(offer.itemOffered.url));
   assert.equal(unchanged.length, 48);
-  assert.equal(semanticHash(unchanged), "1e5bdc2961069e8c79daaf7965e5f8bad4609424386882bc755f479448642377");
+  assert.equal(semanticHash(historicalValue(unchanged)), "1e5bdc2961069e8c79daaf7965e5f8bad4609424386882bc755f479448642377");
   assert.deepEqual(offers.filter(offer => affectedUrls.includes(offer.itemOffered.url)).map(offer => offer.index), [10, 42]);
   for (const [slug, description] of Object.entries(amendedDescriptions)) {
     const record = serviceLandingPages.find(page => page.slug === slug)!;

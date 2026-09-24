@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import test from "node:test";
+import { auditProfile } from "./deployment-profile-contract";
 import { assertCurrentRegisterContract, historicalRegister } from "./phase3e2-register-contract";
 import { coverageRegions } from "../../data/service-area-coverage";
 import { absoluteUrl, business } from "../../data/site";
@@ -82,10 +83,10 @@ for (const route of selected) {
         for (const suburb of area.suburbs) {
           assert.ok(copy.includes(suburb.name), suburb.name);
           assert.ok(copy.includes(suburb.postcode), suburb.postcode);
-          assert.ok(main.includes(`/evaready-electrical${route}/${suburb.slug}/`));
+          assert.ok(main.includes(`${auditProfile.basePath}${route}/${suburb.slug}/`));
         }
       } else {
-        for (const child of region.areas) assert.ok(main.includes(`/evaready-electrical${route}/${child.slug}/`));
+        for (const child of region.areas) assert.ok(main.includes(`${auditProfile.basePath}${route}/${child.slug}/`));
       }
       const faq = [...main.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)].map(match => JSON.parse(match[1])).find(node => node["@type"] === "FAQPage");
       assert.ok(faq);

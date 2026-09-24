@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import test from "node:test";
+import { auditProfile, historicalHtml, sealedLabel } from "./deployment-profile-contract";
 import { coverageRegions, type CoverageRegion } from "../../data/service-area-coverage";
 import { getRelatedSuburbs } from "../../data/internal-links";
 import { absoluteUrl, business } from "../../data/site";
@@ -88,7 +89,7 @@ for(const {route,region,area,suburb} of routes) {
     assert.equal(related.length,8);
     for(let i=0;i<8;i++) {
       const candidate = expected[i];
-      assert.ok(related[i].includes(`/evaready-electrical/service-areas/${region.slug}/${candidate.areaSlug}/${candidate.slug}/`));
+      assert.ok(related[i].includes(`${auditProfile.basePath}/service-areas/${region.slug}/${candidate.areaSlug}/${candidate.slug}/`));
       assert.ok(text.includes(`${candidate.name} ${candidate.postcode}`));
       assert.notEqual(candidate.slug,suburb.slug);
     }
@@ -100,10 +101,10 @@ for(const {route,region,area,suburb} of routes) {
   });
 }
 
-test("106 non-suburb pages retain sealed output apart from the exact A8 sitemap attribute order", () => {
+test(sealedLabel("106 non-suburb pages retain sealed output apart from the exact A8 sitemap attribute order"), () => {
   assert.equal(phase3e2SelectedRoutes.length, 21);
   const rows = createWholeSiteCompletionRegister().records.filter(row=>row.category!=="suburb" && !phase3e2SelectedRoutes.includes(row.route) && row.route!=="/services").map(row=>{
-    const html=readFileSync(`out${row.route==="/"?"":row.route}/index.html`,"utf8");
+    const html=historicalHtml(readFileSync(`out${row.route==="/"?"":row.route}/index.html`,"utf8"));
     const footer=html.match(/<footer\b[\s\S]*?<\/footer>/)?.[0]||"";
     const nativeSitemap='<a href="/evaready-electrical/sitemap.xml" class="footer-link ev-footer-legal-link">Sitemap</a>';
     const originalSitemap='<a class="footer-link ev-footer-legal-link" href="/evaready-electrical/sitemap.xml">Sitemap</a>';

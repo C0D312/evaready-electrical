@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import test from "node:test";
+import { expectedFixture } from "./deployment-profile-contract";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import Link from "next/link";
@@ -62,13 +63,13 @@ test("A11 selected card has one descriptive real link and no interactive contain
 for (const row of baseline.records) test(`A11 exact links, copy and SEO contract: ${row.route}`, () => {
   const root = parse(readFileSync(`out${row.route}/index.html`, "utf8"), baselineParserOptions);
   const main = root.querySelector("main")!;
-  assert.deepEqual(main.querySelectorAll("a[href]").map(node => node.getAttribute("href")), row.hrefs);
+  assert.deepEqual(main.querySelectorAll("a[href]").map(node => node.getAttribute("href")), expectedFixture(row.hrefs));
   assert.deepEqual(main.querySelectorAll("h1,h2,h3,p,li,dt,dd").map(node => ({ tag: node.tagName,
     text: node.text.replace(/\s+/g, " ").trim() })), row.contentBlocks);
-  assert.deepEqual(root.querySelectorAll('script[type="application/ld+json"]').map(node => JSON.parse(node.rawText)), row.contract.schema);
-  assert.deepEqual(root.querySelectorAll('link[rel="canonical"]').map(node => node.attributes), row.contract.canonical);
+  assert.deepEqual(root.querySelectorAll('script[type="application/ld+json"]').map(node => JSON.parse(node.rawText)), expectedFixture(row.contract.schema));
+  assert.deepEqual(root.querySelectorAll('link[rel="canonical"]').map(node => node.attributes), expectedFixture(row.contract.canonical));
   assert.deepEqual(root.querySelectorAll("title").map(node => node.text), row.contract.metadata.titles);
-  assert.deepEqual(root.querySelectorAll("meta").map(node => node.attributes), row.contract.metadata.metas);
+  assert.deepEqual(root.querySelectorAll("meta").map(node => node.attributes), expectedFixture(row.contract.metadata.metas));
   const cards = main.querySelectorAll("[data-service-review-card]");
   assert.ok(cards.length > 0);
   for (const card of cards) {
