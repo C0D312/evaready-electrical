@@ -16,20 +16,38 @@ individual correlation findings are unresolved. Actual payload extraction and
 coverage and capture-build AFD descriptor evidence remain insufficient. Do not
 reanalyse those traces to try to recover absent identifiers.
 
-The owner now authorises the already specified ONE FRESH GUEST ENFORCEMENT
-QUALIFICATION and its one-guest limit. The detailed referenced specification is
-not among the supplied or located saved instructions. It has been requested
-once. **NOT STARTED; allowance not consumed.** Earlier guest allowances are not
-reopened. No guest, browser, server or probe is launched while this prerequisite
-is missing. This is a specification blocker, not a failed fresh measurement and
-not a request to repeat broad approval.
+The complete prospective enforcement specification was received on 27 September
+2026 (Sydney). **ONE ATTEMPT USED; FAILED CLOSED before enforcement setup.**
+The guest was created with networking, vGPU and existing redirections disabled,
+ProtectedClient enabled, read-only sanitised inputs and fresh writable results.
+Its input verification passed for the sealed package and preparation inputs.
+Runtime/build-input equivalence to the documentation-only preparation commit
+`4eb66ce11ade1e2cd0bf396331684cd9e6cbe9e7` and all 7,152 retained branded-export
+file identities were checked before reuse. This did not rerun the retained tests.
 
-Minimum next input: the referenced complete specification identifying the exact
-guest enforcement mechanism, permitted probes, observation/acceptance method,
-workload interval coverage and stopping/cleanup rules. Use the existing owner
-approval within that limit. Do not invent a replacement qualification or loosen
-network containment. If its one attempt fails, end environment experimentation,
-state the observed operator/environment requirement, and finish independent work.
+The guest's PowerShell rejected the reviewed enforcement setup script with
+`UnauthorizedAccess`: running scripts is disabled on this system. The setup
+script did not execute. No firewall rules or native auditing were configured;
+no network controls, Chrome fixture, server, website interaction or performance
+test started. There is no effective-policy or session-confinement pass. Eight
+synthetic controller stop tests and 16 static preparation checks passed, but
+these are not operational enforcement evidence. A synthetic bootstrap failure
+was retained and corrected before launch; it involved only mocked receipt writes.
+
+The guest shutdown command succeeded and closure was independently checked.
+No execution-policy bypass, alternative command route, host policy change or
+second guest was attempted. Historical findings and qualifications remain
+unchanged. Environment experimentation is ended for this instruction.
+
+Minimum operator requirement: a disposable, networking-disabled test environment
+that permits the reviewed guest-local setup script under its approved script
+execution policy. The observed rejection does not identify which policy scope
+caused it, and it does not establish that subsequent firewall/audit privileges
+would succeed. The operator must resolve that prerequisite without changing host
+security through this task. Any further guest requires a separately authorised
+allowance; the consumed one-instance limit cannot be silently reused. Once an
+environment is available, every native enforcement, monitoring, control and
+fixture gate still has to pass before dependent website checks.
 
 ## Evidence boundaries
 
