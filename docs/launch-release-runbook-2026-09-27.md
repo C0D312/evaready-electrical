@@ -16,38 +16,51 @@ individual correlation findings are unresolved. Actual payload extraction and
 coverage and capture-build AFD descriptor evidence remain insufficient. Do not
 reanalyse those traces to try to recover absent identifiers.
 
-The complete prospective enforcement specification was received on 27 September
-2026 (Sydney). **ONE ATTEMPT USED; FAILED CLOSED before enforcement setup.**
-The guest was created with networking, vGPU and existing redirections disabled,
-ProtectedClient enabled, read-only sanitised inputs and fresh writable results.
-Its input verification passed for the sealed package and preparation inputs.
-Runtime/build-input equivalence to the documentation-only preparation commit
-`4eb66ce11ade1e2cd0bf396331684cd9e6cbe9e7` and all 7,152 retained branded-export
-file identities were checked before reuse. This did not rerun the retained tests.
+The owner subsequently permitted supported guest-only script configuration and
+evidence-driven corrected isolated attempts. The earlier denied attempt remains
+preserved, not retroactively passed. No host security setting was changed.
 
-The guest's PowerShell rejected the reviewed enforcement setup script with
-`UnauthorizedAccess`: running scripts is disabled on this system. The setup
-script did not execute. No firewall rules or native auditing were configured;
-no network controls, Chrome fixture, server, website interaction or performance
-test started. There is no effective-policy or session-confinement pass. Eight
-synthetic controller stop tests and 16 static preparation checks passed, but
-these are not operational enforcement evidence. A synthetic bootstrap failure
-was retained and corrected before launch; it involved only mocked receipt writes.
+Three further networking-disabled guests ran serially. The first stopped on a
+guessed provider-module path. The second retained its native filters but stopped
+on a metadata-serialization out-of-memory error. Both ended before Chrome or
+website checks. Their evidence was preserved before focused collector repairs:
+resolve the installed provider registration, and serialize plain file contents
+without PowerShell's extended filesystem properties. Neither repair weakens a
+network or website assertion.
 
-The guest shutdown command succeeded and closure was independently checked.
-No execution-policy bypass, alternative command route, host policy change or
-second guest was attempted. Historical findings and qualifications remain
-unchanged. Environment experimentation is ended for this instruction.
+The third guest passed the separately versioned prospective-enforcement method
+for its recorded interval. Actual prerequisites were checked before guest-local
+setup. Numeric rule statuses 5/1 were interpreted using same-guest metadata,
+with unknown values rejected; array positions were not treated as profile names.
+Eight installed non-loopback blocking filters remained identical across five
+snapshots, with native policy-change monitoring independently demonstrated before
+workload start. The final Security/System intervals contained 296/10 consecutive
+records, with no unexplained relevant changes, interruptions or gaps. All 166
+recorded permitted connections were loopback. Native evidence covered the four
+IPv4/IPv6 TCP/UDP loopback controls. Reserved-destination application errors are
+not claimed as firewall-drop receipts; no external drop receipt was observed.
 
-Minimum operator requirement: a disposable, networking-disabled test environment
-that permits the reviewed guest-local setup script under its approved script
-execution policy. The observed rejection does not identify which policy scope
-caused it, and it does not establish that subsequent firewall/audit privileges
-would succeed. The operator must resolve that prerequisite without changing host
-security through this task. Any further guest requires a separately authorised
-allowance; the consumed one-instance limit cannot be silently reused. Once an
-environment is available, every native enforcement, monitoring, control and
-fixture gate still has to pass before dependent website checks.
+Security-enabled Chrome 153.0.8010.53 passed the inert local fixture and closed
+cleanly. The proxy made no external forwarding connection or upstream DNS query.
+Guest-wide rules include system-mediated paths; this conclusion is based on
+effective restrictions plus continuous native change/audit evidence, not absence
+of sends or historical socket correlations. It does not restore an old browser
+qualification or clear the 48 historical findings. The guest shut down and
+absence of all Sandbox processes was checked.
+
+Fresh checks: 28 collection/installed-filter cases, 24 prerequisite/static cases,
+nine controller-negative cases, 18 preparation checks, and 18 independent native
+interval-negative cases passed. These support, but do not replace, actual guest
+evidence. An optional host Windows PowerShell 5.1 file test was denied by script
+policy and remains unperformed; it was not retried or bypassed. Private failures
+also include a corrected synthetic XML mutation and three offline-reader errors;
+original helpers and evidence remain preserved.
+
+Runtime/build-input equivalence from preparation commit
+`31360dddb8d4219f84a2229ea0908edc2020e613` to baseline `92995ec` and all 7,152
+branded-export file identities were checked before reuse. The guest verified
+all 9,491 sealed package files. No new build is claimed for this documentation
+update. Each future guest must establish its own enforcement interval.
 
 ## Evidence boundaries
 
@@ -56,11 +69,28 @@ fixture gate still has to pass before dependent website checks.
 | Preview and branded build, lint, nonincremental types | Previously passed for exact baseline 92995ec. Both profile configurations and historical assertions remain unchanged. No fresh build is claimed for this documentation-only preparation. |
 | Audit suites | Previously 1,570 passed, zero failed/skipped in each profile. Retain that result only with verified code/dependency identity; do not relabel it a new run. |
 | Branded static export | Previously 1,004 HTML files, 84,486 internal links, 3,950 fragments, 35 decoded images, 5,337 phone links, 5,283 quote links, 1,001 sitemap entries, zero issues. Exact retained artifact identity is checked before reuse. |
-| Browser interaction, visual, keyboard and accessibility | UNPERFORMED for the launch candidate until the environment qualifies. Static link presence does not establish menu, modal, history or focus behaviour. |
+| Browser interaction, visual, keyboard and accessibility | First Home state at 320px/200% text FAILED on split heading words. Actual screenshot crop confirms the defect and partial clipping of the protected header control. Zero page states passed. Keyboard, modal/menu/history/fallback, axe, wider layouts and the remaining routes were not reached. |
 | Mobile performance | BLOCKED, not passed. Existing mobile thresholds remain unmet in historical measurements; no new production or Sandbox score is claimed. |
 | Genuine call/enquiry delivery and conversion accuracy | UNPERFORMED, separately permission-gated. No synthetic click proves real delivery. |
-| Public claims, offers, privacy and indexing | Owner decisions outstanding; no holds cleared. |
+| Public claims, offers, privacy and indexing | Credentials and 24/7 operation are owner-confirmed, not independently verified. Owner chose to retain current tracking/privacy/indexing. Insurance, individual offer terms, timing evidence, service coverage and actual privacy practices remain unresolved; see the decision record. |
 | Deployment and rollback | Not executed; host-specific settings, old-site backup and operator remain outstanding. |
+
+## Demonstrated layout defect and proposed repair
+
+At 320px with 200% root text size, the Home headline breaks within Electrician,
+Sydney, Surrounding and Regions. Other Home headings also fail the unchanged
+whole-word assertion. The retained top screenshot was actually viewed at readable
+resolution. The menu control is partly clipped at the right edge. A screenshot
+is not a keyboard, menu or accessibility pass.
+
+Proposed narrow repair: preserve artwork, branding and wording; reduce excessive
+mobile text-panel padding, use suitable normal-size heading scales that remain
+readable when enlarged, and stack header controls where necessary to preserve
+complete, reachable targets. Do not cap away the requested text enlargement,
+hide failing words, relax assertions or replace approved artwork. Protected
+header/hero reflow was presented to the owner for a specific design decision.
+No layout change has been silently applied. Following approval, implement the
+smallest demonstrated correction and repeat early checks before the wider matrix.
 
 ## Bounded browser checks after qualification
 
@@ -119,20 +149,19 @@ After contained local checks pass, request D6 approval for one test window:
 
 ## Hosting recommendation and artifact fit
 
-Keep the current old site unchanged. Cloudflare Pages static-only remains a
-technical no-cost candidate, subject to owner account/terms/commercial eligibility
-review; this is not account activation or a promise of free hosting in every
-configuration. Its documentation currently lists 20,000 files and 25 MiB per
-asset on the free plan; static asset requests not invoking Functions are free.
-Server/edge static redirects are supported. No Functions, storage service, paid
-feature or Git integration is proposed for activation now.
+The owner intends to choose a new host after speed/reliability research. No
+provider, plan, account, staging deployment or DNS change is approved. Keep the
+old website intact. See the [current hosting comparison](launch-hosting-options-2026-09-27.md):
+Cloudflare Workers Static Assets is the first static-fit candidate to evaluate;
+Pages remains an alternative. Vercel requires a commercially suitable plan, and
+Netlify credit-exhaustion behaviour needs explicit consideration. No provider
+has been measured as fastest for this site. Australian-region real-device checks
+on approved host staging are still needed.
 
-Sources checked 27 September 2026 (Sydney): [limits](https://developers.cloudflare.com/pages/platform/limits/),
-[static pricing](https://developers.cloudflare.com/pages/functions/pricing/) and
-[redirects](https://developers.cloudflare.com/pages/configuration/redirects/).
-The artifact fit check is only a file-count/size assessment, not eligibility,
-successful upload, host behaviour or production performance. No live website
-requests are needed for that check.
+The retained artifact has 7,152 files, 707,607,684 bytes total and a largest file
+of 541,644 bytes. Its file count and per-file size fit the documented Workers
+Free/Pages limits; this does not prove account eligibility, routing compatibility,
+successful upload, reliability or production performance. No account was created.
 
 ## Proposed deployment sequence after separate approval
 
